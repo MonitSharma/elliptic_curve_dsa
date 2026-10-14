@@ -1,5 +1,5 @@
 {
-  "status": "AUTHORIZED_QUEUE_WAITING_PRIOR_NATIVE_TERMINAL",
+  "status": "OFFICIAL_EVALUATION_RUNNING_NO_QUALIFIED_RESULT",
   "cycle_pid": 2612039,
   "queued_at_utc": "2026-10-14T16:12:28Z",
   "source_variant": "candidate-headflag-v1",
@@ -16,9 +16,16 @@
   "planned_op_vector_bytes": 196020696928,
   "required_available_bytes": 213200566112,
   "queue_log": "/home/hclau/ecdsa_research/overnight-20261014/qubits/evidence/headflag-v1-official-cycle.log",
-  "native_started": false,
-  "head_op_vector_allocated": false,
+  "native_started": true,
+  "head_op_vector_allocated": true,
   "historical_outputs_absent_before": true,
   "placeholder_used": false,
-  "qualification": "No complete official result or scored resource claim."
+  "qualification": "No complete official result or scored resource claim.",
+  "native_pid": 2662310,
+  "wrapper_pid": 2662262,
+  "time_pid": 2662308,
+  "prior_native_exit": 1,
+  "evaluation_started_utc": "2026-10-14T17:25:40Z",
+  "allocation_attestation": "headflag-evaluation-source-allocation-attestation.json",
+  "available_bytes_at_launch": 296268115968
 }

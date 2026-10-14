@@ -1,0 +1,1454 @@
+diff --git a/src/point_add/frogdrop.rs b/src/point_add/frogdrop.rs
+index b12cb673..9a1854aa 100644
+--- a/src/point_add/frogdrop.rs
++++ b/src/point_add/frogdrop.rs
+@@ -672,7 +672,7 @@ fn frame_mul(b: &mut B, ring: &[QubitId], q: &[QubitId], cut: &Cut, par: &MapPar
+     // These source-external lanes are clean for the entire frame arithmetic.
+     // Return every loan before undoing q's normalization or probing its value.
+     let mut loaned = sc.clone();
+-    loaned.anc.extend_from_slice(&q[par.m..]);
++    loaned.anc.extend(q[par.m..].iter().copied().filter(|qid|!ring.contains(qid)));
+     let sc = &loaned;
+     b.begin();
+     // rotate down by cut = a +- v: down by a is a relabel; down by v (or up by v when cut = a - v)
+@@ -1406,6 +1406,31 @@ pub fn cmp_csub_carries_vh10(b:&mut B,t:&[QubitId],s:&[QubitId],c0:QubitId,out:Q
+     for &x in t {b.x(x);}
+ }
+ 
++/// Compare/subtract with a virtual leading-one source bit (no high zero).
++/// The incoming `out` may hold a saved overflow bit. It is XORed with
++/// the comparison, then controls the subtraction modulo the target width.
++pub fn cmp_csub_carries_vh1(b: &mut B, t: &[QubitId], s: &[QubitId], c0: QubitId, out: QubitId) {
++    let n = t.len();
++    assert_eq!(n, s.len() + 1);
++    assert!(n > 0);
++    for &q in t { b.x(q); }
++    let up = up_m(b, &t[..n - 1], s, c0, false);
++    let dn = down_m(b, &t[..n - 1], s, c0, Dm::Cond(out), false);
++    b.play(&up, false);
++    let carry = if n == 1 { c0 } else { s[n - 2] };
++    let high = t[n - 1];
++    // Carry of ~T + (1 << (n-1)) + low(S) + c0 is high | carry.
++    b.x(out);
++    b.cx(high, out);
++    b.cx(carry, out);
++    b.ccx(high, carry, out);
++    b.x(carry);
++    b.ccx(out, carry, high);
++    b.x(carry);
++    b.play(&dn, false);
++    for &q in t { b.x(q); }
++}
++
+ /// Exact dirty constant addition on a small register, signed nonadjacent digits.
+ pub(crate) fn add_const_dirty_exact(b:&mut B,v:&[QubitId],amount:usize,dirty:&[QubitId]) {
+     let mut left=amount as isize;let mut bit=0usize;
+diff --git a/src/point_add/frogdrop_col.rs b/src/point_add/frogdrop_col.rs
+index 9c53c66a..ac7f6f43 100644
+--- a/src/point_add/frogdrop_col.rs
++++ b/src/point_add/frogdrop_col.rs
+@@ -1233,7 +1233,7 @@ pub(crate) fn map_stage(b: &mut B, fd: &Fd, cp: &ColPar, sc: &ColScr) -> Vec<G>
+         // the ring top (Y, inside the region [n - max, n)) under cmpc and restored the same way afterwards; the
+         // core's v2 register and flags c0, e, g then live in sy, the parked counter, the extension and f in the lean
+         // lanes (`hl`: what stays clean outside the core)
+-        let sy_free = lean_park;
++        let sy_free = lean_park || (extra>=3 && cp.sz!=(0,0));
+         let mut hl: Vec<QubitId> = vec![];
+         if sy_free {
+             let mut free: Vec<QubitId> = vec![ms.c0, ms.e, ms.g, ms.f];
+@@ -1241,9 +1241,9 @@ pub(crate) fn map_stage(b: &mut B, fd: &Fd, cp: &ColPar, sc: &ColScr) -> Vec<G>
+             free.extend(&ms.anc);
+             // bit 0 in the sw lane (switch columns: done shots never switch, sw = 0; else sw is clean), then bq when
+             // no extension takes it
+-            if nc > 0 { park.push(sc.sw); }
+-            if extra == 0 && park.len() < nc { park.push(sc.bq); }
+-            while park.len() < nc { park.push(free.pop().unwrap()); }
++            if lean_park && nc > 0 { park.push(sc.sw); }
++            if lean_park && extra == 0 && park.len() < nc { park.push(sc.bq); }
++            while park.len() < if lean_park {nc}else{0} { park.push(free.pop().unwrap()); }
+             if extra > 0 {
+                 extension.push(sc.bq);
+                 while extension.len() < extra { extension.push(free.pop().unwrap()); }
+@@ -1264,8 +1264,14 @@ pub(crate) fn map_stage(b: &mut B, fd: &Fd, cp: &ColPar, sc: &ColScr) -> Vec<G>
+                 if cp.sz == (0, 0) && extra > 1 {
+                     assert!(cp.dn && !cp.sw && cp.m <= 28 && ctop == 121);
+                     extension.push(q[120]);
++                    if extra>2 {assert!((3..=4).contains(&extra));extension.push(q[119]);}
++                    if extra>3 {extension.push(q[118]);}
+                 }
+             }
++            // After stage 8 probe_z inverse, every SZ lane is clean, including
++            // SW when the first column borrowed it as SZ bit 8. Non-switch
++            // maps preserve SW=0; B0 excludes it because SW is replay control.
++            if extra==3 && cp.sz!=(0,0) {assert!(!cp.sw);extension.push(sc.sw);}
+             let owed = extra - extension.len();
+             assert!(ms.anc.len() >= owed);
+             extension.extend(ms.anc.split_off(ms.anc.len() - owed));
+diff --git a/src/point_add/midg.rs b/src/point_add/midg.rs
+index abf6c1d4..df69bee5 100644
+--- a/src/point_add/midg.rs
++++ b/src/point_add/midg.rs
+@@ -164,6 +164,181 @@ pub fn stage1_v(b: &mut B, zh: &[QubitId], win: &[QubitId], sz: &[QubitId], szr:
+     b.end()
+ }
+ 
++/// K-lane restoring reciprocal with saved overflow and a zero comparator carry-in.
++pub fn stage1_v_compact(b: &mut B, zh: &[QubitId], win: &[QubitId], sz: &[QubitId], szr: (usize, usize), s: &S1, act: QubitId,
++                window: bool) -> Vec<G> {
++    let k = zh.len();
++    assert_eq!(s.r.len(), k);
++    assert_eq!(win.len(), TC + 1);
++    assert!(szr.1 <= 256 && szr.0 >= k + 33, "all-ones dividend needs s = sz - K >= 33");
++    b.begin();
++    let mut r = s.r.clone();
++    for &x in &r[..k - 1] { b.x(x); }
++    for j in 0..TC {
++        // Save overflow before rotating a k-bit remainder. Erase the old
++        // high bit from its new low position. The odd-divisor comparator
++        // requires a ZERO carry-in; append the dividend one after it.
++        b.cx(r[k - 1], s.f);
++        let top = r.pop().unwrap();
++        r.insert(0, top);
++        b.cx(s.f, r[0]);
++        // Overflow and low-word >= D cannot both hold when R < D.
++        // Their XOR is the full quotient decision. D's low bit is one.
++        if s.r.contains(&zh[k - 1]) {
++            super::frogdrop::cmp_csub_carries_vh1(b, &r[1..], &zh[1..k - 1], r[0], s.f);
++        } else {
++            cmp_csub_carries(b, &r[1..], &zh[1..], r[0], s.f, &s.andc);
++        }
++        b.x(r[0]);
++        b.cx(s.f, r[0]);
++        b.cx(r[0], s.f);
++        b.x(s.f);
++        if !window { continue; }
++        // V += act !f 2^(256 - sz - j) where that position is >= 0 (sz <= 256 - j)
++        let bits: Vec<QubitId> = (1..=1 + j).rev().map(|i| win[i]).collect();
++        let g0 = s.gt[0];
++        if szr.1 + j >= 257 {
++            let rr = super::frogdrop_col::rec(b, |b| {
++                super::frogdrop_col::ge_const_compact(b, sz, 257 - j as isize, g0, &s.chain, &s.dirty)
++            });
++            b.play(&rr, false);
++            if s.gt.len() == 1 {
++                inc_with_controls(b, &bits, &[(act, false), (r[0], false), (g0, true)], &s.dirty);
++            } else if s.gt.len() >= 3 {
++                let g1 = s.gt[1];
++                let g2 = s.gt[2];
++                b.x(g0);
++                b.and_c(act, g0, g2);
++                b.and_c(r[0], g2, g1);
++                inc_mixed(b, g1, &bits, &s.anc, &s.dirty);
++                b.and_u(r[0], g2, g1);
++                b.and_u(act, g0, g2);
++                b.x(g0);
++            } else {
++                let g1 = s.gt[1];
++                // g1 = act & r0 & !g0 (dirty three-control toggles)
++                mc_xor(b, &[(act, false), (r[0], false), (g0, true)], g1, &[], &s.dirty);
++                inc_mixed(b, g1, &bits, &s.anc, &s.dirty);
++                mc_xor(b, &[(act, false), (r[0], false), (g0, true)], g1, &[], &s.dirty);
++            }
++            b.play(&rr, true);
++        } else if s.gt.len() == 1 {
++            inc_with_controls(b, &bits, &[(act, false), (r[0], false)], &s.dirty);
++        } else {
++            let g1 = s.gt[1];
++            b.and_c(r[0], act, g1);
++            inc_mixed(b, g1, &bits, &s.anc, &s.dirty);
++            b.and_u(r[0], act, g1);
++        }
++    }
++    b.end()
++}
++
++
++// Exact disjoint prefix cubes on the low seven SY bits. On active shots
++// SY is1..128, where0 encodes128. Inactive aliases retain act separately.
++fn size_partition(sy: &[QubitId], small: bool) -> Vec<Vec<(QubitId,bool)>> {
++    assert!(sy.len()>=7);
++    let cubes: &[(usize,usize)] = if small {
++        &[(127,1),(126,2),(124,4),(120,8),(112,16),(96,32),(96,64)]
++    } else { &[(127,0),(96,96)] };
++    cubes.iter().map(|&(mask,value)| (0..7).filter(|&i|mask>>i&1!=0)
++        .map(|i|(sy[i],value>>i&1==0)).collect()).collect()
++}
++
++pub(crate) fn stage1_v_compact_partitioned(b: &mut B, zh: &[QubitId], win: &[QubitId], sz: &[QubitId], szr: (usize, usize), s: &S1, act: QubitId,
++                window: bool, sy: &[QubitId], small: bool) -> Vec<G> {
++    let k = zh.len();
++    assert_eq!(s.r.len(), k);
++    assert_eq!(win.len(), TC + 1);
++    assert!(szr.1 <= 256 && szr.0 >= k + 33, "all-ones dividend needs s = sz - K >= 33");
++    assert_eq!(s.gt.len(), 1);
++    let selectors = size_partition(sy, small);
++    #[cfg(test)]
++    let hf_call = HF_PROBES.with(|bank| if bank.borrow().is_empty(){None}else{
++        Some(HF_CALL.with(|call|{let value=call.get();call.set(value+1);value}))
++    });
++
++    b.begin();
++    let mut r = s.r.clone();
++    for &x in &r[..k - 1] { b.x(x); }
++    for j in 0..TC {
++        // Save overflow before rotating a k-bit remainder. Erase the old
++        // high bit from its new low position. The odd-divisor comparator
++        // requires a ZERO carry-in; append the dividend one after it.
++        b.cx(r[k - 1], s.f);
++        let top = r.pop().unwrap();
++        r.insert(0, top);
++        b.cx(s.f, r[0]);
++        // Overflow and low-word >= D cannot both hold when R < D.
++        // Their XOR is the full quotient decision. D's low bit is one.
++        if s.r.contains(&zh[k - 1]) {
++            super::frogdrop::cmp_csub_carries_vh1(b, &r[1..], &zh[1..k - 1], r[0], s.f);
++        } else {
++            cmp_csub_carries(b, &r[1..], &zh[1..], r[0], s.f, &s.andc);
++        }
++        b.x(r[0]);
++        b.cx(s.f, r[0]);
++        b.cx(r[0], s.f);
++        b.x(s.f);
++        #[cfg(test)]
++        if let Some(call)=hf_call {
++            let probe=HF_PROBES.with(|bank|bank.borrow()[call*TC+j]);
++            let fault=HF_FAULT_PROBE.with(|cell|cell.get()==Some(j));
++            if fault{b.x(s.f);} b.cx(s.f,probe); if fault{b.x(s.f);}
++        }
++        if !window { continue; }
++        // V += act !f 2^(256 - sz - j) where that position is >= 0 (sz <= 256 - j)
++        let bits: Vec<QubitId> = (1..=1 + j).rev().map(|i| win[i]).collect();
++        let g0 = s.gt[0];
++        if small && szr.1 + j >= 257 {
++            let rr = super::frogdrop_col::rec(b, |b| {
++                super::frogdrop_col::ge_const_compact(b, sz, 257 - j as isize, g0, &s.chain, &s.dirty)
++            });
++            b.play(&rr, false);
++            if s.gt.len() == 1 {
++                for selector in &selectors { let mut controls = [(act, false), (r[0], false), (g0, true)].to_vec(); controls.extend(selector.iter().copied()); inc_with_controls(b, &bits, &controls, &s.dirty); }
++            } else if s.gt.len() >= 3 {
++                let g1 = s.gt[1];
++                let g2 = s.gt[2];
++                b.x(g0);
++                b.and_c(act, g0, g2);
++                b.and_c(r[0], g2, g1);
++                inc_mixed(b, g1, &bits, &s.anc, &s.dirty);
++                b.and_u(r[0], g2, g1);
++                b.and_u(act, g0, g2);
++                b.x(g0);
++            } else {
++                let g1 = s.gt[1];
++                // g1 = act & r0 & !g0 (dirty three-control toggles)
++                mc_xor(b, &[(act, false), (r[0], false), (g0, true)], g1, &[], &s.dirty);
++                inc_mixed(b, g1, &bits, &s.anc, &s.dirty);
++                mc_xor(b, &[(act, false), (r[0], false), (g0, true)], g1, &[], &s.dirty);
++            }
++            b.play(&rr, true);
++        } else if s.gt.len() == 1 {
++            // The odd comparator returns its c0 (r[0]) zero. The four
++            // following toggles return f zero, including arbitrary inactive
++            // remainder words. This driver's g0 is the same returned SX0.
++            // SY is untouched by the window, so this predicate erases exactly.
++            let predicate=rec(b,|b|for selector in &selectors{mc_xor(b,selector,g0,&[],&s.dirty);});
++            b.play(&predicate,false);
++            #[cfg(test)]
++            if HF_FAULT_SELECTOR.with(|cell|cell.get()==Some(j)){b.x(g0);}
++            inc_with_controls(b,&bits,&[(act,false),(r[0],false),(g0,false)],&s.dirty);
++            #[cfg(test)]
++            if HF_FAULT_SELECTOR.with(|cell|cell.get()==Some(j)){b.x(g0);}
++            b.play(&predicate,true);
++        } else {
++            let g1 = s.gt[1];
++            b.and_c(r[0], act, g1);
++            inc_mixed(b, g1, &bits, &s.anc, &s.dirty);
++            b.and_u(r[0], act, g1);
++        }
++    }
++    b.end()
++}
++
+ // A V-form whose quotient reserve occupies every possible clean gate lane
+ // uses the dirty-lane multi-control primitive directly. Visit high bits
+ // first so each prefix sees the original lower bits of the window.
+@@ -322,31 +497,40 @@ pub(crate) fn middle(b: &mut B, fd: &Fd, cp: &ColPar, sc: &ColScr, pl: Option<&P
+     assert_eq!(sc.zeros, vec![pzero]);
+     let (ak, c) = (sx[VB], sx[VB + 1]);
+     let bmax = 258usize.saturating_sub(cp.sz.0 + cp.sy.0).min(qf);
+-    let kmax = bmax.min(mt).min(if n == 276 && k == 17 { 23 } else { usize::MAX });
++    // sc.sw is a ninth SZ bit in the wide first column: exclude that
++    // envelope, all incoming switched layouts and every mixed/done mode.
++    let cap24 = n==274 && k==15 && nq==128 && sx.len()==8 && dirty.len()==259
++        && cp.h==17 && cp.sz.0>=101 && cp.hr && !cp.ht && !cp.sw && !cp.dn
++        && !cp.dl && !cp.dq && !cp.psw && !cp.tt && cp.sz.1<=255
++        && cp.sy.1.checked_add(23).is_some_and(|top|top<128);
++    let kmax = bmax.min(mt).min(if n==274 && k==15 {if cap24{24}else{22}}else{usize::MAX});
+     // Vform may run with quotient bits parked above Y. The exact paired
+     // care rotation maps every parked Q bit back to index sy + kb, for
+     // kb < kmax; reserve bits above Q remain outside this bank. Keep the
+     // entire public support, the old Y/done support and the live counter.
+     let p_bank_lo = lsb.max(cp.sy.1.min(nq) + kmax);
+-    let p_bank = if p_bank_lo < loan_end { q[p_bank_lo..loan_end].to_vec() } else { vec![] };
++    let p_bank = if p_bank_lo < loan_end { q[p_bank_lo..loan_end].iter().copied().filter(|qid| nq < 128 || !q[118..128].contains(qid)).collect::<Vec<_>>() } else { vec![] };
+     assert!(!p_bank.iter().any(|q| dirty.contains(q) || ring.contains(q) || sx.contains(q)
+         || sc.sz.contains(q) || [act, c0, x128, pzero, ph, sc.sw].contains(q)));
+-    // N276 has physical K17 and h19. Keep the 24-bit head and 25-lane remainder:
+-    // ring[0..19], sx[1..5], and ring[275]. The divisor's high zero and
++    // N276 has physical K17 and h19. The compact representation funds a
++    // 25-bit divisor head in the original 25 remainder lanes: ring[0..19],
++    // SX1..SX5, and ring[275]. Window top ring[18] is never added by V and
++    // returns before a search predicate. QB23 and all quotient owners stay fixed.
++    // The divisor's high zero and
+     // aligned leading one are virtual during V-form. External q18..q22
+     // live in returned SX owners between V calls and park before R.
+     // sx[0] (the quotient lane) is returned before each stage1_v geometry
+     // query, so it can hold gt0 until that query is inverted. This alias is
+     // exclusive to stage1_v; stage1_fwd keeps its original distinct gt0.
+-    let precision24 = k == 17 && n == 276 && nq == 128 && sx.len() == 8
+-        && dirty.len() == 259 && cp.h == 19
+-        && cp.sz.0 >= 57 && cp.sz.1 <= 256;
+-    // The physical window starts at K+1=19, but the reciprocal reads the top 24 ring
+-    // lanes. The care rotation must preserve all 24 destination lanes.
+-    let top_head = if precision24 { 24 } else { k };
++    let precision25 = k == 15 && n == 274 && nq == 128 && sx.len() == 8
++        && dirty.len() == 259 && cp.h == 17
++        && cp.sz.0 >= 101 && cp.sz.1 <= 256;
++    // The physical window starts at K+1=18; the reciprocal now reads the top
++    // 25 ring lanes. The care rotation preserves all 25 destination lanes.
++    let top_head = if precision25 { 32 } else { k };
+     // ---- recordings
+     let dest_r: std::collections::BTreeSet<usize> = (0..k + 2 + TC).chain(n - top_head..n).collect();
+-    let prot = rec(b, |b| rot_by_range_care(b, &ring, &sc.sz, cp.sz.0, cp.sz.1, true, &dirty, &dest_r));
++    let prot = if precision25 { care_borrowed_sz(b,&ring,&sc.sz,&fd.sy,&dest_r,true,&dirty) } else { rec(b, |b| rot_by_range_care(b, &ring, &sc.sz, cp.sz.0, cp.sz.1, true, &dirty, &dest_r)) };
+     // ring down by sz caring for the P-frame lanes `d` (24 = X's position 257 - sz, kb < 24 = headroom bit kb)
+     let rotz = |b: &mut B, d: &[usize]| -> Vec<Gate> {
+         let ds: std::collections::BTreeSet<usize> = d.iter().copied().collect();
+@@ -361,12 +545,12 @@ pub(crate) fn middle(b: &mut B, fd: &Fd, cp: &ColPar, sc: &ColScr, pl: Option<&P
+     // erased. Threshold prefixes return before gt is computed and are used
+     // again only after gt is erased, so they may reuse the complete bank.
+     let mut reciprocal_r = ring[0..k + 1].to_vec();
+-    if precision24 { reciprocal_r.push(ring[k + 1]); reciprocal_r.extend([sx[1], sx[2], sx[3], sx[4], sx[5]]); reciprocal_r.push(ring[n - 1]); }
+-    let mut p_gt = if precision24 { vec![sx[0]] } else { sx[2..4].to_vec() };
+-    if !precision24 { if let Some(&third) = p_bank.first() { p_gt.push(third); } }
+-    let zh: Vec<QubitId> = if precision24 { ring[n - 24..n].to_vec() } else { ring[n - k..n].to_vec() };
+-    if precision24 {
+-        assert_eq!(reciprocal_r.len(), 25);
++    if precision25 { reciprocal_r.push(ring[k + 1]); reciprocal_r.extend([sx[1], sx[2], sx[3], sx[4], sx[5]]); reciprocal_r.push(ring[n - 1]); }
++    let mut p_gt = if precision25 { vec![sx[0]] } else { sx[2..4].to_vec() };
++    if !precision25 { if let Some(&third) = p_bank.first() { p_gt.push(third); } }
++    let zh: Vec<QubitId> = if precision25 { ring[n - 23..n].to_vec() } else { ring[n - k..n].to_vec() };
++    if precision25 {
++        assert_eq!(reciprocal_r.len(), 23);
+         let unique: std::collections::BTreeSet<QubitId> = reciprocal_r.iter().copied().collect();
+         assert_eq!(unique.len(), reciprocal_r.len());
+         assert!(!reciprocal_r.iter().any(|q| (zh.contains(q) && *q != ring[n - 1])
+@@ -378,7 +562,7 @@ pub(crate) fn middle(b: &mut B, fd: &Fd, cp: &ColPar, sc: &ColScr, pl: Option<&P
+         assert!(!zh.iter().any(|q| sx.contains(q) || sc.sz.contains(q)
+             || [ring[k + 1], act, c0, x128, pzero, ph, sc.sw].contains(q)
+             || dirty.contains(q) || p_bank.contains(q)));
+-        assert_eq!(k + 1, 18);
++        assert_eq!(k + 1, 16);
+     }
+     let s1 = S1 { r: reciprocal_r, f: sx[0], zero: ring[k + 1], sgn: sx[0], gt: p_gt,
+                   anc: p_bank.iter().skip(1).copied().collect(),
+@@ -386,21 +570,36 @@ pub(crate) fn middle(b: &mut B, fd: &Fd, cp: &ColPar, sc: &ColScr, pl: Option<&P
+                   dirty: dirty.clone() };
+     let win: Vec<QubitId> = ring[k + 1..k + 2 + TC].to_vec();
+     let szr = (cp.sz.0, cp.sz.1);
+-    let fv = stage1_v(b, &zh, &win, &sc.sz, szr, &s1, act, true);
+-    let fr = stage1_v(b, &zh, &win, &sc.sz, szr, &s1, act, false);
++    let reciprocal_stage = if precision25 { stage1_v_compact } else { stage1_v };
++    let fv = reciprocal_stage(b, &zh, &win, &sc.sz, szr, &s1, act, true);
++    let fr = reciprocal_stage(b, &zh, &win, &sc.sz, szr, &s1, act, false);
++
++    let k32 = if precision25 {
++        let mut rs = s1.r.clone(); rs.extend(&q[119..128]);
++        assert_eq!(rs.len(),32);
++        assert!(!rs.iter().any(|qid|s1.anc.contains(qid)||s1.chain.contains(qid)||s1.andc.contains(qid)));
++        let small_s = S1{r:rs,..s1.clone()};
++        let z32 = ring[n-32..n].to_vec();
++        let f32 = stage1_v_compact_partitioned(b,&z32,&win,&sc.sz,szr,&small_s,act,true,&fd.sy,true);
++        let r32 = stage1_v_compact(b,&z32,&win,&sc.sz,szr,&small_s,act,false);
++        let f25 = stage1_v_compact_partitioned(b,&zh,&win,&sc.sz,szr,&s1,act,true,&fd.sy,false);
++        Some((f25,f32,r32))
++    } else {None};
+     // enter / leave the V form on the act shots: X += T - G (R cleared by its own replay); v must be clear (sx)
+     let vform = rec(b, |b| {
+         b.play(&prot, false);
+-        if precision24 { b.x(ring[n - 1]); }
+-        b.play(&fv, false);
+-        b.play(&fr, true);
+-        if precision24 { b.x(ring[n - 1]); }
++        if precision25 { b.x(ring[n - 1]); }
++        if let Some((f25,f32,r32)) = &k32 {
++            b.play(f25,false); b.play(&fr,true);
++            b.play(f32,false); b.play(r32,true);
++        } else { b.play(&fv,false); b.play(&fr,true); }
++        if precision25 { b.x(ring[n - 1]); }
+         b.play(&prot, true);
+     });
+     // q18..q22 occupy sx[1..5] between V calls. Form v in SZ for each
+     // threshold query, restoring SZ before any arithmetic or rotation.
+-    let external_q = |kb: usize| if precision24 && (k + 1..=k + 5).contains(&kb) { Some(sx[kb - k]) } else { None };
+-    assert!(!precision24 || (k + 1 == 18 && kmax <= 23));
++    let external_q = |kb: usize| if cap24 && kb==22 {Some(ph)} else if cap24 && kb==23 {Some(sc.sw)} else if precision25 && kb==21 {Some(q[118])} else if precision25 && (k+1..=k+5).contains(&kb){Some(sx[kb-k])}else{None};
++    assert!(!precision25 || (k+1==16 && kmax<=if cap24{24}else{22}));
+     let qloc = |kb: usize| external_q(kb).unwrap_or(ring[kb]);
+     assert!((0..kmax).all(|kb| qloc(kb) != ring[k + 1]));
+     // v = (sz + sy + VOFF) mod 2^VB, in SZ only during ge_k.
+@@ -418,6 +617,17 @@ pub(crate) fn middle(b: &mut B, fd: &Fd, cp: &ColPar, sc: &ColScr, pl: Option<&P
+     let gate_chain = [c0, pzero, x128];
+     assert_eq!(gate_chain.iter().copied().collect::<std::collections::BTreeSet<_>>().len(), gate_chain.len());
+     assert!(!gate_chain.iter().any(|q| v.contains(q) || *q == ak || *q == c));
++    // Q118 contains q21 only for admitted SY1..116; SY117/118 has
++    // zero bit118 and SY119..128 holds genuine Y there. Full8 predicates
++    // prevent inactive high aliases from selecting the wrong source.
++    let q21_cubes=[(255usize,1usize),(254,2),(252,4),(248,8),(240,16),(224,32),(224,64),(240,96),(252,112),(255,116)];
++    let q21_toggle=|b:&mut B,base:&[(QubitId,bool)],target:QubitId|{
++        for &(mask,value) in &q21_cubes{let mut ctl=base.to_vec();ctl.extend((0..8).filter(|i|mask>>i&1!=0).map(|i|(fd.sy[i],value>>i&1==0)));mc_xor(b,&ctl,target,&[],&dirty);}
++    };
++    let high_toggle=|b:&mut B,base:&[(QubitId,bool)],target:QubitId,from119:bool|{
++        let cubes: &[(usize,usize)]=if from119{&[(255,119),(248,120),(128,128)]}else{&[(255,117),(255,118),(255,119),(248,120),(128,128)]};
++        for &(mask,value) in cubes{let mut ctl=base.to_vec();ctl.extend((0..8).filter(|i|mask>>i&1!=0).map(|i|(fd.sy[i],value>>i&1==0)));mc_xor(b,&ctl,target,&[],&dirty);}
++    };
+     // tmp ^= [kb >= 258 - s9] = [v >= 40 - kb]
+     let ge_k = |b: &mut B, kb: usize, t: QubitId| {
+         b.play(&vg, false);
+@@ -429,7 +639,7 @@ pub(crate) fn middle(b: &mut B, fd: &Fd, cp: &ColPar, sc: &ColScr, pl: Option<&P
+         let f1 = b.tof;
+         ge_k(b, kb, c);
+         b.x(c);
+-        b.and_c(a, c, ak);
++        if precision25 && kb==21 {q21_toggle(b,&[(a,false),(c,false)],ak);} else {b.and_c(a, c, ak);}
+         b.x(c);
+         ge_k(b, kb, c);
+         super::f1_profile("midg.gate_on", f1, b.tof);
+@@ -438,14 +648,15 @@ pub(crate) fn middle(b: &mut B, fd: &Fd, cp: &ColPar, sc: &ColScr, pl: Option<&P
+         let f1 = b.tof;
+         ge_k(b, kb, c);
+         b.x(c);
+-        b.and_u(a, c, ak);
++        if precision25 && kb==21 {q21_toggle(b,&[(a,false),(c,false)],ak);} else {b.and_u(a, c, ak);}
+         b.x(c);
+         ge_k(b, kb, c);
+         super::f1_profile("midg.gate_off", f1, b.tof);
+     };
+     let add = |b: &mut B, kb: usize, ctl: QubitId, sub: bool| {
+         let f1 = b.tof;
+-        ring_cadd2_loan(b, &ring, &q, kb, mt - kb, ctl, sub, &sc.zeros, c0, x128, &dirty, lsb, loan_end, x128);
++        if precision25 {q118_cadd(b,&ring,&q,&fd.sy,kb,mt-kb,ctl,sub,&sc.zeros,c0,x128,&dirty,lsb,loan_end,sx[0]);}
++        else{ring_cadd2_loan(b,&ring,&q,kb,mt-kb,ctl,sub,&sc.zeros,c0,x128,&dirty,lsb,loan_end,x128);}
+         super::f1_profile("midg.ring_add", f1, b.tof);
+     };
+     // the bit in flight: c <-> headroom lane kb on the shots with AND(extra)
+@@ -457,7 +668,7 @@ pub(crate) fn middle(b: &mut B, fd: &Fd, cp: &ColPar, sc: &ColScr, pl: Option<&P
+         let mut ct = extra.to_vec();
+         ct.push((qb, false));
+         b.cx(c, qb);
+-        mc_xor(b, &ct, c, &[], &dirty);
++        if precision25 && kb==21 {q21_toggle(b,&ct,c);}else{mc_xor(b, &ct, c, &[], &dirty);}
+         b.cx(c, qb);
+         b.play(&r, true);
+         super::f1_profile("midg.fetch", f1, b.tof);
+@@ -485,15 +696,17 @@ pub(crate) fn middle(b: &mut B, fd: &Fd, cp: &ColPar, sc: &ColScr, pl: Option<&P
+     // (c0, the P zero and sx[6..8]), then the park's own flag lanes that are constant on its act shots (`extra`: ph,
+     // and sw or g, whichever does not hold act; ph reads 1 on HT act shots and is flipped around the window), then
+     // the pool past the 13-lane layout; MIDG_RES lanes in all
+-    let nres = park_reserve();
++    let nres = if precision25 { assert_eq!(park_reserve(),7); 9 } else { park_reserve() };
+     let d24: std::collections::BTreeSet<usize> = (0..kmax).collect();
+     let mk_cycle = |b: &mut B, extra: &[QubitId], ht: bool| -> (Vec<QubitId>, Vec<Gate>) {
+         let mut q129: Vec<QubitId> = q.clone();
+         q129.push(x128);
+         let mut reserve: Vec<QubitId> = vec![c0, pzero, sx[6], sx[7]];
++        if precision25 { reserve.extend([sc.sz[6],sc.sz[7]]); }
+         reserve.extend(extra.iter().copied());
+         reserve.extend(&sc.gx);
+         reserve.truncate(nres);
++        if precision25 {reserve.retain(|qid|*qid!=sx[6]);reserve.push(sx[6]);}
+         assert_eq!(reserve.iter().copied().collect::<std::collections::BTreeSet<_>>().len(), reserve.len());
+         // (an HR park needs no reserve: sy + bl(q) <= 129 there)
+         assert!(!MIDG_ON || !ht || reserve.len() == nres, "crossing reserve: {} of {} lanes", reserve.len(), nres);
+@@ -512,6 +725,11 @@ pub(crate) fn middle(b: &mut B, fd: &Fd, cp: &ColPar, sc: &ColScr, pl: Option<&P
+     let (q129a, rqa) = mk_cycle(b, &[ph, sc.sw, fd.sy[7]], cp.ht);
+     let (q129b, rqb) = mk_cycle(b, &[ph, act, sx[1]], cp.ht);
+     let sy7_normal = borrowed_sy_normal(b, &fd.sy, &dirty);
++    let norm_act = if precision25 {normalize_sz_donors(b,&sc.sz,&fd.sy,act,&dirty)} else {vec![]};
++    let pre23 = if cap24 {Some(preposition_nonlast_qk(b,&q129a,&fd.sy,sc.sw,23,act,(cp.sy.0.max(1),cp.sy.1.min(104)),&dirty))}else{None};
++    let pre22 = if cap24 {Some(preposition_nonlast_qk(b,&q129a,&fd.sy,ph,22,act,(cp.sy.0.max(1),cp.sy.1.min(104)),&dirty))}else{None};
++    let pre21 = if precision25 && cp.sy.0.max(1)<=cp.sy.1.min(116) {Some(preposition_nonlast_qk(b,&q129a,&fd.sy[..7],q[118],21,act,(cp.sy.0.max(1),cp.sy.1.min(116)),&dirty))}else{None};
++    let norm_sw = if precision25 {normalize_sz_donors(b,&sc.sz,&fd.sy,sc.sw,&dirty)} else {vec![]};
+     // a bit at Q-cycle index sy + kb >= its length would wrap onto Y: such a bit (a crossing step beyond the reserve)
+     // stays in the headroom (a failure if set), so the swap is also gated by sy <= len - 1 - kb
+     // (no bit gate: for kb >= B both lanes are zero on the act shots; v must be clear: sx holds the wrap flag)
+@@ -530,14 +748,16 @@ pub(crate) fn middle(b: &mut B, fd: &Fd, cp: &ColPar, sc: &ColScr, pl: Option<&P
+     };
+     let park_for = |b: &mut B, a: QubitId, q129: &[QubitId], rq: &[Gate], relocated19: bool| rec(b, |b| {
+         let qlen = q129.len();
+-        let rz = rotz(b, &(0..kmax).collect::<Vec<_>>());
++        let rz = if precision25 { let dest=(0..kmax).collect(); care_borrowed_sz(b,&ring,&sc.sz,&fd.sy,&dest,true,&dirty) } else { rotz(b, &(0..kmax).collect::<Vec<_>>()) };
+         b.play(&rz, false);
+         b.play(rq, false);
+         for kb in 0..kmax {
+             if relocated19 && kb == k + 1 { continue; }
++            if precision25 && kb==21 {continue;}
++            if cap24 && (kb==22||kb==23) {continue;}
+             if cp.sy.1.min(128) + kb >= qlen {
+                 wrap_flag(b, kb, qlen, q129.contains(&fd.sy[7]));
+-                if q129.contains(&sx[1]) || precision24 {
++                if q129.contains(&sx[1]) || precision25 {
+                     super::mid2::mc_swap(b, &[(a, false), (wf, true)], qloc(kb), q129[kb], &[], &dirty);
+                 } else {
+                     let akp = sx[1];
+@@ -577,6 +797,10 @@ pub(crate) fn middle(b: &mut B, fd: &Fd, cp: &ColPar, sc: &ColScr, pl: Option<&P
+         }
+         // leave the V form with q above Y, then q back to the headroom
+         b.play(&sy7_normal, false);
++        b.play(&norm_act,false);
++        if let Some(p)=&pre21{b.play(p,false);}
++        if let Some(p)=&pre22{b.play(p,false);}
++        if let Some(p)=&pre23{b.play(p,false);}
+         b.play(&park, false);
+         #[cfg(test)] let d4b_start = b.ops.len();
+         let f1 = b.tof;
+@@ -584,8 +808,12 @@ pub(crate) fn middle(b: &mut B, fd: &Fd, cp: &ColPar, sc: &ColScr, pl: Option<&P
+         super::f1_profile("midg.vform", f1, b.tof);
+         #[cfg(test)] d4b_window(d4b_start, b.ops.len(), 0, act);
+         b.play(&park, false);
++        if let Some(p)=&pre23{b.play(p,false);}
++        if let Some(p)=&pre22{b.play(p,false);}
++        if let Some(p)=&pre21{b.play(p,false);}
++        b.play(&norm_act,true);
+         b.play(&sy7_normal, false);
+-        mc_xor(b, &hr_lits, act, &[], &dirty);
++        if !cap24 { mc_xor(b, &hr_lits, act, &[], &dirty); }
+     }
+     if !stage(b) { return; } // 3
+     if cp.hr {
+@@ -604,7 +832,7 @@ pub(crate) fn middle(b: &mut B, fd: &Fd, cp: &ColPar, sc: &ColScr, pl: Option<&P
+         let pad_sy7_zero = if cp.dl { Some(borrowed_sy_normal(b, &fd.sy, &dirty)) } else { None };
+         let slen = wtop.min(nq + pads.len());
+         let src = if pl.is_some() { super::payload::pad(&fd.q, &pads, slen) } else { vec![] };
+-        mc_xor(b, &hr_lits, act, &[], &dirty);
++        if !cap24 { mc_xor(b, &hr_lits, act, &[], &dirty); }
+         for kk in 0..kmax {
+             fetch(b, kk, &[(act, false)]);
+             if std::env::var_os("D3_TRACE_PHASE").is_some() && kk + 1 == kmax { super::frogdrop_col::mark(b, 1400); }
+@@ -612,14 +840,22 @@ pub(crate) fn middle(b: &mut B, fd: &Fd, cp: &ColPar, sc: &ColScr, pl: Option<&P
+                 let t: Vec<QubitId> = (kk..wtop).map(|pos| super::payload::wl(&pl.p, pos)).collect();
+                 let sl = (wtop - kk).min(slen);
+                 if let Some(norm) = &pad_sy7_zero { b.play(norm, false); }
+-                super::payload::trans_one(b, &t, &src[..sl], kk, false, vec![(c, false)], None, sx[0], c0, &[],
+-                                          &pl.dirty);
++                if precision25 {
++                    // ak is returned zero here; mask the complete source rather
++                    // than storing q21 in a zero pad needed by delayed HR.
++                    q21_toggle(b,&[(c,false)],ak);
++                    super::payload::trans_one(b,&t,&q[..118.min(t.len())],kk,false,vec![(ak,false)],None,sx[0],c0,&[],&pl.dirty);
++                    q21_toggle(b,&[(c,false)],ak);
++                    high_toggle(b,&[(c,false)],ak,false);
++                    super::payload::trans_one(b,&t,&src[..sl],kk,false,vec![(ak,false)],None,sx[0],c0,&[],&pl.dirty);
++                    high_toggle(b,&[(c,false)],ak,false);
++                }else{super::payload::trans_one(b, &t, &src[..sl], kk, false, vec![(c, false)], None, sx[0], c0, &[],&pl.dirty);}
+                 if let Some(norm) = &pad_sy7_zero { b.play(norm, true); }
+                 super::frogdrop_col::mark(b, 1000 + kk);
+             }
+             add(b, kk, c, false);
+             if std::env::var_os("D3_TRACE_PHASE").is_some() && kk + 1 == kmax { super::frogdrop_col::mark(b, 1402); }
+-            if precision24 {
++            if precision25 {
+                 ge_k(b, kk, sx[0]);
+                 b.x(sx[0]);
+                 b.and_c(act, sx[0], ak);
+@@ -635,15 +871,15 @@ pub(crate) fn middle(b: &mut B, fd: &Fd, cp: &ColPar, sc: &ColScr, pl: Option<&P
+             let rd = s.clone();
+             let mut mid = |b: &mut B| {
+                 let lane = |vv: usize| if vv < rd.len() { Some(rd[vv]) } else { None };
+-                let read_pre = if precision24 { vec![sx[0], pzero] }
++                let read_pre = if precision25 { vec![sx[0], pzero] }
+                                else { vec![sx[0], sx[1], sx[2], sx[6], pzero] };
+                 if std::env::var_os("D3_TRACE_PHASE").is_some() && kk + 1 == kmax { super::frogdrop_col::mark(b, 1404); }
+-                read_lane(b, &fd.sy, sylo, syhi, &lane, true, &[(if precision24 { ak } else { act }, false)], c, &read_pre, &[], &dirty);
++                read_lane(b, &fd.sy, sylo, syhi, &lane, true, &[(if precision25 { ak } else { act }, false)], c, &read_pre, &[], &dirty);
+                 if std::env::var_os("D3_TRACE_PHASE").is_some() && kk + 1 == kmax { super::frogdrop_col::mark(b, 1405); }
+             };
+             let mut gate = |_b: &mut B, _i: Option<usize>| None;
+             ripple(b, &tl, &s, c0, true, &mut mid, &mut gate);
+-            if precision24 {
++            if precision25 {
+                 ge_k(b, kk, sx[0]);
+                 b.x(sx[0]);
+                 b.and_u(act, sx[0], ak);
+@@ -691,7 +927,7 @@ pub(crate) fn middle(b: &mut B, fd: &Fd, cp: &ColPar, sc: &ColScr, pl: Option<&P
+         // dl columns: sw marks the switching shots only (& [sz <= sy], the in-place compare on x128)
+         let sw_toggle = |b: &mut B| {
+             if !cp.sw { return; }
+-            let switch_pre: Vec<QubitId> = sx[1..].iter().copied().filter(|q| !sx[1..=5].contains(q)).collect();
++            let switch_pre: Vec<QubitId> = sx[1..].iter().copied().filter(|q| !sx[1..=6].contains(q)).collect();
+             super::frogdrop_col::ge_const_compact(b, &sc.sz, cp.l0 as isize + 1, sx[0], &switch_pre, &dirty);
+             if cp.dl {
+                 let gt = super::arith::up_m(b, &fd.sy, &sc.sz, x128, true);
+@@ -719,15 +955,19 @@ pub(crate) fn middle(b: &mut B, fd: &Fd, cp: &ColPar, sc: &ColScr, pl: Option<&P
+         if let Some(pl) = pl {
+             // the payload transition reads the ring below its top (the headroom must be clean): q above Y, then
+             // Q down by sy puts bit kb on lane kb
+-            let park5 = park_for(b, actl, &q129b, &rqb, precision24);
++            let park5 = park_for(b, actl, &q129b, &rqb, precision25);
+             let qlen = q129b.len();
+-            let pre19 = if precision24 {
+-                Some(preposition_qk(b, &q129b, &fd.sy, sx[1], k + 1, actl,
+-                                     (cp.sy.0.max(1), cp.sy.1.min(128)), &dirty))
++            let pre19 = if precision25 {
++                Some(rec(b,|b|{for &(lo,hi) in &[(cp.sy.0.max(1),cp.sy.1.min(101)),(cp.sy.0.max(103),cp.sy.1.min(128))]{if lo<=hi{let p=preposition_owned_qk(b,&q129b,&fd.sy,sx[1],k+1,actl,(lo,hi),&dirty);b.play(&p,false);}}}))
+             } else { None };
++            let pre21b = if precision25 && cp.sy.0.max(1)<=cp.sy.1.min(116) {Some(preposition_nonlast_qk(b,&q129b,&fd.sy,q[118],21,actl,(cp.sy.0.max(1),cp.sy.1.min(116)),&dirty))}else{None};
++            let pre16_102 = if precision25 && cp.sy.0<=102 && cp.sy.1>=102 {Some(preposition_owned_qk(b,&q129b,&fd.sy,sx[1],16,actl,(102,102),&dirty))}else{None};
+             super::frogdrop_col::mark(b, 1501);
+             b.x(ph);
++            b.play(&norm_sw,false);
+             if let Some(p) = &pre19 { b.play(p, false); }
++            if let Some(p) = &pre21b { b.play(p, false); }
++            if let Some(p) = &pre16_102 { b.play(p,false); }
+             super::frogdrop_col::mark(b, 1502);
+             b.play(&park5, false);
+             super::frogdrop_col::mark(b, 1503);
+@@ -751,7 +991,10 @@ pub(crate) fn middle(b: &mut B, fd: &Fd, cp: &ColPar, sc: &ColScr, pl: Option<&P
+             #[cfg(test)] d4b_window(d4b_start, b.ops.len(), 1, actl);
+             b.play(&park5, false);
+             super::frogdrop_col::mark(b, 1504);
++            if let Some(p) = &pre16_102 { b.play(p,false); }
++            if let Some(p) = &pre21b { b.play(p, false); }
+             if let Some(p) = &pre19 { b.play(p, false); }
++            b.play(&norm_sw,true);
+             b.x(ph);
+             super::frogdrop_col::mark(b, 1505);
+         }
+@@ -778,6 +1021,10 @@ pub(crate) fn middle(b: &mut B, fd: &Fd, cp: &ColPar, sc: &ColScr, pl: Option<&P
+         }
+         b.x(ph);
+         b.play(&sy7_normal, false);
++        b.play(&norm_act,false);
++        if let Some(p)=&pre21{b.play(p,false);}
++        if let Some(p)=&pre22{b.play(p,false);}
++        if let Some(p)=&pre23{b.play(p,false);}
+         b.play(&park, false);
+         #[cfg(test)] let d4b_start = b.ops.len();
+         let f1 = b.tof;
+@@ -785,6 +1032,10 @@ pub(crate) fn middle(b: &mut B, fd: &Fd, cp: &ColPar, sc: &ColScr, pl: Option<&P
+         super::f1_profile("midg.vform", f1, b.tof);
+         #[cfg(test)] d4b_window(d4b_start, b.ops.len(), 2, act);
+         b.play(&park, false);
++        if let Some(p)=&pre23{b.play(p,false);}
++        if let Some(p)=&pre22{b.play(p,false);}
++        if let Some(p)=&pre21{b.play(p,false);}
++        b.play(&norm_act,true);
+         b.play(&sy7_normal, false);
+         b.x(ph);
+         for kb in 0..kmax {
+@@ -810,3 +1061,92 @@ pub(crate) fn middle(b: &mut B, fd: &Fd, cp: &ColPar, sc: &ColScr, pl: Option<&P
+     if !stage(b) { return; } // 6
+     let _ = stage(b); // 7
+ }
++
++
++// Only admitted large-SY active shots have SZ101..161. Their high two
++// size bits are determined by the low six; inactive arbitrary bits restore.
++pub(crate) fn normalize_sz_donors(b:&mut B,sz:&[QubitId],sy:&[QubitId],act:QubitId,dirty:&[QubitId])->Vec<G>{
++    assert!(sz.len()>=8);
++    let large=size_partition(sy,false);
++    let high6=[(63usize,37usize),(62,38),(56,40),(48,48)];
++    super::frogdrop_col::rec(b,|b|{
++        for selector in &large {
++            for &(mask,value) in &high6 {
++                let mut literals=selector.clone();literals.push((act,false));
++                literals.extend((0..6).filter(|&i|mask>>i&1!=0).map(|i|(sz[i],value>>i&1==0)));
++                mc_xor(b,&literals,sz[6],&[],dirty);
++            }
++            let mut literals=selector.clone();literals.extend([(act,false),(sz[5],true)]);
++            mc_xor(b,&literals,sz[7],&[],dirty);
++            let mut literals=selector.clone();literals.push((act,false));literals.extend((1..6).map(|i|(sz[i],i!=5)));
++            mc_xor(b,&literals,sz[7],&[],dirty);
++        }
++    })
++}
++
++fn virtual_crot_care(b:&mut B,v:&[QubitId],r:usize,support:&std::collections::BTreeSet<usize>,
++                    selectors:&[Vec<(QubitId,bool)>],dirty:&[QubitId]) {
++    use std::collections::{BTreeMap,BTreeSet};let n=v.len();let r=r%n;if r==0{return;}
++    let mut successor:BTreeMap<usize,usize>=support.iter().map(|&i|(i,(i+r)%n)).collect();
++    let destinations:BTreeSet<usize>=successor.values().copied().collect();
++    for &start in support.difference(&destinations){let mut end=start;while support.contains(&end){end=successor[&end];}successor.insert(end,start);}
++    let mut seen=BTreeSet::new();for &start in successor.keys(){if seen.contains(&start){continue;}let mut cycle=vec![];let mut i=start;while !seen.contains(&i){seen.insert(i);cycle.push(i);i=successor[&i];}assert_eq!(i,start);
++        for k in (1..cycle.len()).rev(){for selector in selectors{super::mid2::mc_swap(b,selector,v[cycle[k]],v[cycle[k-1]],&[],dirty);}}
++    }
++}
++
++pub(crate) fn care_borrowed_sz(b:&mut B,v:&[QubitId],sz:&[QubitId],sy:&[QubitId],
++                  dest:&std::collections::BTreeSet<usize>,inverse:bool,dirty:&[QubitId])->Vec<G>{
++    assert!(sz.len()>=8);let mut support=dest.clone();let small=size_partition(sy,true);let large=size_partition(sy,false);
++    let record=super::frogdrop_col::rec(b,|b|{
++        for (k,&bit) in sz.iter().enumerate(){let r=(1usize<<k)%v.len();let mut controls=vec![];
++            if k==6||k==7{
++                for cube in &small{let mut c=cube.clone();c.push((bit,false));controls.push(c);}
++                for cube in &large{
++                    if k==6{for &(mask,value)in &[(63usize,37usize),(62,38),(56,40),(48,48)]{let mut c=cube.clone();c.extend((0..6).filter(|&i|mask>>i&1!=0).map(|i|(sz[i],value>>i&1==0)));controls.push(c);}}
++                    else{let mut c=cube.clone();c.push((sz[5],true));controls.push(c);let mut c=cube.clone();c.extend((1..6).map(|i|(sz[i],i!=5)));controls.push(c);}
++                }
++            }else{controls.push(vec![(bit,false)]);}
++            virtual_crot_care(b,v,r,&support,&controls,dirty);
++            let shifted:Vec<_>=support.iter().map(|&i|(i+r)%v.len()).collect();support.extend(shifted);
++        }
++    });
++    if inverse{record.iter().rev().copied().collect()}else{record}
++}
++
++
++pub(crate) fn preposition_nonlast_qk(b:&mut B,cycle:&[QubitId],sy:&[QubitId],
++                     owner:QubitId,bit:usize,act:QubitId,range:(usize,usize),dirty:&[QubitId])->Vec<G>{
++    assert!(cycle.contains(&owner));assert!(range.1+bit<128);
++    super::frogdrop_col::rec(b,|b|{
++        let lane=|value:usize|{let index=value+bit;if index<128&&cycle[index]!=owner{Some(cycle[index])}else{None}};
++        super::mid2::dec_swap(b,sy,range.0,range.1,&lane,owner,&[(act,false)],&[],&[],dirty);
++    })
++}
++
++
++#[cfg(test)]
++thread_local!{
++    pub(crate) static HF_PROBES:std::cell::RefCell<Vec<QubitId>>=const{std::cell::RefCell::new(Vec::new())};
++    pub(crate) static HF_CALL:std::cell::Cell<usize>=const{std::cell::Cell::new(0)};
++    pub(crate) static HF_FAULT_PROBE:std::cell::Cell<Option<usize>>=const{std::cell::Cell::new(None)};
++    pub(crate) static HF_FAULT_SELECTOR:std::cell::Cell<Option<usize>>=const{std::cell::Cell::new(None)};
++}
++
++// A non-last original q16 owner can share the cycle with the last q21
++// owner. Preserve the admitted9-reserve domain; targetvalues must be
++// established by normalization/preposition ordering at the callsite.
++pub(crate) fn preposition_owned_qk(b:&mut B,cycle:&[QubitId],sy:&[QubitId],owner:QubitId,bit:usize,act:QubitId,range:(usize,usize),dirty:&[QubitId])->Vec<G>{
++    assert!(cycle.contains(&owner));
++    rec(b,|b|{let lane=|value:usize|{let index=value+bit;if index<cycle.len()&&cycle[index]!=owner{Some(cycle[index])}else{None}};
++        super::mid2::dec_swap(b,sy,range.0,range.1,&lane,owner,&[(act,false)],&[],&[],dirty);})
++}
++
++// Production arithmetic excludes the quotient owner from every carry bank.
++pub(crate) fn q118_cadd(b:&mut B,ring:&[QubitId],q:&[QubitId],sy:&[QubitId],kb:usize,span:usize,ctl:QubitId,sub:bool,zeros:&[QubitId],c0:QubitId,h:QubitId,dirty:&[QubitId],lsb:usize,loan_end:usize,flag:QubitId){
++    ring_cadd2_loan(b,ring,&q[..118],kb,span,ctl,sub,zeros,c0,h,dirty,lsb.min(118),loan_end.min(118),h);
++    if span>118{
++        let toggle=|b:&mut B|{for (mask,value) in [(255usize,119usize),(248,120),(128,128)]{let mut lits=vec![(ctl,false)];lits.extend((0..8).filter(|i|mask>>i&1!=0).map(|i|(sy[i],value>>i&1==0)));mc_xor(b,&lits,flag,&[],dirty);}};
++        toggle(b);super::frogdrop_col::ring_cadd2(b,ring,&q[118..],kb+118,span-118,flag,sub,zeros,c0,h,dirty);toggle(b);
++    }
++}
+diff --git a/src/point_add/pointadd_frogdrop.rs b/src/point_add/pointadd_frogdrop.rs
+index dce05388..fb7494b5 100644
+--- a/src/point_add/pointadd_frogdrop.rs
++++ b/src/point_add/pointadd_frogdrop.rs
+@@ -21,11 +21,12 @@ use crate::circuit::{BitId, QubitId};
+ pub const SCHED_FROGDROP: &str = include_str!("sched_frogdrop.txt");
+ 
+ /// Machine constants.
+-pub const N: usize = 276;
++pub const N: usize = 274;
+ pub const NQ: usize = 128;
+-pub const K: usize = 17;
++pub const K: usize = 15;
+ pub const KP: usize = 24;
+-pub const QB: usize = 23;
++// Payload digit capacity24; midg funds quotient q23 only in its guarded pure-HR columns.
++pub const QB: usize = 24;
+ pub const TOT: usize = 83;
+ pub const TAIL: usize = 40;
+ pub const EMAX: usize = 21;
+diff --git a/src/point_add/tests_frogdrop.rs b/src/point_add/tests_frogdrop.rs
+index 80e2ea6a..2fd1fccd 100644
+--- a/src/point_add/tests_frogdrop.rs
++++ b/src/point_add/tests_frogdrop.rs
+@@ -4304,3 +4304,183 @@ fn sub700b_vz_unit() {
+         }
+     }
+ }
++#[test]
++fn n274_ordinary_four_lane_map_exact() {
++    use super::frogdrop_col::{map_stage, ColScr, Fd};
++    let (cols, _, _) = super::pointadd_frogdrop::col_pars(
++        &super::frogdrop_sched::from_text(super::pointadd_frogdrop::SCHED_FROGDROP));
++    let cp = &cols[0];
++    assert!(!cp.sw && cp.emax == 21 && cp.n == 274);
++    let mut b = B::new();
++    let ring = b.alloc_n(cp.n);
++    let payload = b.alloc_n(259);
++    let q = b.alloc_n(128);
++    let sy = b.alloc_n(8);
++    let sx = b.alloc_n(8);
++    let ph = b.alloc();
++    let pool = b.alloc_n(13);
++    assert_eq!(b.width(), 691);
++    let fd = Fd { ring: ring.clone(), q: q.clone(), sy: sy.clone(), sx: sx.clone(), ph,
++                  cnt: q[121..].to_vec() };
++    let sc = ColScr::carve_col(&pool, &fd.sx, &payload, cp.kp, cp.qb, cp.tail, cp.sz.1 > 255);
++    let record = map_stage(&mut b, &fd, cp, &sc);
++    b.play(&record, false);
++    let forward = b.ops.len();
++    b.play(&record, true);
++    let p = pval();
++    let mut input = vec![0u64; b.width() as usize];
++    let mut rng = Rng::new(0xd2_697_280);
++    for &lane in &payload { input[lane.0 as usize] = rng.next(); }
++    let mut cases = Vec::new();
++    for lane in 0..64 {
++        let (x, y, z) = match lane % 4 {
++            0 => (N::from(1u64), N::from(1u64), N::from(1 + lane as u64)),
++            1 => (N::from(2u64), N::from(1u64), N::from(1 + lane as u64)),
++            2 => (N::from(1u64), N::from(2u64), N::from(1 + 2 * lane as u64)),
++            _ => (N::from(3u64), N::from(2u64), N::from(1 + 2 * lane as u64)),
++        };
++        let cut = cp.n - blen(&x).max(blen(&y));
++        put(&mut input, &ring[..cut], lane, &z);
++        rev_into(&mut input, &ring[cut..], lane, &y);
++        put(&mut input, &q, lane, &x);
++        put(&mut input, &sy, lane, &N::from(blen(&y) as u64));
++        cases.push((cut, x, y, (p - z * x) / y));
++    }
++    let f = run(&b.ops[..forward], b.width() as usize, &|q| *q = input.clone());
++    assert_eq!(f.phase, 0);
++    for (lane, (cut, x, y, want)) in cases.iter().enumerate() {
++        assert_eq!(get(&f.q, &ring[..*cut], lane), *want, "map bottom shot {lane}");
++        assert_eq!(rev_get(&f.q, &ring[*cut..], lane, cp.n - *cut), *x, "map top shot {lane}");
++        assert_eq!(get(&f.q, &q, lane), *y, "map Q shot {lane}");
++    }
++    let both = run(&b.ops, b.width() as usize, &|q| *q = input.clone());
++    assert_eq!(both.phase, 0);
++    assert_eq!(both.q, input, "forward/inverse, scratch, and dirty passengers");
++    eprintln!("D2_MAP_EXTENSION_PASS shots=64 width={} forward_ops={forward}", b.width());
++}
++
++#[test]
++fn n274_b0_four_lane_extension_controlled_replay() {
++    use super::frogdrop_col::{map_stage, ColScr, Fd};
++    let (_, b0, _) = super::pointadd_frogdrop::col_pars(
++        &super::frogdrop_sched::from_text(super::pointadd_frogdrop::SCHED_FROGDROP));
++    let cp = b0.expect("B0 column");
++    assert_eq!((cp.n, cp.emax, cp.m, cp.sz), (274, 21, 28, (0, 0)));
++    let mut b = B::new();
++    let ring = b.alloc_n(cp.n);
++    let payload = b.alloc_n(259);
++    let q = b.alloc_n(128);
++    let sy = b.alloc_n(8);
++    let sx = b.alloc_n(8);
++    let ph = b.alloc();
++    let pool = b.alloc_n(13);
++    assert_eq!(b.width(), 691);
++    let fd = Fd { ring: ring.clone(), q: q.clone(), sy: sy.clone(), sx, ph,
++                  cnt: q[121..].to_vec() };
++    let sc = ColScr::carve_col(&pool, &fd.sx, &payload, cp.kp, cp.qb, cp.tail, false);
++    b.allow_booth = false;
++    let record = map_stage(&mut b, &fd, &cp, &sc);
++    b.play_ctrl(&record, sc.sw, sc.g);
++    let forward = b.ops.len();
++    let inverse = super::frogdrop_col::rec(&mut b, |b| b.play(&record, true));
++    b.play_ctrl(&inverse, sc.sw, sc.g);
++    let mut input = vec![0u64; b.width() as usize];
++    let mut rng = Rng::new(0xd3_b0_278);
++    let active = 0x55aa_33cc_f00f_0ff0u64;
++    input[sc.sw.0 as usize] = active;
++    input[ph.0 as usize] = u64::MAX;
++    for &lane in &payload { input[lane.0 as usize] = rng.next(); }
++    let p = pval();
++    let mut cases = Vec::new();
++    for lane in 0..64 {
++        let x = N::from(1 + lane as u64 % 23);
++        let y = N::from(1u64);
++        let z = N::from(1 + (3 * lane) as u64);
++        let cut = cp.n - blen(&x).max(blen(&y));
++        put(&mut input, &ring[..cut], lane, &z);
++        rev_into(&mut input, &ring[cut..], lane, &y);
++        put(&mut input, &q, lane, &x);
++        put(&mut input, &sy, lane, &N::from(blen(&y) as u64));
++        cases.push((cut, x, y, (p - z * x) / y));
++    }
++    let out = run(&b.ops[..forward], b.width() as usize, &|w| *w = input.clone());
++    assert_eq!(out.phase, 0);
++    for (lane, (cut, x, y, want)) in cases.iter().enumerate() {
++        if (active >> lane) & 1 == 1 {
++            assert_eq!(get(&out.q, &ring[..*cut], lane), *want, "active B0 bottom {lane}");
++            assert_eq!(rev_get(&out.q, &ring[*cut..], lane, cp.n - *cut), *x, "active B0 top {lane}");
++            assert_eq!(get(&out.q, &q, lane), *y, "active B0 Q {lane}");
++        } else {
++            for i in 0..b.width() as usize {
++                assert_eq!((out.q[i] >> lane) & 1, (input[i] >> lane) & 1,
++                           "inactive B0 passenger shot {lane} q{i}");
++            }
++        }
++    }
++    let both = run(&b.ops, b.width() as usize, &|w| *w = input.clone());
++    assert_eq!(both.phase, 0);
++    assert_eq!(both.q, input, "controlled B0 forward/inverse cleanup");
++    eprintln!("D3_B0_MAP_PASS shots=64 width={} forward_ops={forward}", b.width());
++}
++
++
++#[test]
++fn n274_maps_counter_and_switch_lifetimes_native() {
++    use super::frogdrop_col::{map_stage, ColScr, Fd};
++    let (cols, _, _) = super::pointadd_frogdrop::col_pars(
++        &super::frogdrop_sched::from_text(super::pointadd_frogdrop::SCHED_FROGDROP));
++    for index in [35usize,85,96,110,113,114,115,116,117,118,119]{
++    let cp = &cols[index];
++    assert!(cp.emax == 21 && cp.n == 274);
++    let mut b = B::new();
++    let ring = b.alloc_n(cp.n);
++    let payload = b.alloc_n(259);
++    let q = b.alloc_n(128);
++    let sy = b.alloc_n(8);
++    let sx = b.alloc_n(8);
++    let ph = b.alloc();
++    let pool = b.alloc_n(13);
++    assert_eq!(b.width(), 691);
++    let fd = Fd { ring: ring.clone(), q: q.clone(), sy: sy.clone(), sx: sx.clone(), ph,
++                  cnt: q[121..].to_vec() };
++    let sc = ColScr::carve_col(&pool, &fd.sx, &payload, cp.kp, cp.qb, cp.tail, cp.sz.1 > 255);
++    let record = map_stage(&mut b, &fd, cp, &sc);
++    b.play(&record, false);
++    let forward = b.ops.len();
++    b.play(&record, true);
++    let p = pval();
++    let mut input = vec![0u64; b.width() as usize];
++    let mut rng = Rng::new(0xd2_697_280);
++    for &lane in &payload { input[lane.0 as usize] = rng.next(); }
++    let mut cases = Vec::new();
++    input[ph.0 as usize]=if cp.dn{u64::MAX}else{0};
++    for lane in 0..64 {
++        let (x, y, z) = if cp.smax.0.max(cp.sy.0)>2{let size=cp.smax.0.max(cp.sy.0);let y=(N::from(1u64)<<(size-1))+N::from(1u64);let x=y+N::from(2u64);let base=((p%y)*((y+N::from(1u64))>>1))%y;(x,y,base+N::from((lane%2)as u64)*y)}else{match lane % 4 {
++            0 => (N::from(1u64), N::from(1u64), N::from(1 + lane as u64)),
++            1 => (N::from(2u64), N::from(1u64), N::from(1 + lane as u64)),
++            2 => (N::from(1u64), N::from(2u64), N::from(1 + 2 * lane as u64)),
++            _ => (N::from(3u64), N::from(2u64), N::from(1 + 2 * lane as u64)),
++        }};
++        let cut = cp.n - blen(&x).max(blen(&y));
++        put(&mut input, &ring[..cut], lane, &z);
++        rev_into(&mut input, &ring[cut..], lane, &y);
++        put(&mut input, if cp.dn{&q[..121]}else{&q}, lane, &x);
++        if cp.dn{put(&mut input,&q[121..],lane,&N::from(1+(lane as u64%((1u64<<cp.cntw)-1))));}
++        else if cp.sw && lane%2==0{input[sc.sw.0 as usize]|=1u64<<lane;}
++        put(&mut input, &sy, lane, &N::from(blen(&y) as u64));
++        cases.push((cut, x, y, (p - z * x) / y));
++    }
++    let f = run(&b.ops[..forward], b.width() as usize, &|q| *q = input.clone());
++    assert_eq!(f.phase, 0);
++    for (lane, (cut, x, y, want)) in cases.iter().enumerate() {
++        assert_eq!(get(&f.q, &ring[..*cut], lane), *want, "map bottom shot {lane}");
++        assert_eq!(rev_get(&f.q, &ring[*cut..], lane, cp.n - *cut), *x, "map top shot {lane}");
++        assert_eq!(get(&f.q, if cp.dn{&q[..121]}else{&q}, lane), *y, "map Q shot {lane}");
++    }
++    if cp.dn{for &wire in &q[121..]{assert_eq!(f.q[wire.0 as usize],input[wire.0 as usize],"counter parked and returned column{index}");}}
++    let both = run(&b.ops, b.width() as usize, &|q| *q = input.clone());
++    assert_eq!(both.phase, 0);
++    assert_eq!(both.q, input, "forward/inverse, scratch, and dirty passengers");
++    eprintln!("N274_MAP_COUNTER_PASS column={index} cntw={} sw={} shots=64 width={} forward_ops={forward}", cp.cntw,cp.sw,b.width());
++}
++}
+diff --git a/src/point_add/tests_midg_k24.rs b/src/point_add/tests_midg_k24.rs
+index 35f25863..6353bd4c 100644
+--- a/src/point_add/tests_midg_k24.rs
++++ b/src/point_add/tests_midg_k24.rs
+@@ -12,6 +12,173 @@ fn put(q: &mut [u64], reg: &[QubitId], lane: usize, v: N) {
+             | (u64::from(v.bit(i)) << lane);
+     }
+ }
++
++#[test]
++fn compact_virtual_high_one_exhaustive() {
++    let mut total = 0usize;
++    for n in 1..=7 {
++        let make = |compact: bool| {
++            let mut b = builder();
++            let t = b.alloc_n(n);
++            let s = b.alloc_n(n);
++            let cin = b.alloc();
++            let out = b.alloc();
++            let gate = rec(&mut b, |b| {
++                if compact { super::frogdrop::cmp_csub_carries_vh1(b, &t, &s[..n - 1], cin, out); }
++                else { super::frogdrop::cmp_csub_carries(b, &t, &s, cin, out, &[]); }
++            });
++            let f = emitted(&mut b, &gate, false);
++            let r = emitted(&mut b, &gate, true);
++            (t, s, cin, out, b.width() as usize, f, r)
++        };
++        let (t, s, cin, out, width, f, r) = make(true);
++        let (_, _, _, _, _, reference, _) = make(false);
++        let cases: Vec<_> = (0..1usize << n).flat_map(|tv|
++            (1usize << (n - 1)..1usize << n).flat_map(move |sv|
++                (0..4).map(move |flags| (tv, sv, flags)))).collect();
++        for chunk in cases.chunks(64) {
++            let mut input = vec![0u64; width];
++            for (lane, &(tv, sv, flags)) in chunk.iter().enumerate() {
++                put(&mut input, &t, lane, N::from(tv as u64));
++                put(&mut input, &s, lane, N::from(sv as u64));
++                input[cin.0 as usize] |= ((flags & 1) as u64) << lane;
++                input[out.0 as usize] |= ((flags >> 1) as u64) << lane;
++            }
++            let got = run(&f, width, &|q| *q = input.clone());
++            let want = run(&reference, width, &|q| *q = input.clone());
++            let mask = if chunk.len() == 64 { !0 } else { (1u64 << chunk.len()) - 1 };
++            for (a, b) in got.q.iter().zip(&want.q) { assert_eq!((a ^ b) & mask, 0, "n={n}"); }
++            assert_eq!(got.phase & mask, 0);
++            let back = run(&r, width, &|q| *q = got.q.clone());
++            assert_eq!(back.q, input);
++            assert_eq!(back.phase, 0);
++            total += chunk.len();
++        }
++    }
++    eprintln!("COMPACT_HIGH_ONE_EXHAUSTIVE cases={total}");
++}
++
++#[test]
++fn compact_restoring_step_exhaustive() {
++    let mut total = 0usize;
++    for k in 2..=8 {
++        let mut b = builder();
++        let r = b.alloc_n(k);
++        let d = b.alloc_n(k);
++        let f = b.alloc();
++        let mut after = r.clone();
++        let high = after.pop().unwrap(); after.insert(0, high);
++        let gate = rec(&mut b, |b| {
++            b.cx(r[k - 1], f); b.cx(f, after[0]);
++            super::frogdrop::cmp_csub_carries_vh1(b, &after[1..], &d[1..k - 1], after[0], f);
++            b.x(after[0]); b.cx(f, after[0]); b.cx(after[0], f); b.x(f);
++        });
++        let forward = emitted(&mut b, &gate, false);
++        let reverse = emitted(&mut b, &gate, true);
++        let cases: Vec<_> = (1usize << (k - 1)..1usize << k).filter(|d| d & 1 == 1)
++            .flat_map(|d| (0..d).map(move |r| (d, r))).collect();
++        for chunk in cases.chunks(64) {
++            let mut input = vec![0u64; b.width() as usize];
++            for (lane, &(dv, rv)) in chunk.iter().enumerate() {
++                put(&mut input, &r, lane, N::from(rv as u64));
++                put(&mut input, &d, lane, N::from(dv as u64));
++            }
++            let got = run(&forward, input.len(), &|q| *q = input.clone());
++            for (lane, &(dv, rv)) in chunk.iter().enumerate() {
++                assert_eq!(get(&got.q, &after, lane), N::from(((2*rv + 1) % dv) as u64),
++                           "k={k} d={dv} r={rv}");
++                assert_eq!((got.q[f.0 as usize] >> lane) & 1, 0);
++                assert_eq!(get(&got.q, &d, lane), N::from(dv as u64));
++            }
++            assert_eq!(got.phase, 0);
++            let back = run(&reverse, input.len(), &|q| *q = got.q.clone());
++            assert_eq!(back.q, input);
++            assert_eq!(back.phase, 0);
++            total += chunk.len();
++        }
++    }
++    eprintln!("COMPACT_STEP_EXHAUSTIVE cases={total}");
++}
++
++#[test]
++fn compact_n276_k24_vform_values_inverse_dirty_and_measurement_phase() {
++    let mut cases = 0u64;
++    let mut coefficients = 0u64;
++    for helpers in [0usize, 4, 8] {
++        let make = |compact: bool| {
++            let mut b = builder();
++            let ring = b.alloc_n(276);
++            let bank = b.alloc_n(128);
++            let _sy = b.alloc_n(8);
++            let sx = b.alloc_n(8);
++            let _ph = b.alloc();
++            let pool = b.alloc_n(13);
++            let dirty = b.alloc_n(259);
++            assert_eq!(b.width(), 693);
++            let mut remainder = ring[..if compact { 18 } else { 19 }].to_vec();
++            remainder.extend(&sx[1..6]);
++            remainder.push(ring[275]);
++            let s = S1 { r: remainder, f: sx[0], zero: ring[18], sgn: sx[0], gt: vec![sx[0]],
++                anc: vec![], andc: bank[..helpers].to_vec(), chain: bank[..helpers].to_vec(),
++                dirty: dirty.clone() };
++            let stage = if compact { super::midg::stage1_v_compact } else { stage1_v };
++            let fv = stage(&mut b, &ring[252..276], &ring[18..19 + TC], &pool[..8], (57, 256), &s, pool[12], true);
++            let fr = stage(&mut b, &ring[252..276], &ring[18..19 + TC], &pool[..8], (57, 256), &s, pool[12], false);
++            let v = rec(&mut b, |b| {
++                b.x(ring[275]); b.play(&fv, false); b.play(&fr, true); b.x(ring[275]);
++            });
++            let forward = emitted(&mut b, &v, false);
++            let reverse = emitted(&mut b, &v, true);
++            (ring, bank, sx, pool, dirty, forward, reverse)
++        };
++        let (ring, bank, sx, pool, dirty, forward, inverse) = make(true);
++        let (_, _, _, _, _, reference, _) = make(false);
++        let count = |ops: &[Op]| ops.iter().filter(|o| o.kind == K::CCX || o.kind == K::CCZ).count();
++        eprintln!("COMPACT_VFORM_PRICE helpers={helpers} old={} new={} saved={}",
++            count(&reference), count(&forward), count(&reference) as isize - count(&forward) as isize);
++        for seed in [0x2026_1014u64, 0x693_24_cafe] {
++            let mut rng = Rng::new(seed);
++            for mode in 0..4 {
++                let mut input: Vec<_> = (0..693).map(|_| rng.next()).collect();
++                let active = [!0u64, 0, 0xa55a_c33c_0ff0_f00f, 0x00ff_0f0f_3333_5555][mode];
++                input[pool[12].0 as usize] = active;
++                input[sx[0].0 as usize] = 0;
++                for &q in ring[..19].iter().chain(sx[1..6].iter()) { input[q.0 as usize] &= !active; }
++                input[ring[275].0 as usize] |= active;
++                for &q in &bank[..helpers] { input[q.0 as usize] = 0; }
++                for lane in 0..64 {
++                    let size = [57usize, 128, 133, 230, 231, 232, 255, 256][lane % 8];
++                    put(&mut input, &pool[..8], lane, N::from(size as u64));
++                }
++                let want = run(&reference, 693, &|q| *q = input.clone());
++                let got = run(&forward, 693, &|q| *q = input.clone());
++                assert_eq!(want.phase, 0);
++                assert_eq!(got.phase, 0);
++                for (index, (a, z)) in got.q.iter().zip(&want.q).enumerate() {
++                    if a != z {
++                        let lane = (a ^ z).trailing_zeros() as usize;
++                        eprintln!("COMPACT_DIAGNOSTIC lane={lane} size={:?} divisor={:?}",
++                                  get(&input, &pool[..8], lane), get(&input, &ring[252..276], lane));
++                    }
++                    assert_eq!(a, z, "wire={index} diff={:#x} helpers={helpers} seed={seed} mode={mode}", a ^ z);
++                }
++                let (sym, n) = symbolic(&forward, input.clone());
++                assert_eq!(sym, got.q);
++                coefficients += n;
++                let back = run(&inverse, 693, &|q| *q = got.q.clone());
++                assert_eq!(back.phase, 0);
++                assert_eq!(back.q, input);
++                let (sym, n) = symbolic(&inverse, got.q);
++                assert_eq!(sym, input);
++                coefficients += n;
++                // Passenger registers are included in the exact all-wire comparisons.
++                assert_eq!(dirty.len(), 259);
++                cases += 64;
++            }
++        }
++    }
++    eprintln!("COMPACT_N276_PASS cases={cases} independent_measurement_coefficients={coefficients}");
++}
+ fn get(q: &[u64], reg: &[QubitId], lane: usize) -> N {
+     reg.iter().enumerate().fold(N::ZERO, |v, (i, p)|
+         v | (N::from((q[p.0 as usize] >> lane) & 1) << i))
+@@ -878,3 +1045,328 @@ fn k24_returned_f_actual699_state_phase_v2() {
+     assert_eq!(apps, invoice, "exact same-binary prepass application invoice");
+     eprintln!("K24_RETURNED_F_NATIVE_PASS candidate_width=693 reference_width=694 packs={packs} lanes={} physical_applications={apps} independent_hmr_coefficients={coefficients} all693=true false_R_window_DATA=true caller_fv_fr=true profiles=3 caller_profiles=2 whole=false", 64 * packs);
+ }
++
++
++// Exact compact-packet shot1170/division2/column35 regression. K24 fails this
++// arithmetic state in both public and compact sources. This is one HR column
++// without payload; it does not claim a complete point-addition record.
++#[test]
++fn k25_counterexample_col35_exact_euclid_inverse_phase() {
++    use super::frogdrop_col::{Fd, ColScr, column_pl};
++    let dx = N::from_str_radix("e1a14a46e6340fd02bde43002b9b85d32649195df078b8aa7efe88ce0964f802", 16).unwrap();
++    let (mut rs, mut ts) = (vec![super::frogdrop_sched::p(), dx], vec![N::ZERO, N::from(1u64)]);
++    while !rs[rs.len()-1].is_zero() {
++        let n=rs.len();let q=rs[n-2]/rs[n-1];let rn=rs[n-2]-q*rs[n-1];let tn=ts[n-2]+q*ts[n-1];rs.push(rn);ts.push(tn);
++    }
++    let j=36;let mut b=builder();let ring=b.alloc_n(276);let q=b.alloc_n(128);let sy=b.alloc_n(8);let sx=b.alloc_n(8);let ph=b.alloc();
++    let pool=b.alloc_n(13);let dirty=b.alloc_n(259);assert_eq!(b.width(),693);
++    let mut fd=Fd{ring:ring.clone(),q:q.clone(),sy:sy.clone(),sx:sx.clone(),ph,cnt:q[121..].to_vec()};
++    let (cols,_,_)=super::pointadd_frogdrop::col_pars(&super::frogdrop_sched::from_text(super::pointadd_frogdrop::SCHED_FROGDROP));
++    let cp=&cols[35];assert!(cp.hr&&!cp.ht&&!cp.sw&&!cp.dn);
++    let sc=ColScr::carve_col(&pool,&sx,&dirty,24,23,40,cp.sz.1>255);
++    let rev:Vec<_>=ring.iter().rev().copied().collect();let mut input=vec![0u64;693];let mut rng=Rng::new(0x20261014_1170);
++    for &qid in &dirty {input[qid.0 as usize]=rng.next();}
++    for lane in 0..64 {put(&mut input,&ring,lane,rs[j]);put(&mut input,&rev[..ts[j].bit_len()],lane,ts[j]);put(&mut input,&q,lane,ts[j-1]);put(&mut input,&sy,lane,N::from(ts[j].bit_len()as u64));}
++    let mut expected=input.clone();for &qid in &ring{expected[qid.0 as usize]=0;}
++    for lane in 0..64 {put(&mut expected,&ring,lane,rs[j+1]);put(&mut expected,&rev[..ts[j+1].bit_len()],lane,ts[j+1]);put(&mut expected,&q,lane,ts[j]);put(&mut expected,&sy,lane,N::ZERO);put(&mut expected,&sx,lane,N::from(ts[j+1].bit_len()as u64));}
++    b.begin();column_pl(&mut b,&mut fd,cp,&sc,None);let record=b.end();
++    let forward=emitted(&mut b,&record,false);let inverse=emitted(&mut b,&record,true);
++    let got=run(&forward,693,&|words|*words=input.clone());assert_eq!(got.phase,0);assert_eq!(got.q,expected,"exact Euclidean step and every scratch/passenger");
++    let back=run(&inverse,693,&|words|*words=got.q.clone());assert_eq!(back.phase,0);assert_eq!(back.q,input);
++    eprintln!("K25_COL35_REGRESSION_PASS width=693 shots=64 exact_q=2216631 arithmetic=true dirty_passengers=259 phase=0 inverse=true scope=one_column_no_payload");
++}
++
++
++#[test]
++fn k32_partition_boundary_inactive_counter_inverse_phase() {
++    let mut b=builder(); let ring=b.alloc_n(276);let q=b.alloc_n(128);let sy=b.alloc_n(8);let sx=b.alloc_n(8);let _ph=b.alloc();let pool=b.alloc_n(13);let dirty=b.alloc_n(259);assert_eq!(b.width(),693);
++    let mut r25=ring[..19].to_vec();r25.extend(&sx[1..6]);r25.push(ring[275]);
++    let mut r32=r25.clone();r32.extend(&q[121..128]);
++    let base=S1{r:r25.clone(),f:sx[0],zero:ring[18],sgn:sx[0],gt:vec![sx[0]],anc:vec![],andc:vec![],chain:vec![],dirty:dirty.clone()};
++    let wide=S1{r:r32.clone(),..base.clone()};let win=ring[18..19+TC].to_vec();
++    let f25=super::midg::stage1_v_compact_partitioned(&mut b,&ring[251..276],&win,&pool[..8],(65,256),&base,pool[12],true,&sy,false);
++    let r25rec=super::midg::stage1_v_compact(&mut b,&ring[251..276],&win,&pool[..8],(65,256),&base,pool[12],false);
++    let f32=super::midg::stage1_v_compact_partitioned(&mut b,&ring[244..276],&win,&pool[..8],(65,256),&wide,pool[12],true,&sy,true);
++    let r32rec=super::midg::stage1_v_compact(&mut b,&ring[244..276],&win,&pool[..8],(65,256),&wide,pool[12],false);
++    let record=rec(&mut b,|b|{b.x(ring[275]);b.play(&f25,false);b.play(&r25rec,true);b.play(&f32,false);b.play(&r32rec,true);b.x(ring[275]);});
++    let forward=emitted(&mut b,&record,false);let inverse=emitted(&mut b,&record,true);let mut rng=Rng::new(0x20261014_3298);let mut coefficients=0;
++    for block in 0..4 {
++        let mut input:Vec<_>=(0..693).map(|_|rng.next()).collect();input[sx[0].0 as usize]=0;input[pool[12].0 as usize]=0;
++        for lane in 0..64 {let size=block*64+lane;put(&mut input,&sy,lane,N::from(size as u64));let active=(1..=128).contains(&size);if active{input[pool[12].0 as usize]|=1u64<<lane;for &id in &base.r{input[id.0 as usize]&=!(1u64<<lane);}input[ring[275].0 as usize]|=1u64<<lane;if size<=98{for &id in &q[121..128]{input[id.0 as usize]&=!(1u64<<lane);}}}put(&mut input,&pool[..8],lane,N::from([65usize,101,128,230,231,232,255,256][lane%8]as u64));}
++        let mut expected=input.clone();
++        for lane in 0..64 {let syvalue=block*64+lane;if !(1..=128).contains(&syvalue){continue;}let size=get(&input,&pool[..8],lane).as_limbs()[0]as usize;let k=if syvalue<=98{32}else{25};let divisor=get(&input,&ring[276-k..276],lane)|N::from(1u64);let dividend=(N::from(1u64)<<(256+k-size))-N::from(1u64);let f=dividend/divisor;let u=257usize.saturating_sub(size+TC);let top=N::from(1u64)<<(257-size);let delta=top-(((f>>u)+N::from(1u64))<<u);let mut w=N::ZERO;for i in 1..=TC{let pos=257isize-size as isize-i as isize;if pos>=0&&input[ring[18+i].0 as usize]>>lane&1!=0{w|=N::from(1u64)<<pos as usize;}}w=(w+delta)&(top-N::from(1u64));for i in 1..=TC{let pos=257isize-size as isize-i as isize;if pos>=0{let id=ring[18+i].0 as usize;expected[id]=(expected[id]&!(1u64<<lane))|((w.bit(pos as usize)as u64)<<lane);}}}
++        let got=run(&forward,693,&|words|*words=input.clone());assert_eq!(got.q,expected,"full SY partition; inactive high aliases and counter loans");assert_eq!(got.phase,0);let(sym,n)=symbolic(&forward,input.clone());assert_eq!(sym,got.q);coefficients+=n;
++        let back=run(&inverse,693,&|words|*words=got.q.clone());assert_eq!(back.q,input);assert_eq!(back.phase,0);let(sym,n)=symbolic(&inverse,got.q);assert_eq!(sym,input);coefficients+=n;
++    }
++    eprintln!("K32_PARTITION_PASS full_SY_words=256 active=1..128 inactive_high_aliases=true boundaries=98,99,128 all_wires=true inverse=true phase=0 independent_measurement_coefficients={coefficients} scope=V_partition_only");
++}
++
++
++#[test]
++fn sz_donor_normalization_virtual_care_boundary_inactive_inverse_phase(){
++    let mut b=builder();let ring=b.alloc_n(276);let sz=b.alloc_n(9);let sy=b.alloc_n(8);let act=b.alloc();let dirty=b.alloc_n(259);
++    let dest:std::collections::BTreeSet<usize>=(0..45).chain(244..276).collect();
++    let normal=super::midg::normalize_sz_donors(&mut b,&sz,&sy,act,&dirty);
++    let up=super::midg::care_borrowed_sz(&mut b,&ring,&sz,&sy,&dest,false,&dirty);
++    let forward=emitted(&mut b,&up,false);let inverse=emitted(&mut b,&up,true);let nforward=emitted(&mut b,&normal,false);let ninverse=emitted(&mut b,&normal,true);
++    let mut rng=Rng::new(0x20261014_6799);let mut coefficients=0;
++    for block in 0..8 {
++        let mut input:Vec<_>=(0..b.width()).map(|_|rng.next()).collect();input[act.0 as usize]=0;
++        for lane in 0..64 {let syv=[98usize,99,128,129,226,227,0,1][lane%8];let size=[101usize,127,128,159,0,100,160,255][(lane/8+block)%8];let active=(1..=128).contains(&syv)&&(101..=159).contains(&size);put(&mut input,&sz,lane,N::from(size as u64));put(&mut input,&sy,lane,N::from(syv as u64));if active{input[act.0 as usize]|=1u64<<lane;}}
++        let normalized=run(&nforward,input.len(),&|q|*q=input.clone());assert_eq!(normalized.phase,0);
++        for lane in 0..64{let syv=get(&input,&sy,lane).as_limbs()[0]as usize;let active=input[act.0 as usize]>>lane&1!=0;if active&&syv>=99{assert_eq!(normalized.q[sz[6].0 as usize]>>lane&1,0);assert_eq!(normalized.q[sz[7].0 as usize]>>lane&1,0);}else{assert_eq!(normalized.q[sz[6].0 as usize]>>lane&1,input[sz[6].0 as usize]>>lane&1);assert_eq!(normalized.q[sz[7].0 as usize]>>lane&1,input[sz[7].0 as usize]>>lane&1);}}
++        let nback=run(&ninverse,input.len(),&|q|*q=normalized.q.clone());assert_eq!(nback.q,input);assert_eq!(nback.phase,0);
++        let(mut borrowed,borrowed_act)=(normalized.q.clone(),input[act.0 as usize]);let high6=rng.next();let high7=rng.next();let large_active=(0..64).fold(0u64,|mask,lane|{let syv=get(&input,&sy,lane).as_limbs()[0];mask|if borrowed_act>>lane&1!=0&&syv>=99{1u64<<lane}else{0}});borrowed[sz[6].0 as usize]=(borrowed[sz[6].0 as usize]&!large_active)|(high6&large_active);borrowed[sz[7].0 as usize]=(borrowed[sz[7].0 as usize]&!large_active)|(high7&large_active);
++        let got=run(&forward,input.len(),&|q|*q=borrowed.clone());assert_eq!(got.phase,0);
++        for lane in 0..64 {if borrowed_act>>lane&1==0{continue;}let size=get(&input,&sz,lane).as_limbs()[0]as usize;for &index in &dest{assert_eq!(got.q[ring[(index+size)%276].0 as usize]>>lane&1,borrowed[ring[index].0 as usize]>>lane&1,"admitted care mapping with parked high-size data");}}
++        for &id in sz.iter().chain(&sy).chain(&dirty){assert_eq!(got.q[id.0 as usize],borrowed[id.0 as usize]);}
++        let back=run(&inverse,input.len(),&|q|*q=got.q.clone());assert_eq!(back.q,borrowed);assert_eq!(back.phase,0);let(sym,n)=symbolic(&forward,borrowed.clone());assert_eq!(sym,got.q);coefficients+=n;let(sym,n)=symbolic(&inverse,got.q);assert_eq!(sym,borrowed);coefficients+=n;
++    }
++    eprintln!("SZ_DONOR_COMPONENT_PASS cases=512 SY_boundaries=98,99,128 SZ_boundaries=101,127,128,159 inactive_aliases=true arbitrary_parked_highbits=true all_wire_inverse=true phase=0 independent_measurement_coefficients={coefficients} scope=normalization_and_care_only");
++}
++#[test]
++fn reserve9_columns_crossing_3713_positive_native(){
++    use super::frogdrop_col::{Fd,ColScr,column_pl};
++    let cases=&[("shot3713_firstHT",60,["86596245cc593f5149fd36768d58f1","1e7cd97dd708e66f00ea90bb36545c0829f","551c3d8910a3f25f1a7f72b7c89e95"],137,1,0,["30202f2414eff7e8db64ed89e689939dfde","26661700e1545ec84a72721e6a4389","551c3d8910a3f25f1a7f72b7c89e95"],118,1,0),("Dl",71,["da7a61d4527e5f0df16a8ffa2077b727","569dec2321d77404018ef6ecf7a1f631","82ea0b93a54de5aa94849cd6a97c172"],127,0,0,["569dec2321d77404018ef6ecf7a1f631","508bfde836f0f2b0b0dfe959f0b1dc2c","da7a61d4527e5f0df16a8ffa2077b727"],127,1,1),("Dq",72,["569dec2321d77404018ef6ecf7a1f631","508bfde836f0f2b0b0dfe959f0b1dc2c","da7a61d4527e5f0df16a8ffa2077b727"],127,1,1,["10c0865229fdb3a66adf52e94517da405","508bfde836f0f2b0b0dfe959f0b1dc2c","da7a61d4527e5f0df16a8ffa2077b727"],127,1,0),("HR_SY128",67,["156c34d310d1bd782145e31016d028b09","9ee1259b38591df271aa60e35952da94","161f7e925fafffc48bfa4423315cd5d3"],128,0,0,["15ff87c01f5ade751c550937db0c8a14","b500a42d98091db6fda4a5068aafb067","9ee1259b38591df271aa60e35952da94"],128,0,0),("HR_SY98",50,["469fe522a956b2e4dd55dac967111ae7ba36dc5","2d3d8a87405ffbd96ed6b7f63","173bc69725137cdedc62adc8"],98,0,0,["21dbb4893bd3f0c12ffde77e4096355f10f2a69","38a428efa79d0e4ca968c8a184","2d3d8a87405ffbd96ed6b7f63"],102,0,0),("HR_SY99",38,["fbb1f5552b43ade0498caf56f06dce924454295","5793fa9cbba0a7825bf12a3ca","4a1b5051ca7c9ba1e812b13b"],99,0,0,["e79d2a4557ba731066fcb31b8216b49418e45d2","b3c9aa3e93e918bed6637f8cf","5793fa9cbba0a7825bf12a3ca"],100,0,0),("HT_SY128",88,["b120a46a743de1efee755ec543f5b2f7","b588137db2d0614fc8872b9f7b326f98","ec7d0911aa2367d09fe7cc8f2795f039"],128,1,0,["13364bf741db1e695763c8f8febc58279","36f4f593f7530680d760a0efac6380a1","b588137db2d0614fc8872b9f7b326f98"],126,1,0),("HT_SY98",75,["1b52238aa6a317993a721973b8e4b190b9f7d153","30fdf620819efba2247c47397","8abecc4542272cec06f0ba532"],98,1,0,["3cdfe2b0ec45e638e9179a82cfa30212f3199a95","28c2e0043ee935a7bdf82be04","30fdf620819efba2247c47397"],98,1,0),("HT_SY99",94,["13930ead521c9210be043776be594cb8653cf5d1","79f2db9d550c784d9aad03a71","9b3d61b57105bfde9e28d9e24"],99,1,0,["1c3e8551edf994f11daf02da0ab26d4d407f16cc","214a86181bf94791037bd63b3","79f2db9d550c784d9aad03a71"],98,1,0),("Sw",85,["4251fa85a6a9f9931342eb714b26e409","8482ca7208957e3f5f3a075332f27758","72acad31c291b05e318688f4e1c3db7f"],128,0,0,["8482ca7208957e3f5f3a075332f27758","1b52d644e51112a378b445301e52e0f85","4251fa85a6a9f9931342eb714b26e409"],129,1,0),("firstHT",86,["8482ca7208957e3f5f3a075332f27758","1b52d644e51112a378b445301e52e0f85","4251fa85a6a9f9931342eb714b26e409"],129,1,0,["38dbd6bddf612a5da6ce2b4e81372a78f","2741852c691550c517b2ce5a2244b74f","4251fa85a6a9f9931342eb714b26e409"],126,1,0),("shot1937_HR",9,["427f10ea32edd7e369909ed198806661f9ed447fb9d052efc7ff0ccef0d","5269a","4f04f"],19,0,0,["427f0f12d7fe235fd3e78e9d5558b1ea8857a8c4e71a933eeed1cb6046c","387253","5269a"],22,0,0),("shot4131_HT",100,["37a8f27948de765561b5814d959c910da2485c7ba222b12f53","b898936463670","48de5f493eb3e75"],52,1,0,["162d50931e3a024f193cb29c29c99d7f07dfde01401fad0cce8b","a2d22a37c445","b898936463670"],48,1,0)];let (cols,_,_)=super::pointadd_frogdrop::col_pars(&super::frogdrop_sched::from_text(super::pointadd_frogdrop::SCHED_FROGDROP));
++    for &(label,ci,values,size,phase,switch,outvalues,outsize,outphase,outswitch)in cases{
++        let mut b=builder();let ring=b.alloc_n(274);let q=b.alloc_n(128);let sy=b.alloc_n(8);let sx=b.alloc_n(8);let ph=b.alloc();let pool=b.alloc_n(13);let dirty=b.alloc_n(259);let rev:Vec<_>=ring.iter().rev().copied().collect();let mut fd=Fd{ring:ring.clone(),q:q.clone(),sy:sy.clone(),sx:sx.clone(),ph,cnt:q[121..].to_vec()};let cp=&cols[ci];let sc=ColScr::carve_col(&pool,&sx,&dirty,24,23,40,cp.sz.1>255);
++        let parse=|s:&str|N::from_str_radix(s,16).unwrap();let mut input=vec![0u64;691];let mut rng=Rng::new(0x20261014_1234+ci as u64);for &id in &dirty{input[id.0 as usize]=rng.next();}
++        for lane in 0..64{put(&mut input,&ring,lane,parse(values[0]));put(&mut input,&rev[..parse(values[1]).bit_len()],lane,parse(values[1]));put(&mut input,&q,lane,parse(values[2]));put(&mut input,&sy,lane,N::from(size as u64));}input[ph.0 as usize]=if phase!=0{u64::MAX}else{0};input[sc.sw.0 as usize]=if switch!=0{u64::MAX}else{0};
++        let mut expected=input.clone();for &id in &ring{expected[id.0 as usize]=0;}for lane in 0..64{put(&mut expected,&ring,lane,parse(outvalues[0]));put(&mut expected,&rev[..parse(outvalues[1]).bit_len()],lane,parse(outvalues[1]));put(&mut expected,&q,lane,parse(outvalues[2]));put(&mut expected,&sy,lane,N::ZERO);put(&mut expected,&sx,lane,N::from(outsize as u64));}expected[ph.0 as usize]=if outphase!=0{u64::MAX}else{0};expected[sc.sw.0 as usize]=if outswitch!=0{u64::MAX}else{0};
++        let record=rec(&mut b,|b|column_pl(b,&mut fd,cp,&sc,None));let forward=emitted(&mut b,&record,false);let inverse=emitted(&mut b,&record,true);let got=run(&forward,691,&|words|*words=input.clone());assert_eq!(got.q,expected,"case {label} col{ci} exact Euclid shadow plus all scratch/passengers");assert_eq!(got.phase,0,"case {label}");let back=run(&inverse,691,&|words|*words=got.q.clone());assert_eq!(back.q,input,"case {label} inverse");assert_eq!(back.phase,0);eprintln!("RESERVE9_COLUMN_CASE_PASS label={label} column={ci} width=692 lanes=64 payload=false measurement_coefficients=UNASSESSED");
++    }
++    eprintln!("RESERVE9_NATIVE_SUITE_PASS columns={} lanes={} measurement_coefficients=UNASSESSED scope=full_columns_no_payload",cases.len(),cases.len()*64);
++}
++
++
++#[test]
++fn reserve9_crossing_payload_3713_exact_shadow_native(){
++    use super::frogdrop_col::{Fd,ColScr,column_pl};
++    let p=super::frogdrop_sched::p();let dx=N::from_str_radix("dbc03838c8e3ef33e7b222ced5415f372fbdf32febb8ead3f55c4e58c4f81f55",16).unwrap();let(mut r,mut t)=(vec![p,dx],vec![N::ZERO,N::from(1u64)]);while !r[r.len()-1].is_zero(){let n=r.len();let q=r[n-2]/r[n-1];r.push(r[n-2]-q*r[n-1]);t.push(t[n-2]+q*t[n-1]);}
++    let j=60;let mut b=builder();let ring=b.alloc_n(274);let q=b.alloc_n(128);let sy=b.alloc_n(8);let sx=b.alloc_n(8);let ph=b.alloc();let pool=b.alloc_n(13);let payload=b.alloc_n(259);assert_eq!(b.width(),691);let rev:Vec<_>=ring.iter().rev().copied().collect();let mut fd=Fd{ring:ring.clone(),q:q.clone(),sy:sy.clone(),sx:sx.clone(),ph,cnt:q[121..].to_vec()};let(cols,_,_)=super::pointadd_frogdrop::col_pars(&super::frogdrop_sched::from_text(super::pointadd_frogdrop::SCHED_FROGDROP));let cp=&cols[60];assert!(cp.psw&&cp.ht);let sc=ColScr::carve_col(&pool,&sx,&payload,24,23,40,cp.sz.1>255);let pl=super::pointadd_frogdrop::pl_col(&payload,&fd,&pool);
++    let record=rec(&mut b,|b|column_pl(b,&mut fd,cp,&sc,Some(&pl)));let forward=emitted(&mut b,&record,false);let inverse=emitted(&mut b,&record,true);
++    for seed in 0..4 {
++        let mut input=vec![0u64;691];let mut expected=vec![0u64;691];let mut rng=Rng::new(0x20261014_371300+seed);
++        for lane in 0..64 {let dy=match lane{0=>N::ZERO,1=>N::from(1u64),2=>p-N::from(1u64),_=>rng.below(256)%p};let(mut d,mut w)=(dy,N::ZERO);for k in 1..j{let e=d/r[k];d-=e*r[k];let wpost=w.wrapping_add(e.wrapping_mul(t[k]));w=(r[k-1]/r[k]).wrapping_mul(t[k]).wrapping_add(!wpost);}
++            let e=d/r[j];let dnext=d-e*r[j];let wpost=w.wrapping_add(e.wrapping_mul(t[j]));let wnext=(r[j-1]/r[j]).wrapping_mul(t[j]).wrapping_add(!wpost);let br=r[j].bit_len();let pre_boundary=258-t[j].bit_len();let off=wnext.wrapping_add(N::from(1u64)<<(258-br));
++            for l in 0..259{let ib=if l<pre_boundary{d.bit(l)}else{w.bit(258-l)};let ob=if l<br{dnext.bit(l)}else{off.bit(258-l)};if ib{input[payload[l].0 as usize]|=1u64<<lane;}if ob{expected[payload[l].0 as usize]|=1u64<<lane;}}
++            put(&mut input,&ring,lane,t[j]);put(&mut input,&rev[..r[j-1].bit_len()],lane,r[j-1]);put(&mut input,&q,lane,r[j]);put(&mut input,&sy,lane,N::from(r[j-1].bit_len()as u64));input[ph.0 as usize]|=1u64<<lane;
++            put(&mut expected,&ring,lane,t[j+1]);put(&mut expected,&rev[..r[j+1].bit_len()],lane,r[j+1]);put(&mut expected,&q,lane,r[j]);put(&mut expected,&sx,lane,N::from(r[j+1].bit_len()as u64));expected[ph.0 as usize]|=1u64<<lane;
++        }
++        let got=run(&forward,691,&|words|*words=input.clone());let bad:Vec<_>=got.q.iter().zip(&expected).enumerate().filter_map(|(i,(a,z))|if a!=z{Some(i)}else{None}).collect();assert!(bad.is_empty(),"exact payload+Euclid+scratch seed{seed}; mismatching_wires={bad:?}");assert_eq!(got.phase,0,"native sampled forwardphase seed{seed}");let back=run(&inverse,691,&|words|*words=got.q.clone());assert_eq!(back.q,input,"all-wire inverse seed{seed}");assert_eq!(back.phase,0,"native sampled inversephase seed{seed}");eprintln!("RESERVE9_PAYLOAD_CASE_PASS seed={seed} lanes=64 dy=0,1,p-1,varied exact_pre_and_offset_oracle=true all_wires_inverse=true native_phase=0 measurement_coefficients=UNASSESSED");
++    }
++    eprintln!("RESERVE9_PAYLOAD_COMPONENT_PASS width=692 column=60 euclid_step=60 first_HT_refill=true quotient=375614 reserve=9 cases=256 scope=one_full_column_with_admitted_payload");
++}
++
++
++#[test]
++fn cap24_sc_sw_preposition_boundary_inverse_dirty_phase(){
++    let mut b=builder();let _ring=b.alloc_n(274);let q=b.alloc_n(128);let sy=b.alloc_n(8);let sx=b.alloc_n(8);let ph=b.alloc();let pool=b.alloc_n(13);let dirty=b.alloc_n(259);assert_eq!(b.width(),691);
++    let owner=pool[8];let mut cycle=q.clone();cycle.push(pool[9]);cycle.extend([pool[11],pool[10],sx[6],sx[7],pool[6],pool[7],ph,sy[7],owner]);assert_eq!(cycle.len(),138);assert_eq!(cycle.last(),Some(&owner));let rec=super::midg::preposition_qk(&mut b,&cycle,&sy,owner,23,pool[12],(1,104),&dirty);let forward=emitted(&mut b,&rec,false);let inverse=emitted(&mut b,&rec,true);let mut rng=Rng::new(0x20261014_2397);
++    for block in 0..4{let mut input=vec![0u64;691];for &id in &dirty{input[id.0 as usize]=rng.next();}input[owner.0 as usize]=rng.next();input[pool[12].0 as usize]=u64::MAX;for lane in 0..64{let size=[1usize,41,97,98,99,104][(lane+block)%6];put(&mut input,&sy,lane,N::from(size as u64));put(&mut input,&q[..size],lane,rng.below(size));}let mut expected=input.clone();expected[owner.0 as usize]=0;for lane in 0..64{let size=get(&input,&sy,lane).as_limbs()[0]as usize;let id=q[size+23].0 as usize;expected[id]|=(input[owner.0 as usize]>>lane&1)<<lane;if size<=97{for &id in &q[121..128]{assert_eq!(expected[id.0 as usize]>>lane&1,0);}}}let got=run(&forward,691,&|q|*q=input.clone());assert_eq!(got.q,expected);assert_eq!(got.phase,0);let back=run(&inverse,691,&|q|*q=got.q.clone());assert_eq!(back.q,input);assert_eq!(back.phase,0);let(sym,_)=symbolic(&forward,input.clone());assert_eq!(sym,got.q);let(sym,_)=symbolic(&inverse,got.q);assert_eq!(sym,input);}
++    eprintln!("CAP24_SW_OWNER_COMPONENT_PASS cases=256 q23_owner=pool_sw wide_firstcolumn_excluded=true SY_boundaries=97,98,104 maxpark127 small_maxpark120 dirty_passengers=259 inverse=true phase=0 measurement_coefficients=0 scope=preposition_only");
++}
++
++#[test]
++fn cap24_counterexample8048_exact_column_payload_native(){
++    use super::frogdrop_col::{Fd,ColScr,column_pl};let p=super::frogdrop_sched::p();let dx=N::from_str_radix("36f0fbac70592fc4b0dd5063485688e95619d5bfd049d59dddf6c7f7dc28b5a4",16).unwrap();let(mut r,mut t)=(vec![p,dx],vec![N::ZERO,N::from(1u64)]);while !r[r.len()-1].is_zero(){let n=r.len();let q=r[n-2]/r[n-1];r.push(r[n-2]-q*r[n-1]);t.push(t[n-2]+q*t[n-1]);}let j=25;assert_eq!(r[j-1]/r[j],N::from(8505374u64));
++    let mut b=builder();let ring=b.alloc_n(274);let q=b.alloc_n(128);let sy=b.alloc_n(8);let sx=b.alloc_n(8);let ph=b.alloc();let pool=b.alloc_n(13);let payload=b.alloc_n(259);assert_eq!(b.width(),691);let rev:Vec<_>=ring.iter().rev().copied().collect();let mut fd=Fd{ring:ring.clone(),q:q.clone(),sy:sy.clone(),sx:sx.clone(),ph,cnt:q[121..].to_vec()};let(cols,_,_)=super::pointadd_frogdrop::col_pars(&super::frogdrop_sched::from_text(super::pointadd_frogdrop::SCHED_FROGDROP));let cp=&cols[24];assert!(cp.hr&&!cp.ht&&!cp.sw&&!cp.dn&&!cp.dl&&!cp.dq&&!cp.psw&&!cp.tt&&cp.sz.1<=255&&cp.sy.1+23<128);let sc=ColScr::carve_col(&pool,&sx,&payload,24,24,40,false);assert!(!sc.sz.contains(&sc.sw));let pl=super::pointadd_frogdrop::pl_col(&payload,&fd,&pool);let record=rec(&mut b,|b|column_pl(b,&mut fd,cp,&sc,Some(&pl)));let forward=emitted(&mut b,&record,false);let inverse=emitted(&mut b,&record,true);let mut max_digit=N::ZERO;
++    for seed in 0..4{let mut input=vec![0u64;691];let mut expected=vec![0u64;691];let mut rng=Rng::new(0x20261014_804800+seed);for lane in 0..64{let dy=match lane{0=>N::ZERO,1=>N::from(1u64),2=>p-N::from(1u64),3=>r[j-1]-N::from(1u64),4=>r[j]-N::from(1u64),_=>rng.below(256)%p};let(mut d,mut w)=(dy,N::ZERO);for k in 1..j{let e=d/r[k];d-=e*r[k];let wpost=w.wrapping_add(e.wrapping_mul(t[k]));w=(r[k-1]/r[k]).wrapping_mul(t[k]).wrapping_add(!wpost);}let e=d/r[j];max_digit=max_digit.max(e);let dnext=d-e*r[j];let wpost=w.wrapping_add(e.wrapping_mul(t[j]));let wnext=(r[j-1]/r[j]).wrapping_mul(t[j]).wrapping_add(!wpost);let pre=258-t[j].bit_len();let post=258-t[j+1].bit_len();for l in 0..259{let ib=if l<pre{d.bit(l)}else{w.bit(258-l)};let ob=if l<post{dnext.bit(l)}else{wnext.bit(258-l)};if ib{input[payload[l].0 as usize]|=1u64<<lane;}if ob{expected[payload[l].0 as usize]|=1u64<<lane;}}put(&mut input,&ring,lane,r[j]);put(&mut input,&rev[..t[j].bit_len()],lane,t[j]);put(&mut input,&q,lane,t[j-1]);put(&mut input,&sy,lane,N::from(t[j].bit_len()as u64));put(&mut expected,&ring,lane,r[j+1]);put(&mut expected,&rev[..t[j+1].bit_len()],lane,t[j+1]);put(&mut expected,&q,lane,t[j]);put(&mut expected,&sx,lane,N::from(t[j+1].bit_len()as u64));}
++        let got=run(&forward,691,&|words|*words=input.clone());let bad:Vec<_>=got.q.iter().zip(&expected).enumerate().filter_map(|(i,(a,z))|if a!=z{Some(i)}else{None}).collect();assert!(bad.is_empty(),"8048 exact column/payload/scratch seed{seed}; mismatching_wires={bad:?}");assert_eq!(got.phase,0);let back=run(&inverse,691,&|words|*words=got.q.clone());assert_eq!(back.q,input);assert_eq!(back.phase,0);eprintln!("CAP24_PAYLOAD_CASE_PASS seed={seed} lanes=64 exact_oracle=true inverse=true native_phase=0 measurement_coefficients=UNASSESSED");}
++    assert!(max_digit>=N::from(1u64)<<23);eprintln!("CAP24_EXACT8048_COMPONENT_PASS width=692 column=24 euclid_step=25 quotient=8505374 max_payload_digit={max_digit} cases=256 q23_owner=sw wide_firstcolumn_excluded=true scope=one_column_with_payload");
++}
++#[test]
++fn ph_owner_structured_q22_one_column_payload_native(){
++    use super::frogdrop_col::{Fd,ColScr,column_pl};let p=super::frogdrop_sched::p();let dx=N::from_str_radix("36f0fbac70592fc4b0dd50634914a1013ca3dcaa87bc4b1d4f126cb5af53c94f",16).unwrap();let(mut r,mut t)=(vec![p,dx],vec![N::ZERO,N::from(1u64)]);while !r[r.len()-1].is_zero(){let n=r.len();let q=r[n-2]/r[n-1];r.push(r[n-2]-q*r[n-1]);t.push(t[n-2]+q*t[n-1]);}let j=25;assert_eq!(r[j-1]/r[j],N::from(6000000u64));
++    let mut b=builder();let ring=b.alloc_n(274);let q=b.alloc_n(128);let sy=b.alloc_n(8);let sx=b.alloc_n(8);let ph=b.alloc();let pool=b.alloc_n(13);let payload=b.alloc_n(259);assert_eq!(b.width(),691);let rev:Vec<_>=ring.iter().rev().copied().collect();let mut fd=Fd{ring:ring.clone(),q:q.clone(),sy:sy.clone(),sx:sx.clone(),ph,cnt:q[121..].to_vec()};let(cols,_,_)=super::pointadd_frogdrop::col_pars(&super::frogdrop_sched::from_text(super::pointadd_frogdrop::SCHED_FROGDROP));let cp=&cols[24];assert!(cp.hr&&!cp.ht&&!cp.sw&&!cp.dn&&!cp.dl&&!cp.dq&&!cp.psw&&!cp.tt&&cp.sz.1<=255&&cp.sy.1+23<128);let sc=ColScr::carve_col(&pool,&sx,&payload,24,24,40,false);assert!(!sc.sz.contains(&sc.sw));let pl=super::pointadd_frogdrop::pl_col(&payload,&fd,&pool);let record=rec(&mut b,|b|column_pl(b,&mut fd,cp,&sc,Some(&pl)));let forward=emitted(&mut b,&record,false);let inverse=emitted(&mut b,&record,true);let mut max_digit=N::ZERO;
++    for seed in 0..4{let mut input=vec![0u64;691];let mut expected=vec![0u64;691];let mut rng=Rng::new(0x20261014_804800+seed);for lane in 0..64{let dy=match lane{0=>N::ZERO,1=>N::from(1u64),2=>p-N::from(1u64),3=>r[j-1]-N::from(1u64),4=>r[j]-N::from(1u64),_=>rng.below(256)%p};let(mut d,mut w)=(dy,N::ZERO);for k in 1..j{let e=d/r[k];d-=e*r[k];let wpost=w.wrapping_add(e.wrapping_mul(t[k]));w=(r[k-1]/r[k]).wrapping_mul(t[k]).wrapping_add(!wpost);}let e=d/r[j];max_digit=max_digit.max(e);let dnext=d-e*r[j];let wpost=w.wrapping_add(e.wrapping_mul(t[j]));let wnext=(r[j-1]/r[j]).wrapping_mul(t[j]).wrapping_add(!wpost);let pre=258-t[j].bit_len();let post=258-t[j+1].bit_len();for l in 0..259{let ib=if l<pre{d.bit(l)}else{w.bit(258-l)};let ob=if l<post{dnext.bit(l)}else{wnext.bit(258-l)};if ib{input[payload[l].0 as usize]|=1u64<<lane;}if ob{expected[payload[l].0 as usize]|=1u64<<lane;}}put(&mut input,&ring,lane,r[j]);put(&mut input,&rev[..t[j].bit_len()],lane,t[j]);put(&mut input,&q,lane,t[j-1]);put(&mut input,&sy,lane,N::from(t[j].bit_len()as u64));put(&mut expected,&ring,lane,r[j+1]);put(&mut expected,&rev[..t[j+1].bit_len()],lane,t[j+1]);put(&mut expected,&q,lane,t[j]);put(&mut expected,&sx,lane,N::from(t[j+1].bit_len()as u64));}
++        let got=run(&forward,691,&|words|*words=input.clone());let bad:Vec<_>=got.q.iter().zip(&expected).enumerate().filter_map(|(i,(a,z))|if a!=z{Some(i)}else{None}).collect();assert!(bad.is_empty(),"8048 exact column/payload/scratch seed{seed}; mismatching_wires={bad:?}");assert_eq!(got.phase,0);let back=run(&inverse,691,&|words|*words=got.q.clone());assert_eq!(back.q,input);assert_eq!(back.phase,0);eprintln!("PH_OWNER_PAYLOAD_CASE_PASS seed={seed} lanes=64 exact_oracle=true inverse=true native_phase=0 measurement_coefficients=UNASSESSED");}
++    assert!(max_digit>=N::from(1u64)<<22);eprintln!("PH_OWNER_STRUCTURED_COMPONENT_PASS width=692 column=24 euclid_step=25 quotient=6000000 max_payload_digit={max_digit} cases=256 q22_owner=PH q23_owner=sw wide_firstcolumn_excluded=true scope=one_column_with_payload");
++}
++
++
++#[test]
++fn ph_owner_two_qbits_preposition_inverse_dirty_phase(){
++    let mut b=builder();let _ring=b.alloc_n(274);let q=b.alloc_n(128);let sy=b.alloc_n(8);let sx=b.alloc_n(8);let ph=b.alloc();let pool=b.alloc_n(13);let dirty=b.alloc_n(259);let sw=pool[8];let act=pool[12];let mut cycle=q.clone();cycle.push(pool[9]);cycle.extend([pool[11],pool[10],sx[6],sx[7],pool[6],pool[7],ph,sy[7],sw]);let p22=super::midg::preposition_nonlast_qk(&mut b,&cycle,&sy,ph,22,act,(1,104),&dirty);let p23=super::midg::preposition_qk(&mut b,&cycle,&sy,sw,23,act,(1,104),&dirty);let rec=rec(&mut b,|b|{b.play(&p22,false);b.play(&p23,false);});let forward=emitted(&mut b,&rec,false);let inverse=emitted(&mut b,&rec,true);let mut rng=Rng::new(0x20261014_2223);
++    for block in 0..4{let mut input=vec![0u64;691];for &id in &dirty{input[id.0 as usize]=rng.next();}input[ph.0 as usize]=rng.next();input[sw.0 as usize]=rng.next();input[act.0 as usize]=u64::MAX;for lane in 0..64{let size=[1usize,41,97,98,99,104][(lane+block)%6];put(&mut input,&sy,lane,N::from(size as u64));put(&mut input,&q[..size],lane,rng.below(size));}let mut expected=input.clone();expected[ph.0 as usize]=0;expected[sw.0 as usize]=0;for lane in 0..64{let size=get(&input,&sy,lane).as_limbs()[0]as usize;expected[q[size+22].0 as usize]|=(input[ph.0 as usize]>>lane&1)<<lane;expected[q[size+23].0 as usize]|=(input[sw.0 as usize]>>lane&1)<<lane;}let got=run(&forward,691,&|words|*words=input.clone());assert_eq!(got.q,expected);assert_eq!(got.phase,0);let back=run(&inverse,691,&|words|*words=got.q.clone());assert_eq!(back.q,input);assert_eq!(back.phase,0);let(sym,_)=symbolic(&forward,input.clone());assert_eq!(sym,got.q);let(sym,_)=symbolic(&inverse,got.q);assert_eq!(sym,input);}
++    eprintln!("PH_TWO_OWNER_COMPONENT_PASS cases=256 q22_owner=PH q23_owner=sw owners_return=true dirty_passengers=259 inverse=true phase=0 measurement_coefficients=0 scope=preposition_only");
++}
++#[test]
++fn n274_sz_donor_boundaries_inverse_phase(){
++    let mut b=builder();let ring=b.alloc_n(274);let sz=b.alloc_n(9);let sy=b.alloc_n(8);let act=b.alloc();let dirty=b.alloc_n(259);
++    let dest:std::collections::BTreeSet<usize>=(0..45).chain(242..274).collect();
++    let normal=super::midg::normalize_sz_donors(&mut b,&sz,&sy,act,&dirty);
++    let up=super::midg::care_borrowed_sz(&mut b,&ring,&sz,&sy,&dest,false,&dirty);
++    let forward=emitted(&mut b,&up,false);let inverse=emitted(&mut b,&up,true);let nforward=emitted(&mut b,&normal,false);let ninverse=emitted(&mut b,&normal,true);
++    let mut rng=Rng::new(0x20261014_6799);let mut coefficients=0;
++    for block in 0..8 {
++        let mut input:Vec<_>=(0..b.width()).map(|_|rng.next()).collect();input[act.0 as usize]=0;
++        for lane in 0..64 {let syv=[95usize,96,128,129,226,227,0,1][lane%8];let size=[101usize,127,128,160,161,100,160,255][(lane/8+block)%8];let active=(1..=128).contains(&syv)&&(101..=161).contains(&size);put(&mut input,&sz,lane,N::from(size as u64));put(&mut input,&sy,lane,N::from(syv as u64));if active{input[act.0 as usize]|=1u64<<lane;}}
++        let normalized=run(&nforward,input.len(),&|q|*q=input.clone());assert_eq!(normalized.phase,0);
++        for lane in 0..64{let syv=get(&input,&sy,lane).as_limbs()[0]as usize;let active=input[act.0 as usize]>>lane&1!=0;if active&&syv>=96{assert_eq!(normalized.q[sz[6].0 as usize]>>lane&1,0);assert_eq!(normalized.q[sz[7].0 as usize]>>lane&1,0);}else{assert_eq!(normalized.q[sz[6].0 as usize]>>lane&1,input[sz[6].0 as usize]>>lane&1);assert_eq!(normalized.q[sz[7].0 as usize]>>lane&1,input[sz[7].0 as usize]>>lane&1);}}
++        let nback=run(&ninverse,input.len(),&|q|*q=normalized.q.clone());assert_eq!(nback.q,input);assert_eq!(nback.phase,0);
++        let(mut borrowed,borrowed_act)=(normalized.q.clone(),input[act.0 as usize]);let high6=rng.next();let high7=rng.next();let large_active=(0..64).fold(0u64,|mask,lane|{let syv=get(&input,&sy,lane).as_limbs()[0];mask|if borrowed_act>>lane&1!=0&&syv>=96{1u64<<lane}else{0}});borrowed[sz[6].0 as usize]=(borrowed[sz[6].0 as usize]&!large_active)|(high6&large_active);borrowed[sz[7].0 as usize]=(borrowed[sz[7].0 as usize]&!large_active)|(high7&large_active);
++        let got=run(&forward,input.len(),&|q|*q=borrowed.clone());assert_eq!(got.phase,0);
++        for lane in 0..64 {if borrowed_act>>lane&1==0{continue;}let size=get(&input,&sz,lane).as_limbs()[0]as usize;for &index in &dest{assert_eq!(got.q[ring[(index+size)%274].0 as usize]>>lane&1,borrowed[ring[index].0 as usize]>>lane&1,"admitted care mapping with parked high-size data");}}
++        for &id in sz.iter().chain(&sy).chain(&dirty){assert_eq!(got.q[id.0 as usize],borrowed[id.0 as usize]);}
++        let back=run(&inverse,input.len(),&|q|*q=got.q.clone());assert_eq!(back.q,borrowed);assert_eq!(back.phase,0);let(sym,n)=symbolic(&forward,borrowed.clone());assert_eq!(sym,got.q);coefficients+=n;let(sym,n)=symbolic(&inverse,got.q);assert_eq!(sym,borrowed);coefficients+=n;
++    }
++    eprintln!("SZ_DONOR_COMPONENT_PASS cases=512 SY_boundaries=95,96,128 SZ_boundaries=101,127,128,160,161 inactive_aliases=true arbitrary_parked_highbits=true all_wire_inverse=true phase=0 independent_measurement_coefficients={coefficients} scope=normalization_and_care_only");
++}
++#[test]
++fn n274_k32_k24_partition_all_sy_words() {
++    let mut b=builder(); let ring=b.alloc_n(274);let q=b.alloc_n(128);let sy=b.alloc_n(8);let sx=b.alloc_n(8);let _ph=b.alloc();let pool=b.alloc_n(13);let dirty=b.alloc_n(259);assert_eq!(b.width(),691);
++    let mut r25=ring[..17].to_vec();r25.extend(&sx[1..6]);r25.push(ring[273]);
++    let mut r32=r25.clone();r32.extend(&q[119..128]);
++    let base=S1{r:r25.clone(),f:sx[0],zero:ring[16],sgn:sx[0],gt:vec![sx[0]],anc:vec![],andc:vec![],chain:vec![],dirty:dirty.clone()};
++    let wide=S1{r:r32.clone(),..base.clone()};let win=ring[16..17+TC].to_vec();
++    let f25=super::midg::stage1_v_compact_partitioned(&mut b,&ring[251..274],&win,&pool[..8],(65,256),&base,pool[12],true,&sy,false);
++    let r25rec=super::midg::stage1_v_compact(&mut b,&ring[251..274],&win,&pool[..8],(65,256),&base,pool[12],false);
++    let f32=super::midg::stage1_v_compact_partitioned(&mut b,&ring[242..274],&win,&pool[..8],(65,256),&wide,pool[12],true,&sy,true);
++    let r32rec=super::midg::stage1_v_compact(&mut b,&ring[242..274],&win,&pool[..8],(65,256),&wide,pool[12],false);
++    let record=rec(&mut b,|b|{b.x(ring[273]);b.play(&f25,false);b.play(&r25rec,true);b.play(&f32,false);b.play(&r32rec,true);b.x(ring[273]);});
++    let forward=emitted(&mut b,&record,false);let inverse=emitted(&mut b,&record,true);let mut rng=Rng::new(0x20261014_3298);let mut coefficients=0;
++    for block in 0..4 {
++        let mut input:Vec<_>=(0..691).map(|_|rng.next()).collect();input[sx[0].0 as usize]=0;input[pool[12].0 as usize]=0;
++        for lane in 0..64 {let size=block*64+lane;put(&mut input,&sy,lane,N::from(size as u64));let active=(1..=128).contains(&size);if active{input[pool[12].0 as usize]|=1u64<<lane;for &id in &base.r{input[id.0 as usize]&=!(1u64<<lane);}input[ring[273].0 as usize]|=1u64<<lane;if size<=95{for &id in &q[119..128]{input[id.0 as usize]&=!(1u64<<lane);}}}put(&mut input,&pool[..8],lane,N::from(if active && size>=96 {[101usize,127,128,160,161][lane%5]}else{[65usize,101,128,230,231,232,255,256][lane%8]}as u64));}
++        let mut expected=input.clone();
++        for lane in 0..64 {let syvalue=block*64+lane;if !(1..=128).contains(&syvalue){continue;}let size=get(&input,&pool[..8],lane).as_limbs()[0]as usize;let k=if syvalue<=95{32}else{23};let divisor=get(&input,&ring[274-k..274],lane)|N::from(1u64);let dividend=(N::from(1u64)<<(256+k-size))-N::from(1u64);let f=dividend/divisor;let u=257usize.saturating_sub(size+TC);let top=N::from(1u64)<<(257-size);let delta=top-(((f>>u)+N::from(1u64))<<u);let mut w=N::ZERO;for i in 1..=TC{let pos=257isize-size as isize-i as isize;if pos>=0&&input[ring[16+i].0 as usize]>>lane&1!=0{w|=N::from(1u64)<<pos as usize;}}w=(w+delta)&(top-N::from(1u64));for i in 1..=TC{let pos=257isize-size as isize-i as isize;if pos>=0{let id=ring[16+i].0 as usize;expected[id]=(expected[id]&!(1u64<<lane))|((w.bit(pos as usize)as u64)<<lane);}}}
++        let got=run(&forward,691,&|words|*words=input.clone());assert_eq!(got.q,expected,"full SY partition; inactive high aliases and counter loans");assert_eq!(got.phase,0);let(sym,n)=symbolic(&forward,input.clone());assert_eq!(sym,got.q);coefficients+=n;
++        let back=run(&inverse,691,&|words|*words=got.q.clone());assert_eq!(back.q,input);assert_eq!(back.phase,0);let(sym,n)=symbolic(&inverse,got.q);assert_eq!(sym,input);coefficients+=n;
++    }
++    eprintln!("K32_PARTITION_PASS full_SY_words=256 active=1..128 inactive_high_aliases=true boundaries=95,96,128 all_wires=true inverse=true phase=0 independent_measurement_coefficients={coefficients} scope=V_partition_only");
++}
++
++
++#[test]
++fn n274_v2_full_column_new_boundaries_native(){
++    use super::frogdrop_col::{Fd,ColScr,column_pl};
++    let cases=&[("HR_SY95",36,["34a9c56e2f6be43891df19ef7fe5778d8da03884d","4354040b7d4786c36dc22da4","6c74c464d3514de7a508397"],95,0,0,["2df0114efae41ced0fa1611c962f251b8a18cafc","4a1b5051ca7c9ba1e812b13b","4354040b7d4786c36dc22da4"],95,0,0),("HR_SY96",64,["9c39001da8c230ea393e3ae10aa51ed38e14d202","f56b955308809b2f803dea5f","6c339d7624d6c332d5c20a00"],96,0,0,["29eff002acdc7a7132785192767ec8d61b90a22f","1619f32c92d575e6255fff45f","f56b955308809b2f803dea5f"],97,0,0),("HT_SY95",110,["11535d59b9a14c13ee96185e2d2ff671feb79d086","6bb1569d74c96d45ef513f85","8614f17ade947cdac00d520c"],95,1,0,["21c9e5255b374e5f19b21b5b42767f59b14151201","1a639add69cb0f94d0bc1287","6bb1569d74c96d45ef513f85"],93,1,0),("HT_SY96",108,["dcd58e180b49c8c37a156117e96d8a4c2de8f0b","f1c64818535dea20af5e9191","1277cc4b490e8cdd47c4121fcf"],96,1,0,["107687cba196024b2b1c02fd154688e7b289b417b","8614f17ade947cdac00d520c","f1c64818535dea20af5e9191"],96,1,0),("mixed_q21_shot1170",35,["a73f25333f56020b6ac70113ba377efc65a521b6eb","b95d8a2fca3706cd8","8e4ffd864049a811d"],68,0,0,["9dee590c20d298cf366ace17261476e9754aa54359","187da29bb20aa8d1b197f85","b95d8a2fca3706cd8"],89,0,0),("wide_first_column",0,["87e5bdee4c8d08adbaf93ca428d81ec57ffbcbad2a6735b67933668d83472fca","1","0"],1,0,0,["781a4211b372f7524506c35bd727e13a80043452d598ca4986cc99717cb8cc65","1","1"],1,0,0),("HR_SY102",51,["21dbb4893bd3f0c12ffde77e4096355f10f2a69","38a428efa79d0e4ca968c8a184","2d3d8a87405ffbd96ed6b7f63"],102,0,0,["2e87c1031aed1627d5a0bcce5e4b02998518f3","741c2a87c3401c56e9befcc26b","38a428efa79d0e4ca968c8a184"],103,0,0),("HR_SY115",50,["81f3e49ac1a7428c8ad0711109098e9258a","6c1c66c3cc042b89c36f16ea038c5","131f519c841cefd8463557fcc7985"],115,0,0,["3f654813136abbcbadcd64de07a99f12b31","1c390ecabb42d9dff53f1b3a4d5c99","6c1c66c3cc042b89c36f16ea038c5"],117,0,0),("HR_SY116",60,["b8198f2788f31d52b169ef0c7a1f196b502","f73ca11ae6d4b79d74d1d6e86f28d","50cebb81ef59a5b0141ac5d8a1bbc"],116,0,0,["14cd6008abc83e62b1a25ebbc7998da9451","1480b5c9cd62e5d4d88ec9cc110e49","f73ca11ae6d4b79d74d1d6e86f28d"],117,0,0),("HR_SY117",79,["b7e4f1b8a04583913a6b201fd8f5b405a95","13e80fa8ebb9e3a160ed7d2c1f9a83","1b0005a64e81ab0bf9aa0bb0a00d1"],117,0,0,["6475a16966c35d7222aca43f4cc3313c99","1598100350a1fe5220881de7299b54","13e80fa8ebb9e3a160ed7d2c1f9a83"],117,0,0),("HR_SY118",52,["32954749ad1caf52f35a754f9b6506cf28","3f33e401b345f67886b527e33af1f7","1c390ecabb42d9dff53f1b3a4d5c99"],118,0,0,["2aaef6fb06e0a3fd9c523a856b568fc11","50c46deecbcba1b4a7b6638fae843e5","3f33e401b345f67886b527e33af1f7"],123,0,0),("HR_SY119",78,["1424c1762e9c255c5d7c18322de67ebbf07","6a3938246b4e7c8352ca28a49f1c02","71672de86f094b858a5555d5cdd21"],119,0,0,["1112932474ab3487b57ef86b5481e14f19d","714fab02f23f113bab6f7e01fbf923","6a3938246b4e7c8352ca28a49f1c02"],119,0,0),("HT_SY102",73,["263b51c2aa43b7f69a47b06417e35cabd4ff197","25bf927358a3baf52403f3085f","542b11ab0569e8b90876f1b5f0"],102,1,0,["63b9b9b9effb7067433679b5dd99ef17f29f7ef","8abecc4542272cec06f0ba532","25bf927358a3baf52403f3085f"],100,1,0),("HT_SY115",96,["faa99fd21cc54d16bbdb083d2c652d2c1c9","557d4e4d3c06817101d5a7589d7fe","ef121d5bfdbea10e52d84258d5a47"],115,1,0,["236f237e312583777569f566777459f499da","441780c185b19e2c4f2cf3a79aa4b","557d4e4d3c06817101d5a7589d7fe"],115,1,0),("HT_SY116",95,["419ef83ed8cd9d49dee945ed1e7b44f1648","ef121d5bfdbea10e52d84258d5a47","322b3a6613542649bfa5e6e631e6d3"],116,1,0,["faa99fd21cc54d16bbdb083d2c652d2c1c9","557d4e4d3c06817101d5a7589d7fe","ef121d5bfdbea10e52d84258d5a47"],115,1,0),("HT_SY117",62,["443f200633940410dcd8930acc7d6c41221","12754a9865648006878cd812c615ba","3a8c2f1cc3fd776a967adc47285421"],117,1,0,["d22cd3e00f34a3c8bbab417bf9ceede2a46","32c4f5393cff756ffd4540ed612f3","12754a9865648006878cd812c615ba"],114,1,0),("HT_SY118",94,["35ccb715925c75391f1f3675d0f35e57ef1","322b3a6613542649bfa5e6e631e6d3","411c5c3bd330105aa4d36b0bbf411a"],118,1,0,["419ef83ed8cd9d49dee945ed1e7b44f1648","ef121d5bfdbea10e52d84258d5a47","322b3a6613542649bfa5e6e631e6d3"],116,1,0),("HT_SY119",93,["bd2412946712810bfca0f774d87e699757","411c5c3bd330105aa4d36b0bbf411a","1369cab55601467b452f393152eeb3b"],119,1,0,["35ccb715925c75391f1f3675d0f35e57ef1","322b3a6613542649bfa5e6e631e6d3","411c5c3bd330105aa4d36b0bbf411a"],118,1,0),("HT_SY128",88,["b120a46a743de1efee755ec543f5b2f7","b588137db2d0614fc8872b9f7b326f98","ec7d0911aa2367d09fe7cc8f2795f039"],128,1,0,["13364bf741db1e695763c8f8febc58279","36f4f593f7530680d760a0efac6380a1","b588137db2d0614fc8872b9f7b326f98"],126,1,0)];let (cols,_,_)=super::pointadd_frogdrop::col_pars(&super::frogdrop_sched::from_text(super::pointadd_frogdrop::SCHED_FROGDROP));
++    for &(label,ci,values,size,phase,switch,outvalues,outsize,outphase,outswitch)in cases{
++        let mut b=builder();let ring=b.alloc_n(274);let q=b.alloc_n(128);let sy=b.alloc_n(8);let sx=b.alloc_n(8);let ph=b.alloc();let pool=b.alloc_n(13);let dirty=b.alloc_n(259);let rev:Vec<_>=ring.iter().rev().copied().collect();let mut fd=Fd{ring:ring.clone(),q:q.clone(),sy:sy.clone(),sx:sx.clone(),ph,cnt:q[121..].to_vec()};let cp=&cols[ci];let sc=ColScr::carve_col(&pool,&sx,&dirty,24,23,40,cp.sz.1>255);
++        let parse=|s:&str|N::from_str_radix(s,16).unwrap();let mut input=vec![0u64;691];let mut rng=Rng::new(0x20261014_1234+ci as u64);for &id in &dirty{input[id.0 as usize]=rng.next();}
++        for lane in 0..64{put(&mut input,&ring,lane,parse(values[0]));put(&mut input,&rev[..parse(values[1]).bit_len()],lane,parse(values[1]));put(&mut input,&q,lane,parse(values[2]));put(&mut input,&sy,lane,N::from(size as u64));}input[ph.0 as usize]=if phase!=0{u64::MAX}else{0};input[sc.sw.0 as usize]=if switch!=0{u64::MAX}else{0};
++        let mut expected=input.clone();for &id in &ring{expected[id.0 as usize]=0;}for lane in 0..64{put(&mut expected,&ring,lane,parse(outvalues[0]));put(&mut expected,&rev[..parse(outvalues[1]).bit_len()],lane,parse(outvalues[1]));put(&mut expected,&q,lane,parse(outvalues[2]));put(&mut expected,&sy,lane,N::ZERO);put(&mut expected,&sx,lane,N::from(outsize as u64));}expected[ph.0 as usize]=if outphase!=0{u64::MAX}else{0};expected[sc.sw.0 as usize]=if outswitch!=0{u64::MAX}else{0};
++        let record=rec(&mut b,|b|column_pl(b,&mut fd,cp,&sc,None));let forward=emitted(&mut b,&record,false);let inverse=emitted(&mut b,&record,true);let got=run(&forward,691,&|words|*words=input.clone());assert_eq!(got.q,expected,"case {label} col{ci} exact Euclid shadow plus all scratch/passengers");assert_eq!(got.phase,0,"case {label}");let back=run(&inverse,691,&|words|*words=got.q.clone());assert_eq!(back.q,input,"case {label} inverse");assert_eq!(back.phase,0);eprintln!("N275_NEW_BOUNDARY_CASE_PASS label={label} column={ci} width=691 lanes=64 payload=false measurement_coefficients=UNASSESSED");
++    }
++    eprintln!("N275_NEW_BOUNDARY_SUITE_PASS columns={} lanes={} measurement_coefficients=UNASSESSED scope=full_columns_no_payload",cases.len(),cases.len()*64);
++}
++
++
++#[test]
++fn headflag_f_zero_each_iteration_active_inactive_dirty() {
++    let mut b=builder(); let ring=b.alloc_n(274);let q=b.alloc_n(128);let sy=b.alloc_n(8);let sx=b.alloc_n(8);let _ph=b.alloc();let pool=b.alloc_n(13);let dirty=b.alloc_n(259);assert_eq!(b.width(),691);
++    let probes=b.alloc_n(2*TC);let width=b.width()as usize;
++    super::midg::HF_CALL.with(|cell|cell.set(0));
++    super::midg::HF_PROBES.with(|bank|*bank.borrow_mut()=probes.clone());
++    struct Clear;impl Drop for Clear{fn drop(&mut self){super::midg::HF_PROBES.with(|bank|bank.borrow_mut().clear());super::midg::HF_FAULT_PROBE.with(|cell|cell.set(None));super::midg::HF_FAULT_SELECTOR.with(|cell|cell.set(None));}}
++    let _clear=Clear;
++    let mut r25=ring[..17].to_vec();r25.extend(&sx[1..6]);r25.push(ring[273]);
++    let mut r32=r25.clone();r32.extend(&q[119..128]);
++    let base=S1{r:r25.clone(),f:sx[0],zero:ring[16],sgn:sx[0],gt:vec![sx[0]],anc:vec![],andc:vec![],chain:vec![],dirty:dirty.clone()};
++    let wide=S1{r:r32.clone(),..base.clone()};let win=ring[16..17+TC].to_vec();
++    let f25=super::midg::stage1_v_compact_partitioned(&mut b,&ring[251..274],&win,&pool[..8],(65,256),&base,pool[12],true,&sy,false);
++    let r25rec=super::midg::stage1_v_compact(&mut b,&ring[251..274],&win,&pool[..8],(65,256),&base,pool[12],false);
++    let f32=super::midg::stage1_v_compact_partitioned(&mut b,&ring[242..274],&win,&pool[..8],(65,256),&wide,pool[12],true,&sy,true);
++    let r32rec=super::midg::stage1_v_compact(&mut b,&ring[242..274],&win,&pool[..8],(65,256),&wide,pool[12],false);
++    let record=rec(&mut b,|b|{b.x(ring[273]);b.play(&f25,false);b.play(&r25rec,true);b.play(&f32,false);b.play(&r32rec,true);b.x(ring[273]);});
++    let forward=emitted(&mut b,&record,false);let inverse=emitted(&mut b,&record,true);let mut rng=Rng::new(0x20261014_3298);let mut coefficients=0;
++    for block in 0..4 {
++        let mut input:Vec<_>=(0..width).map(|_|rng.next()).collect();input[sx[0].0 as usize]=0;for &probe in &probes{input[probe.0 as usize]=0;}input[pool[12].0 as usize]=0;
++        for lane in 0..64 {let size=block*64+lane;put(&mut input,&sy,lane,N::from(size as u64));let active=(1..=128).contains(&size);if active{input[pool[12].0 as usize]|=1u64<<lane;for &id in &base.r{input[id.0 as usize]&=!(1u64<<lane);}input[ring[273].0 as usize]|=1u64<<lane;if size<=95{for &id in &q[119..128]{input[id.0 as usize]&=!(1u64<<lane);}}}put(&mut input,&pool[..8],lane,N::from(if active && size>=96 {[101usize,127,128,160,161][lane%5]}else{[65usize,101,128,230,231,232,255,256][lane%8]}as u64));}
++        let mut expected=input.clone();
++        for lane in 0..64 {let syvalue=block*64+lane;if !(1..=128).contains(&syvalue){continue;}let size=get(&input,&pool[..8],lane).as_limbs()[0]as usize;let k=if syvalue<=95{32}else{23};let divisor=get(&input,&ring[274-k..274],lane)|N::from(1u64);let dividend=(N::from(1u64)<<(256+k-size))-N::from(1u64);let f=dividend/divisor;let u=257usize.saturating_sub(size+TC);let top=N::from(1u64)<<(257-size);let delta=top-(((f>>u)+N::from(1u64))<<u);let mut w=N::ZERO;for i in 1..=TC{let pos=257isize-size as isize-i as isize;if pos>=0&&input[ring[16+i].0 as usize]>>lane&1!=0{w|=N::from(1u64)<<pos as usize;}}w=(w+delta)&(top-N::from(1u64));for i in 1..=TC{let pos=257isize-size as isize-i as isize;if pos>=0{let id=ring[16+i].0 as usize;expected[id]=(expected[id]&!(1u64<<lane))|((w.bit(pos as usize)as u64)<<lane);}}}
++        let got=run(&forward,width,&|words|*words=input.clone());assert_eq!(got.q,expected,"full SY partition; inactive high aliases and counter loans");assert_eq!(got.phase,0);let(sym,n)=symbolic(&forward,input.clone());assert_eq!(sym,got.q);coefficients+=n;
++        let back=run(&inverse,width,&|words|*words=got.q.clone());assert_eq!(back.q,input);assert_eq!(back.phase,0);let(sym,n)=symbolic(&inverse,got.q);assert_eq!(sym,input);coefficients+=n;
++    }
++    eprintln!("HEADFLAG_EACH_ITERATION_ZERO_PASS full_SY_words=256 active=1..128 inactive_high_aliases=true boundaries=95,96,128 all_wires=true inverse=true phase=0 independent_measurement_coefficients={coefficients} scope=V_partition_only");
++}
++
++
++
++
++#[test]
++#[should_panic(expected="full SY partition")]
++fn headflag_probe_self_fault_is_detected(){
++    super::midg::HF_FAULT_PROBE.with(|cell|cell.set(Some(4)));
++    headflag_f_zero_each_iteration_active_inactive_dirty();
++}
++
++#[test]
++#[should_panic(expected="full SY partition")]
++fn headflag_selector_self_fault_is_detected(){
++    struct Clear;impl Drop for Clear{fn drop(&mut self){super::midg::HF_FAULT_SELECTOR.with(|cell|cell.set(None));}}
++    let _clear=Clear;
++    super::midg::HF_FAULT_SELECTOR.with(|cell|cell.set(Some(4)));
++    n274_k32_k24_partition_all_sy_words();
++}
++
++#[test]
++fn n274_q21_counterexample1170_payload_native(){
++    use super::frogdrop_col::{Fd,ColScr,column_pl};let p=super::frogdrop_sched::p();let dx=N::from_str_radix("e1a14a46e6340fd02bde43002b9b85d32649195df078b8aa7efe88ce0964f802",16).unwrap();let(mut r,mut t)=(vec![p,dx],vec![N::ZERO,N::from(1u64)]);while !r[r.len()-1].is_zero(){let n=r.len();let q=r[n-2]/r[n-1];r.push(r[n-2]-q*r[n-1]);t.push(t[n-2]+q*t[n-1]);}let j=36;assert_eq!(r[j-1]/r[j],N::from(2216631u64));
++    let mut b=builder();let ring=b.alloc_n(274);let q=b.alloc_n(128);let sy=b.alloc_n(8);let sx=b.alloc_n(8);let ph=b.alloc();let pool=b.alloc_n(13);let payload=b.alloc_n(259);assert_eq!(b.width(),691);let rev:Vec<_>=ring.iter().rev().copied().collect();let mut fd=Fd{ring:ring.clone(),q:q.clone(),sy:sy.clone(),sx:sx.clone(),ph,cnt:q[121..].to_vec()};let(cols,_,_)=super::pointadd_frogdrop::col_pars(&super::frogdrop_sched::from_text(super::pointadd_frogdrop::SCHED_FROGDROP));let cp=&cols[35];assert!(cp.hr&&!cp.ht&&!cp.sw&&!cp.dn&&!cp.dl&&!cp.dq&&!cp.psw&&!cp.tt&&cp.sz.1<=255&&cp.sy.1+23>=128);let sc=ColScr::carve_col(&pool,&sx,&payload,24,22,40,false);assert!(!sc.sz.contains(&sc.sw));let pl=super::pointadd_frogdrop::pl_col(&payload,&fd,&pool);let record=rec(&mut b,|b|column_pl(b,&mut fd,cp,&sc,Some(&pl)));let forward=emitted(&mut b,&record,false);let inverse=emitted(&mut b,&record,true);let mut max_digit=N::ZERO;
++    for seed in 0..4{let mut input=vec![0u64;691];let mut expected=vec![0u64;691];let mut rng=Rng::new(0x20261014_117000+seed);for lane in 0..64{let dy=match lane{0=>N::ZERO,1=>N::from(1u64),2=>p-N::from(1u64),3=>r[j-1]-N::from(1u64),4=>r[j]-N::from(1u64),_=>rng.below(256)%p};let(mut d,mut w)=(dy,N::ZERO);for k in 1..j{let e=d/r[k];d-=e*r[k];let wpost=w.wrapping_add(e.wrapping_mul(t[k]));w=(r[k-1]/r[k]).wrapping_mul(t[k]).wrapping_add(!wpost);}let e=d/r[j];max_digit=max_digit.max(e);let dnext=d-e*r[j];let wpost=w.wrapping_add(e.wrapping_mul(t[j]));let wnext=(r[j-1]/r[j]).wrapping_mul(t[j]).wrapping_add(!wpost);let pre=258-t[j].bit_len();let post=258-t[j+1].bit_len();for l in 0..259{let ib=if l<pre{d.bit(l)}else{w.bit(258-l)};let ob=if l<post{dnext.bit(l)}else{wnext.bit(258-l)};if ib{input[payload[l].0 as usize]|=1u64<<lane;}if ob{expected[payload[l].0 as usize]|=1u64<<lane;}}put(&mut input,&ring,lane,r[j]);put(&mut input,&rev[..t[j].bit_len()],lane,t[j]);put(&mut input,&q,lane,t[j-1]);put(&mut input,&sy,lane,N::from(t[j].bit_len()as u64));put(&mut expected,&ring,lane,r[j+1]);put(&mut expected,&rev[..t[j+1].bit_len()],lane,t[j+1]);put(&mut expected,&q,lane,t[j]);put(&mut expected,&sx,lane,N::from(t[j+1].bit_len()as u64));}
++        let got=run(&forward,691,&|words|*words=input.clone());let bad:Vec<_>=got.q.iter().zip(&expected).enumerate().filter_map(|(i,(a,z))|if a!=z{Some(i)}else{None}).collect();assert!(bad.is_empty(),"1170 exact column/payload/scratch seed{seed}; mismatching_wires={bad:?}");assert_eq!(got.phase,0);let back=run(&inverse,691,&|words|*words=got.q.clone());assert_eq!(back.q,input);assert_eq!(back.phase,0);eprintln!("Q21_SX6_PAYLOAD_CASE_PASS seed={seed} lanes=64 exact_oracle=true inverse=true native_phase=0 measurement_coefficients=UNASSESSED");}
++    assert!(max_digit>=N::from(1u64)<<21);eprintln!("Q21_SX6_EXACT1170_COMPONENT_PASS width=691 column=35 euclid_step=36 quotient=2216631 max_payload_digit={max_digit} cases=256 q21_owner=SX6 wide_firstcolumn_excluded=true scope=one_column_with_payload");
++}
++
++
++#[test]
++fn n274_q21_owned_preposition_dirty_inverse_phase(){
++    let mut total=0;let mut coefficients=0;
++    for mode in 0..3 {
++        let mut b=builder();let ring=b.alloc_n(274);let q=b.alloc_n(128);let sy=b.alloc_n(8);let sx=b.alloc_n(8);let ph=b.alloc();let pool=b.alloc_n(13);let dirty=b.alloc_n(259);assert_eq!(b.width(),691);
++        let control=if mode==1{pool[8]}else{pool[12]};let mut cycle=q.clone();cycle.push(pool[9]);
++        cycle.extend([pool[11],pool[10],sx[7],pool[6],pool[7],ph]);
++        if mode==1{cycle.extend([pool[12],sx[1]]);}else{cycle.extend([pool[8],sy[7]]);}
++        cycle.push(sx[6]);assert_eq!(cycle.len(),138);assert!(!cycle.contains(&control));
++        let first=if mode==1{rec(&mut b,|b|{for range in [(1,101),(103,128)]{let p=super::midg::preposition_owned_qk(b,&cycle,&sy,sx[1],16,control,range,&dirty);b.play(&p,false);}})}else{vec![]};
++        let pre21=super::midg::preposition_nonlast_qk(&mut b,&cycle,if mode==1{&sy}else{&sy[..7]},q[118],21,control,(1,116),&dirty);
++        let last=if mode==1{super::midg::preposition_owned_qk(&mut b,&cycle,&sy,sx[1],16,control,(102,102),&dirty)}else{vec![]};let pre22=if mode==2{super::midg::preposition_nonlast_qk(&mut b,&cycle,&sy,ph,22,control,(1,104),&dirty)}else{vec![]};
++        let pre23=if mode==2{super::midg::preposition_nonlast_qk(&mut b,&cycle,&sy,pool[8],23,control,(1,104),&dirty)}else{vec![]};
++        let record=rec(&mut b,|b|{b.play(&first,false);b.play(&pre21,false);b.play(&last,false);b.play(&pre22,false);b.play(&pre23,false);});let forward=emitted(&mut b,&record,false);let inverse=emitted(&mut b,&record,true);
++        let mut rng=Rng::new(0x20261014_210016+mode as u64);
++        for pattern in 0..8{for block in 0..4{
++            let mut input:Vec<_>=(0..691).map(|_|rng.next()).collect();input[control.0 as usize]=0;let mut expected=input.clone();
++            for lane in 0..64{let size=block*64+lane;put(&mut input,&sy,lane,N::from(size as u64));let active=(1..=if mode==2{104}else{128}).contains(&size);if !active{continue;}let mask=1u64<<lane;input[control.0 as usize]|=mask;
++                for &wire in &cycle{input[wire.0 as usize]&=!mask;}
++                // Restore the size register after clearing its borrowed high bit.
++                put(&mut input,&sy,lane,N::from(if mode==1{size}else{size&127}as u64));
++                for i in 0..size.min(128){if (i+lane)%3!=0{input[q[i].0 as usize]|=mask;}}
++                if mode==1&&size<=121&&pattern&1!=0{input[sx[1].0 as usize]|=mask;}
++                if size<=116&&pattern&2!=0{input[q[118].0 as usize]|=mask;}
++                if mode==2&&pattern&1!=0{input[ph.0 as usize]|=mask;}
++                if mode==2&&pattern&4!=0{input[pool[8].0 as usize]|=mask;}
++            }
++            expected.clone_from(&input);
++            for lane in 0..64{let size=block*64+lane;if input[control.0 as usize]>>lane&1==0{continue;}let mut swap=|owner:QubitId,index:usize|{if index>=cycle.len()||cycle[index]==owner{return;}let a=owner.0 as usize;let z=cycle[index].0 as usize;let delta=((expected[a]^expected[z])>>lane)&1;expected[a]^=delta<<lane;expected[z]^=delta<<lane;};
++                if mode==1&&size!=102{swap(sx[1],size+16);}if size<=116{swap(q[118],size+21);}if mode==1&&size==102{swap(sx[1],size+16);}if mode==2{swap(ph,size+22);swap(pool[8],size+23);}
++            }
++            let got=run(&forward,691,&|words|*words=input.clone());assert_eq!(got.q,expected,"q21 prepared; normalized A/B target ownership, inactive dirty aliases");assert_eq!(got.phase,0);let(sym,n)=symbolic(&forward,input.clone());assert_eq!(sym,got.q);coefficients+=n;let back=run(&inverse,691,&|words|*words=got.q.clone());assert_eq!(back.q,input);assert_eq!(back.phase,0);let(sym,n)=symbolic(&inverse,got.q);assert_eq!(sym,input);coefficients+=n;total+=64;
++        }}
++    }
++    eprintln!("Q21_Q118_OWNER_PASS cases={total} modes=A,B,pure24 full_SY_words=256 admitted_q21_SY_max=116 admitted_q16_SY_max=121 inactive_arbitrary=true all_wire_inverse=true phase=0 measurement_coefficients={coefficients} width=691 boundaries=97,102,115,116,117,118,119 scope=normalized_preposition_only");
++}
++
++
++#[test]
++fn n274_q118_masked_add_all_sy_dirty_inverse_phase(){
++    let mut total=0;
++    for kb in [0usize,6,21]{
++        let mut b=builder();let ring=b.alloc_n(274);let q=b.alloc_n(128);let sy=b.alloc_n(8);let sx=b.alloc_n(8);let ph=b.alloc();let pool=b.alloc_n(13);let dirty=b.alloc_n(259);assert_eq!(b.width(),691);
++        let record=rec(&mut b,|b|super::midg::q118_cadd(b,&ring,&q,&sy,kb,129,ph,false,&[pool[10]],pool[11],pool[9],&dirty,128,128,sx[0]));
++        let forward=emitted(&mut b,&record,false);let inverse=emitted(&mut b,&record,true);let ladder:Vec<_>=(kb..kb+129).map(|i|ring[273-i]).collect();let mut rng=Rng::new(0x20261014_1180+kb as u64);
++        for block in 0..4{
++            let mut input:Vec<_>=(0..691).map(|_|rng.next()).collect();for id in [ph,pool[10],pool[11],pool[9],sx[0]]{input[id.0 as usize]=0;}let mut expected=input.clone();let mut values=vec![];
++            for lane in 0..64{let size=block*64+lane;put(&mut input,&sy,lane,N::from(size as u64));let active=(1..=128).contains(&size);let mut y=get(&input,&q,lane);
++                if active{y&=(N::from(1u64)<<size)-N::from(1u64);y|=N::from(1u64)<<(size-1);put(&mut input,&q,lane,y);if size<=116 && lane%2==0{input[q[118].0 as usize]|=1u64<<lane;}input[ph.0 as usize]|=1u64<<lane;}
++                values.push((y,active));
++            }
++            expected.clone_from(&input);let mask=(N::from(1u64)<<129)-N::from(1u64);
++            for (lane,(y,active))in values.iter().enumerate(){if *active{let value=(get(&input,&ladder,lane)+*y)&mask;put(&mut expected,&ladder,lane,value);}}
++            let got=run(&forward,691,&|w|*w=input.clone());assert_eq!(got.q,expected,"Q118 masked add kb{kb} block{block}; exact fullSY inclinactive dirtyowner");assert_eq!(got.phase,0);
++            let back=run(&inverse,691,&|w|*w=got.q.clone());assert_eq!(back.q,input);assert_eq!(back.phase,0);total+=64;
++        }
++    }
++    eprintln!("Q118_MASKED_ADD_PASS cases={total} full_SY_words=256 boundaries=116,117,118,119,128,255 inactive_dirty_owner=true all_wires_inverse=true phase=0 scope=source_bound_arithmetic_component");
++}

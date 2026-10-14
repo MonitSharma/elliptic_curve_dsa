@@ -1,15 +1,20 @@
 # N274 fixed predictive proposal and map-owner budget
 
-Status: ideal-integer screen passes; physical lifetimes and source prototype
-remain unproved. No generated width, scored resource or passing point-addition
+Status: ideal-integer screen passes; three physical prototype failures are
+preserved. The Q118-owner V4 repair passed18 native tests and15 independent
+all-measurement tests (378 audits) on fixed component inputs. Full-stream
+generation is running; no official evaluation of this source has launched.
+See `N274_COMPONENTS.md` for frozen versions and ownership evidence.
+No generated width, scored resource or passing point-addition
 record is claimed. The frozen N275-v2 official evaluation and headflag-v1
 generation are independent ongoing jobs.
 
 Critical unresolved quotient owner: K15 puts q16..20 in SX1..5. Mixed cap22
-also needs q21, whose sixth physical owner is unproved. PH q22 and SW q23
+also needs q21. Its V4 Q118 owner passed the component gate. PH q22 and SW q23
 are proved only under the strict pure-HR guard. SX6/7 already belong to the
-crossing reserve. No physical source mutation proceeds until a complete
-q21 preposition/care/parking lifetime is established. Observed absence of
+crossing reserve; SX6 is also the live search flag ak and cannot retain q21.
+The second prototype loans Q118 and masks every source/carry read.
+Observed absence of
 mixed q21 inputs would not justify reducing the admitted quotient cap.
 
 The fixed proposal uses N274/K15, R32 for SY1..95 with nine Q119..127 loans,
@@ -75,4 +80,6 @@ Before generation, the source prototype needs full-SY reciprocal checks,
 SZ161 and inactive donor checks, ordinary/switch map components, all tight
 counter-parking columns and the four-owner B0 replay, inherited column and
 payload oracles, fault tests, and independent all-measurement phase proofs.
-No physical prototype has been launched at this report's creation.
+The failed SX6/Q118 source versions and passing V4 components remain separate
+experiments. Full generation of V4 is pending, and no N274 source has a
+complete official benchmark result.

@@ -1,0 +1,17 @@
+{
+  "status": "INVALID_ANALYSIS_CLASSICAL_ABI_INPUTS_UNINITIALIZED",
+  "pid": 2639221,
+  "exit": 0,
+  "qualified_score": null,
+  "scope": "Initial scan mistakenly read classical inputs from Register(kind1) rather than AppendToRegister(kind2), treating arbitrary classical offset inputs as zero. All identity counts invalid and discarded; the failed source/log/output are retained. Five scalar tests cover state algebra but missed input declaration collection. Version2 adds declaration regression before rerun.",
+  "stream_sha256": "49b35cf7640ebd529d76894eb8bef93ebf57e7e970fe14b3c27c8c5feb6e73e4",
+  "log_sha256": "4cac81e22f24e9dfce600ed56e6f563c845f4d541db80f4956bc4702b15bdcd5",
+  "source_sha256": {
+    "analyze-symbolic-controls.py": "c20352fad0a50d6d09021c5217241f3c50fd2c61d9720dd1b5cb8060c60c6f14",
+    "server-symbolic-controls.sh": "6c6187ced354c42d5c6a87034d7d05c13e83556744d059f96120f056f52a08d1",
+    "test_symbolic_controls.py": "7da153bfa0f415bf2174401399df46ca3dabb3aa1beab983d7bf4362940f7270"
+  },
+  "original_analysis_sha256": "3a49b01463f84385dc132c11d2d864dd069a33857b54cb82c429880f7a712977",
+  "original_analysis_archive": "symbolic-controls-invalid-v1/analysis-original.json",
+  "annotated_analysis_sha256": "41c0e3701e046d5aa866efec9a6f4f2cb23274f7ae1911e41d90e569df27a409"
+}

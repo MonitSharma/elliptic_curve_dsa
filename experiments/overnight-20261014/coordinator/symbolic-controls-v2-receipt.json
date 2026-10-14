@@ -1,0 +1,28 @@
+{
+  "status": "COMPLETED_DIAGNOSTIC_STANDALONE_CLOSED",
+  "pid": 2642788,
+  "exit": 0,
+  "qualified_score": null,
+  "tests_passed": 6,
+  "independent_test_scope": "Exhaustive3quantum+2classicalinputs andup to3Hmr outcomes over400random24-operationprograms; repeatwithterm_cap1/cache_cap2 toexerciseconservativeforgetting; delayedABIannotation regression.",
+  "complete_stream_sha256": "49b35cf7640ebd529d76894eb8bef93ebf57e7e970fe14b3c27c8c5feb6e73e4",
+  "analysis_sha256": "5eca8e05f64fc9e2833c65af62cdad1654eafeb7883a9f0a8e3ed5ed4634145d",
+  "log_sha256": "f04fef3e005d700fbb855cc5a7748a5ee40366762ca913c8b911c7ff4ffd0b7a",
+  "seconds": 98.32,
+  "maximum_RSS_KiB": 670176,
+  "memory_limit_GiB": 8,
+  "timeout_seconds": 900,
+  "identities": {
+    "8:zero_guarded_product": 830,
+    "9:zero_guarded_product": 61,
+    "7:zero_guarded_product": 28,
+    "13:equal_quantum_controls": 3
+  },
+  "maximum_direct_Toffoli_saving": 3,
+  "source_sha256": {
+    "analyze-symbolic-controls.py": "74134fbd8a0c3631030d4403d53d7a2f5002f7d462dbb4563a0112c810d92cf3",
+    "test_symbolic_controls.py": "5a18b6c9f335b25cf5bc31ffff592d064086d73c52a95d552f2ca8e9f324719a",
+    "server-symbolic-controls.sh": "ded0bf4046a5b5029504b0b47afcc411807a7c952784997be259dc2aa14b65f4"
+  },
+  "limitations": "Sound immutable Boolean value abstraction over arbitraryABIinputs/allindependentmeasurementoutcomes, withcache/termlimits onlyforgettingcorrelations. No transformed stream/native wholecircuit replay or officialmean. Threeexactequal-control Toffolis cannotbridge167Toffoli productgap; nofullcandidatebuilder/evaluation."
+}

@@ -1,0 +1,19 @@
+{
+  "status": "failed_component_helper_admission",
+  "pid": 2653669,
+  "native_exit": 101,
+  "test_filter": "n274_",
+  "passed": 6,
+  "failed": 3,
+  "later_filters": "not reached",
+  "source_manifest": "candidate-n274-v2-manifest.json",
+  "patch_sha256": "ceb3888846468b7d3b3fc90416b3c486cf87d4a1669bc7b9faa8ce8ffd61010a",
+  "raw_log": "research-output/overnight-20261014/qubits/n274-v2-components.log",
+  "log_sha256": "a28519ce140e7fc849237456632bfff4fa7cb3cbf6f47d2a746901149c82916b",
+  "peak_rss_kib": 655264,
+  "elapsed_seconds": 80.45,
+  "new_arithmetic_component": "768 masked add cases PASS",
+  "failure": "preposition_nonlast_qk asserts range.1+bit<128: q21 crossing target137 must use owned decoder",
+  "arithmetic_comparison_for_failed_cases": "not reached",
+  "qualified_result": false
+}

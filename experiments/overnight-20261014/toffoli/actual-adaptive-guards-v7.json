@@ -1,0 +1,262 @@
+{
+  "status": "adaptive_C3_C4_exact16384_identity_and16guardpatterns_verified_native_pending",
+  "netlist_sha256": "d6bf2410418bd8707d5768ca274ba74ce79c7e5964189605bdb2b33d22977b85",
+  "source_lf_sha256": "879b85060f6a5cfa412561d64860f1cab697f7a334f180f5be9102070d5a23b9",
+  "direct_proof_sha256": "91bf3596b1f30b6c5ac3762f94ec5a80bbb45cd5fcba6a8097d0ebfb022e9d22",
+  "phase_domain_rows": 16384,
+  "new_quantum_identity": "T3=(R3+C3)*Y3loan; C3=MAJ(acc2,E2,C2); C4=(~final3)*Y3loan",
+  "guard_rows": [
+    {
+      "m6": 0,
+      "m3": 0,
+      "m5": 0,
+      "my": 0,
+      "C4_guard": 0,
+      "C3_guard": 0,
+      "TT_builds": [
+        0,
+        0,
+        0
+      ],
+      "old_ANDs": 4,
+      "new_ANDs": 2
+    },
+    {
+      "m6": 0,
+      "m3": 0,
+      "m5": 0,
+      "my": 1,
+      "C4_guard": 0,
+      "C3_guard": 0,
+      "TT_builds": [
+        0,
+        0,
+        1
+      ],
+      "old_ANDs": 4,
+      "new_ANDs": 3
+    },
+    {
+      "m6": 0,
+      "m3": 0,
+      "m5": 1,
+      "my": 0,
+      "C4_guard": 0,
+      "C3_guard": 0,
+      "TT_builds": [
+        0,
+        1,
+        0
+      ],
+      "old_ANDs": 4,
+      "new_ANDs": 3
+    },
+    {
+      "m6": 0,
+      "m3": 0,
+      "m5": 1,
+      "my": 1,
+      "C4_guard": 0,
+      "C3_guard": 0,
+      "TT_builds": [
+        0,
+        1,
+        0
+      ],
+      "old_ANDs": 4,
+      "new_ANDs": 3
+    },
+    {
+      "m6": 0,
+      "m3": 1,
+      "m5": 0,
+      "my": 0,
+      "C4_guard": 0,
+      "C3_guard": 1,
+      "TT_builds": [
+        0,
+        0,
+        0
+      ],
+      "old_ANDs": 4,
+      "new_ANDs": 3
+    },
+    {
+      "m6": 0,
+      "m3": 1,
+      "m5": 0,
+      "my": 1,
+      "C4_guard": 0,
+      "C3_guard": 1,
+      "TT_builds": [
+        0,
+        0,
+        1
+      ],
+      "old_ANDs": 4,
+      "new_ANDs": 4
+    },
+    {
+      "m6": 0,
+      "m3": 1,
+      "m5": 1,
+      "my": 0,
+      "C4_guard": 0,
+      "C3_guard": 1,
+      "TT_builds": [
+        0,
+        1,
+        0
+      ],
+      "old_ANDs": 4,
+      "new_ANDs": 4
+    },
+    {
+      "m6": 0,
+      "m3": 1,
+      "m5": 1,
+      "my": 1,
+      "C4_guard": 0,
+      "C3_guard": 1,
+      "TT_builds": [
+        0,
+        1,
+        0
+      ],
+      "old_ANDs": 4,
+      "new_ANDs": 4
+    },
+    {
+      "m6": 1,
+      "m3": 0,
+      "m5": 0,
+      "my": 0,
+      "C4_guard": 1,
+      "C3_guard": 0,
+      "TT_builds": [
+        0,
+        0,
+        0
+      ],
+      "old_ANDs": 6,
+      "new_ANDs": 4
+    },
+    {
+      "m6": 1,
+      "m3": 0,
+      "m5": 0,
+      "my": 1,
+      "C4_guard": 1,
+      "C3_guard": 0,
+      "TT_builds": [
+        0,
+        0,
+        1
+      ],
+      "old_ANDs": 6,
+      "new_ANDs": 5
+    },
+    {
+      "m6": 1,
+      "m3": 0,
+      "m5": 1,
+      "my": 0,
+      "C4_guard": 1,
+      "C3_guard": 0,
+      "TT_builds": [
+        0,
+        1,
+        0
+      ],
+      "old_ANDs": 6,
+      "new_ANDs": 5
+    },
+    {
+      "m6": 1,
+      "m3": 0,
+      "m5": 1,
+      "my": 1,
+      "C4_guard": 1,
+      "C3_guard": 0,
+      "TT_builds": [
+        0,
+        1,
+        0
+      ],
+      "old_ANDs": 6,
+      "new_ANDs": 5
+    },
+    {
+      "m6": 1,
+      "m3": 1,
+      "m5": 0,
+      "my": 0,
+      "C4_guard": 1,
+      "C3_guard": 0,
+      "TT_builds": [
+        1,
+        0,
+        0
+      ],
+      "old_ANDs": 6,
+      "new_ANDs": 5
+    },
+    {
+      "m6": 1,
+      "m3": 1,
+      "m5": 0,
+      "my": 1,
+      "C4_guard": 1,
+      "C3_guard": 0,
+      "TT_builds": [
+        1,
+        0,
+        0
+      ],
+      "old_ANDs": 6,
+      "new_ANDs": 5
+    },
+    {
+      "m6": 1,
+      "m3": 1,
+      "m5": 1,
+      "my": 0,
+      "C4_guard": 1,
+      "C3_guard": 0,
+      "TT_builds": [
+        1,
+        0,
+        0
+      ],
+      "old_ANDs": 6,
+      "new_ANDs": 5
+    },
+    {
+      "m6": 1,
+      "m3": 1,
+      "m5": 1,
+      "my": 1,
+      "C4_guard": 1,
+      "C3_guard": 0,
+      "TT_builds": [
+        1,
+        0,
+        0
+      ],
+      "old_ANDs": 6,
+      "new_ANDs": 5
+    }
+  ],
+  "expected_mean_delta": "-15/16",
+  "emitted_CCX_delta": 2,
+  "expected_build_probabilities": {
+    "C4": "1/2",
+    "C3": "1/4",
+    "TT": "13/16",
+    "C6_factor": "1/2"
+  },
+  "schedule": "DelayC6 repair untilT3 measured; one sharedtempq carriesC4 ifm6, otherwiseC3 ifm3. C6 correction readsC4 onlyifm6. T3 usesexistingC4/TT identity ifm6, directCZ(R3+C3,Y3loan) otherwise. Measuresharedtemp andcorrecteach mutuallyexclusive producer underits storedguard. TT builds onlyfor(m6*m3),mY5,mY3.",
+  "ownership": "AllE andrebuiltC2 retained; sharedtemp producerbranches mutuallyexclusive. T3/Y3/C6 correctionoperand values unchangedbeforetheir phaseuse. Fin3first; fin4/top1 requirescorrespondingall18producerdomain test.",
+  "limits": "Guard/sourcealgebra only, no physicalnativeclaim. No full score.",
+  "qualified_score": null
+}

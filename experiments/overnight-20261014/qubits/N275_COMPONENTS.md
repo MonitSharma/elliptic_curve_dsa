@@ -108,3 +108,14 @@ capacity matched3832705108. The unchanged official evaluator is running
 as PID2534382, wrapper2534318, cycle2532160, with one runtime thread and
 the explicit full-stream symlink in a fresh protected harness. No complete
 benchmark result or Q692 record is claimed.
+
+At17:23:50UTC the unchanged official run completed exit1 after all9,024
+shots: one value mismatch, one phase-garbage batch and one ancilla-garbage
+batch. First failure is shot2379. Wall time2:41:50; peak209,621,736KiB RSS.
+The candidate has no qualified score and no Q692 record. All component
+evidence above retains its finite scope and does not override this failure.
+[Exact terminal source, stream and protected-harness receipt](../coordinator/n275-v2-full-failed-receipt.json).
+The separately frozen head-selector candidate started its official evaluator
+after this native's terminal marker and fresh capacity guards; it remains
+pending. Root is exporting the fixed failed packet with a streaming seed
+diagnostic that allocates no giant operation vector.

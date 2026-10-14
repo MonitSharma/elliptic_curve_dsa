@@ -339,3 +339,19 @@ All18 producer/fold inputs are covered in2,097,152 exact phase-layout proofs and
 6,291,456 native cases. The actual two dropped chunks and fresh ESh targets are
 checked. Source-caller tick130/room37 retains peak1234 and saves one emitted CCX.
 This admits only top1/direct/nondeep ESh, with full-body qualification separate.
+
+The [lazy cleanup v5](actual-lazy-native-report-v5.md) and
+[producer-aware v6](actual-lazy-native-report-v6.md) subsequently establish
+mean component savings of 7/8 AND per eligible deferred fold, with one extra
+emitted CCX. All newly owned classical flags are cleared before free in v6;
+the full 18-bit producer/fold domain has exact all-measurement phase proofs and
+33,554,432 native cases. Full-body and broader high-coordinate qualification
+remain separate. This small late-fold saving alone does not bridge a record.
+
+The [minimal-auxiliary constructor report](minimal-aux-constructor-report-v10.md)
+archives the completed v8 through v11 exact value-interface probes. The 89
+selected raw-product interfaces, 236 reachable-basis-product interfaces and
+256 symplectic-transformation interfaces found no complete constructor. A
+three-product partial identity is exact but its selected completion also
+closes negatively. These restricted negatives are not global constructor
+optimality proofs, and none is a scored resource result.

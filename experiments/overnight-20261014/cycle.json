@@ -250,5 +250,74 @@
       "runtime_threads": 1,
       "qualified_score": null
     }
+  ],
+  "sixth_checkpoint": {
+    "prepared_at_utc": "2026-10-14T18:21:00.435563+00:00",
+    "public_refresh_utc": "2026-10-14T17:46:43Z",
+    "public_records": 1562,
+    "eligible_records": 1221,
+    "pareto_points": 45,
+    "records_changed": false,
+    "original_qualified_candidates": [],
+    "n275_v2": {
+      "status": "FAILED_UNCHANGED_COMPLETE_BENCHMARK",
+      "shots": 9024,
+      "value_phase_ancilla_failures": [
+        1,
+        1,
+        1
+      ],
+      "first_value_failure": 2379,
+      "exit": 1,
+      "qualified_score": null,
+      "receipt": "coordinator/n275-v2-full-failed-receipt.json"
+    },
+    "failed_packet_integer_model": {
+      "shot2379_division2": "HTcol86 quotient22815568 needs25bits; exceeds public23 and mixed22 capacity",
+      "predicted_candidate_flagged_divisions": 1,
+      "scope": "Ideal event prediction, not inherited/introduced gate-level proof"
+    },
+    "headflag": {
+      "native_pid": 2662310,
+      "status": "Unchanged official9024benchmark ACTIVE; no qualified score",
+      "only_giant_evaluator": true
+    },
+    "n274_v4": {
+      "patch_sha256": "d471e44041f41919516f10ae5a472bd91a6ca91cf306dcb6ebb063799400e9e0",
+      "native_tests": 18,
+      "exact_phase_tests": 15,
+      "exact_fixed_input_audits": 378,
+      "status": "GENERATION_COMPLETE_DIAGNOSTIC_KNOWN2379_FAILURE_BLOCKS_QUALIFICATION",
+      "no_scored_width_claim": true,
+      "generated_diagnostics": {
+        "ops": 2258490788,
+        "referenced_qubits": 691,
+        "stream_sha256": "afc10211f95bd28a131dfd4a3a3c67284597c308b2a8a2e10682e56207f8ba93",
+        "scope": "Generated stream only, not a scored or qualified resource result"
+      }
+    },
+    "constructor": "v8/v9/v11 selected89/236/256 interfaces negative; exact3-product prefix survives butcompletionnegative; v12parallel2-product trustedUNSAT. Changedconsumer v13\u2013v16 exactalgebra andselectedfamiliesnegative; no implementedfull saving.",
+    "product_localization": "Exact Y33 transform corrects oldprefixmapping failure. Native249 firstmultiplyfault; native8033 B3firstdividefault. Finite unboundedinteger tick model identifies249 rail109 loss2^57,8033 payload75 difference2^51. No resourcecandidate.",
+    "global_controls_and_recolor": "Initial classicalABI initialization failure preserved/retracted. Correct immutableBoolean scan only3equal-controlCCXs; boundedANF findsnone; exact-zero recolor stillpeak1234 at1444991. Standaloneclosed.",
+    "fixed_packet_export": {
+      "status": "COMPLETE_DIAGNOSTIC_EXIT0",
+      "pid": 2679094,
+      "native_pid": 2680130,
+      "shots": 9024,
+      "packet_sha256": "bdba0f9ac464903dc9838cc2c05f7120f31941937226167f0a406e122dd4ec7d",
+      "elapsed": "12:55.20",
+      "native_export_RSS_KiB": 10368,
+      "operation_vector_allocated": false
+    }
+  },
+  "jobs_at_sixth_checkpoint": [
+    {
+      "native_pid": 2662310,
+      "kind": "Sole large unchanged headflag officialbenchmark",
+      "log": "/home/hclau/ecdsa_research/overnight-20261014/qubits/evidence/headflag-v1-official-eval.log",
+      "memory_limit_GiB": 256,
+      "runtime_threads": 1,
+      "qualified_score": null
+    }
   ]
 }

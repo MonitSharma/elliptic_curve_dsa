@@ -1,0 +1,3526 @@
+{
+  "status": "interface_description_only",
+  "baseline_revision": "c5bb1ec876db859a3f9f8a9052c140a145df834e",
+  "source_lf_sha256": "879b85060f6a5cfa412561d64860f1cab697f7a334f180f5be9102070d5a23b9",
+  "netlist_sha256": "d6bf2410418bd8707d5768ca274ba74ce79c7e5964189605bdb2b33d22977b85",
+  "seed_receipt_sha256": "191090b3072488d3a24940432d52d6beb6d8d8a81da4166af152e7891939c035",
+  "seed_basis_truth_sha256": "8d9ef281aafb216e1067398171f3061f23eef25068693b53da494bd386efa393",
+  "seed_ANDs": [
+    [
+      2,
+      128
+    ],
+    [
+      2,
+      1024
+    ],
+    [
+      32772,
+      33024
+    ],
+    [
+      163848,
+      164352
+    ],
+    [
+      16,
+      425984
+    ],
+    [
+      525314,
+      524320
+    ],
+    [
+      68610,
+      2052
+    ],
+    [
+      8192,
+      16384
+    ],
+    [
+      68678,
+      1572928
+    ]
+  ],
+  "seed_span_rank": 24,
+  "domain_rows": 16384,
+  "target_span_rank": 40,
+  "base_interface_rank": 41,
+  "candidate_interface_rank": 42,
+  "value_AND_budget": 27,
+  "basis_products_total": 276,
+  "pairs_inside_base_interface": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      0,
+      3
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      0,
+      5
+    ],
+    [
+      0,
+      6
+    ],
+    [
+      0,
+      7
+    ],
+    [
+      0,
+      8
+    ],
+    [
+      0,
+      9
+    ],
+    [
+      0,
+      10
+    ],
+    [
+      0,
+      11
+    ],
+    [
+      0,
+      12
+    ],
+    [
+      0,
+      13
+    ],
+    [
+      0,
+      14
+    ],
+    [
+      0,
+      15
+    ],
+    [
+      0,
+      16
+    ],
+    [
+      0,
+      17
+    ],
+    [
+      0,
+      18
+    ],
+    [
+      0,
+      19
+    ],
+    [
+      0,
+      20
+    ],
+    [
+      0,
+      21
+    ],
+    [
+      0,
+      22
+    ],
+    [
+      0,
+      23
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      1,
+      10
+    ],
+    [
+      1,
+      15
+    ],
+    [
+      1,
+      16
+    ],
+    [
+      4,
+      19
+    ],
+    [
+      7,
+      15
+    ],
+    [
+      10,
+      16
+    ],
+    [
+      13,
+      14
+    ],
+    [
+      13,
+      22
+    ],
+    [
+      14,
+      22
+    ]
+  ],
+  "distinct_external_cosets": 236,
+  "interfaces": [
+    {
+      "representative": [
+        1,
+        17
+      ],
+      "equivalent_pairs": [
+        [
+          1,
+          17
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "678de75b0a8b6948b02708f354520c7c41c369313c144faf8b484ae01d0acbbe"
+    },
+    {
+      "representative": [
+        1,
+        18
+      ],
+      "equivalent_pairs": [
+        [
+          1,
+          18
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "c0fb017dbea5d89de700c04e1c2e830cda9edb7fe9326b63c115ca9f8390ef83"
+    },
+    {
+      "representative": [
+        1,
+        19
+      ],
+      "equivalent_pairs": [
+        [
+          1,
+          19
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "af26d1a049efccadcfcd07f27b592cd10ee6531135059312d4c75be8af19dafd"
+    },
+    {
+      "representative": [
+        1,
+        20
+      ],
+      "equivalent_pairs": [
+        [
+          1,
+          20
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "beb4dfdef9958ba0d127b9248ce81ec0cdc75edbb1a93530414243585c06f741"
+    },
+    {
+      "representative": [
+        1,
+        21
+      ],
+      "equivalent_pairs": [
+        [
+          1,
+          21
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "9dbaf153e1f2a56ce0e7fbfdc5bf91d6ac0e9f69bdf3d33a32d2c247f03a9740"
+    },
+    {
+      "representative": [
+        1,
+        22
+      ],
+      "equivalent_pairs": [
+        [
+          1,
+          22
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "f17242272353a8ad2355c5744ef466768a2dfb5ea093852b6acfa6a11e72bde4"
+    },
+    {
+      "representative": [
+        1,
+        23
+      ],
+      "equivalent_pairs": [
+        [
+          1,
+          23
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "33cf22360236af73b69ac9d83cd3141d7dcf9efc1c3b84a052562292d405344b"
+    },
+    {
+      "representative": [
+        2,
+        15
+      ],
+      "equivalent_pairs": [
+        [
+          2,
+          15
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "fe2ab26b72a1d454c7843c13b4aa67cee2a1c073299c0ca6c2595b7ccc949af7"
+    },
+    {
+      "representative": [
+        2,
+        16
+      ],
+      "equivalent_pairs": [
+        [
+          2,
+          16
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "532be36683c3c9737e9f790cb82f7619e1700717733f5c4240866a87426a770a"
+    },
+    {
+      "representative": [
+        2,
+        17
+      ],
+      "equivalent_pairs": [
+        [
+          2,
+          17
+        ],
+        [
+          8,
+          17
+        ],
+        [
+          15,
+          17
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "2d36d62b0f8f36b7e1e8d93a498e54bdf33d40ef32d47bf06717c9a85b85dc8a"
+    },
+    {
+      "representative": [
+        2,
+        18
+      ],
+      "equivalent_pairs": [
+        [
+          2,
+          18
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "a08ee75f03d665846f17c06264d9dc09939d38ac4bd0887bac9175eda12ea1f8"
+    },
+    {
+      "representative": [
+        2,
+        19
+      ],
+      "equivalent_pairs": [
+        [
+          2,
+          19
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "801623af254097a099cbf9b16640b2dd06bea55d3a0a53df1d7568a0dcf71a54"
+    },
+    {
+      "representative": [
+        2,
+        20
+      ],
+      "equivalent_pairs": [
+        [
+          2,
+          20
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "f81fed65fa3cc60281e14d9d851c95d51fa34053ca0a0a993f42ceb5efa96da4"
+    },
+    {
+      "representative": [
+        2,
+        21
+      ],
+      "equivalent_pairs": [
+        [
+          2,
+          21
+        ],
+        [
+          11,
+          21
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "ee5b0b30b760ecbb965de92e796cbab054913a4dad24f402a764419b13eb877d"
+    },
+    {
+      "representative": [
+        2,
+        22
+      ],
+      "equivalent_pairs": [
+        [
+          2,
+          22
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "9e9a7b7b914351db1b33cc232738fbc932c6c1b1c2e9474273f936209dad7582"
+    },
+    {
+      "representative": [
+        2,
+        23
+      ],
+      "equivalent_pairs": [
+        [
+          2,
+          23
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "405f178ff1cf50ab1eaea7965aea64214e3c0a5db4a6d9617728c8b996adf95c"
+    },
+    {
+      "representative": [
+        3,
+        15
+      ],
+      "equivalent_pairs": [
+        [
+          3,
+          15
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "b3bac28798742499b13eb4eddbf0a28f81257b94772bc233b3041e3b5c0580c7"
+    },
+    {
+      "representative": [
+        3,
+        16
+      ],
+      "equivalent_pairs": [
+        [
+          3,
+          16
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "468a5915d9236f733bcb93fc5e9f9d9c43dce5b1caab45ff15b57ba04d197b04"
+    },
+    {
+      "representative": [
+        3,
+        17
+      ],
+      "equivalent_pairs": [
+        [
+          3,
+          17
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "d22ef8c2477837c5749435a53f995371200c2204398b80538da9f43eb9f6c08a"
+    },
+    {
+      "representative": [
+        3,
+        18
+      ],
+      "equivalent_pairs": [
+        [
+          3,
+          18
+        ],
+        [
+          9,
+          18
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "cde73493d2ea97d2c80da634db022aa6759988b838fb6c4b482b3e10997e77de"
+    },
+    {
+      "representative": [
+        3,
+        19
+      ],
+      "equivalent_pairs": [
+        [
+          3,
+          19
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "2038805643b20d516a70cca3f78362f25a2c125731c1d30c26ba20c3e7bba471"
+    },
+    {
+      "representative": [
+        3,
+        20
+      ],
+      "equivalent_pairs": [
+        [
+          3,
+          20
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "5b098d20e702f578f7f65df620acdc90ab24b261fd30b8504ae5ecbe0daaf3ac"
+    },
+    {
+      "representative": [
+        3,
+        21
+      ],
+      "equivalent_pairs": [
+        [
+          3,
+          21
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "315d702288341bf916e8ce7569c4aa46137a801d5c21622ce8379f2dd7cdde93"
+    },
+    {
+      "representative": [
+        3,
+        22
+      ],
+      "equivalent_pairs": [
+        [
+          3,
+          22
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "cb2231f4c245e0bcdf7ebaca38518524c61d59d84254cac8268d42a2f5e8f492"
+    },
+    {
+      "representative": [
+        3,
+        23
+      ],
+      "equivalent_pairs": [
+        [
+          3,
+          23
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "65caed65a6d850b887b08532aaf632c99f0a1f9c3a6f5028a4d6614ebf671cac"
+    },
+    {
+      "representative": [
+        4,
+        15
+      ],
+      "equivalent_pairs": [
+        [
+          4,
+          15
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "00d9baa88bdedd5251674f7a58a52745bfc86b214ee6b17d61213a86e48cdab3"
+    },
+    {
+      "representative": [
+        4,
+        16
+      ],
+      "equivalent_pairs": [
+        [
+          4,
+          16
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "e1e3a8127c70af68f79d74a03e46d1234bd8d810a003633d589728e2f53f3c60"
+    },
+    {
+      "representative": [
+        4,
+        17
+      ],
+      "equivalent_pairs": [
+        [
+          4,
+          17
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "9446ceab1f2acfa2a4a5f2eb3d5e2715e8ec0bffea5c70f3a657565df132d4d2"
+    },
+    {
+      "representative": [
+        4,
+        18
+      ],
+      "equivalent_pairs": [
+        [
+          4,
+          18
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "eb854f1178fb133371e4a13b50c501bf8187e0d4fb1f242dff63bf569f82427c"
+    },
+    {
+      "representative": [
+        4,
+        20
+      ],
+      "equivalent_pairs": [
+        [
+          4,
+          20
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "f3da765719a761fc2c1a7c547d12e0392bd13a9e1082603d5c2bc3f86aa40f02"
+    },
+    {
+      "representative": [
+        4,
+        21
+      ],
+      "equivalent_pairs": [
+        [
+          4,
+          21
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "3f71e003a00e9856f60601482ec7a74c47cca01df65550ade6fc805a2d845fbc"
+    },
+    {
+      "representative": [
+        4,
+        22
+      ],
+      "equivalent_pairs": [
+        [
+          4,
+          22
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "5d7037da2029c614de52bf8e88936c173f0549ffd3136aa5ba6e987793fcbf89"
+    },
+    {
+      "representative": [
+        4,
+        23
+      ],
+      "equivalent_pairs": [
+        [
+          4,
+          23
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "6804a78a537b6a80b54c37ef3e44f31151d2822f486adabeab4625e9f29c79c8"
+    },
+    {
+      "representative": [
+        5,
+        15
+      ],
+      "equivalent_pairs": [
+        [
+          5,
+          15
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "95f359db0335f6b7fad444bf809378d9cb970cdd773980baf3cd969aa0b1bd8e"
+    },
+    {
+      "representative": [
+        5,
+        16
+      ],
+      "equivalent_pairs": [
+        [
+          5,
+          16
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "27a9a4732bcf600a120601b36eb5481e96a2ddf40fc2f997c898daa179058ff3"
+    },
+    {
+      "representative": [
+        5,
+        17
+      ],
+      "equivalent_pairs": [
+        [
+          5,
+          17
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "62eb4cc867f6687f228c8d70730ef03db207a5c523793fab3c5020eb1bff3d48"
+    },
+    {
+      "representative": [
+        5,
+        18
+      ],
+      "equivalent_pairs": [
+        [
+          5,
+          18
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "58510f3ff6f83df3a66aa49b9125bc76429c1a250f7c258ea141c094a64ac0f8"
+    },
+    {
+      "representative": [
+        5,
+        19
+      ],
+      "equivalent_pairs": [
+        [
+          5,
+          19
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "2769bfdc39e40e17dac11c3a7287d36efcf5ab0ce7a7432a03251b026c37666c"
+    },
+    {
+      "representative": [
+        5,
+        20
+      ],
+      "equivalent_pairs": [
+        [
+          5,
+          20
+        ],
+        [
+          19,
+          20
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "01596fed0bedaa68a84a257f9a907f0417e14fa2f5c210ea6c604798506a5c4f"
+    },
+    {
+      "representative": [
+        5,
+        21
+      ],
+      "equivalent_pairs": [
+        [
+          5,
+          21
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "87d10685e19500ea97aacd39eb93607aaa6e6e25bf1e10d2b9949a5fed6bd78a"
+    },
+    {
+      "representative": [
+        5,
+        22
+      ],
+      "equivalent_pairs": [
+        [
+          5,
+          22
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "20f351593ec1a85a1cda49493ac9c95175997bbda6705dc4613ade61e971e486"
+    },
+    {
+      "representative": [
+        5,
+        23
+      ],
+      "equivalent_pairs": [
+        [
+          5,
+          23
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "61e9418e802fe8d417cf402780e1274bd67ec73c9579a910c0d4e9f053156b62"
+    },
+    {
+      "representative": [
+        6,
+        15
+      ],
+      "equivalent_pairs": [
+        [
+          6,
+          15
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "a732958107fbd2accf3e2b1f52a8ed56a98475aa6590f7ef14c9204adba39a98"
+    },
+    {
+      "representative": [
+        6,
+        16
+      ],
+      "equivalent_pairs": [
+        [
+          6,
+          16
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "c366a6bb6046e4260807aafc2ecaab57b05ebe52dc88377ca121a0cf54277d52"
+    },
+    {
+      "representative": [
+        6,
+        17
+      ],
+      "equivalent_pairs": [
+        [
+          6,
+          17
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "81c0977371739e45960b35e72a05cdec5e3a11bc2da72e0e994b57589eccc9f6"
+    },
+    {
+      "representative": [
+        6,
+        18
+      ],
+      "equivalent_pairs": [
+        [
+          6,
+          18
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "4ff8e12ad99703f2e18e58022a98cfc229bbd84092ffe6df4156a0f9fe9a24c9"
+    },
+    {
+      "representative": [
+        6,
+        19
+      ],
+      "equivalent_pairs": [
+        [
+          6,
+          19
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "97df7cfbf07abf79eb471f154aa56d273dcf4f6b5549b542b420784855867af2"
+    },
+    {
+      "representative": [
+        6,
+        20
+      ],
+      "equivalent_pairs": [
+        [
+          6,
+          20
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "1a621943ba4ea7d767b78639eea5bc022ad1e2b1a72daecf752e505a15605ead"
+    },
+    {
+      "representative": [
+        6,
+        21
+      ],
+      "equivalent_pairs": [
+        [
+          6,
+          21
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "7a94a8b99747c8f5c5947609da0d6829bb60c3f40a23a2ab5590f5da9f46c4ae"
+    },
+    {
+      "representative": [
+        6,
+        22
+      ],
+      "equivalent_pairs": [
+        [
+          6,
+          22
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "9b08177620cb78541bef38c31c54cd97ad6099695590ed261fb7a991cc987b71"
+    },
+    {
+      "representative": [
+        6,
+        23
+      ],
+      "equivalent_pairs": [
+        [
+          6,
+          23
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "a8e552a42c3b2a17d3bc41e0532a260fcd4162cb6ec3be0508bb26623d0e7744"
+    },
+    {
+      "representative": [
+        7,
+        16
+      ],
+      "equivalent_pairs": [
+        [
+          7,
+          16
+        ],
+        [
+          10,
+          15
+        ],
+        [
+          15,
+          16
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "13b200a385e5799d7d6293d1a27ece77abe1bd9bfb770a1310464f339fa59d42"
+    },
+    {
+      "representative": [
+        7,
+        17
+      ],
+      "equivalent_pairs": [
+        [
+          7,
+          17
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "1f2de5ce7839fc61e1ecaac92daa85c08db9200f8006289a77dc5ea396b7476d"
+    },
+    {
+      "representative": [
+        7,
+        18
+      ],
+      "equivalent_pairs": [
+        [
+          7,
+          18
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "ca89e40b7ba759e668112310bc79409bb699ecffe0ce812b2544e6de7beb2740"
+    },
+    {
+      "representative": [
+        7,
+        19
+      ],
+      "equivalent_pairs": [
+        [
+          7,
+          19
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "0c59902e12b776bad8dd818a40d0fe3f95a350ce63517e9e8b9d0a9bd45072b2"
+    },
+    {
+      "representative": [
+        7,
+        20
+      ],
+      "equivalent_pairs": [
+        [
+          7,
+          20
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "a1bd8987079fdb97418a37a728706cf4eed1ee1ce91d697a5679a251eac0fc0f"
+    },
+    {
+      "representative": [
+        7,
+        21
+      ],
+      "equivalent_pairs": [
+        [
+          7,
+          21
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "10423ee91cb50288a908e5febc6196aa65f2db5c557ac2dee47619a9a60c5de2"
+    },
+    {
+      "representative": [
+        7,
+        22
+      ],
+      "equivalent_pairs": [
+        [
+          7,
+          22
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "2307ab261df5876033cb8ab79492410bc5559a79eafef47d81bc274a46fa8c19"
+    },
+    {
+      "representative": [
+        7,
+        23
+      ],
+      "equivalent_pairs": [
+        [
+          7,
+          23
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "a39224f0c4c7861ac3404211729976e68ac10d82b4009a280093957fa5cac8d9"
+    },
+    {
+      "representative": [
+        8,
+        15
+      ],
+      "equivalent_pairs": [
+        [
+          8,
+          15
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "1b7746b95062d4c0e1bf489cd57933d533b7ba9143ed122e0c0f59960ad92d97"
+    },
+    {
+      "representative": [
+        8,
+        16
+      ],
+      "equivalent_pairs": [
+        [
+          8,
+          16
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "b9db3cb448a07db61d263be1ecdcfcc57882d10b6e59f432632f2334c0c54114"
+    },
+    {
+      "representative": [
+        8,
+        18
+      ],
+      "equivalent_pairs": [
+        [
+          8,
+          18
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "013042a62904817eaa121aeb402698638fc6221c4f6a19300274cd570b77545c"
+    },
+    {
+      "representative": [
+        8,
+        19
+      ],
+      "equivalent_pairs": [
+        [
+          8,
+          19
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "b22906dd1c1934980ee70133df6ff6925c30d4e597f019f4b82a46b206d6dd53"
+    },
+    {
+      "representative": [
+        8,
+        20
+      ],
+      "equivalent_pairs": [
+        [
+          8,
+          20
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "3955b771c7ef7267995be236f5467392212ab688a2c03109471f0270833c05b1"
+    },
+    {
+      "representative": [
+        8,
+        21
+      ],
+      "equivalent_pairs": [
+        [
+          8,
+          21
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "d6c790ccea0761f37b88a3c3d00375417493dee628a8f603997e69b0a0957ee9"
+    },
+    {
+      "representative": [
+        8,
+        22
+      ],
+      "equivalent_pairs": [
+        [
+          8,
+          22
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "c21a0c0280124946c6d7cd43127a02bd602a63343d9747eaaf69331c7ee462f4"
+    },
+    {
+      "representative": [
+        8,
+        23
+      ],
+      "equivalent_pairs": [
+        [
+          8,
+          23
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "8e85739ada4f61569ae04437c4cb5f4415916cd0da64ccc1bcce43853a27028f"
+    },
+    {
+      "representative": [
+        9,
+        15
+      ],
+      "equivalent_pairs": [
+        [
+          9,
+          15
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "e1e2d02a0510e3a0b869e711c923c8908b5b7129d497ccf6ebb1184189db271e"
+    },
+    {
+      "representative": [
+        9,
+        16
+      ],
+      "equivalent_pairs": [
+        [
+          9,
+          16
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "9461dc7a1a13aeafcdfa488b05b31467215fbd01628be3152fb2d0714e1fff09"
+    },
+    {
+      "representative": [
+        9,
+        17
+      ],
+      "equivalent_pairs": [
+        [
+          9,
+          17
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "c49ed5d7ce15562d063b194a0c7ec7560b867f7e29d5f60d93947d3bf0dfe780"
+    },
+    {
+      "representative": [
+        9,
+        19
+      ],
+      "equivalent_pairs": [
+        [
+          9,
+          19
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "b1a510e14567eae61776f62f207167911c165392f3284e796680f8a6dc836396"
+    },
+    {
+      "representative": [
+        9,
+        20
+      ],
+      "equivalent_pairs": [
+        [
+          9,
+          20
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "d1def7cb804063778d864dbf295e45d05eaaac54b359624d4b60243565489421"
+    },
+    {
+      "representative": [
+        9,
+        21
+      ],
+      "equivalent_pairs": [
+        [
+          9,
+          21
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "9a2c0bd7d739eb44091e880a1a255fad9b73e1e0e39db14f7ea89962868db616"
+    },
+    {
+      "representative": [
+        9,
+        22
+      ],
+      "equivalent_pairs": [
+        [
+          9,
+          22
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "7d8ed21caa3ced303ce38aa6a1537b9a6a4fc1b5bcad476e86f1582ae745acad"
+    },
+    {
+      "representative": [
+        9,
+        23
+      ],
+      "equivalent_pairs": [
+        [
+          9,
+          23
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "4ba68dce52f5bb73e96f8ed2f669655108fca59c46cb4a5503a435de0b1fd5d2"
+    },
+    {
+      "representative": [
+        10,
+        17
+      ],
+      "equivalent_pairs": [
+        [
+          10,
+          17
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "0cb18b8d5a91b176c49fbd0e615fe066db6848726348c790c6a284ab87cdd1bf"
+    },
+    {
+      "representative": [
+        10,
+        18
+      ],
+      "equivalent_pairs": [
+        [
+          10,
+          18
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "3473f22a8e33b8df50497d69a551c29d5bd1b5d925bc8118cfa0b25cd58a2da1"
+    },
+    {
+      "representative": [
+        10,
+        19
+      ],
+      "equivalent_pairs": [
+        [
+          10,
+          19
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "b6c90dc56518eef5970f2b41f849b737d8a8ad43bc7767194adab61e0c8b7375"
+    },
+    {
+      "representative": [
+        10,
+        20
+      ],
+      "equivalent_pairs": [
+        [
+          10,
+          20
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "58361e6ad9609e86ef2d07578e8715ae82476db8cbb13b6f61d7283bc889ef51"
+    },
+    {
+      "representative": [
+        10,
+        21
+      ],
+      "equivalent_pairs": [
+        [
+          10,
+          21
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "74245445f72bd9923209d18e495ec1724ff38c9db10f4c6a5393b079a06cadfc"
+    },
+    {
+      "representative": [
+        10,
+        22
+      ],
+      "equivalent_pairs": [
+        [
+          10,
+          22
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "508d78344aa6a591232eebf1b1db9d22ec44cda1285726e6d9e13736d076b201"
+    },
+    {
+      "representative": [
+        10,
+        23
+      ],
+      "equivalent_pairs": [
+        [
+          10,
+          23
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "b5fb4f70c69a89a8045e2e73b350da2c4efb7fe108d0ae2b1a521954ab9cbec6"
+    },
+    {
+      "representative": [
+        11,
+        15
+      ],
+      "equivalent_pairs": [
+        [
+          11,
+          15
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "9891a3b812f7ba2c66aa0672c50942c322b29ed13156c84877db9e63c8a7f2ed"
+    },
+    {
+      "representative": [
+        11,
+        16
+      ],
+      "equivalent_pairs": [
+        [
+          11,
+          16
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "90359848681aed4b66e6ca3a39cd4c2da6a481e759d3cdb8b1e92076a6853ed6"
+    },
+    {
+      "representative": [
+        11,
+        17
+      ],
+      "equivalent_pairs": [
+        [
+          11,
+          17
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "e81610dde3d79e7f9762fda4f65bdd23ce84bd71c8a1373b2d9a9ef49917ba85"
+    },
+    {
+      "representative": [
+        11,
+        18
+      ],
+      "equivalent_pairs": [
+        [
+          11,
+          18
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "3e6ff9139f555c0cee507d0c92927b28257621257f94593b285574b656f146cf"
+    },
+    {
+      "representative": [
+        11,
+        19
+      ],
+      "equivalent_pairs": [
+        [
+          11,
+          19
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "e264c8b3591078cd5bcde9472593e28c0c56b865e5e92e530daacadf5c3f672e"
+    },
+    {
+      "representative": [
+        11,
+        20
+      ],
+      "equivalent_pairs": [
+        [
+          11,
+          20
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "08a5efdbaa03449bd4e89f729bb55e00c6346e5d4c80e2ec1fb377688f80c34c"
+    },
+    {
+      "representative": [
+        11,
+        22
+      ],
+      "equivalent_pairs": [
+        [
+          11,
+          22
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "1443ef20a9dee1fdde2de9f1321c839b39548c72091218286d027a15bb5ad965"
+    },
+    {
+      "representative": [
+        11,
+        23
+      ],
+      "equivalent_pairs": [
+        [
+          11,
+          23
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "90fba29638c5af5e4a2bc934fe19345c9c2c541ffebd5f8a4b039a89a7abeb88"
+    },
+    {
+      "representative": [
+        12,
+        15
+      ],
+      "equivalent_pairs": [
+        [
+          12,
+          15
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "5ac9c3c11a4dbdd97344ab554c6d1048e9b8550478ea1c8b1ca77d3b4560edf5"
+    },
+    {
+      "representative": [
+        12,
+        16
+      ],
+      "equivalent_pairs": [
+        [
+          12,
+          16
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "c013150bba4ae61cb87b0834a49fe7daf5df3023083dd3228972309363b8cc94"
+    },
+    {
+      "representative": [
+        12,
+        17
+      ],
+      "equivalent_pairs": [
+        [
+          12,
+          17
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "38be312a040c591d9b947267b31df928f628616e7aa9b76cc5e14825a51af1bd"
+    },
+    {
+      "representative": [
+        12,
+        18
+      ],
+      "equivalent_pairs": [
+        [
+          12,
+          18
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "f6ce0ac70b2ea6bccaf01a3cffe1f8a2e9e8c250bfbeedcdb89c734fb60042c4"
+    },
+    {
+      "representative": [
+        12,
+        19
+      ],
+      "equivalent_pairs": [
+        [
+          12,
+          19
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "46dd6e13e8eeaee3ff919688de10861d2a00c3da68370f6c870567b6ab7709de"
+    },
+    {
+      "representative": [
+        12,
+        20
+      ],
+      "equivalent_pairs": [
+        [
+          12,
+          20
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "b2ad10502bb5b82f87c328ebb7c0a6fd3c9edffc3b24408595befdf3ec27f8ca"
+    },
+    {
+      "representative": [
+        12,
+        21
+      ],
+      "equivalent_pairs": [
+        [
+          12,
+          21
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "431557d68f7d07a370bf77aef8c99af1a7bf7b0c1a2d372b979b21e7c76c2b15"
+    },
+    {
+      "representative": [
+        12,
+        22
+      ],
+      "equivalent_pairs": [
+        [
+          12,
+          22
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "c286ee004f33aaf808b8ba2cb3fab3356a95cf98eaaae6cbca0f9fc3b133f2ac"
+    },
+    {
+      "representative": [
+        12,
+        23
+      ],
+      "equivalent_pairs": [
+        [
+          12,
+          23
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "e1eaae7f1b7ba4bd33e0b48efa8a6feb3b2860f736f80bd64901f6befb457138"
+    },
+    {
+      "representative": [
+        13,
+        15
+      ],
+      "equivalent_pairs": [
+        [
+          13,
+          15
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "99d7227042f066c5c6f22f4d2bba2bacf7e63e302d79bb4dcd0eb85c6ea2e119"
+    },
+    {
+      "representative": [
+        13,
+        16
+      ],
+      "equivalent_pairs": [
+        [
+          13,
+          16
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "016e1ec0820dc0a86517ceaae56a9d4d799b59b923bb1854f8b85fc62f730ac4"
+    },
+    {
+      "representative": [
+        13,
+        17
+      ],
+      "equivalent_pairs": [
+        [
+          13,
+          17
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "8f619a18c1b553a4bd258fac80d71d34bb38217a8af22f5b0179692e7eab7514"
+    },
+    {
+      "representative": [
+        13,
+        18
+      ],
+      "equivalent_pairs": [
+        [
+          13,
+          18
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "a9a4920fa2fc3cc87ea92a9f14f310ea492ad5eb00040125ad0bb0059543d4f6"
+    },
+    {
+      "representative": [
+        13,
+        19
+      ],
+      "equivalent_pairs": [
+        [
+          13,
+          19
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "3bbb65ad376021c13569814ed10cfbcf9cce9777114eea28f6d1b2a7acf147f8"
+    },
+    {
+      "representative": [
+        13,
+        20
+      ],
+      "equivalent_pairs": [
+        [
+          13,
+          20
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "9fa3574303e2a5a53310025bc920ac7c2e86ce1f2d4f736bceae9c2ce7a36a2e"
+    },
+    {
+      "representative": [
+        13,
+        21
+      ],
+      "equivalent_pairs": [
+        [
+          13,
+          21
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "f3b9fd83651e535b32d910e2d9f6a9534308b53625584199f53f73355ad061a1"
+    },
+    {
+      "representative": [
+        13,
+        23
+      ],
+      "equivalent_pairs": [
+        [
+          13,
+          23
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "a198a4d3fb97edf63d807f975eccc8826d1776c4cafe267985b22505534e400a"
+    },
+    {
+      "representative": [
+        14,
+        15
+      ],
+      "equivalent_pairs": [
+        [
+          14,
+          15
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "891e8de7b1f48a7da6880547dca744233567f2c51ead57c0045d8e03ab638911"
+    },
+    {
+      "representative": [
+        14,
+        16
+      ],
+      "equivalent_pairs": [
+        [
+          14,
+          16
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "ae339b2d35ccad5c6d872d2553648bd06488ea4d9cd1be4068f82e80818958ff"
+    },
+    {
+      "representative": [
+        14,
+        17
+      ],
+      "equivalent_pairs": [
+        [
+          14,
+          17
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "7cb021ebc3fd3365dd12150150d1b1acce876f2670a6da0c24b69f37150b48e5"
+    },
+    {
+      "representative": [
+        14,
+        18
+      ],
+      "equivalent_pairs": [
+        [
+          14,
+          18
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "dcce541c44a904879933946f86f122298c3e45b69a4d50b9c6b3044c4673be20"
+    },
+    {
+      "representative": [
+        14,
+        19
+      ],
+      "equivalent_pairs": [
+        [
+          14,
+          19
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "2dab90c77519f4350e4aaec79119885f1df7ac4a5fe6317b0dd93b95d00efb6c"
+    },
+    {
+      "representative": [
+        14,
+        20
+      ],
+      "equivalent_pairs": [
+        [
+          14,
+          20
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "6a9a417ef09149ec7ef9d87cee40958477d82d8e7f03b68f52ae657c2af0a94d"
+    },
+    {
+      "representative": [
+        14,
+        21
+      ],
+      "equivalent_pairs": [
+        [
+          14,
+          21
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "51ed0cbbc69b0723da2bcf7a1cff3ee7d61ea08ad3328b08d1bd83bb4fa91a76"
+    },
+    {
+      "representative": [
+        14,
+        23
+      ],
+      "equivalent_pairs": [
+        [
+          14,
+          23
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "ac5e35cd4a3b65e9a3207cf3cb471fd5601cbc478b2bfff72e260b20ee0342aa"
+    },
+    {
+      "representative": [
+        15,
+        18
+      ],
+      "equivalent_pairs": [
+        [
+          15,
+          18
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "85997fac6d0f389961499ff981fc86ef2c56e01c265234f3d132fafebd08f70b"
+    },
+    {
+      "representative": [
+        15,
+        19
+      ],
+      "equivalent_pairs": [
+        [
+          15,
+          19
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "b98d6d75d5036a568ba9519dbfe4a3524b5fe3bd5343fdac9a17b1447a2296c2"
+    },
+    {
+      "representative": [
+        15,
+        20
+      ],
+      "equivalent_pairs": [
+        [
+          15,
+          20
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "71f7578684891c34a094ceec44b53e799ff82d0a52c3484936cb6102be9e42ce"
+    },
+    {
+      "representative": [
+        15,
+        21
+      ],
+      "equivalent_pairs": [
+        [
+          15,
+          21
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "cdc5d48dfcb37d62e19b826311ffce75f9e0d6f579a286350429fc83767d3668"
+    },
+    {
+      "representative": [
+        15,
+        22
+      ],
+      "equivalent_pairs": [
+        [
+          15,
+          22
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "410e7834e0efb8444c24172ad4d8fd55bb4812032cf2addf7e074fdb4fdeda4a"
+    },
+    {
+      "representative": [
+        15,
+        23
+      ],
+      "equivalent_pairs": [
+        [
+          15,
+          23
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "91ad99af5b4ac894e923cd73cf888d2a46824fd0a95404bb2d4d0cdac15033c7"
+    },
+    {
+      "representative": [
+        16,
+        17
+      ],
+      "equivalent_pairs": [
+        [
+          16,
+          17
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "10238ce0b0f41e6cdf171cb412458d68fd99d3c237cb5f7817e294b982006925"
+    },
+    {
+      "representative": [
+        16,
+        18
+      ],
+      "equivalent_pairs": [
+        [
+          16,
+          18
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "69fa180e1d11dbd4b1eb78a549623822bfbe6dee3215a308e16c45f161cfb108"
+    },
+    {
+      "representative": [
+        16,
+        19
+      ],
+      "equivalent_pairs": [
+        [
+          16,
+          19
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "de2ab6c2d7bba9ea847f8297f8d29205045d646676fb8d12b502afc10b683478"
+    },
+    {
+      "representative": [
+        16,
+        20
+      ],
+      "equivalent_pairs": [
+        [
+          16,
+          20
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "f72ed44c83bf5f9bc7a10dd40a5e526d46aac9323c94485ff4f795033937cfa6"
+    },
+    {
+      "representative": [
+        16,
+        21
+      ],
+      "equivalent_pairs": [
+        [
+          16,
+          21
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "b8c320f8858a593514e259ccfcdd1dd234dd6724fe809d2f17d36f4ee97e7a87"
+    },
+    {
+      "representative": [
+        16,
+        22
+      ],
+      "equivalent_pairs": [
+        [
+          16,
+          22
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "5b61209f6ee97ed1cb6670deba9f3e4bfe764fff23c5fcb48da9231e77d5dc35"
+    },
+    {
+      "representative": [
+        16,
+        23
+      ],
+      "equivalent_pairs": [
+        [
+          16,
+          23
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "3da35d91fd9ae97d01c4c6f489318c26478e00752d9f3d4409cbe9dab7db16d8"
+    },
+    {
+      "representative": [
+        17,
+        18
+      ],
+      "equivalent_pairs": [
+        [
+          17,
+          18
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "50fa134bf085ec6807c1cb0c3fd75f3951f0b386d0583751cf7d976c2611c3ee"
+    },
+    {
+      "representative": [
+        17,
+        19
+      ],
+      "equivalent_pairs": [
+        [
+          17,
+          19
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "8656b035fe9d0d76c966eaee0f43dc4f3d432b182e674639ba8dc5f1db763af4"
+    },
+    {
+      "representative": [
+        17,
+        20
+      ],
+      "equivalent_pairs": [
+        [
+          17,
+          20
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "f9bc53461e0719ceffa12e30609cc2a11675da0cd8c99beef98e23eadf9c5e2f"
+    },
+    {
+      "representative": [
+        17,
+        21
+      ],
+      "equivalent_pairs": [
+        [
+          17,
+          21
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "595f173ff082f23a1db2d980f49edae1cc84c09940bbc2134fdb413d70f28a07"
+    },
+    {
+      "representative": [
+        17,
+        22
+      ],
+      "equivalent_pairs": [
+        [
+          17,
+          22
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "90ee294b4c1718ec7d91d4dab497afef46612446bad089a865f9fd8e231b06c1"
+    },
+    {
+      "representative": [
+        17,
+        23
+      ],
+      "equivalent_pairs": [
+        [
+          17,
+          23
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "f46f30927a92a155ff082c7f8d04770ef5ad752b664c409b5206d9541ad9350e"
+    },
+    {
+      "representative": [
+        18,
+        19
+      ],
+      "equivalent_pairs": [
+        [
+          18,
+          19
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "c2252db82f845a88535f552425dbff7f2f582e0c50ec084de6ef91b6eedf2d4e"
+    },
+    {
+      "representative": [
+        18,
+        20
+      ],
+      "equivalent_pairs": [
+        [
+          18,
+          20
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "fa36b3d0f0b5450ace517793c03b15e939bd6dac7f79b614ff56489388ee29de"
+    },
+    {
+      "representative": [
+        18,
+        21
+      ],
+      "equivalent_pairs": [
+        [
+          18,
+          21
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "0c23ac26a94a236eeef0f6e67c28f78e593ad31aab102c7b56e65ed99fe3a360"
+    },
+    {
+      "representative": [
+        18,
+        22
+      ],
+      "equivalent_pairs": [
+        [
+          18,
+          22
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "cefce42da638b441b5b7f0be38ccbdcaf2a859f0fd1527e7d3c1dbd1a054c5e1"
+    },
+    {
+      "representative": [
+        18,
+        23
+      ],
+      "equivalent_pairs": [
+        [
+          18,
+          23
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "2453974e09ef8d319629a1ba2bf58a76b1fdc575025f67a28c3ed0a7a3f8c108"
+    },
+    {
+      "representative": [
+        19,
+        21
+      ],
+      "equivalent_pairs": [
+        [
+          19,
+          21
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "5ce510abf6a0b0fd437dbfba9523859e553db91db8f28a3ea403e698e887a367"
+    },
+    {
+      "representative": [
+        19,
+        22
+      ],
+      "equivalent_pairs": [
+        [
+          19,
+          22
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "6e4c17ffaba4a7309cb0e7e50b50a814b62b20dbaa2788b2cf83438de06c5208"
+    },
+    {
+      "representative": [
+        19,
+        23
+      ],
+      "equivalent_pairs": [
+        [
+          19,
+          23
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "9e6325414e6fdfb75ae0f8d18eff1c28a0e81fd7579a9e09211c8c01b24ffa44"
+    },
+    {
+      "representative": [
+        20,
+        21
+      ],
+      "equivalent_pairs": [
+        [
+          20,
+          21
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "d23e5d79edd29a6bd2d9295fdb3226d9db15d34191ac0a809f441660f5fb33fe"
+    },
+    {
+      "representative": [
+        20,
+        22
+      ],
+      "equivalent_pairs": [
+        [
+          20,
+          22
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "eaa01d5988fe50f34bdce1244e7b7dc93e8e1d39970a8cc9c5a1e51c91b49de4"
+    },
+    {
+      "representative": [
+        20,
+        23
+      ],
+      "equivalent_pairs": [
+        [
+          20,
+          23
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "ab0e099fd298c120cf86a5eef596db269d827c286253cfacc879fe7babecc34e"
+    },
+    {
+      "representative": [
+        21,
+        22
+      ],
+      "equivalent_pairs": [
+        [
+          21,
+          22
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "810b41b624b6176d8d584f015cf924f0b75c1443ce3e93731e55aa52e8b5b0f6"
+    },
+    {
+      "representative": [
+        21,
+        23
+      ],
+      "equivalent_pairs": [
+        [
+          21,
+          23
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "9f9a36898982d819c4f4c86efc42db7f0735c13347e4ba82fa4169c9bc7dfb11"
+    },
+    {
+      "representative": [
+        22,
+        23
+      ],
+      "equivalent_pairs": [
+        [
+          22,
+          23
+        ]
+      ],
+      "uses_constructed_basis_operand": true,
+      "external_truth_sha256": "fa97860a86e58a017567df08cf97959adc59b1d19367561ec935cb69aad04a51"
+    },
+    {
+      "representative": [
+        1,
+        2
+      ],
+      "equivalent_pairs": [
+        [
+          1,
+          2
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "70af241f330da7818889054c5f7afe8d1dde333bf0027283dfba1ea531c4fd23"
+    },
+    {
+      "representative": [
+        1,
+        3
+      ],
+      "equivalent_pairs": [
+        [
+          1,
+          3
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "b7bcdb778af1e8e3f778c468c4672eb049c72688de545afed2bea04b61c03991"
+    },
+    {
+      "representative": [
+        1,
+        4
+      ],
+      "equivalent_pairs": [
+        [
+          1,
+          4
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "2a23ce6f796755519ddff09d6c07e04ad35a96ed0a8eed2a3abfb7ba49756fed"
+    },
+    {
+      "representative": [
+        1,
+        5
+      ],
+      "equivalent_pairs": [
+        [
+          1,
+          5
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "e0c42d1b0838b6111001c47acd19e8b70306b726a54b85dabc047559b36f20bb"
+    },
+    {
+      "representative": [
+        1,
+        6
+      ],
+      "equivalent_pairs": [
+        [
+          1,
+          6
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "275595274cddb86d51c17dc47b8ffeac4fb2278b89088fa54b3e3ac22f5681ce"
+    },
+    {
+      "representative": [
+        1,
+        8
+      ],
+      "equivalent_pairs": [
+        [
+          1,
+          8
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "bb2bb039e7e50e49e2b0d22b739b44250d3c65b0bd81f7908a61cffb66d1fd74"
+    },
+    {
+      "representative": [
+        1,
+        9
+      ],
+      "equivalent_pairs": [
+        [
+          1,
+          9
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "44636eb624d91b2a3c986e5baeb8dd7478e833a70a1b37935c284976bd64e725"
+    },
+    {
+      "representative": [
+        1,
+        11
+      ],
+      "equivalent_pairs": [
+        [
+          1,
+          11
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "4b2eefb3f1079fc8e4ea865994fbe686752443d57a46dfdc102c3da833ecd999"
+    },
+    {
+      "representative": [
+        1,
+        12
+      ],
+      "equivalent_pairs": [
+        [
+          1,
+          12
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "606081c614c3a0a53ddf60365ec7e54452fde760e7baba4c52e4eee2b7387a65"
+    },
+    {
+      "representative": [
+        1,
+        13
+      ],
+      "equivalent_pairs": [
+        [
+          1,
+          13
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "67c7dcac40332356c864760684b52281091a69f75ecf9c5f7c762bffbd00e7df"
+    },
+    {
+      "representative": [
+        1,
+        14
+      ],
+      "equivalent_pairs": [
+        [
+          1,
+          14
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "04502f57a479a73e822182b35acf47aa821c1e10b87d505195e4203940246dfe"
+    },
+    {
+      "representative": [
+        2,
+        3
+      ],
+      "equivalent_pairs": [
+        [
+          2,
+          3
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "e8e6b4dc18b4587e1011e25a1236a19774a805547b242180a3afe66ef71d2532"
+    },
+    {
+      "representative": [
+        2,
+        4
+      ],
+      "equivalent_pairs": [
+        [
+          2,
+          4
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "50aaaf6c0936b9a94e4b7dc7b3cafe0874aa20de14acd7403499161eaaeaead3"
+    },
+    {
+      "representative": [
+        2,
+        5
+      ],
+      "equivalent_pairs": [
+        [
+          2,
+          5
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "70df681d6c789649ea9b17517f88d90c099080f1de5df7ccd4a7c02bcf46032c"
+    },
+    {
+      "representative": [
+        2,
+        6
+      ],
+      "equivalent_pairs": [
+        [
+          2,
+          6
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "7978aa061e3f3f7ed769bdf36c54f638d172baa380a5dd926d3716ea1e570b6d"
+    },
+    {
+      "representative": [
+        2,
+        7
+      ],
+      "equivalent_pairs": [
+        [
+          2,
+          7
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "33a6591d3a87cc2c793004989d8e48cb77c7af41b910fb117f5108cc4a6b3251"
+    },
+    {
+      "representative": [
+        2,
+        8
+      ],
+      "equivalent_pairs": [
+        [
+          2,
+          8
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "9ab1450917a15d6464b64151a3e361c245fa29e85be909529f4c3b936db26bdf"
+    },
+    {
+      "representative": [
+        2,
+        9
+      ],
+      "equivalent_pairs": [
+        [
+          2,
+          9
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "679e94c8cc713183d11f89f1ac7259399d2bd04b1ad9192dc63cff8e3d0b507c"
+    },
+    {
+      "representative": [
+        2,
+        10
+      ],
+      "equivalent_pairs": [
+        [
+          2,
+          10
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "62b5c120f6a8807a53f1c8d1ae6438787d44c883b88492f4480476f916528aa2"
+    },
+    {
+      "representative": [
+        2,
+        11
+      ],
+      "equivalent_pairs": [
+        [
+          2,
+          11
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "ecb0afa52a6607ecda20bea5562e1259a6ba8ee7ea97b3daef4b9edd5009c139"
+    },
+    {
+      "representative": [
+        2,
+        12
+      ],
+      "equivalent_pairs": [
+        [
+          2,
+          12
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "f1bce9bb8f710388218ef5aafdc88a4013f7f145530e2e051e6e26b913ac91c8"
+    },
+    {
+      "representative": [
+        2,
+        13
+      ],
+      "equivalent_pairs": [
+        [
+          2,
+          13
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "f4c28326bb460f4ed9fe0eecb6288e70176e4c9578ead5229370c7300d3b0861"
+    },
+    {
+      "representative": [
+        2,
+        14
+      ],
+      "equivalent_pairs": [
+        [
+          2,
+          14
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "e83a50fd80071479f946d2fe6d4d5f40d9c0b82b8ed5bb96120e67a72be2b123"
+    },
+    {
+      "representative": [
+        3,
+        4
+      ],
+      "equivalent_pairs": [
+        [
+          3,
+          4
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "0fe873fab6e56df21c16dccd7e740564a20f1694b0b9aefe33092f61a7b3a27e"
+    },
+    {
+      "representative": [
+        3,
+        5
+      ],
+      "equivalent_pairs": [
+        [
+          3,
+          5
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "e6b7faa3897faae7413bf04c1ebb57f66fc468890025312831a04e56f54fce96"
+    },
+    {
+      "representative": [
+        3,
+        6
+      ],
+      "equivalent_pairs": [
+        [
+          3,
+          6
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "d1405858cd13b1d524199ee63bbbf29c62b149f4e66a698b39171093813e86e9"
+    },
+    {
+      "representative": [
+        3,
+        7
+      ],
+      "equivalent_pairs": [
+        [
+          3,
+          7
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "baadb819fe125e28177582d6eafd051ee73d6d9105d75a64b8813001641fa41d"
+    },
+    {
+      "representative": [
+        3,
+        8
+      ],
+      "equivalent_pairs": [
+        [
+          3,
+          8
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "cbc89cd39d9f5602d745c0cdf0b736066b68408de2b38f5b84f780f1d920556b"
+    },
+    {
+      "representative": [
+        3,
+        9
+      ],
+      "equivalent_pairs": [
+        [
+          3,
+          9
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "8a92b0927aff12b2a29c0a1ac758c512f5b262efca06fde7f358c85208e67442"
+    },
+    {
+      "representative": [
+        3,
+        10
+      ],
+      "equivalent_pairs": [
+        [
+          3,
+          10
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "2d5c5b3ca69d62f352e9ed4c9126dda89326b77f608f6d39197648aa159f071c"
+    },
+    {
+      "representative": [
+        3,
+        11
+      ],
+      "equivalent_pairs": [
+        [
+          3,
+          11
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "c9aba6d0ac323b534a61815140ac19a50266ac2d35e13e62f04c50979ce0145c"
+    },
+    {
+      "representative": [
+        3,
+        12
+      ],
+      "equivalent_pairs": [
+        [
+          3,
+          12
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "82b772aa3645856ec07ccfad38a30ff6ea7b67e352f5c775e8c27419b5d6077f"
+    },
+    {
+      "representative": [
+        3,
+        13
+      ],
+      "equivalent_pairs": [
+        [
+          3,
+          13
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "6cdb3fe1c7d28f0925b5fe9cf3582637481dd89c82436df4566b9eceba3bdcc1"
+    },
+    {
+      "representative": [
+        3,
+        14
+      ],
+      "equivalent_pairs": [
+        [
+          3,
+          14
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "702f0bc629496bf30a19052473b8ed49fd359e407c15cf287fd1e470229a200a"
+    },
+    {
+      "representative": [
+        4,
+        5
+      ],
+      "equivalent_pairs": [
+        [
+          4,
+          5
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "638e45828a18a67986fb84d317c1e662bce0eeabd484682c1022fcbf5c417e40"
+    },
+    {
+      "representative": [
+        4,
+        6
+      ],
+      "equivalent_pairs": [
+        [
+          4,
+          6
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "5e1ffedb313825774ce8a19be9677a7e5cbf4be85b15297baa414713668f40e2"
+    },
+    {
+      "representative": [
+        4,
+        7
+      ],
+      "equivalent_pairs": [
+        [
+          4,
+          7
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "5ce88938a35cf9732b0af43e536229a00b22410d87a917bf381c6e3604b56774"
+    },
+    {
+      "representative": [
+        4,
+        8
+      ],
+      "equivalent_pairs": [
+        [
+          4,
+          8
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "76272174c80bca6c31537432297008750b538550b426cf9df59c920ecc3d10d8"
+    },
+    {
+      "representative": [
+        4,
+        9
+      ],
+      "equivalent_pairs": [
+        [
+          4,
+          9
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "d2bb216b47281ebbc683dd24db0c650b137a55023467c66e3920c4ad7053a3d3"
+    },
+    {
+      "representative": [
+        4,
+        10
+      ],
+      "equivalent_pairs": [
+        [
+          4,
+          10
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "8da7cc909422627f946b9cdfb3e066c261fe7d964ce031861f4d61ed292971cf"
+    },
+    {
+      "representative": [
+        4,
+        11
+      ],
+      "equivalent_pairs": [
+        [
+          4,
+          11
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "e7cea569c68af35041f776fafef03727e151ac809827adf7ccbf028e0fcab079"
+    },
+    {
+      "representative": [
+        4,
+        12
+      ],
+      "equivalent_pairs": [
+        [
+          4,
+          12
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "6550283b254301c42ba87b0b6fdd22556145c8aced71e351451dd91af5f0ec3f"
+    },
+    {
+      "representative": [
+        4,
+        13
+      ],
+      "equivalent_pairs": [
+        [
+          4,
+          13
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "a890dffc22c5a08bf117b41720d3c18cac7f8a6069cb7dda3cd92a21ec9ec53a"
+    },
+    {
+      "representative": [
+        4,
+        14
+      ],
+      "equivalent_pairs": [
+        [
+          4,
+          14
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "20b7868be4dd39b61a4966e08f58e83bb07c128d30a013510f03ec5c30d226aa"
+    },
+    {
+      "representative": [
+        5,
+        6
+      ],
+      "equivalent_pairs": [
+        [
+          5,
+          6
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "4b6f0535b820896074c176d18a1063489582dc9fc71cd11f721f2b2c818fdde6"
+    },
+    {
+      "representative": [
+        5,
+        7
+      ],
+      "equivalent_pairs": [
+        [
+          5,
+          7
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "6a3e22f8f3f353881a36ca570aa3b75844463b25a1b9a7d53fa8a378b93cca10"
+    },
+    {
+      "representative": [
+        5,
+        8
+      ],
+      "equivalent_pairs": [
+        [
+          5,
+          8
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "49d09bcd93a52e8f01ba1376d1d6770ec932c7245c835b1269d3f24ffdeb6473"
+    },
+    {
+      "representative": [
+        5,
+        9
+      ],
+      "equivalent_pairs": [
+        [
+          5,
+          9
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "0ff0faebd04c1f026bd179d012e6fdab53d79ff18091b5e5374b0170c5c16e32"
+    },
+    {
+      "representative": [
+        5,
+        10
+      ],
+      "equivalent_pairs": [
+        [
+          5,
+          10
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "515db12efa3d3b1e10ea6bbf9cc55ed11da0455a797e720345ede64a87425645"
+    },
+    {
+      "representative": [
+        5,
+        11
+      ],
+      "equivalent_pairs": [
+        [
+          5,
+          11
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "f3822ef678f9b72d11cd80f267a584100b538b0d0bde6cf55c9f64a3f9a387b7"
+    },
+    {
+      "representative": [
+        5,
+        12
+      ],
+      "equivalent_pairs": [
+        [
+          5,
+          12
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "5940aa4172c05dea337b0d0565233ced5db35b1134767085a95ab7c121f1ccfc"
+    },
+    {
+      "representative": [
+        5,
+        13
+      ],
+      "equivalent_pairs": [
+        [
+          5,
+          13
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "273206653bc9435c7a14e1eb28770fa38e2cb57f35624da44b3489964a7bcda6"
+    },
+    {
+      "representative": [
+        5,
+        14
+      ],
+      "equivalent_pairs": [
+        [
+          5,
+          14
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "b213486f26edad3be19e0207a3b5a0447caa33adb9ce24ec67c715e4065c9c84"
+    },
+    {
+      "representative": [
+        6,
+        7
+      ],
+      "equivalent_pairs": [
+        [
+          6,
+          7
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "2caa0cd3c48997e01b1b24e35701cb8f352cb5de047a6f93662254e79bbf41fd"
+    },
+    {
+      "representative": [
+        6,
+        8
+      ],
+      "equivalent_pairs": [
+        [
+          6,
+          8
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "1641a7ba4e1f910bafff88e4e55f734ef77ba14064027c6ac05d0aafa4bcfae4"
+    },
+    {
+      "representative": [
+        6,
+        9
+      ],
+      "equivalent_pairs": [
+        [
+          6,
+          9
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "12810d926d8ca78d5f9e66318738e9fd0f2572daa44770529d388ed3dd5e989c"
+    },
+    {
+      "representative": [
+        6,
+        10
+      ],
+      "equivalent_pairs": [
+        [
+          6,
+          10
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "b033386db61bbc6b8344ea9b41cf8de3e0ad5d7ed4171c980a22814ba6bf9585"
+    },
+    {
+      "representative": [
+        6,
+        11
+      ],
+      "equivalent_pairs": [
+        [
+          6,
+          11
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "2a6f460f642626f49fd12c30fd6c9817d1eeadbe489185104f9ca6d3ca31f3b1"
+    },
+    {
+      "representative": [
+        6,
+        12
+      ],
+      "equivalent_pairs": [
+        [
+          6,
+          12
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "00957f34cfc2b20ac611717f9bdc26a36f6f1bdf7f0001e9af8bc2ceb4d2fec3"
+    },
+    {
+      "representative": [
+        6,
+        13
+      ],
+      "equivalent_pairs": [
+        [
+          6,
+          13
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "36edfa022ec2e67608968a7f93ca2d35f1c69ae9c61066d8b12e7135336db850"
+    },
+    {
+      "representative": [
+        6,
+        14
+      ],
+      "equivalent_pairs": [
+        [
+          6,
+          14
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "2abbfc4a94f4c1f7f033d1f977851b6ede2151cec09dc3dde5477d67083f14ca"
+    },
+    {
+      "representative": [
+        7,
+        8
+      ],
+      "equivalent_pairs": [
+        [
+          7,
+          8
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "561f5248bf06b07b50168ae51073fc56527c33a20d02b68d3d6c757f6934d85e"
+    },
+    {
+      "representative": [
+        7,
+        9
+      ],
+      "equivalent_pairs": [
+        [
+          7,
+          9
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "fa9b9a5d384660d3e76a103e3e3d78fcb90555fabd69b05e6fac2d0ad7e084eb"
+    },
+    {
+      "representative": [
+        7,
+        10
+      ],
+      "equivalent_pairs": [
+        [
+          7,
+          10
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "ceadff7685e1e99acee591153109dd51e6c09ee1eb5687ac0b239aab6efd7406"
+    },
+    {
+      "representative": [
+        7,
+        11
+      ],
+      "equivalent_pairs": [
+        [
+          7,
+          11
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "5c9b146f54e6018847bdcc580feb75d69b3f4b4517094a538fcd1bc466da396b"
+    },
+    {
+      "representative": [
+        7,
+        12
+      ],
+      "equivalent_pairs": [
+        [
+          7,
+          12
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "f5b44130a78ca8a7cca54a11d299ee2996b320bd96fcda83128bbdec61c76b1b"
+    },
+    {
+      "representative": [
+        7,
+        13
+      ],
+      "equivalent_pairs": [
+        [
+          7,
+          13
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "ea629016b648d2c452edb1fd94417d0727a07c46870ad684d3abff0b20c36fe1"
+    },
+    {
+      "representative": [
+        7,
+        14
+      ],
+      "equivalent_pairs": [
+        [
+          7,
+          14
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "ad81c1f3c200daabe80c30e55da60deb2419e6ac029fcc7e9252323dc6dd7b08"
+    },
+    {
+      "representative": [
+        8,
+        9
+      ],
+      "equivalent_pairs": [
+        [
+          8,
+          9
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "4133b595262c4a74af9fd259bcdfffdb92b9548881b1c91f152981404ddb5c44"
+    },
+    {
+      "representative": [
+        8,
+        10
+      ],
+      "equivalent_pairs": [
+        [
+          8,
+          10
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "8df22a24eb67d8d8c9f6a42521c9ae378c523739a9bec3dcbc6d95c1d45ea6c5"
+    },
+    {
+      "representative": [
+        8,
+        11
+      ],
+      "equivalent_pairs": [
+        [
+          8,
+          11
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "f8ff787743fe756e9275ba61d9dbf4c76b29476ae98b2c999e5708754a319292"
+    },
+    {
+      "representative": [
+        8,
+        12
+      ],
+      "equivalent_pairs": [
+        [
+          8,
+          12
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "860a115ad7b991e0d48e93c30df1077322feae7922686c12c4671e92b5372b6e"
+    },
+    {
+      "representative": [
+        8,
+        13
+      ],
+      "equivalent_pairs": [
+        [
+          8,
+          13
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "4077df2d06e62a79cfc11e426ea9043858924ec56f2604f21290d8b89b8f6e8f"
+    },
+    {
+      "representative": [
+        8,
+        14
+      ],
+      "equivalent_pairs": [
+        [
+          8,
+          14
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "e6f53a87d84f2c433afa42a94688ca5ee87c7b78fd4b08a86bee449da2d1764d"
+    },
+    {
+      "representative": [
+        9,
+        10
+      ],
+      "equivalent_pairs": [
+        [
+          9,
+          10
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "7a36c4a82bc91304b859a1a9b1027b13124cde2be38b61d20a9cbd2c53c1eefd"
+    },
+    {
+      "representative": [
+        9,
+        11
+      ],
+      "equivalent_pairs": [
+        [
+          9,
+          11
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "e8148f1dc44cd9642397db19040bfe6d6a42d82d049bde7332b85fd34006353a"
+    },
+    {
+      "representative": [
+        9,
+        12
+      ],
+      "equivalent_pairs": [
+        [
+          9,
+          12
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "85e193e1fb43ad8656e2828076736f5648566206806d27d16d24f260333d0c22"
+    },
+    {
+      "representative": [
+        9,
+        13
+      ],
+      "equivalent_pairs": [
+        [
+          9,
+          13
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "0e84fe5ada3ff8cadf6073aad1818c9e0048b50434cf66cfcd50028ecd00a9f6"
+    },
+    {
+      "representative": [
+        9,
+        14
+      ],
+      "equivalent_pairs": [
+        [
+          9,
+          14
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "6dd4f16be5634eaf11b4edfe31ac5b263f0311b4a714ce5eb7f8dfb8b0808bae"
+    },
+    {
+      "representative": [
+        10,
+        11
+      ],
+      "equivalent_pairs": [
+        [
+          10,
+          11
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "f5b450ecb2a386b48079f07fb052f0baae9c58d04b60709484029d0db07d998c"
+    },
+    {
+      "representative": [
+        10,
+        12
+      ],
+      "equivalent_pairs": [
+        [
+          10,
+          12
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "2278f2ea8cb3be631403342de773382d66ec4d39a60241ddb83ecc7cc1ee51cb"
+    },
+    {
+      "representative": [
+        10,
+        13
+      ],
+      "equivalent_pairs": [
+        [
+          10,
+          13
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "e599819b79cc00b3d8e9a72e8dfa77a0d85ae8eb33829e074c72300aa69d0465"
+    },
+    {
+      "representative": [
+        10,
+        14
+      ],
+      "equivalent_pairs": [
+        [
+          10,
+          14
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "0954bd4aeb89cb5995bf0daaff982e2f016a6983535b94950ef5f65d7b146af6"
+    },
+    {
+      "representative": [
+        11,
+        12
+      ],
+      "equivalent_pairs": [
+        [
+          11,
+          12
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "b1397661203612bf472bceba1355aaac2e44b87557897c30509fd0040f4570e7"
+    },
+    {
+      "representative": [
+        11,
+        13
+      ],
+      "equivalent_pairs": [
+        [
+          11,
+          13
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "e8c193577ef9c10da9ffeafa7a59f6013d40eeec822b7a0490e7ed465fe2e81e"
+    },
+    {
+      "representative": [
+        11,
+        14
+      ],
+      "equivalent_pairs": [
+        [
+          11,
+          14
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "cfbeb3ec6e3df1e9de1fbb1bc0c56e3fbb14a4a5f04cf345138b919f08d24b21"
+    },
+    {
+      "representative": [
+        12,
+        13
+      ],
+      "equivalent_pairs": [
+        [
+          12,
+          13
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "b0c19aa7d0024b54a3d324226a164d07fcc738520f6ccad013ae5c42c55885a8"
+    },
+    {
+      "representative": [
+        12,
+        14
+      ],
+      "equivalent_pairs": [
+        [
+          12,
+          14
+        ]
+      ],
+      "uses_constructed_basis_operand": false,
+      "external_truth_sha256": "257a60f592e7ab0b4c49d761082ff313de294f56a0865201bff538bb6477ea77"
+    }
+  ],
+  "examined": [],
+  "scope": "Complete selected basis-pair-product family over exactreachableS24 inW+TT; groupedbyprojectioncoset moduloW+TT. FixedTT andone additionalp; arbitraryaffineproducts/moreoutsidefunctions excluded.",
+  "limits": "No global27minimality ornativecleanup/phase/fullcircuitcost claim. TrustedfactorUNSAT withoutformalcertificate; unknown preserved.",
+  "qualified_score": null
+}

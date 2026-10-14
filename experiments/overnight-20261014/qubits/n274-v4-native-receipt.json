@@ -1,0 +1,39 @@
+{
+  "status": "native_components_pass",
+  "pid": 2673227,
+  "native_exit": 0,
+  "source_manifest": "candidate-n274-v4-manifest.json",
+  "patch_sha256": "d471e44041f41919516f10ae5a472bd91a6ca91cf306dcb6ebb063799400e9e0",
+  "log_sha256": "3834c35ebcbddcbbe3dc6d14d5ec86b764a5a948f925e1a4f1610fd3117b8b3e",
+  "test_binary_sha256": "2f542ac662fa126207b1c46b4918c1faf6e03a379dd464a7bfd4eb88b8aba17a",
+  "raw_log": "research-output/overnight-20261014/qubits/n274-v4-components.log",
+  "passed": 18,
+  "failed": 0,
+  "native_test_groups": {
+    "n274": 10,
+    "headflag": 3,
+    "ph_owner": 2,
+    "cap24": 1,
+    "reserve9": 2
+  },
+  "whole_columns": 32,
+  "whole_column_lanes": 2048,
+  "masked_add_cases": 768,
+  "normalized_owner_cases": 6144,
+  "donor_cases": 512,
+  "full_sy_words": 256,
+  "payload_case_lanes": {
+    "original1170": 256,
+    "original3713": 256,
+    "original8048": 256,
+    "structured_q22": 256,
+    "hr_sy128": 256
+  },
+  "peak_rss_kib": 660040.0,
+  "fixture_width": 691,
+  "native_measurement_phase": "sampled fixed native replay words; value and inverse all wires pass",
+  "independent_all_measurement_phase": "PASS separate fixed-kernel proof15tests378audits; see n274-v4-decision-receipt.json",
+  "full_builder": "running separately; see n274-v4-generation-receipt.json",
+  "official_result": "none",
+  "qualified_result": false
+}

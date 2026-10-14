@@ -142,15 +142,19 @@ exit marker, check no other large ECDSA process, verify fresh available memory,
 source/stream/binary hashes and actual loader capacity, then use an explicit
 full-stream symlink and fresh outputs. Queue launch remains subject to the
 coordinator's wrapper review. After review, the coordinator authorized the
-queue, launched at16:12:28UTC as PID2612039. It is waiting for the original
-native2534382 exit marker; no headflag Op vector or benchmark has started
-at this receipt. The expected negative-marker guard refused allocation and
+queue, launched at16:12:28UTC as PID2612039. The original native2534382
+exited1 at17:23:50 after one failing shot. The queue observed that marker,
+verified actual capacity3500369588 and fresh available memory296268115968
+bytes, and started the fresh headflag protected evaluator at17:25:40 as
+native PID2662310 (wrapper2662262). It is now testing9024 shots. The prior
+process had exited before allocation. The expected negative-marker guard refused allocation and
 is preserved in `headflag-negative-gate-receipt.json`. No headflag evaluation
 result is claimed here.
 
 `headflag-generation-receipt.json` and `headflag-stream-metadata.json`
 preserve these generated diagnostics. The builder's ordinary protected
 `ops.bin` is the inherited25-byte empty placeholder; the full external stream
-is `evidence/headflag-v1-ops.bin`. A future fresh protected evaluator must
-resolve its input explicitly to the full stream. Neither these N/Q counts
+is `evidence/headflag-v1-ops.bin`. The fresh protected evaluator's explicit
+symlink resolves to this full stream, with source/binary/stream hashes and
+allocation guards preserved. Neither these N/Q counts
 nor static2555860466 CCX counts are a scored result.

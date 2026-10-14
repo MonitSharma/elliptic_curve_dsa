@@ -1,0 +1,76 @@
+{
+  "status": "changed_four_consumer_value_contract_verified",
+  "source_lf_sha256": "879b85060f6a5cfa412561d64860f1cab697f7a334f180f5be9102070d5a23b9",
+  "original_netlist_sha256": "d6bf2410418bd8707d5768ca274ba74ce79c7e5964189605bdb2b33d22977b85",
+  "netlist_sha256": "9a68aae7cf30efd108cc61f09db38ff992bebf5772d71e092ff295ef3884e7ab",
+  "domain_rows": 262144,
+  "arithmetic_mismatches": 0,
+  "independent_integer_outputs_per_input": 26,
+  "raw_rank": 19,
+  "target_rank": 43,
+  "rank_AND_lower_bound": 24,
+  "source_ANDs": 35,
+  "closure": {
+    "status": "nondecomposable_kernel_unresolved",
+    "computed_ANDs": 4,
+    "stages": [
+      {
+        "current_span_rank": 19,
+        "desired_span_rank": 43,
+        "pair_products": 171,
+        "kernel_dimension": 19,
+        "kernel_basis_extensions": 1
+      },
+      {
+        "current_span_rank": 20,
+        "desired_span_rank": 43,
+        "pair_products": 190,
+        "kernel_dimension": 23,
+        "kernel_basis_extensions": 1
+      },
+      {
+        "current_span_rank": 21,
+        "desired_span_rank": 43,
+        "pair_products": 210,
+        "kernel_dimension": 27,
+        "kernel_basis_extensions": 1
+      },
+      {
+        "current_span_rank": 22,
+        "desired_span_rank": 43,
+        "pair_products": 231,
+        "kernel_dimension": 31,
+        "kernel_basis_extensions": 1
+      },
+      {
+        "current_span_rank": 23,
+        "desired_span_rank": 43,
+        "pair_products": 253,
+        "kernel_dimension": 35,
+        "kernel_basis_extensions": 1
+      }
+    ],
+    "gates": [
+      [
+        2,
+        128
+      ],
+      [
+        524292,
+        524544
+      ],
+      [
+        1572872,
+        1573376
+      ],
+      [
+        16,
+        3670016
+      ]
+    ],
+    "limits": "The kernel permits nonzero extensions, but this witness search has not factored them. No impossibility claim."
+  },
+  "closure_seconds": 0.0470000000204891,
+  "qualified_score": null,
+  "limits": "Value contract only: originalQfields consumed into four newly written accumulator bits. Measurement cleanup, arbitrary higher words and physical schedule unproved."
+}

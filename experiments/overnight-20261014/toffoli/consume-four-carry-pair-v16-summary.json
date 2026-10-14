@@ -1,0 +1,42 @@
+{
+  "status": "fixed_interface_closed_affine_product_UNSAT",
+  "source_lf_sha256": "879b85060f6a5cfa412561d64860f1cab697f7a334f180f5be9102070d5a23b9",
+  "netlist_sha256": "9a68aae7cf30efd108cc61f09db38ff992bebf5772d71e092ff295ef3884e7ab",
+  "factor_netlist_sha256": "32f295a9e9ce5330a710504d4033858eea50ac9e0f94d39da344f5224e9f959f",
+  "description_sha256": "5600d6450b52c61390c679d434870b7d419b7e89881f6d4d264d192354744688",
+  "domain_rows": 262144,
+  "desired_span_rank": 44,
+  "value_AND_budget": 25,
+  "formal_proof_certificate_saved": false,
+  "qualified_score": null,
+  "limits": "One new fused value interface only. No globaloptimality, native cleanup/phase, physical width or full cost/score.",
+  "seconds": 0.27572027314454317,
+  "final_AND_count": 6,
+  "raw_evidence_directory": "research-output/overnight-20261014/toffoli/consume-four-v16",
+  "evidence_sha256": {
+    "raw-receipt.json": "cb9bc71ff0f3aa844f5901e113c80840920512e26bf198c83df3b455fda1a622",
+    "run.log": "18c98805478c8f27de172022bb9dc02133b30d102afe594a622654c6cb47780f",
+    "run.pid": "41916e0c2e0ec44557f005de5a6f8d0dfc55bd541fa9d99668f9ee7b058001cb",
+    "run.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "settings.txt": "84d863a33d9b7a9bc4508be7a9b642806b191476605111ae28b7f2c7cbff64ba",
+    "finished.txt": "a65d2a527a5db610feb330d1f7983fe42945e68467b260c55a48aee7345601fb"
+  },
+  "pid": 2694967,
+  "exit_code": 0,
+  "terminal_factor": {
+    "status": "unsat",
+    "prefix_ANDs": 6,
+    "current_span_rank": 25,
+    "desired_span_rank": 44,
+    "pair_products": 300,
+    "kernel_dimension": 45,
+    "quadratic_equations": 255,
+    "extension_quotient_rank": 1,
+    "equation_sanity_checks": 1000,
+    "solver": "5.1.0",
+    "timeout_seconds": 119,
+    "seconds": 0.0050008054822683334,
+    "proof_scope": "No AND of arbitrary affine forms of S can extend S inside W. A circuit attaining W-minus-input rank must keep every AND in W, so it cannot reach W from the contained raw-input span."
+  },
+  "terminal_span_rank": 25
+}

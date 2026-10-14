@@ -1,5 +1,13 @@
 # CPU server: working ECDSA environment
 
+**Active overnight cycle, 15 October 2026 Singapore:** use
+[the cycle report](overnight-20261014.md) and its source-bound experiment receipts
+for current jobs. The capacity and compact-Q693 completion details below describe
+the earlier setup, before this cycle's separate N275 and head-selector work.
+The new full evaluator uses about200GiB; a sequential second evaluator waits
+for its terminal marker before allocating about183GiB. Preserve both streams
+and refresh available memory before launching anything else.
+
 Verified on 14 October 2026 via SSH alias **`smu_server`**. Hostname:
 `LHC-104-070`. ECDSA work is isolated at **`/home/hclau/ecdsa_research`**.
 The pre-existing `/home/hclau/quantum_chemistry` checkout and active jobs were

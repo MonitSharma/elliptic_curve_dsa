@@ -1,0 +1,44 @@
+{
+  "collected_at_utc": "2026-10-14T17:33:07.600842+00:00",
+  "checkout": "/home/hclau/ecdsa_research/overnight-20261014/product-b3-body-boundaries-v2",
+  "baseline_revision": "b3c9fdd6e24bcd33450ab0d10884ab5ff9c46ab7",
+  "candidate_patch_sha256": "f166f4ca23b8a83abe6b7d5c7446a145cc12485582988eebc3aef32bff32276b",
+  "source_sha256": {
+    "src/point_add/builder.rs": "c4c6a61ec0d445fc7d29c015c852f415c1cd00afd9b784f197401ffbf78ad943",
+    "src/point_add/leapfrog.rs": "9a173a098d62674f9e497fc7368c47f816711a48ffb6ad6f94c27af1d5fdc8b6",
+    "src/point_add/mod.rs": "cc9d2cd0ebc7f777fd6cab1256ff910c9e461e95d778967db0676cd43ea7fc05",
+    "src/point_add/product_body_observer.rs": "c772514d7a9daa383abd8ff9dd9b6b3daf613b6f390c5f1fc139dd999ca83d50"
+  },
+  "protected_tracked_changes": [],
+  "generated_results_tsv_changed": false,
+  "other_untracked_files": [],
+  "evidence_kind": "research_diagnostic",
+  "status": "completed_diagnostic",
+  "qualified_score": null,
+  "protected_sha256": {
+    "benchmark.sh": "122a65431ad42a1bad5114af9e8f8301fe5cb08c01adaeee00799c9f0d0ed92a",
+    "Cargo.toml": "3c80178b08d29a158abb29a7dcb8eefc67c66f60f2c3bd14483b65eeca0740dc",
+    "Cargo.lock": "42ff16919e551891ad1b21821329b116d133194245a0e0734a33573dfe598e07",
+    "rust-toolchain": "92b454c1ccf330de9b94242f73bc3214370fb420d5152baeec12dc82ceef9dcc",
+    "src/bin/eval_circuit.rs": "b35314bc47a5f8eecbf60459e6c76c9b43aa034eeb9b7ec3421655d74f9e890b",
+    "src/bin/build_circuit.rs": "ac013f1d851156a117c7d41ddb16cb5bb014ed4e6ed4679df143207b46852f33",
+    "src/circuit.rs": "ac2255f6bcb6895c9da2dfe21c3a051a0ef8fc4e0af9598634fec0035dbf35c6",
+    "src/sim.rs": "f0c72f2a280cd68acee1dbf8282098f72d6b3bf4311e0abf96d122fe002256d7",
+    "src/weierstrass_elliptic_curve.rs": "ecfca15ee3b831c243fbea559ff4b8937be47fe591a4f14786ec2b9bfb30bded"
+  },
+  "stream": {
+    "path": "/home/hclau/ecdsa_research/overnight-20261014/product-evidence/b3-body-boundaries-v2/run/ops.bin",
+    "sha256": "0f10de57f45349c89163faf6e5ab0694aec3d3bfa720f10ee8b185a9fb2914ce",
+    "bytes": 39742189
+  },
+  "log": {
+    "path": "/home/hclau/ecdsa_research/overnight-20261014/product-evidence/b3-body-boundaries-v2/run.log",
+    "sha256": "0d57f6b88df3a1a2638fa04d06a1fecc792533c12718fb379b0b0b440bfff132"
+  },
+  "exit_status": 0,
+  "failure_counts": {
+    "classical_mismatches": null,
+    "phase_garbage_batches": null,
+    "ancilla_garbage_batches": null
+  }
+}

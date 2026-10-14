@@ -23,7 +23,11 @@ def main():
     kernel=Path(__file__).with_name("phase_decision_diagram.rs").resolve()
     frozen_kernel=dest/"phase-audit-kernel.rs"
     frozen_kernel.write_bytes(kernel.read_bytes())
-    width=692 if re.search(r'pub const N:\s*usize\s*=\s*275\s*;', (tree/'pointadd_frogdrop.rs').read_text()) else 693
+    match=re.search(r'pub const N:\s*usize\s*=\s*(\d+)\s*;', (tree/'pointadd_frogdrop.rs').read_text())
+    assert match, 'Missing source ring geometry'
+    ring_size=int(match[1])
+    assert ring_size in (274,275,276), 'Unsupported physical layout needs an explicit audit'
+    width=ring_size+417
     path=tree/"tests_midg_k24.rs";text=path.read_text()
     begin=text.index("fn symbolic(ops:")
     end=text.index("\nfn apply(",begin)

@@ -1,0 +1,49 @@
+{
+  "status": "COMPLETE_DIAGNOSTIC_KNOWN_2379_COUNTEREXAMPLE_BLOCKS_GRADE",
+  "authorized_by": "coordinator after native18tests and independentBDD15tests378audits pass",
+  "launched_utc": "2026-10-14T17:49:48Z",
+  "wrapper_pid": 2691773,
+  "time_pid": 2692371,
+  "native_builder_pid": 2692372,
+  "source_variant": "candidate-n274-v4",
+  "source_patch_sha256": "d471e44041f41919516f10ae5a472bd91a6ca91cf306dcb6ebb063799400e9e0",
+  "builder_binary_sha256": "aeb2dba3dcd28c887803f06eb9412065b399f32f1b93f653afa1f3b25e6de0a9",
+  "generation_log": "/home/hclau/ecdsa_research/overnight-20261014/qubits/evidence/n274-v4-full-build.log",
+  "generation_exit_marker": "/home/hclau/ecdsa_research/overnight-20261014/qubits/evidence/n274-v4-full-build.exit",
+  "external_stream": "/home/hclau/ecdsa_research/overnight-20261014/qubits/evidence/n274-v4-ops.bin",
+  "serializer": {
+    "pass": true,
+    "physical_ops": 462,
+    "all_fields_byte_equal": true,
+    "unchanged_write_ops": true
+  },
+  "virtual_cap_kib": 16777216,
+  "build_threads": 4,
+  "runtime_library_threads": 1,
+  "fixed_nonce": "34/control5 unchanged",
+  "completed_stream_sha256": "afc10211f95bd28a131dfd4a3a3c67284597c308b2a8a2e10682e56207f8ba93",
+  "actual_emitted_ops": 2258490788,
+  "actual_referenced_qubits": 691,
+  "actual_loader_memory": {
+    "sizeof_op": 56,
+    "requested_op_vector_bytes": 126475484128,
+    "op_vector_gib": 117.78947350382805,
+    "measured_capacity": null,
+    "capacity_status": "not allocated; bounded scan only"
+  },
+  "official_evaluation_launched": false,
+  "qualification": "Completed external stream diagnostic only; independent shot2379 DIV2 col86/q25 reproduces classical/phase failures on this frozen source, so no official evaluation or scored resource claim.",
+  "wrapper_exit": 0,
+  "completed_utc": "2026-10-14T18:06:45Z",
+  "log_sha256": "3f9e77d7850305fd31e5d101496925477e8040a5f0fc314b116ee752c79cc20f",
+  "compressed_bytes": 4253925129,
+  "generation": {
+    "wall_time": "15:22.20",
+    "peak_rss_kib": 1044592
+  },
+  "bounded_scan": {
+    "wall_time": "0:59.02",
+    "peak_rss_kib": 6912
+  },
+  "benchmark_block": "known independent shot2379 DIV2 HT25-bit quotient exceeds admitted cap22; native expected-negative reproduced"
+}

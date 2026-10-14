@@ -1,0 +1,19 @@
+{
+  "status": "FAILED_VERIFICATION_ASSERTION",
+  "exit": 101,
+  "qualified_score": null,
+  "arithmetic_points_evaluated": 0,
+  "server_evidence": "/home/hclau/ecdsa_research/overnight-20261014/product-evidence/body-prefix-replay",
+  "local_artifact_hashes": {
+    "native.sha256": "02a28622e8ed62c7960c9f6a7dd9f7752517f77b06f90081f10e369c753c3265",
+    "run.exit": "39b8dc3fc8b44765c8e6f1adee04c5b465e555ab791cc42d0d9e810d5b64297c",
+    "run.log": "a857eae46b7ff1b9771eaed4eb225365ebafe44b658201ddec2de14caa360b39",
+    "source.sha256": "469971bd52a6ca54d646bdb3ff321574e04a27a29313d5b817b123f637d3a43d"
+  },
+  "native": "69a92e8bbd4613f0fa4dc13c8b70791f7c119263ccc95f4380b52692aa30d806  /home/hclau/ecdsa_research/overnight-20261014/product-body-prefix-replay-target/release/product_paired_diagnostic",
+  "source_hashes": "7c20b11a82e688606e054773669c0c956e6fd9e4cd1bd8e62336f8cd40a1bffe  /home/hclau/ecdsa_research/overnight-20261014/product-body-prefix-replay/src/main.rs\ne120cdfedbc38a9eba2a86f51a44170f914c48247996905e5c1d721cc79788ac  /home/hclau/ecdsa_research/overnight-20261014/product-body-prefix-replay/Cargo.toml\n8df116e3b6918d5fb96459b6b7b82881a066d19dac39ab156463166595bc4dc6  /home/hclau/ecdsa_research/overnight-20261014/product-body-prefix-replay/expected-finals.tsv\nb35314bc47a5f8eecbf60459e6c76c9b43aa034eeb9b7ec3421655d74f9e890b  /home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/src/bin/eval_circuit.rs\nf0c72f2a280cd68acee1dbf8282098f72d6b3bf4311e0abf96d122fe002256d7  /home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/src/sim.rs\nac2255f6bcb6895c9da2dfe21c3a051a0ef8fc4e0af9598634fec0035dbf35c6  /home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/src/circuit.rs\n",
+  "failure": "Emission divide-seamed prefix SHA3 differs from same-index prefix after Builder.y33_clears retroactive measurement/reset movement.",
+  "expected_sha3": "254f312f8344b5c6f0e19f625aa6f4e560a12639989f67bd7fa7aea10d767a97",
+  "actual_sha3": "490cbf505dcfc26f1eb5a0fb01eed8c29075186385987531afc00d2718f8ea3c",
+  "interpretation": "No scalar, coordinate or phase diagnostics from this run are admissible. Replaced by separately versioned exact Y33 map/overlay validation, without weakening the hash guard."
+}

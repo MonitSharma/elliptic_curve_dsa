@@ -1,0 +1,271 @@
+{
+  "status": "COMPLETED_IDEAL_MODEL_DIAGNOSTIC",
+  "scope": "Exact unbounded Euclidean recurrence and preserved approximate reciprocal/parking/map event predictions on a fixed exported official packet. No quantum/source allocation or phase proof and no score.",
+  "packet_sha256": "bdba0f9ac464903dc9838cc2c05f7120f31941937226167f0a406e122dd4ec7d",
+  "model_sha256": "d4e17154faa00794f0a0f133888ca84ad385814ed3d9be383ca4ba7078dc51b9",
+  "schedule_sha256": "6aab700bf3b1cf68bafd86a23043690a5a1eeef270361714984ad228ab5031ab",
+  "parameters": {
+    "public_c95": {
+      "small_cutoff": 0,
+      "small_head": 24,
+      "large_head": 24,
+      "mixed_cap": 23,
+      "pure_cap": 23,
+      "reserve": 7
+    },
+    "n275_v2": {
+      "small_cutoff": 96,
+      "small_head": 32,
+      "large_head": 24,
+      "mixed_cap": 22,
+      "pure_cap": 24,
+      "reserve": 9
+    },
+    "n274_v4": {
+      "small_cutoff": 95,
+      "small_head": 32,
+      "large_head": 23,
+      "mixed_cap": 22,
+      "pure_cap": 24,
+      "reserve": 9
+    }
+  },
+  "point_count": 9024,
+  "divisions_per_variant": 18048,
+  "shot2379": [
+    {
+      "shot": 2379,
+      "division": 1,
+      "variant": "public_c95",
+      "input": "0x3c87ddf593efd6482ba906b71099ee0143475abbe1901341a0a00b93e73e4a8e",
+      "events": []
+    },
+    {
+      "shot": 2379,
+      "division": 1,
+      "variant": "n275_v2",
+      "input": "0x3c87ddf593efd6482ba906b71099ee0143475abbe1901341a0a00b93e73e4a8e",
+      "events": []
+    },
+    {
+      "shot": 2379,
+      "division": 1,
+      "variant": "n274_v4",
+      "input": "0x3c87ddf593efd6482ba906b71099ee0143475abbe1901341a0a00b93e73e4a8e",
+      "events": []
+    },
+    {
+      "shot": 2379,
+      "division": 2,
+      "variant": "public_c95",
+      "input": "0xb99d62d1aa557c0a85f9ea89739eded4eb025ed76459a15b2551efaae60665bd",
+      "events": [
+        {
+          "kind": "quotient_cap",
+          "column": 86,
+          "step": 86,
+          "q": 22815568,
+          "cap": 23,
+          "pure": false
+        },
+        {
+          "kind": "reciprocal_HT",
+          "column": 86,
+          "step": 86,
+          "head": 24,
+          "remaining": 16777219
+        },
+        {
+          "kind": "reciprocal_HT",
+          "column": 87,
+          "step": 87,
+          "head": 24,
+          "remaining": 1
+        }
+      ]
+    },
+    {
+      "shot": 2379,
+      "division": 2,
+      "variant": "n275_v2",
+      "input": "0xb99d62d1aa557c0a85f9ea89739eded4eb025ed76459a15b2551efaae60665bd",
+      "events": [
+        {
+          "kind": "quotient_cap",
+          "column": 86,
+          "step": 86,
+          "q": 22815568,
+          "cap": 22,
+          "pure": false
+        },
+        {
+          "kind": "reciprocal_HT",
+          "column": 86,
+          "step": 86,
+          "head": 24,
+          "remaining": 20971523
+        },
+        {
+          "kind": "reciprocal_HT",
+          "column": 87,
+          "step": 87,
+          "head": 24,
+          "remaining": 1
+        }
+      ]
+    },
+    {
+      "shot": 2379,
+      "division": 2,
+      "variant": "n274_v4",
+      "input": "0xb99d62d1aa557c0a85f9ea89739eded4eb025ed76459a15b2551efaae60665bd",
+      "events": [
+        {
+          "kind": "quotient_cap",
+          "column": 86,
+          "step": 86,
+          "q": 22815568,
+          "cap": 22,
+          "pure": false
+        },
+        {
+          "kind": "reciprocal_HT",
+          "column": 86,
+          "step": 86,
+          "head": 23,
+          "remaining": 20971520
+        },
+        {
+          "kind": "reciprocal_HT",
+          "column": 87,
+          "step": 87,
+          "head": 23,
+          "remaining": 1
+        }
+      ]
+    }
+  ],
+  "all_flagged": [
+    {
+      "shot": 2379,
+      "division": 2,
+      "variant": "public_c95",
+      "input": "0xb99d62d1aa557c0a85f9ea89739eded4eb025ed76459a15b2551efaae60665bd",
+      "events": [
+        {
+          "kind": "quotient_cap",
+          "column": 86,
+          "step": 86,
+          "q": 22815568,
+          "cap": 23,
+          "pure": false
+        },
+        {
+          "kind": "reciprocal_HT",
+          "column": 86,
+          "step": 86,
+          "head": 24,
+          "remaining": 16777219
+        },
+        {
+          "kind": "reciprocal_HT",
+          "column": 87,
+          "step": 87,
+          "head": 24,
+          "remaining": 1
+        }
+      ]
+    },
+    {
+      "shot": 2379,
+      "division": 2,
+      "variant": "n275_v2",
+      "input": "0xb99d62d1aa557c0a85f9ea89739eded4eb025ed76459a15b2551efaae60665bd",
+      "events": [
+        {
+          "kind": "quotient_cap",
+          "column": 86,
+          "step": 86,
+          "q": 22815568,
+          "cap": 22,
+          "pure": false
+        },
+        {
+          "kind": "reciprocal_HT",
+          "column": 86,
+          "step": 86,
+          "head": 24,
+          "remaining": 20971523
+        },
+        {
+          "kind": "reciprocal_HT",
+          "column": 87,
+          "step": 87,
+          "head": 24,
+          "remaining": 1
+        }
+      ]
+    },
+    {
+      "shot": 2379,
+      "division": 2,
+      "variant": "n274_v4",
+      "input": "0xb99d62d1aa557c0a85f9ea89739eded4eb025ed76459a15b2551efaae60665bd",
+      "events": [
+        {
+          "kind": "quotient_cap",
+          "column": 86,
+          "step": 86,
+          "q": 22815568,
+          "cap": 22,
+          "pure": false
+        },
+        {
+          "kind": "reciprocal_HT",
+          "column": 86,
+          "step": 86,
+          "head": 23,
+          "remaining": 20971520
+        },
+        {
+          "kind": "reciprocal_HT",
+          "column": 87,
+          "step": 87,
+          "head": 23,
+          "remaining": 1
+        }
+      ]
+    },
+    {
+      "shot": 4112,
+      "division": 1,
+      "variant": "public_c95",
+      "input": "0xd09cca3bc6a8be90a091762c747c450b2ada3552239d943c0af48ebea704407e",
+      "events": [
+        {
+          "kind": "reciprocal_HT",
+          "column": 107,
+          "step": 107,
+          "head": 24,
+          "remaining": 1
+        }
+      ]
+    },
+    {
+      "shot": 5183,
+      "division": 1,
+      "variant": "public_c95",
+      "input": "0x61f68dc34fbba8742c7b0fda2699a1c4f233a123e13f71fce2a9e7a51ab7fc7c",
+      "events": [
+        {
+          "kind": "parking",
+          "column": 79,
+          "step": 79,
+          "required": 8
+        }
+      ]
+    }
+  ],
+  "seconds": 29.09299999999348,
+  "limitations": "Source schedule envelopes and real intermediate carry truncation are not modeled. Phase and measurement effects are not simulated. Comparing variants here alone cannot establish inherited versus introduced gate-level faults."
+}

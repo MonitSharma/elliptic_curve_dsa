@@ -1,0 +1,23 @@
+{
+  "status": "COMPLETED_FIXED_PACKET_DIAGNOSTIC",
+  "pid": 2679094,
+  "native_pid": 2680130,
+  "exit": 0,
+  "qualified_score": null,
+  "source_binding": "stream-packet-v1-source-binding.json",
+  "native_sha256": "28619c14c966cf4f384b2a77b34a9ad200ef697e4a2e48fa41263b70e7523245",
+  "stream_sha256": "ad1205994a3927ba76e90a086eadcf800d5876efe36425495cc8e83e21c6a26f",
+  "packet_sha256": "bdba0f9ac464903dc9838cc2c05f7120f31941937226167f0a406e122dd4ec7d",
+  "log_sha256": "1bd6dc77ee02be09c8f5fdc9ef5ac3bdaaf5bdfe79afc6411b1b550469d88349",
+  "export_seconds": 775.2,
+  "export_peak_RSS_KiB": 10368,
+  "small_reference_peak_RSS_KiB": 630304,
+  "memory_limit_GiB": 8,
+  "small_reference": "Complete11,459,514-operation stream: native vector seed and streamed canonical seed first1024XOFbytes exactlyequal",
+  "point_count": 9024,
+  "reset_measurement_ops_per_batch": 45451762,
+  "selected_batch": 37,
+  "selected_shot": 2379,
+  "official_expected_coordinates_match": true,
+  "limitations": "Fixed source-stream-derived benchmark packet only; no nonce or packet search. Batch37 saved64-byte RNGprefix is an attestation probe, not a serializable fullXOFstate. Model diagnosis is independent of quantumphase. No full point-addition rerun or score."
+}

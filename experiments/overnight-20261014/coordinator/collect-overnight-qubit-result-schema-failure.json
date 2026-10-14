@@ -1,0 +1,8 @@
+{
+  "status": "COLLECTOR_SCHEMA_FAILURE_NO_EVALUATION_REPEATED",
+  "error": "KeyError protected_binary_sha256: older N275 harness manifest records only protected source hashes; the already preserved binary hash is in launch attestation.",
+  "source_sha256": "52cbc1551786e7b000b2d356b1674b4a99bc0f66875a1b5776553851c6474c73",
+  "corrected_collector": "scripts/collect-overnight-qubit-result.py",
+  "repair": "Explicit variant binary hashes bound to preserved official launch logs; if manifest has binary field it must match. Actual current native binary digest required.",
+  "benchmark_status": "Complete official9024benchmark remainsFAILED1value/1phasebatch/1ancillabatch; qualifiedscoreNULL."
+}

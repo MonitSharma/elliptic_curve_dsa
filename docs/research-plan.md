@@ -1,5 +1,42 @@
 # Research state and next experiments
 
+## Active overnight cycle: 14 October 2026, 17:10 UTC
+
+The [cycle report](overnight-20261014.md) supersedes the historical experiment
+status below. No original improvement has qualified. The newly completed
+unchanged public B3 reproduction passes all9,024 official cases at Q1235,
+rounded T761,156 and product940,027,660. Its independent counterexamples and
+the historical c5 reproduction remain distinct from arbitrary-input proofs.
+
+- N275-v2 has a frozen generated stream, native component tests and116 exact
+  fixed-input all-measurement instances. Native evaluator2534382 is running the
+  unchanged9,024-shot benchmark with a256GiB virtual-memory cap. Its aggregate
+  outcome is pending. Head-selector variant queue2612039 waits for that native
+  terminal marker and rechecks resources before allocating its own vector.
+- N274's ideal model passes, but its first physical prototype fails two whole
+  columns because proposed SX6 quotient storage aliases the gate accumulator.
+  A guarded high-Q owner redesign is under source-lifetime audit. Map-only and
+  preposition-only passes did not establish that missing lifetime.
+- Minimal auxiliary constructor interfaces have closed89 one-direction spaces
+  without a witness. Searches now include nonlinear reachable carry/field
+  directions. Negative scopes are recorded explicitly; no global optimum or
+  implemented constructor saving follows.
+- Physical H45 expansion and actual incoming-prefix proofs pass, but its
+  sampled fold saving cannot bridge the167-Toffoli product gap. The direction
+  is closed as a standalone candidate. Fin3/narrowed-fin4 lazy cleanup proofs
+  remain reusable components with no full score.
+- The exact factor transfer to B3 failed on its full official packet. Same
+  inputs and measurement transcript produce identical failures on original B3.
+  Raw-body stage observers locate value failures before all postpasses; the
+  product track is locating the first arithmetic stage that diverges.
+
+Result collection never repeats the benchmark: on the server run
+`python3 /home/hclau/ecdsa_research/overnight-20261014/collect-overnight-qubit-result.py n275-v2`
+or substitute `headflag-v1`. Pending markers return pending; terminal results
+are admitted only with matching source, stream, protected binary, valid score,
+all9,024 cases and zero value/phase/ancilla failures. Refresh public leaders
+again before comparing any new qualified improvement.
+
 Updated 14 October 2026, Singapore time. Our three targets are Q ≤ **692**,
 rounded mean executed T ≤ **761,155**, and Q × T ≤ **939,681,127**. The
 [public API snapshot](data/latest-leaderboard.json) binds these targets to source

@@ -343,3 +343,70 @@ standalone direction is closed without a metadata adapter or full benchmark.
 
 No original candidate has qualified. The10-hour cycle remains active until
 20:14:23 UTC; active jobs and source bindings continue to be preserved.
+
+## Sixth checkpoint: complete Q692 failure and new counterexample
+
+The17:46UTC public refresh still has1562 records,1221 eligible and45 Pareto
+points; all three leaders and strict targets are unchanged. No original
+candidate has qualified.
+
+N275-v2 completed the unchanged9,024-shot official benchmark at17:23:50UTC,
+exit1: one value mismatch, one phase-garbage batch and one ancilla-garbage
+batch. Its first value failure is shot2379. The protected evaluator used
+209,621,736KiB peak RSS and2:41:50. These failures override all earlier
+component passes for full qualification. Source, full log, stream and protected
+binary are bound in the [terminal receipt](../experiments/overnight-20261014/coordinator/n275-v2-full-failed-receipt.json).
+An older harness-manifest schema assumption initially stopped the collector;
+the corrected collector verified the preserved binary hash without repeating
+the evaluation. No failed diagnostic metric enters README results.
+
+The streamed fixed-packet extractor agrees with the protected vector seed on
+a complete smaller reference stream and exports all9024 original inputs
+without loading a giant operation vector. Shot2379's expected coordinates
+match the official failure. The existing ideal integer model predicts a
+25-bit HT quotient22,815,568 at division2/column86, beyond both the public
+23-bit and candidate22-bit mixed capacities. Only this division is flagged
+for N275/N274 on that packet. This is predictive arithmetic evidence, not a
+paired gate-level attribution or phase proof.
+[Fixed input and model](../experiments/overnight-20261014/coordinator/n275-v2-failed-packet-model.json).
+
+The sequential queue safely advanced after the first native's terminal marker.
+Head-selector native2662310 is now running its unchanged official benchmark;
+there is still no score. N274-v4 repairs the earlier SX6 accumulator alias,
+Q118 decoder restriction and delayed-HR source/predicate padding alias.
+All18 native tests and15 independent decision-diagram tests pass, comprising
+378 exact fixed-input all-measurement audits including the changed maps.
+Its full generation completes as wrapper2691773/native2692372, after the
+462-operation serializer fixture passes byte-for-byte. The stream references
+691 qubits and contains2,258,490,788 operations; these are generated diagnostics.
+The new25-bit quotient counterexample blocks official qualification; no
+point-addition resource record follows from these counts.
+[N274 sources, failures and proof scope](../experiments/overnight-20261014/qubits/N274_COMPONENTS.md).
+
+The product observers retain complete raw/final stream byte identity. An
+initial prefix mapping assertion failed because the source Y33 sweep inserts
+and removes operations across earlier boundaries. The corrected observer
+independently reproduces that exact sweep, binds final prefixes and retains
+all271 final coordinate/phase comparisons. Shot249 first fails multiplication
+in both baselines; newer-B3 shot8033 first fails division. A separate finite
+integer tick model identifies249's rail109 difference of2^57 and8033's
+payload75 difference of2^51. These are concrete diagnosis leads, with no
+resource repair claimed.
+[Boundary proof](../experiments/overnight-20261014/product/body-prefix-v2-results.md),
+[walk localization](../experiments/overnight-20261014/product/walk-frames-results.md).
+
+Constructor searches close89 one-direction,236 reachable-product and256
+alternative symplectic interfaces without a witness. The exact three-product
+partial identity is preserved, but its completion fails. A trusted query also
+excludes the specified parallel two-product extension. Changed constructor
+plus consumer obligations pass exact value reconstruction on262,144 inputs;
+their selected interfaces remain negative. These restrictions are explicit,
+and no global optimality or complete gate saving follows.
+[Constructor scopes](../experiments/overnight-20261014/toffoli/minimal-aux-constructor-report-v10.md).
+
+The first symbolic-control scan's classical-ABI initialization error is
+preserved and its counts retracted. The corrected arbitrary-input scan finds
+only three equal-control Toffolis. A bounded polynomial expansion finds none,
+and exact-zero physical recoloring still reaches1234 at operation1444991.
+These standalone routes are closed; no transformed circuit or scored result
+is claimed. The10-hour cycle remains active through20:14:23UTC.

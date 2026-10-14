@@ -1,5 +1,6 @@
 """Bind completed checkpoint manifests to exact staged Git blob bytes."""
 import hashlib
+import argparse
 import json
 from pathlib import Path
 import subprocess
@@ -10,17 +11,24 @@ CYCLE = ROOT / 'experiments/overnight-20261014'
 def blob(path):
     return subprocess.check_output(['git', 'show', ':' + path], cwd=ROOT)
 
+a=argparse.ArgumentParser(description=__doc__)
+a.add_argument('--checkpoint',choices=['fifth','sixth'],default='fifth')
+which=a.parse_args().checkpoint
+names=('product/checkpoint-fifth-manifest.json','toffoli/fifth-checkpoint-receipt.json','toffoli/lazy-v6-checkpoint-receipt.json')if which=='fifth'else('product/checkpoint-sixth-manifest.json','toffoli/sixth-checkpoint-receipt.json','toffoli/consumer-fusion-v16-checkpoint-receipt.json')
 changed = []
-for name in ('product/checkpoint-fifth-manifest.json',
-             'toffoli/fifth-checkpoint-receipt.json',
-             'toffoli/lazy-v6-checkpoint-receipt.json'):
+for name in names:
     p = CYCLE / name
     d = json.loads(p.read_text(encoding='utf-8-sig'))
-    for entry in d.get('files', []):
+    entries=d.get('files',[])
+    for entry in entries if isinstance(entries,list)else[]:
         raw = blob(entry['path'])
         entry['sha256'] = hashlib.sha256(raw).hexdigest()
         entry['bytes'] = len(raw)
         entry['hash_scope'] = 'exact_staged_git_blob'
+    if isinstance(entries,dict):
+        for filename in entries:
+            path=filename if filename.startswith('experiments/')else(p.parent/filename).relative_to(ROOT).as_posix()
+            entries[filename]=hashlib.sha256(blob(path)).hexdigest()
     for field in ('new_completed_files', 'completed_files'):
         if isinstance(d.get(field), dict):
             for path in d[field]:

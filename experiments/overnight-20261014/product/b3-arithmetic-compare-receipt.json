@@ -1,0 +1,190 @@
+{
+  "status": "completed_three_source_native_arithmetic_diagnostics",
+  "qualified_score": null,
+  "stage_results": [
+    {
+      "stage": "c5_raw",
+      "mode": "official_known_bad",
+      "shots": 15,
+      "bad": 14,
+      "x_bad": 12,
+      "y_bad": 14,
+      "phase_shots": 8,
+      "dirty_batches": 0,
+      "ops": 11269441,
+      "nq": 1234,
+      "nb": 1623,
+      "measurements": 903960,
+      "measurement_alignment": "NONE",
+      "score": "NONE"
+    },
+    {
+      "stage": "c5_raw",
+      "mode": "independent",
+      "shots": 256,
+      "bad": 1,
+      "x_bad": 1,
+      "y_bad": 1,
+      "phase_shots": 0,
+      "dirty_batches": 0,
+      "ops": 11269441,
+      "nq": 1234,
+      "nb": 1623,
+      "measurements": 903960,
+      "measurement_alignment": "NONE",
+      "score": "NONE"
+    },
+    {
+      "stage": "b3_raw",
+      "mode": "official_known_bad",
+      "shots": 15,
+      "bad": 15,
+      "x_bad": 13,
+      "y_bad": 15,
+      "phase_shots": 9,
+      "dirty_batches": 0,
+      "ops": 11253570,
+      "nq": 1235,
+      "nb": 1623,
+      "measurements": 902830,
+      "measurement_alignment": "NONE",
+      "score": "NONE"
+    },
+    {
+      "stage": "b3_raw",
+      "mode": "independent",
+      "shots": 256,
+      "bad": 1,
+      "x_bad": 1,
+      "y_bad": 1,
+      "phase_shots": 0,
+      "dirty_batches": 0,
+      "ops": 11253570,
+      "nq": 1235,
+      "nb": 1623,
+      "measurements": 902830,
+      "measurement_alignment": "NONE",
+      "score": "NONE"
+    },
+    {
+      "stage": "positive_bias_raw",
+      "mode": "official_known_bad",
+      "shots": 15,
+      "bad": 14,
+      "x_bad": 12,
+      "y_bad": 14,
+      "phase_shots": 6,
+      "dirty_batches": 0,
+      "ops": 11319802,
+      "nq": 1238,
+      "nb": 1623,
+      "measurements": 913307,
+      "measurement_alignment": "NONE",
+      "score": "NONE"
+    },
+    {
+      "stage": "positive_bias_raw",
+      "mode": "independent",
+      "shots": 256,
+      "bad": 1,
+      "x_bad": 1,
+      "y_bad": 1,
+      "phase_shots": 0,
+      "dirty_batches": 0,
+      "ops": 11319802,
+      "nq": 1238,
+      "nb": 1623,
+      "measurements": 913307,
+      "measurement_alignment": "NONE",
+      "score": "NONE"
+    }
+  ],
+  "all271_C5_original_and_positive_bias_value_pairs_equal": true,
+  "B3_value_pairs_differ_from_C5": [
+    {
+      "mode": "official_known_bad",
+      "index": 382,
+      "c5": [
+        "0x142afba1ca328f202ea5d37c3caac721e564f0c00160d075696f17ba9a3fffc3",
+        "0x9200ac4798d663fc7c275f28bf547f861011fd77cf10379cde95c920be49bc5a"
+      ],
+      "b3": [
+        "0xddcdbb80ad41fea9c207f6c04dae14539ef92d71ff6279c5650a8a2bba49df28",
+        "0x280d4dbb419288e3a346d7101baaaea0960f90463824140e033fee857a92f69a"
+      ],
+      "c5_fails": true,
+      "b3_fails": true
+    },
+    {
+      "mode": "official_known_bad",
+      "index": 845,
+      "c5": [
+        "0x9063daa0b80edbd12cdb5cceb1ea57c433a6e1ac76beb187f9ff3ba549b194d7",
+        "0x222889ea26831bea378d42e378d72ae3b4865e0eada5917e6ee27e16b16355d2"
+      ],
+      "b3": [
+        "0x616c713eb4255d7ef48816d96f260826fcb3de885dffb9251225ac3feb04c266",
+        "0xc6fa221df5d4d42ed63701d640ff399366cc48cc61af266f8fa4712bfaeb5a4e"
+      ],
+      "c5_fails": true,
+      "b3_fails": true
+    },
+    {
+      "mode": "official_known_bad",
+      "index": 4210,
+      "c5": [
+        "0xc77b6f8a1dffcbbddfaa0405ad037dfa5025743e1780f83b02dcbc16aaff768c",
+        "0xe624166afb724b724835b8f193238a02f5cbf7888f3f03328f3a0d5d07f439e6"
+      ],
+      "b3": [
+        "0x7a6a61ca580cca311c55094be0d117c16ae90b5a8c30a295e826f557cdc16856",
+        "0xad3b62f06d0eaf839133807d775885f2d44ca4d8a5bfde525305a2e9db89120b"
+      ],
+      "c5_fails": true,
+      "b3_fails": true
+    },
+    {
+      "mode": "official_known_bad",
+      "index": 8033,
+      "c5": [
+        "0x45bc0f1ace8f2093b10ec0e7180a30e169e635e1a9d584770f997f103efed635",
+        "0x483f7119d95d22b55adade47cadc3f1beb4f803bfcb7370ec518de24d181e058"
+      ],
+      "b3": [
+        "0x6ea60e3fe593a4bb6d7f281a707a5f3eb6da228ebd5b4a84061742bb311ac328",
+        "0xf5b17083b1be38bd21328ce222fcedbb485c8e005e6e71cc31f4d548ab785342"
+      ],
+      "c5_fails": false,
+      "b3_fails": true
+    }
+  ],
+  "scope": "Same15known B3 candidateofficial failing pointtuples plus256independent;rawbeforeANYpostpass;curveexpectedvalues recomputed;stages allowed differing nq/nb/R/Hmr.",
+  "source_streams": [
+    "C5raw eca53f6002583b148973ec0ebfb453839038b92984e3356bec8e24e6c662e683",
+    "B3raw ada7ef5264de0d6e600707c2e0672593014006038e454c24e6c74b19b7ca5e10",
+    "positivebiasC5raw f6b272fc274c47db4d5a8f135144acd00582b9cf31022d18fb48e1cd262c346a"
+  ],
+  "measurement_alignment": "NONE;freshfixedstartdomain, varyingMRconsumption. Phase counts are diagnostic and cannot establish introduced/repairedphase.",
+  "native_sha256": "180a89adfd8980847341a5e1490044f92c3c9bb609a70cc22ae0f29e0fa9b676",
+  "files_sha256": {
+    "Cargo.toml": "e120cdfedbc38a9eba2a86f51a44170f914c48247996905e5c1d721cc79788ac",
+    "create-paired-replay.py": "7f7a70fe0b43c5bdc6c11f774232c1c8f6c1824e5ec934e41c0735763c214b5a",
+    "known-official-failures.tsv": "080fdd26854c8fc0360896b9fcb5f5c0e9d792521fc822301ddf278f8b0599cb",
+    "main.rs": "daaf7acf6e9804059f3f41c68d68d38c65eac3183bc3901cfdd2d1cbaa6d750d",
+    "native.sha256": "3733813f99955380b512bb229d3631374d2ab02ca328bfef9d6f61287dccacc8",
+    "prepare-b3-arithmetic-compare.py": "e20bb428399abdef2dd10e8e7972b3e8145df9f420fa498d28ffc3d76943167a",
+    "prepare-b3-stage-replay.py": "a1001449fdac30818c3f2d7272c325c665087d5472dfa3d96c5fd7a76f63304e",
+    "run.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "run.log": "56ec5e71423f89d934e74cd97ee794a3cb804b7658202386bcf6d854124a7c57",
+    "run.pid": "54777071f33e0e1034345135cc051992a9fb48d50f5a40815e09f0051b263386",
+    "server-b3-arithmetic-compare.sh": "fed45a1abc88802e857afe89139307c428a8f53a33f4a5c2939035447f0ce985",
+    "source-packets.sha256": "2749a577e78491cc7d864b99bc87cccf571ca8b24128806030306c70592d918c",
+    "streams.sha256": "a67047fe56fe383ca5a3b8c31da78295472e860cef72ec69d664af100c7d7418"
+  },
+  "limitations": [
+    "Positivebiasrawsource is an unbound arithmetic diagnostic with final101bindingfailure previouslypreserved, Q1238worse;not a candidate record.",
+    "Noordinarypointrepair is demonstrated:14knownfails+1independent persist inC5 andpositivebias undertested domain.",
+    "No16bitleaf-density inference, nonce/packet tuning, benchmarkrepeat orprotectedfile changes.",
+    "Finite values do not proveglobalexactness;phaseallMRproducerproofs remain separate."
+  ]
+}
