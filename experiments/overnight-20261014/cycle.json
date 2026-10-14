@@ -11,7 +11,11 @@
   },
   "preserved_original_qubit_patch_sha256": "dec1be0a68939fdb7d7ca106ce3ca55af763c80e17e8c60b7f3899c929df9b2d",
   "server_workspace": "/home/hclau/ecdsa_research/overnight-20261014",
-  "initial_public_targets": {"maximum_qubits": 692, "maximum_toffoli": 761155, "maximum_product": 939681127},
+  "initial_public_targets": {
+    "maximum_qubits": 692,
+    "maximum_toffoli": 761155,
+    "maximum_product": 939681127
+  },
   "original_qualified_candidates": [],
   "first_hour": {
     "public_records": 1561,
@@ -19,11 +23,22 @@
     "pareto_points": 44,
     "constructor_necessary_AND_bound": 26,
     "original_constructor_ANDs": 31,
-    "qubit_failing_inputs_paired": [1170, 1937, 4131, 4202, 8048],
+    "qubit_failing_inputs_paired": [
+      1170,
+      1937,
+      4131,
+      4202,
+      8048
+    ],
     "sixth_compact_failure_localized": false,
     "k25_status": "Targeted column repair passes; other reciprocal and QB23 failures remain; no full qualification",
     "classical_factor_candidate": "Eight exact emitted CCX replacements, 6.5 depth proxy; paired evidence only; no qualified score",
-    "reports": ["coordinator/README.md", "qubits/FINDINGS.md", "toffoli/README.md", "product/report.md"]
+    "reports": [
+      "coordinator/README.md",
+      "qubits/FINDINGS.md",
+      "toffoli/README.md",
+      "product/report.md"
+    ]
   },
   "jobs_at_first_hour_checkpoint": [
     {
@@ -46,5 +61,49 @@
     }
   ],
   "nonce_search": false,
-  "official_submission": false
+  "official_submission": false,
+  "second_hour": {
+    "checkpoint_prepared_utc": "2026-10-14T12:19:11Z",
+    "public_records": 1562,
+    "eligible_records": 1221,
+    "pareto_points": 45,
+    "records_changed": false,
+    "qubit_failing_inputs_paired": [
+      1170,
+      1937,
+      3713,
+      4131,
+      4202,
+      8048
+    ],
+    "all_six_original_classical_failures_inherited_on_paired_inputs": true,
+    "full_equivalence_established": false,
+    "sixth_model_cause": "Direct crossing requires9reserve lanes; public circuit has7",
+    "K32_partition": "Native components pass; QB23 unchanged; broader column checker rejects PushCondition, no complete pass claim",
+    "size_donor": "Isolated two-size-bit normalization/care/inverse checks pass; integratedreserve9pending",
+    "constructor_bank_loan": "53,542,912native cases pass; complete componentcostloses; fullproductbuilderfailsallocatororderassertion beforecompletewidth",
+    "linear_witness_candidate": "Two structural CCX-to-twoCX identities;2048nativepairedcases; no builder/benchmark score",
+    "product_square": "Unchangedstreamproductionboundarydiagnosis; literal-zero slopes fail signed square residue; physicalpzerospass; fullwidthcrossbinding101failurepreserved; matchedunbounddiagnosticpending",
+    "original_qualified_candidates": [],
+    "reports": [
+      "coordinator/README.md",
+      "qubits/SECOND_HOUR.md",
+      "qubits/K32_COMPONENTS.md",
+      "toffoli/README.md",
+      "toffoli/second-checkpoint-receipt.json",
+      "product/production-square-diagnosis.md"
+    ]
+  },
+  "jobs_at_second_hour_checkpoint": [
+    {
+      "pid": 2407543,
+      "kind": "Matched unbound product baseline diagnostic generation",
+      "log": "/home/hclau/ecdsa_research/overnight-20261014/product-evidence/unbound-base/run.log",
+      "exit": "/home/hclau/ecdsa_research/overnight-20261014/product-evidence/unbound-base/run.exit",
+      "memory_limit_GiB": 16,
+      "build_threads": 4,
+      "runtime_threads": 1,
+      "qualified_score": null
+    }
+  ]
 }

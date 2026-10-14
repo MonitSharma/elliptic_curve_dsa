@@ -1,0 +1,110 @@
+{
+  "source_lf_sha256": "879b85060f6a5cfa412561d64860f1cab697f7a334f180f5be9102070d5a23b9",
+  "netlist_sha256": "4fc048c2b27d9e919c8ff9591989398eeda616fc76a77437ea326a9e2e26d9b0",
+  "exact_domain_size": 65536,
+  "old_ANDs": 33,
+  "steps": [
+    {
+      "closure": {
+        "status": "nondecomposable_kernel_unresolved",
+        "computed_ANDs": 4,
+        "stages": [
+          {
+            "current_span_rank": 17,
+            "desired_span_rank": 41,
+            "pair_products": 136,
+            "kernel_dimension": 17,
+            "kernel_basis_extensions": 1
+          },
+          {
+            "current_span_rank": 18,
+            "desired_span_rank": 41,
+            "pair_products": 153,
+            "kernel_dimension": 21,
+            "kernel_basis_extensions": 1
+          },
+          {
+            "current_span_rank": 19,
+            "desired_span_rank": 41,
+            "pair_products": 171,
+            "kernel_dimension": 25,
+            "kernel_basis_extensions": 1
+          },
+          {
+            "current_span_rank": 20,
+            "desired_span_rank": 41,
+            "pair_products": 190,
+            "kernel_dimension": 29,
+            "kernel_basis_extensions": 1
+          },
+          {
+            "current_span_rank": 21,
+            "desired_span_rank": 41,
+            "pair_products": 210,
+            "kernel_dimension": 33,
+            "kernel_basis_extensions": 1
+          }
+        ],
+        "gates": [
+          [
+            2,
+            128
+          ],
+          [
+            131076,
+            131328
+          ],
+          [
+            393224,
+            393728
+          ],
+          [
+            16,
+            917504
+          ]
+        ],
+        "limits": "The kernel permits nonzero extensions, but this witness search has not factored them. No impossibility claim."
+      },
+      "factor": {
+        "status": "unsat",
+        "prefix_ANDs": 4,
+        "current_span_rank": 21,
+        "desired_span_rank": 41,
+        "pair_products": 210,
+        "kernel_dimension": 33,
+        "quadratic_equations": 177,
+        "extension_quotient_rank": 1,
+        "equation_sanity_checks": 1000,
+        "solver": "5.1.0",
+        "timeout_seconds": 10,
+        "seconds": 0.0036023585125803947,
+        "proof_scope": "No AND of arbitrary affine forms of S can extend S inside W. A circuit attaining W-minus-input rank must keep every AND in W, so it cannot reach W from the contained raw-input span."
+      }
+    }
+  ],
+  "status": "exact_affine_product_obstruction",
+  "gates": [
+    [
+      2,
+      128
+    ],
+    [
+      131076,
+      131328
+    ],
+    [
+      393224,
+      393728
+    ],
+    [
+      16,
+      917504
+    ]
+  ],
+  "AND_count": 4,
+  "seconds": 1.0145855834707618,
+  "raw_receipt_sha256": "966ae9b6d7d2d549980a0de5fba7b587fd5933d18c6093447bcb831ae4cf9e1d",
+  "value_rank_bound": 24,
+  "value_rank_bound_unattainable": true,
+  "interpretation": "The selected constructor-plus-two-consumer contract has raw rank17 and desired rank41. Four legal ANDs followed by trusted affine-factor UNSAT prohibit the rank24 circuit. This is not a complete Toffoli cost bound; changed phase ownership and cleanup remain unverified. No formal solver proof certificate."
+}

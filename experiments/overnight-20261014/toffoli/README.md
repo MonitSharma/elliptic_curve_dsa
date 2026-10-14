@@ -149,3 +149,62 @@ use exact affine-factor closure rather than repeating the sparse search. Any
 value witness still needs explicit carry materialization, unchanged live width,
 consumption and measurement-phase cleanup accounting before native integration.
 Changing the output interface to fit its actual consumer is another open route.
+
+## Second checkpoint: cleanup and complete component costs
+
+No new resource record was established. The frozen
+[second checkpoint receipt](second-checkpoint-receipt.json) binds the reports,
+patches and terminal evidence below.
+
+The [63-plane search](exact-planes-summary.json) found no constructor with at
+most 30 ANDs whose functions all remain in the original 46-dimensional function
+span. Four planes closed by exact quadratic-span obstructions; 59 required Z3
+affine-factor UNSAT results without saved formal proof certificates. Circuits
+that introduce new functions outside this span remain open. The raw 553,853-byte
+receipt is retained outside Git and bound by SHA256.
+
+The [changed two-step consumer contract](consume-two-exact-summary.json) has
+raw rank 17 and desired rank 41. Its rank-only 24-AND value count is unattainable
+under the recorded trusted solver result. This interface includes the constructor
+and two ladder carries, but its changed phase ownership and cleanup were not
+implemented; this is not a complete Toffoli lower bound.
+
+A [bank basis](bank-phase-basis.json) permits six exact early measurement erases
+while preserving all values needed by the ladder. The native implementation
+retains 31 constructor ANDs, runs the ladder with 25 bank directions, then pays
+six unconditional ANDs to restore the original cleanup interface. The
+[native patch](bank-loan-native.patch) reproduces the exact source whose hashes
+were recorded in the passing native job. All three tests passed, including
+53,542,912 cases over every low input state, 38 upper words, and zero plus 85
+individual measurement-phase coefficients. The planted early phase-repair fault
+was detected. Arbitrary upper words were not exhaustively covered.
+
+This implementation loses gate cost. The [component receipt](bank-component-receipt.json)
+records all 11 paired fold rooms and 55 complete payload-body allocation pairs.
+Affected payload bodies add 3–6 diagnostic mean Toffolis. The body pairs measure
+resources only; they do not constitute body correctness tests or scored results.
+Some component peaks fall by 1–6 wires. All
+[136 canonical component streams](bank-component-streams.json) are SHA256-bound;
+enabling the existing diagnostic report changed none of their bytes.
+
+Free phase cleanup remains open. The bounded
+[interleaved schedule search](bank-phase-schedule.json) did not finish a cleanup.
+At its separately recorded greedy six-bank endpoint,
+[all 63 linear bank rebases](late-phase-rotations.json) reject a quadratic phase
+erase, and the [cubic phase search](cubic-cleanup.json) finds no erase of an
+individual retained bank direction. These are exact limits of those interfaces,
+not lower bounds on every cleanup schedule or higher-degree phase synthesis.
+
+The separate production-enabled [product candidate patch](bank-product.patch)
+preserves the old cleanup, nonce and protected harness. It includes only the
+public content-rebinding files from 143731ef, excluding that public revision's
+census and zero-force changes. Its complete builder
+[failed at the inherited allocator boundary](bank-product-failed-builder.json)
+on forward tick 87: earlier changed folds returned their scratch with a different
+free-list order. The existing assertion remains intact. No complete peak or
+stream was obtained, so the product-width tradeoff remains unmeasured. The next
+integration step must restore the baseline allocator interface exactly.
+
+The short fixture compilation failure and two inactive diagnostic-counter
+attempts are preserved explicitly in the component receipt. They are not
+passing resource measurements.

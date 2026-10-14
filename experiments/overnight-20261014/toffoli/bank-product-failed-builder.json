@@ -1,0 +1,55 @@
+{
+  "status": "failed_allocator_interface_before_complete_stream",
+  "pid": 2402626,
+  "exit": 101,
+  "failure": "y42 allocator before forward tick87 differs from the recorded baseline state",
+  "expected_allocator_hash": 14727610921648462284,
+  "observed_allocator_hash": 3735620290340593712,
+  "log_sha256": "02830e5e0e6a5c20a06c951d9026388592e4d6882234a5f17a24689007722665",
+  "settings_sha256": "4d500425636fa9f7013a9e3d52065a4f07006efd565837d87c16a62f3e7d7d6f",
+  "terminal_receipt": {
+    "collected_at_utc": "2026-10-14T12:14:11.537070+00:00",
+    "checkout": "/home/hclau/ecdsa_research/overnight-20261014/toffoli-bank-product",
+    "baseline_revision": "c5bb1ec876db859a3f9f8a9052c140a145df834e",
+    "candidate_patch_sha256": "834606b28e93e9de792cf7725bb59d31909c2ea91f3809439178a78466af0765",
+    "source_sha256": {
+      "src/point_add/linear_restore.rs": "a2522b51f72837082d2926fbee9aa36d31ca8b82a7b3f1041b3a4f2837489ab2",
+      "src/point_add/mod.rs": "abed29e510b0114ca809e1c35d0ccda70f25bb0af36d705a108db1d8b78db29c",
+      "src/point_add/rebind.rs": "9651f74c48ac2abc0391454e61afe8f61f19069149bf843316eebf6042e74ac0",
+      "src/point_add/rebind_anchors.txt": "9c4490a7fe2dd09c5d4e7f6bbae4c5e0fba70d6125c91f629eb2761e6d497ff8",
+      "src/point_add/toffoli_bank_loan.rs": "470485709d8212089f1e4d54d25064e02b94b565f8d876a16cfef88c2ac86180",
+      "src/point_add/y15_onefold.rs": "da9add2b62a8f1e293e7a9bccebf40f52f5222badd637a997d0f9696026bea25",
+      "src/point_add/y42_bound_pass.rs": "e94e639b32ab481b93de737f775b89f1d81795925b422fd3ee222a566370e066"
+    },
+    "protected_tracked_changes": [],
+    "generated_results_tsv_changed": false,
+    "other_untracked_files": [
+      "toffoli_bank_product_job.sh"
+    ],
+    "evidence_kind": "research_diagnostic",
+    "status": "failed",
+    "qualified_score": null,
+    "protected_sha256": {
+      "benchmark.sh": "122a65431ad42a1bad5114af9e8f8301fe5cb08c01adaeee00799c9f0d0ed92a",
+      "Cargo.toml": "3c80178b08d29a158abb29a7dcb8eefc67c66f60f2c3bd14483b65eeca0740dc",
+      "Cargo.lock": "42ff16919e551891ad1b21821329b116d133194245a0e0734a33573dfe598e07",
+      "rust-toolchain": "92b454c1ccf330de9b94242f73bc3214370fb420d5152baeec12dc82ceef9dcc",
+      "src/bin/eval_circuit.rs": "b35314bc47a5f8eecbf60459e6c76c9b43aa034eeb9b7ec3421655d74f9e890b",
+      "src/bin/build_circuit.rs": "ac013f1d851156a117c7d41ddb16cb5bb014ed4e6ed4679df143207b46852f33",
+      "src/circuit.rs": "ac2255f6bcb6895c9da2dfe21c3a051a0ef8fc4e0af9598634fec0035dbf35c6",
+      "src/sim.rs": "f0c72f2a280cd68acee1dbf8282098f72d6b3bf4311e0abf96d122fe002256d7",
+      "src/weierstrass_elliptic_curve.rs": "ecfca15ee3b831c243fbea559ff4b8937be47fe591a4f14786ec2b9bfb30bded"
+    },
+    "log": {
+      "path": "/home/hclau/ecdsa_research/overnight-20261014/toffoli-bank-product-evidence/builder/run.log",
+      "sha256": "e4bc7e70336e05a6027afd5ccc785d4d6dd78ccb6e3c933b22f008583cd35655"
+    },
+    "exit_status": 101,
+    "failure_counts": {
+      "classical_mismatches": null,
+      "phase_garbage_batches": null,
+      "ancilla_garbage_batches": null
+    }
+  },
+  "scope": "Failure is integration evidence. No complete peak, diagnostic gate mean, scored stream or record. Inherited allocator assertion preserved; no arbitrary rebinding."
+}

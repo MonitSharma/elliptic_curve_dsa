@@ -1,0 +1,420 @@
+--- a/src/point_add/y15_onefold.rs
++++ b/src/point_add/y15_onefold.rs
+@@ -1829,6 +1829,11 @@
+     let k7 = r_and(c, &mut recs, t, fc3);
+     k.push(k7);
+     let mut add = if Y16_CORE { addend_prog(c, &mut recs, &k, &Y16_FWD_GATES, &Y16_FWD_OUT, mw) } else { addend_from_k(c, &mut recs, &k, mw) };
++    if toffoli_bank_loan::enabled() && fin==0 && !loan && !ttm && drop==0 {
++        let plan=toffoli_bank_loan::run(c,acc,e,nm,[k1,k2],[c1,c2,c3,c4,c5,c6],&a4,&a5,recs);
++        LOAN_ACTIVE.with(|x|x.set(false));
++        return plan;
++    }
+     if room_trace() {
+         eprintln!("Y18_IDLE fwd recs={} idle={:?}", recs.len(), y18_idle(&recs, &add));
+     }
+@@ -2486,7 +2491,11 @@
+     let shed0 = shed_for(shed_fixed, fmax);
+     // y28 (s2-4, step 2): forward, the AND of the shift letter leaves first where the fold sheds at all and that takes
+     // one wire off the shed (`fin` then counts c2, c1 and the top wires: the head's numbering skips its third)
+-    let (ttm, (shed, tops, c3m, gsh, fin)) = if Y28_TT_FWD && !rev && !swap01 && Y15_CORE_V2 && Y18_FIN {
++    let bank_plan=if toffoli_bank_loan::enabled() && toffoli_bank_loan::head_plan() && !rev && !swap01 && drop_n==0 && !deep && !carry_loan_selected(rev,t) {
++        let r=shed_for(shed_fixed-6,fmax);
++        (r.4==0 && room_now+r.0+r.1>=31).then_some(r)
++    } else {None};
++    let (ttm, (shed, tops, c3m, gsh, fin)) = if let Some(r)=bank_plan {(false,r)} else if Y28_TT_FWD && !rev && !swap01 && Y15_CORE_V2 && Y18_FIN {
+         if shed0.4 >= 3 {
+             (true, shed0)
+         } else if shed0.0 + shed0.1 + shed0.4 > 0 {
+@@ -4535,3 +4544,5 @@
+ /// chain is read by m1's Z alone, so it is built and erased only when m1's bit is set as well: a quarter of a Toffoli
+ /// a pass. Exact (the same measurements in the same order). false: built on every shot with m0's bit set.
+ const Y36_TOP_M1: bool = true;
++#[path = "toffoli_bank_loan.rs"]
++mod toffoli_bank_loan;--- /dev/null
++++ b/src/point_add/toffoli_bank_loan.rs
+@@ -0,0 +1,377 @@
++//! Generated from the source-bound full constructor and six exact phase identities.
++//! Keeps31constructionANDs, frees6wires for the ladder, then pays6ANDs to restore
++//! the original undo interface. No nonce, input-packet or census simplification.
++use super::*;
++#[cfg(test)]
++thread_local! { static MODE: std::cell::Cell<bool> = const { std::cell::Cell::new(false) }; }
++#[cfg(test)] pub(super) fn enabled() -> bool { MODE.with(|x|x.get()) }
++#[cfg(not(test))] pub(super) fn enabled() -> bool { true }
++#[cfg(test)] thread_local! { static HEAD_PLAN: std::cell::Cell<bool> = const { std::cell::Cell::new(false) }; }
++#[cfg(test)] pub(super) fn head_plan() -> bool { HEAD_PLAN.with(|x|x.get()) }
++#[cfg(not(test))] pub(super) fn head_plan() -> bool { true }
++#[cfg(test)] pub(super) fn with_head_plan<R>(on:bool,f:impl FnOnce()->R)->R {
++    let before=HEAD_PLAN.with(|x|x.replace(on));let result=f();HEAD_PLAN.with(|x|x.set(before));result
++}
++#[cfg(test)] pub(super) fn with_mode<R>(on:bool,f:impl FnOnce()->R)->R {
++    let before=MODE.with(|x|x.replace(on)); let result=f(); MODE.with(|x|x.set(before));result
++}
++const TRANSFORM: &[(u8,usize,usize)] = &[
++    (0,30,26),
++    (0,30,22),
++    (0,30,21),
++    (0,30,16),
++    (0,30,15),
++    (0,30,14),
++    (0,30,13),
++    (0,30,8),
++    (0,29,30),
++    (0,29,28),
++    (0,29,26),
++    (0,29,25),
++    (0,29,23),
++    (0,29,22),
++    (0,29,18),
++    (0,29,12),
++    (0,29,10),
++    (0,29,8),
++    (0,29,5),
++    (0,28,27),
++    (1,28,30),
++    (0,27,26),
++    (1,27,29),
++    (0,26,28),
++    (0,26,24),
++    (0,26,22),
++    (0,26,21),
++    (0,26,16),
++    (0,26,14),
++    (0,26,13),
++    (0,26,8),
++    (0,25,28),
++    (0,25,27),
++    (0,25,22),
++    (0,25,20),
++    (0,25,18),
++    (0,25,17),
++    (0,25,16),
++    (0,25,15),
++    (0,25,14),
++    (0,25,13),
++    (0,25,12),
++    (0,25,10),
++    (0,25,8),
++    (0,25,6),
++    (0,25,5),
++    (1,25,26),
++    (0,24,30),
++    (0,24,29),
++    (0,24,26),
++    (0,24,20),
++    (0,24,17),
++    (0,24,16),
++    (0,24,15),
++    (0,24,14),
++    (0,24,13),
++    (0,24,6),
++    (1,24,25),
++    (0,23,28),
++    (0,23,27),
++    (0,23,26),
++    (0,23,22),
++    (0,23,20),
++    (0,23,18),
++    (0,23,17),
++    (0,23,16),
++    (0,23,15),
++    (0,23,13),
++    (0,23,12),
++    (0,23,10),
++    (0,23,8),
++    (0,23,6),
++    (0,23,5),
++    (0,22,30),
++    (0,22,29),
++    (0,22,26),
++    (0,22,25),
++    (0,22,23),
++    (0,22,20),
++    (0,22,17),
++    (0,22,16),
++    (0,22,15),
++    (0,22,6),
++    (0,21,28),
++    (0,21,24),
++    (0,21,23),
++    (0,21,22),
++    (0,21,19),
++    (0,21,18),
++    (0,21,8),
++    (0,20,30),
++    (0,20,29),
++    (0,20,28),
++    (0,20,27),
++    (0,20,26),
++    (0,20,25),
++    (0,20,24),
++    (0,20,23),
++    (0,20,18),
++    (0,20,17),
++    (0,20,15),
++    (0,20,14),
++    (0,20,12),
++    (0,20,10),
++    (0,20,8),
++    (0,20,6),
++    (0,20,5),
++    (1,20,21),
++    (0,19,30),
++    (0,19,28),
++    (0,19,27),
++    (0,19,26),
++    (0,19,25),
++    (0,19,24),
++    (0,19,23),
++    (0,19,21),
++    (0,19,20),
++    (0,19,18),
++    (0,19,17),
++    (0,19,16),
++    (0,19,15),
++    (0,19,14),
++    (0,19,12),
++    (0,19,10),
++    (0,19,8),
++    (0,19,6),
++    (0,19,5),
++    (0,18,30),
++    (0,18,28),
++    (0,18,27),
++    (0,18,26),
++    (0,18,25),
++    (0,18,22),
++    (0,18,17),
++    (0,18,16),
++    (0,18,15),
++    (0,18,14),
++    (0,18,12),
++    (0,18,10),
++    (0,18,8),
++    (0,18,6),
++    (0,18,5),
++    (1,18,20),
++    (0,17,30),
++    (0,17,26),
++    (0,17,25),
++    (0,17,24),
++    (0,17,19),
++    (0,17,18),
++    (0,17,14),
++    (0,17,13),
++    (0,17,6),
++    (0,16,30),
++    (0,16,29),
++    (0,16,20),
++    (0,16,19),
++    (0,16,18),
++    (0,16,17),
++    (0,15,30),
++    (0,15,29),
++    (0,15,28),
++    (0,15,27),
++    (0,15,24),
++    (0,15,22),
++    (0,15,20),
++    (0,15,19),
++    (0,15,16),
++    (0,15,13),
++    (0,15,12),
++    (0,15,10),
++    (0,15,8),
++    (0,15,5),
++    (0,14,11),
++    (1,14,30),
++    (0,13,9),
++    (1,13,29),
++    (0,12,30),
++    (0,12,29),
++    (0,12,28),
++    (0,12,27),
++    (0,12,25),
++    (0,12,23),
++    (0,12,22),
++    (0,12,20),
++    (0,12,19),
++    (0,12,15),
++    (0,12,14),
++    (0,12,13),
++    (0,12,11),
++    (0,12,10),
++    (0,12,9),
++    (0,12,8),
++    (0,12,5),
++    (0,11,30),
++    (0,11,25),
++    (0,11,24),
++    (0,11,22),
++    (0,11,21),
++    (0,11,20),
++    (0,11,19),
++    (0,11,18),
++    (0,11,17),
++    (0,11,16),
++    (0,10,3),
++    (1,10,25),
++    (0,9,29),
++    (0,9,22),
++    (0,9,15),
++    (0,9,11),
++    (0,8,28),
++    (0,8,7),
++    (1,8,27),
++    (0,7,27),
++    (0,7,24),
++    (0,7,23),
++    (0,7,22),
++    (0,7,20),
++    (0,7,19),
++    (0,7,18),
++    (0,7,17),
++    (0,7,16),
++    (0,7,15),
++    (0,7,14),
++    (0,7,9),
++    (1,7,8),
++    (0,6,26),
++    (0,6,21),
++    (0,6,20),
++    (0,6,16),
++    (0,6,15),
++    (0,6,14),
++    (0,6,13),
++    (0,6,9),
++    (1,6,7),
++    (0,5,21),
++    (0,5,20),
++    (0,5,19),
++    (0,5,15),
++    (0,5,13),
++    (0,5,12),
++    (0,5,8),
++    (0,5,6),
++    (1,4,25),
++    (0,3,5),
++    (0,3,4),
++    (0,2,24),
++    (0,2,23),
++    (0,2,22),
++    (0,2,20),
++    (0,2,19),
++    (0,2,18),
++    (0,2,17),
++    (0,2,16),
++    (0,2,15),
++    (0,2,14),
++    (0,2,9),
++    (0,2,8),
++    (1,2,3),
++    (0,1,24),
++    (0,1,23),
++    (0,1,22),
++    (0,1,20),
++    (0,1,19),
++    (0,1,18),
++    (0,1,17),
++    (0,1,16),
++    (0,1,15),
++    (0,1,14),
++    (0,1,9),
++    (0,1,8),
++    (0,1,3),
++    (1,1,2),
++    (0,0,24),
++    (0,0,23),
++    (0,0,22),
++    (0,0,20),
++    (0,0,19),
++    (0,0,18),
++    (0,0,17),
++    (0,0,16),
++    (0,0,15),
++    (0,0,14),
++    (0,0,9),
++    (0,0,8),
++    (0,0,3),
++    (0,0,2),
++    (1,0,1),
++];
++const OUT: [u64;21] = [0x402,0x200c06,0x40180c,0x80180c,0x1000804,0x2000000,0x4000402,0x8000804,0x10001008,0x20000804,0x40000000,0x80000804,0x100001008,0x200001008,0x20000140a,0x40000180c,0x800000000,0x1000001008,0x2000001008,0x4000001008,0x8000001008];
++const REBUILD: [(u64,u64);6] = [(0x2000,0x4000),(0x200800,0x200004),(0x20000201000,0x20000200008),(0x10000006000,0x40010),(0x4000,0x80422),(0x10000000000,0x100c46)];
++const PHASE0: &[(usize,usize)] = &[(0,39),(1,39),(5,39),(9,39),(10,39),(19,39)];
++const PHASE1: &[(usize,usize)] = &[(0,13),(4,13),(9,13),(13,18)];
++const PHASE2: &[(usize,usize)] = &[(0,0),(1,1),(10,10),(17,17),(20,20),(22,22),(41,41),(0,2),(0,11),(0,22),(0,35),(0,40),(1,2),(1,11),(1,22),(1,35),(2,10),(10,11),(10,22),(10,35)];
++const PHASE3: &[(usize,usize)] = &[(0,0),(20,20),(21,21),(40,40),(0,1),(0,2),(0,10),(0,11),(0,21),(0,22),(0,35),(1,22),(1,35),(1,40),(2,11),(2,21),(10,22),(10,35),(11,21)];
++const PHASE4: &[(usize,usize)] = &[(21,21),(0,1),(0,10),(1,9),(9,10)];
++const PHASE5: &[(usize,usize)] = &[(12,13)];
++const PHASES: &[(usize,&[(usize,usize)])] = &[(30,PHASE0),(29,PHASE1),(28,PHASE2),(27,PHASE3),(26,PHASE4),(25,PHASE5)];
++
++fn transform(c:&mut Builder,bank:&[QubitId],back:bool) {
++    let apply=|c:&mut Builder, &(kind,a,b):&(u8,usize,usize)| {
++        if kind==0 { c.cx(bank[a],bank[b]); } else { c.swap(bank[a],bank[b]); }
++    };
++    if back { for op in TRANSFORM.iter().rev() { apply(c,op); } }
++    else { for op in TRANSFORM { apply(c,op); } }
++}
++fn combine(raw:&[QubitId],bank:&[QubitId],mask:u64)->Lin {
++    let mut value=Lin::k(mask&1!=0);
++    for (i,&q) in raw.iter().enumerate() { if mask>>(i+1)&1!=0 { value=value.x(&l(q)); } }
++    for (i,&q) in bank.iter().enumerate() { if mask>>(i+15)&1!=0 { value=value.x(&l(q)); } }
++    value
++}
++fn rename(recs:&mut [Rec],old:&[QubitId],new:&[QubitId]) {
++    let map=|q:QubitId| old.iter().position(|&r|r==q).map_or(q,|i|new[i]);
++    let fix=|f:&mut Lin| { for q in &mut f.w { *q=map(*q); } };
++    for r in recs {
++        match r {
++            Rec::And(q,a,b)=>{*q=map(*q);fix(a);fix(b);},
++            Rec::Maj(q,a,b,ci)=>{*q=map(*q);fix(a);fix(b);fix(ci);},
++            Rec::UndoC5|Rec::UndoC6=>{},
++        }
++    }
++}
++pub(super) fn run(c:&mut Builder,acc:&[QubitId],e:[QubitId;3],nm:[QubitId;3],shift:[QubitId;2],
++                  cw:[QubitId;6],a4:&Lin,a5:&Lin,mut recs:Vec<Rec>)->Vec<usize> {
++    assert!(Y16_CORE && !carry_loan_on());
++    eprintln!("TOFFOLI_BANK_CALL payload={:?} width={} active={}",PAYLOAD_AT.with(|x|x.get()),acc.len(),c.active_qubits());
++    let work:Vec<QubitId>=recs.iter().filter_map(|r|match r {Rec::And(q,_,_)|Rec::Maj(q,_,_,_)=>Some(*q),_=>None}).collect();
++    assert_eq!(work.len(),25);
++    let mut bank=vec![cw[0],cw[1],cw[2],cw[3],work[0],work[1],work[2],work[3],work[4],work[5],cw[4],work[6],cw[5]];
++    bank.extend_from_slice(&work[7..]);assert_eq!(bank.len(),31);
++    let old=bank.clone();
++    let mut raw=acc[..6].to_vec();raw.extend_from_slice(&e);raw.extend_from_slice(&nm);raw.extend_from_slice(&shift);
++    // Physical majority carries to their underlying AND coordinates, top down.
++    for (a,b) in [(1,2),(0,1),(6,7),(5,6),(10,12),(3,10)] {c.cx(bank[a],bank[b]);}
++    transform(c,&bank,false);
++    for &(slot,terms) in PHASES {
++        let m=c.alloc_bit();c.hmr(bank[slot],m);
++        c.push_condition(m);
++        for &(a,b) in terms {
++            let wire=|index:usize|if index<14 {raw[index]} else {bank[index-14]};
++            c.cz(wire(a),wire(b));
++        }
++        c.pop_condition();c.free_bit(m);c.release_clean(bank[slot]);
++    }
++    let forms:Vec<Lin>=OUT.iter().map(|&m|combine(&raw,&bank,m)).collect();
++    let add=field_map(&forms[..6],&forms[6..13],&forms[13],&forms[14..],acc.len());
++    let (plan,lean)=fold_plan(c,acc.len(),"six-wire bank loan");assert!(!lean);
++    ladder_d(c,acc,&add,6,bank[0],&plan,&[]);
++    // Recompute exactly the six hidden original ANDs, charging six Toffolis.
++    for (j,&(a,b)) in REBUILD.iter().enumerate() {
++        let q=lin_and(c,&combine(&raw,&bank,a),&combine(&raw,&bank,b));bank[25+j]=q;
++    }
++    transform(c,&bank,true);
++    // Restore the source's physical majority carries, bottom up.
++    for (a,b) in [(0,1),(1,2),(5,6),(6,7),(3,10),(10,12)] {c.cx(bank[a],bank[b]);}
++    rename(&mut recs,&old,&bank);
++    fold_undo(c,recs,acc,e,a4,a5,cw);
++    plan
++}
+--- a/src/point_add/mod.rs
++++ b/src/point_add/mod.rs
+@@ -660,3 +660,5 @@
+ mod native_sfuse_b;
+ 
+ mod phase_cubic;
++
++mod rebind;

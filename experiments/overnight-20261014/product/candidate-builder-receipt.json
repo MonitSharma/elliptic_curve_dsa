@@ -1,0 +1,44 @@
+{
+  "collected_at_utc": "2026-10-14T11:22:40.065962+00:00",
+  "checkout": "/home/hclau/ecdsa_research/overnight-20261014/product-candidate",
+  "baseline_revision": "c5bb1ec876db859a3f9f8a9052c140a145df834e",
+  "candidate_patch_sha256": "0f80f6abaa102c8793e40eea39f5cf713f2caf8e273d1fa3baceee1e644115b2",
+  "source_sha256": {
+    "src/point_add/classical_factors_xor.rs": "728a3c74279bee71f1e18b6f8d42e1e2d8a3c335e4c6ca01510643d8f4f57cf8",
+    "src/point_add/mod.rs": "323605c34c765d5eba9baa37ff3790c7aa7ef1a1419ad3fa103df0e3cec67bb0",
+    "src/point_add/product7_simplify.rs": "921045a6782ac053e4db074d698c89f03f67b6156f4fb98e8079be1c858c6258",
+    "src/point_add/tests_classical_factors.rs": "825d06dade86bf43cd8a91e91b297582419add065d2dceca1c259d04ceeb81f8"
+  },
+  "protected_tracked_changes": [],
+  "generated_results_tsv_changed": false,
+  "other_untracked_files": [],
+  "evidence_kind": "research_diagnostic",
+  "status": "completed_diagnostic",
+  "qualified_score": null,
+  "protected_sha256": {
+    "benchmark.sh": "122a65431ad42a1bad5114af9e8f8301fe5cb08c01adaeee00799c9f0d0ed92a",
+    "Cargo.toml": "3c80178b08d29a158abb29a7dcb8eefc67c66f60f2c3bd14483b65eeca0740dc",
+    "Cargo.lock": "42ff16919e551891ad1b21821329b116d133194245a0e0734a33573dfe598e07",
+    "rust-toolchain": "92b454c1ccf330de9b94242f73bc3214370fb420d5152baeec12dc82ceef9dcc",
+    "src/bin/eval_circuit.rs": "b35314bc47a5f8eecbf60459e6c76c9b43aa034eeb9b7ec3421655d74f9e890b",
+    "src/bin/build_circuit.rs": "ac013f1d851156a117c7d41ddb16cb5bb014ed4e6ed4679df143207b46852f33",
+    "src/circuit.rs": "ac2255f6bcb6895c9da2dfe21c3a051a0ef8fc4e0af9598634fec0035dbf35c6",
+    "src/sim.rs": "f0c72f2a280cd68acee1dbf8282098f72d6b3bf4311e0abf96d122fe002256d7",
+    "src/weierstrass_elliptic_curve.rs": "ecfca15ee3b831c243fbea559ff4b8937be47fe591a4f14786ec2b9bfb30bded"
+  },
+  "stream": {
+    "path": "/home/hclau/ecdsa_research/overnight-20261014/product-evidence/candidate-builder/ops.bin",
+    "sha256": "b026a2d0c7e346158e665dada830d636a010ca93097a1f60b3daa87219b6505a",
+    "bytes": 39379872
+  },
+  "log": {
+    "path": "/home/hclau/ecdsa_research/overnight-20261014/product-evidence/candidate-builder/run.log",
+    "sha256": "dfaa79e1cd1ad776c72a70569d38f6cd1074f057a467de49993743eeb4fb1d5f"
+  },
+  "exit_status": 0,
+  "failure_counts": {
+    "classical_mismatches": null,
+    "phase_garbage_batches": null,
+    "ancilla_garbage_batches": null
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "base_revision": "c5bb1ec876db859a3f9f8a9052c140a145df834e",
+  "candidate_status": "prepared_not_built",
+  "native_correctness_patch_sha256": "82d04768d43e991b0da885b47fc5e9edb4e1a856350bd2d299f8de7de1d94f88",
+  "native_correctness_source_sha256": {
+    "y15_onefold.rs": "18f1113fb8f1c5b4b1e2b422b5c333dc62b8ee3f26da4a0273de00fc1ab26750",
+    "toffoli_bank_loan.rs": "7f481a9032904c5f3dbe4713d1b9562f7766e3823790720b75dd3d4df274f727",
+    "toffoli_bank_tests.rs": "ec69c697a45eb48512e2ac9330bd468a049b8ff89b263f26764f7458c0fcb37a",
+    "toffoli_native_fold.rs": "1a3b12ded78cf0507489c66f538c9cefc844c71d0a2d66ba8a273798f481b4e4"
+  },
+  "production_recipe": "31 construction ANDs, six exact early phase erasures, 25-bank ladder, six unconditional regenerations, restored original cleanup. Effective forward allocation reduced by six only when complete 31-wire construction fits, fin=0, no existing carry loan, no dropped ladder carries, no deep shed. Constructor helper used only fin=0/no tt/no drop/no old loan.",
+  "candidate_source_sha256": {
+    "y15_onefold.rs": "da9add2b62a8f1e293e7a9bccebf40f52f5222badd637a997d0f9696026bea25",
+    "toffoli_bank_loan.rs": "470485709d8212089f1e4d54d25064e02b94b565f8d876a16cfef88c2ac86180",
+    "mod.rs": "abed29e510b0114ca809e1c35d0ccda70f25bb0af36d705a108db1d8b78db29c"
+  },
+  "additional_source_required": "143731ef rebind.rs/rebind_anchors.txt/y42_bound_pass.rs/linear_restore.rs only; preserve binary rewrite tables, nonce, protected harness and every other baseline source. Final source-only receipt required before launch.",
+  "semantic_scope": "Initial bank rebase/phase/restore identities exhaustive over all 16384 constructor inputs. Native phase tests cover 38 upper words, not arbitrary upper words. Changed ladder plans retain the original source algorithm and may inherit its approximation. Rebinding requires unchanged local region/window signatures and normalized allocator boundary; a match is binding evidence, not a proof that inherited approximate edits are globally correct."
+}

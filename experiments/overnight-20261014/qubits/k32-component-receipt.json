@@ -1,0 +1,36 @@
+{
+  "scope": "Component-only K32 and donor validation; no qualified score",
+  "k32_initial": {
+    "exit": 101,
+    "status": "compile_failed_reference_to_vec",
+    "source_manifest": "candidate-k32-initial-manifest.json"
+  },
+  "k32_v2": {
+    "manifest": "candidate-k32-v2-manifest.json",
+    "exit": 0,
+    "native_col35_lanes": 64,
+    "payload": false,
+    "partition_cases": 256,
+    "partition_measurement_coefficients": 0
+  },
+  "sz_donors": {
+    "cases": 512,
+    "crossing_integrated": false,
+    "exit": 0,
+    "manifest": "component-sz-donors-manifest.json",
+    "measurement_coefficients": 0
+  },
+  "twelve_column_diagnostic": {
+    "complete_suite_passed": false,
+    "first_Dq_native_forward_passed": true,
+    "exit": 101,
+    "status": "symbolic_checker_unsupported_PushCondition",
+    "manifest": "component-k32-columns-manifest.json"
+  },
+  "evidence_sha256": {
+    "k32-initial-components.log": "aeb79126cdd9160002db0ff8f4008b5832b630055c0619e435f5847cd76ca437",
+    "k32-v2-components.log": "2f33bd46541a257f36d62317c31f7200704d70e609e449aeffc9892f014dc9a7",
+    "sz-donor-components.log": "674cbdaf046b8c359c1b4ab4233320a5d9802cc0400b485285a790a8ab26c167",
+    "k32-column-components.log": "f8fe6c1f4eb869d4c800cc53402d1adf64e31c41c9eb059c26879bda6f3fefa2"
+  }
+}

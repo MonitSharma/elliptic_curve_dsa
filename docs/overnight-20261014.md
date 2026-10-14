@@ -125,5 +125,54 @@ The exact classical-factor candidate lowers eight emitted CCX gates in external
 analysis (depth proxy6.5, not a score). All final states and phase agree with the
 baseline on9,024 paired points plus independent/structured checks. A common
 independent measurement transcript exposes one inherited phase-garbage batch
-in both on the baseline point packet. Its actual unchanged-builder binding is
-pending; it has no qualified score and cannot alone bridge the record gap.
+in both on the baseline point packet. Its actual unchanged-builder binding
+completed0, producing the preserved external candidate's identical stream.
+It has no qualified score and cannot alone bridge the record gap.
+
+## Second-hour checkpoint
+
+The public API now contains1,562 submissions,1,221 eligible records and45
+Pareto points. Objective leaders and strict targets remain unchanged. The
+comparison figure contains only eligible public records and the historical
+complete passing reproduction; no overnight candidate is admitted.
+
+All six original compact classical mismatches are now localized:
+1170,1937,3713,4131,4202,8048. The complete original measurement transcript
+reproduces the historical three phase and six ancilla batches. Selected paired
+replay shows that all six point inputs also fail the unmodified public Q693
+stream. This establishes inherited point-level counterexamples, with distinct
+phase/scratch behavior and no complete equivalence claim. A source-bound full
+classical model flags exactly these six inputs. The newly identified shot3713
+crosses with119-bit Y and19-bit quotient, requiring9 parking reserve lanes
+where the circuit supplies7. [Model and exact recurrence](../experiments/overnight-20261014/coordinator/schedule-receipt.json).
+
+K32 arithmetic has a proved arbitrary-remainder permutation extension and
+native restoring/inverse tests. Source-isolated K25/K32 partition components
+pass, with QB23 unchanged. The next full-column tests and a two-size-bit
+crossing-storage loan remain diagnostics. They do not establish a repaired
+full circuit or Q692. [Ownership obligations](../experiments/overnight-20261014/qubits/K32_LOAN_PROOF.md).
+
+The six-wire constructor bank loan passes53,542,912 native coefficient cases,
+but its complete component ledger adds approximately3–6 mean Toffolis per
+affected body. It is not a Toffoli improvement. A separate product experiment
+tests whether complete width savings compensate; the first builder fails an
+inherited allocator-order assertion before producing a complete stream. A
+resource-only retry requires restoring the original allocation interface,
+without weakening the assertion. No product saving is established.
+
+Two further exact live-wire XOR witnesses pass2,048 native paired states and
+reduce two structural CCX gates. Their minimal source patch is preserved;
+neither this nor the separate eight-gate classical-factor candidate alone
+bridges the record gap. [Complete witness evidence](../experiments/overnight-20261014/coordinator/README.md).
+
+Production square diagnostics retain the exact baseline stream hash. On64
+structured inputs the division slopes are correct, but18 literal-zero slopes
+already have a common residue error at the actual signed square handoff;
+14 physical-p zero representatives work. The public square source documents
+a carry-cut defect on leaf0/1 inputs. A full-width carry diagnostic then stops
+at an inherited allocator assertion, leaving the coupled repair unverified.
+The distinct `P=-2A` cases have correct x and signed R0=-p, but fail y/phase.
+Matched unbound diagnostic runs will test the arithmetic hypothesis.
+[Source-bound production diagnosis](../experiments/overnight-20261014/product/production-square-diagnosis.md).
+
+No original candidate has qualified. The10-hour research window remains active.

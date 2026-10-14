@@ -1,0 +1,92 @@
+{
+  "status": "completed_research_diagnostic",
+  "qualified_score": null,
+  "provenance": {
+    "baseline": "/home/hclau/ecdsa_research/overnight-20261014/qubits/base",
+    "source_sha256": {
+      "frogdrop_sched.rs": "cdb5d76c86dffe61c58ff82be3f10b71efc828029611c70a0e40b7125241f618",
+      "sched_frogdrop.txt": "c7e4fe5362c1756a92571de754612fea9f2fadccaafceba5c1fb4b619d964076",
+      "pointadd_frogdrop.rs": "4a70c4aed4c49f553f11658cdc54c72400b83209f73e8ce18a2ccde5a9d7e6a9",
+      "midg.rs": "5f6a9a1bc703673a345a552f93487a4810addbb2a9ea1d8911132dd813227486"
+    },
+    "scope": "Public full failure model, including schedule envelopes; excludes unmodeled carry truncation and all quantum/phase behavior."
+  },
+  "log_sha256": "1f4714b1645c4727890896dc6327d6400de8c0cda9243b0d52c2f050afa75147",
+  "source_and_binary_sha256_manifest": "75ca02acd44da8d9c52e458fd16ea8496ead779866d026248b45bf3946b067cc  /home/hclau/ecdsa_research/overnight-20261014/prepare-schedule-audit.py\nbe85c51a2a99a57d209ef7e1efa9b3542b943d770a34e308d1fe460fcfcd9b3f  /home/hclau/ecdsa_research/overnight-20261014/server-schedule-audit.sh\n03095419ba3a8c5f0896475670d5a3a2b7834afe06e6fc54b3704b27956065f8  src/main.rs\na027485dabb4d8eb3a271ed53d3c015d15d72de7b5331007a63f6f84b7b026b7  Cargo.toml\n52a689f4fc3b6e3db3f96d33f166d5a5fa9d4086fc367ed01015b3bdb02ba172  Cargo.lock\n5f368ef60c5b2d0cfddb511885d52554333dbbc8b1f7ed46eb97299b58abacdc  target/release/public_schedule_audit\nfbeaf4f6dd9584527f974d49244d0a3af69f3f1370ef7cbe25e603061f90ba6e  /home/hclau/ecdsa_research/overnight-20261014/qubits/evidence/compact-packet.tsv\n",
+  "threads": {
+    "build": 4,
+    "runtime": 1
+  },
+  "exit": 0,
+  "pid": 2379894,
+  "server_evidence": "/home/hclau/ecdsa_research/overnight-20261014/coordinator-schedule-v2/",
+  "elapsed": "0:01.79",
+  "maximum_RSS_KiB": 5760,
+  "divisions": 18048,
+  "model": {
+    "head_bits": 24,
+    "quotient_bits": 23,
+    "ring": 276,
+    "reserve": 7,
+    "ordinary_extra": 2
+  },
+  "flagged_divisions": [
+    {
+      "shot": 1170,
+      "division": 2,
+      "input": "e1a14a46e6340fd02bde43002b9b85d32649195df078b8aa7efe88ce0964f802",
+      "model_failure": "gtest"
+    },
+    {
+      "shot": 1937,
+      "division": 2,
+      "input": "762c765658dfa788f03527430130aff4743ced271c76cb9079731b27ea7fc6c",
+      "model_failure": "gtest"
+    },
+    {
+      "shot": 3713,
+      "division": 1,
+      "input": "dbc03838c8e3ef33e7b222ced5415f372fbdf32febb8ead3f55c4e58c4f81f55",
+      "model_failure": "gpark"
+    },
+    {
+      "shot": 4131,
+      "division": 1,
+      "input": "1a09c9ae75e9afdd16058613159b4576dc2782758f9d5b0f147f6d2e11730d52",
+      "model_failure": "gtest"
+    },
+    {
+      "shot": 4202,
+      "division": 2,
+      "input": "1777e717265e86d8c3290c135116508ebf03de84df771eb27d25aeee591028de",
+      "model_failure": "gtest"
+    },
+    {
+      "shot": 8048,
+      "division": 2,
+      "input": "36f0fbac70592fc4b0dd5063485688e95619d5bfd049d59dddf6c7f7dc28b5a4",
+      "model_failure": "gtest"
+    }
+  ],
+  "sixth_crossing": {
+    "shot": 3713,
+    "division": 1,
+    "euclid_step": 60,
+    "delayed": false,
+    "quotient": 375614,
+    "quotient_bits": 19,
+    "Y_bits": 119,
+    "Y": "0x551c3d8910a3f25f1a7f72b7c89e95",
+    "r_previous": "0x1e7cd97dd708e66f00ea90bb36545c0829f",
+    "t_current": "0x86596245cc593f5149fd36768d58f1",
+    "required_reserve": 9,
+    "existing_reserve": 7,
+    "scope": "Exact integer recurrence; native crossing localization still pending"
+  },
+  "failed_initial_launch": {
+    "pid": 2377642,
+    "exit": 101,
+    "cause": "point_add compiled in builder, absent from shared library; import fixed in external research crate",
+    "log_sha256": "1be9be58827e12ca19cf1fce7490b0283e4bfca233530074d0770bca86029d93"
+  }
+}

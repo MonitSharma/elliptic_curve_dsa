@@ -63,7 +63,7 @@ appear here. The outlined square is that reproduction, not our own improvement.
 Left: the storage/gate tradeoff, with a logarithmic gate axis. Right: the product
 leaders. The dashed line marks the best public product.*
 
-Latest snapshot: **1,561 submissions, 1,220 eligible official records and 44
+Latest snapshot: **1,562 submissions, 1,221 eligible official records and 45
 Pareto points**, refreshed on 14 October 2026.
 
 | Objective | Current public record | Our strict target |

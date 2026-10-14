@@ -59,7 +59,100 @@ ownership rather than repeating static recoloring. The product agent is
 examining more expressive exact polynomial and commuting-gate identities;
 the qubit agent audits the separate low-width quotient-owner schedule.
 
-## Reproduction
+## Conservative classical dependency census
+
+A four-state abstraction tracks constants, arbitrary classical functions and
+quantum-dependent functions. Conditional reset or swap merges both paths; an
+unproved cancellation never creates a classical-value fact. It observes the
+unchanged complete baseline stream rather than sampled control patterns.
+
+Only six CCX sites have a provably classical control in this abstraction, and
+none has a constant control. All six are unconditional. This makes a general
+classical-shadow engine a weak next lead here, although the abstraction loses
+some cancellation facts and is not an upper bound on all possible rewrites.
+No shadow computation, gate deletion or candidate is implemented by this census.
+[Complete compact census](classical-dependency.json).
+
+PID2356145, exit0, 19.33 seconds and88,840 KiB peak RSS; one thread and8 GiB
+virtual-memory limit. Evidence directory:
+`/home/hclau/ecdsa_research/overnight-20261014/coordinator-classical-controls/`.
+Log SHA256: `cc06aeeac3ed2efb1037f18cba048f7e23c55e7286fe64809d87370aff1d5dc7`.
+
+The separate product candidate uses exact equality with a current classical bit
+and complemented-bit factorization; it finds eight structural replacements.
+Those candidate results remain in its own diagnostic report, with no scored mean.
+
+## Two-live-wire XOR witnesses: two structural hits
+
+Hypothesis: a control product may equal the XOR of two existing physical wires,
+allowing a CCX to become two CX gates without scratch or altered phase. The
+read-only audit extends the public immutable interned-expression abstraction,
+skips baseline single-wire witnesses, excludes the target and updates every
+changed physical slot. A rare-atom index narrows candidate pairs; equality is
+rechecked on complete expressions. Unknown expressions only lose proofs.
+
+The first launch failed before compilation because Cargo was absent from the
+detached shell's path (PID2372508, exit127). It is preserved in
+`coordinator-linear-pair/`; log SHA256
+`ba8bc2f07591bfd053173ed96fc2599e0d9f3a4d1c54a14329027ebb6d0320ff`.
+The corrected launch explicitly loads the installed runtime and uses a fresh
+evidence directory. PID2372876 in `coordinator-linear-pair-v2/` runs with16 GiB,
+four build threads and one analysis thread. Its synthetic positive identity and
+mutated-slot negative check pass. Complete-stream analysis ends0 in23.18 seconds,
+with691,968 KiB peak RSS. Among813,269 CCX queries it tests748 candidate pairs and
+finds two exact unconditional products: at operation5,339,866, wires820 XOR44
+replace the toggle on target588; at11,397,834, wires860 XOR44 replace the toggle
+on target613. These are two structural CCX-to-two-CX identities, not an executed
+mean or qualified score. [Source, binary, tests and log receipt](linear-pair-receipt.json).
+
+The follow-up expands from pairs to arbitrary sparse linear combinations of current
+wires and the constant function, with exact GF(2) elimination. It excludes the
+target and rechecks the full expression before reporting any result. This is
+also a read-only research audit. It ends0 in18.98 seconds, with689,660 KiB peak
+RSS and two passed positive/fault tests. Its110 admitted queries find exactly
+the same two identities, with no further saving. [Linear-span receipt](linear-span-receipt.json).
+
+A source-only generic replacement is separately preserved in
+[the candidate patch](linear-witness-candidate.patch) and
+[manifest](linear-witness-candidate-manifest.json). Native tests cover64 dirty
+basis/classical assignments and32 measurement patterns, nested snapshot
+conditions with a mutated bit, a following CZ/HMR and target exclusion. All
+2,048 paired quantum/classical/phase states agree. The candidate patch reapplies
+to exact c5bb1ec8 blobs byte-identically with line-ending conversion disabled.
+Its official-builder binding and full benchmark are not run: a standalone
+two-gate reduction cannot bridge the public record gap. No score is claimed.
+
+## Complete public qubit model: the sixth failure is crossing storage
+
+The independent earlier integer audit focused on reciprocal tests and map
+valuations. A new external crate imports the unchanged public point-add source
+and runs its complete classical failure model, including schedule envelopes,
+Q capacity and crossing reserve. All18,048 intended division inputs from the
+preserved failed packet are examined. This model flags exactly six divisions,
+one in each of the six observed mismatching shots. Every schedule envelope
+passes. Five are reciprocal-search failures; shot3713 division1 is a crossing
+parking failure. Earlier failure ordering masks shot8048's later quotient cap.
+
+At shot3713's direct crossing, Euclidean step60 has Y of119 bits and quotient
+375,614 of19 bits. Its parked quotient needs119+19−129=9 reserve lanes, while
+the source provides7. The highest parked index is137 in a136-lane cycle.
+This explains the new ideal-model discrepancy and supplies an exact native
+regression input. It is not yet a native proof of the first failing gate.
+Increasing reciprocal precision or quotient capacity alone cannot repair it.
+
+The source-model audit ends0 in1.79 seconds,5,760 KiB peak RSS, PID2379894,
+8 GiB virtual-memory limit and four build/one runtime threads. Its initial
+external import failed compilation because contestant code is deliberately
+absent from the shared evaluator library; the corrected external crate imports
+that source directly, leaving the protected library unchanged. Both attempts
+are preserved. [Model assumptions, exact input, source hashes and log](schedule-receipt.json).
+
+The qubit agent's separate paired batch58 replay also fails shot3713 on both
+base and compact circuits. All six observed classical failure inputs are now
+inherited at point level. Phase and scratch behavior differs, and neither the
+source model nor those selected paired inputs establishes full equivalence.
+
+## Reproduction commands
 
 Copy the tracked research helpers to the isolated server cycle directory and
 run the corresponding detached launchers after resource preflight:

@@ -1,0 +1,707 @@
+diff --git a/src/point_add/linear_restore.rs b/src/point_add/linear_restore.rs
+index 486d8dfd..05a94437 100644
+--- a/src/point_add/linear_restore.rs
++++ b/src/point_add/linear_restore.rs
+@@ -10,9 +10,9 @@ o.kind=match r[0]{0=>K::Neg,3=>K::BitInvert,4=>K::BitStore0,5=>K::BitStore1,6=>K
+ o.q_control2=QubitId(r[1]);o.q_control1=QubitId(r[2]);o.q_target=QubitId(r[3]);o.c_target=BitId(r[4]);o.c_condition=BitId(r[5]);o}
+ pub(super) fn run(ops:Vec<Op>)->Vec<Op>{
+ if !ENABLED {return ops;}
+-assert_eq!(ops.len(),11459358,"operation table input length");
+-use sha3::{Digest,Sha3_256};let mut h=Sha3_256::new();for o in &ops {h.update((o.kind as u32).to_le_bytes());h.update([0u8;4]);for v in [o.q_control2.0,o.q_control1.0,o.q_target.0,o.c_target.0,o.c_condition.0,o.r_target.0]{h.update(v.to_le_bytes());}}
+-assert_eq!(format!("{:x}",h.finalize()),"3ac369248fd178edaf3b0e614e07f2d938469cd926f837ef878535e2b3438995","operation table input hash");
+-let ne=u32_at(0);let flat=4+12*ne;assert!(flat<=DATA.len());let mut out=Vec::with_capacity(ops.len()+1024);let mut ei=0;
+-for (i,o) in ops.into_iter().enumerate(){if ei<ne&&u32_at(4+12*ei)==i {let at=u32_at(8+12*ei);let n=u32_at(12+12*ei);assert_eq!(rec(&o),row_at(flat+12*at),"operation table expected record");for j in at+1..at+n {out.push(mk(row_at(flat+12*j)));}ei+=1;}else{out.push(o);}}
++// the whole-stream binding is now informational: the edits bind by local content (rebind.rs)
++let exact=ops.len()==11459358&&{use sha3::{Digest,Sha3_256};let mut h=Sha3_256::new();for o in &ops {h.update((o.kind as u32).to_le_bytes());h.update([0u8;4]);for v in [o.q_control2.0,o.q_control1.0,o.q_target.0,o.c_target.0,o.c_condition.0,o.r_target.0]{h.update(v.to_le_bytes());}}
++format!("{:x}",h.finalize())=="3ac369248fd178edaf3b0e614e07f2d938469cd926f837ef878535e2b3438995"};
++let ne=u32_at(0);let idx:Vec<usize>=(0..ne).map(|e|u32_at(4+12*e)).collect();let pos=super::rebind::window_positions("linear_restore",&ops,&idx,exact);let at_of=|e:usize|pos[e];let flat=4+12*ne;assert!(flat<=DATA.len());let mut out=Vec::with_capacity(ops.len()+1024);let mut ei=0;
++for (i,o) in ops.into_iter().enumerate(){if ei<ne&&at_of(ei)==i {let at=u32_at(8+12*ei);let n=u32_at(12+12*ei);assert_eq!(rec(&o),row_at(flat+12*at),"operation table expected record");for j in at+1..at+n {out.push(mk(row_at(flat+12*j)));}ei+=1;}else{out.push(o);}}
+ assert_eq!(ei,ne);for o in &out{o.validate();}out}
+diff --git a/src/point_add/mod.rs b/src/point_add/mod.rs
+index 7952a2ff..e506b51a 100755
+--- a/src/point_add/mod.rs
++++ b/src/point_add/mod.rs
+@@ -660,3 +660,5 @@ pub mod constant_templates;
+ mod native_sfuse_b;
+ 
+ mod phase_cubic;
++
++mod rebind;
+diff --git a/src/point_add/y15_onefold.rs b/src/point_add/y15_onefold.rs
+index ce87200e..d5259d41 100755
+--- a/src/point_add/y15_onefold.rs
++++ b/src/point_add/y15_onefold.rs
+@@ -1829,6 +1829,11 @@ fn fold_fwd_v2(c: &mut Builder, acc: &[QubitId], e: [QubitId; 3], nm: [QubitId;
+     let k7 = r_and(c, &mut recs, t, fc3);
+     k.push(k7);
+     let mut add = if Y16_CORE { addend_prog(c, &mut recs, &k, &Y16_FWD_GATES, &Y16_FWD_OUT, mw) } else { addend_from_k(c, &mut recs, &k, mw) };
++    if toffoli_bank_loan::enabled() && fin==0 && !loan && !ttm && drop==0 {
++        let plan=toffoli_bank_loan::run(c,acc,e,nm,[k1,k2],[c1,c2,c3,c4,c5,c6],&a4,&a5,recs);
++        LOAN_ACTIVE.with(|x|x.set(false));
++        return plan;
++    }
+     if room_trace() {
+         eprintln!("Y18_IDLE fwd recs={} idle={:?}", recs.len(), y18_idle(&recs, &add));
+     }
+@@ -2486,7 +2491,11 @@ fn body(c: &mut Builder, t: usize, s: [QubitId; 3], k1: QubitId, k2: QubitId, b:
+     let shed0 = shed_for(shed_fixed, fmax);
+     // y28 (s2-4, step 2): forward, the AND of the shift letter leaves first where the fold sheds at all and that takes
+     // one wire off the shed (`fin` then counts c2, c1 and the top wires: the head's numbering skips its third)
+-    let (ttm, (shed, tops, c3m, gsh, fin)) = if Y28_TT_FWD && !rev && !swap01 && Y15_CORE_V2 && Y18_FIN {
++    let bank_plan=if toffoli_bank_loan::enabled() && toffoli_bank_loan::head_plan() && !rev && !swap01 && drop_n==0 && !deep && !carry_loan_selected(rev,t) {
++        let r=shed_for(shed_fixed-6,fmax);
++        (r.4==0 && room_now+r.0+r.1>=31).then_some(r)
++    } else {None};
++    let (ttm, (shed, tops, c3m, gsh, fin)) = if let Some(r)=bank_plan {(false,r)} else if Y28_TT_FWD && !rev && !swap01 && Y15_CORE_V2 && Y18_FIN {
+         if shed0.4 >= 3 {
+             (true, shed0)
+         } else if shed0.0 + shed0.1 + shed0.4 > 0 {
+@@ -4535,3 +4544,5 @@ fn rt0_letter_erase(c: &mut Builder, r1: &[QubitId], r0v: &[Lin], letter: &[Qubi
+ /// chain is read by m1's Z alone, so it is built and erased only when m1's bit is set as well: a quarter of a Toffoli
+ /// a pass. Exact (the same measurements in the same order). false: built on every shot with m0's bit set.
+ const Y36_TOP_M1: bool = true;
++#[path = "toffoli_bank_loan.rs"]
++mod toffoli_bank_loan;
+\ No newline at end of file
+diff --git a/src/point_add/y42_bound_pass.rs b/src/point_add/y42_bound_pass.rs
+index b910caa2..89289cfc 100755
+--- a/src/point_add/y42_bound_pass.rs
++++ b/src/point_add/y42_bound_pass.rs
+@@ -72,16 +72,17 @@ pub(super) fn run(ops: Vec<Op>) -> Vec<Op> {
+         return ops;
+     }
+     assert!(TABLE.len() >= 28 && &TABLE[..8] == b"Y42BOUND", "y42 bound: table header");
+-    assert_eq!(ops.len() as u64, u64_at(8), "y42 bound: input length binding");
+-    assert_eq!(fingerprint(&ops), u64_at(16), "y42 bound: input fingerprint binding");
++    // the whole-stream binding is now informational: the edits bind by their region (rebind.rs)
++    let exact = ops.len() as u64 == u64_at(8) && fingerprint(&ops) == u64_at(16);
+     let ne = u32_at(24);
++    let d = super::rebind::region_shift("y42_bound", &ops, (u32_at(28), u32_at(28 + 12 * (ne - 1))), exact);
+     let flat = 28 + 12 * ne;
+     assert!(flat <= TABLE.len() && (TABLE.len() - flat) % 12 == 0, "y42 bound: table size");
+     let rows = (TABLE.len() - flat) / 12;
+     let mut out = Vec::with_capacity(ops.len() + rows);
+     let mut ei = 0;
+     for (i, o) in ops.into_iter().enumerate() {
+-        if ei < ne && u32_at(28 + 12 * ei) == i {
++        if ei < ne && (u32_at(28 + 12 * ei) as isize + d) as usize == i {
+             let (at, n) = (u32_at(32 + 12 * ei), u32_at(36 + 12 * ei));
+             assert!(at + n <= rows, "y42 bound: row range");
+             for j in at..at + n {
+diff --git a/src/point_add/rebind.rs b/src/point_add/rebind.rs
+new file mode 100644
+index 00000000..d955ef65
+--- /dev/null
++++ b/src/point_add/rebind.rs
+@@ -0,0 +1,180 @@
++//! Re-anchoring of the stream-bound tables (y42_bound, square_guard, linear_restore).
++//!
++//! Those tables name ops by absolute index and used to assert the length and hash of the whole input stream, so any
++//! change upstream (even far from the edits) stopped the build. Here each table is bound to content near its edits:
++//! - y42_bound and square_guard: the region [lo, hi) that spans every edit (plus a margin) must occur in the input,
++//!   op for op, exactly once at some shift d; the edits then apply at index + d. A change inside the region panics.
++//! - linear_restore: each edit is bound by the window of 2k+1 ops centred on the op it rewrites (k chosen so that the
++//!   window is unique in the stream it was made on); the window must occur exactly once and the windows stay in order.
++//!
++//! Matching: a polynomial rolling hash of the per-op mix finds candidates, a position-weighted fingerprint confirms.
++//! Anchors live in `rebind_anchors.txt` ("region <name> lo hi poly fp" and "window <name> idx k poly fp"). A table
++//! with no anchor line falls back to the exact whole-stream binding and prints its anchor lines ("RBA ...").
++use crate::circuit::{Op, OperationType};
++use std::collections::HashMap;
++
++type Want = Vec<u64>;
++fn want_of(v: impl IntoIterator<Item = u64>) -> Want {
++    let mut w: Vec<u64> = v.into_iter().collect();
++    w.sort_unstable();
++    w.dedup();
++    w
++}
++
++const ANCHORS: &str = include_str!("rebind_anchors.txt");
++const B: u64 = 0x9E37_79B9_7F4A_7C15 | 1;
++/// Region margin (ops) on each side of the edit span.
++pub(super) const MARGIN: usize = 64;
++
++fn mix(o: &Op) -> u64 {
++    let mut h = 0x9E3779B97F4A7C15u64;
++    for x in [o.kind as u64, o.q_control2.0, o.q_control1.0, o.q_target.0, o.c_target.0, o.c_condition.0, o.r_target.0] {
++        h = (h ^ x).wrapping_mul(0x100000001B3);
++        h ^= h >> 29;
++    }
++    h
++}
++fn mixes(ops: &[Op]) -> Vec<u64> {
++    ops.iter().map(mix).collect()
++}
++fn poly(h: &[u64]) -> u64 {
++    h.iter().fold(0u64, |a, &x| a.wrapping_mul(B).wrapping_add(x))
++}
++fn fp(h: &[u64]) -> u64 {
++    h.iter().enumerate().fold(0u64, |a, (j, &x)| a.wrapping_add(x.wrapping_mul(2 * j as u64 + 1)))
++}
++fn powb(n: usize) -> u64 {
++    let (mut r, mut b, mut e) = (1u64, B, n);
++    while e > 0 {
++        if e & 1 == 1 {
++            r = r.wrapping_mul(b);
++        }
++        b = b.wrapping_mul(b);
++        e >>= 1;
++    }
++    r
++}
++/// Start positions p where poly(h[p..p+len]) is in `want`; returns (p, want value).
++fn scan(h: &[u64], len: usize, want: &Want) -> Vec<(usize, u64)> {
++    let mut out = Vec::new();
++    if len == 0 || h.len() < len {
++        return out;
++    }
++    let top = powb(len - 1);
++    let mut cur = poly(&h[..len]);
++    for p in 0..=h.len() - len {
++        if (want.len() == 1 && want[0] == cur) || (want.len() > 1 && want.binary_search(&cur).is_ok()) {
++            out.push((p, cur));
++        }
++        if p + len < h.len() {
++            cur = cur.wrapping_sub(h[p].wrapping_mul(top)).wrapping_mul(B).wrapping_add(h[p + len]);
++        }
++    }
++    out
++}
++
++fn lines(kind: &str, name: &str) -> Vec<Vec<u64>> {
++    ANCHORS
++        .lines()
++        .filter_map(|l| {
++            let f: Vec<&str> = l.split_whitespace().collect();
++            (f.len() == 6 && f[0] == kind && f[1] == name).then(|| f[2..].iter().map(|x| x.parse::<u64>().unwrap()).collect())
++        })
++        .collect()
++}
++
++/// Shift d for a region table: `span` = (first, last) edit index in the table's own stream. `exact` = the input passed
++/// the table's original whole-stream binding. Without an anchor the input must be exact (d = 0) and the anchor prints.
++pub(super) fn region_shift(name: &str, ops: &[Op], span: (usize, usize), exact: bool) -> isize {
++    let a = lines("region", name);
++    let h = mixes(ops);
++    if a.is_empty() {
++        assert!(exact, "rebind {name}: no anchor and the input is not the bound stream");
++        let lo = span.0.saturating_sub(MARGIN);
++        let hi = (span.1 + 1 + MARGIN).min(ops.len());
++        eprintln!("RBA region {name} {lo} {hi} {} {}", poly(&h[lo..hi]), fp(&h[lo..hi]));
++        return 0;
++    }
++    assert_eq!(a.len(), 1, "rebind {name}: one region anchor");
++    let (lo, hi, pv, fv) = (a[0][0] as usize, a[0][1] as usize, a[0][2], a[0][3]);
++    assert!(lo <= span.0 && span.1 < hi, "rebind {name}: anchor region does not cover the edits");
++    let len = hi - lo;
++    let want = want_of([pv]);
++    let hits: Vec<usize> = scan(&h, len, &want).into_iter().map(|x| x.0).filter(|&p| fp(&h[p..p + len]) == fv).collect();
++    assert!(hits.len() == 1, "rebind {name}: region of {len} ops found {} times (a change inside the bound region?)", hits.len());
++    let d = hits[0] as isize - lo as isize;
++    assert!(!exact || d == 0, "rebind {name}: exact input but shift {d}");
++    eprintln!("REBIND region {name} len={len} shift={d} exact={exact}");
++    d
++}
++
++/// New positions of single-op edits at `idx` (ascending) in `ops`.
++pub(super) fn window_positions(name: &str, ops: &[Op], idx: &[usize], exact: bool) -> Vec<usize> {
++    let a = lines("window", name);
++    let h = mixes(ops);
++    if a.is_empty() {
++        assert!(exact, "rebind {name}: no anchor and the input is not the bound stream");
++        for &i in idx {
++            let mut k = 8usize;
++            loop {
++                assert!(k <= 1 << 16, "rebind {name}: no unique window at {i}");
++                if i >= k && i + k < ops.len() {
++                    let (lo, hi) = (i - k, i + k + 1);
++                    let (pv, fv) = (poly(&h[lo..hi]), fp(&h[lo..hi]));
++                    let want = want_of([pv]);
++                    let n = scan(&h, hi - lo, &want).into_iter().filter(|&(p, _)| fp(&h[p..p + hi - lo]) == fv).count();
++                    // unique with a 4x margin: the window at k/4.. must also be unique (checked by growing to 4k)
++                    if n == 1 {
++                        let k4 = 4 * k;
++                        let (lo, hi) = (i.saturating_sub(k4), (i + k4 + 1).min(ops.len()));
++                        if i >= k4 && hi == i + k4 + 1 {
++                            eprintln!("RBA window {name} {i} {k4} {} {}", poly(&h[lo..hi]), fp(&h[lo..hi]));
++                        } else {
++                            eprintln!("RBA window {name} {i} {k} {pv} {fv}");
++                        }
++                        break;
++                    }
++                }
++                k *= 2;
++            }
++        }
++        return idx.to_vec();
++    }
++    assert_eq!(a.len(), idx.len(), "rebind {name}: one window anchor per edit");
++    let mut by_len: HashMap<usize, Vec<usize>> = HashMap::new();
++    for (e, w) in a.iter().enumerate() {
++        assert_eq!(w[0] as usize, idx[e], "rebind {name}: anchor {e} names another edit");
++        by_len.entry(2 * w[1] as usize + 1).or_default().push(e);
++    }
++    let mut pos = vec![usize::MAX; idx.len()];
++    for (len, es) in by_len {
++        let want = want_of(es.iter().map(|&e| a[e][2]));
++        let hits = scan(&h, len, &want);
++        for &e in &es {
++            let found: Vec<usize> =
++                hits.iter().filter(|&&(p, v)| v == a[e][2] && fp(&h[p..p + len]) == a[e][3]).map(|&(p, _)| p + a[e][1] as usize).collect();
++            assert!(found.len() == 1, "rebind {name}: window of edit {} found {} times", idx[e], found.len());
++            pos[e] = found[0];
++        }
++    }
++    assert!(pos.windows(2).all(|w| w[0] < w[1]), "rebind {name}: windows out of order");
++    assert!(!exact || pos == idx, "rebind {name}: exact input but moved edits");
++    let moved = pos.iter().zip(idx).filter(|(p, i)| p != i).count();
++    eprintln!("REBIND window {name} edits={} moved={moved} exact={exact}", idx.len());
++    pos
++}
++
++/// Test of the re-anchoring (false = this gate list byte for byte): X;X pairs (identity, no Toffoli) on a CCX's target
++/// before the bound passes, one block before the square and one after it, so that every bound edit moves.
++pub(super) const TEST_SHIFT: bool = false;
++pub(super) fn test_shift(mut ops: Vec<Op>) -> Vec<Op> {
++    for &(at, n) in &[(9_000_000usize, 4usize), (2_000_000, 2)] {
++        let w = (at..ops.len()).find(|&i| ops[i].kind == OperationType::CCX).expect("rebind test: a CCX");
++        let mut x = Op::empty();
++        x.kind = OperationType::X;
++        x.q_target = ops[w].q_target;
++        ops.splice(w..w, std::iter::repeat_n(x, n));
++    }
++    eprintln!("REBIND test shift: 4 X at 9000000, 2 X at 2000000");
++    ops
++}
+diff --git a/src/point_add/rebind_anchors.txt b/src/point_add/rebind_anchors.txt
+new file mode 100644
+index 00000000..297e697f
+--- /dev/null
++++ b/src/point_add/rebind_anchors.txt
+@@ -0,0 +1,42 @@
++region y42_bound 5498802 5988734 11521415853911042069 10214546658745461829
++window linear_restore 75922 32 13712047982980633758 1953787730754515856
++window linear_restore 82441 32 16197744916479142494 3915595708433457574
++window linear_restore 90116 32 16649823875511516399 13862044720286202425
++window linear_restore 90498 32 4466596266225293259 11384981737694127589
++window linear_restore 104692 32 10149396599499524150 2471343093778240406
++window linear_restore 119268 32 6944753505511239309 13472510331979145563
++window linear_restore 624329 32 1574363890432184935 17821904369291592325
++window linear_restore 4231024 32 4762196328372904982 10001316799362746672
++window linear_restore 4231028 32 8470749535552850740 8314202729441929718
++window linear_restore 4231182 32 4911378267830202613 9415535823845594379
++window linear_restore 4232640 32 10584357681498869190 138892186649595118
++window linear_restore 4233157 32 9626498547036609721 15148025913562664717
++window linear_restore 5381702 32 8988107915892146653 14823879656484617217
++window linear_restore 5381719 32 15391518350445159303 9563048956750644235
++window linear_restore 5381731 32 6748297235680914869 4160700474124107437
++window linear_restore 5386116 32 15257448655256606783 1845455230886313715
++window linear_restore 5386120 32 7953816648062741167 14854747532588332395
++window linear_restore 5386124 32 14590665196097524720 7040624170964394880
++window linear_restore 5415073 32 14634991473661810030 5051366770203536424
++window linear_restore 5441706 32 13898701323876665693 5139370574105790949
++window linear_restore 5451995 32 14152403582634202231 14479583189705390795
++window linear_restore 5662057 32 14542148587893653965 8511570075135840853
++window linear_restore 5704977 32 15256063470450438447 16216210858072551481
++window linear_restore 5715266 32 10661144589428823920 2340393607486743802
++window linear_restore 5723594 32 5064636623514946194 18064722133867727772
++window linear_restore 5756092 32 2058886105959665811 2141366142638674899
++window linear_restore 5931814 32 6337536565244383935 5284390455357754321
++window linear_restore 5958447 32 1093251824061486829 9316075517593232761
++window linear_restore 5968736 32 6509871992672815261 12029997930238604441
++window linear_restore 6197956 32 13450772993791951198 10797592291334861954
++window linear_restore 6205631 32 8058192524707494104 7041602561972103288
++window linear_restore 6220207 32 12899210867202782887 11629228204486891639
++window linear_restore 7428002 32 17246961701357028709 8048288266256858483
++window linear_restore 7428006 32 4952828330386577694 2776792747357830386
++window linear_restore 7428160 32 13770863225432889592 10352798229482529682
++window linear_restore 7429618 32 6433818329639249514 9553959743481644398
++window linear_restore 7430135 32 4188506507582323401 7418495761995816829
++window linear_restore 11439649 32 1397410148656896171 3147016439132181345
++window linear_restore 11439666 32 11795998934485765682 973871740833930714
++window linear_restore 11439678 32 1801402155106051069 17851221556265090343
++window linear_restore 11444066 32 15763231217114146169 4074604064196265471
+diff --git a/src/point_add/toffoli_bank_loan.rs b/src/point_add/toffoli_bank_loan.rs
+new file mode 100644
+index 00000000..cc8bf81e
+--- /dev/null
++++ b/src/point_add/toffoli_bank_loan.rs
+@@ -0,0 +1,377 @@
++//! Generated from the source-bound full constructor and six exact phase identities.
++//! Keeps31constructionANDs, frees6wires for the ladder, then pays6ANDs to restore
++//! the original undo interface. No nonce, input-packet or census simplification.
++use super::*;
++#[cfg(test)]
++thread_local! { static MODE: std::cell::Cell<bool> = const { std::cell::Cell::new(false) }; }
++#[cfg(test)] pub(super) fn enabled() -> bool { MODE.with(|x|x.get()) }
++#[cfg(not(test))] pub(super) fn enabled() -> bool { true }
++#[cfg(test)] thread_local! { static HEAD_PLAN: std::cell::Cell<bool> = const { std::cell::Cell::new(false) }; }
++#[cfg(test)] pub(super) fn head_plan() -> bool { HEAD_PLAN.with(|x|x.get()) }
++#[cfg(not(test))] pub(super) fn head_plan() -> bool { true }
++#[cfg(test)] pub(super) fn with_head_plan<R>(on:bool,f:impl FnOnce()->R)->R {
++    let before=HEAD_PLAN.with(|x|x.replace(on));let result=f();HEAD_PLAN.with(|x|x.set(before));result
++}
++#[cfg(test)] pub(super) fn with_mode<R>(on:bool,f:impl FnOnce()->R)->R {
++    let before=MODE.with(|x|x.replace(on)); let result=f(); MODE.with(|x|x.set(before));result
++}
++const TRANSFORM: &[(u8,usize,usize)] = &[
++    (0,30,26),
++    (0,30,22),
++    (0,30,21),
++    (0,30,16),
++    (0,30,15),
++    (0,30,14),
++    (0,30,13),
++    (0,30,8),
++    (0,29,30),
++    (0,29,28),
++    (0,29,26),
++    (0,29,25),
++    (0,29,23),
++    (0,29,22),
++    (0,29,18),
++    (0,29,12),
++    (0,29,10),
++    (0,29,8),
++    (0,29,5),
++    (0,28,27),
++    (1,28,30),
++    (0,27,26),
++    (1,27,29),
++    (0,26,28),
++    (0,26,24),
++    (0,26,22),
++    (0,26,21),
++    (0,26,16),
++    (0,26,14),
++    (0,26,13),
++    (0,26,8),
++    (0,25,28),
++    (0,25,27),
++    (0,25,22),
++    (0,25,20),
++    (0,25,18),
++    (0,25,17),
++    (0,25,16),
++    (0,25,15),
++    (0,25,14),
++    (0,25,13),
++    (0,25,12),
++    (0,25,10),
++    (0,25,8),
++    (0,25,6),
++    (0,25,5),
++    (1,25,26),
++    (0,24,30),
++    (0,24,29),
++    (0,24,26),
++    (0,24,20),
++    (0,24,17),
++    (0,24,16),
++    (0,24,15),
++    (0,24,14),
++    (0,24,13),
++    (0,24,6),
++    (1,24,25),
++    (0,23,28),
++    (0,23,27),
++    (0,23,26),
++    (0,23,22),
++    (0,23,20),
++    (0,23,18),
++    (0,23,17),
++    (0,23,16),
++    (0,23,15),
++    (0,23,13),
++    (0,23,12),
++    (0,23,10),
++    (0,23,8),
++    (0,23,6),
++    (0,23,5),
++    (0,22,30),
++    (0,22,29),
++    (0,22,26),
++    (0,22,25),
++    (0,22,23),
++    (0,22,20),
++    (0,22,17),
++    (0,22,16),
++    (0,22,15),
++    (0,22,6),
++    (0,21,28),
++    (0,21,24),
++    (0,21,23),
++    (0,21,22),
++    (0,21,19),
++    (0,21,18),
++    (0,21,8),
++    (0,20,30),
++    (0,20,29),
++    (0,20,28),
++    (0,20,27),
++    (0,20,26),
++    (0,20,25),
++    (0,20,24),
++    (0,20,23),
++    (0,20,18),
++    (0,20,17),
++    (0,20,15),
++    (0,20,14),
++    (0,20,12),
++    (0,20,10),
++    (0,20,8),
++    (0,20,6),
++    (0,20,5),
++    (1,20,21),
++    (0,19,30),
++    (0,19,28),
++    (0,19,27),
++    (0,19,26),
++    (0,19,25),
++    (0,19,24),
++    (0,19,23),
++    (0,19,21),
++    (0,19,20),
++    (0,19,18),
++    (0,19,17),
++    (0,19,16),
++    (0,19,15),
++    (0,19,14),
++    (0,19,12),
++    (0,19,10),
++    (0,19,8),
++    (0,19,6),
++    (0,19,5),
++    (0,18,30),
++    (0,18,28),
++    (0,18,27),
++    (0,18,26),
++    (0,18,25),
++    (0,18,22),
++    (0,18,17),
++    (0,18,16),
++    (0,18,15),
++    (0,18,14),
++    (0,18,12),
++    (0,18,10),
++    (0,18,8),
++    (0,18,6),
++    (0,18,5),
++    (1,18,20),
++    (0,17,30),
++    (0,17,26),
++    (0,17,25),
++    (0,17,24),
++    (0,17,19),
++    (0,17,18),
++    (0,17,14),
++    (0,17,13),
++    (0,17,6),
++    (0,16,30),
++    (0,16,29),
++    (0,16,20),
++    (0,16,19),
++    (0,16,18),
++    (0,16,17),
++    (0,15,30),
++    (0,15,29),
++    (0,15,28),
++    (0,15,27),
++    (0,15,24),
++    (0,15,22),
++    (0,15,20),
++    (0,15,19),
++    (0,15,16),
++    (0,15,13),
++    (0,15,12),
++    (0,15,10),
++    (0,15,8),
++    (0,15,5),
++    (0,14,11),
++    (1,14,30),
++    (0,13,9),
++    (1,13,29),
++    (0,12,30),
++    (0,12,29),
++    (0,12,28),
++    (0,12,27),
++    (0,12,25),
++    (0,12,23),
++    (0,12,22),
++    (0,12,20),
++    (0,12,19),
++    (0,12,15),
++    (0,12,14),
++    (0,12,13),
++    (0,12,11),
++    (0,12,10),
++    (0,12,9),
++    (0,12,8),
++    (0,12,5),
++    (0,11,30),
++    (0,11,25),
++    (0,11,24),
++    (0,11,22),
++    (0,11,21),
++    (0,11,20),
++    (0,11,19),
++    (0,11,18),
++    (0,11,17),
++    (0,11,16),
++    (0,10,3),
++    (1,10,25),
++    (0,9,29),
++    (0,9,22),
++    (0,9,15),
++    (0,9,11),
++    (0,8,28),
++    (0,8,7),
++    (1,8,27),
++    (0,7,27),
++    (0,7,24),
++    (0,7,23),
++    (0,7,22),
++    (0,7,20),
++    (0,7,19),
++    (0,7,18),
++    (0,7,17),
++    (0,7,16),
++    (0,7,15),
++    (0,7,14),
++    (0,7,9),
++    (1,7,8),
++    (0,6,26),
++    (0,6,21),
++    (0,6,20),
++    (0,6,16),
++    (0,6,15),
++    (0,6,14),
++    (0,6,13),
++    (0,6,9),
++    (1,6,7),
++    (0,5,21),
++    (0,5,20),
++    (0,5,19),
++    (0,5,15),
++    (0,5,13),
++    (0,5,12),
++    (0,5,8),
++    (0,5,6),
++    (1,4,25),
++    (0,3,5),
++    (0,3,4),
++    (0,2,24),
++    (0,2,23),
++    (0,2,22),
++    (0,2,20),
++    (0,2,19),
++    (0,2,18),
++    (0,2,17),
++    (0,2,16),
++    (0,2,15),
++    (0,2,14),
++    (0,2,9),
++    (0,2,8),
++    (1,2,3),
++    (0,1,24),
++    (0,1,23),
++    (0,1,22),
++    (0,1,20),
++    (0,1,19),
++    (0,1,18),
++    (0,1,17),
++    (0,1,16),
++    (0,1,15),
++    (0,1,14),
++    (0,1,9),
++    (0,1,8),
++    (0,1,3),
++    (1,1,2),
++    (0,0,24),
++    (0,0,23),
++    (0,0,22),
++    (0,0,20),
++    (0,0,19),
++    (0,0,18),
++    (0,0,17),
++    (0,0,16),
++    (0,0,15),
++    (0,0,14),
++    (0,0,9),
++    (0,0,8),
++    (0,0,3),
++    (0,0,2),
++    (1,0,1),
++];
++const OUT: [u64;21] = [0x402,0x200c06,0x40180c,0x80180c,0x1000804,0x2000000,0x4000402,0x8000804,0x10001008,0x20000804,0x40000000,0x80000804,0x100001008,0x200001008,0x20000140a,0x40000180c,0x800000000,0x1000001008,0x2000001008,0x4000001008,0x8000001008];
++const REBUILD: [(u64,u64);6] = [(0x2000,0x4000),(0x200800,0x200004),(0x20000201000,0x20000200008),(0x10000006000,0x40010),(0x4000,0x80422),(0x10000000000,0x100c46)];
++const PHASE0: &[(usize,usize)] = &[(0,39),(1,39),(5,39),(9,39),(10,39),(19,39)];
++const PHASE1: &[(usize,usize)] = &[(0,13),(4,13),(9,13),(13,18)];
++const PHASE2: &[(usize,usize)] = &[(0,0),(1,1),(10,10),(17,17),(20,20),(22,22),(41,41),(0,2),(0,11),(0,22),(0,35),(0,40),(1,2),(1,11),(1,22),(1,35),(2,10),(10,11),(10,22),(10,35)];
++const PHASE3: &[(usize,usize)] = &[(0,0),(20,20),(21,21),(40,40),(0,1),(0,2),(0,10),(0,11),(0,21),(0,22),(0,35),(1,22),(1,35),(1,40),(2,11),(2,21),(10,22),(10,35),(11,21)];
++const PHASE4: &[(usize,usize)] = &[(21,21),(0,1),(0,10),(1,9),(9,10)];
++const PHASE5: &[(usize,usize)] = &[(12,13)];
++const PHASES: &[(usize,&[(usize,usize)])] = &[(30,PHASE0),(29,PHASE1),(28,PHASE2),(27,PHASE3),(26,PHASE4),(25,PHASE5)];
++
++fn transform(c:&mut Builder,bank:&[QubitId],back:bool) {
++    let apply=|c:&mut Builder, &(kind,a,b):&(u8,usize,usize)| {
++        if kind==0 { c.cx(bank[a],bank[b]); } else { c.swap(bank[a],bank[b]); }
++    };
++    if back { for op in TRANSFORM.iter().rev() { apply(c,op); } }
++    else { for op in TRANSFORM { apply(c,op); } }
++}
++fn combine(raw:&[QubitId],bank:&[QubitId],mask:u64)->Lin {
++    let mut value=Lin::k(mask&1!=0);
++    for (i,&q) in raw.iter().enumerate() { if mask>>(i+1)&1!=0 { value=value.x(&l(q)); } }
++    for (i,&q) in bank.iter().enumerate() { if mask>>(i+15)&1!=0 { value=value.x(&l(q)); } }
++    value
++}
++fn rename(recs:&mut [Rec],old:&[QubitId],new:&[QubitId]) {
++    let map=|q:QubitId| old.iter().position(|&r|r==q).map_or(q,|i|new[i]);
++    let fix=|f:&mut Lin| { for q in &mut f.w { *q=map(*q); } };
++    for r in recs {
++        match r {
++            Rec::And(q,a,b)=>{*q=map(*q);fix(a);fix(b);},
++            Rec::Maj(q,a,b,ci)=>{*q=map(*q);fix(a);fix(b);fix(ci);},
++            Rec::UndoC5|Rec::UndoC6=>{},
++        }
++    }
++}
++pub(super) fn run(c:&mut Builder,acc:&[QubitId],e:[QubitId;3],nm:[QubitId;3],shift:[QubitId;2],
++                  cw:[QubitId;6],a4:&Lin,a5:&Lin,mut recs:Vec<Rec>)->Vec<usize> {
++    assert!(Y16_CORE && !carry_loan_on());
++    eprintln!("TOFFOLI_BANK_CALL payload={:?} width={} active={}",PAYLOAD_AT.with(|x|x.get()),acc.len(),c.active_qubits());
++    let work:Vec<QubitId>=recs.iter().filter_map(|r|match r {Rec::And(q,_,_)|Rec::Maj(q,_,_,_)=>Some(*q),_=>None}).collect();
++    assert_eq!(work.len(),25);
++    let mut bank=vec![cw[0],cw[1],cw[2],cw[3],work[0],work[1],work[2],work[3],work[4],work[5],cw[4],work[6],cw[5]];
++    bank.extend_from_slice(&work[7..]);assert_eq!(bank.len(),31);
++    let old=bank.clone();
++    let mut raw=acc[..6].to_vec();raw.extend_from_slice(&e);raw.extend_from_slice(&nm);raw.extend_from_slice(&shift);
++    // Physical majority carries to their underlying AND coordinates, top down.
++    for (a,b) in [(1,2),(0,1),(6,7),(5,6),(10,12),(3,10)] {c.cx(bank[a],bank[b]);}
++    transform(c,&bank,false);
++    for &(slot,terms) in PHASES {
++        let m=c.alloc_bit();c.hmr(bank[slot],m);
++        c.push_condition(m);
++        for &(a,b) in terms {
++            let wire=|index:usize|if index<14 {raw[index]} else {bank[index-14]};
++            c.cz(wire(a),wire(b));
++        }
++        c.pop_condition();c.free_bit(m);c.release_clean(bank[slot]);
++    }
++    let forms:Vec<Lin>=OUT.iter().map(|&m|combine(&raw,&bank,m)).collect();
++    let add=field_map(&forms[..6],&forms[6..13],&forms[13],&forms[14..],acc.len());
++    let (plan,lean)=fold_plan(c,acc.len(),"six-wire bank loan");assert!(!lean);
++    ladder_d(c,acc,&add,6,bank[0],&plan,&[]);
++    // Recompute exactly the six hidden original ANDs, charging six Toffolis.
++    for (j,&(a,b)) in REBUILD.iter().enumerate() {
++        let q=lin_and(c,&combine(&raw,&bank,a),&combine(&raw,&bank,b));bank[25+j]=q;
++    }
++    transform(c,&bank,true);
++    // Restore the source's physical majority carries, bottom up.
++    for (a,b) in [(0,1),(1,2),(5,6),(6,7),(3,10),(10,12)] {c.cx(bank[a],bank[b]);}
++    rename(&mut recs,&old,&bank);
++    fold_undo(c,recs,acc,e,a4,a5,cw);
++    plan
++}

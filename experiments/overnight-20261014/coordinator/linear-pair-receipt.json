@@ -1,0 +1,52 @@
+{
+  "status": "completed_research_diagnostic",
+  "qualified_score": null,
+  "provenance": {
+    "baseline": "/home/hclau/ecdsa_research/product",
+    "interned_source_sha256": "7fdb15ee68f4414a25b451a9d4cb74e726ee1a40fa3b04faa285420567255563",
+    "scope": "Exact two-live-wire XOR census only; no candidate, scorer, or sampled control deletion."
+  },
+  "log_sha256": "5805e8bee5556b9a88babc6871cc98bbdcf0ca15f74f2fd5550f20a98eaa251b",
+  "source_and_binary_sha256_manifest": "53c7fec6a0d6481c2e4769442f1a47eea5a9b27340ebe034ce9d9164299ee13f  /home/hclau/ecdsa_research/overnight-20261014/prepare-linear-pair-audit.py\n21791d73edb7d679fd377c85c729eb0437407d008acae86a38736bdb35797dc2  /home/hclau/ecdsa_research/overnight-20261014/prepare-wire-zero-audit.py\n46d6294f481c434552e22fabbd5b4fb05e289d7dd26baf3ac909b45e60211fad  /home/hclau/ecdsa_research/overnight-20261014/server-linear-pair-audit.sh\ne3654a3c1d5da57087664397ac0a35c0a5f3d2cd8843c35b6a91b807efec49b9  src/interned_witness.rs\nbadc3f79dea890808b75d46281372137aa7e306d18585a3c3c438f3e1c11739e  src/main.rs\n71d6239b7182b803aa874975016c3352a8d4816771678ed1528d7c5e799c985d  Cargo.toml\necbb7dc06e12975453adc6a76694214984c612cad6a7ecca4b73244d20da6cb8  Cargo.lock\nfaeef26084dd71e4e7a96346042b78d74b5ce38c727a90364a7ec75be96c8056  target/release/linear_pair_audit\n49b35cf7640ebd529d76894eb8bef93ebf57e7e970fe14b3c27c8c5feb6e73e4  /home/hclau/ecdsa_research/product/ops.bin\n",
+  "threads": {
+    "build": 4,
+    "runtime": 1
+  },
+  "exit": 0,
+  "pid": 2372876,
+  "server_evidence": "/home/hclau/ecdsa_research/overnight-20261014/coordinator-linear-pair-v2/",
+  "elapsed": "0:23.18",
+  "maximum_RSS_KiB": 691968,
+  "operations": 11459514,
+  "attempted_CCX": 813269,
+  "tested_pairs": 748,
+  "structural_hits": 2,
+  "depth_proxy": 2,
+  "synthetic_tests_passed": 1,
+  "hits": [
+    {
+      "operation": 5339866,
+      "sources": [
+        820,
+        44
+      ],
+      "target": 588,
+      "condition": "unconditional"
+    },
+    {
+      "operation": 11397834,
+      "sources": [
+        860,
+        44
+      ],
+      "target": 613,
+      "condition": "unconditional"
+    }
+  ],
+  "failed_initial_launch": {
+    "pid": 2372508,
+    "exit": 127,
+    "cause": "Cargo missing from detached shell path",
+    "log_sha256": "ba8bc2f07591bfd053173ed96fc2599e0d9f3a4d1c54a14329027ebb6d0320ff"
+  }
+}

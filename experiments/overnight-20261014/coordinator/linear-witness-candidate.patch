@@ -1,0 +1,843 @@
+diff --git a/src/point_add/interned_witness.rs b/src/point_add/interned_witness.rs
+index cc20e76..4f6c7b3 100644
+--- a/src/point_add/interned_witness.rs
++++ b/src/point_add/interned_witness.rs
+@@ -1,352 +1,474 @@
+-//! I25: exact CCX support identities with immutable nonlinear interning. An atom denotes a Boolean
+-//! function at its creation boundary, never a mutable wire or classical bit.
+-//! Unknown products and oversized expressions get fresh, non-reused atoms.
+-
+-use crate::circuit::{analyze_ops, Op, OperationType, QubitId, QubitOrBit, NO_BIT};
+-
+-const ATOM_CAP: usize = 32;
+-const PRODUCT_CAP: usize = 200_000;
+-
+-#[derive(Clone, PartialEq, Eq, Hash)]
+-struct Affine {
+-    constant: bool,
+-    atoms: Vec<u64>,
+-}
+-
+-impl Affine {
+-    fn constant(value: bool) -> Self {
+-        Self {
+-            constant: value,
+-            atoms: Vec::new(),
+-        }
+-    }
+-
+-    fn is_zero(&self) -> bool {
+-        !self.constant && self.atoms.is_empty()
+-    }
+-
+-    fn is_one(&self) -> bool {
+-        self.constant && self.atoms.is_empty()
+-    }
+-
+-    fn complement(&self) -> Self {
+-        Self {
+-            constant: !self.constant,
+-            atoms: self.atoms.clone(),
+-        }
+-    }
+-
+-    fn complements(&self, other: &Self) -> bool {
+-        self.constant != other.constant && self.atoms == other.atoms
+-    }
+-}
+-
+-pub(super) enum Rewrite {
+-    Keep,
+-    Drop,
+-    X,
+-    Cx(QubitId),
+-}
+-
+-impl Rewrite {
+-    pub(super) fn emit(self, op: Op, result: &mut Vec<Op>) {
+-        match self {
+-            Rewrite::Keep => result.push(op),
+-            Rewrite::Drop => {}
+-            rewrite => {
+-                let mut replacement = Op::empty();
+-                replacement.q_target = op.q_target;
+-                replacement.c_condition = op.c_condition;
+-                match rewrite {
+-                    Rewrite::X => replacement.kind = OperationType::X,
+-                    Rewrite::Cx(control) => {
+-                        replacement.kind = OperationType::CX;
+-                        replacement.q_control1 = control;
+-                    }
+-                    _ => unreachable!(),
+-                }
+-                replacement.validate();
+-                result.push(replacement);
+-            }
+-        }
+-    }
+-}
+-
+-pub(super) struct Support {
+-    qubits: Vec<Affine>,
+-    bits: Vec<Affine>,
+-    base_condition: Affine,
+-    condition_stack: Vec<Affine>,
+-    next_atom: u64,
+-    products: std::collections::HashMap<(Vec<u64>,Vec<u64>),u64>,
+-}
+-
+-impl Support {
+-    pub(super) fn new(ops: &[Op]) -> Self {
+-        let (nq, nb, _, registers) = analyze_ops(ops.iter());
+-        let mut quantum_inputs = vec![false; nq as usize];
+-        let mut classical_inputs = vec![false; nb as usize];
+-        for register in registers {
+-            for slot in register {
+-                match slot {
+-                    QubitOrBit::Qubit(q) => quantum_inputs[q.0 as usize] = true,
+-                    QubitOrBit::Bit(b) => classical_inputs[b.0 as usize] = true,
+-                }
+-            }
+-        }
+-        let mut state = Self {
+-            qubits: vec![Affine::constant(false); nq as usize],
+-            bits: vec![Affine::constant(false); nb as usize],
+-            base_condition: Affine::constant(true),
+-            condition_stack: Vec::new(),
+-            next_atom: 0,
+-            products: std::collections::HashMap::new(),
+-        };
+-        // Both kinds of ABI slot are unknown. Repeated annotations for one
+-        // physical slot still describe the same value.
+-        for (q, input) in quantum_inputs.into_iter().enumerate() {
+-            if input {
+-                state.qubits[q] = state.fresh();
+-            }
+-        }
+-        for (b, input) in classical_inputs.into_iter().enumerate() {
+-            if input {
+-                state.bits[b] = state.fresh();
+-            }
+-        }
+-        state
+-    }
+-
+-    fn fresh(&mut self) -> Affine {
+-        let id = self.next_atom;
+-        self.next_atom = id.checked_add(1).expect("affine atom identifier overflow");
+-        Affine {
+-            constant: false,
+-            atoms: vec![id],
+-        }
+-    }
+-
+-    fn xor(&mut self, a: &Affine, b: &Affine) -> Affine {
+-        let mut atoms = Vec::with_capacity(a.atoms.len() + b.atoms.len());
+-        let (mut i, mut j) = (0, 0);
+-        while i < a.atoms.len() || j < b.atoms.len() {
+-            if j == b.atoms.len() || (i < a.atoms.len() && a.atoms[i] < b.atoms[j]) {
+-                atoms.push(a.atoms[i]);
+-                i += 1;
+-            } else if i == a.atoms.len() || b.atoms[j] < a.atoms[i] {
+-                atoms.push(b.atoms[j]);
+-                j += 1;
+-            } else {
+-                i += 1;
+-                j += 1;
+-            }
+-        }
+-        if atoms.len() > ATOM_CAP {
+-            // This fresh atom represents the entire XOR, including its
+-            // constant. It must not be mistaken for zero or an older atom.
+-            self.fresh()
+-        } else {
+-            Affine {
+-                constant: a.constant ^ b.constant,
+-                atoms,
+-            }
+-        }
+-    }
+-
+-    fn and(&mut self, a: &Affine, b: &Affine) -> Affine {
+-        if a.is_zero() || b.is_zero() || a.complements(b) {
+-            Affine::constant(false)
+-        } else if a.is_one() {
+-            b.clone()
+-        } else if b.is_one() || a == b {
+-            a.clone()
+-        } else {
+-            // Keys denote complete immutable Boolean expressions, never wire
+-            // slots. HashMap checks exact key equality, not just a hash value.
+-            // (A^ca)(B^cb) = AB ^ ca*B ^ cb*A ^ ca*cb.
+-            let ca=a.constant; let cb=b.constant;
+-            let aa=Affine {constant:false, atoms:a.atoms.clone()};
+-            let bb=Affine {constant:false, atoms:b.atoms.clone()};
+-            let mut linear=Affine::constant(ca && cb);
+-            if ca {linear=self.xor(&linear,&bb);}
+-            if cb {linear=self.xor(&linear,&aa);}
+-            let mut left=aa.atoms;let mut right=bb.atoms;
+-            if left>right {std::mem::swap(&mut left,&mut right);}
+-            let key=(left,right);
+-            let id=if let Some(&id)=self.products.get(&key){id}else{
+-                // Forgetting cache entries only loses proofs. No atom ID is
+-                // recycled, and all live expressions keep their old meaning.
+-                if self.products.len()>=PRODUCT_CAP {self.products.clear();}
+-                let id=self.fresh().atoms[0];self.products.insert(key,id);id
+-            };
+-            self.xor(&linear,&Affine{constant:false,atoms:vec![id]})
+-        }
+-    }
+-
+-    fn ccx_rewrite(condition: &Affine, a: &Affine, b: &Affine, op: &Op) -> Rewrite {
+-        if condition.is_zero() || a.is_zero() || b.is_zero() || a.complements(b) {
+-            Rewrite::Drop
+-        } else if a.is_one() && b.is_one() {
+-            Rewrite::X
+-        } else if a.is_one() {
+-            Rewrite::Cx(op.q_control2)
+-        } else if b.is_one() || a == b {
+-            Rewrite::Cx(op.q_control1)
+-        } else {
+-            Rewrite::Keep
+-        }
+-    }
+-
+-    pub(super) fn step(&mut self, op: &Op) -> Rewrite {
+-        if op.kind == OperationType::PushCondition {
+-            self.condition_stack.push(self.base_condition.clone());
+-            // Snapshot the current value, not a reference to the bit slot.
+-            self.base_condition = self.and(
+-                &self.base_condition.clone(),
+-                &self.bits[op.c_condition.0 as usize].clone(),
+-            );
+-            return Rewrite::Keep;
+-        }
+-        if op.kind == OperationType::PopCondition {
+-            if let Some(saved) = self.condition_stack.pop() {
+-                self.base_condition = saved;
+-            }
+-            return Rewrite::Keep;
+-        }
+-
+-        let mut condition = self.base_condition.clone();
+-        if op.c_condition != NO_BIT {
+-            condition = self.and(&condition, &self.bits[op.c_condition.0 as usize].clone());
+-        }
+-
+-        match op.kind {
+-            OperationType::CCX => {
+-                let a = self.qubits[op.q_control1.0 as usize].clone();
+-                let b = self.qubits[op.q_control2.0 as usize].clone();
+-                let rewrite = Self::ccx_rewrite(&condition, &a, &b, op);
+-                let product = self.and(&a, &b);
+-                let toggle = self.and(&condition, &product);
+-                let target = op.q_target.0 as usize;
+-                self.qubits[target] = self.xor(&self.qubits[target].clone(), &toggle);
+-                return rewrite;
+-            }
+-            OperationType::CX => {
+-                let target = op.q_target.0 as usize;
+-                let toggle = self.and(&condition, &self.qubits[op.q_control1.0 as usize].clone());
+-                self.qubits[target] = self.xor(&self.qubits[target].clone(), &toggle);
+-            }
+-            OperationType::X => {
+-                let target = op.q_target.0 as usize;
+-                self.qubits[target] = self.xor(&self.qubits[target].clone(), &condition);
+-            }
+-            OperationType::Swap => {
+-                let a = op.q_control1.0 as usize;
+-                let b = op.q_target.0 as usize;
+-                let difference = self.xor(&self.qubits[a].clone(), &self.qubits[b].clone());
+-                let toggle = self.and(&condition, &difference);
+-                // Both destinations share this same actual conditional delta.
+-                let left = self.xor(&self.qubits[a].clone(), &toggle);
+-                let right = self.xor(&self.qubits[b].clone(), &toggle);
+-                self.qubits[a] = left;
+-                self.qubits[b] = right;
+-            }
+-            OperationType::Hmr => {
+-                let target = op.q_target.0 as usize;
+-                let bit = op.c_target.0 as usize;
+-                let outcome = self.fresh();
+-                let difference = self.xor(&self.bits[bit].clone(), &outcome);
+-                let toggle = self.and(&condition, &difference);
+-                self.bits[bit] = self.xor(&self.bits[bit].clone(), &toggle);
+-                self.qubits[target] =
+-                    self.and(&self.qubits[target].clone(), &condition.complement());
+-            }
+-            OperationType::R => {
+-                let target = op.q_target.0 as usize;
+-                self.qubits[target] =
+-                    self.and(&self.qubits[target].clone(), &condition.complement());
+-            }
+-            OperationType::BitInvert => {
+-                let bit = op.c_target.0 as usize;
+-                self.bits[bit] = self.xor(&self.bits[bit].clone(), &condition);
+-            }
+-            OperationType::BitStore0 => {
+-                let bit = op.c_target.0 as usize;
+-                self.bits[bit] = self.and(&self.bits[bit].clone(), &condition.complement());
+-            }
+-            OperationType::BitStore1 => {
+-                let bit = op.c_target.0 as usize;
+-                self.bits[bit] = self
+-                    .and(&self.bits[bit].complement(), &condition.complement())
+-                    .complement();
+-            }
+-            // Phase gates do not alter basis support. Preserve them, resets,
+-            // classical operations and annotations verbatim in the output.
+-            OperationType::Z
+-            | OperationType::CZ
+-            | OperationType::CCZ
+-            | OperationType::Neg
+-            | OperationType::Register
+-            | OperationType::AppendToRegister
+-            | OperationType::DebugPrint => {}
+-            OperationType::PushCondition | OperationType::PopCondition => unreachable!(),
+-        }
+-        Rewrite::Keep
+-    }
+-}
+-
+-/// Derive one pass of exact CCX support identities from this stream's ABI and
+-/// operations. No saved operation indices, nonce assumptions or legacy passes.
+-pub(crate) fn simplify(ops: Vec<Op>) -> Vec<Op> {
+-    let mut state = Support::new(&ops);
+-    let mut result = Vec::with_capacity(ops.len());
+-    for op in ops {
+-        state.step(&op).emit(op, &mut result);
+-    }
+-    result
+-}
+-
+-
+-/// Exact CCX-to-CX witnesses. No new measurement, reset, or phase gate.
+-pub(crate) fn witnesses(ops:Vec<Op>)->Vec<Op>{
+-    use std::collections::{HashMap,BTreeSet};
+-    let mut state=Support::new(&ops);
+-    let mut index:HashMap<Affine,BTreeSet<usize>>=HashMap::new();
+-    for (q,v) in state.qubits.iter().enumerate(){index.entry(v.clone()).or_default().insert(q);}
+-    let(mut self_n,mut witness_n,mut self_t,mut witness_t,mut depth)=(0,0,0.0,0.0,0i32);
+-    let mut examples=Vec::new();
+-    let mut out=Vec::with_capacity(ops.len());
+-    for (at,op) in ops.iter().enumerate(){
+-        let mut replacement=None;
+-        if op.kind==OperationType::PushCondition{depth+=1;}
+-        if op.kind==OperationType::PopCondition{depth-=1;}
+-        if op.kind==OperationType::CCX{
+-            let a=state.qubits[op.q_control1.0 as usize].clone();
+-            let b=state.qubits[op.q_control2.0 as usize].clone();
+-            let product=state.and(&a,&b);
+-            let target=op.q_target.0 as usize;
+-            if !product.is_zero() && !product.is_one(){
+-                let weight=2f64.powi(-depth-i32::from(op.c_condition!=NO_BIT));
+-                let self_hit=state.qubits[target]==product;
+-                let witness=index.get(&product).and_then(|s|s.iter().copied().find(|&q|q!=target));
+-                if self_hit{self_n+=1;self_t+=weight;}
+-                if witness.is_some(){witness_n+=1;witness_t+=weight;replacement=witness;}
+-                if examples.len()<64 && (self_hit||witness.is_some()){
+-                    examples.push(format!("{{\"op\":{at},\"target\":{target},\"self_uncompute\":{self_hit},\"witness\":{}}}",witness.map_or("null".to_string(),|q|q.to_string())));
+-                }
+-            }
+-        }
+-        let changed:Vec<usize>=match op.kind{
+-            OperationType::CCX|OperationType::CX|OperationType::X|OperationType::R|OperationType::Hmr=>vec![op.q_target.0 as usize],
+-            OperationType::Swap=>vec![op.q_control1.0 as usize,op.q_target.0 as usize],_=>vec![]};
+-        for &q in &changed{let key=state.qubits[q].clone();let set=index.get_mut(&key).unwrap();assert!(set.remove(&q));if set.is_empty(){index.remove(&key);}}
+-        state.step(op);
+-        for &q in &changed{index.entry(state.qubits[q].clone()).or_default().insert(q);}
+-        if let Some(q)=replacement{
+-            assert_ne!(q,op.q_target.0 as usize);
+-            let mut r=Op::empty();r.kind=OperationType::CX;r.q_control1=QubitId(q as u64);r.q_target=op.q_target;r.c_condition=op.c_condition;
+-            r.validate();out.push(r);
+-        }else{out.push(*op);}
+-    }
+-    println!("I25_WITNESSES {{\"self_uncompute_native\":{self_n},\"self_uncompute_expected_T\":{self_t},\"witness_native\":{witness_n},\"witness_expected_T\":{witness_t},\"examples\":[{}]}}",examples.join(","));
+-    out
+-}
++//! I25: exact CCX support identities with immutable nonlinear interning. An atom denotes a Boolean
++//! function at its creation boundary, never a mutable wire or classical bit.
++//! Unknown products and oversized expressions get fresh, non-reused atoms.
++
++use crate::circuit::{analyze_ops, Op, OperationType, QubitId, QubitOrBit, NO_BIT};
++
++const ATOM_CAP: usize = 32;
++const PRODUCT_CAP: usize = 200_000;
++
++#[derive(Clone, Debug, PartialEq, Eq, Hash)]
++struct Affine {
++    constant: bool,
++    atoms: Vec<u64>,
++}
++
++impl Affine {
++    fn constant(value: bool) -> Self {
++        Self {
++            constant: value,
++            atoms: Vec::new(),
++        }
++    }
++
++    fn is_zero(&self) -> bool {
++        !self.constant && self.atoms.is_empty()
++    }
++
++    fn is_one(&self) -> bool {
++        self.constant && self.atoms.is_empty()
++    }
++
++    fn complement(&self) -> Self {
++        Self {
++            constant: !self.constant,
++            atoms: self.atoms.clone(),
++        }
++    }
++
++    fn complements(&self, other: &Self) -> bool {
++        self.constant != other.constant && self.atoms == other.atoms
++    }
++}
++
++pub(super) enum Rewrite {
++    Keep,
++    Drop,
++    X,
++    Cx(QubitId),
++}
++
++impl Rewrite {
++    pub(super) fn emit(self, op: Op, result: &mut Vec<Op>) {
++        match self {
++            Rewrite::Keep => result.push(op),
++            Rewrite::Drop => {}
++            rewrite => {
++                let mut replacement = Op::empty();
++                replacement.q_target = op.q_target;
++                replacement.c_condition = op.c_condition;
++                match rewrite {
++                    Rewrite::X => replacement.kind = OperationType::X,
++                    Rewrite::Cx(control) => {
++                        replacement.kind = OperationType::CX;
++                        replacement.q_control1 = control;
++                    }
++                    _ => unreachable!(),
++                }
++                replacement.validate();
++                result.push(replacement);
++            }
++        }
++    }
++}
++
++pub(super) struct Support {
++    qubits: Vec<Affine>,
++    bits: Vec<Affine>,
++    base_condition: Affine,
++    condition_stack: Vec<Affine>,
++    next_atom: u64,
++    products: std::collections::HashMap<(Vec<u64>,Vec<u64>),u64>,
++}
++
++impl Support {
++    pub(super) fn new(ops: &[Op]) -> Self {
++        let (nq, nb, _, registers) = analyze_ops(ops.iter());
++        let mut quantum_inputs = vec![false; nq as usize];
++        let mut classical_inputs = vec![false; nb as usize];
++        for register in registers {
++            for slot in register {
++                match slot {
++                    QubitOrBit::Qubit(q) => quantum_inputs[q.0 as usize] = true,
++                    QubitOrBit::Bit(b) => classical_inputs[b.0 as usize] = true,
++                }
++            }
++        }
++        let mut state = Self {
++            qubits: vec![Affine::constant(false); nq as usize],
++            bits: vec![Affine::constant(false); nb as usize],
++            base_condition: Affine::constant(true),
++            condition_stack: Vec::new(),
++            next_atom: 0,
++            products: std::collections::HashMap::new(),
++        };
++        // Both kinds of ABI slot are unknown. Repeated annotations for one
++        // physical slot still describe the same value.
++        for (q, input) in quantum_inputs.into_iter().enumerate() {
++            if input {
++                state.qubits[q] = state.fresh();
++            }
++        }
++        for (b, input) in classical_inputs.into_iter().enumerate() {
++            if input {
++                state.bits[b] = state.fresh();
++            }
++        }
++        state
++    }
++
++    fn fresh(&mut self) -> Affine {
++        let id = self.next_atom;
++        self.next_atom = id.checked_add(1).expect("affine atom identifier overflow");
++        Affine {
++            constant: false,
++            atoms: vec![id],
++        }
++    }
++
++    fn xor(&mut self, a: &Affine, b: &Affine) -> Affine {
++        let mut atoms = Vec::with_capacity(a.atoms.len() + b.atoms.len());
++        let (mut i, mut j) = (0, 0);
++        while i < a.atoms.len() || j < b.atoms.len() {
++            if j == b.atoms.len() || (i < a.atoms.len() && a.atoms[i] < b.atoms[j]) {
++                atoms.push(a.atoms[i]);
++                i += 1;
++            } else if i == a.atoms.len() || b.atoms[j] < a.atoms[i] {
++                atoms.push(b.atoms[j]);
++                j += 1;
++            } else {
++                i += 1;
++                j += 1;
++            }
++        }
++        if atoms.len() > ATOM_CAP {
++            // This fresh atom represents the entire XOR, including its
++            // constant. It must not be mistaken for zero or an older atom.
++            self.fresh()
++        } else {
++            Affine {
++                constant: a.constant ^ b.constant,
++                atoms,
++            }
++        }
++    }
++
++    fn and(&mut self, a: &Affine, b: &Affine) -> Affine {
++        if a.is_zero() || b.is_zero() || a.complements(b) {
++            Affine::constant(false)
++        } else if a.is_one() {
++            b.clone()
++        } else if b.is_one() || a == b {
++            a.clone()
++        } else {
++            // Keys denote complete immutable Boolean expressions, never wire
++            // slots. HashMap checks exact key equality, not just a hash value.
++            // (A^ca)(B^cb) = AB ^ ca*B ^ cb*A ^ ca*cb.
++            let ca=a.constant; let cb=b.constant;
++            let aa=Affine {constant:false, atoms:a.atoms.clone()};
++            let bb=Affine {constant:false, atoms:b.atoms.clone()};
++            let mut linear=Affine::constant(ca && cb);
++            if ca {linear=self.xor(&linear,&bb);}
++            if cb {linear=self.xor(&linear,&aa);}
++            let mut left=aa.atoms;let mut right=bb.atoms;
++            if left>right {std::mem::swap(&mut left,&mut right);}
++            let key=(left,right);
++            let id=if let Some(&id)=self.products.get(&key){id}else{
++                // Forgetting cache entries only loses proofs. No atom ID is
++                // recycled, and all live expressions keep their old meaning.
++                if self.products.len()>=PRODUCT_CAP {self.products.clear();}
++                let id=self.fresh().atoms[0];self.products.insert(key,id);id
++            };
++            self.xor(&linear,&Affine{constant:false,atoms:vec![id]})
++        }
++    }
++
++    fn ccx_rewrite(condition: &Affine, a: &Affine, b: &Affine, op: &Op) -> Rewrite {
++        if condition.is_zero() || a.is_zero() || b.is_zero() || a.complements(b) {
++            Rewrite::Drop
++        } else if a.is_one() && b.is_one() {
++            Rewrite::X
++        } else if a.is_one() {
++            Rewrite::Cx(op.q_control2)
++        } else if b.is_one() || a == b {
++            Rewrite::Cx(op.q_control1)
++        } else {
++            Rewrite::Keep
++        }
++    }
++
++    pub(super) fn step(&mut self, op: &Op) -> Rewrite {
++        if op.kind == OperationType::PushCondition {
++            self.condition_stack.push(self.base_condition.clone());
++            // Snapshot the current value, not a reference to the bit slot.
++            self.base_condition = self.and(
++                &self.base_condition.clone(),
++                &self.bits[op.c_condition.0 as usize].clone(),
++            );
++            return Rewrite::Keep;
++        }
++        if op.kind == OperationType::PopCondition {
++            if let Some(saved) = self.condition_stack.pop() {
++                self.base_condition = saved;
++            }
++            return Rewrite::Keep;
++        }
++
++        let mut condition = self.base_condition.clone();
++        if op.c_condition != NO_BIT {
++            condition = self.and(&condition, &self.bits[op.c_condition.0 as usize].clone());
++        }
++
++        match op.kind {
++            OperationType::CCX => {
++                let a = self.qubits[op.q_control1.0 as usize].clone();
++                let b = self.qubits[op.q_control2.0 as usize].clone();
++                let rewrite = Self::ccx_rewrite(&condition, &a, &b, op);
++                let product = self.and(&a, &b);
++                let toggle = self.and(&condition, &product);
++                let target = op.q_target.0 as usize;
++                self.qubits[target] = self.xor(&self.qubits[target].clone(), &toggle);
++                return rewrite;
++            }
++            OperationType::CX => {
++                let target = op.q_target.0 as usize;
++                let toggle = self.and(&condition, &self.qubits[op.q_control1.0 as usize].clone());
++                self.qubits[target] = self.xor(&self.qubits[target].clone(), &toggle);
++            }
++            OperationType::X => {
++                let target = op.q_target.0 as usize;
++                self.qubits[target] = self.xor(&self.qubits[target].clone(), &condition);
++            }
++            OperationType::Swap => {
++                let a = op.q_control1.0 as usize;
++                let b = op.q_target.0 as usize;
++                let difference = self.xor(&self.qubits[a].clone(), &self.qubits[b].clone());
++                let toggle = self.and(&condition, &difference);
++                // Both destinations share this same actual conditional delta.
++                let left = self.xor(&self.qubits[a].clone(), &toggle);
++                let right = self.xor(&self.qubits[b].clone(), &toggle);
++                self.qubits[a] = left;
++                self.qubits[b] = right;
++            }
++            OperationType::Hmr => {
++                let target = op.q_target.0 as usize;
++                let bit = op.c_target.0 as usize;
++                let outcome = self.fresh();
++                let difference = self.xor(&self.bits[bit].clone(), &outcome);
++                let toggle = self.and(&condition, &difference);
++                self.bits[bit] = self.xor(&self.bits[bit].clone(), &toggle);
++                self.qubits[target] =
++                    self.and(&self.qubits[target].clone(), &condition.complement());
++            }
++            OperationType::R => {
++                let target = op.q_target.0 as usize;
++                self.qubits[target] =
++                    self.and(&self.qubits[target].clone(), &condition.complement());
++            }
++            OperationType::BitInvert => {
++                let bit = op.c_target.0 as usize;
++                self.bits[bit] = self.xor(&self.bits[bit].clone(), &condition);
++            }
++            OperationType::BitStore0 => {
++                let bit = op.c_target.0 as usize;
++                self.bits[bit] = self.and(&self.bits[bit].clone(), &condition.complement());
++            }
++            OperationType::BitStore1 => {
++                let bit = op.c_target.0 as usize;
++                self.bits[bit] = self
++                    .and(&self.bits[bit].complement(), &condition.complement())
++                    .complement();
++            }
++            // Phase gates do not alter basis support. Preserve them, resets,
++            // classical operations and annotations verbatim in the output.
++            OperationType::Z
++            | OperationType::CZ
++            | OperationType::CCZ
++            | OperationType::Neg
++            | OperationType::Register
++            | OperationType::AppendToRegister
++            | OperationType::DebugPrint => {}
++            OperationType::PushCondition | OperationType::PopCondition => unreachable!(),
++        }
++        Rewrite::Keep
++    }
++}
++
++/// Derive one pass of exact CCX support identities from this stream's ABI and
++/// operations. No saved operation indices, nonce assumptions or legacy passes.
++pub(crate) fn simplify(ops: Vec<Op>) -> Vec<Op> {
++    let mut state = Support::new(&ops);
++    let mut result = Vec::with_capacity(ops.len());
++    for op in ops {
++        state.step(&op).emit(op, &mut result);
++    }
++    result
++}
++
++
++/// Exact CCX-to-CX witnesses. No new measurement, reset, or phase gate.
++pub(crate) fn witnesses(ops:Vec<Op>)->Vec<Op>{
++    use std::collections::{HashMap,BTreeSet};
++    let mut state=Support::new(&ops);
++    let mut index:HashMap<Affine,BTreeSet<usize>>=HashMap::new();
++    for (q,v) in state.qubits.iter().enumerate(){index.entry(v.clone()).or_default().insert(q);}
++    let(mut self_n,mut witness_n,mut self_t,mut witness_t,mut depth)=(0,0,0.0,0.0,0i32);
++    let mut examples=Vec::new();
++    let mut out=Vec::with_capacity(ops.len());
++    for (at,op) in ops.iter().enumerate(){
++        let mut replacement=None;
++        if op.kind==OperationType::PushCondition{depth+=1;}
++        if op.kind==OperationType::PopCondition{depth-=1;}
++        if op.kind==OperationType::CCX{
++            let a=state.qubits[op.q_control1.0 as usize].clone();
++            let b=state.qubits[op.q_control2.0 as usize].clone();
++            let product=state.and(&a,&b);
++            let target=op.q_target.0 as usize;
++            if !product.is_zero() && !product.is_one(){
++                let weight=2f64.powi(-depth-i32::from(op.c_condition!=NO_BIT));
++                let self_hit=state.qubits[target]==product;
++                let witness=index.get(&product).and_then(|s|s.iter().copied().find(|&q|q!=target));
++                if self_hit{self_n+=1;self_t+=weight;}
++                if witness.is_some(){witness_n+=1;witness_t+=weight;replacement=witness;}
++                if examples.len()<64 && (self_hit||witness.is_some()){
++                    examples.push(format!("{{\"op\":{at},\"target\":{target},\"self_uncompute\":{self_hit},\"witness\":{}}}",witness.map_or("null".to_string(),|q|q.to_string())));
++                }
++            }
++        }
++        let changed:Vec<usize>=match op.kind{
++            OperationType::CCX|OperationType::CX|OperationType::X|OperationType::R|OperationType::Hmr=>vec![op.q_target.0 as usize],
++            OperationType::Swap=>vec![op.q_control1.0 as usize,op.q_target.0 as usize],_=>vec![]};
++        for &q in &changed{let key=state.qubits[q].clone();let set=index.get_mut(&key).unwrap();assert!(set.remove(&q));if set.is_empty(){index.remove(&key);}}
++        state.step(op);
++        for &q in &changed{index.entry(state.qubits[q].clone()).or_default().insert(q);}
++        if let Some(q)=replacement{
++            assert_ne!(q,op.q_target.0 as usize);
++            let mut r=Op::empty();r.kind=OperationType::CX;r.q_control1=QubitId(q as u64);r.q_target=op.q_target;r.c_condition=op.c_condition;
++            r.validate();out.push(r);
++        }else{out.push(*op);}
++    }
++    println!("I25_WITNESSES {{\"self_uncompute_native\":{self_n},\"self_uncompute_expected_T\":{self_t},\"witness_native\":{witness_n},\"witness_expected_T\":{witness_t},\"examples\":[{}]}}",examples.join(","));
++    out
++}
++
++fn symmetric<T:Ord+Copy>(a:&[T],b:&[T])->Vec<T> {
++    let(mut i,mut j,mut out)=(0,0,Vec::new());
++    while i<a.len() || j<b.len() {
++        if j==b.len() || (i<a.len() && a[i]<b[j]) {out.push(a[i]);i+=1;}
++        else if i==a.len() || b[j]<a[i] {out.push(b[j]);j+=1;}
++        else {i+=1;j+=1;}
++    } out
++}
++fn formal(v:&Affine)->Vec<u64> {
++    let mut r=v.atoms.iter().map(|&a|a.checked_add(1).unwrap()).collect::<Vec<_>>();
++    if v.constant {r.insert(0,0);} r
++}
++fn solve_span(state:&Support,product:&Affine,target:usize)->Option<(bool,Vec<usize>)> {
++    use std::collections::BTreeMap;
++    let mut basis:BTreeMap<u64,(Vec<u64>,Vec<usize>)>=BTreeMap::new();
++    basis.insert(0,(vec![0],vec![usize::MAX]));
++    for (q,v) in state.qubits.iter().enumerate() {
++        if q==target {continue;}
++        let(mut row,mut coeff)=(formal(v),vec![q]);
++        while let Some(&p)=row.last() {
++            if let Some((known,kcoeff))=basis.get(&p) {row=symmetric(&row,known);coeff=symmetric(&coeff,kcoeff);}
++            else {basis.insert(p,(row,coeff));break;}
++        }
++    }
++    let(mut row,mut coeff)=(formal(product),Vec::<usize>::new());
++    while let Some(&p)=row.last() {
++        let (known,kcoeff)=basis.get(&p)?;
++        row=symmetric(&row,known);coeff=symmetric(&coeff,kcoeff);
++    }
++    let constant=coeff.last()==Some(&usize::MAX);if constant {coeff.pop();}
++    assert!(!coeff.contains(&target));
++    let mut check=Affine::constant(constant);
++    for &q in &coeff {check.constant^=state.qubits[q].constant;check.atoms=symmetric(&check.atoms,&state.qubits[q].atoms);}
++    assert_eq!(&check,product);
++    Some((constant,coeff))
++}
++pub(crate) fn linear_witnesses(ops:Vec<Op>)->Vec<Op> {
++    let mut out=Vec::with_capacity(ops.len());
++    use std::collections::{HashMap,BTreeSet};
++    let mut state=Support::new(&ops);
++    let mut atoms:HashMap<u64,BTreeSet<usize>>=HashMap::new();
++    for(q,v)in state.qubits.iter().enumerate(){for &a in &v.atoms{atoms.entry(a).or_default().insert(q);}}
++    let(mut depth,mut attempts,mut hits,mut weight)=(0i32,0usize,0usize,0f64);
++    for(at,op)in ops.iter().enumerate(){
++        let mut replacement=None;
++        if op.kind==OperationType::PushCondition{depth+=1;}
++        if op.kind==OperationType::PopCondition{depth-=1;}
++        if op.kind==OperationType::CCX {
++            let product=state.and(&state.qubits[op.q_control1.0 as usize].clone(),&state.qubits[op.q_control2.0 as usize].clone());
++            let t=op.q_target.0 as usize;
++            if !product.is_zero() && !product.is_one() && product.atoms.iter().all(|a|atoms.get(a).is_some_and(|qs|qs.iter().any(|&q|q!=t))) {
++                attempts+=1;
++                if let Some((constant,qs))=solve_span(&state,&product,t) {
++                    replacement=Some((constant,qs.clone()));
++                    hits+=1;weight+=2f64.powi(-depth-i32::from(op.c_condition!=NO_BIT));
++                    println!("LINEAR_SPAN_HIT op={at} target={t} constant={constant} sources={qs:?} depth={depth} explicit_condition={}",op.c_condition!=NO_BIT);
++                }
++            }
++        }
++        let changed:Vec<usize>=match op.kind{
++            OperationType::CCX|OperationType::CX|OperationType::X|OperationType::R|OperationType::Hmr=>vec![op.q_target.0 as usize],
++            OperationType::Swap=>vec![op.q_control1.0 as usize,op.q_target.0 as usize],_=>vec![]};
++        for &q in &changed{for a in &state.qubits[q].atoms{let slots=atoms.get_mut(a).unwrap();assert!(slots.remove(&q));if slots.is_empty(){atoms.remove(a);}}}
++        state.step(op);
++        for &q in &changed{for &a in &state.qubits[q].atoms{atoms.entry(a).or_default().insert(q);}}
++        if let Some((constant,qs))=replacement {
++            if constant {let mut r=Op::empty();r.kind=OperationType::X;r.q_target=op.q_target;r.c_condition=op.c_condition;r.validate();out.push(r);}
++            for q in qs {let mut r=Op::empty();r.kind=OperationType::CX;r.q_control1=QubitId(q as u64);r.q_target=op.q_target;r.c_condition=op.c_condition;r.validate();out.push(r);}
++        }else{out.push(*op);}
++
++    }
++    println!("LINEAR_SPAN_AUDIT attempts={attempts} hits={hits} depth_proxy={weight} scorer=NONE");
++    out
++}
++#[test]
++fn sparse_formal_span_excludes_target_and_tracks_constant() {
++    let ops:Vec<Op>=Vec::new();let mut state=Support::new(&ops);
++    state.qubits=vec![Affine{constant:false,atoms:vec![0]},Affine{constant:false,atoms:vec![1]},Affine{constant:true,atoms:vec![0,1,2]},Affine{constant:false,atoms:vec![2]}];
++    let product=Affine{constant:false,atoms:vec![2]};
++    let answer=solve_span(&state,&product,3).unwrap();assert_eq!(answer,(true,vec![0,1,2]));
++    state.qubits[2].atoms=vec![0,1,4];
++    assert_eq!(solve_span(&state,&product,3),None,"target itself must not prove its own replacement");
++}
++
++#[test]
++fn native_linear_witness_preserves_dirty_basis_bits_and_measurement_phase() {
++    use crate::circuit::{BitId,RegisterId};
++    use quantum_ecc::sim::Simulator;
++    use sha3::digest::{Update,ExtendableOutput};
++    fn gate(k:OperationType,a:Option<u64>,b:Option<u64>,t:u64)->Op {
++        let mut o=Op::empty();o.kind=k;o.q_target=QubitId(t);
++        if let Some(a)=a{o.q_control1=QubitId(a);}if let Some(b)=b{o.q_control2=QubitId(b);}o
++    }
++    let mut ops=Vec::new();
++    let mut reg=Op::empty();reg.kind=OperationType::Register;reg.r_target=RegisterId(0);ops.push(reg);
++    for q in [0,1,2,5] {let mut o=Op::empty();o.kind=OperationType::AppendToRegister;o.r_target=RegisterId(0);o.q_target=QubitId(q);ops.push(o);}
++    for bit in [0,1] {let mut o=Op::empty();o.kind=OperationType::AppendToRegister;o.r_target=RegisterId(0);o.c_target=BitId(bit);ops.push(o);}
++    ops.push(gate(OperationType::CCX,Some(0),Some(1),3));
++    ops.push(gate(OperationType::CX,Some(2),None,3));
++    ops.push(gate(OperationType::Z,None,None,3));
++    let mut push=Op::empty();push.kind=OperationType::PushCondition;push.c_condition=BitId(0);ops.push(push);
++    let mut invert=Op::empty();invert.kind=OperationType::BitInvert;invert.c_target=BitId(0);ops.push(invert);
++    let mut final_ccx=gate(OperationType::CCX,Some(0),Some(1),5);final_ccx.c_condition=BitId(1);ops.push(final_ccx);
++    let mut pop=Op::empty();pop.kind=OperationType::PopCondition;ops.push(pop);
++    ops.push(gate(OperationType::CZ,Some(5),None,2));
++    let mut hmr=gate(OperationType::Hmr,None,None,3);hmr.c_target=BitId(2);ops.push(hmr);
++    for o in &ops{o.validate();}
++    let rewritten=linear_witnesses(ops.clone());
++    assert_eq!(ops.iter().filter(|o|o.kind==OperationType::CCX).count(),2);
++    assert_eq!(rewritten.iter().filter(|o|o.kind==OperationType::CCX).count(),1);
++    for seed in 0..32u64 {
++        let mut hash=sha3::Shake256::default();hash.update(b"native-linear-witness-phase-v1");hash.update(&seed.to_le_bytes());
++        let mut xa=hash.clone().finalize_xof();let mut xb=hash.finalize_xof();
++        let mut a=Simulator::new(6,3,&mut xa);let mut b=Simulator::new(6,3,&mut xb);
++        for (i,q) in [0usize,1,2,5].iter().enumerate(){a.qubits[*q]=(0..64).fold(0u64,|v,lane|v|(((lane>>i)&1)as u64)<<lane);}
++        for bit in 0..2{a.bits[bit]=(0..64).fold(0u64,|v,lane|v|(((lane>>(4+bit))&1)as u64)<<lane);}
++        b.qubits=a.qubits.clone();b.bits=a.bits.clone();
++        a.apply_iter(ops.iter());b.apply_iter(rewritten.iter());
++        assert_eq!(a.qubits,b.qubits);assert_eq!(a.bits,b.bits);assert_eq!(a.phase,b.phase);
++    }
++}
+diff --git a/src/point_add/mod.rs b/src/point_add/mod.rs
+index 7952a2f..2fa8864 100644
+--- a/src/point_add/mod.rs
++++ b/src/point_add/mod.rs
+@@ -599,6 +599,7 @@ pub fn build() -> Vec<Op> {
+             ops.splice(w..w + 1, rep);
+         }
+     }
++    ops = interned_witness::linear_witnesses(ops);
+     let nonce: u64 = required_env("TAIL_NONCE");
+     let mut x = Op::empty();
+     x.kind = OperationType::X;

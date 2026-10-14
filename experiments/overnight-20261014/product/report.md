@@ -137,8 +137,13 @@ pairs pass values/phase/scratch in both streams. The 256 structured cases retain
 the identical inherited failures above.
 
 The clean-base [candidate patch](classical-xor-candidate.patch) changes only
-four `src/point_add/` files and retains the exact inherited nonce tail. Its
-actual official-builder binding remains pending. Standalone official scoring
+four `src/point_add/` files and retains the exact inherited nonce tail. The
+unchanged official builder subsequently produced the **byte-identical** external
+candidate stream, exit0, and its three native suites passed. The
+[source/protected-file receipt](candidate-builder-receipt.json) binds that run to
+the clean-base candidate. All protected files and historical results are
+unchanged. [Complete stream counts](candidate-builder-stream-diagnostic.json)
+retain the diagnostic/scored distinction. Standalone official scoring
 is deferred because this reduction alone cannot bridge the public record gap;
 it can be integrated into a larger exact improvement. [Compact source, test and
 paired evidence](controls-receipt.json) separates the failed prototype and

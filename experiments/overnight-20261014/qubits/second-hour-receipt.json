@@ -1,0 +1,77 @@
+{
+  "scope": "Research diagnostic and component evidence; no qualified score",
+  "source_revision": "c95b9325913abacca9c86bdebad10a20633cd04e",
+  "original_compact_stream_sha256": "256422fd6e3520191300810546cb80974cb86c36354065d4c28fe564e078407d",
+  "packet_sha256": "fbeaf4f6dd9584527f974d49244d0a3af69f3f1370ef7cbe25e603061f90ba6e",
+  "original_transcript": {
+    "elapsed": "25:54.55",
+    "max_rss_KiB": 61714312,
+    "phase_batches": [
+      58,
+      64,
+      125
+    ],
+    "exit": 0,
+    "mismatches": [
+      1170,
+      1937,
+      3713,
+      4131,
+      4202,
+      8048
+    ],
+    "ancilla_batches": [
+      18,
+      30,
+      58,
+      64,
+      65,
+      125
+    ]
+  },
+  "sixth_paired": {
+    "compact_dirty_ancillas": 45,
+    "compact_phase": "0x2",
+    "compact_mismatch": true,
+    "rng": "Same fixed RNG word sequence; mapping may differ",
+    "base_mismatch": true,
+    "base_phase": "0",
+    "base_dirty_ancillas": 28,
+    "shot": 3713,
+    "exit": 0
+  },
+  "dirty_k32_components": {
+    "exhaustive_cases": 21844,
+    "borrowed_fixture_cases": 256,
+    "exit": 0,
+    "measurement_coefficients": 0,
+    "integrated": false
+  },
+  "solver": {
+    "wrapper_exit_observed": false,
+    "widths": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      16,
+      24,
+      25,
+      32
+    ],
+    "proof_report_complete": true
+  },
+  "evidence_sha256": {
+    "original-all-results.log": "bd1d73fadecc054d8647e7be9e003e2d6881d5963dfd118019e0a0ce8f4b313a",
+    "original-all.log": "35ddd547998993424270133bdfc1fd9ce22130127034361c7ca0994440368553",
+    "paired-sixth.log": "9ddad6e66ce8258f4f57e7e7f06b2bacdc132b538ea66e9f21ae41455dfc02b5",
+    "paired-sixth-base.log": "ca4cc87d26932bf3cb9859f253e72b0413bde261690ee811b9921ea4242180a8",
+    "paired-sixth-compact.log": "20e3b4463546545167266f1cfd442124c24e625baba0b1c7d90ffbf8539f98a2",
+    "dirty-k32-components.log": "11fbc12398d5f56bad83a826ad20f4a5d648b11d1529294fc3ef4d8d4bc98e80",
+    "dirty-restoring-proof.json": "82152839414b1f9826dc7102fde210d55e5c05cb4899e76f7d55f68a91efa2e0",
+    "k32-loan-audit.json": "3e9891ff7d887edb0dc1ce21829ce96a352d672fcf7934d82152754635e8367c"
+  }
+}

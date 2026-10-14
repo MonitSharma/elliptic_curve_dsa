@@ -1,0 +1,653 @@
+{
+  "status": "native_values_and_tested_phases_passed_complete_component_gate_cost_worse",
+  "source_recipe": "31 initial ANDs; six early measurement phase erasures; 25 bank directions through ladder; six unconditional AND regenerations; original cleanup",
+  "native_cases": 53542912,
+  "native_phase_coefficients": 85,
+  "native_upper_words": 38,
+  "native_tests": 3,
+  "native_exit": 0,
+  "native_log_sha256": "d98e5531b6da29e6981c0017012f5521f82a94f5d5d6c65c9ca6d9ae54a45326",
+  "native_settings_sha256": "6d4cce2f4b74bdbea701dea58ecf97bd8cafa1ac5e0c35f5bc5747e956fa6807",
+  "native_wall_seconds": 84.08,
+  "native_peak_rss_KiB": 1158564,
+  "paired_fold_rooms": [
+    {
+      "room": 12,
+      "shots": 49152,
+      "old_emitted": 116,
+      "new_emitted": 116,
+      "old_executed": 4812607,
+      "new_executed": 4963113,
+      "old_peak": 1251,
+      "new_peak": 1251,
+      "mean_delta": 3.0620524088541665
+    },
+    {
+      "room": 14,
+      "shots": 49152,
+      "old_emitted": 114,
+      "new_emitted": 114,
+      "old_executed": 4767505,
+      "new_executed": 4913096,
+      "old_peak": 1251,
+      "new_peak": 1251,
+      "mean_delta": 2.9620564778645835
+    },
+    {
+      "room": 16,
+      "shots": 49152,
+      "old_emitted": 112,
+      "new_emitted": 112,
+      "old_executed": 4716186,
+      "new_executed": 4863939,
+      "old_peak": 1251,
+      "new_peak": 1251,
+      "mean_delta": 3.00604248046875
+    },
+    {
+      "room": 18,
+      "shots": 49152,
+      "old_emitted": 110,
+      "new_emitted": 110,
+      "old_executed": 4668966,
+      "new_executed": 4815569,
+      "old_peak": 1251,
+      "new_peak": 1251,
+      "mean_delta": 2.9826456705729165
+    },
+    {
+      "room": 22,
+      "shots": 49152,
+      "old_emitted": 106,
+      "new_emitted": 106,
+      "old_executed": 4568996,
+      "new_executed": 4714692,
+      "old_peak": 1251,
+      "new_peak": 1251,
+      "mean_delta": 2.9641927083333335
+    },
+    {
+      "room": 26,
+      "shots": 49152,
+      "old_emitted": 102,
+      "new_emitted": 102,
+      "old_executed": 4471534,
+      "new_executed": 4622512,
+      "old_peak": 1251,
+      "new_peak": 1251,
+      "mean_delta": 3.0716552734375
+    },
+    {
+      "room": 31,
+      "shots": 49152,
+      "old_emitted": 97,
+      "new_emitted": 97,
+      "old_executed": 4354321,
+      "new_executed": 4498486,
+      "old_peak": 1251,
+      "new_peak": 1251,
+      "mean_delta": 2.93304443359375
+    },
+    {
+      "room": 36,
+      "shots": 49152,
+      "old_emitted": 92,
+      "new_emitted": 92,
+      "old_executed": 4228620,
+      "new_executed": 4374210,
+      "old_peak": 1251,
+      "new_peak": 1251,
+      "mean_delta": 2.9620361328125
+    },
+    {
+      "room": 45,
+      "shots": 49152,
+      "old_emitted": 83,
+      "new_emitted": 86,
+      "old_executed": 4005798,
+      "new_executed": 4227072,
+      "old_peak": 1251,
+      "new_peak": 1248,
+      "mean_delta": 4.5018310546875
+    },
+    {
+      "room": 50,
+      "shots": 49152,
+      "old_emitted": 80,
+      "new_emitted": 86,
+      "old_executed": 3932160,
+      "new_executed": 4227072,
+      "old_peak": 1249,
+      "new_peak": 1243,
+      "mean_delta": 6.0
+    }
+  ],
+  "payload_body_pairs": [
+    {
+      "room": 90,
+      "tick": 30,
+      "old_diagnostic_mean": 947.5,
+      "new_diagnostic_mean": 950.5,
+      "delta": 3.0,
+      "old_peak": 1251,
+      "new_peak": 1251
+    },
+    {
+      "room": 90,
+      "tick": 60,
+      "old_diagnostic_mean": 947.5,
+      "new_diagnostic_mean": 950.5,
+      "delta": 3.0,
+      "old_peak": 1251,
+      "new_peak": 1251
+    },
+    {
+      "room": 90,
+      "tick": 85,
+      "old_diagnostic_mean": 947.5,
+      "new_diagnostic_mean": 950.5,
+      "delta": 3.0,
+      "old_peak": 1251,
+      "new_peak": 1251
+    },
+    {
+      "room": 90,
+      "tick": 90,
+      "old_diagnostic_mean": 947.5,
+      "new_diagnostic_mean": 950.5,
+      "delta": 3.0,
+      "old_peak": 1251,
+      "new_peak": 1251
+    },
+    {
+      "room": 90,
+      "tick": 100,
+      "old_diagnostic_mean": 946.0,
+      "new_diagnostic_mean": 949.0,
+      "delta": 3.0,
+      "old_peak": 1251,
+      "new_peak": 1251
+    },
+    {
+      "room": 90,
+      "tick": 110,
+      "old_diagnostic_mean": 946.0,
+      "new_diagnostic_mean": 949.0,
+      "delta": 3.0,
+      "old_peak": 1251,
+      "new_peak": 1251
+    },
+    {
+      "room": 90,
+      "tick": 120,
+      "old_diagnostic_mean": 951.25,
+      "new_diagnostic_mean": 954.25,
+      "delta": 3.0,
+      "old_peak": 1251,
+      "new_peak": 1251
+    },
+    {
+      "room": 90,
+      "tick": 127,
+      "old_diagnostic_mean": 951.25,
+      "new_diagnostic_mean": 954.25,
+      "delta": 3.0,
+      "old_peak": 1251,
+      "new_peak": 1251
+    },
+    {
+      "room": 90,
+      "tick": 128,
+      "old_diagnostic_mean": 936.0,
+      "new_diagnostic_mean": 936.0,
+      "delta": 0.0,
+      "old_peak": 1251,
+      "new_peak": 1251
+    },
+    {
+      "room": 90,
+      "tick": 137,
+      "old_diagnostic_mean": 925.0,
+      "new_diagnostic_mean": 928.0,
+      "delta": 3.0,
+      "old_peak": 1251,
+      "new_peak": 1251
+    },
+    {
+      "room": 90,
+      "tick": 145,
+      "old_diagnostic_mean": 925.0,
+      "new_diagnostic_mean": 928.0,
+      "delta": 3.0,
+      "old_peak": 1251,
+      "new_peak": 1251
+    },
+    {
+      "room": 100,
+      "tick": 30,
+      "old_diagnostic_mean": 942.5,
+      "new_diagnostic_mean": 946.0,
+      "delta": 3.5,
+      "old_peak": 1251,
+      "new_peak": 1250
+    },
+    {
+      "room": 100,
+      "tick": 60,
+      "old_diagnostic_mean": 942.5,
+      "new_diagnostic_mean": 946.0,
+      "delta": 3.5,
+      "old_peak": 1251,
+      "new_peak": 1250
+    },
+    {
+      "room": 100,
+      "tick": 85,
+      "old_diagnostic_mean": 942.5,
+      "new_diagnostic_mean": 946.0,
+      "delta": 3.5,
+      "old_peak": 1251,
+      "new_peak": 1250
+    },
+    {
+      "room": 100,
+      "tick": 90,
+      "old_diagnostic_mean": 942.5,
+      "new_diagnostic_mean": 945.5,
+      "delta": 3.0,
+      "old_peak": 1251,
+      "new_peak": 1251
+    },
+    {
+      "room": 100,
+      "tick": 100,
+      "old_diagnostic_mean": 941.0,
+      "new_diagnostic_mean": 945.0,
+      "delta": 4.0,
+      "old_peak": 1251,
+      "new_peak": 1249
+    },
+    {
+      "room": 100,
+      "tick": 110,
+      "old_diagnostic_mean": 941.0,
+      "new_diagnostic_mean": 945.0,
+      "delta": 4.0,
+      "old_peak": 1251,
+      "new_peak": 1249
+    },
+    {
+      "room": 100,
+      "tick": 120,
+      "old_diagnostic_mean": 946.25,
+      "new_diagnostic_mean": 949.75,
+      "delta": 3.5,
+      "old_peak": 1251,
+      "new_peak": 1250
+    },
+    {
+      "room": 100,
+      "tick": 127,
+      "old_diagnostic_mean": 946.25,
+      "new_diagnostic_mean": 949.75,
+      "delta": 3.5,
+      "old_peak": 1251,
+      "new_peak": 1250
+    },
+    {
+      "room": 100,
+      "tick": 128,
+      "old_diagnostic_mean": 931.0,
+      "new_diagnostic_mean": 931.0,
+      "delta": 0.0,
+      "old_peak": 1251,
+      "new_peak": 1251
+    },
+    {
+      "room": 100,
+      "tick": 137,
+      "old_diagnostic_mean": 920.0,
+      "new_diagnostic_mean": 926.0,
+      "delta": 6.0,
+      "old_peak": 1251,
+      "new_peak": 1245
+    },
+    {
+      "room": 100,
+      "tick": 145,
+      "old_diagnostic_mean": 920.0,
+      "new_diagnostic_mean": 926.0,
+      "delta": 6.0,
+      "old_peak": 1251,
+      "new_peak": 1245
+    },
+    {
+      "room": 120,
+      "tick": 30,
+      "old_diagnostic_mean": 929.5,
+      "new_diagnostic_mean": 935.5,
+      "delta": 6.0,
+      "old_peak": 1251,
+      "new_peak": 1251
+    },
+    {
+      "room": 120,
+      "tick": 60,
+      "old_diagnostic_mean": 929.5,
+      "new_diagnostic_mean": 935.5,
+      "delta": 6.0,
+      "old_peak": 1251,
+      "new_peak": 1251
+    },
+    {
+      "room": 120,
+      "tick": 85,
+      "old_diagnostic_mean": 929.5,
+      "new_diagnostic_mean": 935.5,
+      "delta": 6.0,
+      "old_peak": 1251,
+      "new_peak": 1251
+    },
+    {
+      "room": 120,
+      "tick": 90,
+      "old_diagnostic_mean": 928.5,
+      "new_diagnostic_mean": 934.5,
+      "delta": 6.0,
+      "old_peak": 1251,
+      "new_peak": 1251
+    },
+    {
+      "room": 120,
+      "tick": 100,
+      "old_diagnostic_mean": 928.5,
+      "new_diagnostic_mean": 934.5,
+      "delta": 6.0,
+      "old_peak": 1251,
+      "new_peak": 1251
+    },
+    {
+      "room": 120,
+      "tick": 110,
+      "old_diagnostic_mean": 928.5,
+      "new_diagnostic_mean": 934.5,
+      "delta": 6.0,
+      "old_peak": 1251,
+      "new_peak": 1251
+    },
+    {
+      "room": 120,
+      "tick": 120,
+      "old_diagnostic_mean": 931.75,
+      "new_diagnostic_mean": 937.75,
+      "delta": 6.0,
+      "old_peak": 1251,
+      "new_peak": 1251
+    },
+    {
+      "room": 120,
+      "tick": 127,
+      "old_diagnostic_mean": 931.75,
+      "new_diagnostic_mean": 937.75,
+      "delta": 6.0,
+      "old_peak": 1251,
+      "new_peak": 1251
+    },
+    {
+      "room": 120,
+      "tick": 128,
+      "old_diagnostic_mean": 923.0,
+      "new_diagnostic_mean": 923.0,
+      "delta": 0.0,
+      "old_peak": 1251,
+      "new_peak": 1251
+    },
+    {
+      "room": 120,
+      "tick": 137,
+      "old_diagnostic_mean": 914.5,
+      "new_diagnostic_mean": 920.5,
+      "delta": 6.0,
+      "old_peak": 1251,
+      "new_peak": 1251
+    },
+    {
+      "room": 120,
+      "tick": 145,
+      "old_diagnostic_mean": 914.5,
+      "new_diagnostic_mean": 920.5,
+      "delta": 6.0,
+      "old_peak": 1251,
+      "new_peak": 1251
+    },
+    {
+      "room": 160,
+      "tick": 30,
+      "old_diagnostic_mean": 911.5,
+      "new_diagnostic_mean": 917.5,
+      "delta": 6.0,
+      "old_peak": 1221,
+      "new_peak": 1221
+    },
+    {
+      "room": 160,
+      "tick": 60,
+      "old_diagnostic_mean": 911.5,
+      "new_diagnostic_mean": 917.5,
+      "delta": 6.0,
+      "old_peak": 1221,
+      "new_peak": 1221
+    },
+    {
+      "room": 160,
+      "tick": 85,
+      "old_diagnostic_mean": 911.5,
+      "new_diagnostic_mean": 917.5,
+      "delta": 6.0,
+      "old_peak": 1221,
+      "new_peak": 1221
+    },
+    {
+      "room": 160,
+      "tick": 90,
+      "old_diagnostic_mean": 911.0,
+      "new_diagnostic_mean": 917.0,
+      "delta": 6.0,
+      "old_peak": 1220,
+      "new_peak": 1220
+    },
+    {
+      "room": 160,
+      "tick": 100,
+      "old_diagnostic_mean": 910.5,
+      "new_diagnostic_mean": 916.5,
+      "delta": 6.0,
+      "old_peak": 1221,
+      "new_peak": 1221
+    },
+    {
+      "room": 160,
+      "tick": 110,
+      "old_diagnostic_mean": 910.5,
+      "new_diagnostic_mean": 916.5,
+      "delta": 6.0,
+      "old_peak": 1221,
+      "new_peak": 1221
+    },
+    {
+      "room": 160,
+      "tick": 120,
+      "old_diagnostic_mean": 913.75,
+      "new_diagnostic_mean": 919.75,
+      "delta": 6.0,
+      "old_peak": 1221,
+      "new_peak": 1221
+    },
+    {
+      "room": 160,
+      "tick": 127,
+      "old_diagnostic_mean": 913.75,
+      "new_diagnostic_mean": 919.75,
+      "delta": 6.0,
+      "old_peak": 1221,
+      "new_peak": 1221
+    },
+    {
+      "room": 160,
+      "tick": 128,
+      "old_diagnostic_mean": 905.0,
+      "new_diagnostic_mean": 905.0,
+      "delta": 0.0,
+      "old_peak": 1221,
+      "new_peak": 1221
+    },
+    {
+      "room": 160,
+      "tick": 137,
+      "old_diagnostic_mean": 897.5,
+      "new_diagnostic_mean": 903.5,
+      "delta": 6.0,
+      "old_peak": 1221,
+      "new_peak": 1221
+    },
+    {
+      "room": 160,
+      "tick": 145,
+      "old_diagnostic_mean": 897.5,
+      "new_diagnostic_mean": 903.5,
+      "delta": 6.0,
+      "old_peak": 1221,
+      "new_peak": 1221
+    },
+    {
+      "room": 240,
+      "tick": 30,
+      "old_diagnostic_mean": 899.5,
+      "new_diagnostic_mean": 905.5,
+      "delta": 6.0,
+      "old_peak": 1251,
+      "new_peak": 1251
+    },
+    {
+      "room": 240,
+      "tick": 60,
+      "old_diagnostic_mean": 899.5,
+      "new_diagnostic_mean": 905.5,
+      "delta": 6.0,
+      "old_peak": 1251,
+      "new_peak": 1251
+    },
+    {
+      "room": 240,
+      "tick": 85,
+      "old_diagnostic_mean": 899.5,
+      "new_diagnostic_mean": 905.5,
+      "delta": 6.0,
+      "old_peak": 1251,
+      "new_peak": 1251
+    },
+    {
+      "room": 240,
+      "tick": 90,
+      "old_diagnostic_mean": 898.5,
+      "new_diagnostic_mean": 904.5,
+      "delta": 6.0,
+      "old_peak": 1251,
+      "new_peak": 1251
+    },
+    {
+      "room": 240,
+      "tick": 100,
+      "old_diagnostic_mean": 898.5,
+      "new_diagnostic_mean": 904.5,
+      "delta": 6.0,
+      "old_peak": 1251,
+      "new_peak": 1251
+    },
+    {
+      "room": 240,
+      "tick": 110,
+      "old_diagnostic_mean": 898.5,
+      "new_diagnostic_mean": 904.5,
+      "delta": 6.0,
+      "old_peak": 1251,
+      "new_peak": 1251
+    },
+    {
+      "room": 240,
+      "tick": 120,
+      "old_diagnostic_mean": 900.25,
+      "new_diagnostic_mean": 906.25,
+      "delta": 6.0,
+      "old_peak": 1251,
+      "new_peak": 1251
+    },
+    {
+      "room": 240,
+      "tick": 127,
+      "old_diagnostic_mean": 900.25,
+      "new_diagnostic_mean": 906.25,
+      "delta": 6.0,
+      "old_peak": 1251,
+      "new_peak": 1251
+    },
+    {
+      "room": 240,
+      "tick": 128,
+      "old_diagnostic_mean": 896.0,
+      "new_diagnostic_mean": 896.0,
+      "delta": 0.0,
+      "old_peak": 1251,
+      "new_peak": 1251
+    },
+    {
+      "room": 240,
+      "tick": 137,
+      "old_diagnostic_mean": 891.0,
+      "new_diagnostic_mean": 897.0,
+      "delta": 6.0,
+      "old_peak": 1251,
+      "new_peak": 1251
+    },
+    {
+      "room": 240,
+      "tick": 145,
+      "old_diagnostic_mean": 891.0,
+      "new_diagnostic_mean": 897.0,
+      "delta": 6.0,
+      "old_peak": 1251,
+      "new_peak": 1251
+    }
+  ],
+  "payload_pair_count": 55,
+  "limits": "Fold checks cover all16384 raw low-input states with38 upper words, zero and85 measurement coefficients. Paired room tests use3 upper words and independent measurement words. Full body pairs are builder-only resource diagnostics, not native correctness tests. No full point-addition benchmark or qualified resource record.",
+  "failures_preserved": [
+    {
+      "job": "toffoli-bank-receipts-20261014",
+      "status": "failed_compilation_mutability_fixture_only",
+      "exit": 101,
+      "log_sha256": "8197e7f7f8870be05da0b71e55a66a72fae809569da19264fefb24d66455d55d",
+      "pid": "not captured before short compiler failure"
+    },
+    {
+      "job": "toffoli-bank-receipts-v2-20261014",
+      "status": "streams_saved_but_diagnostic_counter_disabled",
+      "exit": 0,
+      "pid": 2391217,
+      "log_sha256": "c30de1fc081c7901b18bcdc951e9c106c168a5070f21c4c6b9dfe9c228038675"
+    },
+    {
+      "job": "toffoli-bank-receipts-v3-20261014",
+      "status": "streams_saved_but_research_report_switch_inactive",
+      "exit": 0,
+      "log_sha256": "4aed7f654f42e6e4023e1e49ffe16010bed6d245cc4a1aa9226ea1ba67942462"
+    },
+    {
+      "job": "toffoli-bank-receipts-v4-20261014",
+      "status": "complete_diagnostic_ledger_and_identical_streams",
+      "exit": 0,
+      "log_sha256": "369eea4555be6f0660ec3b33c7dbe4bcd7d521fb0d1141e959b9b761cff9e448"
+    }
+  ],
+  "production_width_tradeoff": "Separate complete builder failed at inherited allocator before-state assertion on forward tick87. Complete peak not available; product tradeoff remains unmeasured."
+}

@@ -1,0 +1,33 @@
+{
+  "status": "native_component_and_exact_complete_stream_identity_only",
+  "baseline": "c5bb1ec876db859a3f9f8a9052c140a145df834e",
+  "patch": "linear-witness-candidate.patch",
+  "patch_sha256": "dd9cd8ca54ee6c378ba01f8ca9047bceebf0baddd5781e3f090c443f4d115d7e",
+  "source_sha256": {
+    "src/point_add/interned_witness.rs": "0a54824c703fb0fbf9522273a271138115425b9e5812e256b1abb57958deeef7",
+    "src/point_add/mod.rs": "691bb9b06cdab05e40ad66237aeb92894bfbc9065b7ff2818a9aec783612ba44"
+  },
+  "allowed_files_only": true,
+  "reapplied_byte_identical_with_core_autocrlf_false": true,
+  "qualified_score": null,
+  "builder_binding": "not_run_standalone_two_gate_saving_below_record_gap",
+  "native_tests": {
+    "passed": 2,
+    "dirty_basis_and_classical_assignments": 64,
+    "measurement_patterns": 32,
+    "cases": 2048,
+    "nested_condition_snapshot_and_mutated_bit": true,
+    "following_CZ_and_Hmr_phase": true,
+    "target_exclusion_and_constant_row_fault": true
+  },
+  "complete_baseline_stream_structural_savings": 2,
+  "peak_qubit_change": 0,
+  "emitted_count_not_scored_mean": true,
+  "server_evidence": "/home/hclau/ecdsa_research/overnight-20261014/coordinator-linear-witness-native/",
+  "PID": 2391603,
+  "exit": 0,
+  "analysis_elapsed": "0:19.77",
+  "analysis_maximum_RSS_KiB": 1316728,
+  "log_sha256": "fbb53b19f9edbf3d5ff19bd3e9dfa149e51ebb15b3c78cbe7eef980afaf69470",
+  "source_and_binary_sha256_manifest": "588d84ca170a6ecbcac2931f7602f0e368c641179721f42c4e19d9fe7a3c6a21  /home/hclau/ecdsa_research/overnight-20261014/prepare-linear-witness-candidate.py\n5923a581812c702d9f2994cbb5ab2ed752f74f3eec4d688976ef5c67c616e9e6  /home/hclau/ecdsa_research/overnight-20261014/prepare-linear-span-audit.py\n53c7fec6a0d6481c2e4769442f1a47eea5a9b27340ebe034ce9d9164299ee13f  /home/hclau/ecdsa_research/overnight-20261014/prepare-linear-pair-audit.py\n21791d73edb7d679fd377c85c729eb0437407d008acae86a38736bdb35797dc2  /home/hclau/ecdsa_research/overnight-20261014/prepare-wire-zero-audit.py\n217a19f161387e633c60f0f63bd877ff16cf622736c09cda4b03c88c0aee72cf  /home/hclau/ecdsa_research/overnight-20261014/server-linear-witness-native.sh\n0a54824c703fb0fbf9522273a271138115425b9e5812e256b1abb57958deeef7  src/interned_witness.rs\nf92a40212ebb3f73eaeec4b119664881dd065bc5d89d17c015b53bbf8d42726e  src/main.rs\n6ed195050833280144f7042f262f36038975e033520705bff0d1a1dd8128ab52  Cargo.toml\n0a54824c703fb0fbf9522273a271138115425b9e5812e256b1abb57958deeef7  /home/hclau/ecdsa_research/overnight-20261014/coordinator-linear-witness-native/candidate-source/point_add/interned_witness.rs\n691bb9b06cdab05e40ad66237aeb92894bfbc9065b7ff2818a9aec783612ba44  /home/hclau/ecdsa_research/overnight-20261014/coordinator-linear-witness-native/candidate-source/point_add/mod.rs\n7afc1fadd42561e8cb5e195e24a98ae91553358139e19e56f950198bfade5a80  Cargo.lock\n36b4f14c5b9e87a34b92259d0176ee64e9c073ba8696fa85eb1cb20ff6c2183d  target/release/linear_witness_native\n"
+}
