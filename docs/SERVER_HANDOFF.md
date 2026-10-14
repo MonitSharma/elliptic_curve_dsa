@@ -1,55 +1,77 @@
-# CPU server: working ECDSA environment
+# CPU server: ECDSA research handoff
 
-**Active overnight cycle, 15 October 2026 Singapore:** use
-[the cycle report](overnight-20261014.md) and its source-bound experiment receipts
-for current jobs. The capacity and compact-Q693 completion details below describe
-the earlier setup, before this cycle's separate N275 and head-selector work.
-At18:22UTC, N275-v2 has completed with one value failure, one phase-garbage
-batch and one ancilla-garbage batch. Its queued successor, head-selector
-native2662310, is the sole large evaluator, using about183GiB RSS. Its complete
-9,024-shot result remains pending. N274-v4 generation is complete but its
-known shot2379 arithmetic counterexample blocks qualification. Preserve all
-streams and refresh available memory before launching anything else.
+**Completed ten-hour cycle with live calculation handoff:** [final report](overnight-final-report.md) and
+[exact handoff receipt](../experiments/overnight-20261014/coordinator/final-handoff.json)
+supersede the historical setup below. No original submission-ready improvement
+has qualified. N275-v2 completed with value, phase and ancilla failures; N274-v4
+has a known arithmetic counterexample. Preserve their streams and failed evidence.
 
-Current cycle collection (read-only with respect to candidate/evaluator source):
+Headflag-v1 native2662310 completed exit1 after all9,024 shots, with four
+value failures, one phase-garbage batch and four ancilla-garbage batches.
+Collector2740181 completed exit0, source/stream/protected-binary checks intact;
+its receipt has no qualified score. Both PIDs are terminal.
+HT25-v9 generation2785256 completed exit0 with a parser-admitted diagnostic
+stream, no score. Bank-swap-v2 generation2802421 completed exit0 with a parser-admitted
+692-reference-width stream. The guarded pipeline2805813 and native benchmark2812595 are active,
+with no aggregate result; it never allocates the giant operation vector or
+invokes a scorer. Its frozen source, exact log and collection commands are in
+the final report. Missing exit markers mean pending. Check process identities
+and markers, rather than assuming a recorded PID is live.
 
 ```bash
 ssh smu_server
 cd /home/hclau/ecdsa_research/overnight-20261014
 python3 /home/hclau/ecdsa_research/server-preflight.py
-ps -p 2662310 -o pid,etime,rss,%cpu,args
+ps -p 2805813,2812595 -o pid,etime,rss,%cpu,args
 tail -30 qubits/evidence/headflag-v1-official-eval.log
-cat qubits/evidence/headflag-v1-official-eval-native.exit
-python3 collect-overnight-qubit-result.py headflag-v1
+cat coordinator-headflag-collection-watch-v1/run.exit
+cat coordinator-headflag-v1-terminal/receipt.json
+tail -30 qubits/evidence/ht25-v9-full-build.log
+cat qubits/evidence/ht25-v9-full-build.exit
+cat qubits/evidence/ht25-v9-parser-admission.json
 ```
 
-The exit file appears only after termination; a missing file means pending.
-The collector checks the exact frozen patch, all candidate source, protected
-harness source and binary, full stream hash, native/wrapper exits and complete
-benchmark admission. It never starts an evaluation. Preserve the resulting
-`coordinator-headflag-v1-terminal/` directory. Independent fixed-input evidence
-already demonstrates an inherited primitive quotient-capacity fault, so even
-a finite benchmark pass would need that limitation stated explicitly.
+The detached collector waits at most24hours. Wait for its exit before starting
+manual collection. If it fails, preserve its log and diagnose the failure;
+then `python3 collect-overnight-qubit-result.py headflag-v1` collects existing
+terminal evidence without rerunning the evaluator. Collectionexit0 is not a
+correctness pass: inspect all channels, full9024 admission, source/stream hashes
+and score validity. Independent arithmetic failures remain an explicit limitation.
 
-Detached terminal collector2740181 was launched18:53:39UTC with `nohup`, an
-8GiB virtual-memory cap and one library thread. It waits at most24hours for
-the existing benchmark marker, then runs that same source-bound collector
-once. Its log is `coordinator-headflag-collection-watch-v1.log`; PID, source
-hashes, exit and resulting receipt hash are under
-`coordinator-headflag-collection-watch-v1/`. It launches no benchmark. While
-it is collecting, wait for `run.exit` rather than starting a competing manual
-collection. A successful collection exit does not mean the benchmark passed;
-read the terminal receipt's failure channels and qualified-score status.
+Before any further full evaluation, require exact final source and protected
+harness bindings, native/phase checks, serializer equality, full stream hash,
+parser countÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â°ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¤4billion and refreshed sufficient available memory. Hold the
+sole-large-job lock and wait for the existing giant evaluator to terminate.
+Generation and component passes are not scores. Do not kill useful jobs at the
+end of the reporting window or repeat a completed benchmark.
+
+Guarded bank-only queue2805813 has passed generation and admits exactly one
+unchanged full benchmark only if source/native/phase/parser/width and refreshed
+memory guards pass. It holds the shared sole-large-job lock at allocation.
+Read `qubits/evidence/ht25-bankswap-v2-official-cycle.log/.exit`, the eventual
+`official-eval-native.pid`, and `official-terminal-receipt.json`. During the
+wait there is no benchmark PID or result. Nativepass still requires score and
+all9,024 failure-channel review; no automatic record claim is made.
+
+## Historical setup
 
 Verified on 14 October 2026 via SSH alias **`smu_server`**. Hostname:
 `LHC-104-070`. ECDSA work is isolated at **`/home/hclau/ecdsa_research`**.
 The pre-existing `/home/hclau/quantum_chemistry` checkout and active jobs were
 inspected and left untouched.
 
+Guarded bank-only queue2805813 has passed generation and admits exactly one
+unchanged full benchmark only if source/native/phase/parser/width and refreshed
+memory guards pass. It holds the shared sole-large-job lock at allocation.
+Read `qubits/evidence/ht25-bankswap-v2-official-cycle.log/.exit`, the eventual
+`official-eval-native.pid`, and `official-terminal-receipt.json`. During the
+wait there is no benchmark PID or result. Nativepass still requires score and
+all9,024 failure-channel review; no automatic record claim is made.
+
 ## Historical setup capacity and limits
 
 Observed: 144 logical CPUs, 503 GiB RAM, approximately 277 GiB available, 4.7 TiB
-free disk, and load around 35–36. Two active jobs each use about 18 CPU threads
+free disk, and load around 35ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã¢â‚¬Å“36. Two active jobs each use about 18 CPU threads
 and together roughly 210 GiB RAM. Neither Slurm's `squeue` nor `qstat` was found.
 These are observations, not permanent reservations; refresh before each launch.
 

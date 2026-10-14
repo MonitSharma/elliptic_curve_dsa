@@ -1,5 +1,7 @@
 # Overnight ECDSA research cycle
 
+[Final ten-hour report and current handoff](overnight-final-report.md) supersedes dated checkpoint statuses below. No original submission-ready improvement has qualified.
+
 Window: **14 October 2026 18:14:23 to 15 October 2026 04:14:23 Singapore time**
 (10:14:23–20:14:23 UTC). The persistent goal is active. The cycle finishes after
 the window and after jobs finish or have a reproducible handoff. Finding an

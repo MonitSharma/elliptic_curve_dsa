@@ -1,0 +1,1132 @@
+diff --git a/src/point_add/builder.rs b/src/point_add/builder.rs
+index 600f382..0298b34 100755
+--- a/src/point_add/builder.rs
++++ b/src/point_add/builder.rs
+@@ -295,6 +295,24 @@ impl Builder {
+         let at = self.at();
+         self.peak_census.on_free(at, q.0);
+     }
++    /// narrow (narrow.rs): the allocator set to a recorded state (free wires in order, free bits in order, next fresh
++    /// bit). Asserted: the same free wires and the same held bits.
++    pub(crate) fn narrow_alloc_set(&mut self, free_q: &[u32], bits: &[u32], next_bit: u32) {
++        let sorted = |v: &[u32]| {
++            let mut v = v.to_vec();
++            v.sort_unstable();
++            v
++        };
++        assert_eq!(sorted(&self.free_qubits), sorted(free_q), "narrow: the recorded free wires are not this build's");
++        let held = |free: &[u32], n: u32| {
++            let f: std::collections::HashSet<u32> = free.iter().copied().collect();
++            (0..n).filter(|b| !f.contains(b)).collect::<Vec<u32>>()
++        };
++        assert_eq!(held(&self.free_bits, self.next_bit), held(bits, next_bit), "narrow: the recorded held bits are not this build's");
++        self.free_qubits = free_q.to_vec();
++        self.free_bits = bits.to_vec();
++        self.next_bit = next_bit;
++    }
+     /// y42-railtop: the allocator's state (free wires and free bits in the order later allocations take them, and the
+     /// next fresh bit).
+     pub(crate) fn y42_alloc_state(&self) -> (Vec<u32>, Vec<u32>, u32) {
+diff --git a/src/point_add/census_cut.rs b/src/point_add/census_cut.rs
+new file mode 100644
+index 0000000..0c3d7e2
+--- /dev/null
++++ b/src/point_add/census_cut.rs
+@@ -0,0 +1,270 @@
++//! Census cuts: Toffolis whose replaced control pattern occurred on no correct shot of a random-input census, applied by op index on
++//! the stream after the row cuts. Row line: `site kind c2 c1 t cc action`, kind ccx|ccz, cc the op's c_condition id or
++//! `-`, action `del` (the AND never fires), `cx:w` (the AND equals control w) or `cz:a,b` (the CCZ's three-way AND
++//! equals the AND of a and b). The op at `site` is asserted (kind, wires, condition); replacements keep its condition.
++//! Block line: `B push pop bit z neg`: the PUSH(bit) .. POP block at [push, pop] restores every wire it touches and
++//! flips the phase by the parity of the wires `z` (`w1,w2,..` or `-`) plus `neg` (0|1); it becomes Z gates (and a Neg)
++//! under `bit`. Edits apply in descending order and may not overlap, so every index refers to the unedited stream.
++use crate::circuit::{Op, OperationType as K, QubitId, NO_BIT};
++use super::rebind;
++
++/// Expected executed Toffoli of a gate list: each CCX / CCZ weighted 2^-k for the k classical conditions it runs under.
++pub fn static_t(ops: &[Op]) -> f64 {
++    let (mut d, mut w) = (0i32, 0.0);
++    for o in ops {
++        match o.kind {
++            K::PushCondition => d += 1,
++            K::PopCondition => d -= 1,
++            K::CCX | K::CCZ => w += 0.5f64.powi(d + (o.c_condition != NO_BIT) as i32),
++            _ => {}
++        }
++    }
++    w
++}
++
++pub fn rows() -> Vec<(usize, Vec<&'static str>)> {
++    include_str!("census_cut_data.txt").lines()
++        .map(str::trim).filter(|l| !l.is_empty() && !l.starts_with('#'))
++        .map(|l| {
++            let f: Vec<&str> = l.split_whitespace().collect();
++            let (n, at) = if f[0] == "B" { (6, 1) } else { (7, 0) };
++            assert!(f.len() == n, "census_cut: bad line {l:?}");
++            (f[at].parse().unwrap(), f)
++        })
++        .collect()
++}
++
++pub fn run(ops: Vec<Op>) -> Vec<Op> {
++    let rows = rows();
++    let ops = if TEST_SHIFT { test_shift(ops, &rows) } else { ops };
++    let rows = anchor_rows(&ops, rows);
++    run_rows(ops, rows)
++}
++
++// ---- Portable rows: each row is bound by local content, not by its index. ----
++//
++// `census_cut_anchors.txt` holds one line per row, `A site kl pl fl kr pr fr`: the left window (the kl ops before the
++// target plus the target) and the right window (the target plus the kr ops after it) of the stream the row was made
++// on, as rebind's rolling hash `pl`/`pr` and fingerprint `fl`/`fr`. Each k is twice the smallest power of two (>= 8)
++// that made that side unique in that stream. A row with no anchor line applies at its index (asserted) and prints its
++// anchor line ("CCA ..."), so new rows from a census on the current stream bind themselves on their first build.
++//
++// A row applies at p only on an exact match: both sides' unique hits agree; or one side is unique and the other has no
++// hit or also hits p; or the two sides' hit sets meet in exactly one p; or (ambiguous) exactly one hit of either side
++// lies within LOCAL ops of the row's site plus the median shift of the rows already placed. Then the target op itself
++// must still be the row's op (kind, wires, condition), and no two rows may land on one op. Any other row is missed:
++// skipped and listed, never applied.
++const ANCHORS: &str = include_str!("census_cut_anchors.txt");
++const LOCAL: usize = 1 << 16;
++
++/// Test hook (false = this gate list byte for byte): X;X pairs (identities, no Toffoli) inserted before the census rows at
++/// several positions: before every row, between rows, inside the left window of one row and inside the right window of
++/// another, so that every row moves and two rows lose one side each.
++pub(super) const TEST_SHIFT: bool = false;
++fn test_shift(mut ops: Vec<Op>, rows: &[(usize, Vec<&str>)]) -> Vec<Op> {
++    let mut s: Vec<usize> = rows.iter().map(|r| r.0).collect();
++    s.sort_unstable();
++    let n = s.len();
++    // positions in the unedited stream, applied in descending order so each names the same op
++    let mut at = vec![1000usize, (s[n / 2] + s[n / 2 + 1]) / 2, s[n / 3] - 3, s[2 * n / 3] + 2, (s[n - 1] + ops.len()) / 2];
++    at.sort_unstable();
++    for &p in at.iter().rev() {
++        let mut x = Op::empty();
++        x.kind = K::X;
++        x.q_target = QubitId(0);
++        ops.splice(p..p, [x, x]);
++    }
++    eprintln!("CENSUS_ANCHOR test shift: X;X pairs at {at:?}");
++    ops
++}
++
++fn side_hits(h: &[u64], wants: &[(usize, u64, u64)]) -> Vec<Vec<usize>> {
++    // wants[i] = (len, poly, fp); returns the start positions of each want's exact hits
++    let mut out = vec![Vec::new(); wants.len()];
++    let mut lens: Vec<usize> = wants.iter().map(|w| w.0).collect();
++    lens.sort_unstable();
++    lens.dedup();
++    for len in lens {
++        let idx: Vec<usize> = (0..wants.len()).filter(|&i| wants[i].0 == len).collect();
++        let want = rebind::want_of(idx.iter().map(|&i| wants[i].1));
++        for (p, v) in rebind::scan(h, len, &want) {
++            let f = rebind::fp(&h[p..p + len]);
++            for &i in &idx {
++                if wants[i].1 == v && wants[i].2 == f {
++                    out[i].push(p);
++                }
++            }
++        }
++    }
++    out
++}
++
++fn gen_side(h: &[u64], sites: &[usize], left: bool) -> Vec<(usize, u64, u64)> {
++    let win = |s: usize, k: usize| -> Option<(usize, usize)> {
++        if left { (s >= k).then(|| (s - k, s + 1)) } else { (s + k < h.len()).then(|| (s, s + k + 1)) }
++    };
++    let mut k_of = vec![0usize; sites.len()];
++    let mut k = 8usize;
++    while k_of.iter().any(|&x| x == 0) {
++        assert!(k <= 1 << 20, "census_cut: no unique window");
++        let open: Vec<usize> = (0..sites.len()).filter(|&i| k_of[i] == 0).collect();
++        let wants: Vec<(usize, u64, u64)> = open.iter().map(|&i| match win(sites[i], k) {
++            Some((lo, hi)) => (hi - lo, rebind::poly(&h[lo..hi]), rebind::fp(&h[lo..hi])),
++            None => (0, 0, 0),
++        }).collect();
++        let hits = side_hits(h, &wants);
++        for (j, &i) in open.iter().enumerate() {
++            if wants[j].0 > 0 && hits[j].len() == 1 { k_of[i] = k; }
++        }
++        k *= 2;
++    }
++    (0..sites.len()).map(|i| {
++        let k = if win(sites[i], 2 * k_of[i]).is_some() { 2 * k_of[i] } else { k_of[i] };
++        let (lo, hi) = win(sites[i], k).unwrap();
++        (k, rebind::poly(&h[lo..hi]), rebind::fp(&h[lo..hi]))
++    }).collect()
++}
++
++fn row_matches(o: &Op, f: &[&str]) -> bool {
++    let w = |s: &str| -> u64 { s.parse().unwrap() };
++    let kind = if f[1] == "ccx" { K::CCX } else { K::CCZ };
++    let cc = if o.c_condition == NO_BIT { "-".to_string() } else { o.c_condition.0.to_string() };
++    o.kind == kind && o.q_control2.0 == w(f[2]) && o.q_control1.0 == w(f[3]) && o.q_target.0 == w(f[4]) && cc == f[5]
++}
++
++/// Map each row to its op in `ops` by its anchor; rows without an anchor keep their index and print their anchor.
++pub fn anchor_rows<'a>(ops: &[Op], rows: Vec<(usize, Vec<&'a str>)>) -> Vec<(usize, Vec<&'a str>)> {
++    let mut anc: std::collections::HashMap<usize, [u64; 6]> = std::collections::HashMap::new();
++    for l in ANCHORS.lines().map(str::trim).filter(|l| !l.is_empty() && !l.starts_with('#')) {
++        let f: Vec<u64> = l.split_whitespace().skip(1).map(|x| x.parse().unwrap()).collect();
++        assert!(l.starts_with("A ") && f.len() == 7, "census_cut: bad anchor line {l:?}");
++        anc.insert(f[0] as usize, [f[1], f[2], f[3], f[4], f[5], f[6]]);
++    }
++    assert!(rows.iter().all(|r| r.1[0] != "B"), "census_cut: block rows have no anchors");
++    let h = rebind::mixes(ops);
++    let (bound, fresh): (Vec<_>, Vec<_>) = rows.into_iter().partition(|r| anc.contains_key(&r.0));
++    let mut out: Vec<(usize, Vec<&str>)> = Vec::new();
++    // rows without an anchor: made on this stream; apply at the index (asserted in run_rows) and print the anchor
++    if !fresh.is_empty() {
++        let sites: Vec<usize> = fresh.iter().map(|r| r.0).collect();
++        let (l, r) = (gen_side(&h, &sites, true), gen_side(&h, &sites, false));
++        for i in 0..sites.len() {
++            eprintln!("CCA A {} {} {} {} {} {} {}", sites[i], l[i].0, l[i].1, l[i].2, r[i].0, r[i].1, r[i].2);
++        }
++    }
++    // rows with an anchor
++    let mut wants = Vec::new();
++    for r in &bound {
++        let a = anc[&r.0];
++        wants.push((a[0] as usize + 1, a[1], a[2]));
++        wants.push((a[3] as usize + 1, a[4], a[5]));
++    }
++    let hits = side_hits(&h, &wants);
++    let (mut n_exact, mut n_moved, mut n_local) = (0usize, 0usize, 0usize);
++    let mut placed: Vec<Option<usize>> = vec![None; bound.len()];
++    let mut why: Vec<&str> = vec![""; bound.len()];
++    let mut ambiguous = Vec::new();
++    for (i, r) in bound.iter().enumerate() {
++        let kl = anc[&r.0][0] as usize;
++        let lp: Vec<usize> = hits[2 * i].iter().map(|&p| p + kl).collect();
++        let rp: Vec<usize> = hits[2 * i + 1].clone();
++        let both: Vec<usize> = lp.iter().copied().filter(|p| rp.contains(p)).collect();
++        placed[i] = if lp.len() == 1 && (rp.is_empty() || rp.contains(&lp[0])) {
++            Some(lp[0])
++        } else if rp.len() == 1 && (lp.is_empty() || lp.contains(&rp[0])) {
++            Some(rp[0])
++        } else if both.len() == 1 {
++            Some(both[0])
++        } else if lp.is_empty() && rp.is_empty() {
++            why[i] = "no-context";
++            None
++        } else if lp.len() == 1 && rp.len() == 1 {
++            why[i] = "sides-disagree";
++            None
++        } else {
++            ambiguous.push((i, lp.into_iter().chain(rp).collect::<Vec<usize>>()));
++            None
++        };
++    }
++    let mut shifts: Vec<isize> = (0..bound.len()).filter_map(|i| placed[i].map(|p| p as isize - bound[i].0 as isize)).collect();
++    shifts.sort_unstable();
++    let med = if shifts.is_empty() { 0 } else { shifts[shifts.len() / 2] };
++    for (i, mut c) in ambiguous {
++        let e = bound[i].0 as isize + med;
++        c.sort_unstable();
++        c.dedup();
++        let near: Vec<usize> = c.into_iter().filter(|&p| (p as isize - e).unsigned_abs() <= LOCAL).collect();
++        if near.len() == 1 { placed[i] = Some(near[0]); n_local += 1; } else { why[i] = "ambiguous"; }
++    }
++    for i in 0..bound.len() {
++        if let Some(p) = placed[i] {
++            if p >= ops.len() || !row_matches(&ops[p], &bound[i].1) { placed[i] = None; why[i] = "op-differs"; }
++        }
++    }
++    let mut seen: std::collections::HashMap<usize, usize> = std::collections::HashMap::new();
++    for p in placed.iter().flatten() { *seen.entry(*p).or_default() += 1; }
++    for i in 0..bound.len() {
++        if let Some(p) = placed[i] { if seen[&p] > 1 { placed[i] = None; why[i] = "collision"; } }
++    }
++    let mut n_miss = 0usize;
++    for (i, r) in bound.into_iter().enumerate() {
++        match placed[i] {
++            Some(p) => { if p == r.0 { n_exact += 1 } else { n_moved += 1 } out.push((p, r.1)); }
++            None => { n_miss += 1; eprintln!("CENSUS_ANCHOR miss site={} reason={}", r.0, why[i]); }
++        }
++    }
++    eprintln!("CENSUS_ANCHOR rows={} anchored={} matched={} (in place {n_exact}, moved {n_moved}, local {n_local}) missed={n_miss} median_shift={med} fresh={}",
++        out.len() + n_miss + fresh.len(), out.len() + n_miss, out.len(), fresh.len());
++    out.extend(fresh);
++    out
++}
++
++pub fn run_rows(mut ops: Vec<Op>, mut rows: Vec<(usize, Vec<&str>)>) -> Vec<Op> {
++    let w0 = static_t(&ops);
++    rows.sort_by(|a, b| b.0.cmp(&a.0));
++    let w = |s: &str| -> u64 { s.parse().unwrap() };
++    let (mut n_del, mut n_red, mut n_blk) = (0usize, 0usize, 0usize);
++    let mut floor = usize::MAX;
++    for (site, f) in &rows {
++        let mut x = Op::empty();
++        if f[0] == "B" {
++            let (push, pop, bit) = (*site, w(f[2]) as usize, w(f[3]));
++            assert!(pop < floor, "census_cut: edits overlap at {push}");
++            floor = push;
++            assert!(ops[push].kind == K::PushCondition && ops[push].c_condition.0 == bit && ops[pop].kind == K::PopCondition,
++                "census_cut: block at {push} does not match the stream");
++            let mut d = 0i64;
++            for o in &ops[push..=pop] { if o.kind == K::PushCondition { d += 1; } if o.kind == K::PopCondition { d -= 1; assert!(d > 0 || std::ptr::eq(o, &ops[pop]), "census_cut: block {push} closes early"); } }
++            assert!(d == 0, "census_cut: block {push} unbalanced");
++            x.c_condition = ops[push].c_condition;
++            let mut rep = Vec::new();
++            if f[4] != "-" { for z in f[4].split(',') { let mut y = x; y.kind = K::Z; y.q_target = QubitId(w(z)); y.validate(); rep.push(y); } }
++            if f[5] == "1" { let mut y = x; y.kind = K::Neg; y.validate(); rep.push(y); }
++            n_blk += 1;
++            ops.splice(push..=pop, rep);
++            continue;
++        }
++        assert!(*site < floor, "census_cut: edits overlap at {site}");
++        floor = *site;
++        let o = ops[*site];
++        let kind = if f[1] == "ccx" { K::CCX } else { K::CCZ };
++        let cc = if o.c_condition == NO_BIT { "-".to_string() } else { o.c_condition.0.to_string() };
++        assert!(o.kind == kind && o.q_control2.0 == w(f[2]) && o.q_control1.0 == w(f[3]) && o.q_target.0 == w(f[4]) && cc == f[5],
++            "census_cut: row at {site} does not match the stream");
++        x.c_condition = o.c_condition;
++        let rep = match f[6].split_once(':') {
++            None if f[6] == "del" => { n_del += 1; vec![] }
++            Some(("cx", a)) if kind == K::CCX => { x.kind = K::CX; x.q_control1 = QubitId(w(a)); x.q_target = o.q_target; vec![x] }
++            Some(("cz", ab)) if kind == K::CCZ => {
++                let (a, b) = ab.split_once(',').unwrap();
++                x.kind = K::CZ; x.q_control1 = QubitId(w(a)); x.q_target = QubitId(w(b)); vec![x]
++            }
++            _ => panic!("census_cut: bad action {:?}", f[6]),
++        };
++        if !rep.is_empty() { n_red += 1; for r in &rep { r.validate(); } }
++        ops.splice(*site..*site + 1, rep);
++    }
++    let w1 = static_t(&ops);
++    eprintln!("CENSUS_CUT rows={} deleted={} reduced={} blocks={} static expected Toffoli {w0:.1} -> {w1:.1} ({:.1})", rows.len(), n_del, n_red, n_blk, w1 - w0);
++    ops
++}
+diff --git a/src/point_add/census_cut_anchors.txt b/src/point_add/census_cut_anchors.txt
+new file mode 100644
+index 0000000..4fd5e98
+--- /dev/null
++++ b/src/point_add/census_cut_anchors.txt
+@@ -0,0 +1,144 @@
++A 62752 16 13884062662414931229 15686047861131747015 16 7864381348471153142 5423326014231731642
++A 64380 16 17424555120482938952 1331637406801835410 16 13796912094884143443 16286201575202480675
++A 64387 16 9280168980695722377 6842336309551962169 16 6189250832932182809 10358710800778423867
++A 64508 16 17185143295884170223 11015629980471241327 16 8156103729097379073 9293870552190332721
++A 150917 16 2791577742504683369 14022528440787828285 16 14594807367581292180 2806030133513635736
++A 208733 16 2667557270117443189 15913092102319040745 16 8027976803700188195 4327507736229088165
++A 347979 16 188041788231110326 18373408716588417232 16 5377015762509321324 11320456763832665540
++A 401035 16 5252545200376500158 16194969659889103406 16 1563388520386152153 14706284555606301733
++A 426982 16 2993008161511832580 516586392642230100 16 1928831819221114626 5442625228845244624
++A 489953 16 3740591174170367694 18067981134825116056 16 13231478817065522739 15773931751090384011
++A 619007 16 306046801405204040 13444243793463599534 16 13566129063517954040 18355948787312897206
++A 723505 16 15137221292667060138 5636269372586708886 16 7149283669282260634 8942662358348881070
++A 1685473 16 7871238678210324295 2468390504101323385 16 4399965178825415183 11636295446024160525
++A 4050438 16 17698588503181070592 16765043191415753936 16 9845442199539856625 4272205148948470009
++A 4052055 16 15214271348222143049 16646683543936657179 16 6414477783763719774 8775206530037320556
++A 4052122 16 12244967345021248873 731723835372194841 16 10563917244991032767 14838313247011909217
++A 4052288 16 7803014027841661378 7874711719958869306 16 2566965083799756086 11016860765272234300
++A 4052330 16 15574265514101365823 1872278990837933583 16 617501498830869332 3395034213787007670
++A 4070224 16 10179952895492237304 16681282148595172484 16 12212290571124542056 3287762735698222044
++A 4125864 16 17784699773277584902 8305015563341397276 16 760756778304871070 14629438162407769720
++A 4153705 16 736030211011243097 14453820635860223377 16 6271969836009989113 1521716962907818017
++A 4176275 16 1751361024351560092 14326436891368035382 16 15603570535332232200 475349151395221930
++A 4181546 16 9435192686120438129 10635155826749192443 16 9911350721572230297 5131666432148164159
++A 4204360 16 13760687498796778790 1617458191116593046 16 10319820704989342741 3172955140521724351
++A 4209631 16 5125639142210760167 1743367082562240873 16 7945502488132056943 11681281085353359325
++A 4224277 16 17314644770165629916 11038863969193550214 16 12664220507698090766 3931616073127993554
++A 4225116 16 14927584346850635946 5689262006699219376 16 16067581104263270447 11357037014329767537
++A 4225122 16 13865556877737173262 18386175709356845938 16 10899523136952295637 2038117677911865819
++A 4227259 16 18310086458009589399 7991219192113435169 16 2578850247919363958 3202581111817665720
++A 4227321 16 14881492121150812775 10472792575153344519 16 6324190815724932427 7486042092127825667
++A 4230285 16 5608515563594327285 10273172532903581227 16 6223371848791303412 14163525041195034006
++A 4230623 16 9539941585950313341 4844774647159833191 16 7240126325619950681 1558077852840938823
++A 4230662 16 12657300677538612691 15283244389713271147 16 11413805177161034057 13090362769569319583
++A 4924680 16 10593328733791887788 11926470252016560146 16 4227086861960293877 14529049862983774329
++A 4987633 16 13023215932462523675 13056212129374630253 16 6270762063004120676 11834747709245646994
++A 5013574 16 13090366651924489211 6833552215043592871 16 1167955533986932023 8727330576380791843
++A 5066615 16 15789061856572317450 9585832925551835650 16 12585523443820835449 4434100025346351373
++A 5205822 16 5734129300062000197 9483318405141969053 16 11551300822808571545 5627671650409424327
++A 5263620 16 7895298835272046445 16234067891910501187 16 4940280204818498358 6576939029249363564
++A 5268351 16 16216485405415498818 2312568371032763640 16 16817979253263099202 5614935281490110806
++A 5385575 16 7031736854994688432 6906204181338063086 16 10602032483597900356 2751718930581611350
++A 5392299 16 9695374857765584468 6239473786117731874 16 15604112147268265846 7979583011602747364
++A 5481038 32 18330988349097462132 17003842679051398702 16 637300419162000958 17289026704699335376
++A 5481063 16 6775802586962749306 3721638782895816798 16 14905258894407698135 14914849461825654941
++A 5682673 16 3531993190483332853 13370405019469017073 16 5573180412754711211 1496666141324562243
++A 5755821 16 12253766018111830790 5995096929844237884 16 15599495469130181371 885737454253571339
++A 5859049 16 9939672342353727778 6954134354787994456 16 18405529790673121934 9037224080996325114
++A 6006825 32 17388873106383526375 9433173154353239013 16 11393210731342364419 13686172523224191373
++A 6014173 32 18254389784106059390 16677600825730381972 16 17600923734209808915 8154390803435718253
++A 6018547 16 6498711188899188018 16843910571620331742 16 7390570084130512165 4090301480941538347
++A 6025298 16 9510029617039877761 8424992746798680287 16 5643203849296065129 2025271299622029901
++A 6179622 16 6786387103907298263 1808793777758384239 16 9522354669888906377 12973058460917792337
++A 6266131 16 13680399550516286608 3131642510872029310 16 13641030370154531501 13009240848333518403
++A 6352479 16 10933727352543295044 13775368534785296016 16 14231831916756093227 2634138721552118339
++A 6463193 16 12665701903533614254 4582530790873029664 16 11868220243601299004 16293766470591666926
++A 6516249 16 1613771267462009867 4464809331257429329 16 7617145496906597421 17507704219666538883
++A 6677402 16 11282418288323925840 12038206687301412144 16 12330781455371811578 9078792258539784662
++A 6799910 16 11618126694612982239 17444526245433513429 16 12998161608569019650 15070084539568364634
++A 6954714 16 1745789448020214797 1647778017730974915 16 4935959283892554974 16704427241901868116
++A 7297476 16 3580052773915786494 8383279114935383164 16 9271142543641191228 15476258933608108350
++A 7299093 16 492022208642951590 8746992858928225328 16 18186728502710067023 7686258538975019745
++A 7299160 16 18341097681026813088 7312786122144882254 16 15851088552573826079 10024568707236699123
++A 7299326 16 5963811199509844394 305629260834875112 16 9344202105582299621 14811141739564013547
++A 7299368 16 4525512247531598538 2418351564423345102 16 9254753854490745644 14264753239138088296
++A 7299786 16 18219352614775162325 14572788776811288649 16 9254659588570586671 2270948386686720893
++A 7299789 16 7657765057738643847 8637545986400481731 16 14187939526148045323 5577752023074003837
++A 7300357 16 2546233320214065352 13027118432852611200 16 10639006423082015826 1712322217708543506
++A 7300419 16 11741240046164370858 15751488681698473628 16 4010172873065752103 8421298488571014611
++A 7307532 16 15491190199100852914 1292843677109470526 16 14854325691372642727 13906384225186906633
++A 7307538 16 17575675285417715813 4526891630780396741 16 9189434907644388389 14191922978246424243
++A 7307960 16 596045210558762774 1476761768614528200 16 7632856874281493862 18082425050001182450
++A 7307966 16 1424220498239921106 8783693724711377170 16 8063529144333639182 701368533068611886
++A 7308169 16 1543690169958986187 588056296075870257 16 17255706954893568723 9308817194379122321
++A 7308175 16 1644314669910488921 16449137619937528283 16 13494896328395864591 2189641146860613529
++A 7308181 16 6469117619595016754 12425636555673118416 16 575171196904339592 17415968674245106972
++A 7316416 16 9882428029810643288 5903348745639587118 16 10141659073951012846 11805792212539340644
++A 7316422 16 16108507724060540589 2439268771524222097 16 17158701403624649477 2553660920403928949
++A 7316844 16 5070096154275792894 12937479969555444582 16 2522150965994599924 1536508033459983218
++A 7316850 16 12027840210868356072 18405855490791794640 16 11293079855347310556 6669987400445751536
++A 7317059 16 11023671379815482562 3234110947429837864 16 17319614136923778407 13833948090362252513
++A 7317065 16 10340526144525969210 5007130763932306344 16 17674387582984411525 2240318201337883491
++A 7323341 16 16899414777661364457 7519320745931044529 16 2498497439064241931 3554401601205397297
++A 7323346 16 14895097775434891700 13964754001303783982 16 9195353158036584296 17886346493032316022
++A 7328968 16 10397131803230645331 18245978206062189723 16 3602065987541203751 8972398548422590487
++A 7328973 16 8223267454207317599 374430532375437053 16 18259004876976516995 14459114157558443973
++A 7336554 16 10242219688052705988 7168390045463026012 16 16742755513990265884 18080123636298929858
++A 7336560 16 3223484998029536693 7052615543314272109 16 2642782009689665028 11292501934670963762
++A 7336982 16 4409745211831349149 13571570134453726101 16 2858391667989220060 13369736025302198404
++A 7336988 16 10102938568977158724 4734421089010099602 16 2996776757450223203 5299550663130700997
++A 7337197 16 16927415460517540552 13119938210545183058 16 13308275953727818177 1300563662745065273
++A 7337203 16 9605360205685687967 5721354451208989853 16 12530366183923053099 10309972521451408697
++A 7355918 16 14560493271438198750 2421931708792356084 16 3282891054736711279 12733918906795515339
++A 7355924 16 14848932414263511933 6063166545631013559 16 10884726740269250562 9767133914074828450
++A 7356346 16 14921708085296512794 3925000310757886650 16 2325448351524204622 9074449240123924456
++A 7356352 16 16818216676522235844 12909743352059393976 16 15077238337185984716 741991545446293394
++A 7356555 16 6554297413806515036 18348347693684668408 16 6211168393897569578 15179962718898590506
++A 7356561 16 3351813838084555544 1284357933016892072 16 1594758083721552404 14767697652433292614
++A 7356567 16 13666866689799284732 8187215946149887264 16 7551122277763683701 295723351588536455
++A 7375294 16 10317283604418653056 7816780380319970656 16 15712376877104457169 234952244839440435
++A 7375300 16 632870862722092125 5882441991772537801 16 2291385037051309679 3160663699818808733
++A 7375722 16 18026438850165798100 131539569706153052 16 18259299532518802202 8764711666288958300
++A 7375728 16 11310482159994737594 7899432850290578054 16 27569516666161028 444650499110725592
++A 7375931 16 11589006409535359995 16276966320503706175 16 14622218507205482171 11251799304029601943
++A 7375937 16 8650342820101663233 14010467654958587813 16 18126028903658257898 5595540808585570996
++A 7375943 16 1717919804146121704 537729513639067010 16 18294710885801754275 12086895050180316781
++A 7394658 16 10490587613702583966 228196458307927374 16 15615879870868726929 9268034656929231491
++A 7394664 16 12383211683924131228 16396851871544818084 16 2690930703798426170 4028477762109782362
++A 7395086 16 9516815238427384303 16179439125483402605 16 16143162396977537269 39918819556986013
++A 7395092 16 10847841797657887980 10424670933266707358 16 18058012651089541319 15676392737612610267
++A 7395295 16 6438897816739050383 11936754579588296301 16 17493473222573835671 10372023179249063041
++A 7395301 16 11576865666457216348 4166175286015464068 16 483982712540471579 6284368817109266253
++A 7395307 16 10110633380579834643 11837879519106740185 16 15171833993911308036 4235441185427691128
++A 7414022 16 3572322527547530296 14010886522227394294 16 11289709184808058321 14601810551519846375
++A 7414028 16 18430446149075992168 3608352830112338732 16 11347626309140900618 6823551280350591498
++A 7414456 16 12896131253114909698 10978626726969457040 16 13017652980546553979 14461896091837674771
++A 7414665 16 11539480812618910831 16669398164823593477 16 1436490990357488552 9817532246843699622
++A 7414671 16 1551181944236299572 16363350490621355952 16 13533784001383267838 14300418665209148208
++A 7426974 16 11806427783610765751 921936212569713529 16 7732149856051854437 11689361013267550641
++A 7427013 16 14653087412545668834 11855426987047214966 16 6712681654018487838 4985666150332718330
++A 7438986 16 17183315680819805807 8738590425917405043 16 5345545046903209364 2619749252733565740
++A 7439414 16 16932239807150769072 6108345977010100734 16 8803470461217846400 18140010799338304414
++A 7439623 16 3044950742528375876 12326044433651295792 16 14164231366157307186 15948759356497282262
++A 7439629 16 16512676765240122857 15729939488679092269 16 330196328313175728 13327781060703634434
++A 7459899 16 15399170170367107611 17557106658349079755 16 17919011481648610861 13050747253276784081
++A 7459905 16 14462981769188699681 1287711098832575725 16 16054913729953888435 15070497619916443233
++A 7460308 16 13780637873801134584 14406857489427298930 16 5762017540530788725 7635362105939208777
++A 7460455 16 1270531958437760284 3539696019856236798 16 11098436352821403083 4589324241609696753
++A 7460461 16 12147983360604582735 15920714928044708279 16 4553980136062204051 9849935522292740339
++A 7481298 16 15455351616896415513 13059270734107821263 16 7134519508525839079 14568892226839952791
++A 7481418 16 13404514071316482710 17536344016346227852 16 1854065271868249947 9794303693573972573
++A 7494205 16 13550139600511840887 10678581903699624249 16 18143962184505475480 14687685257821039720
++A 7502208 16 12455656312094134963 3977296389331993537 16 3930103486349599153 10789970501329144755
++A 7503073 16 9238539768166614571 18006559748030471001 16 7648507790037245604 6136958825502895390
++A 7503079 16 15031361894083729762 2968897227766714822 16 3434868976519127946 2301139944430152362
++A 10565151 16 4302823539869056679 7596895635273209539 16 13400561600892655262 5661323135652942028
++A 10719904 16 2411963797906938066 12594856899594229488 16 6645641564568472284 11655603526423532280
++A 10842376 16 16383173035444949880 10681783335757445464 16 1591943740609159936 9591616081717497572
++A 11003484 16 16176381857742727486 13453516150471316468 16 15674629409614912726 7804972521837319818
++A 11056525 16 14651208184006318241 5894823344076275719 16 9191173040819996467 450828614227709219
++A 11167209 16 5087759182467895745 484157996022155219 16 15443443386335954764 17768971550133731268
++A 11253530 16 6041082010422561083 8460348991625402793 16 5709469785454366304 16680630354968028954
++A 11258261 16 10357530729206277743 745013641330121357 16 10246330735660168253 16971898687707028461
++A 11391655 16 7401145344441823720 11735098462097422528 16 8428630553242550470 1349691811323522042
++A 11444675 16 102422188859942139 15698777917458761823 16 13971379514315198850 3603593763017512400
+diff --git a/src/point_add/census_cut_data.txt b/src/point_add/census_cut_data.txt
+new file mode 100644
+index 0000000..302c709
+--- /dev/null
++++ b/src/point_add/census_cut_data.txt
+@@ -0,0 +1,145 @@
++# stack3 (set2a stream, narrow2a 2ba1c67cac1a indices): 143 census2 rows re-validated on a 16.8M-shot set2a census (count<=3; 13 dropped, 3 missed) + 1 new row (combined set2a+old count<=3), 144 rows
++62752 ccx 31 765 729 - cx:765
++64380 ccx 734 809 780 - del
++64387 ccx 735 810 779 - cx:735
++64508 ccx 711 809 710 - cx:809
++150917 ccx 793 749 8 - del
++208733 ccx 14 749 8 - del
++347979 ccx 29 5 809 - del
++401035 ccx 35 746 5 - del
++426982 ccx 814 819 746 - del
++489953 ccx 718 807 3 - del
++619007 ccx 881 1106 1134 - cx:1106
++723505 ccx 905 792 906 - cx:792
++1685473 ccx 905 1134 906 - cx:1134
++4050438 ccx 552 1224 1225 - cx:1224
++4052055 ccx 203 209 210 - cx:209
++4052122 ccx 210 194 1219 - cx:194
++4052288 ccx 211 554 553 - cx:211
++4052330 ccx 182 555 554 - cx:555
++4070224 ccx 904 1217 905 - cx:1217
++4125864 ccx 904 200 905 - cx:200
++4153705 ccx 310 562 311 - cx:562
++4176275 ccx 550 1233 1196 - del
++4181546 ccx 904 550 905 - cx:550
++4204360 ccx 559 588 1196 - del
++4209631 ccx 310 559 311 - cx:559
++4224277 ccx 881 1196 557 - del
++4225116 ccx 880 1196 188 - cx:1196
++4225122 ccx 881 1196 580 - del
++4227259 ccx 1077 287 1076 - del
++4227321 ccx 1057 307 308 - cx:1057
++4230285 ccx 1082 287 1083 - cx:1082
++4230623 ccx 182 197 177 - cx:197
++4230662 ccx 583 177 1218 - cx:583
++4924680 ccx 717 712 715 - del
++4987633 ccx 742 44 41 - del
++5013574 ccx 36 41 38 - del
++5066615 ccx 30 38 32 - del
++5205822 ccx 15 23 20 - del
++5263620 ccx 9 23 20 - del
++5268351 ccx 23 724 752 - del
++5385575 ccx 663 712 10 - del
++5392299 ccx 735 706 143 - del
++5481038 ccx 31 852 853 - del
++5481063 ccx 51 872 873 - del
++5682673 ccx 1074 1152 515 - del
++5755821 ccx 837 637 910 - cx:637
++5859049 ccx 1111 1152 515 - del
++6006825 ccx 31 1200 1140 - del
++6014173 ccx 31 1200 1140 - cx:1200
++6018547 ccx 930 787 638 - cx:930
++6025298 ccx 31 862 872 - del
++6179622 ccx 807 1087 827 - cx:807
++6266131 ccx 1101 771 8 - del
++6352479 ccx 17 771 8 - del
++6463193 ccx 29 5 1091 - del
++6516249 ccx 35 775 5 - del
++6677402 ccx 690 638 751 - del
++6799910 ccx 71 252 253 - del
++6954714 ccx 95 245 246 - del
++7297476 ccx 1181 665 650 - cx:665
++7299093 ccx 203 209 210 - cx:209
++7299160 ccx 210 756 623 - cx:756
++7299326 ccx 211 613 612 - cx:211
++7299368 ccx 735 577 613 - cx:577
++7299786 ccx 800 286 715 - cx:800
++7299789 ccx 715 287 811 - del
++7300357 ccx 684 665 653 - cx:684
++7300419 ccx 986 956 957 - cx:986
++7307532 ccx 650 852 1222 - cx:852
++7307538 ccx 665 852 557 - del
++7307960 ccx 956 852 546 - cx:852
++7307966 ccx 957 852 961 - del
++7308169 ccx 1163 852 868 - cx:852
++7308175 ccx 650 852 867 - cx:852
++7308181 ccx 665 852 866 - del
++7316416 ccx 286 577 1225 - cx:577
++7316422 ccx 287 577 868 - del
++7316844 ccx 307 577 557 - cx:577
++7316850 ccx 308 577 309 - del
++7317059 ccx 286 577 1188 - cx:577
++7317065 ccx 287 577 547 - del
++7323341 ccx 211 286 958 - cx:211
++7323346 ccx 211 287 208 - del
++7328968 ccx 547 286 1226 - cx:547
++7328973 ccx 547 287 1224 - del
++7336554 ccx 650 1226 579 - cx:1226
++7336560 ccx 665 1226 211 - del
++7336982 ccx 956 1226 1222 - cx:1226
++7336988 ccx 957 1226 961 - del
++7337197 ccx 650 1226 616 - cx:1226
++7337203 ccx 665 1226 577 - del
++7355918 ccx 286 864 1225 - cx:864
++7355924 ccx 287 864 547 - del
++7356346 ccx 307 864 958 - cx:864
++7356352 ccx 308 864 309 - del
++7356555 ccx 285 864 1226 - del
++7356561 ccx 286 864 852 - cx:864
++7356567 ccx 287 864 548 - del
++7375294 ccx 650 1218 1224 - cx:1218
++7375300 ccx 665 1218 866 - del
++7375722 ccx 956 1218 210 - cx:1218
++7375728 ccx 957 1218 961 - del
++7375931 ccx 1163 1218 864 - del
++7375937 ccx 650 1218 867 - cx:1218
++7375943 ccx 665 1218 1222 - del
++7394658 ccx 286 577 556 - cx:577
++7394664 ccx 287 577 576 - del
++7395086 ccx 307 577 586 - cx:577
++7395092 ccx 308 577 309 - del
++7395295 ccx 285 577 1218 - cx:577
++7395301 ccx 286 577 208 - cx:577
++7395307 ccx 287 577 958 - del
++7414022 ccx 650 547 1200 - cx:547
++7414028 ccx 665 547 699 - del
++7414456 ccx 957 547 961 - cx:547
++7414665 ccx 650 547 1228 - cx:547
++7414671 ccx 665 547 210 - del
++7426974 ccx 735 1228 577 - cx:1228
++7427013 ccx 1200 577 548 - cx:1200
++7438986 ccx 287 1222 1188 - cx:1222
++7439414 ccx 308 1222 309 - del
++7439623 ccx 286 1222 1221 - del
++7439629 ccx 287 1222 586 - del
++7459899 ccx 650 612 1215 - cx:612
++7459905 ccx 665 612 208 - cx:612
++7460308 ccx 957 612 961 - cx:612
++7460455 ccx 650 612 208 - cx:612
++7460461 ccx 665 612 764 - cx:612
++7481298 ccx 308 195 309 - cx:195
++7481418 ccx 287 195 211 - del
++7494205 ccx 867 285 286 - cx:867
++7502208 ccx 665 561 546 - del
++7503073 ccx 650 561 195 - cx:561
++7503079 ccx 665 561 199 - del
++10565151 ccx 96 101 98 - del
++10719904 ccx 72 77 74 - del
++10842376 ccx 1136 1138 1144 - del
++11003484 ccx 36 41 38 - del
++11056525 ccx 30 38 32 - del
++11167209 ccx 18 23 20 - del
++11253530 ccx 9 23 20 - del
++11258261 ccx 23 723 769 - del
++11391655 ccx 1 1144 560 - cx:1144
++11444675 ccx 807 1144 540 - del
+diff --git a/src/point_add/leapfrog.rs b/src/point_add/leapfrog.rs
+index df7c9ff..e0b7fcf 100755
+--- a/src/point_add/leapfrog.rs
++++ b/src/point_add/leapfrog.rs
+@@ -120,7 +120,13 @@ fn y42_row(rev: bool, t: usize) -> Option<&'static Y42Row> {
+ /// put back. A tick with its pads released, under [`Y42_TRACE`]: the line of y42_alloc.txt for this tick.
+ fn y42_after(c: &mut Builder, rev: bool, t: usize, before: &(Vec<u32>, Vec<u32>, u32), spent: bool) {
+     if spent {
+-        if Y42_ALLOC {
++        let row = if Y42_ALLOC { y42_row(rev, t) } else { None };
++        // narrow (narrow.rs): a narrowed compare before the op leaves another allocator; the op's state is put back
++        let narrowed = !super::narrow::NARROW.is_empty() && row.is_some_and(|r| Builder::y42_alloc_hash(before) != r.before);
++        if narrowed {
++            eprintln!("NARROW_Y42 {} {t} put back", if rev { "R" } else { "F" });
++        }
++        if Y42_ALLOC && !narrowed {
+             let row = y42_row(rev, t).unwrap_or_else(|| panic!("y42: no recorded allocator state for {} tick {t}", if rev { "reverse" } else { "forward" }));
+             assert_eq!(Builder::y42_alloc_hash(before), row.before, "y42: the allocator before the payload op of {} tick {t} is not the recorded one", if rev { "reverse" } else { "forward" });
+             c.y42_alloc_set(before, &row.q, row.keep, &row.bits, row.next_bit);
+diff --git a/src/point_add/linear_restore.rs b/src/point_add/linear_restore.rs
+index 486d8df..05a9443 100644
+--- a/src/point_add/linear_restore.rs
++++ b/src/point_add/linear_restore.rs
+@@ -10,9 +10,9 @@ o.kind=match r[0]{0=>K::Neg,3=>K::BitInvert,4=>K::BitStore0,5=>K::BitStore1,6=>K
+ o.q_control2=QubitId(r[1]);o.q_control1=QubitId(r[2]);o.q_target=QubitId(r[3]);o.c_target=BitId(r[4]);o.c_condition=BitId(r[5]);o}
+ pub(super) fn run(ops:Vec<Op>)->Vec<Op>{
+ if !ENABLED {return ops;}
+-assert_eq!(ops.len(),11459358,"operation table input length");
+-use sha3::{Digest,Sha3_256};let mut h=Sha3_256::new();for o in &ops {h.update((o.kind as u32).to_le_bytes());h.update([0u8;4]);for v in [o.q_control2.0,o.q_control1.0,o.q_target.0,o.c_target.0,o.c_condition.0,o.r_target.0]{h.update(v.to_le_bytes());}}
+-assert_eq!(format!("{:x}",h.finalize()),"3ac369248fd178edaf3b0e614e07f2d938469cd926f837ef878535e2b3438995","operation table input hash");
+-let ne=u32_at(0);let flat=4+12*ne;assert!(flat<=DATA.len());let mut out=Vec::with_capacity(ops.len()+1024);let mut ei=0;
+-for (i,o) in ops.into_iter().enumerate(){if ei<ne&&u32_at(4+12*ei)==i {let at=u32_at(8+12*ei);let n=u32_at(12+12*ei);assert_eq!(rec(&o),row_at(flat+12*at),"operation table expected record");for j in at+1..at+n {out.push(mk(row_at(flat+12*j)));}ei+=1;}else{out.push(o);}}
++// the whole-stream binding is now informational: the edits bind by local content (rebind.rs)
++let exact=ops.len()==11459358&&{use sha3::{Digest,Sha3_256};let mut h=Sha3_256::new();for o in &ops {h.update((o.kind as u32).to_le_bytes());h.update([0u8;4]);for v in [o.q_control2.0,o.q_control1.0,o.q_target.0,o.c_target.0,o.c_condition.0,o.r_target.0]{h.update(v.to_le_bytes());}}
++format!("{:x}",h.finalize())=="3ac369248fd178edaf3b0e614e07f2d938469cd926f837ef878535e2b3438995"};
++let ne=u32_at(0);let idx:Vec<usize>=(0..ne).map(|e|u32_at(4+12*e)).collect();let pos=super::rebind::window_positions("linear_restore",&ops,&idx,exact);let at_of=|e:usize|pos[e];let flat=4+12*ne;assert!(flat<=DATA.len());let mut out=Vec::with_capacity(ops.len()+1024);let mut ei=0;
++for (i,o) in ops.into_iter().enumerate(){if ei<ne&&at_of(ei)==i {let at=u32_at(8+12*ei);let n=u32_at(12+12*ei);assert_eq!(rec(&o),row_at(flat+12*at),"operation table expected record");for j in at+1..at+n {out.push(mk(row_at(flat+12*j)));}ei+=1;}else{out.push(o);}}
+ assert_eq!(ei,ne);for o in &out{o.validate();}out}
+diff --git a/src/point_add/mod.rs b/src/point_add/mod.rs
+index 7952a2f..a5f78b0 100755
+--- a/src/point_add/mod.rs
++++ b/src/point_add/mod.rs
+@@ -153,7 +153,7 @@ fn env_raw(name: &str) -> Option<String> {
+         "SQ_ZERO_TOP_SPREAD" => "1",
+         "SQ_ZERO_TOP_SUM" => "1",
+         // Public-validation nonce (Leapfrog build: all 9024 Fiat-Shamir shots pass).
+-        "TAIL_NONCE" => "1024000750122",
++        "TAIL_NONCE" => "18364062961376",
+         "PP_SEED_SHORT_MUL_F_COST" => "1",
+         "SQ_HIGH_CARRY_LOAN" => "1",
+         "SQ_HOLD_BOUNDARY" => "1",
+@@ -245,12 +245,14 @@ pub(crate) fn build_point_add() -> Vec<Op> {
+             circ.set_phase("coord_add3x");
+             coord_add3x(circ, x, ox);
+         }
++        narrow::square_entry(circ);
+         circ.set_phase("square");
+         // LF_SQUARE_CAP: the square's own width budget (its ladders size to it instead of the walk cap)
+         pingpong::with_phase_cap(std::env::var("LF_SQUARE_CAP").ok().map(|v| v.parse::<usize>().unwrap()), || sub_square(circ, x, y));
+         circ.set_phase("multiply");
+         if seams { leapfrog::multiply_seamed(circ, y, x, ox); } else { leapfrog::multiply(circ, y, x); }
+         leapfrog::c35_widen_check();
++        narrow::report();
+         circ.set_phase("coord_y_sub_final");
+         coord_sub(circ, y, oy);
+         if !seams {
+@@ -562,8 +564,20 @@ pub fn build() -> Vec<Op> {
+     ops = reader_pass::run(ops);
+     // y42-railtop (leapfrog.rs `Y42_BOUND`; false = this gate list byte for byte): the edits of the four bound
+     // passes above as one table, carried to this tree's stream with the rail switches on
++    if rebind::TEST_SHIFT {
++        ops = rebind::test_shift(ops);
++    }
+     ops = y42_bound_pass::run(ops);
+     ops = linear_restore::run(ops);
++    // cond levers u and r on the finished stream, after every certificate pass has checked its window
++    std::env::set_var("SL_COND", "ur");
++    ops = cond_pass::run(ops);
++    std::env::remove_var("SL_COND");
++    // zero_force: X measurements of a provably constant wire get outcome 0 (zero_force.rs); after the bound tables
++    ops = zero_force::run(ops);
++    // census cuts (census_cut_data.txt, rows keyed to this exact stream, the last pass and asserted): Toffolis whose replaced
++    // control pattern occurred on no correct shot of a large random-input census
++    ops = census_cut::run(ops);
+     // SKY_REWRITE (q73b package rows: 105 rows proved exact by SAT on the q73b op stream, compiled in): replace SAT-proved linear-span CCX by CX chains.
+     // Lines: "widx c1 c2 t cst w1,w2,..|-" against this exact op stream (asserted). Skywalk stream only.
+     if !leapfrog::enabled() {
+@@ -649,6 +663,10 @@ mod rowcut_pass;
+ mod reader_pass;
+ mod y42_bound_pass;
+ mod linear_restore;
++mod rebind;
++mod narrow;
++mod zero_force;
++mod census_cut;
+ mod rowcut_base;
+ mod rowcut_veto;
+ mod rowcut_veto_pad;
+diff --git a/src/point_add/narrow.rs b/src/point_add/narrow.rs
+new file mode 100644
+index 0000000..0f75737
+--- /dev/null
++++ b/src/point_add/narrow.rs
+@@ -0,0 +1,76 @@
++//! narrow: sell compare bits for failing shots (the dual of the phasefix probe). A seeded chunk-boundary compare of
++//! `chunked_add` (pingpong.rs) whose seed is the addend bit just below its window reads `bits` fewer bits, the seed
++//! moving up with the window: -0.5 T per bit (one CCX under the measured bit) for about twice the site's error rate.
++//! Classes are (multiply, width at the site after every other rule). Empty table = the base, gate for gate.
++use super::builder::Builder;
++use crate::circuit::QubitId;
++use std::cell::RefCell;
++use std::collections::BTreeMap;
++
++/// (multiply, width, bits taken off).
++pub(crate) const NARROW: &[(bool, usize, usize)] = &[
++    (false, 21, 1),
++    (true, 16, 1),
++    (true, 21, 1),
++    (true, 22, 2),
++];
++/// Narrowest window a narrowed compare keeps.
++const MIN_WIDTH: usize = 4;
++
++thread_local! {
++    /// (multiply, width, form) -> (sites, narrowed). form 0: seeded, seed adjacent; 1: seeded otherwise; 2: unseeded.
++    static HIST: RefCell<BTreeMap<(bool, usize, u8), (usize, usize)>> = const { RefCell::new(BTreeMap::new()) };
++}
++
++fn bits_for(multiply: bool, width: usize) -> usize {
++    NARROW.iter().find(|e| e.0 == multiply && e.1 == width).map_or(0, |e| e.2)
++}
++
++/// The window and seed of one chunk-boundary compare at [.., phi) of `addend`, after narrowing.
++pub(crate) fn chunk(multiply: bool, phi: usize, compare: usize, addend: &[QubitId], borrow: Option<QubitId>, tie: bool) -> (usize, Option<QubitId>) {
++    let adjacent = !tie && phi > compare && borrow.is_some() && borrow == Some(addend[phi - compare - 1]);
++    let form = if adjacent { 0 } else if borrow.is_some() { 1 } else { 2 };
++    let d = if adjacent { bits_for(multiply, compare) } else { 0 };
++    let d = if compare >= MIN_WIDTH + d { d } else { 0 };
++    HIST.with(|h| {
++        let mut h = h.borrow_mut();
++        let e = h.entry((multiply, compare, form)).or_insert((0, 0));
++        e.0 += 1;
++        e.1 += usize::from(d > 0);
++    });
++    if d == 0 {
++        return (compare, borrow);
++    }
++    let k = compare - d;
++    (k, Some(addend[phi - k - 1]))
++}
++
++/// One NARROW_HIST line per class (called once, after the multiply).
++pub(crate) fn report() {
++    HIST.with(|h| {
++        for ((m, w, f), (n, d)) in h.borrow().iter() {
++            eprintln!("NARROW_HIST\t{}\t{w}\t{f}\t{n}\t{d}", if *m { "mul" } else { "div" });
++        }
++    });
++}
++
++/// The allocator at the square's entry in a build without divide narrowing (one line `next_bit free_wires free_bits`,
++/// comma lists, "-" = empty). Empty: the build prints its own state as a `NARROW_SQ` line (GEN). A narrowed divide
++/// leaves the free lists in another order, which the hash-bound square table (y42_bound, rebind.rs) cannot follow.
++const SQ: &str = include_str!("narrow_sq.txt");
++
++pub(crate) fn square_entry(c: &mut Builder) {
++    let join = |v: &[u32]| if v.is_empty() { "-".to_string() } else { v.iter().map(|x| x.to_string()).collect::<Vec<_>>().join(",") };
++    let list = |s: &str| -> Vec<u32> { if s == "-" { Vec::new() } else { s.split(',').map(|x| x.parse().expect("narrow_sq: id")).collect() } };
++    let (q, b, n) = c.y42_alloc_state();
++    if SQ.trim().is_empty() {
++        eprintln!("NARROW_SQ {n} {} {}", join(&q), join(&b));
++        return;
++    }
++    let f: Vec<&str> = SQ.split_whitespace().collect();
++    assert_eq!(f.len(), 3, "narrow_sq: bad line");
++    let (rq, rb, rn) = (list(f[1]), list(f[2]), f[0].parse::<u32>().expect("narrow_sq: next bit"));
++    let same = rq == q && rb == b && rn == n;
++    c.narrow_alloc_set(&rq, &rb, rn);
++    eprintln!("NARROW_SQ set (was {})", if same { "equal" } else { "different" });
++}
+diff --git a/src/point_add/narrow_sq.txt b/src/point_add/narrow_sq.txt
+new file mode 100644
+index 0000000..e69de29
+diff --git a/src/point_add/pingpong.rs b/src/point_add/pingpong.rs
+index b1aa16e..ea58aa5 100755
+--- a/src/point_add/pingpong.rs
++++ b/src/point_add/pingpong.rs
+@@ -4081,6 +4081,8 @@ fn chunked_add(circ: &mut Builder, addend: &[QubitId], acc: &[QubitId], round: u
+             let compare=if seeded{refined_seeded_width(compare,phi-plo,"PP_REFINE_SEEDED_B")}else{compare};
+             // C35_WIDEN: a table compare reads 2 more bits, its predictor wire kept (leapfrog.rs)
+             let (compare,c35_pads)=super::leapfrog::c35_widen(multiply,round,plo,phi,compare,seeded);
++            // narrow (narrow.rs): a seeded compare in a NARROW class reads fewer bits, its seed moving with the window
++            let (compare,borrow)=if c35_pads==0{super::narrow::chunk(multiply,phi,compare,addend,borrow,tie.is_some())}else{(compare,borrow)};
+             circ.record_replay_site('B', round, phi, compare);
+             trace_replay_predictor('B',round,multiply,phi,compare,addend,borrow);
+             // y33-c35 diagnostic (inert at C35_FAULT = 0): faults 4 and 5 read 2 bits
+diff --git a/src/point_add/pscan.rs b/src/point_add/pscan.rs
+index 0f411ca..451e55b 100755
+--- a/src/point_add/pscan.rs
++++ b/src/point_add/pscan.rs
+@@ -352,3 +352,28 @@ fn scan_all(ops: &[Op]) -> Vec<Hit> {
+         ms.len(), cand.len(), tot_w, hits, hit_w, caps, cap, maxlev);
+     out
+ }
++
++/// The X measurements whose measured value is a constant (the value numbering's ZERO or ONE: the same Boolean
++/// function of the inputs and outcomes on every shot), with the Toffoli weight of their fix region (as in the scan:
++/// the sum over the CCX / CCZ whose context holds the outcome of 2^-(context size)). Read by zero_force.rs.
++pub(crate) fn const_measurements(ops: &[Op]) -> Vec<(usize, bool, f64)> {
++    let l: Vec<L> = ops.iter().map(to_l).collect();
++    let mut out: Vec<(usize, bool, f64)> = Vec::new();
++    let mut by_bit: HashMap<u32, usize> = HashMap::new();
++    let mut pend: Option<(usize, bool)> = None;
++    walk(&l, |k, ctxset, qv, _vals, _cx, _ctx, bv| {
++        if let Some((hk, one)) = pend.take() {
++            by_bit.insert(bv[l[hk].ct as usize], out.len());
++            out.push((hk, one, 0.0));
++        }
++        let o = &l[k];
++        if o.kind == K_CCX || o.kind == K_CCZ {
++            for &b in ctxset { if let Some(&i) = by_bit.get(&b) { out[i].2 += 0.5f64.powi(ctxset.len() as i32); } }
++        }
++        if o.kind == K_HMR {
++            let x = qv[o.t as usize];
++            if x == ZERO || x == ONE { pend = Some((k, x == ONE)); }
++        }
++    });
++    out
++}
+diff --git a/src/point_add/rebind.rs b/src/point_add/rebind.rs
+new file mode 100644
+index 0000000..aa01e50
+--- /dev/null
++++ b/src/point_add/rebind.rs
+@@ -0,0 +1,180 @@
++//! Re-anchoring of the stream-bound tables (y42_bound, square_guard, linear_restore).
++//!
++//! Those tables name ops by absolute index and used to assert the length and hash of the whole input stream, so any
++//! change upstream (even far from the edits) stopped the build. Here each table is bound to content near its edits:
++//! - y42_bound and square_guard: the region [lo, hi) that spans every edit (plus a margin) must occur in the input,
++//!   op for op, exactly once at some shift d; the edits then apply at index + d. A change inside the region panics.
++//! - linear_restore: each edit is bound by the window of 2k+1 ops centred on the op it rewrites (k chosen so that the
++//!   window is unique in the stream it was made on); the window must occur exactly once and the windows stay in order.
++//!
++//! Matching: a polynomial rolling hash of the per-op mix finds candidates, a position-weighted fingerprint confirms.
++//! Anchors live in `rebind_anchors.txt` ("region <name> lo hi poly fp" and "window <name> idx k poly fp"). A table
++//! with no anchor line falls back to the exact whole-stream binding and prints its anchor lines ("RBA ...").
++use crate::circuit::{Op, OperationType};
++use std::collections::HashMap;
++
++pub(super) type Want = Vec<u64>;
++pub(super) fn want_of(v: impl IntoIterator<Item = u64>) -> Want {
++    let mut w: Vec<u64> = v.into_iter().collect();
++    w.sort_unstable();
++    w.dedup();
++    w
++}
++
++const ANCHORS: &str = include_str!("rebind_anchors.txt");
++const B: u64 = 0x9E37_79B9_7F4A_7C15 | 1;
++/// Region margin (ops) on each side of the edit span.
++pub(super) const MARGIN: usize = 64;
++
++pub(super) fn mix(o: &Op) -> u64 {
++    let mut h = 0x9E3779B97F4A7C15u64;
++    for x in [o.kind as u64, o.q_control2.0, o.q_control1.0, o.q_target.0, o.c_target.0, o.c_condition.0, o.r_target.0] {
++        h = (h ^ x).wrapping_mul(0x100000001B3);
++        h ^= h >> 29;
++    }
++    h
++}
++pub(super) fn mixes(ops: &[Op]) -> Vec<u64> {
++    ops.iter().map(mix).collect()
++}
++pub(super) fn poly(h: &[u64]) -> u64 {
++    h.iter().fold(0u64, |a, &x| a.wrapping_mul(B).wrapping_add(x))
++}
++pub(super) fn fp(h: &[u64]) -> u64 {
++    h.iter().enumerate().fold(0u64, |a, (j, &x)| a.wrapping_add(x.wrapping_mul(2 * j as u64 + 1)))
++}
++fn powb(n: usize) -> u64 {
++    let (mut r, mut b, mut e) = (1u64, B, n);
++    while e > 0 {
++        if e & 1 == 1 {
++            r = r.wrapping_mul(b);
++        }
++        b = b.wrapping_mul(b);
++        e >>= 1;
++    }
++    r
++}
++/// Start positions p where poly(h[p..p+len]) is in `want`; returns (p, want value).
++pub(super) fn scan(h: &[u64], len: usize, want: &Want) -> Vec<(usize, u64)> {
++    let mut out = Vec::new();
++    if len == 0 || h.len() < len {
++        return out;
++    }
++    let top = powb(len - 1);
++    let mut cur = poly(&h[..len]);
++    for p in 0..=h.len() - len {
++        if (want.len() == 1 && want[0] == cur) || (want.len() > 1 && want.binary_search(&cur).is_ok()) {
++            out.push((p, cur));
++        }
++        if p + len < h.len() {
++            cur = cur.wrapping_sub(h[p].wrapping_mul(top)).wrapping_mul(B).wrapping_add(h[p + len]);
++        }
++    }
++    out
++}
++
++fn lines(kind: &str, name: &str) -> Vec<Vec<u64>> {
++    ANCHORS
++        .lines()
++        .filter_map(|l| {
++            let f: Vec<&str> = l.split_whitespace().collect();
++            (f.len() == 6 && f[0] == kind && f[1] == name).then(|| f[2..].iter().map(|x| x.parse::<u64>().unwrap()).collect())
++        })
++        .collect()
++}
++
++/// Shift d for a region table: `span` = (first, last) edit index in the table's own stream. `exact` = the input passed
++/// the table's original whole-stream binding. Without an anchor the input must be exact (d = 0) and the anchor prints.
++pub(super) fn region_shift(name: &str, ops: &[Op], span: (usize, usize), exact: bool) -> isize {
++    let a = lines("region", name);
++    let h = mixes(ops);
++    if a.is_empty() {
++        assert!(exact, "rebind {name}: no anchor and the input is not the bound stream");
++        let lo = span.0.saturating_sub(MARGIN);
++        let hi = (span.1 + 1 + MARGIN).min(ops.len());
++        eprintln!("RBA region {name} {lo} {hi} {} {}", poly(&h[lo..hi]), fp(&h[lo..hi]));
++        return 0;
++    }
++    assert_eq!(a.len(), 1, "rebind {name}: one region anchor");
++    let (lo, hi, pv, fv) = (a[0][0] as usize, a[0][1] as usize, a[0][2], a[0][3]);
++    assert!(lo <= span.0 && span.1 < hi, "rebind {name}: anchor region does not cover the edits");
++    let len = hi - lo;
++    let want = want_of([pv]);
++    let hits: Vec<usize> = scan(&h, len, &want).into_iter().map(|x| x.0).filter(|&p| fp(&h[p..p + len]) == fv).collect();
++    assert!(hits.len() == 1, "rebind {name}: region of {len} ops found {} times (a change inside the bound region?)", hits.len());
++    let d = hits[0] as isize - lo as isize;
++    assert!(!exact || d == 0, "rebind {name}: exact input but shift {d}");
++    eprintln!("REBIND region {name} len={len} shift={d} exact={exact}");
++    d
++}
++
++/// New positions of single-op edits at `idx` (ascending) in `ops`.
++pub(super) fn window_positions(name: &str, ops: &[Op], idx: &[usize], exact: bool) -> Vec<usize> {
++    let a = lines("window", name);
++    let h = mixes(ops);
++    if a.is_empty() {
++        assert!(exact, "rebind {name}: no anchor and the input is not the bound stream");
++        for &i in idx {
++            let mut k = 8usize;
++            loop {
++                assert!(k <= 1 << 16, "rebind {name}: no unique window at {i}");
++                if i >= k && i + k < ops.len() {
++                    let (lo, hi) = (i - k, i + k + 1);
++                    let (pv, fv) = (poly(&h[lo..hi]), fp(&h[lo..hi]));
++                    let want = want_of([pv]);
++                    let n = scan(&h, hi - lo, &want).into_iter().filter(|&(p, _)| fp(&h[p..p + hi - lo]) == fv).count();
++                    // unique with a 4x margin: the window at k/4.. must also be unique (checked by growing to 4k)
++                    if n == 1 {
++                        let k4 = 4 * k;
++                        let (lo, hi) = (i.saturating_sub(k4), (i + k4 + 1).min(ops.len()));
++                        if i >= k4 && hi == i + k4 + 1 {
++                            eprintln!("RBA window {name} {i} {k4} {} {}", poly(&h[lo..hi]), fp(&h[lo..hi]));
++                        } else {
++                            eprintln!("RBA window {name} {i} {k} {pv} {fv}");
++                        }
++                        break;
++                    }
++                }
++                k *= 2;
++            }
++        }
++        return idx.to_vec();
++    }
++    assert_eq!(a.len(), idx.len(), "rebind {name}: one window anchor per edit");
++    let mut by_len: HashMap<usize, Vec<usize>> = HashMap::new();
++    for (e, w) in a.iter().enumerate() {
++        assert_eq!(w[0] as usize, idx[e], "rebind {name}: anchor {e} names another edit");
++        by_len.entry(2 * w[1] as usize + 1).or_default().push(e);
++    }
++    let mut pos = vec![usize::MAX; idx.len()];
++    for (len, es) in by_len {
++        let want = want_of(es.iter().map(|&e| a[e][2]));
++        let hits = scan(&h, len, &want);
++        for &e in &es {
++            let found: Vec<usize> =
++                hits.iter().filter(|&&(p, v)| v == a[e][2] && fp(&h[p..p + len]) == a[e][3]).map(|&(p, _)| p + a[e][1] as usize).collect();
++            assert!(found.len() == 1, "rebind {name}: window of edit {} found {} times", idx[e], found.len());
++            pos[e] = found[0];
++        }
++    }
++    assert!(pos.windows(2).all(|w| w[0] < w[1]), "rebind {name}: windows out of order");
++    assert!(!exact || pos == idx, "rebind {name}: exact input but moved edits");
++    let moved = pos.iter().zip(idx).filter(|(p, i)| p != i).count();
++    eprintln!("REBIND window {name} edits={} moved={moved} exact={exact}", idx.len());
++    pos
++}
++
++/// Test of the re-anchoring (false = this gate list byte for byte): X;X pairs (identity, no Toffoli) on a CCX's target
++/// before the bound passes, one block before the square and one after it, so that every bound edit moves.
++pub(super) const TEST_SHIFT: bool = false;
++pub(super) fn test_shift(mut ops: Vec<Op>) -> Vec<Op> {
++    for &(at, n) in &[(9_000_000usize, 4usize), (2_000_000, 2)] {
++        let w = (at..ops.len()).find(|&i| ops[i].kind == OperationType::CCX).expect("rebind test: a CCX");
++        let mut x = Op::empty();
++        x.kind = OperationType::X;
++        x.q_target = ops[w].q_target;
++        ops.splice(w..w, std::iter::repeat_n(x, n));
++    }
++    eprintln!("REBIND test shift: 4 X at 9000000, 2 X at 2000000");
++    ops
++}
+diff --git a/src/point_add/rebind_anchors.txt b/src/point_add/rebind_anchors.txt
+new file mode 100644
+index 0000000..297e697
+--- /dev/null
++++ b/src/point_add/rebind_anchors.txt
+@@ -0,0 +1,42 @@
++region y42_bound 5498802 5988734 11521415853911042069 10214546658745461829
++window linear_restore 75922 32 13712047982980633758 1953787730754515856
++window linear_restore 82441 32 16197744916479142494 3915595708433457574
++window linear_restore 90116 32 16649823875511516399 13862044720286202425
++window linear_restore 90498 32 4466596266225293259 11384981737694127589
++window linear_restore 104692 32 10149396599499524150 2471343093778240406
++window linear_restore 119268 32 6944753505511239309 13472510331979145563
++window linear_restore 624329 32 1574363890432184935 17821904369291592325
++window linear_restore 4231024 32 4762196328372904982 10001316799362746672
++window linear_restore 4231028 32 8470749535552850740 8314202729441929718
++window linear_restore 4231182 32 4911378267830202613 9415535823845594379
++window linear_restore 4232640 32 10584357681498869190 138892186649595118
++window linear_restore 4233157 32 9626498547036609721 15148025913562664717
++window linear_restore 5381702 32 8988107915892146653 14823879656484617217
++window linear_restore 5381719 32 15391518350445159303 9563048956750644235
++window linear_restore 5381731 32 6748297235680914869 4160700474124107437
++window linear_restore 5386116 32 15257448655256606783 1845455230886313715
++window linear_restore 5386120 32 7953816648062741167 14854747532588332395
++window linear_restore 5386124 32 14590665196097524720 7040624170964394880
++window linear_restore 5415073 32 14634991473661810030 5051366770203536424
++window linear_restore 5441706 32 13898701323876665693 5139370574105790949
++window linear_restore 5451995 32 14152403582634202231 14479583189705390795
++window linear_restore 5662057 32 14542148587893653965 8511570075135840853
++window linear_restore 5704977 32 15256063470450438447 16216210858072551481
++window linear_restore 5715266 32 10661144589428823920 2340393607486743802
++window linear_restore 5723594 32 5064636623514946194 18064722133867727772
++window linear_restore 5756092 32 2058886105959665811 2141366142638674899
++window linear_restore 5931814 32 6337536565244383935 5284390455357754321
++window linear_restore 5958447 32 1093251824061486829 9316075517593232761
++window linear_restore 5968736 32 6509871992672815261 12029997930238604441
++window linear_restore 6197956 32 13450772993791951198 10797592291334861954
++window linear_restore 6205631 32 8058192524707494104 7041602561972103288
++window linear_restore 6220207 32 12899210867202782887 11629228204486891639
++window linear_restore 7428002 32 17246961701357028709 8048288266256858483
++window linear_restore 7428006 32 4952828330386577694 2776792747357830386
++window linear_restore 7428160 32 13770863225432889592 10352798229482529682
++window linear_restore 7429618 32 6433818329639249514 9553959743481644398
++window linear_restore 7430135 32 4188506507582323401 7418495761995816829
++window linear_restore 11439649 32 1397410148656896171 3147016439132181345
++window linear_restore 11439666 32 11795998934485765682 973871740833930714
++window linear_restore 11439678 32 1801402155106051069 17851221556265090343
++window linear_restore 11444066 32 15763231217114146169 4074604064196265471
+diff --git a/src/point_add/y42_bound_pass.rs b/src/point_add/y42_bound_pass.rs
+index b910caa..89289cf 100755
+--- a/src/point_add/y42_bound_pass.rs
++++ b/src/point_add/y42_bound_pass.rs
+@@ -72,16 +72,17 @@ pub(super) fn run(ops: Vec<Op>) -> Vec<Op> {
+         return ops;
+     }
+     assert!(TABLE.len() >= 28 && &TABLE[..8] == b"Y42BOUND", "y42 bound: table header");
+-    assert_eq!(ops.len() as u64, u64_at(8), "y42 bound: input length binding");
+-    assert_eq!(fingerprint(&ops), u64_at(16), "y42 bound: input fingerprint binding");
++    // the whole-stream binding is now informational: the edits bind by their region (rebind.rs)
++    let exact = ops.len() as u64 == u64_at(8) && fingerprint(&ops) == u64_at(16);
+     let ne = u32_at(24);
++    let d = super::rebind::region_shift("y42_bound", &ops, (u32_at(28), u32_at(28 + 12 * (ne - 1))), exact);
+     let flat = 28 + 12 * ne;
+     assert!(flat <= TABLE.len() && (TABLE.len() - flat) % 12 == 0, "y42 bound: table size");
+     let rows = (TABLE.len() - flat) / 12;
+     let mut out = Vec::with_capacity(ops.len() + rows);
+     let mut ei = 0;
+     for (i, o) in ops.into_iter().enumerate() {
+-        if ei < ne && u32_at(28 + 12 * ei) == i {
++        if ei < ne && (u32_at(28 + 12 * ei) as isize + d) as usize == i {
+             let (at, n) = (u32_at(32 + 12 * ei), u32_at(36 + 12 * ei));
+             assert!(at + n <= rows, "y42 bound: row range");
+             for j in at..at + n {
+diff --git a/src/point_add/zero_force.rs b/src/point_add/zero_force.rs
+new file mode 100644
+index 0000000..8b7f26d
+--- /dev/null
++++ b/src/point_add/zero_force.rs
+@@ -0,0 +1,32 @@
++//! zero_force: an X measurement (Hmr) of a wire whose value is the same constant on every shot kicks back no phase
++//! that depends on the state (phase (-1)^(b V), V constant), so its outcome b can be fixed to 0: the list then runs the
++//! b = 0 branch of the original on every shot, and every op under b (the phase fix for b = 1) never runs. The Hmr
++//! becomes R (wire 0) or X (wire 1) and a BitStore0 of b, both under the Hmr's own condition. Constant = pscan.rs's value numbering gives the measured value the id ZERO or ONE, a proof on
++//! every input (equal ids are equal Boolean functions). Only measurements whose fix region holds Toffoli are forced.
++//! Runs on the final stream (after the bound tables), before the nonce tail.
++use crate::circuit::{Op, OperationType as K};
++
++pub(super) fn run(ops: Vec<Op>) -> Vec<Op> {
++    let sites: Vec<(usize, bool, f64)> = super::pscan::const_measurements(&ops).into_iter().filter(|s| s.2 > 0.0).collect();
++    let mut wt = 0f64;
++    for &(k, one, w) in &sites {
++        eprintln!("ZERO_FORCE hmr {k} wire {} bit {} value {} weight {w:.4}", ops[k].q_target.0, ops[k].c_target.0, one as u8);
++        wt += w;
++    }
++    eprintln!("ZERO_FORCE sites {} weight {wt:.3}", sites.len());
++    let mut out: Vec<Op> = Vec::with_capacity(ops.len() + sites.len());
++    let mut si = 0;
++    for (i, o) in ops.into_iter().enumerate() {
++        if si < sites.len() && sites[si].0 == i {
++            si += 1;
++            assert_eq!(o.kind, K::Hmr);
++            // value 0: R (no phase, wire already 0). value 1: R would kick back a random phase, so X (same condition)
++            // returns the wire to 0 instead.
++            let mut r = o; r.kind = if sites[si - 1].1 { K::X } else { K::R }; r.c_target = crate::circuit::NO_BIT;
++            let mut z = Op::empty(); z.kind = K::BitStore0; z.c_target = o.c_target; z.c_condition = o.c_condition;
++            r.validate(); z.validate();
++            out.push(r); out.push(z);
++        } else { out.push(o); }
++    }
++    out
++}

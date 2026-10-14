@@ -1,0 +1,37 @@
+"""Add an actual derived-done fixture to a NEW private proof copy only."""
+from pathlib import Path
+import hashlib,json,difflib,sys
+dest=Path(sys.argv[1]);p=dest/'source/point_add/tests_midg_k24.rs';before=p.read_text()
+assert 'fn coordinator_ht25_done_middle_identity_native'not in before
+fixture=r'''
+
+#[test]
+fn coordinator_ht25_done_middle_identity_native(){
+    use super::frogdrop_col::{Fd,ColScr};
+    let(cols,_,_)=super::pointadd_frogdrop::col_pars(&super::frogdrop_sched::from_text(super::pointadd_frogdrop::SCHED_FROGDROP));let pmod=super::frogdrop_sched::p();let mut total=0;
+    for index in [110usize,119]{
+        let cp=&cols[index];assert!(cp.dn&&cp.cntw>0&&cp.cntw<=7);
+        let mut b=builder();let ring=b.alloc_n(275);let q=b.alloc_n(128);let sy=b.alloc_n(8);let sx=b.alloc_n(8);let ph=b.alloc();let pool=b.alloc_n(13);let payload=b.alloc_n(259);assert_eq!(b.width(),692);
+        let fd=Fd{ring:ring.clone(),q:q.clone(),sy:sy.clone(),sx:sx.clone(),ph,cnt:q[121..].to_vec()};let sc=ColScr::carve_col(&pool,&sx,&payload,24,25,40,cp.sz.1>255);let pl=super::pointadd_frogdrop::pl_col(&payload,&fd,&pool);
+        let record=rec(&mut b,|b|{let mut stage=|_b:&mut B|true;super::midg::middle(b,&fd,cp,&sc,Some(&pl),&[],&mut stage);});let forward=emitted(&mut b,&record,false);let inverse=emitted(&mut b,&record,true);
+        let maxcnt=(1usize<<cp.cntw)-1;let mut rng=Rng::new(0x20261014_0000d00e+index as u64);
+        for block in 0..maxcnt.div_ceil(64){let mut input=vec![0u64;692];for &wire in &payload{input[wire.0 as usize]=rng.next();}input[ph.0 as usize]=u64::MAX;
+            for lane in 0..64{let count=1+(block*64+lane)%maxcnt;let z=rng.below(255)%(pmod>>1);put(&mut input,&ring,lane,z);put(&mut input,&q[..121],lane,N::from(1u64));put(&mut input,&q[121..],lane,N::from(count as u64));put(&mut input,&sy,lane,N::from(1u64));}
+            let got=run(&forward,692,&|w|*w=input.clone());assert_eq!(got.q,input,"deriveddone middle identity col{index} block{block}");assert_eq!(got.phase,0,"deriveddone native forwardphase");let(fq,_)=symbolic(&forward,input.clone());assert_eq!(fq,input);
+            let back=run(&inverse,692,&|w|*w=got.q.clone());assert_eq!(back.q,input);assert_eq!(back.phase,0);let(iq,_)=symbolic(&inverse,got.q);assert_eq!(iq,input);total+=64;
+            eprintln!("HT25_DERIVED_DONE_PASS column={index} count_width={} block={block} complete_counter_domain=1..{maxcnt} lanes=64 coefficient_below_p_half=true arbitrary_payload=true dirtyPH=true dirtyQcounterbank=true all_wires_identity=true inverse=true native_phase=0",cp.cntw);
+        }
+    }
+    eprintln!("HT25_DERIVED_DONE_SUITE_PASS cases={total} scope=source_bound_middle_inactivity_fixed_lane_values_all_measurements");
+}
+'''
+p.write_text(before+fixture)
+binding_path=dest/'complete-source-binding.json';binding=json.loads(binding_path.read_text())
+binding['selected_native_tests'].append('ht25_done_middle_identity_native')
+binding['research_test_sha256']['tests_midg_k24.rs']=hashlib.sha256(p.read_bytes()).hexdigest()
+binding['private_done_fixture_scope']='Deriveddone PH1,Qlow1,CNTallnonzero supported counts,SY1,SZ0,coefficient<p/2,arbitrary259payload; middle identity/all-wire inverse/nativephase+ALLMR for fixedlanes; not allcurve proof'
+binding['private_done_fixture_sha256']=hashlib.sha256(fixture.encode()).hexdigest()
+binding['prepared_15_test_sha256']=hashlib.sha256(before.encode()).hexdigest()
+binding_path.write_text(json.dumps(binding,indent=2)+'\n')
+(dest/'done-fixture-private-test.patch').write_text(''.join(difflib.unified_diff(before.splitlines(True),(before+fixture).splitlines(True),fromfile='prepared15/tests_midg_k24.rs',tofile='private16/tests_midg_k24.rs')))
+print(json.dumps(binding,indent=2))

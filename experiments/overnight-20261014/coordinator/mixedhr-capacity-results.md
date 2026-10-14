@@ -22,8 +22,12 @@ with110-bitY and124-bitZ. That quotient fits public23bits and exceeds22bits.
 The public23/head24 model has no event; N275's22-bit search loses the high bit
 and produces the wrong ideal accumulator. These are capacity regressions.
 
-The model does not check source schedule admission, physical carries or
-quantum phase. Complete source-envelope and native checks are separate; this
-report does not yet establish a full public-admitted circuit counterexample.
-The next storage prototype restores mixedHR23 rather than treating the absence
-of this quotient in earlier finite packets as a proof.
+The model alone does not check source schedule admission, physical carries or
+quantum phase. Subsequent HT25-v9 native source-envelope checks admit the
+physical delayed-HR fixture and its full delayed column/payload checks pass;
+see `../qubits/ht25-v9-component-receipt.json` and
+`../qubits/HT25_DOMAIN_AND_OWNERS.md`. This establishes the need to retain the
+23-bit capacity on an admitted source state. It does not establish a complete
+public point-addition counterexample or every-input candidate correctness.
+The storage repair restores mixedHR23 rather than treating absence of a large
+quotient from earlier finite packets as a proof.

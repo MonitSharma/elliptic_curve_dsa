@@ -1,0 +1,38 @@
+{
+  "collected_at_utc": "2026-10-14T19:17:46.607627+00:00",
+  "checkout": "/home/hclau/ecdsa_research/overnight-20261014/product-repair57-production-components-r1",
+  "baseline_revision": "c5bb1ec876db859a3f9f8a9052c140a145df834e",
+  "candidate_patch_sha256": "6bfdbef1e17b8b22b8cd3f5b3cf7369b73a87393ae05a9efa55841be3e6bf3f0",
+  "source_sha256": {
+    "src/point_add/product_repair57_kernel.rs": "330d91852ddc82740ac9bec4b8d8fb94d2ca5c5ca843fd4e56d1fed6123fab98",
+    "src/point_add/product_repair57_tests.rs": "83888866372de634fff0a4a05c66c15bda465532790dd7d024ed8d43fe713b2e",
+    "src/point_add/y15_onefold.rs": "de0dbcbfbe911b850b6031683a282cb26105b89a1256409b624af07661f6310a"
+  },
+  "protected_tracked_changes": [],
+  "generated_results_tsv_changed": false,
+  "other_untracked_files": [],
+  "evidence_kind": "research_diagnostic",
+  "status": "completed_diagnostic",
+  "qualified_score": null,
+  "protected_sha256": {
+    "benchmark.sh": "122a65431ad42a1bad5114af9e8f8301fe5cb08c01adaeee00799c9f0d0ed92a",
+    "Cargo.toml": "3c80178b08d29a158abb29a7dcb8eefc67c66f60f2c3bd14483b65eeca0740dc",
+    "Cargo.lock": "42ff16919e551891ad1b21821329b116d133194245a0e0734a33573dfe598e07",
+    "rust-toolchain": "92b454c1ccf330de9b94242f73bc3214370fb420d5152baeec12dc82ceef9dcc",
+    "src/bin/eval_circuit.rs": "b35314bc47a5f8eecbf60459e6c76c9b43aa034eeb9b7ec3421655d74f9e890b",
+    "src/bin/build_circuit.rs": "ac013f1d851156a117c7d41ddb16cb5bb014ed4e6ed4679df143207b46852f33",
+    "src/circuit.rs": "ac2255f6bcb6895c9da2dfe21c3a051a0ef8fc4e0af9598634fec0035dbf35c6",
+    "src/sim.rs": "f0c72f2a280cd68acee1dbf8282098f72d6b3bf4311e0abf96d122fe002256d7",
+    "src/weierstrass_elliptic_curve.rs": "ecfca15ee3b831c243fbea559ff4b8937be47fe591a4f14786ec2b9bfb30bded"
+  },
+  "log": {
+    "path": "/home/hclau/ecdsa_research/overnight-20261014/product-evidence/repair57-production-components-r1/run.log",
+    "sha256": "edb459a96ebc6665bc5c6c7c31b0674b65e030e14bd32a9a51353bf41664753c"
+  },
+  "exit_status": 0,
+  "failure_counts": {
+    "classical_mismatches": null,
+    "phase_garbage_batches": null,
+    "ancilla_garbage_batches": null
+  }
+}

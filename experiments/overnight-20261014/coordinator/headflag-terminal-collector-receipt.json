@@ -1,5 +1,5 @@
 {
-  "status": "ACTIVE_WAITING_FOR_EXISTING_BENCHMARK_NO_RESULT",
+  "status": "COMPLETE_EXIT0_SOURCE_BOUND_BENCHMARK_FAILED",
   "launched_utc": "2026-10-14T18:53:39Z",
   "pid": 2740181,
   "watched_native_pid": 2662310,
@@ -15,5 +15,14 @@
   "evidence_directory": "/home/hclau/ecdsa_research/overnight-20261014/coordinator-headflag-collection-watch-v1",
   "terminal_receipt": "/home/hclau/ecdsa_research/overnight-20261014/coordinator-headflag-v1-terminal/receipt.json",
   "qualified_score": null,
-  "scope": "Waits for wrapperterminal marker, validates frozen candidate/protectedharness/stream/fullbenchmark once, records receiptSHA. Collectionexit0 is not correctnesspass. Never changes candidate nor reruns evaluator."
+  "scope": "Waits for wrapperterminal marker, validates frozen candidate/protectedharness/stream/fullbenchmark once, records receiptSHA. Collectionexit0 is not correctnesspass. Never changes candidate nor reruns evaluator.",
+  "completed_utc": "2026-10-14T19:46:49Z",
+  "collector_exit": 0,
+  "benchmark_exit": 1,
+  "failure_counts": {
+    "classical_mismatches": 4,
+    "phase_garbage_batches": 1,
+    "ancilla_garbage_batches": 4
+  },
+  "terminal_receipt_sha256": "52c42a661375e081236645d5e230c39f8b1c9d648b8525c8369b8a9833dc7535"
 }

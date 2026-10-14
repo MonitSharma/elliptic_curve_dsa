@@ -1,52 +1,28 @@
 # Research state and next experiments
 
-## Active overnight cycle: 14 October 2026, 17:10 UTC
+## Ten-hour research cycle: final evidence and handoff
 
-The [cycle report](overnight-20261014.md) supersedes the historical experiment
-status below. No original improvement has qualified. The newly completed
-unchanged public B3 reproduction passes all9,024 official cases at Q1235,
-rounded T761,156 and product940,027,660. Its independent counterexamples and
-the historical c5 reproduction remain distinct from arbitrary-input proofs.
+[The final report](overnight-final-report.md) supersedes the historical experiment
+state below. No original submission-ready improvement has qualified. The new
+unchanged b3 reproduction passes all9,024 shots atQ1235/T761,156; historical c5
+complete evidence remainsQ1234/T761,658. Both have independent counterexamples.
 
-- N275-v2 has a frozen generated stream, native component tests and116 exact
-  fixed-input all-measurement instances. Native evaluator2534382 is running the
-  unchanged9,024-shot benchmark with a256GiB virtual-memory cap. Its aggregate
-  outcome is pending. Head-selector variant queue2612039 waits for that native
-  terminal marker and rechecks resources before allocating its own vector.
-- N274's ideal model passes, but its first physical prototype fails two whole
-  columns because proposed SX6 quotient storage aliases the gate accumulator.
-  A guarded high-Q owner redesign is under source-lifetime audit. Map-only and
-  preposition-only passes did not establish that missing lifetime.
-- Minimal auxiliary constructor interfaces have closed89 one-direction spaces
-  without a witness. Searches now include nonlinear reachable carry/field
-  directions. Negative scopes are recorded explicitly; no global optimum or
-  implemented constructor saving follows.
-- Physical H45 expansion and actual incoming-prefix proofs pass, but its
-  sampled fold saving cannot bridge the167-Toffoli product gap. The direction
-  is closed as a standalone candidate. Fin3/narrowed-fin4 lazy cleanup proofs
-  remain reusable components with no full score.
-- The exact factor transfer to B3 failed on its full official packet. Same
-  inputs and measurement transcript produce identical failures on original B3.
-  Raw-body stage observers locate value failures before all postpasses; the
-  product track is locating the first arithmetic stage that diverges.
+N275-v2 failed full validation. N274-v4 has a known arithmetic counterexample.
+Headflag-v1 completed all9,024 shots with four value failures, one phase
+batch and four ancilla batches; its source-bound collector completed with no score. HT25-v9 passes16 native and16 exact phase tests
+(576 fixed-input audits); full generation completed with a parser-admitted diagnostic, with no scored result.
+Bank-swap-v2 passes17 native/17 exact phase tests(704 audits); its full generation completed; the guarded whole-point benchmark is pending.
+The fold57 repair passes finite literal-prefix component proofs but its full
+builder fails allocator fingerprint111. The Toffoli track has scoped lower
+bounds and negative complete-cost searches, with no original qualified score.
 
-Result collection never repeats the benchmark: on the server run
-`python3 /home/hclau/ecdsa_research/overnight-20261014/collect-overnight-qubit-result.py n275-v2`
-or substitute `headflag-v1`. Pending markers return pending; terminal results
-are admitted only with matching source, stream, protected binary, valid score,
-all9,024 cases and zero value/phase/ancilla failures. Refresh public leaders
-again before comparing any new qualified improvement.
-
-Updated 14 October 2026, Singapore time. Our three targets are Q ≤ **692**,
-rounded mean executed T ≤ **761,155**, and Q × T ≤ **939,681,127**. The
-[public API snapshot](data/latest-leaderboard.json) binds these targets to source
-revisions. The minimum-width leader is now Q693; the historical Q694 target is
-obsolete. No new record from this workspace has qualified or been submitted.
-
-[Experiment outcomes](experiment-outcomes.md) separates passing baseline
-reproduction from failed and unfinished research. Only complete verified
-benchmark results belong in the README plots. Start Toffoli/product changes on
-the reproduced Q1234 baseline while retaining a separate qubit diagnosis track.
+Public leaders refreshed at the final checkpoint areQ693,T761,156 and
+product939,396,074(Q1234/T761,261). Targets:Q692,T761,155,product939,396,073;
+atQ1234,T761,260; atQ1235,T760,644. See [dated source-bound data](data/latest-leaderboard.json).
+Current collection commands, resources, limitations and prioritized next
+experiments are in [the final report](overnight-final-report.md) and
+[server handoff](SERVER_HANDOFF.md). README plots contain only official public
+records and complete passing baseline evidence.
 
 ## What changed in this iteration
 
@@ -81,7 +57,7 @@ Our new form uses **24 remainder lanes and the existing quotient flag**:
 2. Clear the rotated low lane. The odd-divisor comparator needs a **zero**
    carry-in; inserting the dividend one before comparison is wrong.
 3. XOR the overflow and low-word comparison to get the quotient decision, then
-   subtract conditionally. Within `D` odd, MSB set, `0 ≤ R < D`, the two decisions
+   subtract conditionally. Within `D` odd, MSB set, `0 ÃƒÂ¢Ã¢â‚¬Â°Ã‚Â¤ R < D`, the two decisions
    cannot both be true.
 4. Append the dividend one and use the resulting remainder parity to clear the
    flag. Recorded inverse playback supplies the corresponding cleanup.
@@ -93,9 +69,9 @@ envelope, seven crossing-reserve lanes and inherited tail are unchanged.
 
 | Evidence | Result | Scope |
 |---|---|---|
-| Z3 restoring identity, widths 2–8, 16, 24 | No domain counterexamples; missing-overflow faults detected | Arithmetic identity |
+| Z3 restoring identity, widths 2ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“8, 16, 24 | No domain counterexamples; missing-overflow faults detected | Arithmetic identity |
 | Virtual leading-one comparator | 43,688 exhaustive cases, forward/inverse | Small target widths and arbitrary flags |
-| Compact restoring step | 16,383 exhaustive cases | Precisions 2–8, all odd normalized divisors and remainders |
+| Compact restoring step | 16,383 exhaustive cases | Precisions 2ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“8, all odd normalized divisors and remainders |
 | Native N276 V-form | 1,536 cases; 1,089,536 independent measurement-phase coefficients | Active/inactive mixtures, boundary sizes, dirty passengers, forward/inverse |
 | Focused K24 suite | 17 passed, one existing ignored research test | Component regression |
 | Fixture emitted Toffoli saving | **572 per complete V-form** in each tested helper-bank size | Not a full-circuit mean count |
@@ -193,7 +169,7 @@ The next gate experiment should synthesize across this complete constructor
 and consume/cleanup interface, then emit and prove a native replacement.
 Do not repeat the missing earlier phase-reader scans without a new hypothesis.
 
-For product, preserve Q1234 and target T ≤ **761,491**; at Q1235 the strict
+For product, preserve Q1234 and target T ÃƒÂ¢Ã¢â‚¬Â°Ã‚Â¤ **761,491**; at Q1235 the strict
 product target is **760,875**. An improvement must survive the final rounded
 mean count. Prefer material savings that persist on paired and independent
 inputs over a one-unit change in a hash-derived packet's mean.

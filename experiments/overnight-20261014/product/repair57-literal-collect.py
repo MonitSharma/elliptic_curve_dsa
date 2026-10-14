@@ -1,0 +1,16 @@
+from pathlib import Path
+import json,gzip,hashlib,datetime
+p=Path(__file__).parent;raw=Path('research-output/overnight-20261014/product');d=raw/'repair57-production-literal';snap=raw/'repair57-prefix-snapshot'
+s=(d/'product_repair57_body_inverse_probe.log').read_text();assert int((d/'run.exit').read_text())==0 and 'running 1 test' in s and '1 passed; 0 failed' in s;assert s.count('REPAIR57_LITERAL_BDD_PROVED')==4 and s.count('independent_allq_correct=true')==64
+assert int((snap/'run.exit').read_text())==0;assert '3 passed; 0 failed' in(snap/'tests.log').read_text();sl=(snap/'run.log').read_text();assert sl.count('REPAIR57_LITERAL_SNAPSHOT')==2 and sl.count('archived_full_raw_values_and_phase_equal=true')==2
+data=json.loads((d/'literal-inputs.json').read_text());assert len(data['cases'])==16 and all(len(c['q'])==1234 and len(c['b'])==1575 for c in data['cases'])
+files={}
+for label,folder in [('literal',d),('snapshot',snap)]:
+ for f in folder.iterdir():
+  if f.is_file():
+   files[label+'/'+f.name]=hashlib.sha256(f.read_bytes()).hexdigest()
+   if f.suffix in['.log','.tsv','.json']:(p/('repair57-'+label+'-'+f.name+'.gz')).write_bytes(gzip.compress(f.read_bytes(),mtime=0))
+ for f in [folder/'receipt/receipt.json',folder/'receipt/candidate.patch']:
+  if f.exists():(p/('repair57-'+label+'-'+f.name)).write_bytes(f.read_bytes());files[label+'/'+str(f.relative_to(folder))]=hashlib.sha256(f.read_bytes()).hexdigest()
+r={'status':'LITERAL_ORIGINAL_PREFIX_FINITE_SIXTEEN_COMPLETE_PRIMITIVE_PROVED','qualified_score':None,'prefix_scope':'Original C5 finalizedraw fixed-native-pastMR knownbatch0/independentbatch1; exact1234q1575b andincomingphase, no pendingY33/classicaldepth0; old=finalindex3282766. Future MR only inside original/newcomplete tick104.','original_complete_stream_sha256':'49b35cf7640ebd529d76894eb8bef93ebf57e7e970fe14b3c27c8c5feb6e73e4','exact_original_emitted_primitive_ops':24451,'literal_inputs':16,'classical_variants':['exact original literal state','onlyfree/unregistered scratch all0','onlyfree/unregistered scratch all1','onlyfree/unregistered scratch A5'],'live_classical':'Every original owned classical slot remains equal to its captured actual prefix value. Separate earlier interface tests initialize EVERY classical slot0/1/A5.','new_field_and_inverse_wrong_inputs':[],'native_patterns':3,'new_forward_future_measurements':2128,'new_pair_future_measurements':4343,'maximum_phase_bounds':[6,10],'incoming_phase':'Literal captured original phase preserved; exact zero incremental polynomial implies additive incomingphase scope.','kernel_sha256':'72ab93a2fa1fd20bb3aad370aca9f6016ea9069013eaaa34d6b02d911d859622','runtime_and_fault_tests':'Four unchangedBDD nativefault tests in separate bound samekernel proof; three snapshot mapping/openripple/nativefault tests in private exporter. Nonzero namedcount+validationmarker guards.','full_source_limit':'All-forward57 prototype still allocator111 fatal; no adapter/rebind/completecost/officialbenchmark/universalfieldrepair.','artifact_hashes':files,'collected_at_utc':datetime.datetime.now(datetime.timezone.utc).isoformat()}
+(p/'repair57-literal-evidence.json').write_text(json.dumps(r,indent=2)+'\n',newline='\n');print(json.dumps({k:r[k]for k in['status','literal_inputs','new_field_and_inverse_wrong_inputs']},indent=2))

@@ -1,0 +1,55 @@
+{
+  "status": "absorbed_complete_higher_addend_contract_verified",
+  "source_lf_sha256": "879b85060f6a5cfa412561d64860f1cab697f7a334f180f5be9102070d5a23b9",
+  "original_netlist_sha256": "d6bf2410418bd8707d5768ca274ba74ce79c7e5964189605bdb2b33d22977b85",
+  "consumer_netlist_sha256": "df8010c5f4f8453aede50140b637026ad5192651f3771f26ee8e1188f5afc502",
+  "netlist_sha256": "98175dd620e78182eb078d892ff761e2f69e5a905b3ee7ef1a9cb34b0f243be4",
+  "domain_rows": 2097152,
+  "arithmetic_mismatches": 0,
+  "independent_outputs_per_input": 26,
+  "complete_effective_higher_addend_bits_verified": [
+    13,
+    255
+  ],
+  "k_range": [
+    -7,
+    70
+  ],
+  "carry17_k_values": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "carry17_rows": 346496,
+  "upper_H_bits4..6_unchanged_proved": true,
+  "higher_word_overflow_rows": 0,
+  "raw_rank": 22,
+  "target_rank": 46,
+  "rank_AND_lower_bound": 24,
+  "direct_source_ANDs": 45,
+  "previous_consumer_source_ANDs": 38,
+  "direct_AND_delta": 7,
+  "source_full_span_rank": 67,
+  "construction": "Four carry ANDs absorb13 into U3..6; three ANDs increment H0..3 conditionally. Sourcek bound proves H4..6 unchanged; two separate sign bands retained.",
+  "seconds": 10.943546465598047,
+  "qualified_score": null,
+  "limits": "Exact changed nonlinear value obligations and direct45AND source only. No cancellation or cheaper complete netlist found; measurement cleanup/phase, arbitrary incoming quantum highword scheduling and physical allocation/full cost remain unqualified.",
+  "pid": 2759564,
+  "exit_code": 0,
+  "route_status": "closed_cost_negative_without_resynthesis",
+  "raw_evidence_directory": "research-output/overnight-20261014/toffoli/absorb-v26",
+  "evidence_sha256": {
+    "raw-receipt.json": "428351af2f472dc436bcde60e1a25db5c6798b1304150a84fb92b23d79ee1a91",
+    "run.log": "05bb41e95c7d6773e1f993921a4e75dd8ab46159c8c44ca0307a0d02f9b97df1",
+    "run.pid": "bed968fdf7e66a8e3eeea901c42c9ff63ce243c77c5aaf3b6fc46cea3fc7a1e6",
+    "run.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "finished.txt": "bbc363d22618183427f00836b623b570f336472c38ecd2d50df117f13dbda6c0",
+    "settings.txt": "06247e316e7221e558734b4eac4072d32b546fe7ff16a14a84370c643530d0a7",
+    "absorb-v26-netlist.json": "98175dd620e78182eb078d892ff761e2f69e5a905b3ee7ef1a9cb34b0f243be4"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "status": "source_operator_owner_review_no_blocker_on_admitted_contract",
+  "qualified_score": null,
+  "source_path": "/home/hclau/ecdsa_research/overnight-20261014/qubits/candidate-ht25-bankswap-v1/src/point_add/midg.rs",
+  "source_raw_sha256": "9526185c20d58b8e251ebcfc43ec3eba0c7c9e26fcbed234557f1edba1c7a1af",
+  "parent_midg_raw_sha256": "93db7934b11a652469b49159cdff57892290c2556f6a108a84605c2b11594d18",
+  "prototype_patch_raw_sha256": "e1e990ca86e0d31efd0950ab769d22ef4a803890d24f12bdd0948f034ab05f58",
+  "prototype_manifest_raw_sha256": "610a7aecb65318616ce02c7e82a622e974f78eb02c55355420f69df39ce634ea",
+  "helper_source_raw_sha256": {
+    "builder.rs": "a30fa3fb745ebd518ad939e6cae9253c8167e58187a2bebdbf0285e77b95889e",
+    "mask.rs": "67f0c5892f66baa368654b966d79d8af17de40f1694c3b19c6cb73c0a4027184",
+    "frogdrop_col.rs": "950c6a7432abc2f5eafcdf3b36c6c984794b748f11130ac0db2d8dce2416287b",
+    "pointadd_frogdrop.rs": "03fd24a0ebfe2bdf2bfb33e620ea121ce89910bb832ccd627b274f8c2a0a391d"
+  },
+  "activity_control": "savedACT=sc.g; excludes PH/SY7 data",
+  "clean_scratch_precondition": "SX0=0 at transfer entry and before reciprocal use",
+  "active_bank_range": [96,103],
+  "inactive_high_aliases": [224,231],
+  "active_bank_source_bound": "SY+SZ<=257, TC=26 implies SZ+j<=186",
+  "selector_words_checked": 256,
+  "combined_partition_disjoint": true,
+  "dirty_MCX_basis_cases_checked": 512,
+  "dirty_MCX_ancilla_bits": 3,
+  "transfer_emitted_CCX": 32,
+  "conjugating_pair_emitted_CCX": 64,
+  "native_or_ALLMR_run_by_reviewer": false,
+  "reviewer_server_jobs": [],
+  "candidate_source_edits_by_reviewer": [],
+  "open_validation": [
+    "source-bound native/all-measurement equality of complete reused reciprocal pair",
+    "all-wire bank/counter/flag restoration on inactive arbitrary states",
+    "finalHT PH normalization and wideSZ unchanged-path coverage",
+    "complete emitted stream, executed cost and official qualification"
+  ],
+  "limits": "Admitted source-level operator/owner review and exact transfer algebra; not unrestricted active SZ/SY equality, native phase proof or resource score."
+}

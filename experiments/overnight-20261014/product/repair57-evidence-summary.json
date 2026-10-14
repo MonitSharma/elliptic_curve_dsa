@@ -1,0 +1,313 @@
+{
+  "collected_at_utc": "2026-10-14T19:20:49.783526+00:00",
+  "qualified_score": null,
+  "scope": "Component correctness at fixed producer input94, not complete point-addition repair/record; allfutureMR only internal, incomingphase additive, pastMR not quantified.",
+  "attempts": {
+    "repair57-components": {
+      "status": "INVALID_VERIFICATION_ZERO_TEST_LIBRARY_TARGET",
+      "qualified_score": null,
+      "exit": 0,
+      "cost": [],
+      "metrics": [],
+      "artifact_hashes": {
+        "build.log": "0d32973d590bee8ec319bd64a411a88817ce5e5cc718c85173d4f303d20d1001",
+        "product_repair57_actual104.log": "0e3d0f94ca63ba14a0a3271c084fb6e3be4c60902eff9e106c61272a92c417cb",
+        "product_repair57_body_inverse_probe.log": "7b2ffeb26120a6c27b0de4bd5cd630bb60423fc221cc2162d7d65223e8fe1df6",
+        "run.log": "53bde43bc606a867ce8d18b06fb6dd28e90a38f09aa602f66c5db6ffa506ed43",
+        "receipt\\receipt.json": "e68e50e3c9b61da0cd7ad517534ceabf880259fae30e6b69b5e09f66a51b606b",
+        "receipt\\candidate.patch": "940bf817fc812c390c681e2a9802ac5ac34c1ed25ef4b481c7cea2035695ee89",
+        "source.sha256": "e935744d797278876e7ef7784813003d30ff257f506c05b11439aafdf1bf231d",
+        "native.sha256": "021461029845860fd6f736b41400da73cc8f22792ffd0d904c966c6ca815ffe8"
+      }
+    },
+    "repair57-components-r1": {
+      "status": "COMPONENT_ALLMR_AND_NATIVE_FINITE",
+      "qualified_score": null,
+      "exit": 0,
+      "cost": [],
+      "metrics": [
+        "REPAIR57_BODY_NATIVE widths=(56, 56) seed=0x0 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743fffffb61167c2 inverse_wrong=3 scratch_nonzero=0 phase_delta=0x0 executed64=157504",
+        "REPAIR57_BODY_NATIVE widths=(56, 56) seed=0x1 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743fffffb61167c2 inverse_wrong=3 scratch_nonzero=0 phase_delta=0x0 executed64=165120",
+        "REPAIR57_BODY_NATIVE widths=(56, 56) seed=0xa5a5a5a5a5a5a5a5 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743fffffb61167c2 inverse_wrong=3 scratch_nonzero=0 phase_delta=0x0 executed64=161933",
+        "REPAIR57_BODY_NATIVE widths=(57, 56) seed=0x0 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743bffffb61167c2 inverse_wrong=0 scratch_nonzero=0 phase_delta=0x0 executed64=157568",
+        "REPAIR57_BODY_NATIVE widths=(57, 56) seed=0x1 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743bffffb61167c2 inverse_wrong=0 scratch_nonzero=0 phase_delta=0x0 executed64=165184",
+        "REPAIR57_BODY_NATIVE widths=(57, 56) seed=0xa5a5a5a5a5a5a5a5 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743bffffb61167c2 inverse_wrong=0 scratch_nonzero=0 phase_delta=0x0 executed64=162229",
+        "REPAIR57_BODY_NATIVE widths=(57, 57) seed=0x0 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743bffffb61167c2 inverse_wrong=0 scratch_nonzero=0 phase_delta=0x0 executed64=157632",
+        "REPAIR57_BODY_NATIVE widths=(57, 57) seed=0x1 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743bffffb61167c2 inverse_wrong=0 scratch_nonzero=0 phase_delta=0x0 executed64=165248",
+        "REPAIR57_BODY_NATIVE widths=(57, 57) seed=0xa5a5a5a5a5a5a5a5 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743bffffb61167c2 inverse_wrong=0 scratch_nonzero=0 phase_delta=0x0 executed64=162153"
+      ],
+      "artifact_hashes": {
+        "build.log": "bf62c1cac7c0bd25e8517aeafdb9f040551d1eae35dcdfbc10f74148c3aaa922",
+        "product_repair57_actual104.log": "a454abe6c04c759437f91be51066c114ce8b5c7f2152259f372195a0102e8104",
+        "product_repair57_body_inverse_probe.log": "522fc707d624326a682455c8ed2ca6db4f135510566a53c9e1e80521a7597b52",
+        "run.log": "aae4b9f37cf702de22d1665a22925b9a4abd31d4fd26ede4d9594717eeab6a87",
+        "receipt\\receipt.json": "38ffe6f8175814a6bf5922a9f6030a6e65d8418f1469d5c3127f24bf70921963",
+        "receipt\\candidate.patch": "940bf817fc812c390c681e2a9802ac5ac34c1ed25ef4b481c7cea2035695ee89",
+        "source.sha256": "e935744d797278876e7ef7784813003d30ff257f506c05b11439aafdf1bf231d",
+        "native.sha256": "e312d63cf865c4ec097d16d74aab2c407d257ca6c7fb72379d76945874dc5b1c",
+        "verification.json": "fbab7e74ffc8590acfb3ead202665dd78fe656ea324fd34bf51a6092f1e0585f"
+      }
+    },
+    "repair57-components-r2": {
+      "status": "ROOMY_COMPLETE_POINT94_ALLMR_AND_NATIVE_FINITE",
+      "qualified_score": null,
+      "exit": 0,
+      "cost": [],
+      "metrics": [
+        "REPAIR57_BODY_NATIVE widths=(57, 56) seed=0x0 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743bffffb61167c2 inverse_wrong=0 scratch_nonzero=0 phase_delta=0x0 executed64=157568",
+        "REPAIR57_BODY_NATIVE widths=(57, 56) seed=0x1 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743bffffb61167c2 inverse_wrong=0 scratch_nonzero=0 phase_delta=0x0 executed64=165184",
+        "REPAIR57_BODY_NATIVE widths=(57, 56) seed=0xa5a5a5a5a5a5a5a5 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743bffffb61167c2 inverse_wrong=0 scratch_nonzero=0 phase_delta=0x0 executed64=162229",
+        "REPAIR57_STRONG_VALIDATED dirty=0x0 forward_field_reference=true forward_and_inverse_ALLMR_allq_scratch_phase=true live512class=true",
+        "REPAIR57_BODY_NATIVE widths=(57, 56) seed=0x0 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743bffffb61167c2 inverse_wrong=0 scratch_nonzero=0 phase_delta=0x0 executed64=157568",
+        "REPAIR57_BODY_NATIVE widths=(57, 56) seed=0x1 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743bffffb61167c2 inverse_wrong=0 scratch_nonzero=0 phase_delta=0x0 executed64=165184",
+        "REPAIR57_BODY_NATIVE widths=(57, 56) seed=0xa5a5a5a5a5a5a5a5 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743bffffb61167c2 inverse_wrong=0 scratch_nonzero=0 phase_delta=0x0 executed64=162229",
+        "REPAIR57_STRONG_VALIDATED dirty=0xffffffffffffffff forward_field_reference=true forward_and_inverse_ALLMR_allq_scratch_phase=true live512class=true",
+        "REPAIR57_BODY_NATIVE widths=(57, 56) seed=0x0 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743bffffb61167c2 inverse_wrong=0 scratch_nonzero=0 phase_delta=0x0 executed64=157568",
+        "REPAIR57_BODY_NATIVE widths=(57, 56) seed=0x1 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743bffffb61167c2 inverse_wrong=0 scratch_nonzero=0 phase_delta=0x0 executed64=165184",
+        "REPAIR57_BODY_NATIVE widths=(57, 56) seed=0xa5a5a5a5a5a5a5a5 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743bffffb61167c2 inverse_wrong=0 scratch_nonzero=0 phase_delta=0x0 executed64=162229",
+        "REPAIR57_STRONG_VALIDATED dirty=0xa5a5a5a5a5a5a5a5 forward_field_reference=true forward_and_inverse_ALLMR_allq_scratch_phase=true live512class=true"
+      ],
+      "artifact_hashes": {
+        "build.log": "aaf42302078df2927ad3e24499f6999d3ed0f4880534ebfeda784362764a5a5d",
+        "product_repair57_body_inverse_probe.log": "be1bc3a97da3c558d626100b380fe2f86a766960ab4c0fab0e47e04d9571b00f",
+        "run.log": "a0d9b614c0c7090391c212f9cda848fc8159777a8bbf0a018e652ed51c049483",
+        "receipt\\receipt.json": "d0ae4ed73f4142ac1b140723cea4dff17973183aa31572a92b06e61b5b1747db",
+        "receipt\\candidate.patch": "b5864d923a12f5fb9d7b9b55af57d58e5b57bf1421ec94f138ba88533824c00e",
+        "source.sha256": "c32c25f8fe9fe864aecfbeae187f6bb555d80eaeddab74371d22e963c5e8ebb0",
+        "native.sha256": "9645ea1a0d7e111d0debeb248e57e7fc5ad62b94f3e60acf718ac2709e329bd7"
+      }
+    },
+    "repair57-production-components": {
+      "status": "INCONCLUSIVE_ANF_CAP_BEFORE_NATIVE",
+      "qualified_score": null,
+      "exit": 101,
+      "cost": [
+        {
+          "widths": "(56, 56)",
+          "forward_ops": 24451,
+          "forward_kinds": {
+            "BitInvert": 1,
+            "BitStore1": 1,
+            "CCX": 1536,
+            "CX": 18215,
+            "CZ": 1193,
+            "Hmr": 1153,
+            "PopCondition": 22,
+            "PushCondition": 22,
+            "R": 973,
+            "Swap": 765,
+            "X": 568,
+            "Z": 2
+          },
+          "old_slice_equal": true,
+          "freeq_order_matches_old": true,
+          "freeb_order_matches_old": true
+        }
+      ],
+      "metrics": [],
+      "artifact_hashes": {
+        "build.log": "39b163149d06ba9863b1205cdfa0b7fad5bb66fa6116aea8c8e0d97b5fcd48b3",
+        "product_repair57_body_inverse_probe.log": "57030140c1c85acee7ab9984150e073f5b47a7eb0dc5cebec1988cbd3173fe03",
+        "run.log": "239f93433fcadf707d12acde84c2a2d7028e72fca4cce8973891cffac375a288",
+        "receipt\\receipt.json": "fa331cef616ebc4bfebe562f517032e718ed4675ea6756f9aad7d7ddc50c5c57",
+        "receipt\\candidate.patch": "96e5a6b67c32424261fd67c64ee26996b5549a0b5475ca619af1a54aec90b3ed",
+        "source.sha256": "f0618fc3cefd190f33519d45d97b180a7cb40df9c19a0b53d3a3674311c9b575",
+        "native.sha256": "ed235c59de6f0cff874bbdce04366747cc172ade0fbda76e496cef885bbc3b3b",
+        "input.sha256": "803316bffa7b73051faab96da02e57ad96171fbb731e1cbb11d9a4f6251a8a3c"
+      }
+    },
+    "repair57-production-components-r1": {
+      "status": "EXACT_POOL_NATIVE_FINITE_ANF_INCONCLUSIVE",
+      "qualified_score": null,
+      "exit": 0,
+      "cost": [
+        {
+          "widths": "(56, 56)",
+          "forward_ops": 24451,
+          "forward_kinds": {
+            "BitInvert": 1,
+            "BitStore1": 1,
+            "CCX": 1536,
+            "CX": 18215,
+            "CZ": 1193,
+            "Hmr": 1153,
+            "PopCondition": 22,
+            "PushCondition": 22,
+            "R": 973,
+            "Swap": 765,
+            "X": 568,
+            "Z": 2
+          },
+          "old_slice_equal": true,
+          "freeq_order_matches_old": true,
+          "freeb_order_matches_old": true
+        },
+        {
+          "widths": "(57, 56)",
+          "forward_ops": 24652,
+          "forward_kinds": {
+            "BitInvert": 1,
+            "BitStore1": 1,
+            "CCX": 1538,
+            "CX": 18408,
+            "CZ": 1195,
+            "Hmr": 1155,
+            "PopCondition": 22,
+            "PushCondition": 22,
+            "R": 973,
+            "Swap": 765,
+            "X": 570,
+            "Z": 2
+          },
+          "old_slice_equal": false,
+          "freeq_order_matches_old": false,
+          "freeb_order_matches_old": true
+        }
+      ],
+      "metrics": [
+        "REPAIR57_FORWARD_ALLMR_INCONCLUSIVE widths=(56, 56) dirty=0x0 inconclusive: XOR term cap",
+        "REPAIR57_PAIR_ALLMR_INCONCLUSIVE widths=(56, 56) dirty=0x0 inconclusive: XOR term cap score=NONE",
+        "REPAIR57_BODY_NATIVE widths=(56, 56) seed=0x0 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743fffffb61167c2 inverse_wrong=3 scratch_nonzero=0 phase_delta=0x0 executed64=157696",
+        "REPAIR57_BODY_NATIVE widths=(56, 56) seed=0x1 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743fffffb61167c2 inverse_wrong=3 scratch_nonzero=0 phase_delta=0x0 executed64=194560",
+        "REPAIR57_BODY_NATIVE widths=(56, 56) seed=0xa5a5a5a5a5a5a5a5 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743fffffb61167c2 inverse_wrong=3 scratch_nonzero=0 phase_delta=0x0 executed64=176868",
+        "REPAIR57_PRODUCTION_NATIVE_VALIDATED widths=(56, 56) dirty=0x0 native_corrected_field_if57=true inverse_if57_allq_scratch_phase=true all_live_class_preserved=true ALLMR_status_separate=true",
+        "REPAIR57_FORWARD_ALLMR_INCONCLUSIVE widths=(56, 56) dirty=0xffffffffffffffff inconclusive: XOR term cap",
+        "REPAIR57_PAIR_ALLMR_INCONCLUSIVE widths=(56, 56) dirty=0xffffffffffffffff inconclusive: XOR term cap score=NONE",
+        "REPAIR57_BODY_NATIVE widths=(56, 56) seed=0x0 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743fffffb61167c2 inverse_wrong=3 scratch_nonzero=0 phase_delta=0x0 executed64=157696",
+        "REPAIR57_BODY_NATIVE widths=(56, 56) seed=0x1 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743fffffb61167c2 inverse_wrong=3 scratch_nonzero=0 phase_delta=0x0 executed64=194560",
+        "REPAIR57_BODY_NATIVE widths=(56, 56) seed=0xa5a5a5a5a5a5a5a5 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743fffffb61167c2 inverse_wrong=3 scratch_nonzero=0 phase_delta=0x0 executed64=176868",
+        "REPAIR57_PRODUCTION_NATIVE_VALIDATED widths=(56, 56) dirty=0xffffffffffffffff native_corrected_field_if57=true inverse_if57_allq_scratch_phase=true all_live_class_preserved=true ALLMR_status_separate=true",
+        "REPAIR57_FORWARD_ALLMR_INCONCLUSIVE widths=(56, 56) dirty=0xa5a5a5a5a5a5a5a5 inconclusive: XOR term cap",
+        "REPAIR57_PAIR_ALLMR_INCONCLUSIVE widths=(56, 56) dirty=0xa5a5a5a5a5a5a5a5 inconclusive: XOR term cap score=NONE",
+        "REPAIR57_BODY_NATIVE widths=(56, 56) seed=0x0 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743fffffb61167c2 inverse_wrong=3 scratch_nonzero=0 phase_delta=0x0 executed64=157696",
+        "REPAIR57_BODY_NATIVE widths=(56, 56) seed=0x1 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743fffffb61167c2 inverse_wrong=3 scratch_nonzero=0 phase_delta=0x0 executed64=194560",
+        "REPAIR57_BODY_NATIVE widths=(56, 56) seed=0xa5a5a5a5a5a5a5a5 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743fffffb61167c2 inverse_wrong=3 scratch_nonzero=0 phase_delta=0x0 executed64=176868",
+        "REPAIR57_PRODUCTION_NATIVE_VALIDATED widths=(56, 56) dirty=0xa5a5a5a5a5a5a5a5 native_corrected_field_if57=true inverse_if57_allq_scratch_phase=true all_live_class_preserved=true ALLMR_status_separate=true",
+        "REPAIR57_FORWARD_ALLMR_INCONCLUSIVE widths=(57, 56) dirty=0x0 inconclusive: XOR term cap",
+        "REPAIR57_PAIR_ALLMR_INCONCLUSIVE widths=(57, 56) dirty=0x0 inconclusive: XOR term cap score=NONE",
+        "REPAIR57_BODY_NATIVE widths=(57, 56) seed=0x0 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743bffffb61167c2 inverse_wrong=0 scratch_nonzero=0 phase_delta=0x0 executed64=157760",
+        "REPAIR57_BODY_NATIVE widths=(57, 56) seed=0x1 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743bffffb61167c2 inverse_wrong=0 scratch_nonzero=0 phase_delta=0x0 executed64=194688",
+        "REPAIR57_BODY_NATIVE widths=(57, 56) seed=0xa5a5a5a5a5a5a5a5 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743bffffb61167c2 inverse_wrong=0 scratch_nonzero=0 phase_delta=0x0 executed64=176874",
+        "REPAIR57_PRODUCTION_NATIVE_VALIDATED widths=(57, 56) dirty=0x0 native_corrected_field_if57=true inverse_if57_allq_scratch_phase=true all_live_class_preserved=true ALLMR_status_separate=true",
+        "REPAIR57_FORWARD_ALLMR_INCONCLUSIVE widths=(57, 56) dirty=0xffffffffffffffff inconclusive: XOR term cap",
+        "REPAIR57_PAIR_ALLMR_INCONCLUSIVE widths=(57, 56) dirty=0xffffffffffffffff inconclusive: XOR term cap score=NONE",
+        "REPAIR57_BODY_NATIVE widths=(57, 56) seed=0x0 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743bffffb61167c2 inverse_wrong=0 scratch_nonzero=0 phase_delta=0x0 executed64=157760",
+        "REPAIR57_BODY_NATIVE widths=(57, 56) seed=0x1 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743bffffb61167c2 inverse_wrong=0 scratch_nonzero=0 phase_delta=0x0 executed64=194688",
+        "REPAIR57_BODY_NATIVE widths=(57, 56) seed=0xa5a5a5a5a5a5a5a5 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743bffffb61167c2 inverse_wrong=0 scratch_nonzero=0 phase_delta=0x0 executed64=176874",
+        "REPAIR57_PRODUCTION_NATIVE_VALIDATED widths=(57, 56) dirty=0xffffffffffffffff native_corrected_field_if57=true inverse_if57_allq_scratch_phase=true all_live_class_preserved=true ALLMR_status_separate=true",
+        "REPAIR57_FORWARD_ALLMR_INCONCLUSIVE widths=(57, 56) dirty=0xa5a5a5a5a5a5a5a5 inconclusive: XOR term cap",
+        "REPAIR57_PAIR_ALLMR_INCONCLUSIVE widths=(57, 56) dirty=0xa5a5a5a5a5a5a5a5 inconclusive: XOR term cap score=NONE",
+        "REPAIR57_BODY_NATIVE widths=(57, 56) seed=0x0 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743bffffb61167c2 inverse_wrong=0 scratch_nonzero=0 phase_delta=0x0 executed64=157760",
+        "REPAIR57_BODY_NATIVE widths=(57, 56) seed=0x1 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743bffffb61167c2 inverse_wrong=0 scratch_nonzero=0 phase_delta=0x0 executed64=194688",
+        "REPAIR57_BODY_NATIVE widths=(57, 56) seed=0xa5a5a5a5a5a5a5a5 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743bffffb61167c2 inverse_wrong=0 scratch_nonzero=0 phase_delta=0x0 executed64=176874",
+        "REPAIR57_PRODUCTION_NATIVE_VALIDATED widths=(57, 56) dirty=0xa5a5a5a5a5a5a5a5 native_corrected_field_if57=true inverse_if57_allq_scratch_phase=true all_live_class_preserved=true ALLMR_status_separate=true"
+      ],
+      "artifact_hashes": {
+        "build.log": "230fcd82653c94e7519e4825114432e6f03bdd9324cd94f20645371f98a0dd81",
+        "product_repair57_body_inverse_probe.log": "f1599ed2305ad2f38883cedbc64353b5657b35e67628c6806b10c62cb613a5e6",
+        "run.log": "2755ff2986e005ce33b5249d64dd621ad3ef6b03163ea847515d9e4b98eb80c6",
+        "receipt\\receipt.json": "62aba5194f594d128798fe13ee28f7b4faf0c41c27c0f93bda37efe08977aae7",
+        "receipt\\candidate.patch": "6bfdbef1e17b8b22b8cd3f5b3cf7369b73a87393ae05a9efa55841be3e6bf3f0",
+        "source.sha256": "fff2d521b45855c72c39ec58ac83e3455783304b868a32936f8cf28a6f95cf6d",
+        "native.sha256": "9cd4f2841aaad919b7aa1f2c7bc0ef722abaf1982141ef8f5ce0f653c760b5ec",
+        "input.sha256": "803316bffa7b73051faab96da02e57ad96171fbb731e1cbb11d9a4f6251a8a3c"
+      }
+    },
+    "repair57-production-bdd": {
+      "status": "EXACT_POOL_BDD_AND_NATIVE_FINITE_PROVED",
+      "qualified_score": null,
+      "exit": 0,
+      "cost": [
+        {
+          "widths": "(56, 56)",
+          "forward_ops": 24451,
+          "forward_kinds": {
+            "BitInvert": 1,
+            "BitStore1": 1,
+            "CCX": 1536,
+            "CX": 18215,
+            "CZ": 1193,
+            "Hmr": 1153,
+            "PopCondition": 22,
+            "PushCondition": 22,
+            "R": 973,
+            "Swap": 765,
+            "X": 568,
+            "Z": 2
+          },
+          "old_slice_equal": true,
+          "freeq_order_matches_old": true,
+          "freeb_order_matches_old": true
+        },
+        {
+          "widths": "(57, 56)",
+          "forward_ops": 24652,
+          "forward_kinds": {
+            "BitInvert": 1,
+            "BitStore1": 1,
+            "CCX": 1538,
+            "CX": 18408,
+            "CZ": 1195,
+            "Hmr": 1155,
+            "PopCondition": 22,
+            "PushCondition": 22,
+            "R": 973,
+            "Swap": 765,
+            "X": 570,
+            "Z": 2
+          },
+          "old_slice_equal": false,
+          "freeq_order_matches_old": false,
+          "freeb_order_matches_old": true
+        }
+      ],
+      "metrics": [
+        "REPAIR57_FORWARD_ALLMR widths=(56, 56) dirty=0x0 success=true",
+        "REPAIR57_BODY_NATIVE widths=(56, 56) seed=0x0 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743fffffb61167c2 inverse_wrong=3 scratch_nonzero=0 phase_delta=0x0 executed64=157696",
+        "REPAIR57_BODY_NATIVE widths=(56, 56) seed=0x1 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743fffffb61167c2 inverse_wrong=3 scratch_nonzero=0 phase_delta=0x0 executed64=194560",
+        "REPAIR57_BODY_NATIVE widths=(56, 56) seed=0xa5a5a5a5a5a5a5a5 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743fffffb61167c2 inverse_wrong=3 scratch_nonzero=0 phase_delta=0x0 executed64=176868",
+        "REPAIR57_PRODUCTION_NATIVE_VALIDATED widths=(56, 56) dirty=0x0 native_corrected_field_if57=true inverse_if57_allq_scratch_phase=true all_live_class_preserved=true ALLMR_status_separate=true",
+        "REPAIR57_FORWARD_ALLMR widths=(56, 56) dirty=0xffffffffffffffff success=true",
+        "REPAIR57_BODY_NATIVE widths=(56, 56) seed=0x0 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743fffffb61167c2 inverse_wrong=3 scratch_nonzero=0 phase_delta=0x0 executed64=157696",
+        "REPAIR57_BODY_NATIVE widths=(56, 56) seed=0x1 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743fffffb61167c2 inverse_wrong=3 scratch_nonzero=0 phase_delta=0x0 executed64=194560",
+        "REPAIR57_BODY_NATIVE widths=(56, 56) seed=0xa5a5a5a5a5a5a5a5 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743fffffb61167c2 inverse_wrong=3 scratch_nonzero=0 phase_delta=0x0 executed64=176868",
+        "REPAIR57_PRODUCTION_NATIVE_VALIDATED widths=(56, 56) dirty=0xffffffffffffffff native_corrected_field_if57=true inverse_if57_allq_scratch_phase=true all_live_class_preserved=true ALLMR_status_separate=true",
+        "REPAIR57_FORWARD_ALLMR widths=(56, 56) dirty=0xa5a5a5a5a5a5a5a5 success=true",
+        "REPAIR57_BODY_NATIVE widths=(56, 56) seed=0x0 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743fffffb61167c2 inverse_wrong=3 scratch_nonzero=0 phase_delta=0x0 executed64=157696",
+        "REPAIR57_BODY_NATIVE widths=(56, 56) seed=0x1 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743fffffb61167c2 inverse_wrong=3 scratch_nonzero=0 phase_delta=0x0 executed64=194560",
+        "REPAIR57_BODY_NATIVE widths=(56, 56) seed=0xa5a5a5a5a5a5a5a5 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743fffffb61167c2 inverse_wrong=3 scratch_nonzero=0 phase_delta=0x0 executed64=176868",
+        "REPAIR57_PRODUCTION_NATIVE_VALIDATED widths=(56, 56) dirty=0xa5a5a5a5a5a5a5a5 native_corrected_field_if57=true inverse_if57_allq_scratch_phase=true all_live_class_preserved=true ALLMR_status_separate=true",
+        "REPAIR57_FORWARD_ALLMR widths=(57, 56) dirty=0x0 success=true",
+        "REPAIR57_BODY_NATIVE widths=(57, 56) seed=0x0 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743bffffb61167c2 inverse_wrong=0 scratch_nonzero=0 phase_delta=0x0 executed64=157760",
+        "REPAIR57_BODY_NATIVE widths=(57, 56) seed=0x1 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743bffffb61167c2 inverse_wrong=0 scratch_nonzero=0 phase_delta=0x0 executed64=194688",
+        "REPAIR57_BODY_NATIVE widths=(57, 56) seed=0xa5a5a5a5a5a5a5a5 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743bffffb61167c2 inverse_wrong=0 scratch_nonzero=0 phase_delta=0x0 executed64=176874",
+        "REPAIR57_PRODUCTION_BDD_PROVED widths=(57, 56) dirty=0x0 forward_measurements=2128 pair_measurements=4343 max_forward_phase=4 max_pair_phase=10",
+        "REPAIR57_PRODUCTION_NATIVE_VALIDATED widths=(57, 56) dirty=0x0 native_corrected_field_if57=true inverse_if57_allq_scratch_phase=true all_live_class_preserved=true ALLMR_status_separate=true",
+        "REPAIR57_FORWARD_ALLMR widths=(57, 56) dirty=0xffffffffffffffff success=true",
+        "REPAIR57_BODY_NATIVE widths=(57, 56) seed=0x0 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743bffffb61167c2 inverse_wrong=0 scratch_nonzero=0 phase_delta=0x0 executed64=157760",
+        "REPAIR57_BODY_NATIVE widths=(57, 56) seed=0x1 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743bffffb61167c2 inverse_wrong=0 scratch_nonzero=0 phase_delta=0x0 executed64=194688",
+        "REPAIR57_BODY_NATIVE widths=(57, 56) seed=0xa5a5a5a5a5a5a5a5 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743bffffb61167c2 inverse_wrong=0 scratch_nonzero=0 phase_delta=0x0 executed64=176874",
+        "REPAIR57_PRODUCTION_BDD_PROVED widths=(57, 56) dirty=0xffffffffffffffff forward_measurements=2128 pair_measurements=4343 max_forward_phase=4 max_pair_phase=10",
+        "REPAIR57_PRODUCTION_NATIVE_VALIDATED widths=(57, 56) dirty=0xffffffffffffffff native_corrected_field_if57=true inverse_if57_allq_scratch_phase=true all_live_class_preserved=true ALLMR_status_separate=true",
+        "REPAIR57_FORWARD_ALLMR widths=(57, 56) dirty=0xa5a5a5a5a5a5a5a5 success=true",
+        "REPAIR57_BODY_NATIVE widths=(57, 56) seed=0x0 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743bffffb61167c2 inverse_wrong=0 scratch_nonzero=0 phase_delta=0x0 executed64=157760",
+        "REPAIR57_BODY_NATIVE widths=(57, 56) seed=0x1 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743bffffb61167c2 inverse_wrong=0 scratch_nonzero=0 phase_delta=0x0 executed64=194688",
+        "REPAIR57_BODY_NATIVE widths=(57, 56) seed=0xa5a5a5a5a5a5a5a5 forwardhex=d1e938360b1b3edd71badfc50840471cf63398873a042480743bffffb61167c2 inverse_wrong=0 scratch_nonzero=0 phase_delta=0x0 executed64=176874",
+        "REPAIR57_PRODUCTION_BDD_PROVED widths=(57, 56) dirty=0xa5a5a5a5a5a5a5a5 forward_measurements=2128 pair_measurements=4343 max_forward_phase=4 max_pair_phase=10",
+        "REPAIR57_PRODUCTION_NATIVE_VALIDATED widths=(57, 56) dirty=0xa5a5a5a5a5a5a5a5 native_corrected_field_if57=true inverse_if57_allq_scratch_phase=true all_live_class_preserved=true ALLMR_status_separate=true"
+      ],
+      "artifact_hashes": {
+        "build.log": "aa5922bd6e9f489d0b817abf29b950f6c99e1c87a967fa4b15f1df86eb784e10",
+        "fault-run.log": "a2aee4bef310150600b31b579bd865d41c204f121580bceece2ae7c01a312cac",
+        "fault-tests.log": "cc73e9f2dc2a9ff94b7ebfb44160e216e184dae10ed0c6d824eb00278f65ecdb",
+        "product_repair57_body_inverse_probe.log": "19bd752a47463c834a10a300a878053c532940d19134d5c525b87d06ce403a18",
+        "run.log": "b8291605fc1be26de7a7d46ec23a4c5a8540360a9cadfd18ce9a5419462f1c92",
+        "receipt\\receipt.json": "5e9ca58fbbf4aeaf7d450432decc989582325e0f2d5281cf6da4eeef2dc796d4",
+        "receipt\\candidate.patch": "099c5303603ee854442d2f3250902eed92506685fd2d2c1eb83f8afba43d3182",
+        "source.sha256": "9e6b19d246ac05444ca53cd7d5e2d89237f51434b73afbea14962d81b3f57c26",
+        "native.sha256": "b9525ea9041e98b194415fb5845a41247e94cc963a163353469887e50b61b38b",
+        "input.sha256": "803316bffa7b73051faab96da02e57ad96171fbb731e1cbb11d9a4f6251a8a3c"
+      }
+    }
+  }
+}

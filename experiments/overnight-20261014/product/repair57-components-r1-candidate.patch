@@ -1,0 +1,268 @@
+diff --git a/src/point_add/y15_onefold.rs b/src/point_add/y15_onefold.rs
+index ce87200e..1506e52f 100755
+--- a/src/point_add/y15_onefold.rs
++++ b/src/point_add/y15_onefold.rs
+@@ -51,6 +51,7 @@ const Y15_WIN: usize = 56;
+ // Use the larger forward fold window on the initial payload ticks.
+ const PAYLOAD_FOLD_PREFIX: bool = true;
+ fn fold_window(t: usize, rev: bool) -> usize {
++    #[cfg(test)] if let Some((a,b))=PRODUCT_REPAIR57_WIDTH.with(|x|x.get()){return if rev{b}else{a};}
+     if PAYLOAD_FOLD_PREFIX && !rev && t <= 99 { 57 } else { Y15_WIN }
+ }
+ /// Bits below the compare window of m0 on which add 1's carries are built again.
+@@ -4535,3 +4536,6 @@ fn rt0_letter_erase(c: &mut Builder, r1: &[QubitId], r0v: &[Lin], letter: &[Qubi
+ /// chain is read by m1's Z alone, so it is built and erased only when m1's bit is set as well: a quarter of a Toffoli
+ /// a pass. Exact (the same measurements in the same order). false: built on every shot with m0's bit set.
+ const Y36_TOP_M1: bool = true;
++
++#[cfg(test)] thread_local!{static PRODUCT_REPAIR57_WIDTH:std::cell::Cell<Option<(usize,usize)>>=const{std::cell::Cell::new(None)};}
++#[cfg(test)] #[path="product_repair57_tests.rs"]mod product_repair57_tests;
+diff --git a/src/point_add/product_repair57_kernel.rs b/src/point_add/product_repair57_kernel.rs
+new file mode 100644
+index 00000000..098953dc
+--- /dev/null
++++ b/src/point_add/product_repair57_kernel.rs
+@@ -0,0 +1,214 @@
++//! Exact Boolean-ring phase audit for fixed bit-packed basis inputs.
++//!
++//! Independent indeterminates denote EACH R/HMR outcome, never mutable BitIds.
++//! u64 coefficients hold 64 separate input lanes. Zero ANF proves zero phase
++//! for all measurement choices on those inputs. Overflow is inconclusive.
++use crate::circuit::{analyze_ops, Op, OperationType as K, NO_BIT};
++use std::collections::BTreeMap;
++
++const TERM_CAP: usize = 8192;
++const MULTIPLY_WORK_CAP: usize = 1_000_000;
++
++#[derive(Clone, Debug, PartialEq, Eq)]
++struct Poly(BTreeMap<Vec<u32>, u64>);
++
++fn union(a: &[u32], b: &[u32]) -> Vec<u32> {
++    let (mut i, mut j, mut out) = (0, 0, Vec::with_capacity(a.len() + b.len()));
++    while i < a.len() || j < b.len() {
++        if j == b.len() || (i < a.len() && a[i] < b[j]) { out.push(a[i]); i += 1; }
++        else if i == a.len() || b[j] < a[i] { out.push(b[j]); j += 1; }
++        else { out.push(a[i]); i += 1; j += 1; }
++    }
++    out
++}
++
++impl Poly {
++    fn constant(v: u64) -> Self {
++        let mut terms = BTreeMap::new();
++        if v != 0 { terms.insert(Vec::new(), v); }
++        Self(terms)
++    }
++    fn variable(id: u32) -> Self { Self(BTreeMap::from([(vec![id], u64::MAX)])) }
++    fn scalar(&self) -> Option<u64> {
++        if self.0.is_empty() { Some(0) }
++        else if self.0.len() == 1 { self.0.get(&Vec::new()).copied() }
++        else { None }
++    }
++    fn accumulate(&mut self, monomial: Vec<u32>, value: u64) {
++        if value == 0 { return; }
++        let entry = self.0.entry(monomial.clone()).or_insert(0);
++        *entry ^= value;
++        if *entry == 0 { self.0.remove(&monomial); }
++    }
++    fn xor(&self, other: &Self) -> Result<Self, String> {
++        let mut result = self.clone();
++        for (monomial, value) in &other.0 { result.accumulate(monomial.clone(), *value); }
++        if result.0.len() > TERM_CAP { return Err("inconclusive: XOR term cap".into()); }
++        Ok(result)
++    }
++    fn and(&self, other: &Self) -> Result<Self, String> {
++        if let Some(mask) = self.scalar() { return Ok(other.masked(mask)); }
++        if let Some(mask) = other.scalar() { return Ok(self.masked(mask)); }
++        if self.0.len().saturating_mul(other.0.len()) > MULTIPLY_WORK_CAP {
++            return Err("inconclusive: multiplication work cap".into());
++        }
++        let mut result = Self::constant(0);
++        for (a, av) in &self.0 { for (b, bv) in &other.0 {
++            result.accumulate(union(a, b), av & bv);
++            if result.0.len() > TERM_CAP { return Err("inconclusive: AND term cap".into()); }
++        }}
++        Ok(result)
++    }
++    fn masked(&self, mask: u64) -> Self {
++        Self(self.0.iter().filter_map(|(m, v)| ((*v & mask) != 0).then(|| (m.clone(), *v & mask))).collect())
++    }
++    fn not(&self) -> Result<Self, String> { self.xor(&Self::constant(u64::MAX)) }
++}
++
++#[derive(Debug)]
++pub struct Audit {
++    pub qubits: Vec<u64>,
++    pub measurements: u64,
++    pub maximum_phase_terms: usize,
++    pub maximum_quantum_terms: usize,
++}
++
++/// Classical slots start at the supplied constants, with remaining scratch 0.
++/// Final quantum values must be independent of measurements. Classical scratch
++/// may retain outcomes. This is a finite INPUT-domain proof, not a score.
++pub fn audit(ops: &[Op], input: &[u64], initial_bits: &[u64]) -> Result<Audit, String> {
++    let (nq, nb, _, _) = analyze_ops(ops.iter());
++    if input.len() < nq as usize { return Err("input shorter than quantum allocation".into()); }
++    let mut q: Vec<_> = input.iter().map(|v| Poly::constant(*v)).collect();
++    let mut bits = vec![Poly::constant(0); (nb as usize).max(initial_bits.len())];
++    for (bit, value) in initial_bits.iter().enumerate() { bits[bit] = Poly::constant(*value); }
++    let mut phase = Poly::constant(0);
++    let mut base = Poly::constant(u64::MAX);
++    let mut stack = Vec::new();
++    let mut next_measurement = 0u32;
++    let (mut max_phase, mut max_quantum) = (0, 1);
++    for (index, op) in ops.iter().enumerate() {
++        let condition = if op.c_condition == NO_BIT { base.clone() }
++            else { base.and(&bits[op.c_condition.0 as usize])? };
++        let (a, b, t, bit) = (op.q_control1.0 as usize, op.q_control2.0 as usize,
++                             op.q_target.0 as usize, op.c_target.0 as usize);
++        match op.kind {
++            K::PushCondition => { stack.push(base); base = condition; }
++            K::PopCondition => { base = stack.pop().ok_or_else(|| format!("unbalanced pop at {index}"))?; }
++            K::X => { q[t] = q[t].xor(&condition)?; }
++            K::CX => { q[t] = q[t].xor(&condition.and(&q[a])?)?; }
++            K::CCX => { q[t] = q[t].xor(&condition.and(&q[a].and(&q[b])?)?)?; }
++            K::Swap => {
++                let delta = condition.and(&q[a].xor(&q[t])?)?;
++                q[a] = q[a].xor(&delta)?; q[t] = q[t].xor(&delta)?;
++            }
++            K::R | K::Hmr => {
++                let m = Poly::variable(next_measurement);
++                next_measurement = next_measurement.checked_add(1).ok_or("measurement id overflow")?;
++                phase = phase.xor(&condition.and(&q[t].and(&m)?)?)?;
++                if op.kind == K::Hmr {
++                    bits[bit] = bits[bit].xor(&condition.and(&bits[bit].xor(&m)?)?)?;
++                }
++                q[t] = q[t].and(&condition.not()?)?;
++            }
++            K::BitInvert => { bits[bit] = bits[bit].xor(&condition)?; }
++            K::BitStore0 => { bits[bit] = bits[bit].and(&condition.not()?)?; }
++            K::BitStore1 => { bits[bit] = bits[bit].xor(&condition.and(&bits[bit].not()?)?)?; }
++            K::Neg => { phase = phase.xor(&condition)?; }
++            K::Z => { phase = phase.xor(&condition.and(&q[t])?)?; }
++            K::CZ => { phase = phase.xor(&condition.and(&q[a].and(&q[t])?)?)?; }
++            K::CCZ => { phase = phase.xor(&condition.and(&q[a].and(&q[b].and(&q[t])?)?)?)?; }
++            K::Register | K::AppendToRegister | K::DebugPrint => {}
++        }
++        max_phase = max_phase.max(phase.0.len());
++        match op.kind {
++            K::X | K::CX | K::CCX | K::R | K::Hmr => { max_quantum = max_quantum.max(q[t].0.len()); }
++            K::Swap => { max_quantum = max_quantum.max(q[t].0.len()).max(q[a].0.len()); }
++            _ => {}
++        }
++    }
++    if !stack.is_empty() { return Err("unclosed condition stack".into()); }
++    if !phase.0.is_empty() {
++        return Err(format!("nonzero phase polynomial: {} terms; first {:?}", phase.0.len(), phase.0.first_key_value()));
++    }
++    let mut output = Vec::with_capacity(q.len());
++    for (slot, value) in q.iter().enumerate() {
++        output.push(value.scalar().ok_or_else(|| format!("measurement-dependent final quantum slot {slot}"))?);
++    }
++    Ok(Audit { qubits: output, measurements: next_measurement as u64,
++               maximum_phase_terms: max_phase, maximum_quantum_terms: max_quantum })
++}
++
++#[cfg(test)]
++mod tests {
++    use super::*;
++    use crate::circuit::{BitId, QubitId};
++    fn native(ops: &[Op], input: &[u64], words: &[u64]) -> (Vec<u64>, u64) {
++        struct Reader<'a> { words: &'a [u64], at: usize }
++        impl sha3::digest::XofReader for Reader<'_> {
++            fn read(&mut self, bytes: &mut [u8]) {
++                assert_eq!(bytes.len(),8); bytes.copy_from_slice(&self.words[self.at].to_le_bytes()); self.at+=1;
++            }
++        }
++        let (_,nb,_,_)=analyze_ops(ops.iter());let mut reader=Reader{words,at:0};
++        let mut sim=quantum_ecc::sim::Simulator::new(input.len(),nb as usize,&mut reader);
++        sim.qubits=input.to_vec();sim.apply_iter(ops.iter());(sim.qubits,sim.phase)
++    }
++    fn gate(k: K, a: Option<u64>, b: Option<u64>, t: Option<u64>, bit: Option<u64>, condition: Option<u64>) -> Op {
++        let mut op = Op::empty(); op.kind = k;
++        if let Some(a) = a { op.q_control1 = QubitId(a); }
++        if let Some(b) = b { op.q_control2 = QubitId(b); }
++        if let Some(t) = t { op.q_target = QubitId(t); }
++        if let Some(bit) = bit { op.c_target = BitId(bit); }
++        if let Some(c) = condition { op.c_condition = BitId(c); }
++        op.validate(); op
++    }
++    #[test]
++    fn snapshot_mutation_nested_push_and_phase_fault() {
++        let mut ops = vec![
++            gate(K::Hmr,None,None,Some(0),Some(0),None),
++            gate(K::PushCondition,None,None,None,None,Some(0)),
++            gate(K::BitInvert,None,None,None,Some(0),None),
++            gate(K::BitStore1,None,None,None,Some(1),None),
++            gate(K::PushCondition,None,None,None,None,Some(1)),
++            gate(K::Z,None,None,Some(1),None,None),
++            gate(K::PopCondition,None,None,None,None,None),
++            gate(K::PopCondition,None,None,None,None,None),
++        ];
++        let mask=0x934ce2086ffa3145;let input=[mask,mask,!mask];
++        let result=audit(&ops,&input,&[]).unwrap();assert_eq!(result.qubits,vec![0,mask,!mask]);assert_eq!(result.measurements,1);
++        for m in [0,u64::MAX,0x682ab19376cdfe08] {let(q,phase)=native(&ops,&input,&[m]);assert_eq!(q,result.qubits);assert_eq!(phase,0);}
++        ops[5].q_target=QubitId(2);
++        assert!(audit(&ops,&input,&[]).unwrap_err().starts_with("nonzero phase polynomial"));
++        assert_eq!(native(&ops,&input,&[u64::MAX]).1,u64::MAX);
++    }
++    #[test]
++    fn conditional_hmr_boolean_idempotence_and_value_restoration() {
++        let ops=vec![
++            gate(K::Hmr,None,None,Some(0),Some(0),None),
++            gate(K::PushCondition,None,None,None,None,Some(0)),
++            gate(K::Hmr,None,None,Some(1),Some(1),None),
++            gate(K::Z,None,None,Some(2),None,Some(1)),
++            gate(K::CX,Some(2),None,Some(1),None,None),
++            gate(K::PopCondition,None,None,None,None,None),
++        ];
++        let input=[0,0x123456789abcdef0,0x123456789abcdef0];
++        let result=audit(&ops,&input,&[]).unwrap();assert_eq!(result.qubits,input);assert_eq!(result.measurements,2);
++        assert!(result.maximum_quantum_terms>1);
++        for m in [0,u64::MAX] {for n in [0,u64::MAX] {let(q,phase)=native(&ops,&input,&[m,n]);assert_eq!(q,input);assert_eq!(phase,0);}}
++    }
++    #[test]
++    fn discarded_phase_only_block_is_detected() {
++        let ops=vec![gate(K::Hmr,None,None,Some(0),Some(0),None),
++            gate(K::PushCondition,None,None,None,None,Some(0)),
++            gate(K::CCZ,Some(1),Some(2),Some(3),None,None),
++            gate(K::PopCondition,None,None,None,None,None)];
++        assert!(audit(&ops,&[0,u64::MAX,u64::MAX,u64::MAX],&[]).unwrap_err().starts_with("nonzero phase polynomial"));
++        assert_eq!(native(&ops,&[0,u64::MAX,u64::MAX,u64::MAX],&[u64::MAX]).1,u64::MAX);
++    }
++    #[test]
++    fn support_limit_is_inconclusive() {
++        let many=Poly((0..TERM_CAP+1).map(|i|(vec![i as u32],1u64)).collect());
++        assert_eq!(many.xor(&Poly::constant(0)).unwrap_err(),"inconclusive: XOR term cap");
++    }
++}
+diff --git a/src/point_add/product_repair57_tests.rs b/src/point_add/product_repair57_tests.rs
+new file mode 100644
+index 00000000..f9aaca24
+--- /dev/null
++++ b/src/point_add/product_repair57_tests.rs
+@@ -0,0 +1,23 @@
++const NQ:usize=1234;const NB:usize=1575;
++const TG:&[u64]=&[256,257,258,259,260,261,262,263,264,265,266,267,268,269,270,271,272,273,274,275,276,277,278,279,280,281,282,283,284,285,286,287,288,289,290,291,292,293,294,295,296,297,298,299,300,301,302,303,304,305,306,307,308,309,310,311,312,313,314,315,316,317,318,319,320,321,322,323,324,325,326,327,328,329,330,331,332,333,334,335,336,337,338,339,340,341,342,343,344,345,346,347,348,349,350,351,352,353,354,355,356,357,358,359,360,361,362,363,364,365,366,367,368,369,370,371,372,373,374,375,376,377,378,379,380,381,382,383,384,385,386,387,388,389,390,391,392,393,394,395,396,397,398,399,400,401,402,403,404,405,406,407,408,409,410,411,412,413,414,415,416,417,418,419,420,421,422,423,424,425,426,427,428,429,430,431,432,433,434,435,436,437,438,439,440,441,442,443,444,445,446,447,448,449,450,451,452,453,454,455,456,457,458,459,460,461,462,463,464,465,466,467,468,469,470,471,472,473,474,475,476,477,478,479,480,481,482,483,484,485,486,487,488,489,490,491,492,493,494,495,496,497,498,499,500,501,502,503,504,505,506,507,508,509,510,511];
++const E:&[u64]=&[137,156,619];
++const NM:&[u64]=&[536,157,622];
++const K:&[u64]=&[1191,147];
++const FQ:&[u64]=&[1218,1232,1195,1208,1231,1214,1212,1200,1204,1190,1220,1210,1233,1196,1209,1216,1222,1224,1225,1226,1227,1228,1197,1199,1201,607,1203,155,1205,610,1207,152,1186,613,1211,149,1213,616,1215,146,1217];
++const FB:&[u64]=&[1062,1063,1064,1065,1066,1067,1068,1069,1070,1071,1072,1073,1074,1075,1076,1077,1078,1079,1080,1081,1082,1083,1084,1085,1086,1087,1088,1089,1090,1091,1092,1093,1094,1095,1096,1097,1098,807,808,809,810,811,812,813,814,815,816,817,818,819,820,821,822,823,824,825,826,827,828,829,830,831,832,833,834,835,836,837,838,839,840,841,842,843,844,845,846,847,848,849,850,851,852,853,854,855,856,857,858,859,860,861,862,863,864,865,866,867,868,869,870,871,872,873,874,875,876,877,878,879,880,881,882,883,884,885,886,887,888,889,890,891,892,893,894,895,896,897,898,899,900,901,902,903,904,905,906,907,908,909,910,911,912,913,914,915,916,917,918,919,920,921,922,923,924,925,926,927,928,929,930,931,932,933,934,935,936,937,938,939,940,941,942,943,944,945,946,947,948,949,950,951,952,953,954,955,956,957,958,959,960,961,962,963,964,965,966,967,968,969,970,971,972,973,974,975,976,977,978,979,980,981,982,983,984,985,986,987,988,989,990,991,992,993,994,995,996,997,998,999,1000,1001,1002,1003,1004,1005,1006,1007,1008,1009,1010,1011,1012,1013,1014,1015,1016,1017,1018,1019,1020,1021,1022,1023,1024,1025,1026,1027,1028,1029,1030,1031,1032,1033,1034,1035,1036,1037,1038,1039,1040,1041,1042,1043,1044,1045,1046,1047,1048,1049,1050,1051,1052,1053,1054,1055,1056,1057,1058,1059,1060,1061,512,806,769,768,767,766,765,764,763,762,761,760,759,758,757,756,755,754,753,752,751,750,749,748,747,746,745,744,743,742,741,740,739,738,737,736,735,734,733,732,731,730,729,728,727,726,725,724,723,722,721,720,719,718,717,716,715,714,713,712,711,710,709,708,707,706,705,704,703,702,701,700,699,698,697,696,695,694,693,692,691,690,689,688,687,686,685,684,683,682,681,680,679,678,677,676,675,674,673,672,671,670,669,668,667,666,665,664,663,662,661,660,659,658,657,656,655,654,653,652,651,650,649,648,647,646,645,644,643,642,641,640,639,638,637,636,635,634,633,632,631,630,629,628,627,626,625,624,623,622,621,620,619,618,617,616,615,614,613,612,611,610,609,608,607,606,605,604,603,602,601,600,599,598,597,596,595,594,593,592,591,590,589,588,587,586,585,584,583,582,581,580,579,578,577,576,575,574,573,572,571,570,569,568,567,566,565,564,563,562,561,560,559,558,557,556,555,554,553,552,551,550,549,548,547,546,545,544,543,542,541,540,539,538,537,536,535,534,533,532,531,530,529,528,527,526,525,524,523,522,521,520,519,518,517,516,515,514,513,1351,1350,1349,1348,1347,1346,1345,1344,1343,1342,1341,1340,1339,1338,1337,1336,1335,1334,1333,1332,1331,1330,1329,1328,1327,1326,1325,1324,1323,1322,1321,1320,1319,1352,1353,1354,1355,1356,1357,1358,1359,1360,1361,1362,1363,1364,1365,1366,1367,1368,1369,1370,1371,1372,1373,1374,1375,1376,1377,1378,1379];
++use super::*;
++use crate::circuit::{Op,OperationType,analyze_ops};use crate::sim::Simulator;use sha3::digest::XofReader;
++#[path="product_repair57_kernel.rs"]mod kernel;
++fn prepare(){crate::point_add::clear_process_env();crate::point_add::install_skywalk_submission_recipe();std::env::set_var("EXACT_PAIR_CARRY","1");crate::point_add::leapfrog::install_recipe();}
++fn mix(mut x:u64)->u64{x=(x^(x>>30)).wrapping_mul(0xbf58476d1ce4e5b9);x=(x^(x>>27)).wrapping_mul(0x94d049bb133111eb);x^(x>>31)}
++struct Tape{seed:u64,at:u64}impl XofReader for Tape{fn read(&mut self,o:&mut[u8]){assert_eq!(o.len(),8);let x=match self.seed{0=>0,1=>u64::MAX,s=>mix(s^self.at)};self.at+=1;o.copy_from_slice(&x.to_le_bytes());}}
++fn reference(x:u64,e:u64,n:u64,s:u64,mw:usize)->u64{let r=n+(x&7);let low=(x&63)+e+((r&1)<<4)+(((r^(r>>1))&1)<<5);let y=((s!=0)as u64)*(low>>3&1)+2*(s>>1&1)*(low>>4&1)+4*((s&1)&(s>>1&1))*(low>>5&1);let borrow=((x&7)+e>=8)as i128;let k=r as i128+8*(y as i128-borrow);((x as i128+e as i128-((1i128<<32)+976)*k)&((1i128<<mw)-1))as u64}
++fn set(q:&mut[u64],ids:&[u64],x:u64){for(i,&id)in ids.iter().enumerate(){q[id as usize]=if x>>i&1!=0{u64::MAX}else{0};}}
++fn word(q:&[u64],ids:&[u64])->u64{ids.iter().enumerate().fold(0,|x,(i,&id)|x|((q[id as usize]&1)<<i))}
++fn hexbits(q:&mut[u64],ids:&[u64],hex:&str){assert_eq!(hex.len(),64);for (i,ch)in hex.chars().rev().enumerate(){let v=ch.to_digit(16).unwrap();for j in 0..4{q[ids[4*i+j]as usize]=if v>>j&1!=0{u64::MAX}else{0};}}}
++fn kinds(ops:&[Op])->std::collections::BTreeMap<String,usize>{let mut m=std::collections::BTreeMap::new();for o in ops{*m.entry(format!("{:?}",o.kind)).or_default()+=1;}m}
++fn actual(mw:usize)->(Vec<Op>,Vec<u32>,Vec<u32>){crate::point_add::pingpong::with_phase_cap(Some(1234),||{let mut c=Builder::new();let qs=c.alloc_qubits(NQ);let bs=c.alloc_bits(NB);for &i in FQ{c.release_clean(qs[i as usize]);}for &i in FB{c.free_bit(bs[i as usize]);}assert_eq!(c.op_count(),0);let entry=c.y42_alloc_state();let active=c.active_qubits();let ids=|a:&[u64]|a.iter().map(|&x|QubitId(x)).collect::<Vec<_>>();let old=PAYLOAD_AT.with(|x|x.replace(Some((false,104))));let plan=fold_fwd_v2(&mut c,&ids(&TG[..mw]),ids(E).try_into().unwrap(),ids(NM).try_into().unwrap(),QubitId(K[0]),QubitId(K[1]),0,None,false,0);PAYLOAD_AT.with(|x|x.set(old));let exit=c.y42_alloc_state();let mut eq=entry.0.clone();let mut xq=exit.0.clone();eq.sort_unstable();xq.sort_unstable();assert_eq!(eq,xq);let mut eb=entry.1.clone();let mut xb=exit.1.clone();eb.sort_unstable();xb.sort_unstable();assert_eq!(eb,xb);assert_eq!(entry.2,exit.2);assert_eq!(c.active_qubits(),active);assert_eq!(c.i13_dims(),(NQ,NB));eprintln!("REPAIR57_ACTUAL mw={mw} plan={plan:?} peak={} expected_proxy={} entryFreeQ={:?} exitFreeQ={:?} freeB_order_equal={} allsets_equal=true dims={:?}",c.peak_total(),c.expected_total(),entry.0,exit.0,entry.1==exit.1,c.i13_dims());let ops=c.take_ops();eprintln!("REPAIR57_ACTUAL_COST mw={mw} ops={} kinds={:?} score=NONE",ops.len(),kinds(&ops));(ops,exit.0,exit.1)})}
++fn check(ops:&[Op],q:&[u64],b:&[u64],expected:&[u64],label:&str)->[usize;3]{let a=kernel::audit(ops,q,b).unwrap_or_else(|e|panic!("{label}: {e}"));assert_eq!(a.qubits,expected,"{label} allMR/value");let mut costs=[0;3];for(i,seed)in[0,1,0xa5a5a5a5a5a5a5a5].into_iter().enumerate(){let mut tape=Tape{seed,at:0};let mut sim=Simulator::new(q.len(),b.len(),&mut tape);sim.qubits=q.to_vec();sim.bits=b.to_vec();sim.phase=0x9c7188aafed12345;sim.apply_iter(ops.iter());assert_eq!(sim.qubits,expected,"{label}");assert_eq!(sim.phase,0x9c7188aafed12345,"{label}");for i in 0..NB.min(b.len()){if !FB.contains(&(i as u64)){assert_eq!(sim.bits[i],b[i],"live classic {i}");}}costs[i]=sim.stats.toffoli_gates as usize;}costs}
++#[test]fn product_repair57_actual104(){prepare();let old=actual(56);let new=actual(57);eprintln!("REPAIR57_EXIT_ORDER oldnew_q_equal={} oldnew_b_equal={}",old.1==new.1,old.2==new.2);for(mw,ops)in[(56,&old.0),(57,&new.0)]{for dirty in[0,u64::MAX,0xa5a5a5a5a5a5a5a5]{let mut q:Vec<_>=(0..NQ).map(|i|if FQ.contains(&(i as u64)){0}else{mix(i as u64^123)}).collect();hexbits(&mut q,TG,"7a4e0d82c6cfb75c6eb7f1421011c73d8ce621ce8109201d0f000022845abac1");set(&mut q,E,3);set(&mut q,NM,4);set(&mut q,K,3);let mut want=q.clone();let x=word(&q,&TG[..mw]);set(&mut want,&TG[..mw],reference(x,3,4,3,mw));let cost=check(ops,&q,&vec![dirty;NB],&want,"actual104 point94");eprintln!("REPAIR57_POINT94 mw={mw} before={x:#x} after={:#x} executed64={cost:?} dirty={dirty:#x} allMR_phase_zero=true",word(&want,&TG[..mw]));if mw==57{let mut correct=q.clone();hexbits(&mut correct,TG,"7a4e0d82c6cfb75c6eb7f1421011c73d8ce621ce8109201d0effffed8459f0b4");assert_eq!(want,correct,"57-bit exact actual94 full logical word");}else{assert_ne!(want,q);}}
++let mask=((1u64<<mw)-1)&!63;for high in[0,mask,0xaaaaaaaaaaaaaa&mask,((1u64<<32)-1)&mask]{for base in(0..1usize<<14).step_by(64){let mut q=vec![0;NQ];let mut want=q.clone();for lane in 0..64{let raw=(base+lane)as u64;let x=(raw&63)|high;for(i,&id)in TG[..mw].iter().enumerate(){q[id as usize]|=(x>>i&1)<<lane;want[id as usize]|=(reference(x,raw>>6&7,raw>>9&7,raw>>12&3,mw)>>i&1)<<lane;}for(i,&id)in E.iter().chain(NM).chain(K).enumerate(){let v=(raw>>(i+6)&1)<<lane;q[id as usize]|=v;want[id as usize]|=v;}}check(ops,&q,&vec![u64::MAX;NB],&want,"low-domain");}}}let mut fault=old.0.clone();let mut c=Builder::new();let qs=c.alloc_qubits(NQ);c.x(qs[FQ[0]as usize]);fault.extend(c.take_ops());assert_ne!(kernel::audit(&fault,&vec![0;NQ],&vec![0;NB]).unwrap().qubits,vec![0;NQ]);eprintln!("REPAIR57_TOTAL lowdomain=16384 highs=4 widths=2 fixedInputALLMR=131072 native=393216 dirtyFreeClassic=true plantedScratchFaultDetected=true score=NONE");}
++#[test]fn product_repair57_body_inverse_probe(){prepare();for widths in[(56,56),(57,56),(57,57)]{crate::point_add::pingpong::with_phase_cap(Some(1234),||{let mut c=Builder::new();let abi=c.alloc_qubits(512);let _bs=c.alloc_bits(512);let source=c.alloc_qubits(256);let letter=c.alloc_qubits(5);let mut p=[abi[256..].to_vec(),source.clone()];PRODUCT_REPAIR57_WIDTH.with(|x|x.set(Some(widths)));let active=c.active_qubits();let entry=c.y42_alloc_state();fwd_tick(&mut c,104,&letter,&mut p);let forward=c.op_count();rev_tick(&mut c,104,&letter,&mut p);PRODUCT_REPAIR57_WIDTH.with(|x|x.set(None));assert_eq!(c.active_qubits(),active);let exit=c.y42_alloc_state();let (nq,nb)=c.i13_dims();let ops=c.take_ops();let mut q=vec![0;nq];let ids=|a:&[QubitId]|a.iter().map(|x|x.0).collect::<Vec<_>>();hexbits(&mut q,&ids(&abi[256..]),"71d7a5b707c0479b38f3c4aac166949b919d8a9728abbf6ba32ea98604260da0");hexbits(&mut q,&ids(&source),"f789983440f0903eca3bd368b154cd5e04b768c8a7a29f4e942ea9637fcb52db");set(&mut q,&ids(&letter),28);for i in 0..256{q[i]=mix(i as u64);}let expected=q.clone();let b=vec![u64::MAX;nb];let a=kernel::audit(&ops,&q,&b);match a{Ok(a)=>{let bad:Vec<_>=a.qubits.iter().zip(&expected).enumerate().filter(|(_, (a,b))|a!=b).map(|(i,_)|i).collect();eprintln!("REPAIR57_BODY widths={widths:?} nq={nq} nb={nb} forwardops={forward} pairOps={} kinds={:?} wrong_wires={bad:?} allMR_phase_zero=true active_restored=true entry_free={:?} exit_free={:?} score=NONE",ops.len(),kinds(&ops),entry,exit);},Err(e)=>eprintln!("REPAIR57_BODY widths={widths:?} STRICT_ALLMR_FAILURE {e} score=NONE")};for seed in[0,1,0xa5a5a5a5a5a5a5a5]{let mut tape=Tape{seed,at:0};let mut sim=Simulator::new(nq,nb,&mut tape);sim.qubits=q.clone();sim.bits=b.clone();sim.phase=0x124897da;sim.apply_iter(ops[..forward].iter());let outhex=(0..64).rev().map(|j|{let x=(0..4).fold(0,|v,k|v|((sim.qubits[abi[256+4*j+k].0 as usize]&1)<<k));format!("{x:x}")}).collect::<String>();sim.apply_iter(ops[forward..].iter());let wrong=sim.qubits.iter().zip(&expected).filter(|(a,b)|a!=b).count();let scratch=sim.qubits[773..].iter().filter(|x|**x!=0).count();eprintln!("REPAIR57_BODY_NATIVE widths={widths:?} seed={seed:#x} forwardhex={outhex} inverse_wrong={wrong} scratch_nonzero={scratch} phase_delta={:#x} executed64={}",sim.phase^0x124897da,sim.stats.toffoli_gates);}});}}

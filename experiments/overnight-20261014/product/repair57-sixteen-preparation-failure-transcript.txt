@@ -1,0 +1,12 @@
+Archived original tool-output excerpt; not a fresh test or rerun.
+Time of original server preflight: 2026-10-14 19:22:08 UTC.
+Status: PREPARATION_ASSERTION_FAILED, before compilation or workload launch.
+Source preserved in repair57-production-sixteen-failed-prepare.py.
+
+Traceback (most recent call last):
+  File "/home/hclau/ecdsa_research/overnight-20261014/product-evidence/repair57-production-sixteen-prepare.py", line 10, in <module>
+    assert a['label']=='fwd_tick_after' and a['index']==r['index'] and a['t']=='104'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+Cause: the known-input export batch has15 rows while the independent94 export has1 row, so assuming16-row adjacency misidentified the next frame. The corrected source maps by source/mode/index/scope/sequence. No mathematical or native counterexample is implied.

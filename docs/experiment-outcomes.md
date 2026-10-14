@@ -1,5 +1,7 @@
 # Experiment outcomes: verified baselines and unfinished research
 
+[Final ten-hour report and current handoff](overnight-final-report.md) supersedes dated checkpoint statuses below. No original submission-ready improvement has qualified.
+
 Updated 15 October 2026, Singapore time. This report preserves unsuccessful
 experiments and component-level findings. **No original candidate in this
 repository is ready for challenge submission.** These experimental costs do not

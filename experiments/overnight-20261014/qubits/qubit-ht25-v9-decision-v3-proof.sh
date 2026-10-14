@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+# Prepared only. Coordinator reviews this external proof wrapper before launch.
+set -euo pipefail
+root=/home/hclau/ecdsa_research/overnight-20261014/qubits
+evidence="$root/evidence/ht25-v9-decision-v3"
+mkdir -p "$evidence"
+echo "$$" > "$evidence/run.pid"
+trap 'code=$?; printf "%s\n" "$code" > /home/hclau/ecdsa_research/overnight-20261014/qubits/evidence/ht25-v9-decision-v3/run.exit' EXIT
+ulimit -v 16777216
+export CARGO_BUILD_JOBS=4 RAYON_NUM_THREADS=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1
+unset LOWQ_EXACT_STREAM_PATH D1_REPLICA_NONCE F2_NO_GLOBAL_CANCEL
+. /home/hclau/.cargo/env
+date -u
+hostname
+python3 /home/hclau/ecdsa_research/server-preflight.py > "$evidence/preflight.json"
+python3 - <<'PY'
+import hashlib,json,re
+from pathlib import Path
+r=Path('/home/hclau/ecdsa_research/overnight-20261014/qubits')
+p=r/'evidence/ht25-v9-decision-v3/crate';m=json.loads((p/'complete-source-binding.json').read_text())
+assert m['frozen_kernel_sha256']=='72ab93a2fa1fd20bb3aad370aca9f6016ea9069013eaaa34d6b02d911d859622'
+assert hashlib.sha256((p/'phase-audit-kernel.rs').read_bytes()).hexdigest()==m['frozen_kernel_sha256']
+original=r/'candidate-ht25-v9'
+assert (r/'evidence/ht25-v9-components.exit').read_text().strip()=='0'
+summaries=re.findall(r'test result: ok\. (\d+) passed; 0 failed',(r/'evidence/ht25-v9-components.log').read_text())
+assert list(map(int,summaries))==[6,5,2,1,2],summaries
+for name,h in m['source_sha256'].items():
+    assert hashlib.sha256((original/'src/point_add'/name).read_bytes()).hexdigest()==h,name
+    if name not in m['research_test_sha256']:
+        assert hashlib.sha256((p/'source/point_add'/name).read_bytes()).hexdigest()==h,('private-copy',name)
+for name,h in m['research_test_sha256'].items():assert hashlib.sha256((p/'source/point_add'/name).read_bytes()).hexdigest()==h,name
+assert m['point_add_patch_sha256']==json.loads((r/'evidence/candidate-ht25-v9-manifest.json').read_text())['patch_sha256']
+print(json.dumps(m,sort_keys=True))
+PY
+cd "$evidence/crate"
+export CARGO_TARGET_DIR="$evidence/target"
+sha256sum "$root/qubit-prepare-ht25-v9-decision-proof.py" "$root/qubit-ht25-v9-decision-v3-proof.sh" phase-audit-kernel.rs src/main.rs Cargo.toml source/point_add/tests_midg_k24.rs source/point_add/tests_frogdrop.rs > "$evidence/proof-source.sha256"
+cargo generate-lockfile --offline
+sha256sum Cargo.lock >> "$evidence/proof-source.sha256"
+/usr/bin/time -v cargo +1.93.0 test --release --locked --offline coordinator_ -- --nocapture --test-threads=1 > "$evidence/native-proof.log" 2>&1
+grep -q 'test result: ok. 16 passed; 0 failed' "$evidence/native-proof.log"
+grep -q 'DECISION_DIAGRAM_PHASE_PROOF' "$evidence/native-proof.log"
+tail -28 "$evidence/native-proof.log"
+sha256sum "$CARGO_TARGET_DIR"/release/deps/qubit_ht25_v9_fixed_decision_proof-*
+date -u

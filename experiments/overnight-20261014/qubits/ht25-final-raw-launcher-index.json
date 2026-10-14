@@ -1,0 +1,69 @@
+{
+  "collected_utc": "2026-10-14T19:59:58.065054+00:00",
+  "files": [
+    {
+      "source": "qubit-ht25-v9-harness-build.sh",
+      "source_sha256": "cee24eb161140782cc96b52be925caf5f6cccdf9d18ef9baa9801fe56275322c",
+      "archive": "qubit-ht25-v9-harness-build.sh.raw.gz",
+      "archive_sha256": "bfbeda17bc131366726d01aa14b61a7d3ba551804650fc015e283595e3dffeba",
+      "CRLF_pairs": 1,
+      "lone_CR": 0
+    },
+    {
+      "source": "qubit-ht25-v9-harness-build-v2.sh",
+      "source_sha256": "f7ea3fb277a7b9cb7d74eb3a25667d7ca922a2f4bb23ef41fa50826d00256b16",
+      "archive": "qubit-ht25-v9-harness-build-v2.sh.raw.gz",
+      "archive_sha256": "384a27ed2c0bf3c90b3aa83022d56b88e87fac83b1bb0b314610616fd895bd78",
+      "CRLF_pairs": 0,
+      "lone_CR": 0
+    },
+    {
+      "source": "qubit-ht25-v9-full-build.sh",
+      "source_sha256": "128c922f4f1cf6685180228a3ea489f017e28d5bc3bf8b48b208f8ed2b9804e4",
+      "archive": "qubit-ht25-v9-full-build.sh.raw.gz",
+      "archive_sha256": "ecc73b17dd17d0a017fa19f98b78de2bdc152e7574de9a556bc7ad50aad923d8",
+      "CRLF_pairs": 0,
+      "lone_CR": 0
+    },
+    {
+      "source": "qubit-ht25-v9-decision-v2-proof.sh",
+      "source_sha256": "2c7a8fd0c29e822bfb8917727f207befc78d209613f65f70bcf333203fff5152",
+      "archive": "qubit-ht25-v9-decision-v2-proof.sh.raw.gz",
+      "archive_sha256": "5ce2a901c30fb38fba738339c2a9607175856659b4c7aa26fed2460597649560",
+      "CRLF_pairs": 0,
+      "lone_CR": 0
+    },
+    {
+      "source": "qubit-ht25-v9-decision-v3-proof.sh",
+      "source_sha256": "75a7794f97a6876a53cfe33667dacfaabaa16eee5261479e97ab79bc052ac95e",
+      "archive": "qubit-ht25-v9-decision-v3-proof.sh.raw.gz",
+      "archive_sha256": "73bfe9b82ce74acad93ad092b804ad42acfef88a3d50d84413367e2bba00e8ff",
+      "CRLF_pairs": 0,
+      "lone_CR": 0
+    },
+    {
+      "source": "qubit-ht25-bankswap-v2-full-build.sh",
+      "source_sha256": "2264ae1e2556654898fb20bd6626eb3c0033be71501b7c35cf6e7aa1f725f96a",
+      "archive": "qubit-ht25-bankswap-v2-full-build.sh.raw.gz",
+      "archive_sha256": "7baebbd7083e1b5eaa25e77addbe9bc1a6badafa0e38ffe5648654b3cb5b2a29",
+      "CRLF_pairs": 0,
+      "lone_CR": 0
+    }
+  ],
+  "harness_v1": {
+    "wrapper_exit": 127,
+    "native_compile_exit": 0,
+    "protected_binary_sha256": "88b6fd33dfcd85b317ed6694c10715dbb6b4d5926838400ec7c4e23cdda77e3a",
+    "failure": "Trailing carriage-return shell command after completed native build; preserved exact bytes/log"
+  },
+  "harness_v2": {
+    "wrapper_exit": 0,
+    "new_LF_wrapper": true,
+    "reused_Cargo_build_artifact": true
+  },
+  "V9_generation": {
+    "wrapper_exit": 0,
+    "CRLF_failure": false,
+    "scope": "Actual server launcher completed; local export line endings are separately archived"
+  }
+}

@@ -1,0 +1,12 @@
+"""Exact literal complete quantum/classical state at original y15 fwd104 entry."""
+from pathlib import Path
+import shutil,json,sys
+base,dest,evidence,pool=map(Path,sys.argv[1:]);dest.mkdir();shutil.copytree(base/'src',dest/'src');shutil.copy2(base/'Cargo.toml',dest/'Cargo.toml');shutil.copy2(base/'Cargo.lock',dest/'Cargo.lock');shutil.copy2(base/'expected-finals.tsv',dest/'expected-finals.tsv')
+c=(dest/'Cargo.toml').read_text().replace('/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline','/home/hclau/ecdsa_research/overnight-20261014/product-repair57-production-pool');(dest/'Cargo.toml').write_text(c,newline='\n')
+r=json.loads((pool/'before.json').read_text());ids=lambda a:','.join(map(str,a));(evidence/'snapshot-frame.tsv').write_text('literal-entry104\t104\t%d\t%s\t%s\t%s\t0\t-\t-\tfalse\tfalse\n'%(r['op'],ids(r['p'][0]),ids(r['p'][1]),ids(r['letter'])),newline='\n')
+s=(dest/'src/main.rs').read_text().replace('("c5_raw",&a[1],&a[2]),("b3_raw",&a[3],&a[4])','("c5_raw",&a[1],&a[2])').replace('assert_eq!(frames.len(),8);','assert_eq!(frames.len(),1);')
+s=s.replace('for(batch,cases)in cases.chunks(64).enumerate(){let mut h=', 'for(batch,cases)in cases.chunks(64).enumerate(){if mode=="independent"&&!cases.iter().any(|(i,_)|*i==94){continue;}let mut h=')
+needle='    let mut logical_q=sim.qubits.clone();';assert s.count(needle)==1
+s=s.replace(needle,'''    assert!(logical.is_empty(),"literal physical original boundary has no pending Y33 target");assert_eq!(depth,0);assert_eq!(final_at,3282766);assert!(sites.iter().all(|s|!(s.1[0]<frame.end&&s.2>=frame.end)));let mut literal_lines=String::new();for(lane,(index,_))in cases.iter().enumerate(){if mode=="independent"&&*index!=94{continue;}let qb=sim.qubits.iter().map(|v|((v>>lane)&1).to_string()).collect::<String>();let bb=sim.bits[..1575].iter().map(|v|((v>>lane)&1).to_string()).collect::<String>();literal_lines+=&format!("{source}\\t{mode}\\t{index}\\t{}\\t{qb}\\t{bb}\\n",(sim.phase>>lane)&1);}std::fs::write(std::path::Path::new(DIRECTORY).join(format!("{mode}-batch{batch}.tsv")),literal_lines).unwrap();eprintln!("REPAIR57_LITERAL_SNAPSHOT source={source} mode={mode} batch={batch} quantum_slots={} classical_slots=1575 old_index=3282766 final_index={final_at} depth=0 pendingY33=0 pastMR=FIXED_NATIVE_TRANSCRIPT score=NONE",sim.qubits.len());
+'''.replace('DIRECTORY','"'+str(evidence)+'"')+needle)
+(dest/'src/main.rs').write_text(s,newline='\n')

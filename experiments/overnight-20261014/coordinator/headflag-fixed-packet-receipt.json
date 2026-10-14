@@ -1,0 +1,31 @@
+{
+  "status": "COMPLETE_FIXED_PACKET_DIAGNOSTIC_EXIT0",
+  "completed_utc": "2026-10-14T20:02:25Z",
+  "wrapper_pid": 2796420,
+  "stream_sha256": "6b0046e2470cabf150fa6d2892e0b8206a683d3975b5d268cd7b80ed2cfdc902",
+  "packet_sha256": "7fd431a2794f83d670a6d6c2351630109d05b7d0a3585871eee8dbacbc9495be",
+  "shots": 9024,
+  "packet_bytes": 4876275,
+  "selected_batch37_rng_prefix_sha256": "9ffe9528d2d530fb7e6f67831af979eb67e043d375bf6c6b6bddf1b2f643b8ce",
+  "first_failed644_expected_matches_protected_benchmark_log": true,
+  "first_failed644": {
+    "index": "644",
+    "target_x": "0x76963005edf9ddb29efa6f72d8beb5f76517116160cec59b92c83cced9da5a42",
+    "target_y": "0xbf2540498557ccec3fff7e325525e0f57cc76b3a99ba761092dc4d4c5f6ab029",
+    "offset_x": "0x4f11baa9a3204aed135bc6a3ebe0b6f94399a807443ba0706dd489599c77cba4",
+    "offset_y": "0xe478c87e24017bc3b434dda9af3f6f9b7974295d8caa7bd8ac22ea0fda210f6d",
+    "expected_x": "0xe77a608d9031c3ca9bbebc1c5e31aa90ac6d1307e12a694ef5e8e953725acbab",
+    "expected_y": "0xf2614454c021e33d8ba08a47ed8a1a873d59f84957fa8e79ce4a20f8f065671d",
+    "scalar1": "0x12dba2fd0703ffbe03fd2a3a7414c3187242ef991df60efa2d0ca57477d38a92",
+    "scalar2": "0x627b249b0a9b8b9783a5cb65bf6c35230bba95b42b01d3935618b5e730f69822"
+  },
+  "helper_script_sha256": "288aeb427c1853fcf64e8e66929b37f44a58d03623b7aa5c0098d62d929c6514",
+  "native_sha256": "28619c14c966cf4f384b2a77b34a9ad200ef697e4a2e48fa41263b70e7523245",
+  "canonical_exporter_main_sha256": "ee9c3d4f724040d7ac68017494c3f73241eafea5d7994b8dc5f84c23249a6a9c",
+  "decompressed_log_sha256": "cbc151938b61d7e1217146eb4464cac38dd1d6587b71c46757a2f6a3ce45775d",
+  "elapsed": "11:50.73",
+  "max_RSS_KiB": 10368,
+  "op_vector_allocated": false,
+  "qualified_score": null,
+  "limits": "Original one fixed packet, not a chosen/repeated draw; previous small1024-byte canonical seed reference remainsbound. Only64B batch37 RNG prefix saved, not fullMR transcript or first644 batch10 transcript. No newevaluation/score."
+}
