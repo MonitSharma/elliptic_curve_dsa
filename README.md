@@ -8,8 +8,8 @@ another point. Our aim is to advance three resource records—**logical qubits**
 **Toffoli gates**, and their **product**—through reproducible circuit design,
 mathematical proofs and measured experiments.
 
-> **Verified status · 14 October 2026:** we have reproduced a public circuit at
-> **Q1234 / T761,658 / Q × T939,885,972**, with all 9,024 benchmark shots passing.
+> **Verified status · 15 October 2026 (Singapore):** complete public reproductions
+> pass all 9,024 benchmark shots at **Q1234 / T761,658** and **Q1235 / T761,156**.
 > **We have no original submission-ready improvement in any of the three tracks.**
 > Failed and unfinished experiments are documented separately in
 > [experiment outcomes](docs/experiment-outcomes.md).
@@ -95,14 +95,24 @@ plot and all README result tables.
 
 | Circuit | Peak Q | Mean executed T | Q × T | Evidence |
 |---|---:|---:|---:|---|
-| Reproduced public baseline `c5bb1ec8` | **1,234** | **761,658** | **939,885,972** | All **9,024 shots passed** |
+| Historical public reproduction `c5bb1ec8` | **1,234** | **761,658** | **939,885,972** | Preserved complete **9,024-shot pass** |
+| Reproduced public Toffoli leader `b3c9fdd6` | **1,235** | **761,156** | **940,027,660** | All **9,024 shots passed**, 14 October 2026 UTC |
 
-The unchanged benchmark reported zero classical mismatches, phase-garbage batches
-and ancilla-garbage batches. Its generated stream hash matches the earlier
-recorded reproduction. This establishes a working environment and a reproducible
-starting circuit. It is an existing public design, not a new contribution,
-a reproduction of the latest leader, or a new official platform evaluation.
+The earlier c5 reproduction recorded zero classical mismatches, phase-garbage
+batches and ancilla-garbage batches. Its preserved stream and score establish
+the reproducible starting circuit for this cycle. This historical evidence
+has not been rerun during the overnight work.
 [Exact source, score and verification receipt](docs/data/server-verification.json)
+
+The B3 reproduction is a new local run of the unchanged public source and
+benchmark: zero value, phase and ancilla failures, with rounded mean T761,156.
+Its stream hash is `0f10de57f45349c89163faf6e5ab0694aec3d3bfa720f10ee8b185a9fb2914ce`.
+The scorer's actual output location and preservation of historical rows are
+recorded with the [complete receipt](experiments/overnight-20261014/coordinator/b3-reference-full-receipt.json).
+It reproduces the existing Toffoli record. Independent and structured packets
+also expose inherited value and phase faults; neither passing finite packet
+establishes arbitrary-input correctness.
+[Exact same-input B3 counterexamples](experiments/overnight-20261014/product/b3-paired-results.md).
 
 Overnight independent diagnostics have also found inherited structured-input
 and measurement-phase counterexamples to this baseline. Its table records the

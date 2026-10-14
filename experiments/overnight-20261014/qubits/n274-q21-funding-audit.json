@@ -1,0 +1,78 @@
+{
+  "scope": "Ideal recurrence/predicted quotient, parking, reciprocal and map domains only; no emitted gates, phase, allocation proof, source-width or score",
+  "proposal": {
+    "N": 274,
+    "K_physical": 15,
+    "small_SY_max": 95,
+    "small_head": 32,
+    "large_head": 23,
+    "mixed_cap": 21,
+    "pure_HR_cap": 24,
+    "crossing_reserve": 9,
+    "ordinary_map_extra": 4
+  },
+  "guard": "Pure HR, not mixed/switch/done/delayed, col>=2 excludes wideSZ/tt, previoussw false, envelopeSYupper+23<128",
+  "original_packet_sha256": "fbeaf4f6dd9584527f974d49244d0a3af69f3f1370ef7cbe25e603061f90ba6e",
+  "schedule_sha256": "c7e4fe5362c1756a92571de754612fea9f2fadccaafceba5c1fb4b619d964076",
+  "script_sha256": "7d107bf4a0f91938dca1f1286e8a547585caff550b7480b7d00f9c22e8a06bd0",
+  "independent_seed": 17065729509525164052,
+  "input_counts": {
+    "original_packet": 18048,
+    "independent_denominators": 512
+  },
+  "stats": {
+    "original_packet": {
+      "active_steps": 2689852,
+      "mixed_steps": 2383036,
+      "head32_steps": 2014638,
+      "pure_HR_steps": 306816,
+      "head23_steps": 675214,
+      "maximum_required_crossing_reserve": 9,
+      "q22_pure": 1,
+      "maximum_q22_outside_guard": 0
+    },
+    "independent_denominators": {
+      "active_steps": 76021,
+      "mixed_steps": 67317,
+      "head32_steps": 57014,
+      "pure_HR_steps": 8704,
+      "head23_steps": 19007,
+      "maximum_required_crossing_reserve": 6
+    }
+  },
+  "flagged": {
+    "original_packet": [
+      {
+        "shot": 1170,
+        "division": 2,
+        "input": "0xe1a14a46e6340fd02bde43002b9b85d32649195df078b8aa7efe88ce0964f802",
+        "events": [
+          {
+            "kind": "quotient_cap",
+            "column": 35,
+            "step": 36,
+            "q": 2216631,
+            "cap": 21,
+            "pure": false
+          },
+          {
+            "kind": "reciprocal_HR",
+            "column": 35,
+            "step": 36,
+            "head": 32,
+            "got": "0x172bb11aebba374fc2a1445",
+            "expected": "0x187da29bb20aa8d1b197f85"
+          }
+        ]
+      }
+    ],
+    "independent_denominators": []
+  },
+  "elapsed_seconds": 15.076972835697234,
+  "limitations": "No check of fresh-input schedule envelopes, carry-tail errors, quantum/measurement phase, physical donor ownership or actual N274 emitted arithmetic. Unchanged full benchmark still required.",
+  "status": "FIXTURE_FUNDING_AUDIT_ONLY",
+  "pid": 2587361,
+  "exit": 0,
+  "conclusion": "This observed-input audit does not justify lowering mixed cap22 or replacing the unproved sixth q21 owner; no candidate source changed.",
+  "log_sha256": "e820f81e70f206fe9a8e545ab9dc28e2fd1ef900a73480c7cc1fa96a324d54e8"
+}

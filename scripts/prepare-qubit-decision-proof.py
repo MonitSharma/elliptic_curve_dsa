@@ -1,7 +1,7 @@
 """Copy a frozen qubit source into an external conditional phase-proof crate.
 
-No candidate checkout or protected harness is changed. The two native reserve9
-fixtures retain their exact value/inverse checks and gain all-outcome phase ANF.
+No candidate checkout or protected harness is changed. Native production
+fixtures retain their value/inverse checks and gain all-outcome phase proofs.
 """
 import argparse
 import hashlib
@@ -41,6 +41,7 @@ def main():
     text=text.replace("fn ph_owner_two_qbits_preposition_inverse_dirty_phase", "fn coordinator_ph_preposition_phase_proof")
     text=text.replace("fn n275_sz_donor_boundaries_inverse_phase", "fn coordinator_n275_donor_phase_proof")
     text=text.replace("fn n275_k32_k24_partition_all_sy_words", "fn coordinator_n275_partition_phase_proof")
+    text=text.replace("    n275_k32_k24_partition_all_sy_words();", "    coordinator_n275_partition_phase_proof();")
     text=text.replace("fn n275_v2_full_column_new_boundaries_native", "fn coordinator_n275_new_columns_phase_proof")
     needle=f'let back=run(&inverse,{width},&|words|*words=got.q.clone());'
     insert='let (fq,_)=symbolic(&forward,input.clone());assert_eq!(fq,expected);let(iq,_)=symbolic(&inverse,got.q.clone());assert_eq!(iq,input);'
@@ -62,7 +63,7 @@ def main():
     (dest/"rust-toolchain").write_bytes((library/"rust-toolchain").read_bytes())
     hashes={p.relative_to(source/'src/point_add').as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted((source/'src/point_add').rglob('*')) if p.is_file()}
     (dest/'complete-source-binding.json').write_text(json.dumps({'revision':subprocess.check_output(['git','-C',str(source),'rev-parse','HEAD'],text=True).strip(),'point_add_patch_sha256':hashlib.sha256(subprocess.check_output(['git','-C',str(source),'diff','HEAD','--','src/point_add'])).hexdigest(),'source_sha256':hashes,'component_constructor_width':width,'frozen_kernel_sha256':hashlib.sha256(frozen_kernel.read_bytes()).hexdigest()},indent=2)+'\n',encoding='utf-8')
-    (dest/"provenance.json").write_text(json.dumps({'source':source.as_posix(),'source_sha256':hashes,'kernel_sha256':hashlib.sha256(kernel.read_bytes()).hexdigest(),'research_test_sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'public_builder_serializer_source_sha256':hashlib.sha256((library/"src/bin/build_circuit.rs").read_bytes()).hexdigest(),'added_phase_calls':changed,'scope':'13 no-payload columns plus modeled payload inputs for3713 and optionally8048. Exact Boolean ANF for all independent R/HMR outcomes; finite admitted INPUT domain only. No score or full-circuit qualification.'},indent=2)+'\n',encoding="utf-8")
+    (dest/"provenance.json").write_text(json.dumps({'source':source.as_posix(),'source_sha256':hashes,'kernel_sha256':hashlib.sha256(kernel.read_bytes()).hexdigest(),'research_test_sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'public_builder_serializer_source_sha256':hashlib.sha256((library/"src/bin/build_circuit.rs").read_bytes()).hexdigest(),'added_phase_calls':changed,'scope':'Selected source-native columns, modeled3713/8048 and structured payloads, dirty owners, donor and all-SY partition fixtures. Exact decision diagrams for all independent R/HMR outcomes on finite admitted fixed input lanes. No score or full-circuit qualification.'},indent=2)+'\n',encoding="utf-8")
 
 
 if __name__=="__main__":main()

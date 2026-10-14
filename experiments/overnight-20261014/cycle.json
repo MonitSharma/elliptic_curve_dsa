@@ -190,5 +190,65 @@
       "runtime_threads": 1,
       "qualified_score": null
     }
+  ],
+  "fifth_checkpoint": {
+    "prepared_at_utc": "2026-10-14T16:48:44.913690+00:00",
+    "public_records": 1562,
+    "eligible_records": 1221,
+    "pareto_points": 45,
+    "records_changed": false,
+    "public_refresh_utc": "2026-10-14T15:39:00Z",
+    "original_qualified_candidates": [],
+    "new_public_reproduction": {
+      "source": "b3c9fdd6e24bcd33450ab0d10884ab5ff9c46ab7",
+      "qubits": 1235,
+      "rounded_toffoli": 761156,
+      "product": 940027660,
+      "shots": 9024,
+      "value_phase_ancilla_failures": [
+        0,
+        0,
+        0
+      ],
+      "receipt": "coordinator/b3-reference-full-receipt.json"
+    },
+    "b3_classical_factor_candidate": {
+      "status": "FAILED_UNCHANGED_FULL_BENCHMARK",
+      "classical_failures": 15,
+      "phase_batches": 14,
+      "ancilla_batches": 0,
+      "same_candidate_packet_MR_original_B3_final_state_identical": true,
+      "source_patch": "coordinator/b3-classical-failed.patch",
+      "qualified_score": null
+    },
+    "headflag": {
+      "all_measurement_fixed_instances": 116,
+      "generated_ops": 3500369588,
+      "generated_referenced_qubits": 692,
+      "generated_stream_sha256": "6b0046e2470cabf150fa6d2892e0b8206a683d3975b5d268cd7b80ed2cfdc902",
+      "status": "Waiting authorized sequential official evaluator queue; no qualified score"
+    },
+    "N274": "Ideal model clears18048original+512fresh; physical sixthq21 quotient owner unresolved; no source prototype or widthclaim",
+    "guarded_support": "108067additional clean boundaries but1234peak; onlyoneidentityCCX, standaloneclosed",
+    "carry_cleanup": "Fin3 actualdrop1 and narrowedfin4 actualtop1/2drops native+ALLMR pass; lazyfin3\u22127/8 component expectation passes, no globalrecord",
+    "H45": "Actual105contexts/all13.6million fixedinput ALLMR and512incomingpointprefix proofs pass; 104admitted. Mean\u221214.1484375 sample component sum cannot bridge167gap, originalpeakoutsidechangedfolds. Closed standalone; no metadataadapter/fullcandidatebuilder."
+  },
+  "jobs_at_fifth_checkpoint": [
+    {
+      "native_pid": 2534382,
+      "kind": "Original N275-v2 unchanged official9024benchmark active",
+      "log": "/home/hclau/ecdsa_research/overnight-20261014/qubits/evidence/n275-v2-official-eval.log",
+      "memory_limit_GiB": 256,
+      "runtime_threads": 1,
+      "qualified_score": null
+    },
+    {
+      "pid": 2612039,
+      "kind": "Headflag officialevaluation queue waiting originalnative terminal; no head vector allocated",
+      "log": "/home/hclau/ecdsa_research/overnight-20261014/qubits/evidence/headflag-v1-official-cycle.log",
+      "memory_limit_GiB": 256,
+      "runtime_threads": 1,
+      "qualified_score": null
+    }
   ]
 }

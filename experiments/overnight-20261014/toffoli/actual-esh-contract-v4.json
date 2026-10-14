@@ -1,0 +1,40 @@
+{
+  "status": "exact_top1_direct_nondeep_producer_algebra_verified_native_pending",
+  "source_lf_sha256": "879b85060f6a5cfa412561d64860f1cab697f7a334f180f5be9102070d5a23b9",
+  "esh_out_source_sha256": "d8440c8e2e66675421ddfa0e75b3086ec9a568aeafa6d3911df36cfe18356452",
+  "esh_in_source_sha256": "68af778699e6df3498513478eba7825a0436f2b9e926af79a4f03eab3067ca75",
+  "independent_input_order": [
+    "x256_before_add2_sums",
+    "x257_before_add2_sums",
+    "tg255",
+    "b255",
+    "b254",
+    "b253",
+    "cq253"
+  ],
+  "producer_rows": 128,
+  "all_E_output_counts": [
+    4,
+    12,
+    20,
+    28,
+    28,
+    20,
+    12,
+    4
+  ],
+  "producer_state_sha256": "dd222a15f2235d55dc4592275bc769703f5753f745a9d14a979c27da2e2c11d5",
+  "all_out_measurement_patterns": 8,
+  "domain": "direct=true,top1=true,deep_c empty; seven retained independent producer inputs, three derived majority carries; fold window excludes tg255 and source upper bits",
+  "reconstruction": "esh_out first removes E0/E1 sums, then erases x258,cq1,cq2. esh_in restores cq2,cq1,x258 and rewrites E0/E1 sums, reproducing all original E bits.",
+  "prospective_schedule": "Erase14 Y16 table helpers using source-proved c3/E-free operands; restore three ESh majority targets; rebuild c1/c2,TT,c4; then use the independently verified fin3 remainder.",
+  "postladder_space_ledger": {
+    "table_helpers_freed": 14,
+    "ESH_targets_rebuilt": 3,
+    "c1_c2_TT_c4_targets": 4,
+    "conservative_extra_conditional_temporary": 1,
+    "remaining_margin_vs_before_table_erase": 6
+  },
+  "limits": "The algebra admits only the stated ESh producer interface. Physical IDs can be reused after ESh erasure; old E IDs must not be interpreted as live E values. Fresh-wire mapping, caller flags, freelist peak, incoming phase and all retained garbage still require native proof. No fin4 native or full score claim.",
+  "qualified_score": null
+}

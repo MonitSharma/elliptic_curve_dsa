@@ -1,0 +1,91 @@
+{
+  "status": "native_top1_direct_nondeep_fin4_drop2_lazy_cleanup_passed_component_only",
+  "baseline_revision": "c5bb1ec876db859a3f9f8a9052c140a145df834e",
+  "source_sha256": {
+    "src/point_add/toffoli_actual_lean_cleanup_v6.rs": "97e6ecb42a1075caad19b6015fa3eab4ea2bd2411c231b01524b4ab21456e6e6",
+    "src/point_add/toffoli_actual_lean_phase_kernel_v6.rs": "330d91852ddc82740ac9bec4b8d8fb94d2ca5c5ca843fd4e56d1fed6123fab98",
+    "src/point_add/toffoli_actual_lean_tests_v6.rs": "c44c8af870f000aef1e0b54eb9035612b242f803fc74528b0bf8b18097d676c6",
+    "src/point_add/y15_onefold.rs": "ace657a6442e3eb4a696c5fdd1bb9bf30e88c3ff91383e8bb13e86ea1f106216"
+  },
+  "patch_sha256": "2a222ab0f88afee5c59797cc55f90119853094cca92b68e6395d58854ad07179",
+  "pid": 2617012,
+  "exit": 0,
+  "protected_tracked_changes": [],
+  "component_costs": [
+    {
+      "new": false,
+      "emitted": 156,
+      "executed": 1985740800,
+      "cases": 16777216,
+      "peak": 1251,
+      "semantic_MR_indices": [
+        139,
+        138,
+        140,
+        143
+      ],
+      "fresh_ESH_wire_ids": "[QubitId(580), QubitId(581), QubitId(582)]",
+      "zero_at_free_checkpoints": 0
+    },
+    {
+      "new": true,
+      "emitted": 157,
+      "executed": 1971060736,
+      "cases": 16777216,
+      "peak": 1251,
+      "semantic_MR_indices": [
+        135,
+        139,
+        142,
+        144
+      ],
+      "fresh_ESH_wire_ids": "[QubitId(1233), QubitId(1234), QubitId(1235)]",
+      "zero_at_free_checkpoints": 12
+    }
+  ],
+  "exact_mean_delta": "-7/8",
+  "emitted_CCX_delta": 1,
+  "exact_allMR": {
+    "fixed_input_layout_proofs": 2097152,
+    "native_cases": 33554432,
+    "maximum_phase_terms": 7
+  },
+  "source_callers_resource_only": [
+    {
+      "cap": 1234,
+      "room": 37,
+      "tick": 130,
+      "new": false,
+      "hits": 0,
+      "peak": 1234,
+      "emitted": 1343
+    },
+    {
+      "cap": 1234,
+      "room": 37,
+      "tick": 130,
+      "new": true,
+      "hits": 1,
+      "peak": 1234,
+      "emitted": 1344
+    }
+  ],
+  "classical_scratch_domain": "Every analyzed nb slot initialized with a nonzero rotated dirtyword, including unregistered temporaryslots;512ABI slots retained. This is a specified dirtypattern family, not exhaustive all2^nb initialclassicalassignments.",
+  "zero_on_free_proof": "All12 newownedfree checkpoints immediatelyfollow unconditionalBitStore0 atconditionstackdepth0, withc_condition=NO_BIT. Nativeexecutionsplit ateachcheckpointasserts thatbitwordzero for every16semanticMRpattern/inputcase. Originalprefix/lowcarrymeasurementfreebitcontract unchanged.",
+  "native_cost_method": "All16semanticC6/T3/Y5/Y3 outcomes uniformlyweighted; sharedprefix seed reset foreachold/new batch. No measurementoutcome selection.",
+  "guard_truth_sha256": "4757ab1749dafc214baa930331096042a8935131575d4de99e60bbecb6674eda",
+  "producer_contract_sha256": "b024fbe5416b7a27b3f75cdb2aeb8f457774d090bd11fcb52c8097b40ea30e9b",
+  "faults_detected": [
+    "removedCZ",
+    "missingC4_ORbuild",
+    "missingfirstTTbuild"
+  ],
+  "hashes": {
+    "run.log": "505633ea4abaebbf0e697c455f9043a3d6201ebc5c0c357badec1457d9c582ac",
+    "settings.txt": "5a4a7d2c7cc4caf92300e49f2794636ab3d33a1fc4279d79373ea10744271ae5",
+    "test-binary.sha256": "719124ed650eae852098c05fe8f954dd4e276e222137d022e2c687381a0d0297",
+    "receipt/receipt.json": "8e87c8f91101d6c41c9b58ef4a58a05d735c8aeced9a92ab51935b1b8485520f"
+  },
+  "limits": "All18 selectedproducerinputs andallMR forfourhigherwords; no genericESH/deep/allhigher wholefold claim. Truebodycaller guard/allocation/cost only, notfullbody arithmetic/phase. No fullqualifiedscore.",
+  "qualified_score": null
+}

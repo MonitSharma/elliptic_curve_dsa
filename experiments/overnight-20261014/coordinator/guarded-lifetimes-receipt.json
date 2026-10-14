@@ -1,0 +1,40 @@
+{
+  "scope": "Independent sound support diagnostics on unchangedc5 fullstream; not scored",
+  "source_revision": "c5bb1ec876db859a3f9f8a9052c140a145df834e",
+  "stream_sha256": "49b35cf7640ebd529d76894eb8bef93ebf57e7e970fe14b3c27c8c5feb6e73e4",
+  "runs": {
+    "v1": {
+      "pid": 2553847,
+      "exit": 0,
+      "native_test_suites": 5,
+      "log_sha256": "68f67af52a8404ca103e18efb81160b64a35ed7f007401b10408d3f9cfc9efd5",
+      "conditional_clean_boundaries": 108067,
+      "peak_live": 1234,
+      "first_peak": 1444991,
+      "identity_counts": {},
+      "identity_toffolis": 0
+    },
+    "v2": {
+      "pid": 2563654,
+      "exit": 0,
+      "native_test_suites": 6,
+      "log_sha256": "fd8e9db27e20573e852c1d33bd12e96f4d43ab20fb5c1ffe7eb4c61840d3168d",
+      "conditional_clean_boundaries": 108067,
+      "peak_live": 1234,
+      "first_peak": 1444991,
+      "identity_counts": {
+        "8_zero_quantum_controls": 698,
+        "9_zero_quantum_controls": 28,
+        "13_zero_quantum_controls": 1,
+        "7_zero_quantum_controls": 27
+      },
+      "identity_toffolis": 1
+    }
+  },
+  "conclusion": "Extra clean boundaries do not lower1234peak. OnlyoneCCX provedidentity; atmostoneexecutedToffoli perpointcannot bridgec5gap167forproduct or503forToffoli. No fullcandidateevaluation justified.",
+  "source_hashes": {
+    "scripts/analyze-guarded-lifetimes.py": "21089625d52cc88a6d8290b37625fc8c8c65b294c9a5f92b95ea1bffda70846a",
+    "scripts/test_guarded_lifetimes.py": "0fec9062efe96db653331ea128cdd1a03a5f2258af775ad2c2d5e4e3b3014bcb",
+    "scripts/server-guarded-lifetimes.sh": "c9567da1ca8eb4e4deb2fb0b54627cb8013097d8dc341f7ef1ecfab3140dd506"
+  }
+}

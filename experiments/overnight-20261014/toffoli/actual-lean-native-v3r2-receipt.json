@@ -1,0 +1,87 @@
+{
+  "status": "failed_caller_recipe_fin1_not_fin3_component_dropparameter_merged_no_actual_drops",
+  "exit": 101,
+  "pid": 2577128,
+  "baseline_revision": "c5bb1ec876db859a3f9f8a9052c140a145df834e",
+  "source_sha256": {
+    "src/point_add/toffoli_actual_lean_cleanup_v3.rs": "95321e04f921b6143b517571ac72f4f06922ecce6b0f97d481c927bf58523db1",
+    "src/point_add/toffoli_actual_lean_phase_kernel_v3.rs": "330d91852ddc82740ac9bec4b8d8fb94d2ca5c5ca843fd4e56d1fed6123fab98",
+    "src/point_add/toffoli_actual_lean_tests_v3.rs": "620d231ae33f5a3b478bd3666e5af14ef675a6944c31e91878085e8ad091e97d",
+    "src/point_add/y15_onefold.rs": "7c5786da5e4011cc21c8ea6dae19e3b011e329183fad30d7ca3da6096b5280d2"
+  },
+  "patch_sha256": "e9afd43f6b34a5f31a43888eb9d1c920a601b09ada28463d11ec798bd6a15a6c",
+  "protected_tracked_changes": [],
+  "component_rows": [
+    {
+      "room": 4,
+      "new": false,
+      "emitted": 124,
+      "executed": 20456448,
+      "cases": 196608,
+      "peak": 1251,
+      "hits": 0,
+      "c6_mr": 110
+    },
+    {
+      "room": 4,
+      "new": true,
+      "emitted": 123,
+      "executed": 20358144,
+      "cases": 196608,
+      "peak": 1251,
+      "hits": 1,
+      "c6_mr": 106
+    },
+    {
+      "room": 5,
+      "new": false,
+      "emitted": 123,
+      "executed": 20124672,
+      "cases": 196608,
+      "peak": 1251,
+      "hits": 0,
+      "c6_mr": 109
+    },
+    {
+      "room": 5,
+      "new": true,
+      "emitted": 122,
+      "executed": 20026368,
+      "cases": 196608,
+      "peak": 1251,
+      "hits": 1,
+      "c6_mr": 105
+    }
+  ],
+  "emitted_CCX_counts_valid": true,
+  "allMR_complete": {
+    "fixed_input_layout_cases": 262144,
+    "native_cases": 786432,
+    "maximum_phase_terms": 1,
+    "maximum_quantum_terms": 2
+  },
+  "source_callers_resource_only": [
+    {
+      "cap": 1234,
+      "room": 40,
+      "tick": 128,
+      "new": false,
+      "hits": 0,
+      "peak": 1234,
+      "emitted": 1319
+    }
+  ],
+  "caller_tick_log_valid": false,
+  "actual_dropped_chunk_prefix_verified": false,
+  "fault_control_passed": true,
+  "hashes": {
+    "run.log": "09a87ea58abf6c102ea5b56232cbc85088f146cbd742b68d8138b748d612628b",
+    "settings.txt": "6f5600dd10ba7c76d94d0141f6b5bafbc28b2d9f8ea48657643b0232a6121888",
+    "receipt/receipt.json": "050c86a46fee5c3480b3625430f953c8b78ee385a76c539941718c1b46691ad8",
+    "test-binary.sha256": "974e574998741154527c832e172e07bba4726d224920afc1a0950d27aba8e88c"
+  },
+  "scope": "Drop parameter1 but component rooms4/5 selected mergedplan with no actual dropped chunks. Caller source tick129/room40 actuallyfin1, while log tick incorrectly hardcoded128. Correct actualfin3 caller room39 and component room3 remainpending.",
+  "domain": "All16384 low/control inputs, four higher payload words, two tight-room layouts, dirty quantum passengers and512 classicalABI bits, all independent measurement outcomes via frozen fixed-input phase kernel. Arbitrary incoming phase checked natively.",
+  "limits": "Source caller proves guard/ownership/peak only, not full producer arithmetic or phase. Fin4 ESh changes E0/E1 and is unadmitted. No whole-circuit resource or score claim.",
+  "qualified_score": null
+}

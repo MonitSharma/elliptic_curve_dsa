@@ -268,3 +268,78 @@ allocator assertion and its partial resource diagnostics are worse, so this
 is preserved as arithmetic research rather than a resource candidate.
 [Component results](../experiments/overnight-20261014/product/positive-bias-exact-results.md),
 [coupled diagnosis](../experiments/overnight-20261014/product/positive-production-results.md).
+
+## Fifth checkpoint
+
+The 15:39 UTC refresh leaves all three public leaders unchanged. A new complete
+local reproduction of the public B3 source passes all 9,024 shots with zero
+value, phase or ancilla failures: Q1235, rounded T761,156, product940,027,660.
+This is a public reproduction. The actual protected score and source/stream
+provenance are preserved; the scorer writes beside its compiled Cargo manifest,
+so the initially requested working-directory score path was corrected without
+repeating the evaluation. Historical result rows remain byte-identical.
+[Complete reproduction](../experiments/overnight-20261014/coordinator/b3-reference-full-receipt.json),
+[output provenance](../experiments/overnight-20261014/coordinator/b3-reference-output-provenance.json).
+
+Transferring the exact classical-factor pass to B3 removes seven structural
+CCX gates but fails the unchanged complete benchmark with15 value failures and
+14 phase-garbage batches. It has no qualified score. Original and modified B3
+produce identical final quantum/classical states and phase on the candidate's
+exact 9,024 inputs and measurement transcript. Fresh independent and structured
+paired packets also have identical failures. A source-bound observer reproduces
+the original complete stream and shows the wrong values already exist in the
+raw point-addition body before every postpass; all271 selected/fresh outputs
+agree at six source-bound stages. First shot249 has only a y mismatch; across
+all15 paired failures,13 also have an x mismatch. The earlier suggestion of
+measurement/lane sensitivity from that comparison was a reporting error.
+[Full failed receipt](../experiments/overnight-20261014/coordinator/b3-classical-failed-receipt.json),
+[paired diagnosis](../experiments/overnight-20261014/product/b3-paired-results.md),
+[stage localization](../experiments/overnight-20261014/product/b3-earlier-stage-localization-results.md).
+
+The head-selector optimization passes nine independent exact decision-diagram
+tests, comprising116 fixed-input forward/inverse instances for all measurement
+outcomes. Its complete generated stream contains3,500,369,588 operations and
+references692 qubits; these remain diagnostic counts. The stream has SHA256
+`6b0046e2470cabf150fa6d2892e0b8206a683d3975b5d268cd7b80ed2cfdc902`.
+Its183GiB operation vector cannot run alongside the existing200GiB evaluator.
+Reviewed queue PID2612039 waits for the original native's terminal marker, then
+rechecks source, protected binary, capacity and available memory before loading.
+[Proof receipt](../experiments/overnight-20261014/coordinator/headflag-decision-v2-receipt.json),
+[generation and queued evaluation](../experiments/overnight-20261014/qubits/HEADFLAG_COMPONENTS.md).
+
+A fixed N274/K15 ideal model clears the original18,048 divisions and512 fresh
+denominators. Physical funding remains unresolved: mixed q21 needs a sixth
+quotient owner, while the map needs four extension owners and new size-register
+lifetimes. No source prototype or Q691 record follows from this model.
+
+The independent classical-support scan proves108,067 extra conditional clean
+boundaries but still has a1234-wire interval peak. Only one Toffoli has proved
+zero quantum controls, insufficient for the c5 record gap. This route is closed
+as a standalone resource candidate.
+[Exact support receipt](../experiments/overnight-20261014/coordinator/guarded-lifetimes-receipt.json).
+
+Actual fin3 carry cleanup passes all-measurement tests with a real dropped
+prefix and a source-caller check. The narrowed fin4 implementation now includes
+its genuine seven-input ESH producer, validates two dropped chunks and passes
+2,097,152 fixed-input/layout all-measurement proofs. A later lazy phase schedule
+passes on fin3 and saves7/8 expected executed Toffoli per tested cleanup while
+adding one emitted CCX. These are scoped component costs, not full scored means.
+The corresponding narrowed fin4 lazy schedule also passes2,097,152 fixed-input
+all-measurement proofs and33,554,432 native cases, with dirty initial classical
+scratch and checked zero values at every new flag-free boundary.
+[Completed carry checkpoint](../experiments/overnight-20261014/toffoli/fifth-checkpoint-receipt.json).
+
+The H45 expansion passes all105 exact original physical allocator contexts,
+including13,631,488 fixed-input all-measurement proofs;104 context shapes are
+admitted and the last remains unchanged. The whole builder still fails an
+allocator assertion. Immediate cleanup returns the same free-wire/bit sets and
+dimensions, with a different ordering. Real incoming-prefix proofs now pass
+512 independent/structured points through105 contexts with three dirty-classical
+scratch patterns, including322,560 all-measurement cases. The sampled total
+fold saving is only14.1484375 Toffolis per point, below the167-Toffoli product
+gap, and the original global width peak lies outside the changed folds. This
+standalone direction is closed without a metadata adapter or full benchmark.
+[Physical context proof](../experiments/overnight-20261014/product/h45-actual-contexts-results.md).
+
+No original candidate has qualified. The10-hour cycle remains active until
+20:14:23 UTC; active jobs and source bindings continue to be preserved.

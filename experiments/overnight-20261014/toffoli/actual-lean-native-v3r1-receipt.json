@@ -1,0 +1,94 @@
+{
+  "status": "native_actual_fin3_drop0_cleanup_passed_component_only",
+  "exit": 0,
+  "pid": 2571092,
+  "baseline_revision": "c5bb1ec876db859a3f9f8a9052c140a145df834e",
+  "source_sha256": {
+    "src/point_add/toffoli_actual_lean_cleanup_v3.rs": "95321e04f921b6143b517571ac72f4f06922ecce6b0f97d481c927bf58523db1",
+    "src/point_add/toffoli_actual_lean_phase_kernel_v3.rs": "330d91852ddc82740ac9bec4b8d8fb94d2ca5c5ca843fd4e56d1fed6123fab98",
+    "src/point_add/toffoli_actual_lean_tests_v3.rs": "20d547310cf99426e809cd6f598ecb12bdb0d7d6ece4e12b180599e875f09d64",
+    "src/point_add/y15_onefold.rs": "17dab7663028d377a2ff26ffe22d1014f63d278354235085987bcc3c0e51d46e"
+  },
+  "patch_sha256": "02f8adb65856532941339daadb630b757ebbedc79b925cf72e7f293824d56cd3",
+  "protected_tracked_changes": [],
+  "component_rows": [
+    {
+      "room": 4,
+      "new": false,
+      "emitted": 124,
+      "executed": 20456448,
+      "cases": 196608,
+      "peak": 1251,
+      "hits": 0,
+      "c6_mr": 110
+    },
+    {
+      "room": 4,
+      "new": true,
+      "emitted": 123,
+      "executed": 20358144,
+      "cases": 196608,
+      "peak": 1251,
+      "hits": 1,
+      "c6_mr": 106
+    },
+    {
+      "room": 5,
+      "new": false,
+      "emitted": 123,
+      "executed": 20124672,
+      "cases": 196608,
+      "peak": 1251,
+      "hits": 0,
+      "c6_mr": 109
+    },
+    {
+      "room": 5,
+      "new": true,
+      "emitted": 122,
+      "executed": 20026368,
+      "cases": 196608,
+      "peak": 1251,
+      "hits": 1,
+      "c6_mr": 105
+    }
+  ],
+  "emitted_CCX_counts_valid": true,
+  "allMR_complete": {
+    "fixed_input_layout_cases": 262144,
+    "native_cases": 786432,
+    "maximum_phase_terms": 1,
+    "maximum_quantum_terms": 2
+  },
+  "source_callers_resource_only": [
+    {
+      "cap": 1234,
+      "room": 40,
+      "tick": 128,
+      "new": false,
+      "hits": 0,
+      "peak": 1234,
+      "emitted": 1299
+    },
+    {
+      "cap": 1234,
+      "room": 40,
+      "tick": 128,
+      "new": true,
+      "hits": 1,
+      "peak": 1234,
+      "emitted": 1298
+    }
+  ],
+  "fault_control_passed": true,
+  "hashes": {
+    "run.log": "684211695c890ebed2be04ecbaf469c37f29ab99e99ff13667593a71a23d2801",
+    "settings.txt": "0b1a383fe8c0948a7a358af895e11be263154ca63d5da69e8fe28520dc4a9320",
+    "receipt/receipt.json": "23420871c397ae1393e185c6ea3f5469542c8366c1a190d60c83b0e0c3cddefb",
+    "test-binary.sha256": "9d2cdd0b9d25ca4884fa000ba41776ff596510f6384a4c8dd24403cca6564b06"
+  },
+  "scope": "loan && fin3 && ttm && lean_m && drop0; ESh absent; source mode defaults false",
+  "domain": "All16384 low/control inputs, four higher payload words, two tight-room layouts, dirty quantum passengers and512 classicalABI bits, all independent measurement outcomes via frozen fixed-input phase kernel. Arbitrary incoming phase checked natively.",
+  "limits": "Source caller proves guard/ownership/peak only, not full producer arithmetic or phase. Fin4 ESh changes E0/E1 and is unadmitted. No whole-circuit resource or score claim.",
+  "qualified_score": null
+}

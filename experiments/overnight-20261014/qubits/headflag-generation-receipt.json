@@ -1,0 +1,65 @@
+{
+  "status": "generation_and_bounded_metadata_pass_benchmark_not_launched",
+  "source_variant": "candidate-headflag-v1",
+  "patch_sha256": "1792f88c69567b403aaf84e1bd9122f179d06c4e6db29de0c17440bef226b243",
+  "base_revision": "c95b9325913abacca9c86bdebad10a20633cd04e",
+  "wrapper_pid": 2568695,
+  "native_pid": 2568934,
+  "exit": 0,
+  "completed_at_utc": "2026-10-14T15:46:15Z",
+  "source_builder_binary_sha256": "4f69b6d7e8a3da762d7f859d5bee3c58313b495836dc4816ef8df70b014d6a68",
+  "stream_sha256": "6b0046e2470cabf150fa6d2892e0b8206a683d3975b5d268cd7b80ed2cfdc902",
+  "metadata": {
+    "alignof_op": 8,
+    "compressed_bytes": 4843920498,
+    "emitted_counts_by_kind": [
+      0,
+      4,
+      1024,
+      0,
+      0,
+      0,
+      275646274,
+      2170476,
+      514154058,
+      48152562,
+      54061686,
+      0,
+      45451762,
+      2555860466,
+      0,
+      2435638,
+      2435638,
+      0
+    ],
+    "measured_loader_vec_capacity": null,
+    "op_vec_bytes": 196020696928,
+    "ops": 3500369588,
+    "peak_method": "same maximum referenced IDs as protected circuit::analyze_ops; no operation vector retained",
+    "protected_loader_requested_capacity": 3500369588,
+    "referenced_bits": 2390621,
+    "referenced_qubits": 692,
+    "referenced_registers": 4,
+    "scope": "stream diagnostic metadata, not a score",
+    "sizeof_op": 56
+  },
+  "op_vec_gib": 182.55850014090538,
+  "op_vec_plus_16gib": 198.55850014090538,
+  "fixed_nonce": "34/control5 unchanged",
+  "serializer": {
+    "pass": true,
+    "physical_ops": 462,
+    "all_fields_byte_equal": true
+  },
+  "log_sha256": "7594aa142fe4092e9ca0a1650d968115365aba524af82773313dfab96a6d83e9",
+  "scope": "Generated stream diagnostic N/Q/static counts only; no scored result. Source/harness protected; giant evaluator not launched.",
+  "generation": {
+    "wall_time": "20:05.99",
+    "max_rss_kib": 1135052
+  },
+  "bounded_scan": {
+    "wall_time": "1:18.16",
+    "max_rss_kib": 6912
+  },
+  "protected_placeholder_is_evaluation_input": false
+}

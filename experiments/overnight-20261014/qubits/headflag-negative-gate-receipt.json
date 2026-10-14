@@ -1,0 +1,11 @@
+{
+  "status": "EXPECTED_REFUSAL_BEFORE_PRIOR_NATIVE_TERMINAL",
+  "checked_at_utc": "2026-10-14T16:10:39Z",
+  "guard": "qubit-validate-headflag-eval.py reserve",
+  "exit": 1,
+  "reason": "prior native exit marker is required before any vector allocation",
+  "op_vector_allocated": false,
+  "prior_native_pid": 2534382,
+  "log_sha256": "f3d416f27e07eb7b5703c91587a4dd4913a9c926ff2809004ebbd216e958bf24",
+  "scope": "Queue safety guard verification only; not a candidate arithmetic failure."
+}

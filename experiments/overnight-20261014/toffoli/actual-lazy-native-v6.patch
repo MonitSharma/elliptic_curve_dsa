@@ -1,0 +1,487 @@
+diff --git a/src/point_add/y15_onefold.rs b/src/point_add/y15_onefold.rs
+index ce87200e..71ffdb75 100755
+--- a/src/point_add/y15_onefold.rs
++++ b/src/point_add/y15_onefold.rs
+@@ -19,6 +19,7 @@
+ //! erase of m0 and m1) and y15-room (copies of W, measured clear, two lean wires, fused ticks); see Y15_KEEP_ROOM for
+ //! how a reverse tick-pass chooses between the kept carries and the copies, and for the builder counts.
+ use super::*;
++thread_local! { static TOFFOLI_ACTUAL_LEAN_MODE:std::cell::Cell<bool>=const{std::cell::Cell::new(false)}; static TOFFOLI_ACTUAL_LEAN_HITS:std::cell::Cell<usize>=const{std::cell::Cell::new(0)}; static TOFFOLI_ACTUAL_LEAN_DROPS:std::cell::Cell<usize>=const{std::cell::Cell::new(0)}; static TOFFOLI_ACTUAL_LEAN_BOUNDARY:std::cell::Cell<usize>=const{std::cell::Cell::new(0)}; static TOFFOLI_ACTUAL_LAZY_FREES:std::cell::RefCell<Vec<(usize,crate::circuit::BitId)>>=const{std::cell::RefCell::new(Vec::new())}; static TOFFOLI_ACTUAL_LAZY_TARGETS:std::cell::Cell<Option<[QubitId;4]>>=const{std::cell::Cell::new(None)}; static TOFFOLI_ACTUAL_LEAN_C6:std::cell::Cell<Option<QubitId>>=const{std::cell::Cell::new(None)}; }
+ fn reverse_loan_selected(rev:bool,t:usize)->bool {rev && (124..=126).contains(&t) && CONSUMER_LOANS}
+ 
+ 
+@@ -1816,6 +1817,7 @@ fn fold_fwd_v2(c: &mut Builder, acc: &[QubitId], e: [QubitId; 3], nm: [QubitId;
+     let y5 = r_and_e(c, &mut recs, tt.clone(), sum5, tt.clone(), l(acc[5]));
+     let c6 = maj_wire(c, &l(acc[5]), &a5, &l(c5));
+     recs.push(Rec::UndoC6);
++    TOFFOLI_ACTUAL_LEAN_C6.with(|x|x.set(Some(c6)));
+     // k's upper bits: y_hi + (r3 - c3); p = it moves, c3 = it moves down
+     let fc3 = l(c3);
+     let p = r3.x(&fc3);
+@@ -1855,6 +1857,7 @@ fn fold_fwd_v2(c: &mut Builder, acc: &[QubitId], e: [QubitId; 3], nm: [QubitId;
+         lin_and_erase(c, tt_q, &l(k1), &l(k2));
+     }
+     let (plan, lean45, drops) = fold_plan_d(c, mw, "forward", drop);
++    TOFFOLI_ACTUAL_LEAN_DROPS.with(|x|x.set(drops.len()));
+     // y28 (s2-2): sums 4 and 5 are written here and the two carries come back only under c6's measured bit
+     let lean_m = lean45 && Y28_LEAN_FWD;
+     assert!(!loan || !lean45 || lean_m,"C3 supports the shipped deferred lean form");
+@@ -1872,6 +1875,23 @@ fn fold_fwd_v2(c: &mut Builder, acc: &[QubitId], e: [QubitId; 3], nm: [QubitId;
+         else {lin_and_erase(c, c4, &l(acc[3]), &l(c3));}
+     }
+     ladder_d(c, acc, &add, 6, c6, &plan, &drops);
++    TOFFOLI_ACTUAL_LEAN_BOUNDARY.with(|x|x.set(c.op_count()));
++    let tq=|i:usize|match &recs[i] {Rec::And(q,_,_)|Rec::Maj(q,_,_,_)=>*q,_=>panic!("prefix index")};
++    TOFFOLI_ACTUAL_LAZY_TARGETS.with(|x|x.set(Some([c6,tq(9),tq(7),tq(4)])));
++    if TOFFOLI_ACTUAL_LEAN_MODE.with(|x|x.get()) && loan && fin==4 && ttm && lean_m && drop==2
++        && esh.as_deref().is_some_and(|st|st.direct && st.top1 && st.deep_c.is_empty()) {
++        let before=c.active_qubits();
++        let recs=toffoli_actual_lean_cleanup_v6::erase_tables(c,c3,recs);
++        assert_eq!(c.active_qubits()+14,before,"all14 table helpers returned beforeESH");
++        let st=esh.as_deref_mut().unwrap();
++        for q in [st.x256,st.x257,st.t255,st.b1,st.b2,st.b3,st.cq3] {
++            assert!(!acc.contains(&q),"narrow ESHproducer outsidefold payload");
++        }
++        esh_in(c,st);assert_eq!(c.active_qubits()+11,before,"exactlythree ESHtargets restored");
++        let fresh_e=[st.x256,st.x257,st.x258];
++        toffoli_actual_lean_cleanup_v6::run(c,acc,fresh_e,nm,[k1,k2],c3,c6,&a4,&a5,recs);
++        TOFFOLI_ACTUAL_LEAN_HITS.with(|x|x.set(x.get()+1));LOAN_ACTIVE.with(|x|x.set(false));return plan;
++    }
+     let (c4, c5) = if lean_m {
+         (c.alloc_qubit(), c.alloc_qubit())
+     } else if lean45 {
+@@ -4535,3 +4555,12 @@ fn rt0_letter_erase(c: &mut Builder, r1: &[QubitId], r0v: &[Lin], letter: &[Qubi
+ /// chain is read by m1's Z alone, so it is built and erased only when m1's bit is set as well: a quarter of a Toffoli
+ /// a pass. Exact (the same measurements in the same order). false: built on every shot with m0's bit set.
+ const Y36_TOP_M1: bool = true;
++
++#[path="toffoli_actual_lean_cleanup_v6.rs"]
++mod toffoli_actual_lean_cleanup_v6;
++#[cfg(test)]
++#[path="toffoli_actual_lean_tests_v6.rs"]
++mod toffoli_actual_lean_tests_v6;
++#[cfg(test)]
++#[path="toffoli_actual_lean_phase_kernel_v6.rs"]
++mod toffoli_actual_lean_phase_kernel_v6;
+diff --git a/src/point_add/toffoli_actual_lean_cleanup_v6.rs b/src/point_add/toffoli_actual_lean_cleanup_v6.rs
+new file mode 100644
+index 00000000..ddd6f5f7
+--- /dev/null
++++ b/src/point_add/toffoli_actual_lean_cleanup_v6.rs
+@@ -0,0 +1,66 @@
++//! Narrow top1/direct/nondeep fin3/drop1 deferred lean cleanup; all input/phase identities frozen v3.
++use super::*;
++pub(super) fn erase_tables(c:&mut Builder,old_c3:QubitId,mut recs:Vec<Rec>)->Vec<Rec> {
++    assert_eq!(recs.len(),27);
++    let q=|i:usize|match &recs[i] {Rec::And(q,_,_)|Rec::Maj(q,_,_,_)=>*q,_=>panic!("carry marker")};
++    let old_tt=q(0);let y3=q(4);
++    // k3=y3loan+r3. Every table operand loses its old c3 read; no original E or low carry is read.
++    for _ in 0..14 {
++        let Rec::And(q,mut a,mut b)=recs.pop().unwrap() else {panic!("table is plain AND records")};
++        for form in [&mut a,&mut b] {
++            if form.w.contains(&y3) {*form=form.x(&l(old_c3));}
++            assert!(!form.w.contains(&old_c3));assert!(!form.w.contains(&old_tt));
++        }
++        lin_and_erase(c,q,&a,&b);
++    }
++    assert_eq!(recs.len(),13);
++    recs
++}
++
++fn free_zero(c:&mut Builder,bit:crate::circuit::BitId) {
++    c.bit_store0(bit);TOFFOLI_ACTUAL_LAZY_FREES.with(|marks|marks.borrow_mut().push((c.op_count(),bit)));c.free_bit(bit);
++}
++fn late_tt(c:&mut Builder,q:QubitId,k:[QubitId;2],need:crate::circuit::BitId,measured:crate::circuit::BitId) {
++    let missing=c.alloc_bit();c.bit_store1(missing);c.bit_xor_into(missing,need);
++    c.push_condition(measured);c.push_condition(missing);
++    lin_and_into(c,q,&l(k[0]),&l(k[1]));c.bit_store1(need);
++    c.pop_condition();c.pop_condition();free_zero(c,missing);
++}
++fn erase_guarded(c:&mut Builder,q:QubitId,a:&Lin,b:&Lin,guard:crate::circuit::BitId) {
++    // q is exactlyzero outsideguard, so unconditionalHMR is phase-neutral there.
++    let m=c.alloc_bit();c.hmr(q,m);c.push_condition(guard);c.push_condition(m);lin_cz(c,a,b);
++    c.pop_condition();c.pop_condition();free_zero(c,m);c.release_clean(q);
++}
++pub(super) fn run(c:&mut Builder,acc:&[QubitId],e:[QubitId;3],nm:[QubitId;3],shift:[QubitId;2],old_c3:QubitId,c6:QubitId,a4:&Lin,a5:&Lin,recs:Vec<Rec>) {
++    assert_eq!(recs.len(),13);
++    let q=|i:usize|match &recs[i] {Rec::And(q,_,_)|Rec::Maj(q,_,_,_)=>*q,_=>panic!("carry marker")};
++    let (old_tt,r1,r2,r3,y3,y4,y5,t3,t4,t5,sign)=(q(0),q(1),q(2),q(3),q(4),q(5),q(7),q(9),q(10),q(11),q(12));
++    let live=[r1,r2,r3,y3,y4,y5,t3,t4,t5,sign,c6];let ids:std::collections::HashSet<u64>=live.iter().map(|q|q.0).collect();assert_eq!(ids.len(),11);
++    for q in acc.iter().chain(e.iter()).chain(nm.iter()).chain(shift.iter()) {assert!(!ids.contains(&q.0));}
++    assert!(!ids.contains(&old_c3.0));assert!(!ids.contains(&old_tt.0));
++    let c1=lin_and(c,&l(acc[0]),&l(e[0]));let c2=maj_wire(c,&l(acc[1]),&l(e[1]),&l(c1));
++    let tt=c.alloc_qubit();let c4=c.alloc_qubit();let need_tt=c.alloc_bit();c.bit_store0(need_tt);
++    let g=Lin::of(&[shift[0],shift[1],tt]);let one=Lin::k(true);let down=l(r3).x(&one);
++    let m6=c.alloc_bit();c.hmr(c6,m6);c.release_clean(c6);
++    // These erasures do not readC6 or mutateits correction operands.
++    lin_and_erase(c,sign,&l(t5),&down);lin_and_erase(c,t5,&l(t4),&l(y5).x(&down));lin_and_erase(c,t4,&l(t3),&l(y4).x(&down));
++    let m3=c.alloc_bit();c.hmr(t3,m3);c.release_clean(t3);
++    let need4=c.alloc_bit();c.bit_store0(need4);
++    for m in [m6,m3] {c.push_condition(m);c.bit_store1(need4);c.pop_condition();}
++    let c4a=l(acc[3]).x(&one);let c4b=l(y3);c.push_condition(need4);lin_and_into(c,c4,&c4a,&c4b);c.pop_condition();
++    let pa=l(acc[4]).x(a4);let pb=a4.x(&l(c4));let p=c.alloc_qubit();let l5=l(acc[5]).x(a5).x(&one);
++    c.push_condition(m6);lin_and_into(c,p,&pa,&pb);lin_cz(c,&l(p),&l5);lin_cz(c,&l(c4),&l5);lin_cz(c,a5,&l(acc[5]));lin_cz(c,&one,a5);c.pop_condition();
++    erase_guarded(c,p,&pa,&pb,m6);
++    late_tt(c,tt,shift,need_tt,m3);c.push_condition(m3);lin_cz(c,&down,&l(y3));lin_cz(c,&g,&Lin::of(&[y3,c4]));c.pop_condition();
++    free_zero(c,m6);free_zero(c,m3);
++    erase_guarded(c,c4,&c4a,&c4b,need4);free_zero(c,need4);
++    let m5=c.alloc_bit();c.hmr(y5,m5);c.release_clean(y5);late_tt(c,tt,shift,need_tt,m5);
++    c.push_condition(m5);lin_cz(c,&l(tt),&l(acc[5]));c.pop_condition();free_zero(c,m5);
++    lin_and_erase(c,y4,&l(shift[1]),&l(acc[4]));
++    let my=c.alloc_bit();c.hmr(y3,my);c.release_clean(y3);late_tt(c,tt,shift,need_tt,my);
++    c.push_condition(my);lin_cz(c,&Lin::of(&[acc[2],c2]),&Lin::of(&[e[2],c2]));lin_cz(c,&one,&l(c2));lin_cz(c,&g,&l(acc[3]));c.pop_condition();free_zero(c,my);
++    maj_wire_erase(c,r3,&l(nm[2]),&l(acc[2]),&l(r2));maj_wire_erase(c,r2,&l(nm[1]),&l(acc[1]),&l(r1));lin_and_erase(c,r1,&l(nm[0]),&l(acc[0]));
++    erase_guarded(c,tt,&l(shift[0]),&l(shift[1]),need_tt);free_zero(c,need_tt);
++    c.cx(e[2],acc[2]);c.cx(c2,acc[2]);maj_wire_erase(c,c2,&l(acc[1]),&l(e[1]),&l(c1));
++    c.cx(e[1],acc[1]);c.cx(c1,acc[1]);lin_and_erase(c,c1,&l(acc[0]),&l(e[0]));c.cx(e[0],acc[0]);
++}
+diff --git a/src/point_add/toffoli_actual_lean_phase_kernel_v6.rs b/src/point_add/toffoli_actual_lean_phase_kernel_v6.rs
+new file mode 100644
+index 00000000..098953dc
+--- /dev/null
++++ b/src/point_add/toffoli_actual_lean_phase_kernel_v6.rs
+@@ -0,0 +1,214 @@
++//! Exact Boolean-ring phase audit for fixed bit-packed basis inputs.
++//!
++//! Independent indeterminates denote EACH R/HMR outcome, never mutable BitIds.
++//! u64 coefficients hold 64 separate input lanes. Zero ANF proves zero phase
++//! for all measurement choices on those inputs. Overflow is inconclusive.
++use crate::circuit::{analyze_ops, Op, OperationType as K, NO_BIT};
++use std::collections::BTreeMap;
++
++const TERM_CAP: usize = 8192;
++const MULTIPLY_WORK_CAP: usize = 1_000_000;
++
++#[derive(Clone, Debug, PartialEq, Eq)]
++struct Poly(BTreeMap<Vec<u32>, u64>);
++
++fn union(a: &[u32], b: &[u32]) -> Vec<u32> {
++    let (mut i, mut j, mut out) = (0, 0, Vec::with_capacity(a.len() + b.len()));
++    while i < a.len() || j < b.len() {
++        if j == b.len() || (i < a.len() && a[i] < b[j]) { out.push(a[i]); i += 1; }
++        else if i == a.len() || b[j] < a[i] { out.push(b[j]); j += 1; }
++        else { out.push(a[i]); i += 1; j += 1; }
++    }
++    out
++}
++
++impl Poly {
++    fn constant(v: u64) -> Self {
++        let mut terms = BTreeMap::new();
++        if v != 0 { terms.insert(Vec::new(), v); }
++        Self(terms)
++    }
++    fn variable(id: u32) -> Self { Self(BTreeMap::from([(vec![id], u64::MAX)])) }
++    fn scalar(&self) -> Option<u64> {
++        if self.0.is_empty() { Some(0) }
++        else if self.0.len() == 1 { self.0.get(&Vec::new()).copied() }
++        else { None }
++    }
++    fn accumulate(&mut self, monomial: Vec<u32>, value: u64) {
++        if value == 0 { return; }
++        let entry = self.0.entry(monomial.clone()).or_insert(0);
++        *entry ^= value;
++        if *entry == 0 { self.0.remove(&monomial); }
++    }
++    fn xor(&self, other: &Self) -> Result<Self, String> {
++        let mut result = self.clone();
++        for (monomial, value) in &other.0 { result.accumulate(monomial.clone(), *value); }
++        if result.0.len() > TERM_CAP { return Err("inconclusive: XOR term cap".into()); }
++        Ok(result)
++    }
++    fn and(&self, other: &Self) -> Result<Self, String> {
++        if let Some(mask) = self.scalar() { return Ok(other.masked(mask)); }
++        if let Some(mask) = other.scalar() { return Ok(self.masked(mask)); }
++        if self.0.len().saturating_mul(other.0.len()) > MULTIPLY_WORK_CAP {
++            return Err("inconclusive: multiplication work cap".into());
++        }
++        let mut result = Self::constant(0);
++        for (a, av) in &self.0 { for (b, bv) in &other.0 {
++            result.accumulate(union(a, b), av & bv);
++            if result.0.len() > TERM_CAP { return Err("inconclusive: AND term cap".into()); }
++        }}
++        Ok(result)
++    }
++    fn masked(&self, mask: u64) -> Self {
++        Self(self.0.iter().filter_map(|(m, v)| ((*v & mask) != 0).then(|| (m.clone(), *v & mask))).collect())
++    }
++    fn not(&self) -> Result<Self, String> { self.xor(&Self::constant(u64::MAX)) }
++}
++
++#[derive(Debug)]
++pub struct Audit {
++    pub qubits: Vec<u64>,
++    pub measurements: u64,
++    pub maximum_phase_terms: usize,
++    pub maximum_quantum_terms: usize,
++}
++
++/// Classical slots start at the supplied constants, with remaining scratch 0.
++/// Final quantum values must be independent of measurements. Classical scratch
++/// may retain outcomes. This is a finite INPUT-domain proof, not a score.
++pub fn audit(ops: &[Op], input: &[u64], initial_bits: &[u64]) -> Result<Audit, String> {
++    let (nq, nb, _, _) = analyze_ops(ops.iter());
++    if input.len() < nq as usize { return Err("input shorter than quantum allocation".into()); }
++    let mut q: Vec<_> = input.iter().map(|v| Poly::constant(*v)).collect();
++    let mut bits = vec![Poly::constant(0); (nb as usize).max(initial_bits.len())];
++    for (bit, value) in initial_bits.iter().enumerate() { bits[bit] = Poly::constant(*value); }
++    let mut phase = Poly::constant(0);
++    let mut base = Poly::constant(u64::MAX);
++    let mut stack = Vec::new();
++    let mut next_measurement = 0u32;
++    let (mut max_phase, mut max_quantum) = (0, 1);
++    for (index, op) in ops.iter().enumerate() {
++        let condition = if op.c_condition == NO_BIT { base.clone() }
++            else { base.and(&bits[op.c_condition.0 as usize])? };
++        let (a, b, t, bit) = (op.q_control1.0 as usize, op.q_control2.0 as usize,
++                             op.q_target.0 as usize, op.c_target.0 as usize);
++        match op.kind {
++            K::PushCondition => { stack.push(base); base = condition; }
++            K::PopCondition => { base = stack.pop().ok_or_else(|| format!("unbalanced pop at {index}"))?; }
++            K::X => { q[t] = q[t].xor(&condition)?; }
++            K::CX => { q[t] = q[t].xor(&condition.and(&q[a])?)?; }
++            K::CCX => { q[t] = q[t].xor(&condition.and(&q[a].and(&q[b])?)?)?; }
++            K::Swap => {
++                let delta = condition.and(&q[a].xor(&q[t])?)?;
++                q[a] = q[a].xor(&delta)?; q[t] = q[t].xor(&delta)?;
++            }
++            K::R | K::Hmr => {
++                let m = Poly::variable(next_measurement);
++                next_measurement = next_measurement.checked_add(1).ok_or("measurement id overflow")?;
++                phase = phase.xor(&condition.and(&q[t].and(&m)?)?)?;
++                if op.kind == K::Hmr {
++                    bits[bit] = bits[bit].xor(&condition.and(&bits[bit].xor(&m)?)?)?;
++                }
++                q[t] = q[t].and(&condition.not()?)?;
++            }
++            K::BitInvert => { bits[bit] = bits[bit].xor(&condition)?; }
++            K::BitStore0 => { bits[bit] = bits[bit].and(&condition.not()?)?; }
++            K::BitStore1 => { bits[bit] = bits[bit].xor(&condition.and(&bits[bit].not()?)?)?; }
++            K::Neg => { phase = phase.xor(&condition)?; }
++            K::Z => { phase = phase.xor(&condition.and(&q[t])?)?; }
++            K::CZ => { phase = phase.xor(&condition.and(&q[a].and(&q[t])?)?)?; }
++            K::CCZ => { phase = phase.xor(&condition.and(&q[a].and(&q[b].and(&q[t])?)?)?)?; }
++            K::Register | K::AppendToRegister | K::DebugPrint => {}
++        }
++        max_phase = max_phase.max(phase.0.len());
++        match op.kind {
++            K::X | K::CX | K::CCX | K::R | K::Hmr => { max_quantum = max_quantum.max(q[t].0.len()); }
++            K::Swap => { max_quantum = max_quantum.max(q[t].0.len()).max(q[a].0.len()); }
++            _ => {}
++        }
++    }
++    if !stack.is_empty() { return Err("unclosed condition stack".into()); }
++    if !phase.0.is_empty() {
++        return Err(format!("nonzero phase polynomial: {} terms; first {:?}", phase.0.len(), phase.0.first_key_value()));
++    }
++    let mut output = Vec::with_capacity(q.len());
++    for (slot, value) in q.iter().enumerate() {
++        output.push(value.scalar().ok_or_else(|| format!("measurement-dependent final quantum slot {slot}"))?);
++    }
++    Ok(Audit { qubits: output, measurements: next_measurement as u64,
++               maximum_phase_terms: max_phase, maximum_quantum_terms: max_quantum })
++}
++
++#[cfg(test)]
++mod tests {
++    use super::*;
++    use crate::circuit::{BitId, QubitId};
++    fn native(ops: &[Op], input: &[u64], words: &[u64]) -> (Vec<u64>, u64) {
++        struct Reader<'a> { words: &'a [u64], at: usize }
++        impl sha3::digest::XofReader for Reader<'_> {
++            fn read(&mut self, bytes: &mut [u8]) {
++                assert_eq!(bytes.len(),8); bytes.copy_from_slice(&self.words[self.at].to_le_bytes()); self.at+=1;
++            }
++        }
++        let (_,nb,_,_)=analyze_ops(ops.iter());let mut reader=Reader{words,at:0};
++        let mut sim=quantum_ecc::sim::Simulator::new(input.len(),nb as usize,&mut reader);
++        sim.qubits=input.to_vec();sim.apply_iter(ops.iter());(sim.qubits,sim.phase)
++    }
++    fn gate(k: K, a: Option<u64>, b: Option<u64>, t: Option<u64>, bit: Option<u64>, condition: Option<u64>) -> Op {
++        let mut op = Op::empty(); op.kind = k;
++        if let Some(a) = a { op.q_control1 = QubitId(a); }
++        if let Some(b) = b { op.q_control2 = QubitId(b); }
++        if let Some(t) = t { op.q_target = QubitId(t); }
++        if let Some(bit) = bit { op.c_target = BitId(bit); }
++        if let Some(c) = condition { op.c_condition = BitId(c); }
++        op.validate(); op
++    }
++    #[test]
++    fn snapshot_mutation_nested_push_and_phase_fault() {
++        let mut ops = vec![
++            gate(K::Hmr,None,None,Some(0),Some(0),None),
++            gate(K::PushCondition,None,None,None,None,Some(0)),
++            gate(K::BitInvert,None,None,None,Some(0),None),
++            gate(K::BitStore1,None,None,None,Some(1),None),
++            gate(K::PushCondition,None,None,None,None,Some(1)),
++            gate(K::Z,None,None,Some(1),None,None),
++            gate(K::PopCondition,None,None,None,None,None),
++            gate(K::PopCondition,None,None,None,None,None),
++        ];
++        let mask=0x934ce2086ffa3145;let input=[mask,mask,!mask];
++        let result=audit(&ops,&input,&[]).unwrap();assert_eq!(result.qubits,vec![0,mask,!mask]);assert_eq!(result.measurements,1);
++        for m in [0,u64::MAX,0x682ab19376cdfe08] {let(q,phase)=native(&ops,&input,&[m]);assert_eq!(q,result.qubits);assert_eq!(phase,0);}
++        ops[5].q_target=QubitId(2);
++        assert!(audit(&ops,&input,&[]).unwrap_err().starts_with("nonzero phase polynomial"));
++        assert_eq!(native(&ops,&input,&[u64::MAX]).1,u64::MAX);
++    }
++    #[test]
++    fn conditional_hmr_boolean_idempotence_and_value_restoration() {
++        let ops=vec![
++            gate(K::Hmr,None,None,Some(0),Some(0),None),
++            gate(K::PushCondition,None,None,None,None,Some(0)),
++            gate(K::Hmr,None,None,Some(1),Some(1),None),
++            gate(K::Z,None,None,Some(2),None,Some(1)),
++            gate(K::CX,Some(2),None,Some(1),None,None),
++            gate(K::PopCondition,None,None,None,None,None),
++        ];
++        let input=[0,0x123456789abcdef0,0x123456789abcdef0];
++        let result=audit(&ops,&input,&[]).unwrap();assert_eq!(result.qubits,input);assert_eq!(result.measurements,2);
++        assert!(result.maximum_quantum_terms>1);
++        for m in [0,u64::MAX] {for n in [0,u64::MAX] {let(q,phase)=native(&ops,&input,&[m,n]);assert_eq!(q,input);assert_eq!(phase,0);}}
++    }
++    #[test]
++    fn discarded_phase_only_block_is_detected() {
++        let ops=vec![gate(K::Hmr,None,None,Some(0),Some(0),None),
++            gate(K::PushCondition,None,None,None,None,Some(0)),
++            gate(K::CCZ,Some(1),Some(2),Some(3),None,None),
++            gate(K::PopCondition,None,None,None,None,None)];
++        assert!(audit(&ops,&[0,u64::MAX,u64::MAX,u64::MAX],&[]).unwrap_err().starts_with("nonzero phase polynomial"));
++        assert_eq!(native(&ops,&[0,u64::MAX,u64::MAX,u64::MAX],&[u64::MAX]).1,u64::MAX);
++    }
++    #[test]
++    fn support_limit_is_inconclusive() {
++        let many=Poly((0..TERM_CAP+1).map(|i|(vec![i as u32],1u64)).collect());
++        assert_eq!(many.xor(&Poly::constant(0)).unwrap_err(),"inconclusive: XOR term cap");
++    }
++}
+diff --git a/src/point_add/toffoli_actual_lean_tests_v6.rs b/src/point_add/toffoli_actual_lean_tests_v6.rs
+new file mode 100644
+index 00000000..05c3c6cc
+--- /dev/null
++++ b/src/point_add/toffoli_actual_lean_tests_v6.rs
+@@ -0,0 +1,124 @@
++//! Producer-aware top1/direct/nondeep fin4/drop2 fixture.
++use super::*;
++use crate::circuit::{analyze_ops,Op,OperationType};
++use crate::sim::Simulator;
++use sha3::digest::XofReader;
++type Layout=(Vec<Op>,Vec<QubitId>,Vec<QubitId>,Vec<QubitId>,Vec<QubitId>,[QubitId;3],[usize;4],u32,Vec<(usize,crate::circuit::BitId)>);
++fn mode<R>(on:bool,f:impl FnOnce()->R)->R {
++    let old=TOFFOLI_ACTUAL_LEAN_MODE.with(|x|x.replace(on));let at=PAYLOAD_AT.with(|x|x.replace(Some((false,130))));
++    TOFFOLI_ACTUAL_LEAN_HITS.with(|x|x.set(0));TOFFOLI_ACTUAL_LAZY_FREES.with(|x|x.borrow_mut().clear());let result=f();TOFFOLI_ACTUAL_LEAN_MODE.with(|x|x.set(old));PAYLOAD_AT.with(|x|x.set(at));result
++}
++fn fixture(on:bool)->Layout {
++    let mut c=Builder::new();let acc=c.alloc_qubits(56);let controls=c.alloc_qubits(12);
++    let abi_bits:Vec<_>=(0..512).map(|_|c.alloc_bit()).collect();let abi=c.alloc_qubits(512);
++    let cq2=m_carry(&mut c,controls[2],&l(controls[5]),controls[6]);
++    let cq1=m_carry(&mut c,controls[0],&l(controls[4]),cq2);
++    let x258=m_carry(&mut c,controls[1],&l(controls[3]),cq1);
++    c.cx(controls[4],controls[0]);c.cx(cq2,controls[0]);c.cx(controls[3],controls[1]);c.cx(cq1,controls[1]);
++    let mut esh=ESh{x256:controls[0],x257:controls[1],x258,h1:controls[6],m0:controls[6],m1:controls[6],cq1,cq2,cq3:controls[6],t255:controls[2],b1:controls[3],b2:controls[4],b3:controls[5],s:[controls[7],controls[8],controls[9]],direct:true,top1:true,deep_c:vec![],deep_a:vec![],deep_b:vec![]};
++    // The three ESh targets are additional to the raw independent-input budget.
++    let pads=c.alloc_qubits(cells::cap()-(56+12+512+31+2));let active=c.active_qubits();
++    for (&bit,&q) in abi_bits.iter().zip(&abi) {c.push_condition(bit);c.x(q);c.pop_condition();}
++    let (_,peak)=mode(on,||c.r3_peak(|c|fold_fwd_v2(c,&acc,[controls[0],controls[1],x258],[controls[7],controls[8],controls[9]],controls[10],controls[11],4,Some(&mut esh),true,2)));
++    assert_eq!(TOFFOLI_ACTUAL_LEAN_DROPS.with(|x|x.get()),2,"two actually dropped chunks");
++    assert_eq!(TOFFOLI_ACTUAL_LEAN_HITS.with(|x|x.get()),usize::from(on));assert_eq!(c.active_qubits(),active);assert!(peak as usize<=cells::cap());
++    for (&bit,&q) in abi_bits.iter().zip(&abi) {c.push_condition(bit);c.x(q);c.pop_condition();}
++    let targets=TOFFOLI_ACTUAL_LAZY_TARGETS.with(|x|x.get()).unwrap();let boundary=TOFFOLI_ACTUAL_LEAN_BOUNDARY.with(|x|x.get());
++    let final_esh=[esh.cq2,esh.cq1,esh.x258];let ops=c.take_ops();let mut mr=0usize;let mut indices=[None;4];
++    for (i,op) in ops.iter().enumerate() {if matches!(op.kind,OperationType::Hmr|OperationType::R) {
++        if i>=boundary {for j in 0..4 {if op.q_target==targets[j] && indices[j].is_none() {indices[j]=Some(mr);}}}mr+=1;
++    }}
++    let marks=TOFFOLI_ACTUAL_LAZY_FREES.with(|x|x.borrow().clone());assert_eq!(marks.is_empty(),!on);
++    for &(cut,bit) in &marks {
++        assert_eq!(ops[cut-1].kind,OperationType::BitStore0);assert_eq!(ops[cut-1].c_target,bit);assert_eq!(ops[cut-1].c_condition,crate::circuit::NO_BIT);
++        let mut depth=0isize;for op in &ops[..cut] {if op.kind==OperationType::PushCondition {depth+=1;}if op.kind==OperationType::PopCondition {depth-=1;}}assert_eq!(depth,0,"zeroonfree outsideallconditions");
++    }
++    (ops,acc,controls,abi,pads,final_esh,indices.map(Option::unwrap),peak,marks)
++}
++fn maj(a:u64,b:u64,c:u64)->u64 {(a&b)^(a&c)^(b&c)}
++fn producer(raw:u64)->[u64;5] {
++    let x0=raw&1;let x1=raw>>1&1;let t=raw>>2&1;let b1=raw>>3&1;let b2=raw>>4&1;let b3=raw>>5&1;let c3=raw>>6&1;
++    let c2=maj(t,b3,c3);let c1=maj(x0,b2,c2);let e2=maj(x1,b1,c1);
++    [x0^b2^c2,x1^b1^c1,e2,c1,c2]
++}
++fn expected(acc:u64,e:u64,nm:u64,k1:u64,k2:u64)->u64 {
++    let c3=u64::from((acc&7)+e>=8);let c4=(acc>>3&1)&c3;let r=nm+(acc&7);
++    let a4=r&1;let a5=(r^(r>>1))&1;let a=acc>>4&1;let z=acc>>5&1;
++    let c5=maj(a,a4,c4);let y3=(k1|k2)&((acc>>3&1)^c3);let y4=k2&(a^c4^a4);let y5=(k1&k2)&(z^c5^a5);
++    let k=r as i128+8*(y3 as i128+2*y4 as i128+4*y5 as i128-c3 as i128);
++    ((acc as i128+e as i128-((1i128<<32)+976)*k)&((1i128<<56)-1)) as u64
++}
++struct Words {seed:u64,index:usize,critical:[usize;4],pattern:u8}
++impl XofReader for Words {fn read(&mut self,out:&mut[u8]) {
++    assert_eq!(out.len(),8);self.seed^=self.seed<<13;self.seed^=self.seed>>7;self.seed^=self.seed<<17;
++    let word=if let Some(j)=self.critical.iter().position(|&i|i==self.index) {if self.pattern>>j&1!=0 {u64::MAX}else{0}}else{self.seed};self.index+=1;out.copy_from_slice(&word.to_le_bytes());
++}}
++fn inputs(nq:usize,base:usize,high:u64,acc:&[QubitId],controls:&[QubitId],abi:&[QubitId],pads:&[QubitId],esh:[QubitId;3])->(Vec<u64>,Vec<u64>) {
++    let mut input=vec![0u64;nq];let mut want=vec![0u64;nq];
++    for shot in 0..64 {
++        let raw=(base+shot) as u64;let value=(raw&63)|high;let p=producer(raw>>6&127);let e=p[0]|p[1]<<1|p[2]<<2;
++        let output=expected(value,e,raw>>13&7,raw>>16&1,raw>>17&1);
++        for (i,&q) in acc.iter().enumerate() {input[q.0 as usize]|=(value>>i&1)<<shot;want[q.0 as usize]|=(output>>i&1)<<shot;}
++        for (i,&q) in controls.iter().enumerate() {let bit=(raw>>(i+6)&1)<<shot;input[q.0 as usize]|=bit;want[q.0 as usize]|=(if i<2 {p[i]} else {raw>>(i+6)&1})<<shot;}
++        for (&q,value) in esh.iter().zip([p[4],p[3],p[2]]) {want[q.0 as usize]|=value<<shot;}
++    }
++    for &q in abi.iter().chain(pads.iter()) {input[q.0 as usize]=0xA55A_F00F_1234_5678u64.rotate_left((q.0%64) as u32);want[q.0 as usize]=input[q.0 as usize];}
++    (input,want)
++}
++#[test]
++fn toffoli_actual_lean_all_producers_allmr_v6() {
++    let mut costs=Vec::new();let mut total=0usize;let mut max_phase=0usize;
++    for on in [false,true] {
++        let (ops,acc,controls,abi,pads,esh,c6_mr,peak,marks)=fixture(on);let (nq,nb,_,_)=analyze_ops(ops.iter());
++        let emitted=ops.iter().filter(|op|op.kind==OperationType::CCX).count();let mut executed=0u64;let mut cases=0usize;
++        let mask=((1u64<<56)-1)&!63;let bits:Vec<_>=(0..nb as usize).map(|i|0x93AB_CDEF_6789_4521u64.rotate_left((i%64) as u32)).collect();
++        for high in [0,mask,0xAAAA_AAAA_AAAA_AAAA&mask,((1u64<<32)-1)&mask] {
++            for base in (0..1usize<<18).step_by(64) {
++                let (input,want)=inputs(nq as usize,base,high,&acc,&controls,&abi,&pads,esh);
++                let audit=super::toffoli_actual_lean_phase_kernel_v6::audit(&ops,&input,&bits).unwrap_or_else(|why|panic!("ALLMR fin4 new={on} base={base} high={high:#x}: {why}"));
++                assert_eq!(audit.qubits,want,"ALLMR everyphysicalqubit includingfreshESH");max_phase=max_phase.max(audit.maximum_phase_terms);total+=64;
++                for pattern in 0..16u8 {
++                    let mut words=Words{seed:0xDEAD_F00D_9324_6781,index:0,critical:c6_mr,pattern};let mut sim=Simulator::new(nq as usize,nb as usize,&mut words);
++                    sim.qubits.copy_from_slice(&input);sim.bits.copy_from_slice(&bits);sim.phase=0x9A55_0FF0_8934_4567;
++                    let mut cursor=0;for &(cut,bit) in &marks {sim.apply_iter(ops[cursor..cut].iter());assert_eq!(sim.bits[bit.0 as usize],0,"newclassscratchzeroonfree");cursor=cut;}sim.apply_iter(ops[cursor..].iter());assert_eq!(sim.qubits,want);assert_eq!(sim.phase,0x9A55_0FF0_8934_4567);assert_eq!(&sim.bits[..512],&bits[..512]);
++                    executed+=sim.stats.toffoli_gates;cases+=64;
++                }
++            }
++        }
++        costs.push((emitted,executed,cases));eprintln!("TOFFOLI_ACTUAL_LAZY_V6 new={on} emitted={emitted} executed={executed} cases={cases} peak={peak} critical_mr={c6_mr:?} actualdrops=2 freshESH={esh:?} zero_free_checks={}",marks.len());
++    }
++    assert_eq!(costs[0].0+1,costs[1].0);assert_eq!(costs[0].1,costs[1].1+(7*costs[0].2/8) as u64);
++    eprintln!("TOFFOLI_ACTUAL_LAZY_V6_ALLMR exact_input_cases={total} native_cases={} max_phase_terms={max_phase} producer_rows=128 raw_bits=18 higher_words=4 room=2 classicalABI=512",total*16);
++}
++#[test]
++fn toffoli_actual_lean_source_caller_v6() {
++    crate::point_add::pingpong::with_phase_cap(Some(1234),||for on in [false,true] {
++        let mut c=Builder::new();let b=c.alloc_qubits(N);let tg=c.alloc_qubits(N);let letters=c.alloc_qubits(5);let _pads=c.alloc_qubits(1234-(2*N+5+37));
++        let active=c.active_qubits();let tick=130;let (_,proxy)=proxy_fold(steps()[tick][0],false);let shift=cmp_shift_at(tick);
++        let (_,peak)=mode(on,||c.r3_peak(|c|cells::with_tie(None,||cells::with_cmp_shift((shift.0+Y15_CMP_EXTRA+super::n2_cmpx(),shift.1),||cells::with_bridge(proxy,false,||body_capped(c,tick,[letters[0],letters[1],letters[2]],letters[3],letters[4],&b,&tg,proxy,false))))));
++        assert_eq!(TOFFOLI_ACTUAL_LEAN_DROPS.with(|x|x.get()),2);let hits=TOFFOLI_ACTUAL_LEAN_HITS.with(|x|x.get());assert_eq!(hits,usize::from(on));assert_eq!(c.active_qubits(),active);assert!(peak<=1234);
++        let emitted=c.take_ops().iter().filter(|op|op.kind==OperationType::CCX).count();eprintln!("TOFFOLI_ACTUAL_LAZY_V6_CALLER cap=1234 room=37 tick=130 new={on} hits={hits} peak={peak} emitted={emitted} source_caller_resource_only=true");
++    });
++}
++#[test]
++fn toffoli_actual_lean_phase_fault_v6() {
++    let (mut ops,acc,controls,abi,pads,esh,_,_,_)=fixture(true);let ccx=ops.iter().rposition(|op|op.kind==OperationType::CCX).unwrap();let cz=ops.iter().enumerate().skip(ccx+1).find(|(_,op)|op.kind==OperationType::CZ).unwrap().0;ops.remove(cz);
++    let (nq,_,_,_)=analyze_ops(ops.iter());let mut detected=false;
++    for base in (0..1usize<<18).step_by(64) {let (input,_)=inputs(nq as usize,base,0,&acc,&controls,&abi,&pads,esh);
++        if let Err(why)=super::toffoli_actual_lean_phase_kernel_v6::audit(&ops,&input,&[]) {if why.starts_with("nonzero phase polynomial") {detected=true;break;}}
++    }
++    assert!(detected,"producer-admitted phase fault must be detected");
++}
++
++#[test]
++fn toffoli_actual_lean_lazy_build_faults_v6() {
++    let (ops,acc,controls,abi,pads,esh,_,_,_)=fixture(true);let boundary=TOFFOLI_ACTUAL_LEAN_BOUNDARY.with(|x|x.get());
++    let ccx:Vec<_>=ops.iter().enumerate().skip(boundary).filter(|(_,op)|op.kind==OperationType::CCX).map(|(i,_)|i).collect();assert_eq!(ccx.len(),10,"threeESH,twoLowCarry,C4,factor,threeTT");
++    for (name,remove) in [("C4_OR_build",ccx[5]),("TT_first_build",ccx[7])] {
++        let mut faulty=ops.clone();faulty.remove(remove);let (nq,nb,_,_)=analyze_ops(faulty.iter());let bits:Vec<_>=(0..nb as usize).map(|i|0xA55A_F00F_93AC_4512u64.rotate_left((i%64) as u32)).collect();let mut detected=false;
++        for base in (3<<16..4<<16).step_by(64) {let (input,_)=inputs(nq as usize,base,0,&acc,&controls,&abi,&pads,esh);
++            if let Err(why)=super::toffoli_actual_lean_phase_kernel_v6::audit(&faulty,&input,&bits) {if why.starts_with("nonzero phase polynomial") {detected=true;break;}}
++        }
++        assert!(detected,"producer-admitted missing {name} phasefault");
++    }
++}

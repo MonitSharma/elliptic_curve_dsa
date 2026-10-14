@@ -1,0 +1,49 @@
+{
+  "collected_at_utc": "2026-10-14T15:39:15.167466+00:00",
+  "checkout": "/home/hclau/ecdsa_research/overnight-20261014/coordinator-b3-classical",
+  "baseline_revision": "b3c9fdd6e24bcd33450ab0d10884ab5ff9c46ab7",
+  "candidate_patch_sha256": "1c9292fbd97ccf03faab4fd27a557093a0b57762ba717d9c83d0b9f892e572a8",
+  "source_sha256": {
+    "src/point_add/classical_factors_xor.rs": "728a3c74279bee71f1e18b6f8d42e1e2d8a3c335e4c6ca01510643d8f4f57cf8",
+    "src/point_add/mod.rs": "5a2bef9991dc505aa1af8b9f03f5b44d20546406d6bc478de3ae4dd68a1d0248",
+    "src/point_add/product7_simplify.rs": "921045a6782ac053e4db074d698c89f03f67b6156f4fb98e8079be1c858c6258",
+    "src/point_add/tests_classical_factors.rs": "825d06dade86bf43cd8a91e91b297582419add065d2dceca1c259d04ceeb81f8"
+  },
+  "protected_tracked_changes": [],
+  "generated_results_tsv_changed": true,
+  "other_untracked_files": [],
+  "evidence_kind": "unchanged_full_benchmark",
+  "status": "failed",
+  "qualified_score": null,
+  "protected_sha256": {
+    "benchmark.sh": "122a65431ad42a1bad5114af9e8f8301fe5cb08c01adaeee00799c9f0d0ed92a",
+    "Cargo.toml": "3c80178b08d29a158abb29a7dcb8eefc67c66f60f2c3bd14483b65eeca0740dc",
+    "Cargo.lock": "42ff16919e551891ad1b21821329b116d133194245a0e0734a33573dfe598e07",
+    "rust-toolchain": "92b454c1ccf330de9b94242f73bc3214370fb420d5152baeec12dc82ceef9dcc",
+    "src/bin/eval_circuit.rs": "b35314bc47a5f8eecbf60459e6c76c9b43aa034eeb9b7ec3421655d74f9e890b",
+    "src/bin/build_circuit.rs": "ac013f1d851156a117c7d41ddb16cb5bb014ed4e6ed4679df143207b46852f33",
+    "src/circuit.rs": "ac2255f6bcb6895c9da2dfe21c3a051a0ef8fc4e0af9598634fec0035dbf35c6",
+    "src/sim.rs": "f0c72f2a280cd68acee1dbf8282098f72d6b3bf4311e0abf96d122fe002256d7",
+    "src/weierstrass_elliptic_curve.rs": "ecfca15ee3b831c243fbea559ff4b8937be47fe591a4f14786ec2b9bfb30bded"
+  },
+  "stream": {
+    "path": "/home/hclau/ecdsa_research/overnight-20261014/coordinator-b3-classical-evidence/run/ops.bin",
+    "sha256": "ffcf319ca344c29e3b8cb6d04578c0a886b328fd64b4c18558d6a5ee7da9c93c",
+    "bytes": 39736645
+  },
+  "log": {
+    "path": "/home/hclau/ecdsa_research/overnight-20261014/coordinator-b3-classical-evidence/run.log",
+    "sha256": "b45672955e05c0224ef8c66a18c544f37aa559b133827e19646e54a85faee5db",
+    "at_runner_collection_sha256": "ddd0d7e29644ca7075ad871779df4ca2d6d53dd6407c2822873d54ee15bfc4a5",
+    "scope": "Final log after runner EXIT collector prints; original partial-at-collector digest preserved"
+  },
+  "exit_status": 1,
+  "failure_counts": {
+    "classical_mismatches": 15,
+    "phase_garbage_batches": 14,
+    "ancilla_garbage_batches": 0
+  },
+  "pid": 2574937,
+  "replay": "../product/b3-paired-receipt.json",
+  "conclusion": "Full candidate benchmark failed15value/14phase batches/0ancillas; exact paired cleanB3 on same candidate packet and MR also fails identically. Not qualified; no scored resource claims."
+}

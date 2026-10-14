@@ -41,6 +41,7 @@ def main():
     text=text.replace("fn ph_owner_two_qbits_preposition_inverse_dirty_phase", "fn coordinator_ph_preposition_phase_proof")
     text=text.replace("fn n275_sz_donor_boundaries_inverse_phase", "fn coordinator_n275_donor_phase_proof")
     text=text.replace("fn n275_k32_k24_partition_all_sy_words", "fn coordinator_n275_partition_phase_proof")
+    text=text.replace("    n275_k32_k24_partition_all_sy_words();", "    coordinator_n275_partition_phase_proof();")
     text=text.replace("fn n275_v2_full_column_new_boundaries_native", "fn coordinator_n275_new_columns_phase_proof")
     needle=f'let back=run(&inverse,{width},&|words|*words=got.q.clone());'
     insert='let (fq,_)=symbolic(&forward,input.clone());assert_eq!(fq,expected);let(iq,_)=symbolic(&inverse,got.q.clone());assert_eq!(iq,input);'

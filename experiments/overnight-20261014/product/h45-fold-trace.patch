@@ -1,0 +1,23 @@
+diff --git a/src/point_add/y15_onefold.rs b/src/point_add/y15_onefold.rs
+index ce87200e..8543cc00 100755
+--- a/src/point_add/y15_onefold.rs
++++ b/src/point_add/y15_onefold.rs
+@@ -1776,6 +1776,10 @@ fn fold_undo_low_c(c: &mut Builder, acc: &[QubitId], e: [QubitId; 3], cw: [Qubit
+ /// part by one either way, 1 for its sign. 32 fixed wires (6 low carries, 4 gate wires, 22 core ANDs).
+ #[allow(clippy::too_many_arguments)]
+ fn fold_fwd_v2(c: &mut Builder, acc: &[QubitId], e: [QubitId; 3], nm: [QubitId; 3], k1: QubitId, k2: QubitId, fin: usize, mut esh: Option<&mut ESh>, ttm: bool, drop: usize) -> Vec<usize> {
++    let product_fold_at = PAYLOAD_AT.with(|x|x.get());
++    let product_fold_start = c.op_count();
++    eprintln!("PRODUCT_FOLD_ENTRY payload={:?} fin={} ttm={} drop={} op={} acc={:?} e={:?} nm={:?} k={:?} state={:?} dims={:?}", product_fold_at, fin, ttm, drop, product_fold_start, acc.iter().map(|q|q.0).collect::<Vec<_>>(), e.map(|q|q.0), nm.map(|q|q.0), [k1.0,k2.0], c.y42_alloc_state(), c.i13_dims());
++
+     let loan=PAYLOAD_AT.with(|x|x.get().is_some_and(|(rev,t)|carry_loan_selected(rev,t)));
+     LOAN_ACTIVE.with(|x|x.set(loan));
+ 
+@@ -1930,6 +1934,7 @@ fn fold_fwd_v2(c: &mut Builder, acc: &[QubitId], e: [QubitId; 3], nm: [QubitId;
+         c.free_bit(m);
+     }
+     LOAN_ACTIVE.with(|x|x.set(false));
++    eprintln!("PRODUCT_FOLD_EXIT payload={:?} fin={} ttm={} drop={} start={} op={} plan={:?} state={:?} dims={:?}", product_fold_at, fin, ttm, drop, product_fold_start, c.op_count(), plan, c.y42_alloc_state(), c.i13_dims());
+     plan
+ }
+ 

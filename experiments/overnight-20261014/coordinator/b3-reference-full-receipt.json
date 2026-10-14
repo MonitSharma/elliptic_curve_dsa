@@ -1,0 +1,51 @@
+{
+  "collected_at_utc": "2026-10-14T16:02:51.245436+00:00",
+  "checkout": "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline",
+  "baseline_revision": "b3c9fdd6e24bcd33450ab0d10884ab5ff9c46ab7",
+  "candidate_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "source_sha256": {},
+  "protected_tracked_changes": [],
+  "generated_results_tsv_changed": false,
+  "other_untracked_files": [],
+  "evidence_kind": "unchanged_full_benchmark",
+  "status": "locally_qualified_full_benchmark",
+  "qualified_score": {
+    "score": 940027660,
+    "metrics": {
+      "toffoli": 761156,
+      "qubits": 1235
+    }
+  },
+  "protected_sha256": {
+    "benchmark.sh": "122a65431ad42a1bad5114af9e8f8301fe5cb08c01adaeee00799c9f0d0ed92a",
+    "Cargo.toml": "3c80178b08d29a158abb29a7dcb8eefc67c66f60f2c3bd14483b65eeca0740dc",
+    "Cargo.lock": "42ff16919e551891ad1b21821329b116d133194245a0e0734a33573dfe598e07",
+    "rust-toolchain": "92b454c1ccf330de9b94242f73bc3214370fb420d5152baeec12dc82ceef9dcc",
+    "src/bin/eval_circuit.rs": "b35314bc47a5f8eecbf60459e6c76c9b43aa034eeb9b7ec3421655d74f9e890b",
+    "src/bin/build_circuit.rs": "ac013f1d851156a117c7d41ddb16cb5bb014ed4e6ed4679df143207b46852f33",
+    "src/circuit.rs": "ac2255f6bcb6895c9da2dfe21c3a051a0ef8fc4e0af9598634fec0035dbf35c6",
+    "src/sim.rs": "f0c72f2a280cd68acee1dbf8282098f72d6b3bf4311e0abf96d122fe002256d7",
+    "src/weierstrass_elliptic_curve.rs": "ecfca15ee3b831c243fbea559ff4b8937be47fe591a4f14786ec2b9bfb30bded"
+  },
+  "stream": {
+    "path": "/home/hclau/ecdsa_research/overnight-20261014/product-evidence/b3-baseline/run/ops.bin",
+    "sha256": "0f10de57f45349c89163faf6e5ab0694aec3d3bfa720f10ee8b185a9fb2914ce",
+    "bytes": 39742189
+  },
+  "log": {
+    "path": "/home/hclau/ecdsa_research/overnight-20261014/coordinator-b3-reference-eval/run.log",
+    "sha256": "b4832ee79b1c336b6fb6285978842093cf44bdfb47c6c0bed54edd9349b91d3a"
+  },
+  "exit_status": 0,
+  "score_file_sha256": "3ce54f3e746bd7bc96f1d3af017020cd612c5d8ef2fffd44a2c51d3361fb96ec",
+  "failure_counts": {
+    "classical_mismatches": 0,
+    "phase_garbage_batches": 0,
+    "ancilla_garbage_batches": 0
+  },
+  "limitations": "Finite unchanged benchmark qualification; not an all-input proof or official platform score.",
+  "run_pid": 2600864,
+  "classification": "New complete local reproduction of public source; not original contribution or platform evaluation",
+  "output_location_provenance": "b3-reference-output-provenance.json",
+  "independent_counterexamples": "../product/b3-paired-results.md"
+}

@@ -1,0 +1,54 @@
+{
+  "scope": "Ideal recurrence/predicted quotient, parking, reciprocal and map domains only; no emitted gates, phase, allocation proof, source-width or score",
+  "proposal": {
+    "N": 274,
+    "K_physical": 15,
+    "small_SY_max": 95,
+    "small_head": 32,
+    "large_head": 23,
+    "mixed_cap": 22,
+    "pure_HR_cap": 24,
+    "crossing_reserve": 9,
+    "ordinary_map_extra": 4
+  },
+  "guard": "Pure HR, not mixed/switch/done/delayed, col>=2 excludes wideSZ/tt, previoussw false, envelopeSYupper+23<128",
+  "original_packet_sha256": "fbeaf4f6dd9584527f974d49244d0a3af69f3f1370ef7cbe25e603061f90ba6e",
+  "schedule_sha256": "c7e4fe5362c1756a92571de754612fea9f2fadccaafceba5c1fb4b619d964076",
+  "script_sha256": "3f1bc5526f81a592010aba0b0417eaa0725ed9797a6fecdbe7c8c4632d9b81c6",
+  "independent_seed": 17065729509525164052,
+  "input_counts": {
+    "original_packet": 18048,
+    "independent_denominators": 512
+  },
+  "stats": {
+    "original_packet": {
+      "active_steps": 2689852,
+      "mixed_steps": 2383036,
+      "head32_steps": 2014638,
+      "pure_HR_steps": 306816,
+      "head23_steps": 675214,
+      "maximum_required_crossing_reserve": 9,
+      "q22_pure": 1,
+      "maximum_q22_outside_guard": 0
+    },
+    "independent_denominators": {
+      "active_steps": 76021,
+      "mixed_steps": 67317,
+      "head32_steps": 57014,
+      "pure_HR_steps": 8704,
+      "head23_steps": 19007,
+      "maximum_required_crossing_reserve": 6
+    }
+  },
+  "flagged": {
+    "original_packet": [],
+    "independent_denominators": []
+  },
+  "elapsed_seconds": 15.122882528230548,
+  "limitations": "No check of fresh-input schedule envelopes, carry-tail errors, quantum/measurement phase, physical donor ownership or actual N274 emitted arithmetic. Unchanged full benchmark still required.",
+  "status": "PASS_IDEAL_MODEL_ONLY",
+  "pid": 2570632,
+  "exit": 0,
+  "log_sha256": "2105d93d8fac5f81928db3e4fa8de6b2d7636aede8ad28acafd3d22ed5cea422",
+  "physical_ownership": "UNPROVED: mixed q21 sixth quotient owner at K15; mapextra4 fourth owner; nine Q119..127 loans; large-SY SZ101..161 donor reconstruction; physical recurrence geometry"
+}

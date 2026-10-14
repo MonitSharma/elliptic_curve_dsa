@@ -313,3 +313,29 @@ producer lifetime evidence. No new full qualified score is claimed.
 
 The [fourth receipt](fourth-checkpoint-receipt.json) freezes the completed files
 and records these pending scope obligations.
+
+## Post-checkpoint: actual fin3 native cleanup
+
+The narrowed deferred lean interface now has a [passing native report](actual-lean-native-report-v3.md)
+and [source-bound receipt](actual-lean-native-v3r1-receipt.json). All262,144 fixed-input/layout
+phase proofs and786,432 native cases pass, with every quantum wire, dirty passengers,
+512 classical ABI bits and a detected phase fault. The actual tick128 source caller
+hits the new guard and emits one fewer CCX at unchanged peak1234; sampled mean
+execution saves0.5 per eligible fold. The original failed emitted-count assertion
+is preserved separately. This is component evidence, with full producer and broader
+fin/drop interfaces still pending; it is not a complete resource record.
+
+The [drop1 receipt](actual-lean-native-v3r3-receipt.json) now qualifies an actually
+dropped ladder carry, with131,072 all-measurement proofs and393,216 native cases.
+Its source caller is tick129/room39/cap1234, again saving one emitted CCX at the
+same peak. The unmatched v3r2 caller and its merged-plan limitation are preserved.
+The [top1/direct/nondeep ESh contract](actual-esh-contract-v4.json) independently
+verifies all128 seven-bit producer states and their measurement corrections;
+producer-aware fin4 native scheduling is a separate pending experiment.
+
+The narrowed producer-aware fin4 schedule subsequently passed; see its
+[report](actual-lean-native-report-v4.md) and [receipt](actual-lean-native-v4-receipt.json).
+All18 producer/fold inputs are covered in2,097,152 exact phase-layout proofs and
+6,291,456 native cases. The actual two dropped chunks and fresh ESh targets are
+checked. Source-caller tick130/room37 retains peak1234 and saves one emitted CCX.
+This admits only top1/direct/nondeep ESh, with full-body qualification separate.

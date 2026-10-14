@@ -1,0 +1,39 @@
+{
+  "collected_at_utc": "2026-10-14T15:17:38.476299+00:00",
+  "checkout": "/home/hclau/ecdsa_research/overnight-20261014/product-h45-expanded-trace",
+  "baseline_revision": "c5bb1ec876db859a3f9f8a9052c140a145df834e",
+  "candidate_patch_sha256": "c984f58942187271d59ce0863b1e8a033bc62fffcda1cbe243f1246b023949de",
+  "source_sha256": {
+    "src/point_add/builder.rs": "fb5624a7f28e8d61e2a82e1f03cc89325c9d8e39fd8907dcaf51e92a223b00b0",
+    "src/point_add/leapfrog.rs": "ab746b29a1811dd96e0bbc25e222e0a6c2becaefa1013001382805f52aace1e6",
+    "src/point_add/toffoli_carry_cleanup_v1.rs": "a3de0bf45baa2efd199c1b5d178a4c65f12aab9e0e17dcb9c4a92f5bb4fe6f22",
+    "src/point_add/y15_onefold.rs": "31c39f63c518cc74b29d3800c82dbb8a2c893a6a9ee9bbdfd474426a87b25a79"
+  },
+  "protected_tracked_changes": [],
+  "generated_results_tsv_changed": false,
+  "other_untracked_files": [],
+  "evidence_kind": "research_diagnostic",
+  "status": "failed",
+  "qualified_score": null,
+  "protected_sha256": {
+    "benchmark.sh": "122a65431ad42a1bad5114af9e8f8301fe5cb08c01adaeee00799c9f0d0ed92a",
+    "Cargo.toml": "3c80178b08d29a158abb29a7dcb8eefc67c66f60f2c3bd14483b65eeca0740dc",
+    "Cargo.lock": "42ff16919e551891ad1b21821329b116d133194245a0e0734a33573dfe598e07",
+    "rust-toolchain": "92b454c1ccf330de9b94242f73bc3214370fb420d5152baeec12dc82ceef9dcc",
+    "src/bin/eval_circuit.rs": "b35314bc47a5f8eecbf60459e6c76c9b43aa034eeb9b7ec3421655d74f9e890b",
+    "src/bin/build_circuit.rs": "ac013f1d851156a117c7d41ddb16cb5bb014ed4e6ed4679df143207b46852f33",
+    "src/circuit.rs": "ac2255f6bcb6895c9da2dfe21c3a051a0ef8fc4e0af9598634fec0035dbf35c6",
+    "src/sim.rs": "f0c72f2a280cd68acee1dbf8282098f72d6b3bf4311e0abf96d122fe002256d7",
+    "src/weierstrass_elliptic_curve.rs": "ecfca15ee3b831c243fbea559ff4b8937be47fe591a4f14786ec2b9bfb30bded"
+  },
+  "log": {
+    "path": "/home/hclau/ecdsa_research/overnight-20261014/product-evidence/h45-expanded-trace/run.log",
+    "sha256": "881340c275aa497b39ad7b3f0127b0afdc524b04cac5f7d233c74d51338159a7"
+  },
+  "exit_status": 101,
+  "failure_counts": {
+    "classical_mismatches": null,
+    "phase_garbage_batches": null,
+    "ancilla_garbage_batches": null
+  }
+}

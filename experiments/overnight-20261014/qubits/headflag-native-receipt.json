@@ -1,0 +1,40 @@
+{
+  "status": "native_and_all_mr_components_pass",
+  "source_variant": "candidate-headflag-v1",
+  "patch_sha256": "1792f88c69567b403aaf84e1bd9122f179d06c4e6db29de0c17440bef226b243",
+  "source_sha256": {
+    "src/point_add/frogdrop.rs": "52ac7c1feed5dcde04052755d98669205bcf7908943bb425e19e18bc6c14c5f6",
+    "src/point_add/frogdrop_col.rs": "950c6a7432abc2f5eafcdf3b36c6c984794b748f11130ac0db2d8dce2416287b",
+    "src/point_add/midg.rs": "3a0497bfa68d203b5952a581e51fe244d3d506c8a7c0dc8a829afee6e526400f",
+    "src/point_add/pointadd_frogdrop.rs": "9094c83a2c1c643631bcc909127ccde5ec43d5ff15e2a3c10fdd0d152589a290",
+    "src/point_add/tests_frogdrop.rs": "468d910af1f437cc71bebb0201eb3d3bf6779496a48275ce9ada7c80093e2f20",
+    "src/point_add/tests_midg_k24.rs": "eaf2209075eb157ed6b901e41d9feae66023de6ba82508607d6618e38fb4e66e"
+  },
+  "pid": 2550054,
+  "exit": 0,
+  "completed_at_utc": "2026-10-14T15:12:03Z",
+  "selected_tests": 13,
+  "diagnostic_probe_fixture_qubits": 744,
+  "production_fixture_qubits": 692,
+  "full_columns": 18,
+  "payload_fixtures": 3,
+  "payload_lanes_each": 256,
+  "full_sy_words": 256,
+  "decisions_probed_each_call": 26,
+  "self_faults_detected": 2,
+  "native_binary_sha256": "223ad08fd8efe15229b846aa81e467ed273c77a2dfa7e3944573e5ae385a49e9",
+  "log_sha256": "ba5c4b09a018cf15f8d87b872967abfe147ec3e9ca23703bfc5f4bd0c1eccbfa",
+  "scope": "Component native arithmetic/all-wire inverse and sampled phase; V-only measurement-free exact phase. No full record.",
+  "independent_phase_proof": {
+    "pid": 2564807,
+    "exit": 0,
+    "selected_tests": 9,
+    "test_seconds": 72.28,
+    "source_bound_patch_sha256": "1792f88c69567b403aaf84e1bd9122f179d06c4e6db29de0c17440bef226b243",
+    "log_sha256": "336f916231b8d9a0f7ed4451f32830947346984e4c7b555cc693c8bb9f6731b0",
+    "scope": "All independent measurement outcomes on fixed fixture input lanes; not whole curve-input domain.",
+    "previous_external_wrapper_status": "v1 compilation failed before simulation; candidate unchanged",
+    "exact_instances": 116,
+    "max_rss_kib": 917528
+  }
+}

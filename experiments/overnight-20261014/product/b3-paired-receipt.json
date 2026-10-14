@@ -1,0 +1,104 @@
+{
+  "status": "completed_finite_paired_equivalence_with_inherited_failures",
+  "qualified_score": null,
+  "baseline_revision": "b3c9fdd6e24bcd33450ab0d10884ab5ff9c46ab7",
+  "baseline_stream_sha256": "0f10de57f45349c89163faf6e5ab0694aec3d3bfa720f10ee8b185a9fb2914ce",
+  "candidate_stream_sha256": "ffcf319ca344c29e3b8cb6d04578c0a886b328fd64b4c18558d6a5ee7da9c93c",
+  "native_sha256": "27c5e99e06a3779255fa6e85d0b3f8c2a49dd1641d467be8994d857527ee9aeb",
+  "source_binding": "Dedicated replay crate compiled against clean detached B3; protected evaluator/Simulator/circuit hashes recorded; source includes embedded clean checkout path.",
+  "official_packet_transcript": "Candidate Fiat-Shamir seed over right stream;9024 scalar-pair draws;official skip rules;post-point-generation XOF cloned and advanced continuously per batch for both streams.",
+  "measurement_order_check": "Complete R/Hmr Op sequence equality, including wires, classical slots and explicit conditions, asserted before replay.",
+  "comparison": "Every final quantum slot, every final classical slot and phase mask before scratch clearing;same active lane mask.",
+  "independent_packet_domain": "product-b3-independent-structured-v1",
+  "independent_measurement_domain": "product-b3-paired-fixed-measurement-v1",
+  "results": [
+    {
+      "packet_mode": "independent",
+      "shots": 256,
+      "unequal_batches": 0,
+      "left_bad": 1,
+      "right_bad": 1,
+      "left_phase_shots": 1,
+      "right_phase_shots": 1,
+      "left_phase_batches": 1,
+      "right_phase_batches": 1,
+      "left_dirty_batches": 0,
+      "right_dirty_batches": 0,
+      "score": "NONE",
+      "left_x_bad": 1,
+      "right_x_bad": 1,
+      "left_y_bad": 1,
+      "right_y_bad": 1,
+      "classical_failure_families": {
+        "independent": 1
+      }
+    },
+    {
+      "packet_mode": "structured",
+      "shots": 256,
+      "unequal_batches": 0,
+      "left_bad": 189,
+      "right_bad": 189,
+      "left_phase_shots": 142,
+      "right_phase_shots": 142,
+      "left_phase_batches": 4,
+      "right_phase_batches": 4,
+      "left_dirty_batches": 0,
+      "right_dirty_batches": 0,
+      "score": "NONE",
+      "left_x_bad": 61,
+      "right_x_bad": 61,
+      "left_y_bad": 128,
+      "right_y_bad": 128,
+      "classical_failure_families": {
+        "minus2A": 128,
+        "zero_slope": 61
+      }
+    },
+    {
+      "packet_mode": "candidate_official_packet",
+      "shots": 9024,
+      "unequal_batches": 0,
+      "left_bad": 15,
+      "right_bad": 15,
+      "left_phase_shots": 15,
+      "right_phase_shots": 15,
+      "left_phase_batches": 14,
+      "right_phase_batches": 14,
+      "left_dirty_batches": 0,
+      "right_dirty_batches": 0,
+      "score": "NONE",
+      "left_x_bad": 13,
+      "right_x_bad": 13,
+      "left_y_bad": 15,
+      "right_y_bad": 15,
+      "classical_failure_families": {
+        "independent": 15
+      }
+    }
+  ],
+  "first_official_counterexample_249": "B3_COUNTEREXAMPLE index=249 family=independent left_bad=true right_bad=true target_x=0x6ec4e9eff96c83db825c9d0603c28c09e3439652ad3c47a52c8dc41922badea3 target_y=0xff943f2ed95d94d67ce2bbf600ad1cdf708c1af9490861d62830795eedb2a67e offset_x=0xc2c0ee13408e3efeae824e1d45b30a7c6693d7d6263788e4de0f91091fde4553 offset_y=0x69190d3d305947ec22dc743bf28da60801ca3201a08b4336a83830ad6146bcdb left_x=0xd8b94f293491937557d647fca7d88399037e73787097664fccdb38c24cca58b7 left_y=0xe9adb3e283f4142466571d54ba45972e16b3af63f78f2d053c2a1a5f8a12b7c2 expected_x=0xd8b94f293491937557d647fca7d88399037e73787097664fccdb38c24cca58b7 expected_y=0xb81630a9307fbebefae8ff55e2e9e40159ee44131f74fe9f4a20f5783f29d300",
+  "files_sha256": {
+    "candidate.tsv": "4e5da6e58fc248d44a2788fbafe09d5d0ace3de13488da723e0e495d5c317852",
+    "Cargo.toml": "e120cdfedbc38a9eba2a86f51a44170f914c48247996905e5c1d721cc79788ac",
+    "create-paired-replay.py": "7f7a70fe0b43c5bdc6c11f774232c1c8f6c1824e5ec934e41c0735763c214b5a",
+    "independent.tsv": "5a70e547bb6091e8b877a2bf8c719ac217b0cbfbcb25b6bb4050b8d140e2ae72",
+    "main.rs": "bcd539c4bd8a507567d664f7a12b0a290d312c9607f7d63b908cd54ac0e656d9",
+    "native.sha256": "6cc0b40a7b2bc76d0fd60eddd41735a409a14aba69ca9c2e88017752509e82ab",
+    "packets.sha256": "37032e61c14eca2c783e6c86deb7ca9836abb8a0992fd32713075ccd8b90bbd7",
+    "prepare-b3-paired.py": "93d969b7edcd2de95ac7eecb02c22e9d184b912c5af81293c58b282e901bc2e0",
+    "replay-source.sha256": "4a5a266bb7d2accc857cc1d127c79ed331275667f5136847e805ace12fd3d7ed",
+    "run.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "run.log": "8b6f67952b7a1a2718d482ed3820db352a65288232c30b158788ef814b95e2a3",
+    "run.pid": "f4066aa85223ab949f52d52f41765d006ec4386c46983b2d1516e3de4f7cb930",
+    "server-b3-paired.sh": "887395253dbbb0ef3909a12506abb5abef1aec16214005a8c8b9a2663e04d2a7",
+    "streams.sha256": "5892e27f4461e6bd3141895a2ae2d769a1a7ecbf78e1b4de5dacb798a831f07a",
+    "structured.tsv": "b301ed3786d2285e3f2a2d326eb726c4a4b731e35f97cdc98e42933ad74a4b7c"
+  },
+  "baseline_receipt_sha256": "d6588825c690b41ba8e428ce82ac31e0f356f55b2814270fbddea32ff99121d6",
+  "limitations": [
+    "Finite native equivalence tests do not prove global circuit exactness.",
+    "The candidate official benchmark failed; both original and candidate retain the same observed value and phase failures.",
+    "No nonce search, packet tuning, protected source changes, scorer changes or diagnostic score writes."
+  ]
+}

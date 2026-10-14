@@ -1,0 +1,103 @@
+diff --git a/src/point_add/mod.rs b/src/point_add/mod.rs
+index 292237d7..2f335c09 100755
+--- a/src/point_add/mod.rs
++++ b/src/point_add/mod.rs
+@@ -563,8 +563,11 @@ pub fn build() -> Vec<Op> {
+     // y42-railtop (leapfrog.rs `Y42_BOUND`; false = this gate list byte for byte): the edits of the four bound
+     // passes above as one table, carried to this tree's stream with the rail switches on
+     ops = y42_bound_pass::run(ops);
++    product_b3_stage_observer::save(&ops,"before-square-guard");
+     ops = square_guard::run(ops);
++    product_b3_stage_observer::save(&ops,"after-square-guard");
+     ops = linear_restore::run(ops);
++    product_b3_stage_observer::save(&ops,"after-linear-restore");
+     // SKY_REWRITE (q73b package rows: 105 rows proved exact by SAT on the q73b op stream, compiled in): replace SAT-proved linear-span CCX by CX chains.
+     // Lines: "widx c1 c2 t cst w1,w2,..|-" against this exact op stream (asserted). Skywalk stream only.
+     if !leapfrog::enabled() {
+@@ -606,6 +609,7 @@ pub fn build() -> Vec<Op> {
+     x.q_target = QubitId(0);
+     ops.extend(std::iter::repeat_n(x, 96));
+     ops = apply_tail_nonce(ops, nonce);
++    product_b3_stage_observer::save(&ops,"final");
+     ops
+ }
+ 
+@@ -662,3 +666,5 @@ pub mod constant_templates;
+ mod native_sfuse_b;
+ 
+ mod phase_cubic;
++
++mod product_b3_stage_observer;
+diff --git a/src/point_add/product_b3_stage_observer.rs b/src/point_add/product_b3_stage_observer.rs
+new file mode 100644
+index 00000000..e4be39a4
+--- /dev/null
++++ b/src/point_add/product_b3_stage_observer.rs
+@@ -0,0 +1,67 @@
++const DIRECTORY:&str="/home/hclau/ecdsa_research/overnight-20261014/product-evidence/b3-stages";
++use crate::circuit::{Op,OperationType,analyze_ops};
++use std::fs::{self,File};
++use std::io::{BufWriter,Write};
++use std::path::Path;
++const MAGIC: &[u8; 8] = b"QECCOPSZ";
++// zstd compression level. The record stream is almost pure boilerplate
++// (zero pad bytes, NO_QUBIT sentinels, near-sequential ids), so even the
++// fast default crushes it ~40x. Override with ZSTD_LEVEL for smaller/slower.
++const DEFAULT_ZSTD_LEVEL: i32 = 3;
++
++// Per-op layout (56 bytes, all little-endian):
++//   u32  kind     | u32 _pad
++//   u64  q_control2
++//   u64  q_control1
++//   u64  q_target
++//   u64  c_target
++//   u64  c_condition
++//   u64  r_target
++const OP_BYTES: usize = 56;
++
++fn zstd_level() -> i32 {
++    std::env::var("ZSTD_LEVEL")
++        .ok()
++        .and_then(|s| s.trim().parse().ok())
++        .unwrap_or(DEFAULT_ZSTD_LEVEL)
++}
++
++fn write_ops(ops: &[Op], path: &Path) -> std::io::Result<()> {
++    let tmp = path.with_extension("bin.tmp");
++    let mut w = BufWriter::new(File::create(&tmp)?);
++    // Header stays uncompressed so the trusted loader can read MAGIC and the
++    // op count (to bound memory) before touching the compressed body.
++    w.write_all(MAGIC)?;
++    w.write_all(&(ops.len() as u64).to_le_bytes())?;
++
++    // Compress the record body. The encoder owns the BufWriter; finish()
++    // flushes the zstd frame and hands it back.
++    let mut enc = zstd::stream::write::Encoder::new(w, zstd_level())?;
++    // Serialize each op into a fixed 56-byte record and stream it through the
++    // encoder, so we never materialize a second full copy of the op stream.
++    let mut rec = [0u8; OP_BYTES];
++    for op in ops {
++        rec[0..4].copy_from_slice(&(op.kind as u32).to_le_bytes());
++        rec[4..8].copy_from_slice(&[0u8; 4]); // pad
++        rec[8..16].copy_from_slice(&op.q_control2.0.to_le_bytes());
++        rec[16..24].copy_from_slice(&op.q_control1.0.to_le_bytes());
++        rec[24..32].copy_from_slice(&op.q_target.0.to_le_bytes());
++        rec[32..40].copy_from_slice(&op.c_target.0.to_le_bytes());
++        rec[40..48].copy_from_slice(&op.c_condition.0.to_le_bytes());
++        rec[48..56].copy_from_slice(&op.r_target.0.to_le_bytes());
++        enc.write_all(&rec)?;
++    }
++    let mut w = enc.finish()?;
++    w.flush()?;
++    drop(w);
++    fs::rename(&tmp, path)?;
++    Ok(())
++}
++
++
++pub(super) fn save(ops:&[Op],label:&str){
++ let directory=Path::new(DIRECTORY);let path=directory.join(format!("{label}.bin"));
++ write_ops(ops,&path).expect("source-bound diagnostic stage serialization");
++ let(nq,nb,_,_)=analyze_ops(ops.iter());let mr=ops.iter().filter(|o|matches!(o.kind,OperationType::R|OperationType::Hmr)).count();
++ eprintln!("PRODUCT_B3_STAGE label={label} ops={} nq={nq} nb={nb} measurements={mr} path={} score=NONE",ops.len(),path.display());
++}

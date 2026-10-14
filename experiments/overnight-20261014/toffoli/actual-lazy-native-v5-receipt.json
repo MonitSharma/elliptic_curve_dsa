@@ -1,0 +1,91 @@
+{
+  "status": "native_fin3_drop1_lazyC4_TT_passed_component_only",
+  "baseline_revision": "c5bb1ec876db859a3f9f8a9052c140a145df834e",
+  "source_sha256": {
+    "src/point_add/toffoli_actual_lean_cleanup_v5.rs": "a54a5203c5a85f5ad9c387ba0a5ec7fae3e6297ca42883b12dc003e52ccb4ee2",
+    "src/point_add/toffoli_actual_lean_phase_kernel_v5.rs": "330d91852ddc82740ac9bec4b8d8fb94d2ca5c5ca843fd4e56d1fed6123fab98",
+    "src/point_add/toffoli_actual_lean_tests_v5.rs": "5aed5d2a64fb60679b6e7ff422599e9578ff66934900ba4bc0a0007434f3c29d",
+    "src/point_add/y15_onefold.rs": "571eb1e578f5fe489b306acf6725bb061d71b6e50138f484d72a44611679fcd5"
+  },
+  "patch_sha256": "cb184339e8c4c845fb6b873f6bf750e1a7654d1c1f8f1854807e3b7f1b33dc3a",
+  "pid": 2606497,
+  "exit": 0,
+  "protected_tracked_changes": [],
+  "component_costs": [
+    {
+      "room": 3,
+      "new": false,
+      "emitted": 131,
+      "executed": 109936640,
+      "cases": 1048576,
+      "peak": 1251,
+      "hits": 0,
+      "semantic_MR_indices": [
+        117,
+        116,
+        118,
+        121
+      ]
+    },
+    {
+      "room": 3,
+      "new": true,
+      "emitted": 132,
+      "executed": 109019136,
+      "cases": 1048576,
+      "peak": 1251,
+      "hits": 1,
+      "semantic_MR_indices": [
+        113,
+        117,
+        120,
+        122
+      ]
+    }
+  ],
+  "exact_mean_delta": "-7/8",
+  "emitted_CCX_delta": 1,
+  "mean_method": "All16 equallyweighted semanticC6/T3/Y5/Y3 independentMR patterns forced for eachnative inputbatch; unchanged sharedprefix outcomes seeded identically. No outcome selection.",
+  "exact_allMR": {
+    "fixed_input_layout_proofs": 131072,
+    "native_cases": 2097152,
+    "maximum_phase_terms": 7,
+    "maximum_quantum_terms": 7
+  },
+  "source_callers_resource_only": [
+    {
+      "cap": 1234,
+      "room": 39,
+      "tick": 129,
+      "new": false,
+      "hits": 0,
+      "peak": 1234,
+      "emitted": 1322
+    },
+    {
+      "cap": 1234,
+      "room": 39,
+      "tick": 129,
+      "new": true,
+      "hits": 1,
+      "peak": 1234,
+      "emitted": 1323
+    }
+  ],
+  "guard_truth_sha256": "4757ab1749dafc214baa930331096042a8935131575d4de99e60bbecb6674eda",
+  "faults_detected": [
+    "removedCZ",
+    "removedC4_ORbuild",
+    "removedfirstTTbuild"
+  ],
+  "hashes": {
+    "run.log": "e3be039aca42026e8f03c78780bbb03cb6f18b4caacbc30d5a3e05b3083a93e6",
+    "settings.txt": "655d179fda3cda2b012c9c111ffaa2f71a059604f48b8e7defd637042b290a1a",
+    "test-binary.sha256": "3a68fbad9e1ca4983cf0439fd998599ae994f9cfc3669f89f9e988fe9ada76f6",
+    "receipt/receipt.json": "7aac02024cfd33ee5778f57c831a22f4c9b488cee19b4e7658b2fafccd9dcb2a"
+  },
+  "scope": "fin3/drop1,all14primitiveinputs,fourhigherwords,room3,oneactualdrop,everyq/dirty512classABI/incomingphase; storedOR guards and mutablepersistentTTneed allMRproved.",
+  "classical_ownership": "Persistentneed/complement and ownedstandaloneHMR bits explicitlycleared beforefree. Originalsharedprefix/lowcarry helpermeasurement bits retainbaselinefreebit semantics. ABI512bits checkedunchanged; no allscratchclassicalzero claim.",
+  "limits": "No fin4/deep transfer orfullbody arithmetic/phase claim. Finitehigherwords notallhigherfold proof. Completecomponent meanonly; no wholepointaddition record.",
+  "qualified_score": null
+}
