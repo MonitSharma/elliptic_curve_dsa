@@ -314,24 +314,49 @@ impl Support {
 /// Existing affine/quadratic proofs take precedence, including facts which the
 /// six-atom abstraction forgets. No interpreter sees the emitted replacements.
 pub(crate) fn simplify(ops: Vec<Op>) -> Vec<Op> {
-    simplify_with_products(ops, false)
+    simplify_with_products(ops, false, false)
 }
 
 /// Adds the original-op physical-slot product query after all existing proofs.
 pub(crate) fn simplify_products(ops: Vec<Op>) -> Vec<Op> {
-    simplify_with_products(ops, true)
+    simplify_with_products(ops, true, false)
+}
+
+/// Final-stream pass: also prove implications between distinct controls.
+/// For example a & (a XOR (a & b)) equals the second control even though
+/// neither control is constant and the two control functions differ.
+pub(crate) fn simplify_implications(ops: Vec<Op>) -> Vec<Op> {
+    simplify_with_products(ops, true, true)
 }
 
 #[path = "product_simplify.rs"]
 mod product;
 
-fn simplify_with_products(ops: Vec<Op>, use_products: bool) -> Vec<Op> {
+fn simplify_with_products(ops: Vec<Op>, use_products: bool, use_implications: bool) -> Vec<Op> {
     let mut affine = AffineSupport::new(&ops);
     let mut quadratic = QuadraticSupport::new(&ops);
     let mut truth = Support::new(&ops);
     let mut products = use_products.then(|| product::Index::new(&truth, &ops));
     let mut result = Vec::with_capacity(ops.len());
     for op in ops {
+        let implication = if use_implications && op.kind == OperationType::CCX {
+            let a = truth.qubits[op.q_control1.0 as usize].clone();
+            let b = truth.qubits[op.q_control2.0 as usize].clone();
+            let p = truth.and(&a, &b);
+            let mut condition = truth.base_condition.clone();
+            if op.c_condition != NO_BIT {
+                let bit = truth.bits[op.c_condition.0 as usize].clone();
+                condition = truth.and(&condition, &bit);
+            }
+            let toggle = truth.and(&condition, &p);
+            let ca = truth.and(&condition, &a);
+            let cb = truth.and(&condition, &b);
+            if toggle.is_zero() { Rewrite::Drop }
+            else if toggle == condition { Rewrite::X }
+            else if toggle == ca { Rewrite::Cx(op.q_control1) }
+            else if toggle == cb { Rewrite::Cx(op.q_control2) }
+            else { Rewrite::Keep }
+        } else { Rewrite::Keep };
         // Query the pre-op state; remove old keys before truth mutates it.
         let product_hit = products
             .as_mut()
@@ -347,6 +372,7 @@ fn simplify_with_products(ops: Vec<Op>, use_products: bool) -> Vec<Op> {
             (Rewrite::Keep, quadratic_proof) => quadratic_proof,
             (affine_proof, _) => affine_proof,
         };
+        let rewrite = match rewrite { Rewrite::Keep => implication, proven => proven };
         match (rewrite, product_hit) {
             (Rewrite::Keep, Some(hit)) => hit.emit(op, &mut result),
             (old_proof, _) => old_proof.emit(op, &mut result),

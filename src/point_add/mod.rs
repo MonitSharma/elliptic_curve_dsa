@@ -497,6 +497,9 @@ fn clear_process_env() {
 
 /// Leapfrog branch: the submission build emits the Leapfrog point add (see [`leapfrog::install_recipe`]).
 const LEAPFROG_SUBMISSION: bool = true;
+// The exact cleanup is a research candidate. Its changed Fiat-Shamir packet
+// has not qualified, so keep the reproduced upstream circuit as the default.
+const EXPERIMENTAL_FINAL_CLEANUP: bool = false;
 
 pub fn build() -> Vec<Op> {
     clear_process_env();
@@ -565,6 +568,7 @@ pub fn build() -> Vec<Op> {
     ops = y42_bound_pass::run(ops);
     ops = square_guard::run(ops);
     ops = linear_restore::run(ops);
+    if EXPERIMENTAL_FINAL_CLEANUP { ops = final_cleanup::run(ops); }
     // SKY_REWRITE (q73b package rows: 105 rows proved exact by SAT on the q73b op stream, compiled in): replace SAT-proved linear-span CCX by CX chains.
     // Lines: "widx c1 c2 t cst w1,w2,..|-" against this exact op stream (asserted). Skywalk stream only.
     if !leapfrog::enabled() {
@@ -651,6 +655,7 @@ mod reader_pass;
 mod y42_bound_pass;
 mod square_guard;
 mod linear_restore;
+mod final_cleanup;
 mod rowcut_base;
 mod rowcut_veto;
 mod rowcut_veto_pad;
