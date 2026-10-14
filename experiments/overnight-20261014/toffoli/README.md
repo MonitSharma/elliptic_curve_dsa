@@ -208,3 +208,59 @@ integration step must restore the baseline allocator interface exactly.
 The short fixture compilation failure and two inactive diagnostic-counter
 attempts are preserved explicitly in the component receipt. They are not
 passing resource measurements.
+
+## Third checkpoint: width route closed, broader constructor search
+
+The bank-only PRODUCT width route is closed under the retained table interface.
+The [exact width floor](bank-table-width-obstruction.json) identifies two emitted
+HMR rows of `y42_bound.bin` that reference qubit 1233. Every expected and replacement
+row in `linear_restore.bin` references qubits at most 1200, so that pass cannot
+remove either row. The unchanged scorer counts the maximum referenced qubit ID
+plus one, regardless of its conditional execution. A candidate retaining these
+tables therefore cannot score fewer than 1,234 qubits. This is a structural
+conditional floor, not a completed builder measurement. No conditional row was
+deleted based on sampled controls.
+
+The [generic allocator integration](allocator-v3-native-receipt.json) preserves
+the original body’s exact allocator ordering with a separate baseline emitter.
+It snapshots operational and diagnostic contexts, leaves tick 0 and its original
+`Y26_T0=5` setting untouched, and checks the original scratch ownership through
+the unchanged y42 setter. Both primed and initially fresh pools passed: 110 exact
+allocator-state pairs and 110 disabled-bank operation-vector pairs. The
+[v3 patch](bank-product-allocator-v3.patch) and
+[source receipt](bank-product-allocator-v3-source.json) preserve the tested source.
+
+The independent field-payload checks were intentionally kept separate. Old/new
+outputs, passengers and scratch matched over 56,320 extended-domain cases, but
+both sides fail the separate modular reference and sampled phase diagnostics:
+3,520 reference mismatches and 5,249 total sampled phase failures. Whether those
+arbitrary payload/tape-letter combinations are admitted by the actual rail
+producer is unproved. These are failed/unadmitted body-phase diagnostics, not
+passing component-phase qualification or inherited full-circuit defect claims.
+
+The [v2 complete builder failure](bank-product-failed-builder-v2.json) exposed a
+legitimate fresh scratch frontier that its primed fixtures missed. The original
+assertion was preserved; v3 adds explicit fresh-frontier tests. No further bank
+builder was launched after the static width floor closed the route. Neither
+builder attempt produced a complete stream, peak or full-circuit gate count.
+
+For cleanup, the independently ranked
+[closed low-interface subspace](phase-closed-interface-v1.json) contains final
+data but is smaller than the post-loan bank span: S has rank 23 and W has rank 40,
+with `P2(S) intersect W = S`. This excludes an all-free quadratic cleanup chain
+inside that interface, beyond the earlier greedy ordering failure. The
+[upper-coordinate extension](phase-upper-extension-v1.json) checks all 65,536
+low-plus-two-upper-input states: upper addition is a bijective translation in
+every fixed low-input group, and the corresponding ranks are 25/42/275/292 with
+intersection 25. Independent arbitrary upper-result coordinates preserve the
+obstruction. Charged nonlinear gates, retained helpers outside W and restricted
+producer domains remain outside this proof.
+
+The [first outside-direction sweep](outside-direction-v1-summary.json) tested
+90 selected rank-45 value interfaces. Eighteen closed by quadratic-span
+obstructions and 72 by trusted affine-factor UNSAT results without formal proof
+certificates. No 30-AND witness was found. A separate bounded job now examines
+all 651 four-dimensional subspaces of the six old temporary directions, adjoining
+the selected `acc3*k1` function outside the old span. The
+[third checkpoint](third-checkpoint-receipt.json) records its pending status,
+limits and process identity; it is not a negative completed result.

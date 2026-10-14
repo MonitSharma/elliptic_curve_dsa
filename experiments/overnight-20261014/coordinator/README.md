@@ -154,6 +154,22 @@ source model nor those selected paired inputs establishes full equivalence.
 
 ## Reproduction commands
 
+The third checkpoint adds an exact conditional phase checker for all18
+operation types. Each R/HMR receives its own immutable Boolean variable;
+condition snapshots and mutable classical slots retain their exact semantics.
+Four native/fault tests pass. On the cap24 Q693 source it proves38 forward or
+inverse fixed-input instances, including all256 modeled shot3713 payload
+lanes. Two other fixtures exceed the support limit; the stopped column test
+does not reach its last fixture. No nonzero-phase diagnosis follows from an
+inconclusive limit. [Complete receipt](conditional-phase-audit-receipt.json).
+
+The independent N275 geometry screen covers18,048 original denominators and512
+fixed-seed independent denominators. No quotient, parking, reciprocal or map
+domain event is flagged. Four separate regressions reproduce the old six
+source-model failures and detect insufficient reserve/cap. The screen cannot
+establish a clean third physical map owner, schedule envelopes for fresh
+inputs or quantum correctness. [Model receipt](capacity-screen-receipt.json).
+
 Copy the tracked research helpers to the isolated server cycle directory and
 run the corresponding detached launchers after resource preflight:
 

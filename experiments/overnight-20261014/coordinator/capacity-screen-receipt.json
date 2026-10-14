@@ -1,0 +1,57 @@
+{
+  "scope": "Ideal recurrence/predicted quotient, parking, reciprocal and map domains only; no emitted gates, phase, allocation proof, source-width or score",
+  "proposal": {
+    "N": 275,
+    "K_physical": 16,
+    "small_SY_max": 96,
+    "small_head": 32,
+    "large_head": 24,
+    "mixed_cap": 22,
+    "pure_HR_cap": 24,
+    "crossing_reserve": 9,
+    "ordinary_map_extra": 3
+  },
+  "guard": "Pure HR, not mixed/switch/done/delayed, col>=2 excludes wideSZ/tt, previoussw false, envelopeSYupper+23<128",
+  "original_packet_sha256": "fbeaf4f6dd9584527f974d49244d0a3af69f3f1370ef7cbe25e603061f90ba6e",
+  "schedule_sha256": "c7e4fe5362c1756a92571de754612fea9f2fadccaafceba5c1fb4b619d964076",
+  "script_sha256": "ea6e050b60ce4b7f2c66cfb5186e3ce5603d34befa742238a2250b5cab4095c7",
+  "independent_seed": 17065729509525164052,
+  "input_counts": {
+    "original_packet": 18048,
+    "independent_denominators": 512
+  },
+  "stats": {
+    "original_packet": {
+      "active_steps": 2689852,
+      "mixed_steps": 2383036,
+      "head32_steps": 2035721,
+      "pure_HR_steps": 306816,
+      "head24_steps": 654131,
+      "maximum_required_crossing_reserve": 9,
+      "q22_pure": 1,
+      "maximum_q22_outside_guard": 0
+    },
+    "independent_denominators": {
+      "active_steps": 76021,
+      "mixed_steps": 67317,
+      "head32_steps": 57575,
+      "pure_HR_steps": 8704,
+      "head24_steps": 18446,
+      "maximum_required_crossing_reserve": 6
+    }
+  },
+  "flagged": {
+    "original_packet": [],
+    "independent_denominators": []
+  },
+  "elapsed_seconds": 15.108513069339097,
+  "limitations": "No check of fresh-input schedule envelopes, carry-tail errors, quantum/measurement phase, physical donor ownership or actual N275 emitted arithmetic. Unchanged full benchmark still required.",
+  "status": "PASS_IDEAL_MODEL_ONLY",
+  "pid": 2457123,
+  "exit_code": 0,
+  "server_directory": "/home/hclau/ecdsa_research/overnight-20261014/coordinator-qubit-capacity",
+  "log_sha256": "8d454c37787652b5674210245bd65f0f3e60709a304796ed6c4c4eb473627175",
+  "preserved_executed_source": "capacity-screen-v1.py",
+  "physical_map_third_owner": "PENDING; integer geometry does not prove a clean physical lane",
+  "negative_controls": "Four local regression tests agree with original six public source-model failures, require reserve9 and detect the original QB23 cap failure"
+}

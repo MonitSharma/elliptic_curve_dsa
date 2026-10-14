@@ -1,0 +1,271 @@
+{
+  "status": "negative_exact_full_width_repair_diagnostic",
+  "qualified_score": null,
+  "baseline_revision": "c5bb1ec876db859a3f9f8a9052c140a145df834e",
+  "measurement_domain": "product-paired-fixed-measurement-v1 + little-endian batch0",
+  "packet": "product-evidence/structured-detail/structured.tsv",
+  "experiments": {
+    "unbound-base": {
+      "evidence": {
+        "generation_log": {
+          "path": "product-evidence/unbound-base/run.log",
+          "sha256": "835400ab046148049d4e6ebe2e02937a656f8bdc48426059041bf0231d0b66d1"
+        },
+        "native_log": {
+          "path": "product-evidence/unbound-base/consumer-family.log",
+          "sha256": "04753e131bc65a84b6b741bb5bc6ccab8d2510ed4130b6c072ec24533a660bca"
+        },
+        "raw_stream": {
+          "path": "product-evidence/unbound-base/raw-ops.bin",
+          "sha256": "cd8e47b231cee72de1eb984b546bfefb99333118bcbec6d447d913778eb169e5"
+        },
+        "native_source": {
+          "path": "product-consumer-prefix-replay/src/main.rs",
+          "sha256": "619c75d8cb36050a180390ea93c9e25d104714d8f1ecd2c73891cc7e8e33497f"
+        },
+        "native_manifest": {
+          "path": "product-consumer-prefix-replay/Cargo.toml",
+          "sha256": "1e3c4520fd6cf07191db0b1cef36ff3b59271028f6c2a79dd194824901b46e07"
+        },
+        "native_binary": {
+          "path": "product-consumer-prefix-v2-target/release/product_consumer_prefix_replay",
+          "sha256": "d8753275f95347d8f0be489ce77d8b9ea40e3a1dda17edd3e05d547833e7d109"
+        },
+        "builder_binary": {
+          "path": "product-zero-target/release/build_circuit",
+          "sha256": "0f643ccab2450e30598633f9f3d86139c2f4a8a8d03b24a1d848041c207f2d38"
+        },
+        "src/point_add/builder.rs": {
+          "path": "product-unbound-base/src/point_add/builder.rs",
+          "sha256": "8d610fe2c1f42451a15cd4e1cc054e63cb9815f7c7b708bf11f3c2c64a4f7d41"
+        },
+        "src/point_add/leapfrog.rs": {
+          "path": "product-unbound-base/src/point_add/leapfrog.rs",
+          "sha256": "6a74aeb2f1624997fa85b5ee7c613fd9a7916f95c20c7027fde5de2f2265467b"
+        },
+        "src/point_add/square.rs": {
+          "path": "product-unbound-base/src/point_add/square.rs",
+          "sha256": "93820a4440d9e553a96cc104ceb3256fef05424f2b201ba87377f270b4058664"
+        },
+        "src/bin/eval_circuit.rs": {
+          "path": "product-unbound-base/src/bin/eval_circuit.rs",
+          "sha256": "b35314bc47a5f8eecbf60459e6c76c9b43aa034eeb9b7ec3421655d74f9e890b"
+        },
+        "src/sim.rs": {
+          "path": "product-unbound-base/src/sim.rs",
+          "sha256": "f0c72f2a280cd68acee1dbf8282098f72d6b3bf4311e0abf96d122fe002256d7"
+        },
+        "src/circuit.rs": {
+          "path": "product-unbound-base/src/circuit.rs",
+          "sha256": "ac2255f6bcb6895c9da2dfe21c3a051a0ef8fc4e0af9598634fec0035dbf35c6"
+        },
+        "src/weierstrass_elliptic_curve.rs": {
+          "path": "product-unbound-base/src/weierstrass_elliptic_curve.rs",
+          "sha256": "ecfca15ee3b831c243fbea559ff4b8937be47fe591a4f14786ec2b9bfb30bded"
+        },
+        "Cargo.toml": {
+          "path": "product-unbound-base/Cargo.toml",
+          "sha256": "3c80178b08d29a158abb29a7dcb8eefc67c66f60f2c3bd14483b65eeca0740dc"
+        },
+        "Cargo.lock": {
+          "path": "product-unbound-base/Cargo.lock",
+          "sha256": "42ff16919e551891ad1b21821329b116d133194245a0e0734a33573dfe598e07"
+        },
+        "benchmark.sh": {
+          "path": "product-unbound-base/benchmark.sh",
+          "sha256": "122a65431ad42a1bad5114af9e8f8301fe5cb08c01adaeee00799c9f0d0ed92a"
+        }
+      },
+      "generation_exit": 101,
+      "native_exit": 0,
+      "flags": {
+        "y42_unbound": true,
+        "y42_alloc": false,
+        "sq_asm_tail": 18,
+        "full_cross": false
+      },
+      "runtime_path_verified": true,
+      "family_counts": {
+        "(('minus2A', 'nonzero'), 'shots')": 32,
+        "(('minus2A', 'nonzero'), 'x_bad')": 0,
+        "(('minus2A', 'nonzero'), 'y_bad')": 32,
+        "(('minus2A', 'nonzero'), 'dirty')": 0,
+        "(('minus2A', 'nonzero'), 'classical_input_changed')": 0,
+        "(('minus2A', 'nonzero'), 'phase_bad')": 15,
+        "(('zero_slope', 'literal0'), 'shots')": 18,
+        "(('zero_slope', 'literal0'), 'x_bad')": 18,
+        "(('zero_slope', 'literal0'), 'y_bad')": 0,
+        "(('zero_slope', 'literal0'), 'dirty')": 0,
+        "(('zero_slope', 'literal0'), 'classical_input_changed')": 0,
+        "(('zero_slope', 'literal0'), 'phase_bad')": 9,
+        "(('zero_slope', 'p'), 'shots')": 14,
+        "(('zero_slope', 'p'), 'x_bad')": 0,
+        "(('zero_slope', 'p'), 'y_bad')": 0,
+        "(('zero_slope', 'p'), 'dirty')": 0,
+        "(('zero_slope', 'p'), 'classical_input_changed')": 0,
+        "(('zero_slope', 'p'), 'phase_bad')": 6
+      },
+      "r0_delta_counts": {
+        "('minus2A', '0x0', 'true', 'true')": 32,
+        "('zero_slope', '0xfff00002c2a00b770b800b77ffc007a40ba00b71869ffc2adcbfe54c000e9c14', 'true', 'true')": 18,
+        "('zero_slope', '0x0', 'true', 'true')": 14
+      },
+      "phase_at_prefix": {
+        "('coord_y_sub', 'minus2A', 'nonzero')": 0,
+        "('coord_y_sub', 'zero_slope', 'literal0')": 0,
+        "('coord_y_sub', 'zero_slope', 'p')": 0,
+        "('divide', 'minus2A', 'nonzero')": 0,
+        "('divide', 'zero_slope', 'literal0')": 8,
+        "('divide', 'zero_slope', 'p')": 6,
+        "('square', 'minus2A', 'nonzero')": 0,
+        "('square', 'zero_slope', 'literal0')": 9,
+        "('square', 'zero_slope', 'p')": 6,
+        "('multiply', 'minus2A', 'nonzero')": 15,
+        "('multiply', 'zero_slope', 'literal0')": 9,
+        "('multiply', 'zero_slope', 'p')": 6,
+        "('coord_y_sub_final', 'minus2A', 'nonzero')": 15,
+        "('coord_y_sub_final', 'zero_slope', 'literal0')": 9,
+        "('coord_y_sub_final', 'zero_slope', 'p')": 6
+      },
+      "qualified_score": null
+    },
+    "unbound-full-cross-v2": {
+      "evidence": {
+        "generation_log": {
+          "path": "product-evidence/unbound-full-cross-v2/run.log",
+          "sha256": "c435c83c77e04e34579758948997a58dd98358c9272f89a84aea987c011479d5"
+        },
+        "native_log": {
+          "path": "product-evidence/unbound-full-cross-v2/consumer-family.log",
+          "sha256": "dff91e46cb401e6ad2fd6e5ef58bcb0578fd55d9e058498ba36b3a1c6cea4b00"
+        },
+        "raw_stream": {
+          "path": "product-evidence/unbound-full-cross-v2/raw-ops.bin",
+          "sha256": "c2c6987b7b97b3175cbd7947699c651c7b324f4c9412d439e7a9b4658a4ac272"
+        },
+        "native_source": {
+          "path": "product-consumer-prefix-replay/src/main.rs",
+          "sha256": "619c75d8cb36050a180390ea93c9e25d104714d8f1ecd2c73891cc7e8e33497f"
+        },
+        "native_manifest": {
+          "path": "product-consumer-prefix-replay/Cargo.toml",
+          "sha256": "1e3c4520fd6cf07191db0b1cef36ff3b59271028f6c2a79dd194824901b46e07"
+        },
+        "native_binary": {
+          "path": "product-consumer-prefix-v2-target/release/product_consumer_prefix_replay",
+          "sha256": "d8753275f95347d8f0be489ce77d8b9ea40e3a1dda17edd3e05d547833e7d109"
+        },
+        "builder_binary": {
+          "path": "product-unbound-full-cross-v2-target/release/build_circuit",
+          "sha256": "b34a3eaa64898f89672e8d795380110d1658129383e98a82d26267ad23733d3f"
+        },
+        "src/point_add/builder.rs": {
+          "path": "product-unbound-full-cross/src/point_add/builder.rs",
+          "sha256": "aacbe2f20a7f06b1da9555bff95459fbf6d47451c10206a2e49b7fc1ea2f18c7"
+        },
+        "src/point_add/leapfrog.rs": {
+          "path": "product-unbound-full-cross/src/point_add/leapfrog.rs",
+          "sha256": "6a74aeb2f1624997fa85b5ee7c613fd9a7916f95c20c7027fde5de2f2265467b"
+        },
+        "src/point_add/square.rs": {
+          "path": "product-unbound-full-cross/src/point_add/square.rs",
+          "sha256": "25d4d43a86e27fba6133daa7e9ad322d8225e952482826fba07678345c5b5175"
+        },
+        "src/bin/eval_circuit.rs": {
+          "path": "product-unbound-full-cross/src/bin/eval_circuit.rs",
+          "sha256": "b35314bc47a5f8eecbf60459e6c76c9b43aa034eeb9b7ec3421655d74f9e890b"
+        },
+        "src/sim.rs": {
+          "path": "product-unbound-full-cross/src/sim.rs",
+          "sha256": "f0c72f2a280cd68acee1dbf8282098f72d6b3bf4311e0abf96d122fe002256d7"
+        },
+        "src/circuit.rs": {
+          "path": "product-unbound-full-cross/src/circuit.rs",
+          "sha256": "ac2255f6bcb6895c9da2dfe21c3a051a0ef8fc4e0af9598634fec0035dbf35c6"
+        },
+        "src/weierstrass_elliptic_curve.rs": {
+          "path": "product-unbound-full-cross/src/weierstrass_elliptic_curve.rs",
+          "sha256": "ecfca15ee3b831c243fbea559ff4b8937be47fe591a4f14786ec2b9bfb30bded"
+        },
+        "Cargo.toml": {
+          "path": "product-unbound-full-cross/Cargo.toml",
+          "sha256": "3c80178b08d29a158abb29a7dcb8eefc67c66f60f2c3bd14483b65eeca0740dc"
+        },
+        "Cargo.lock": {
+          "path": "product-unbound-full-cross/Cargo.lock",
+          "sha256": "42ff16919e551891ad1b21821329b116d133194245a0e0734a33573dfe598e07"
+        },
+        "benchmark.sh": {
+          "path": "product-unbound-full-cross/benchmark.sh",
+          "sha256": "122a65431ad42a1bad5114af9e8f8301fe5cb08c01adaeee00799c9f0d0ed92a"
+        }
+      },
+      "generation_exit": 101,
+      "native_exit": 0,
+      "flags": {
+        "y42_unbound": true,
+        "y42_alloc": false,
+        "sq_asm_tail": 18,
+        "full_cross": true
+      },
+      "runtime_path_verified": true,
+      "family_counts": {
+        "(('minus2A', 'nonzero'), 'shots')": 32,
+        "(('minus2A', 'nonzero'), 'x_bad')": 0,
+        "(('minus2A', 'nonzero'), 'y_bad')": 32,
+        "(('minus2A', 'nonzero'), 'dirty')": 0,
+        "(('minus2A', 'nonzero'), 'classical_input_changed')": 0,
+        "(('minus2A', 'nonzero'), 'phase_bad')": 20,
+        "(('zero_slope', 'literal0'), 'shots')": 18,
+        "(('zero_slope', 'literal0'), 'x_bad')": 18,
+        "(('zero_slope', 'literal0'), 'y_bad')": 0,
+        "(('zero_slope', 'literal0'), 'dirty')": 0,
+        "(('zero_slope', 'literal0'), 'classical_input_changed')": 0,
+        "(('zero_slope', 'literal0'), 'phase_bad')": 14,
+        "(('zero_slope', 'p'), 'shots')": 14,
+        "(('zero_slope', 'p'), 'x_bad')": 0,
+        "(('zero_slope', 'p'), 'y_bad')": 0,
+        "(('zero_slope', 'p'), 'dirty')": 0,
+        "(('zero_slope', 'p'), 'classical_input_changed')": 0,
+        "(('zero_slope', 'p'), 'phase_bad')": 6
+      },
+      "r0_delta_counts": {
+        "('minus2A', '0x0', 'true', 'true')": 32,
+        "('zero_slope', '0xffc00001000003d400000b73fffff86100000b7600000b6bffffe54c000e9c14', 'true', 'true')": 18,
+        "('zero_slope', '0x0', 'true', 'true')": 14
+      },
+      "phase_at_prefix": {
+        "('coord_y_sub', 'minus2A', 'nonzero')": 0,
+        "('coord_y_sub', 'zero_slope', 'literal0')": 0,
+        "('coord_y_sub', 'zero_slope', 'p')": 0,
+        "('divide', 'minus2A', 'nonzero')": 0,
+        "('divide', 'zero_slope', 'literal0')": 8,
+        "('divide', 'zero_slope', 'p')": 6,
+        "('square', 'minus2A', 'nonzero')": 0,
+        "('square', 'zero_slope', 'literal0')": 9,
+        "('square', 'zero_slope', 'p')": 6,
+        "('multiply', 'minus2A', 'nonzero')": 20,
+        "('multiply', 'zero_slope', 'literal0')": 14,
+        "('multiply', 'zero_slope', 'p')": 6,
+        "('coord_y_sub_final', 'minus2A', 'nonzero')": 20,
+        "('coord_y_sub_final', 'zero_slope', 'literal0')": 14,
+        "('coord_y_sub_final', 'zero_slope', 'p')": 6
+      },
+      "qualified_score": null
+    }
+  },
+  "packet_sha256": "06f780d0ceb90585eb5142a4fd1e62cb3b7eb2b403ea40649e563d376992a1dd",
+  "same_native_helper_binary": true,
+  "distinct_builder_binaries": true,
+  "excluded_cached_run": {
+    "status": "invalid_cached_binary",
+    "generation_exit": 101,
+    "native_exit": 1,
+    "source_receipt_sha256": "7fc2d254e43b861d509514811a659effba7f2b5cbc34ab13f3c396336695c0ef",
+    "log_sha256": "bffae572a35ec6b247f160c80d751579b98484c0b561b4b2579e5a1f190b7a56",
+    "native_log_sha256": "993ff6508086f54acaf28382dee0a861e0752618ea6a17e2981a9601f129e66a",
+    "reason": "Identical prior baseline binary and runtime raw snapshot path; no variant stream or simulation.",
+    "arithmetic_evidence_accepted": false
+  },
+  "limitations": "One64shot coupled raw packet; no independent repair follow-up because repair failed. Shared measurement domain but different MR locations. Later bound pipeline failed101; no final pipeline or qualified score."
+}

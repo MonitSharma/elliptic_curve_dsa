@@ -1,0 +1,23 @@
+{
+  "status": "upper_result_coordinate_extension_preserves_closed_phase_obstruction",
+  "source_lf_sha256": "879b85060f6a5cfa412561d64860f1cab697f7a334f180f5be9102070d5a23b9",
+  "netlist_sha256": "d6bf2410418bd8707d5768ca274ba74ce79c7e5964189605bdb2b33d22977b85",
+  "certificate_sha256": "bf2657424c0af0aa119a178f31812fc2790af1661f251ae64c45be0d89f629ad",
+  "checked_inputs": 65536,
+  "fixed_lower_input_groups": 16384,
+  "upper_translation_groups_bijective": 16384,
+  "S_rank": 25,
+  "W_rank": 42,
+  "P2_S_rank": 275,
+  "P2_S_plus_W_rank": 292,
+  "intersection_rank": 25,
+  "final_data_rank": 17,
+  "translation_distribution": {
+    "0": 4088,
+    "1": 4160,
+    "2": 4104,
+    "3": 4032
+  },
+  "tensor_argument": "For each fixed constructor input, addition translates the arbitrary upper register bijectively, so upper result bits are independent coordinates u. W*=W\u2295span(u), S*=S\u2295span(u). In a quadratic expression from S*, all coefficients of u_i and u_i*u_j must cancel separately to yield an old-low function. Thus P2(S*)\u2229W*=S*, inherited from P2(S)\u2229W=S. The argument extends to any number of independent upper-result bits.",
+  "scope": "Unrestricted constructor primitive: arbitrary upper input words, 14 independent low/control inputs, and cleanup using only linear value operations and free quadratic Z/CZ measurement repair. A retained helper outside W, a charged nonlinear value/phase gate, or a restricted producer domain can escape. This is not an all-input point-addition proof, nor a bound on every possible cleanup cost."
+}

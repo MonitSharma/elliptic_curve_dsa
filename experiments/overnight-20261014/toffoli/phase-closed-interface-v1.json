@@ -1,0 +1,67 @@
+{
+  "status": "proper_closed_subspace_excludes_all_free_quadratic_cleanup",
+  "source_lf_sha256": "879b85060f6a5cfa412561d64860f1cab697f7a334f180f5be9102070d5a23b9",
+  "netlist_sha256": "d6bf2410418bd8707d5768ca274ba74ce79c7e5964189605bdb2b33d22977b85",
+  "constructor_certificate_sha256": "bf2657424c0af0aa119a178f31812fc2790af1661f251ae64c45be0d89f629ad",
+  "domain_rows": 16384,
+  "final_data_rank": 15,
+  "closed_span_rank": 23,
+  "loan_interface_rank": 40,
+  "quadratic_product_span_rank": 228,
+  "product_plus_interface_rank": 245,
+  "intersection_rank": 23,
+  "final_data_inside_closed_span": true,
+  "closed_prefix_gates": [
+    [
+      2,
+      128
+    ],
+    [
+      2,
+      1024
+    ],
+    [
+      32772,
+      33024
+    ],
+    [
+      163848,
+      164352
+    ],
+    [
+      16,
+      425984
+    ],
+    [
+      525314,
+      524320
+    ],
+    [
+      68610,
+      2052
+    ],
+    [
+      1641478,
+      1572928
+    ]
+  ],
+  "final_data_closed_coordinates": [
+    1,
+    130,
+    33028,
+    164360,
+    426000,
+    525346,
+    1641542,
+    128,
+    256,
+    512,
+    1024,
+    2048,
+    4096,
+    8192,
+    16384
+  ],
+  "argument": "All live functions after the six early erases lie in W. A reversible linear write/rebase preserves the current function span. A zero-Toffoli measurement erase with exact quadratic phase requires its measured function to belong to P2(the remaining span). Reverse any hypothetical cleanup chain from final D: induction keeps each restored function in S, since remaining spans are contained in S and P2(S) intersect W=S. The initial W has rank greater than S, contradiction.",
+  "limits": "Only this complete W-to-D low-domain interface with quadratic (free Z/CZ) phase repair and no nonlinear value gates. Does not exclude cleanup with one or more Toffolis, higher-degree phase gates, retained hidden bank directions, or other consumer interfaces. Native full-circuit applicability requires boundary/domain proof."
+}

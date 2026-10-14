@@ -1,0 +1,45 @@
+{
+  "scope": "Isolated crossing components; no full point-addition score",
+  "source_revision": "c95b9325913abacca9c86bdebad10a20633cd04e",
+  "reserve7_negative": {
+    "test_exit": 0,
+    "semantic_pass": false,
+    "native_phase": "e4ab59b29f1b2d3e",
+    "inverse_restores": false,
+    "column": 60,
+    "shot": 3713
+  },
+  "reserve9_native": {
+    "lanes": 832,
+    "runtime_seconds": 25.35,
+    "payload": false,
+    "exit": 0,
+    "measurement_coefficients": "UNASSESSED",
+    "width": 693,
+    "native_sampled_phase": 0,
+    "manifest": "candidate-reserve9-manifest.json",
+    "all_wire_inverse": true,
+    "columns": 13
+  },
+  "reserve9_payload": {
+    "width": 693,
+    "shot": 3713,
+    "lanes": 256,
+    "manifest": "candidate-reserve9-payload-manifest.json",
+    "native_sampled_phase": 0,
+    "all_wire_inverse": true,
+    "measurement_coefficients": "UNASSESSED",
+    "column": 60,
+    "dy_inputs": "0,1,p-1 and four independently seeded varied sets",
+    "oracle": "unchanged tests_frogdrop pl_model and pl_lanes_pre/off",
+    "measurement_rng": "unchanged frogdrop-test domain",
+    "runtime_seconds": 3.04,
+    "exit": 0
+  },
+  "evidence_sha256": {
+    "reserve9-native-components.log": "c2614b2b191815d853250dfb45fa65e5f57b833f9d1e971745d58e5cb216d7aa",
+    "reserve9-component-reserve7-negative.log": "dc2b81610cde6f8d0562f3556db9d2bc191813136c556902be0a02fb04d8cd68",
+    "reserve9-candidate-reserve9.log": "a05e80b655cb0d71f0123e78ab2b14e7fd9394a6a6ecfd06d36730666faf7f7d",
+    "reserve9-payload-components.log": "1a1277bd922592ba02e55860fe5cd78a3d2bdf301aeebe5e13edac05d6f0f352"
+  }
+}

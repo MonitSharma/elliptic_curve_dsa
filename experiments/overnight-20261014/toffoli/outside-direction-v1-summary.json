@@ -1,0 +1,47 @@
+{
+  "status": "no_witness_in_selected_interfaces",
+  "source_lf_sha256": "879b85060f6a5cfa412561d64860f1cab697f7a334f180f5be9102070d5a23b9",
+  "netlist_sha256": "d6bf2410418bd8707d5768ca274ba74ce79c7e5964189605bdb2b33d22977b85",
+  "domain_rows": 16384,
+  "old_function_span_rank": 46,
+  "selected_interface_rank": 45,
+  "selected_raw_pairs": [
+    [
+      4,
+      13
+    ],
+    [
+      4,
+      14
+    ],
+    [
+      5,
+      13
+    ],
+    [
+      5,
+      14
+    ],
+    [
+      6,
+      13
+    ],
+    [
+      6,
+      14
+    ]
+  ],
+  "interfaces": 90,
+  "status_counts": {
+    "chosen_interface_affine_product_obstruction": 72,
+    "exact_quadratic_span_obstruction": 18
+  },
+  "seconds": 80.16172755509615,
+  "raw_receipt_sha256": "6396231da35b5f9e9ce904f89cc3dea86a4dc1abccf83ed5aef3813a3296ca6f",
+  "raw_receipt_bytes": 891033,
+  "log_sha256": "a4048f151b36908a98b2c9e3853a5d9ae8658d693dcccf7c395817ef70990d00",
+  "settings_sha256": "0450236dbafae06f1c7cac6c2d0f84d29efa6e44814512e80ad68f69b9fd5d3d",
+  "limits": "Restricted constructive probe only. Solver UNSAT has no saved formal certificate; unknown/incomplete interfaces remain open. No global optimality or complete gate-cost conclusion.",
+  "scope": "One selected pure raw-input quadratic outside the original span plus four selected original extra directions modulo the complete output span. Negative results cover only these explicitly selected interfaces.",
+  "next": "Permit four-dimensional linear combinations of the six old temporary directions, rather than only15 coordinate subsets; these are651 subspaces per selected outside function."
+}

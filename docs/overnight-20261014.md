@@ -176,3 +176,51 @@ Matched unbound diagnostic runs will test the arithmetic hypothesis.
 [Source-bound production diagnosis](../experiments/overnight-20261014/product/production-square-diagnosis.md).
 
 No original candidate has qualified. The10-hour research window remains active.
+
+## Third-hour checkpoint
+
+The latest refresh still has1,562 submissions,1,221 eligible records and45
+Pareto points. All three leaders and strict targets are unchanged. No original
+candidate is admitted as a scored result.
+
+At Q693, the integrated reserve9, K24/K32 reciprocal partition and restricted
+24-bit pure-HR quotient prototype passes its native column, payload and dirty
+owner tests. A second prototype adds PH as the22nd quotient-bit owner while
+holding the existing HR guard through correction. Both remain component-only.
+An independent exact Boolean-ring checker proves zero phase for **all** R/HMR
+outcomes on the256 admitted shot3713 payload lanes and256 dirty preposition
+lanes, plus11 no-payload columns. The8048 payload and12th column exceed its
+8192-term limit; these are inconclusive, not phase counterexamples. The13th
+column is not reached. [Source-bound phase evidence](../experiments/overnight-20261014/coordinator/conditional-phase-audit-receipt.json).
+
+The proposed N275/K16 geometry, mixed22-bit quotient cap and restricted24-bit
+pure-HR cap clears the ideal quotient, reciprocal, parking and map predicates
+on18,048 original division inputs plus512 independently seeded denominators.
+The same independent helper reproduces all six old public-model failures as
+negative controls. It does not prove fresh schedule envelopes or physical
+wire ownership. A third clean ordinary-map extension owner remains an explicit
+implementation obligation. [Model receipt](../experiments/overnight-20261014/coordinator/capacity-screen-receipt.json).
+
+The six-wire constructor bank route cannot reduce complete width under the
+retained binding: untouched public table rows still reference q1233. Restoring
+the allocator interface passes110 primed/fresh allocator checks and110 exact
+disabled-bank stream pairs, but broader body oracle/phase cases remain outside
+the proved producer domain. A stronger algebraic cleanup obstruction and90
+restricted external-direction interfaces have been archived; no witness or
+complete resource improvement is found. [Third constructor checkpoint](../experiments/overnight-20261014/toffoli/third-checkpoint-receipt.json).
+
+Matched, separately built unbound square diagnostics confirm that full-width
+cross carry alone does not repair the literal-zero residue. Exact integer
+modeling accounts for wrapped negative leaf representations and the signed
+top masks; a source-observed129-bit producer discrepancy already exists before
+the loan. A new uniform+2 bias protocol passes159,232 exhaustive small native
+leaf/node cases with dirty XOR consumers, default/tight phase caps and32 fixed
+measurement patterns. This is a finite component test, not an all-measurement
+or full point-addition result. Production-sized producer and coupled consumer
+checks continue; inherited division-zero phase errors remain separate.
+[Producer diagnosis](../experiments/overnight-20261014/product/producer-identity-diagnosis.md),
+[new component receipt](../experiments/overnight-20261014/product/positive-bias-small-receipt.json).
+
+No new complete passing benchmark is claimed. Research continues until the
+20:14:23 UTC deadline, with source patches, failed attempts and active-job
+records preserved separately from public scored results.

@@ -1,0 +1,38 @@
+{
+  "collected_at_utc": "2026-10-14T12:25:00.361189+00:00",
+  "checkout": "/home/hclau/ecdsa_research/overnight-20261014/product-unbound-full-cross",
+  "baseline_revision": "c5bb1ec876db859a3f9f8a9052c140a145df834e",
+  "candidate_patch_sha256": "c2e37af36c93e793be018fbc16e69447b0fc4ed3824011d93ecb90b623d2daca",
+  "source_sha256": {
+    "src/point_add/builder.rs": "b97f3a0a28368b8fb7559033bfcb955f542f9cf057f2e24ce68f770f4e55b4b3",
+    "src/point_add/leapfrog.rs": "6a74aeb2f1624997fa85b5ee7c613fd9a7916f95c20c7027fde5de2f2265467b",
+    "src/point_add/square.rs": "25d4d43a86e27fba6133daa7e9ad322d8225e952482826fba07678345c5b5175"
+  },
+  "protected_tracked_changes": [],
+  "generated_results_tsv_changed": false,
+  "other_untracked_files": [],
+  "evidence_kind": "research_diagnostic",
+  "status": "failed",
+  "qualified_score": null,
+  "protected_sha256": {
+    "benchmark.sh": "122a65431ad42a1bad5114af9e8f8301fe5cb08c01adaeee00799c9f0d0ed92a",
+    "Cargo.toml": "3c80178b08d29a158abb29a7dcb8eefc67c66f60f2c3bd14483b65eeca0740dc",
+    "Cargo.lock": "42ff16919e551891ad1b21821329b116d133194245a0e0734a33573dfe598e07",
+    "rust-toolchain": "92b454c1ccf330de9b94242f73bc3214370fb420d5152baeec12dc82ceef9dcc",
+    "src/bin/eval_circuit.rs": "b35314bc47a5f8eecbf60459e6c76c9b43aa034eeb9b7ec3421655d74f9e890b",
+    "src/bin/build_circuit.rs": "ac013f1d851156a117c7d41ddb16cb5bb014ed4e6ed4679df143207b46852f33",
+    "src/circuit.rs": "ac2255f6bcb6895c9da2dfe21c3a051a0ef8fc4e0af9598634fec0035dbf35c6",
+    "src/sim.rs": "f0c72f2a280cd68acee1dbf8282098f72d6b3bf4311e0abf96d122fe002256d7",
+    "src/weierstrass_elliptic_curve.rs": "ecfca15ee3b831c243fbea559ff4b8937be47fe591a4f14786ec2b9bfb30bded"
+  },
+  "log": {
+    "path": "/home/hclau/ecdsa_research/overnight-20261014/product-evidence/unbound-full-cross/run.log",
+    "sha256": "525d44245cfa31f7c5980a2476e96dfb5ebbefcddc8dd0f12c9000cc08c5d269"
+  },
+  "exit_status": 101,
+  "failure_counts": {
+    "classical_mismatches": null,
+    "phase_garbage_batches": null,
+    "ancilla_garbage_batches": null
+  }
+}

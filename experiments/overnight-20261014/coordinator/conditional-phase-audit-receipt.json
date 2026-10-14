@@ -1,0 +1,317 @@
+{
+  "status": "PARTIAL_EXACT_PROOF_WITH_TWO_INCONCLUSIVE_SUPPORT_LIMITS",
+  "qualified_score": null,
+  "kernel": {
+    "scope": "Exact Boolean ANF for all independently indexed R/HMR outcomes on fixed64-lane basis-input packets; not a universal input proof",
+    "source": "phase-polynomial-v1.rs",
+    "sha256": "330d91852ddc82740ac9bec4b8d8fb94d2ca5c5ca843fd4e56d1fed6123fab98",
+    "native_tests": 4,
+    "native_tests_exit": 0,
+    "native_test_pid": 2423409,
+    "native_log_sha256": "e7e858337a5935700da24e65a0d823fe28bdea00014a173a35fa1d5a094e6017"
+  },
+  "source": {
+    "source": "/home/hclau/ecdsa_research/overnight-20261014/qubits/candidate-cap24-purehr",
+    "source_sha256": {
+      "frogdrop.rs": "3df45378dcb9ebfbae1c19d4c213f15cf6dbe2433ff0567d919cf697dd5bedeb",
+      "midg.rs": "8779b14bfa4dccfb54b39136bec6323b73d336168da6faf4588c5801e957bc30",
+      "pointadd_frogdrop.rs": "ddab44d5f487a2e3de104ce77ddaad18019a9eb024780ab267579ad49836e544",
+      "tests_midg_k24.rs": "0938f1ad33002a7e8c01cbcdb122ba5297c3382ecc9a990a1f8f414f4ea66172",
+      "mod.rs": "7ca941310f6bfc93f415a09dd95faa1f9f3f53301178e3751825819f40d61a1c"
+    },
+    "kernel_sha256": "330d91852ddc82740ac9bec4b8d8fb94d2ca5c5ca843fd4e56d1fed6123fab98",
+    "research_test_sha256": "ae689258a7faae8208ca7a9b95229e367312311a636745c979d0c009c223c08a",
+    "public_builder_serializer_source_sha256": "ac013f1d851156a117c7d41ddb16cb5bb014ed4e6ed4679df143207b46852f33",
+    "added_phase_calls": [
+      "coordinator_reserve9_columns_phase_proof",
+      "coordinator_reserve9_payload_phase_proof",
+      "coordinator_cap24_8048_payload_phase_proof"
+    ],
+    "scope": "13 no-payload columns plus modeled payload inputs for3713 and optionally8048. Exact Boolean ANF for all independent R/HMR outcomes; finite admitted INPUT domain only. No score or full-circuit qualification."
+  },
+  "pid": 2446538,
+  "exit_code": 101,
+  "elapsed_seconds": 86.96,
+  "peak_RSS_KiB": 843360,
+  "server_directory": "/home/hclau/ecdsa_research/overnight-20261014/coordinator-qubit-phase-v3",
+  "log_sha256": "9b670325ad04a9bf5e46ac53982dc81976d5d271e75535b698d1ae2ba3e41ec9",
+  "passes": [
+    "3713reserve9payload256lanes forward/inverse",
+    "q23SWpreposition256dirtylanes forward/inverse",
+    "first11of13no-payloadcolumns64lanes each forward/inverse"
+  ],
+  "inconclusive": [
+    "8048payload proof exceeds8192 ANF support",
+    "12thno-payloadcolumn exceeds8192 ANF support;13thnotreached"
+  ],
+  "proof_instances": [
+    {
+      "ops": 3752,
+      "measurement_variables": 0,
+      "maximum_phase_terms": 0,
+      "maximum_quantum_terms": 1
+    },
+    {
+      "ops": 3752,
+      "measurement_variables": 0,
+      "maximum_phase_terms": 0,
+      "maximum_quantum_terms": 1
+    },
+    {
+      "ops": 3752,
+      "measurement_variables": 0,
+      "maximum_phase_terms": 0,
+      "maximum_quantum_terms": 1
+    },
+    {
+      "ops": 3752,
+      "measurement_variables": 0,
+      "maximum_phase_terms": 0,
+      "maximum_quantum_terms": 1
+    },
+    {
+      "ops": 3752,
+      "measurement_variables": 0,
+      "maximum_phase_terms": 0,
+      "maximum_quantum_terms": 1
+    },
+    {
+      "ops": 3752,
+      "measurement_variables": 0,
+      "maximum_phase_terms": 0,
+      "maximum_quantum_terms": 1
+    },
+    {
+      "ops": 3752,
+      "measurement_variables": 0,
+      "maximum_phase_terms": 0,
+      "maximum_quantum_terms": 1
+    },
+    {
+      "ops": 3752,
+      "measurement_variables": 0,
+      "maximum_phase_terms": 0,
+      "maximum_quantum_terms": 1
+    },
+    {
+      "ops": 4682430,
+      "measurement_variables": 15717,
+      "maximum_phase_terms": 1,
+      "maximum_quantum_terms": 2
+    },
+    {
+      "ops": 4682430,
+      "measurement_variables": 15717,
+      "maximum_phase_terms": 1,
+      "maximum_quantum_terms": 2
+    },
+    {
+      "ops": 4697583,
+      "measurement_variables": 15951,
+      "maximum_phase_terms": 1,
+      "maximum_quantum_terms": 2
+    },
+    {
+      "ops": 4697583,
+      "measurement_variables": 15951,
+      "maximum_phase_terms": 1,
+      "maximum_quantum_terms": 2
+    },
+    {
+      "ops": 4697916,
+      "measurement_variables": 15960,
+      "maximum_phase_terms": 1,
+      "maximum_quantum_terms": 2
+    },
+    {
+      "ops": 4697916,
+      "measurement_variables": 15960,
+      "maximum_phase_terms": 1,
+      "maximum_quantum_terms": 2
+    },
+    {
+      "ops": 4647855,
+      "measurement_variables": 15260,
+      "maximum_phase_terms": 1,
+      "maximum_quantum_terms": 2
+    },
+    {
+      "ops": 4647855,
+      "measurement_variables": 15260,
+      "maximum_phase_terms": 1,
+      "maximum_quantum_terms": 2
+    },
+    {
+      "ops": 4692493,
+      "measurement_variables": 16269,
+      "maximum_phase_terms": 1,
+      "maximum_quantum_terms": 2
+    },
+    {
+      "ops": 4692493,
+      "measurement_variables": 16269,
+      "maximum_phase_terms": 1,
+      "maximum_quantum_terms": 2
+    },
+    {
+      "ops": 4734583,
+      "measurement_variables": 16949,
+      "maximum_phase_terms": 1,
+      "maximum_quantum_terms": 2
+    },
+    {
+      "ops": 4734583,
+      "measurement_variables": 16949,
+      "maximum_phase_terms": 1,
+      "maximum_quantum_terms": 2
+    },
+    {
+      "ops": 4794590,
+      "measurement_variables": 18027,
+      "maximum_phase_terms": 1,
+      "maximum_quantum_terms": 2
+    },
+    {
+      "ops": 4794590,
+      "measurement_variables": 18027,
+      "maximum_phase_terms": 1,
+      "maximum_quantum_terms": 2
+    },
+    {
+      "ops": 4723429,
+      "measurement_variables": 16360,
+      "maximum_phase_terms": 1,
+      "maximum_quantum_terms": 2
+    },
+    {
+      "ops": 4723429,
+      "measurement_variables": 16360,
+      "maximum_phase_terms": 1,
+      "maximum_quantum_terms": 2
+    },
+    {
+      "ops": 4871069,
+      "measurement_variables": 18711,
+      "maximum_phase_terms": 1,
+      "maximum_quantum_terms": 2
+    },
+    {
+      "ops": 4871069,
+      "measurement_variables": 18711,
+      "maximum_phase_terms": 1,
+      "maximum_quantum_terms": 2
+    },
+    {
+      "ops": 4759470,
+      "measurement_variables": 17695,
+      "maximum_phase_terms": 1,
+      "maximum_quantum_terms": 2
+    },
+    {
+      "ops": 4759470,
+      "measurement_variables": 17695,
+      "maximum_phase_terms": 1,
+      "maximum_quantum_terms": 2
+    },
+    {
+      "ops": 4763256,
+      "measurement_variables": 17739,
+      "maximum_phase_terms": 1,
+      "maximum_quantum_terms": 2
+    },
+    {
+      "ops": 4763256,
+      "measurement_variables": 17739,
+      "maximum_phase_terms": 1,
+      "maximum_quantum_terms": 2
+    },
+    {
+      "ops": 5755278,
+      "measurement_variables": 60274,
+      "maximum_phase_terms": 1,
+      "maximum_quantum_terms": 2
+    },
+    {
+      "ops": 5755278,
+      "measurement_variables": 60274,
+      "maximum_phase_terms": 1,
+      "maximum_quantum_terms": 2
+    },
+    {
+      "ops": 5755278,
+      "measurement_variables": 60274,
+      "maximum_phase_terms": 1,
+      "maximum_quantum_terms": 2
+    },
+    {
+      "ops": 5755278,
+      "measurement_variables": 60274,
+      "maximum_phase_terms": 1,
+      "maximum_quantum_terms": 2
+    },
+    {
+      "ops": 5755278,
+      "measurement_variables": 60274,
+      "maximum_phase_terms": 1,
+      "maximum_quantum_terms": 2
+    },
+    {
+      "ops": 5755278,
+      "measurement_variables": 60274,
+      "maximum_phase_terms": 1,
+      "maximum_quantum_terms": 2
+    },
+    {
+      "ops": 5755278,
+      "measurement_variables": 60274,
+      "maximum_phase_terms": 1,
+      "maximum_quantum_terms": 2
+    },
+    {
+      "ops": 5755278,
+      "measurement_variables": 60274,
+      "maximum_phase_terms": 1,
+      "maximum_quantum_terms": 2
+    }
+  ],
+  "source_generator": "qubit-phase-generator-v3.py",
+  "preserved_earlier_failures": {
+    "v1_pid": 2431796,
+    "v1_exit": 1,
+    "v1_reason": "External generator asserted wrong insertion count; no simulation",
+    "v2_pid": 2438634,
+    "v2_exit": 101,
+    "v2_reason": "External crate omitted public serializer write_ops; no simulation"
+  },
+  "new_kernel_retry": {
+    "kernel_sha256": "d41de327f9e2162d8009235c77780f3a996351d57aed2011497ee1c6b5e4f035",
+    "native_test_pid": 2461533,
+    "native_tests": 4,
+    "exit_code": 0,
+    "log_sha256": "ffc32fb358ea0ab7e9badd31d5e90a393f28dee30030d8dd607a7bae465720bf",
+    "compile_only_failure": {
+      "pid": 2459670,
+      "exit_code": 101,
+      "source": "phase-polynomial-v2-compile-failed.rs",
+      "log_sha256": "e181f1b102baf6efa6792524b888a3db5dbad46c9a0c2d5e837d52463c209f6f"
+    }
+  },
+  "PH_owner_source_retry": {
+    "pid": 2463821,
+    "exit_code": 101,
+    "source": "qubit-phase-v4-source.json",
+    "log_sha256": "2a0f891bc2ba77ab2b85b722c3f6846f33ca29c87894003def395cf416b40648",
+    "native_test_status": "3passed3inconclusive",
+    "passes": [
+      "both one-owner and two-owner dirty preposition fixtures",
+      "3713reserve9payload256lanes",
+      "first11no-payloadcolumns"
+    ],
+    "inconclusive": [
+      "8048payload and independent structuredq22payload at Hmr operation840622",
+      "12thno-payloadcolumn at Hmr operation2073727;13thnotreached"
+    ],
+    "diagnosis": "Classical-slot conditional Hmr assignment exceedsANFsupport; prior phase maximum1 and prior quantum maximum2. No nonzero-phase or quantum-value failure follows from support limits."
+  },
+  "protected_source_modified": false
+}
