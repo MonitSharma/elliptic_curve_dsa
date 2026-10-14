@@ -1,0 +1,20 @@
+{
+  "status": "COMPLETE_NEGATIVE_DIAGNOSTIC_NO_TRANSFORMATION",
+  "pid": 2723939,
+  "exit": 0,
+  "qualified_score": null,
+  "source_attestation": "fdc628679baf9464696c7582247110c93b431b0ce9a93cc4d6672c011bba97a3  /home/hclau/ecdsa_research/overnight-20261014/analyze-constant-measurements.py\n74134fbd8a0c3631030d4403d53d7a2f5002f7d462dbb4563a0112c810d92cf3  /home/hclau/ecdsa_research/overnight-20261014/analyze-symbolic-controls.py\n75114b9b029e9ac77af429ced12eb8b62bb8edc9aecc7cd63d5d47d1883938d3  /home/hclau/ecdsa_research/overnight-20261014/server-constant-measurements.sh\n56456aa7e22357b3b725210029041207ede3d66ef7b8be2ab4bed92ae7ff444c  /home/hclau/ecdsa_research/overnight-20261014/analyze-wire-lifetimes.py\n",
+  "analysis_sha256": "d69f29a2a6048d818f4a5ae7627b0fe1d1ad63abe02d7301435fc2e046c1a8a6",
+  "log_sha256": "a2b49deac69e3d64644257ef5a92d4091da22c16fe0694ce5638309173e03340",
+  "stream_sha256": "49b35cf7640ebd529d76894eb8bef93ebf57e7e970fe14b3c27c8c5feb6e73e4",
+  "existing_symbolic_tests": 6,
+  "added_guard_snapshot_tests": 5,
+  "added_tests_run": "Local after diagnostic, unchanged source; arbitrary ABI, snapshots, mutable/reused bits, conditional measurement, deduplicated guards",
+  "RSS_KiB": 925572,
+  "result": {
+    "constant_unconditional_hmr": 125,
+    "direct_positive_guarded_toffolis": 0
+  },
+  "limits": "Arbitrary ABI inputs and measurement outcomes under conservative immutable Boolean abstraction. Counts are emitted guard occurrences, not executed savings. No forced-measurement or whole-point phase equivalence claimed.",
+  "followup": "No standalone replacement; abstraction may miss non-direct or forgotten identities."
+}

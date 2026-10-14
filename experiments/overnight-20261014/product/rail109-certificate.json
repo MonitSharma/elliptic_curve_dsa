@@ -1,0 +1,166 @@
+{
+  "status": "EXACT_FINITE_INTEGER_OVERFLOW_CERTIFICATE",
+  "qualified_score": null,
+  "explanation": "With s0=s1=s3=0, the exact second-forced result fits its full-word60-bit width, but the choice result requires60 signed bits. fast_add_halve_choice_lr writes its even halved full-word target into59 physical bits (n2-1). Its modular rail addition wraps by2^59; the subsequent two-bit barrel divides this signed wrapped value by4, giving the observed -2^57 error. Later sign extension to the reported60-bit full-word output cannot recover the lost bit.",
+  "native_log_sha256": "37e2e5887e49aa1ced19f1b37924c9fdb19503f17a7d513a4861cae9c84999a7",
+  "schedule": "Active installed LF_G10_TABLE=770; leapfrog_data/pack_t0hat_tail0_138_steps_k770_lw2.txt row109=[62,62,61,60,59].",
+  "source_locations": [
+    "leapfrog.rs::fwd_tick_fast resize target to n2-lowrel",
+    "leapfrog.rs::fast_add_halve_choice_lr unsigned rail_add on n2-1 physical bits",
+    "leapfrog.rs::fast_rail_barrel",
+    "leapfrog.rs::fwd_tick_fast resize to next tick width"
+  ],
+  "certificates": [
+    {
+      "source": "c5_raw",
+      "before": {
+        "source": "c5_raw",
+        "mode": "official_known_bad",
+        "batch": "0",
+        "index": "249",
+        "seq": "869",
+        "scope": "mul",
+        "label": "fwd_tick_before",
+        "t": "109",
+        "old_end": "7049521",
+        "final_end": "7049521",
+        "pending_y33": "0",
+        "r0": "0x24dec628d440e9b",
+        "r1": "0x1835bba3d4a92d23",
+        "r0_width": "62",
+        "r1_width": "62",
+        "p0": "-",
+        "p1": "-",
+        "letter": "-",
+        "skip": "false",
+        "phase": "1",
+        "score": "NONE"
+      },
+      "after": {
+        "source": "c5_raw",
+        "mode": "official_known_bad",
+        "batch": "0",
+        "index": "249",
+        "seq": "870",
+        "scope": "mul",
+        "label": "fwd_tick_after",
+        "t": "109",
+        "old_end": "7053229",
+        "final_end": "7053229",
+        "pending_y33": "0",
+        "r0": "0x24dec628d440e9b",
+        "r1": "0xf42b992ad8c2c9b",
+        "r0_width": "60",
+        "r1_width": "60",
+        "p0": "-",
+        "p1": "-",
+        "letter": "00001",
+        "skip": "false",
+        "phase": "1",
+        "score": "NONE"
+      },
+      "source_integer": 166048669303574171,
+      "trace": [
+        {
+          "step": 0,
+          "unbounded_sum": 1910555412301429694,
+          "exact_halved_target": 955277706150714847
+        },
+        {
+          "step": 1,
+          "unbounded_sum": 1121326375454289018,
+          "exact_halved_target": 560663187727144509
+        },
+        {
+          "step": 2,
+          "unbounded_sum": 726711857030718680,
+          "exact_halved_target": 363355928515359340
+        }
+      ],
+      "choice_output_width": 59,
+      "choice_exact_fits": false,
+      "choice_wrapped_signed": -213104823788064148,
+      "barrel_exponent": 2,
+      "exact_final": 90838982128839835,
+      "actual_final": -53276205947016037,
+      "final_difference": -144115188075855872,
+      "exact_final_fits_observed_output": true
+    },
+    {
+      "source": "b3_raw",
+      "before": {
+        "source": "b3_raw",
+        "mode": "official_known_bad",
+        "batch": "0",
+        "index": "249",
+        "seq": "869",
+        "scope": "mul",
+        "label": "fwd_tick_before",
+        "t": "109",
+        "old_end": "7042273",
+        "final_end": "7042273",
+        "pending_y33": "0",
+        "r0": "0x24dec628d440e9b",
+        "r1": "0x1835bba3d4a92d23",
+        "r0_width": "62",
+        "r1_width": "62",
+        "p0": "-",
+        "p1": "-",
+        "letter": "-",
+        "skip": "false",
+        "phase": "0",
+        "score": "NONE"
+      },
+      "after": {
+        "source": "b3_raw",
+        "mode": "official_known_bad",
+        "batch": "0",
+        "index": "249",
+        "seq": "870",
+        "scope": "mul",
+        "label": "fwd_tick_after",
+        "t": "109",
+        "old_end": "7045981",
+        "final_end": "7045981",
+        "pending_y33": "0",
+        "r0": "0x24dec628d440e9b",
+        "r1": "0xf42b992ad8c2c9b",
+        "r0_width": "60",
+        "r1_width": "60",
+        "p0": "-",
+        "p1": "-",
+        "letter": "00001",
+        "skip": "false",
+        "phase": "0",
+        "score": "NONE"
+      },
+      "source_integer": 166048669303574171,
+      "trace": [
+        {
+          "step": 0,
+          "unbounded_sum": 1910555412301429694,
+          "exact_halved_target": 955277706150714847
+        },
+        {
+          "step": 1,
+          "unbounded_sum": 1121326375454289018,
+          "exact_halved_target": 560663187727144509
+        },
+        {
+          "step": 2,
+          "unbounded_sum": 726711857030718680,
+          "exact_halved_target": 363355928515359340
+        }
+      ],
+      "choice_output_width": 59,
+      "choice_exact_fits": false,
+      "choice_wrapped_signed": -213104823788064148,
+      "barrel_exponent": 2,
+      "exact_final": 90838982128839835,
+      "actual_final": -53276205947016037,
+      "final_difference": -144115188075855872,
+      "exact_final_fits_observed_output": true
+    }
+  ],
+  "scope": "One exact source-supported counterexample, matching both native original streams; not a global repair or score. Original full byteidentity and all binding checks preserved."
+}

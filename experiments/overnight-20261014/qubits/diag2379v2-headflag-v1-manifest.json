@@ -1,0 +1,40 @@
+{
+  "scope": "Known expected-negative external native diagnosis; exit0 means reproduced failure, not candidate pass",
+  "source_variant": "candidate-headflag-v1",
+  "source_patch_sha256": "1792f88c69567b403aaf84e1bd9122f179d06c4e6db29de0c17440bef226b243",
+  "input_dx": "0xb99d62d1aa557c0a85f9ea89739eded4eb025ed76459a15b2551efaae60665bd",
+  "shot": 2379,
+  "division": 2,
+  "column": 86,
+  "state": {
+    "kind": "HT",
+    "j": 86,
+    "before": [
+      4814908229427895737192016514659636244970,
+      1054045991047610033141801416039,
+      24048658716021783901455179351975042313,
+      100,
+      1,
+      0
+    ],
+    "after": [
+      109854870371460172604435634274633408841046949987,
+      732147645952826155501840947161,
+      1054045991047610033141801416039,
+      100,
+      1,
+      0
+    ],
+    "sy_actual": 100,
+    "quotient": 22815568
+  },
+  "source_constructor_width": 692,
+  "diagnostic_source_sha256": {
+    "src/point_add/frogdrop.rs": "52ac7c1feed5dcde04052755d98669205bcf7908943bb425e19e18bc6c14c5f6",
+    "src/point_add/frogdrop_col.rs": "950c6a7432abc2f5eafcdf3b36c6c984794b748f11130ac0db2d8dce2416287b",
+    "src/point_add/midg.rs": "3a0497bfa68d203b5952a581e51fe244d3d506c8a7c0dc8a829afee6e526400f",
+    "src/point_add/pointadd_frogdrop.rs": "9094c83a2c1c643631bcc909127ccde5ec43d5ff15e2a3c10fdd0d152589a290",
+    "src/point_add/tests_frogdrop.rs": "468d910af1f437cc71bebb0201eb3d3bf6779496a48275ce9ada7c80093e2f20",
+    "src/point_add/tests_midg_k24.rs": "23d4bcc9e182f599c53ee16aac0dd9e18d21eaf0c081bf90cbd1e53a0eee6ddc"
+  }
+}

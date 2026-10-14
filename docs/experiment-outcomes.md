@@ -1,9 +1,18 @@
 # Experiment outcomes: verified baselines and unfinished research
 
-Updated 14 October 2026, Singapore time. This report preserves unsuccessful
+Updated 15 October 2026, Singapore time. This report preserves unsuccessful
 experiments and component-level findings. **No original candidate in this
 repository is ready for challenge submission.** These experimental costs do not
 appear in the README's performance plots or result tables.
+
+The active10-hour cycle and its latest source-bound evidence are in
+[the overnight report](overnight-20261014.md). It additionally reproduces the
+public Toffoli leader `b3c9fdd6` with all9,024shots passing atQ1235/T761,156;
+this is a public reproduction. N275-v2 completes all9,024shots with one failure
+in each of the value, phase-batch and ancilla-batch channels. Head-selector
+evaluation remains pending as of18:22UTC. N274-v4's generated stream is not
+graded because the preserved shot2379 primitive counterexample blocks it.
+The historical compact-reciprocal evidence below remains preserved.
 
 ## Complete passing reproduction
 

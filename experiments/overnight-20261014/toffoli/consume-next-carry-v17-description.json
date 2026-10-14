@@ -1,0 +1,114 @@
+{
+  "status": "exact_second_carry_three_product_prefix_verified",
+  "source_lf_sha256": "879b85060f6a5cfa412561d64860f1cab697f7a334f180f5be9102070d5a23b9",
+  "netlist_sha256": "9a68aae7cf30efd108cc61f09db38ff992bebf5772d71e092ff295ef3884e7ab",
+  "factor_netlist_sha256": "ddd348636d468168dd55209fe134b47e3a4c7891d41291189812ee2e193d4be8",
+  "previous_description_sha256": "5600d6450b52c61390c679d434870b7d419b7e89881f6d4d264d192354744688",
+  "domain_rows": 262144,
+  "identity": "F2=e2(acc0,Nm0,acc1,Nm1,acc5,F1)+q*F1+q; F1=C5+R1, q=acc4*C4",
+  "coefficient_mask_hex": "0xa0000000000000000003801c0080000000000070030800c40000000001c00c6700319000000",
+  "linear_mask": 0,
+  "alternating_matrix_rows": [
+    0,
+    29363300,
+    29363298,
+    0,
+    0,
+    8391750,
+    29363238,
+    0,
+    0,
+    0,
+    29362278,
+    29361254,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    8391750,
+    20974694,
+    8391750
+  ],
+  "alternating_rank": 6,
+  "factors": [
+    [
+      29363298,
+      29363300
+    ],
+    [
+      29363232,
+      8391744
+    ],
+    [
+      8389632,
+      8390656
+    ]
+  ],
+  "linear_correction_mask": 29360224,
+  "desired_span_rank": 46,
+  "value_AND_budget": 27,
+  "independent_extra_product_indices": [
+    0,
+    1
+  ],
+  "prefix_ANDs": [
+    [
+      2,
+      128
+    ],
+    [
+      524292,
+      524544
+    ],
+    [
+      1572872,
+      1573376
+    ],
+    [
+      16,
+      3670016
+    ],
+    [
+      32,
+      4194304
+    ],
+    [
+      4194338,
+      4195360
+    ],
+    [
+      29363298,
+      29363300
+    ],
+    [
+      29363232,
+      8391744
+    ],
+    [
+      8389632,
+      8390656
+    ]
+  ],
+  "prefix_AND_count": 9,
+  "prefix_span_rank": 28,
+  "combined_function_truth_sha256": "69ae502d5097ca5c8de052b268ce50e9a0994719c1c25ef4d2f032e10d9904ff",
+  "product_truth_sha256": [
+    "997f28c532fb508f9819dc5497dde9079816633e2627c23ea70a23bdef24801a",
+    "81e32f78188568aed5f377bf83dbd072386e003d9923f77a196378fdf3c06d06",
+    "7f0ac4cd81d9450402999d5e77afecf3c03157757c60e446d19d6865cb8105f9"
+  ],
+  "products_inside_original_span": [
+    false,
+    false,
+    false
+  ],
+  "independent_truth_rows_replayed": 262144,
+  "qualified_score": null,
+  "limits": "Exact second joint carry identity and partial9AND prefix only. This selected decomposition is not a minimum-rank proof. No complete constructor/cleanup/native/width/full cost claim."
+}

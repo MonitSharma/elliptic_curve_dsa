@@ -1,0 +1,98 @@
+{
+  "status": "unique_cubic_direction_arithmetic_identity_verified",
+  "source_lf_sha256": "879b85060f6a5cfa412561d64860f1cab697f7a334f180f5be9102070d5a23b9",
+  "netlist_sha256": "d6bf2410418bd8707d5768ca274ba74ce79c7e5964189605bdb2b33d22977b85",
+  "domain_rows": 16384,
+  "identity": "F=Q3+C3+A+L=OR(k1,k2)*v3+MAJ(acc2,Nm2,R1)+(A+R1)*(D+L)",
+  "definitions": {
+    "A": "acc2+Nm2",
+    "D": "acc1+Nm1",
+    "L": "R2+(acc0+Nm0)*(acc1+Nm1)",
+    "v3": "acc3+C3"
+  },
+  "S23_affine_masks": {
+    "C3": 425984,
+    "R1": 65536,
+    "L": 2099200,
+    "A": 4104,
+    "D": 2052,
+    "v3": 426000
+  },
+  "F_truth_sha256": "b83414daf13a8bbd0edd13e9394a9ae5b5af5170e7d2a9f236f30592b4baaeb2",
+  "F_original_coordinate_mask": 73029126148,
+  "four_AND_factors": [
+    [
+      8192,
+      16384
+    ],
+    [
+      8413184,
+      426000
+    ],
+    [
+      65544,
+      69632
+    ],
+    [
+      69640,
+      2097156
+    ]
+  ],
+  "prefix_ANDs": [
+    [
+      2,
+      128
+    ],
+    [
+      2,
+      1024
+    ],
+    [
+      32772,
+      33024
+    ],
+    [
+      163848,
+      164352
+    ],
+    [
+      16,
+      425984
+    ],
+    [
+      525314,
+      524320
+    ],
+    [
+      68610,
+      2052
+    ],
+    [
+      1641478,
+      1572928
+    ],
+    [
+      8192,
+      16384
+    ],
+    [
+      8413184,
+      426000
+    ],
+    [
+      65544,
+      69632
+    ],
+    [
+      69640,
+      2097156
+    ]
+  ],
+  "outside_rank_for_explicit_prefix": 3,
+  "candidate_interface_rank": 43,
+  "candidate_value_AND_budget": 28,
+  "independent_truth_rows_replayed": 16384,
+  "qualified_score": null,
+  "hypothesis": "Can these two quadratic carry terms and the gated cubic term merge into3 sequential ANDs relativeS23 using2 outside directions?",
+  "limits": "Exact scalar relation and explicit4AND prefix only. No complete value constructor, phase/cleanup/native/width/full cost or minimum proof."
+}

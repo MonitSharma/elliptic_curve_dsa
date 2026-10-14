@@ -1,0 +1,156 @@
+{
+  "status": "STRUCTURED_IDEAL_MODEL_COUNTEREXAMPLES_ONLY",
+  "qualified_score": null,
+  "seed": "0xecd5a2320261014",
+  "method": "Choose coprime110bit coefficient pair; solve P=rprev*tcur+rcur*tprev then reverse coefficient Euclid to recover field denominator. Fixed targetq5000000. No nonce/packet search.",
+  "fixtures": [
+    {
+      "attempt": 0,
+      "input": "0x2e790bb7768274fe45c4126ceeb2caaf7e77837f48e87b4a0b3c21ce3b842205",
+      "tcur": "0x3c08701387ececbaf586e80e16e9",
+      "tprev": "0x3202a5cbc90ad6499d20526444c9",
+      "rprev": "0x443aab2f2b918fd29a7894e5601b2ed728b59",
+      "rcur": "0xe4edf0814d8a284160883acf06c4dbe",
+      "q": 5000211,
+      "public_model_events": [],
+      "n275_model_events": [
+        {
+          "kind": "quotient_cap",
+          "column": 65,
+          "step": 66,
+          "q": 5000211,
+          "cap": 22,
+          "pure": false
+        },
+        {
+          "kind": "reciprocal_HR",
+          "column": 65,
+          "step": 66,
+          "head": 24,
+          "got": "0xf021bfadc30f36fdb4b48ab1f24962de0",
+          "expected": "0x11e4586db51def7d68cd1ac73687692414"
+        }
+      ]
+    },
+    {
+      "attempt": 1,
+      "input": "0x802b41626fcc4e2cd85e856971c396810e9a09fe93d0eb09388cd217ab9c142",
+      "tcur": "0x22438eb32eaf497baf4cfecb0e03",
+      "tprev": "0x1356eaf27c5f598cc2803cc3e25d",
+      "rprev": "0x778af0100a0e91e7b1a9c99eb7fabff811195",
+      "rcur": "0x1911d4216f1679e2504f2dff6146f030",
+      "q": 5000056,
+      "public_model_events": [],
+      "n275_model_events": [
+        {
+          "kind": "quotient_cap",
+          "column": 64,
+          "step": 65,
+          "q": 5000056,
+          "cap": 22,
+          "pure": false
+        },
+        {
+          "kind": "reciprocal_HR",
+          "column": 64,
+          "step": 65,
+          "head": 24,
+          "got": "0x890e39ddf0811ac9be350c5f6beb8d45a",
+          "expected": "0xa36284b0229a789c912be218551f154c5"
+        }
+      ]
+    },
+    {
+      "attempt": 2,
+      "input": "0x5d7a6d1f7ecaaedda710fdfeca68223c97063cf7e4162738dc6b44d04b8c9471",
+      "tcur": "0x36f85bc9937668c47107c0a5ad7d",
+      "tprev": "0x3515eba18dab53bdd6b8bcd630a0",
+      "rprev": "0x4a835df56666acb5df264f85ffa89e61aad7b",
+      "rcur": "0xfa03d865481bc4d410bce02cb9aaf8d",
+      "q": 5000192,
+      "public_model_events": [
+        {
+          "kind": "reciprocal_HR",
+          "column": 69,
+          "step": 70,
+          "head": 24,
+          "got": "0x36f85bc9937668c47107c0a5ad7d",
+          "expected": "0x3515eba18dab53bdd6b8bcd630a0"
+        }
+      ],
+      "n275_model_events": [
+        {
+          "kind": "reciprocal_HR",
+          "column": 69,
+          "step": 70,
+          "head": 24,
+          "got": "0x36f85bc9937668c47107c0a5ad7d",
+          "expected": "0x3515eba18dab53bdd6b8bcd630a0"
+        },
+        {
+          "kind": "quotient_cap",
+          "column": 71,
+          "step": 72,
+          "q": 5000192,
+          "cap": 22,
+          "pure": false
+        },
+        {
+          "kind": "reciprocal_HR",
+          "column": 71,
+          "step": 72,
+          "head": 24,
+          "got": "0xdbe16f0826d722b512ce98f1c5b708323",
+          "expected": "0x10620d302d8a8fcf17339955196d734ca0"
+        }
+      ]
+    },
+    {
+      "attempt": 3,
+      "input": "0x49a7d1f86577d7421c0f99b6caa4024d281f61bc2b08d14bb2b1573c85d4b9a5",
+      "tcur": "0x34be46a879b478ac5eb222a63111",
+      "tprev": "0x2f42560181324087f52b093e03c6",
+      "rprev": "0x4da8c0a5bd022a4bbf92130c882ab860f0ff7",
+      "rcur": "0x10491a313448f226ce3f6f9b0c4106cc",
+      "q": 5000232,
+      "public_model_events": [
+        {
+          "kind": "reciprocal_HR",
+          "column": 69,
+          "step": 70,
+          "head": 24,
+          "got": "0x34be46a879b478ac5eb222a63111",
+          "expected": "0x2f42560181324087f52b093e03c6"
+        }
+      ],
+      "n275_model_events": [
+        {
+          "kind": "reciprocal_HR",
+          "column": 69,
+          "step": 70,
+          "head": 24,
+          "got": "0x34be46a879b478ac5eb222a63111",
+          "expected": "0x2f42560181324087f52b093e03c6"
+        },
+        {
+          "kind": "quotient_cap",
+          "column": 71,
+          "step": 72,
+          "q": 5000232,
+          "cap": 22,
+          "pure": false
+        },
+        {
+          "kind": "reciprocal_HR",
+          "column": 71,
+          "step": 72,
+          "head": 24,
+          "got": "0xd2f91a4a27c773295746440052ad7d2b5",
+          "expected": "0xfb82de3fb8609ec646475eca05ad2ba6e"
+        }
+      ]
+    }
+  ],
+  "model_sha256": "d4e17154faa00794f0a0f133888ca84ad385814ed3d9be383ca4ba7078dc51b9",
+  "limits": "Model ignores source envelopes, real carries/phase. These are local arithmetic-model capacity counterexamples, not yet admitted full-source counterexamples."
+}

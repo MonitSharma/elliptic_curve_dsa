@@ -1,0 +1,79 @@
+{
+  "status": "exact_quadratic_span_obstruction",
+  "source_lf_sha256": "879b85060f6a5cfa412561d64860f1cab697f7a334f180f5be9102070d5a23b9",
+  "netlist_sha256": "9a68aae7cf30efd108cc61f09db38ff992bebf5772d71e092ff295ef3884e7ab",
+  "factor_netlist_sha256": "ddd348636d468168dd55209fe134b47e3a4c7891d41291189812ee2e193d4be8",
+  "description_sha256": "b702ba6ea7d6c1a28fae432dad6f33ccc2b84b91476e4812b997eabeca812d09",
+  "domain_rows": 262144,
+  "desired_span_rank": 46,
+  "value_AND_budget": 27,
+  "formal_proof_certificate_saved": false,
+  "qualified_score": null,
+  "limits": "One new fused value interface only. No globaloptimality, native cleanup/phase, physical width or full cost/score.",
+  "seconds": 0.03367737866938114,
+  "final_AND_count": 9,
+  "pid": 2702501,
+  "exit_code": 0,
+  "raw_evidence_directory": "research-output/overnight-20261014/toffoli/consume-next-v17",
+  "evidence_sha256": {
+    "raw-receipt.json": "a8a4c3e6819acbd7315c90a24ee58ed52019bbe00d4cf61310be326bdac3dde1",
+    "run.log": "45c18637d358e14e8068b33303837a92ed314b081035400b0b8c8740792f7ae9",
+    "run.pid": "b4251bfc46251f79457a4d6e94856d1f884d064ef234a3f85c0bee533c905d79",
+    "run.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "settings.txt": "705214a8fabbb4542214a1430178bc34dbdeba724189582e0e09d32eff6f5229",
+    "finished.txt": "b8a2c01d1235f284a9047a1006a5d86812c1cd5f5a92bdef0f0b24c5ca6cc599"
+  },
+  "terminal_closure": {
+    "status": "exact_quadratic_span_obstruction",
+    "computed_ANDs": 9,
+    "stages": [
+      {
+        "current_span_rank": 28,
+        "desired_span_rank": 46,
+        "pair_products": 378,
+        "kernel_dimension": 56,
+        "kernel_basis_extensions": 0
+      }
+    ],
+    "gates": [
+      [
+        2,
+        128
+      ],
+      [
+        524292,
+        524544
+      ],
+      [
+        1572872,
+        1573376
+      ],
+      [
+        16,
+        3670016
+      ],
+      [
+        32,
+        4194304
+      ],
+      [
+        4194338,
+        4195360
+      ],
+      [
+        29363298,
+        29363300
+      ],
+      [
+        29363232,
+        8391744
+      ],
+      [
+        8389632,
+        8390656
+      ]
+    ],
+    "proof": "Every quadratic product combination landing in W lands in S. Therefore no single AND of affine forms of S extends S inside W."
+  },
+  "terminal_factor": null
+}

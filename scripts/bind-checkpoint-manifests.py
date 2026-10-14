@@ -12,9 +12,13 @@ def blob(path):
     return subprocess.check_output(['git', 'show', ':' + path], cwd=ROOT)
 
 a=argparse.ArgumentParser(description=__doc__)
-a.add_argument('--checkpoint',choices=['fifth','sixth'],default='fifth')
+a.add_argument('--checkpoint',choices=['fifth','sixth','seventh'],default='fifth')
 which=a.parse_args().checkpoint
-names=('product/checkpoint-fifth-manifest.json','toffoli/fifth-checkpoint-receipt.json','toffoli/lazy-v6-checkpoint-receipt.json')if which=='fifth'else('product/checkpoint-sixth-manifest.json','toffoli/sixth-checkpoint-receipt.json','toffoli/consumer-fusion-v16-checkpoint-receipt.json')
+groups={
+ 'fifth':('product/checkpoint-fifth-manifest.json','toffoli/fifth-checkpoint-receipt.json','toffoli/lazy-v6-checkpoint-receipt.json'),
+ 'sixth':('product/checkpoint-sixth-manifest.json','toffoli/sixth-checkpoint-receipt.json','toffoli/consumer-fusion-v16-checkpoint-receipt.json'),
+ 'seventh':('product/checkpoint-seventh-manifest.json','qubits/seventh-fixed2379-manifest.json','toffoli/consumer-carry-v18-checkpoint-receipt.json','toffoli/sequential-v19-checkpoint-receipt.json','toffoli/cubic-producer-v23-checkpoint-receipt.json','toffoli/consume-seven-v25-checkpoint-receipt.json')}
+names=groups[which]
 changed = []
 for name in names:
     p = CYCLE / name

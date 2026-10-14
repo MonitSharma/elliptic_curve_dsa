@@ -1,0 +1,76 @@
+{
+  "status": "conservative_source_integer_producer_domain_verified",
+  "source_lf_sha256": "879b85060f6a5cfa412561d64860f1cab697f7a334f180f5be9102070d5a23b9",
+  "netlist_sha256": "d6bf2410418bd8707d5768ca274ba74ce79c7e5964189605bdb2b33d22977b85",
+  "producer_word_bits": 256,
+  "producer_integer_identity": "X=T+(7-2Nm)*B+Nm*(2^256-1); E=floor(X/2^256)",
+  "source_contract": "body performs T+S0+2S1+4S2 with Si=B XOR broadcast(si), Nm=s0+2s1+4s2; fold receives original high3 E before ESH shedding.",
+  "E_ranges_by_Nm": [
+    [
+      0,
+      7
+    ],
+    [
+      0,
+      6
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      0,
+      6
+    ],
+    [
+      0,
+      7
+    ]
+  ],
+  "E_Nm_pair_count": 46,
+  "all_accLow6_values_retained": true,
+  "all_shift_control_patterns_retained": true,
+  "admitted_primitive_rows": 11776,
+  "truth_vector_layout_rows": 16384,
+  "admission_mask_sha256": "905c4d6fccdeb05883c104dcea88ff588af0a5335785a4d7a24507206c3759f5",
+  "exhaustive_small_word_checks": [
+    {
+      "word_bits": 4,
+      "producer_cases": 2048,
+      "E_Nm_support_pairs": 46
+    },
+    {
+      "word_bits": 6,
+      "producer_cases": 32768,
+      "E_Nm_support_pairs": 46
+    },
+    {
+      "word_bits": 8,
+      "producer_cases": 524288,
+      "E_Nm_support_pairs": 46
+    }
+  ],
+  "ranks": {
+    "raw": 15,
+    "W": 40,
+    "S": 23,
+    "P2": 228,
+    "P2_union_W": 245,
+    "P3": 1262,
+    "P3_union_W": 1278
+  },
+  "qualified_score": null,
+  "limits": "Source-integer range proof and conservative primitive filter. Does not establish actual fullbody phase correctness, all producer gate recurrences or any candidate; narrowfin4 ESH proofs not extrapolated. Existing all14input lower bound cannot automatically transfer to this reduced domain."
+}

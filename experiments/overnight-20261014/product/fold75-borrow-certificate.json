@@ -1,0 +1,72 @@
+{
+  "status": "EXACT_FINITE_SOURCE_WIDTH_BORROW_CERTIFICATE",
+  "qualified_score": null,
+  "all_cases_match_exact_modulo_source_window": 64,
+  "source_rules": {
+    "c5": "y15_onefold.rs fold_window: forward tick<=99 width57, otherwise56",
+    "b3": "y15_onefold.rs fold_window: forward tick<=55 width57, otherwise56"
+  },
+  "previous_assumption_corrected": "Earlier direct message assumed bothsource tick75 width56. Source audit disproves that: C5tick75 width57. No report or score was based on that assumption.",
+  "explanation": "All64 exact reconstructed unsigned add2 producers match independently computed integer sums. Native postfold equals the correct field/rotation word modulo the source window while retaining the old high word. Three cases need a borrow out of that window; it is omitted, giving exactly +2^56 before rotation. Ripple closure preserves the error. Generic lower-window fold contracts remain satisfied; whole-body field contract fails.",
+  "analysis_sha256": "1ca74b25445baec9fe9d521fa257009c7b3acb005496ad9fdbd43b22514df03e",
+  "certificates": [
+    {
+      "source": "c5_raw",
+      "mode": "independent",
+      "index": 94,
+      "tick": 104,
+      "actual_width": 56,
+      "rotation": 6,
+      "logical_input_word": "0x7a4e0d82c6cfb75c6eb7f1421011c73d8ce621ce8109201d0f000022845abac1",
+      "input_low": "0x22845abac1",
+      "exact_correction": -227633318413,
+      "exact_low_sum": -79383891788,
+      "borrow_out": true,
+      "correct_full_word": "0x7a4e0d82c6cfb75c6eb7f1421011c73d8ce621ce8109201d0effffed8459f0b4",
+      "modulo_window_word": "0x7a4e0d82c6cfb75c6eb7f1421011c73d8ce621ce8109201d0fffffed8459f0b4",
+      "missing_borrow_delta": 72057594037927936,
+      "after_rotation_delta": 1125899906842624,
+      "low_bits_exact": true,
+      "high_word_unchanged": true
+    },
+    {
+      "source": "b3_raw",
+      "mode": "official_known_bad",
+      "index": 8033,
+      "tick": 75,
+      "actual_width": 56,
+      "rotation": 5,
+      "logical_input_word": "0xc95546cd0bac8b1a8c623ef8a4196975ebebe0c5fad4c0b29700000ba0290bfe",
+      "input_low": "0xba0290bfe",
+      "exact_correction": -73014460621,
+      "exact_low_sum": -23082775759,
+      "borrow_out": true,
+      "correct_full_word": "0xc95546cd0bac8b1a8c623ef8a4196975ebebe0c5fad4c0b296fffffaa028cb31",
+      "modulo_window_word": "0xc95546cd0bac8b1a8c623ef8a4196975ebebe0c5fad4c0b297fffffaa028cb31",
+      "missing_borrow_delta": 72057594037927936,
+      "after_rotation_delta": 2251799813685248,
+      "low_bits_exact": true,
+      "high_word_unchanged": true
+    },
+    {
+      "source": "b3_raw",
+      "mode": "independent",
+      "index": 94,
+      "tick": 104,
+      "actual_width": 56,
+      "rotation": 6,
+      "logical_input_word": "0x7a4e0d82c6cfb75c6eb7f1421011c73d8ce621ce8109201d0f000022845abac1",
+      "input_low": "0x22845abac1",
+      "exact_correction": -227633318413,
+      "exact_low_sum": -79383891788,
+      "borrow_out": true,
+      "correct_full_word": "0x7a4e0d82c6cfb75c6eb7f1421011c73d8ce621ce8109201d0effffed8459f0b4",
+      "modulo_window_word": "0x7a4e0d82c6cfb75c6eb7f1421011c73d8ce621ce8109201d0fffffed8459f0b4",
+      "missing_borrow_delta": 72057594037927936,
+      "after_rotation_delta": 1125899906842624,
+      "low_bits_exact": true,
+      "high_word_unchanged": true
+    }
+  ],
+  "scope": "Finite first cause certificates on original bound streams, no universal repair or resource score. A larger fixed window reduces but cannot eliminate every possible carry/borrow overflow. Exact higher-bit propagation needs its own reversible/phase/allocator proof."
+}

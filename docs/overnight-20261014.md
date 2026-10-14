@@ -410,3 +410,44 @@ only three equal-control Toffolis. A bounded polynomial expansion finds none,
 and exact-zero physical recoloring still reaches1234 at operation1444991.
 These standalone routes are closed; no transformed circuit or scored result
 is claimed. The10-hour cycle remains active through20:14:23UTC.
+
+## Seventh checkpoint preparation: deterministic faults and a restricted lower bound
+
+The exact fixed2379 regression reproduces the same wrong arithmetic in the
+clean c95 primitive, N275 and head-selector variants. This establishes an
+inherited primitive capacity fault, while full-point equivalence and all-input
+correctness remain separate. The clean primitive restores all wires under its
+inverse on the saved measurement transcript. Storage25 alone does not repair
+the model: large head24 leaves reciprocal errors atcolumns86/87, head25 leaves
+one at88, and head32 clears modeled events on all18048fixedpacket divisions.
+Physical precision loans and source ownership still need circuit proofs.
+[Independent precision diagnosis](../experiments/overnight-20261014/coordinator/ht25-precision-results.md).
+
+The product proofs quantify every future internal measurement in the original
+rail109tick on15actual prefix states per source and in forward folds75/104
+on1084actual prefix contexts. All output values are constant across those
+outcomes, every incremental phase polynomial is zero, and each output matches
+the source-bound native prefix. Thus the localized overflow and missing borrow
+are deterministic value faults in these finite contexts. Past measurement
+outcomes remain fixed and incoming phase additive; these are not whole-point
+all-measurement or arbitrary-input proofs.
+[Rail proof](../experiments/overnight-20261014/product/rail109-audit-results.md),
+[fold proof](../experiments/overnight-20261014/product/fold75-allmr-results.md).
+
+For the fixed constructor's28retained value functions on all16384assignments
+to14primitive inputs, the new closed-space escape argument excludes a26-AND
+straight-line XOR/AND program, conditional on trusted Z3UNSAT. Independently
+parsed SMT expressions match exact coefficient algebra for every assignment
+to89solver variables, with a cubic-term fault detected and independently
+recomputed truth-space ranks. Therefore the restricted lower bound is27,
+against31in the source. No attaining witness, complete cleanup, native quantum
+optimality or full scored saving follows. Source-admitted narrower contracts
+must be assessed separately.
+[Argument and limitations](../experiments/overnight-20261014/toffoli/sequential-escape-lower-bound-v19.md).
+
+A read-only review of the current public product leader separates its symbolic
+passes from sampled census cuts, which this project does not adopt. The
+independent baseline scan identifies125constant unconditional measurements
+but no directly positive-outcome-guarded Toffolis; it changes no gates. This
+standalone route is closed without a resource candidate.
+[Source review and negative result](../experiments/overnight-20261014/coordinator/public-product-leader-source-review.md).

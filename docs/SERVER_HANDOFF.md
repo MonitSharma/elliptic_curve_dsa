@@ -4,16 +4,49 @@
 [the cycle report](overnight-20261014.md) and its source-bound experiment receipts
 for current jobs. The capacity and compact-Q693 completion details below describe
 the earlier setup, before this cycle's separate N275 and head-selector work.
-The new full evaluator uses about200GiB; a sequential second evaluator waits
-for its terminal marker before allocating about183GiB. Preserve both streams
-and refresh available memory before launching anything else.
+At18:22UTC, N275-v2 has completed with one value failure, one phase-garbage
+batch and one ancilla-garbage batch. Its queued successor, head-selector
+native2662310, is the sole large evaluator, using about183GiB RSS. Its complete
+9,024-shot result remains pending. N274-v4 generation is complete but its
+known shot2379 arithmetic counterexample blocks qualification. Preserve all
+streams and refresh available memory before launching anything else.
+
+Current cycle collection (read-only with respect to candidate/evaluator source):
+
+```bash
+ssh smu_server
+cd /home/hclau/ecdsa_research/overnight-20261014
+python3 /home/hclau/ecdsa_research/server-preflight.py
+ps -p 2662310 -o pid,etime,rss,%cpu,args
+tail -30 qubits/evidence/headflag-v1-official-eval.log
+cat qubits/evidence/headflag-v1-official-eval-native.exit
+python3 collect-overnight-qubit-result.py headflag-v1
+```
+
+The exit file appears only after termination; a missing file means pending.
+The collector checks the exact frozen patch, all candidate source, protected
+harness source and binary, full stream hash, native/wrapper exits and complete
+benchmark admission. It never starts an evaluation. Preserve the resulting
+`coordinator-headflag-v1-terminal/` directory. Independent fixed-input evidence
+already demonstrates an inherited primitive quotient-capacity fault, so even
+a finite benchmark pass would need that limitation stated explicitly.
+
+Detached terminal collector2740181 was launched18:53:39UTC with `nohup`, an
+8GiB virtual-memory cap and one library thread. It waits at most24hours for
+the existing benchmark marker, then runs that same source-bound collector
+once. Its log is `coordinator-headflag-collection-watch-v1.log`; PID, source
+hashes, exit and resulting receipt hash are under
+`coordinator-headflag-collection-watch-v1/`. It launches no benchmark. While
+it is collecting, wait for `run.exit` rather than starting a competing manual
+collection. A successful collection exit does not mean the benchmark passed;
+read the terminal receipt's failure channels and qualified-score status.
 
 Verified on 14 October 2026 via SSH alias **`smu_server`**. Hostname:
 `LHC-104-070`. ECDSA work is isolated at **`/home/hclau/ecdsa_research`**.
 The pre-existing `/home/hclau/quantum_chemistry` checkout and active jobs were
 inspected and left untouched.
 
-## Capacity and limits
+## Historical setup capacity and limits
 
 Observed: 144 logical CPUs, 503 GiB RAM, approximately 277 GiB available, 4.7 TiB
 free disk, and load around 35–36. Two active jobs each use about 18 CPU threads

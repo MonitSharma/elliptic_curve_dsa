@@ -1,0 +1,162 @@
+{
+  "status": "COMPLETE_IDEAL_ARITHMETIC_DIAGNOSTIC",
+  "qualified_score": null,
+  "original_model_sha256": "d4e17154faa00794f0a0f133888ca84ad385814ed3d9be383ca4ba7078dc51b9",
+  "model_with_exact_HT_cap_substitution_sha256": "5470b0824932a56264b76d651cd6a99be19c6453956983d64ab0acf0a930c34c",
+  "packet_sha256": "bdba0f9ac464903dc9838cc2c05f7120f31941937226167f0a406e122dd4ec7d",
+  "schedule_sha256": "6aab700bf3b1cf68bafd86a23043690a5a1eeef270361714984ad228ab5031ab",
+  "parameters": {
+    "small_cutoff": 95,
+    "small_head": 32,
+    "large_heads": [
+      24,
+      25,
+      32
+    ],
+    "HT_cap": 25,
+    "mixed_HR_cap": 22,
+    "pure_HR_cap": 24,
+    "reserve": 9
+  },
+  "fixed_points": 9024,
+  "divisions_per_variant": 18048,
+  "stats": {
+    "24": {
+      "active_steps": 2688662,
+      "mixed_steps": 2381846,
+      "head32_steps": 2014161,
+      "pure_HR_steps": 306816,
+      "head23_steps": 674501,
+      "maximum_required_crossing_reserve": 8,
+      "q22_outside_guard": 1,
+      "maximum_q22_outside_guard": 22815568
+    },
+    "25": {
+      "active_steps": 2688662,
+      "mixed_steps": 2381846,
+      "head32_steps": 2014161,
+      "pure_HR_steps": 306816,
+      "head23_steps": 674501,
+      "maximum_required_crossing_reserve": 8,
+      "q22_outside_guard": 1,
+      "maximum_q22_outside_guard": 22815568
+    },
+    "32": {
+      "active_steps": 2688662,
+      "mixed_steps": 2381846,
+      "head32_steps": 2688662,
+      "pure_HR_steps": 306816,
+      "maximum_required_crossing_reserve": 8,
+      "q22_outside_guard": 1,
+      "maximum_q22_outside_guard": 22815568
+    }
+  },
+  "shot2379": [
+    {
+      "shot": 2379,
+      "division": 1,
+      "large_head": 24,
+      "input": "0x3c87ddf593efd6482ba906b71099ee0143475abbe1901341a0a00b93e73e4a8e",
+      "events": []
+    },
+    {
+      "shot": 2379,
+      "division": 1,
+      "large_head": 25,
+      "input": "0x3c87ddf593efd6482ba906b71099ee0143475abbe1901341a0a00b93e73e4a8e",
+      "events": []
+    },
+    {
+      "shot": 2379,
+      "division": 1,
+      "large_head": 32,
+      "input": "0x3c87ddf593efd6482ba906b71099ee0143475abbe1901341a0a00b93e73e4a8e",
+      "events": []
+    },
+    {
+      "shot": 2379,
+      "division": 2,
+      "large_head": 24,
+      "input": "0xb99d62d1aa557c0a85f9ea89739eded4eb025ed76459a15b2551efaae60665bd",
+      "events": [
+        {
+          "kind": "reciprocal_HT",
+          "column": 86,
+          "step": 86,
+          "head": 24,
+          "remaining": 3
+        },
+        {
+          "kind": "reciprocal_HT",
+          "column": 87,
+          "step": 87,
+          "head": 24,
+          "remaining": 1
+        }
+      ]
+    },
+    {
+      "shot": 2379,
+      "division": 2,
+      "large_head": 25,
+      "input": "0xb99d62d1aa557c0a85f9ea89739eded4eb025ed76459a15b2551efaae60665bd",
+      "events": [
+        {
+          "kind": "reciprocal_HT",
+          "column": 88,
+          "step": 88,
+          "head": 25,
+          "remaining": 1
+        }
+      ]
+    },
+    {
+      "shot": 2379,
+      "division": 2,
+      "large_head": 32,
+      "input": "0xb99d62d1aa557c0a85f9ea89739eded4eb025ed76459a15b2551efaae60665bd",
+      "events": []
+    }
+  ],
+  "all_flagged": [
+    {
+      "shot": 2379,
+      "division": 2,
+      "large_head": 24,
+      "input": "0xb99d62d1aa557c0a85f9ea89739eded4eb025ed76459a15b2551efaae60665bd",
+      "events": [
+        {
+          "kind": "reciprocal_HT",
+          "column": 86,
+          "step": 86,
+          "head": 24,
+          "remaining": 3
+        },
+        {
+          "kind": "reciprocal_HT",
+          "column": 87,
+          "step": 87,
+          "head": 24,
+          "remaining": 1
+        }
+      ]
+    },
+    {
+      "shot": 2379,
+      "division": 2,
+      "large_head": 25,
+      "input": "0xb99d62d1aa557c0a85f9ea89739eded4eb025ed76459a15b2551efaae60665bd",
+      "events": [
+        {
+          "kind": "reciprocal_HT",
+          "column": 88,
+          "step": 88,
+          "head": 25,
+          "remaining": 1
+        }
+      ]
+    }
+  ],
+  "seconds": 29.391000000061467,
+  "limits": "Unbounded ideal recurrence and reciprocal predicate only. Physical precision/donors, schedule admission, carry truncation, quantum phase, all-input correctness and official score are not established."
+}

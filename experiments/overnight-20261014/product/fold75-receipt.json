@@ -1,0 +1,30 @@
+{
+  "status": "COMPLETED_SOURCE_BOUND_FINITE_DIAGNOSTIC",
+  "qualified_score": null,
+  "exit": 0,
+  "native_tests": 3,
+  "native_sha256": "d01c0662845c0f1b809c0499a32189d99945c800e8847ebca30ca2cf1f36ed13",
+  "source_attestation": "37d16654b751f7ee8226ec924c45c3ced0a2b92816128b6207a0ab9375992bb4  /home/hclau/ecdsa_research/overnight-20261014/product-fold75-replay/src/main.rs\nd892354163cdddf41a460de7f81fb4f0e3c68ebd01c472db1d44af600f569276  /home/hclau/ecdsa_research/overnight-20261014/product-fold75-replay/src/y33_copy.rs\ne120cdfedbc38a9eba2a86f51a44170f914c48247996905e5c1d721cc79788ac  /home/hclau/ecdsa_research/overnight-20261014/product-fold75-replay/Cargo.toml\n8df116e3b6918d5fb96459b6b7b82881a066d19dac39ab156463166595bc4dc6  /home/hclau/ecdsa_research/overnight-20261014/product-fold75-replay/expected-finals.tsv\n6ba7a83aca1efbdd7c25b037ad395dd2d3b23bbd2b9677a3df3a22f3381598c7  /home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/src/point_add/y33_clears.rs\nb35314bc47a5f8eecbf60459e6c76c9b43aa034eeb9b7ec3421655d74f9e890b  /home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/src/bin/eval_circuit.rs\nf0c72f2a280cd68acee1dbf8282098f72d6b3bf4311e0abf96d122fe002256d7  /home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/src/sim.rs\nac2255f6bcb6895c9da2dfe21c3a051a0ef8fc4e0af9598634fec0035dbf35c6  /home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/src/circuit.rs\n",
+  "input_attestation": "7a8af53ad37cf00b313ca25982caa4a1be5d25f16e35ca2e534fe0636e6dadad  /home/hclau/ecdsa_research/overnight-20261014/product-evidence/c5-fold75/fold-frames.tsv\n12191b44536ade92775785c5aee3ecc6bcb424f0184c94e55418fbd4c1a35d13  /home/hclau/ecdsa_research/overnight-20261014/product-evidence/b3-fold75/fold-frames.tsv\neca53f6002583b148973ec0ebfb453839038b92984e3356bec8e24e6c662e683  /home/hclau/ecdsa_research/overnight-20261014/product-evidence/c5-fold75/raw-body.bin\n4886c86c15a6e9da06831cce6382996e77c898992e4bff7fb231ef4687a74ee9  /home/hclau/ecdsa_research/overnight-20261014/product-evidence/c5-fold75/pre-y33.bin\ncde0f248330b420c6a724ebfa24ad302ad47c64dc775d509f7f6f1c09972e43f  /home/hclau/ecdsa_research/overnight-20261014/product-evidence/c5-fold75/boundaries.tsv\nada7ef5264de0d6e600707c2e0672593014006038e454c24e6c74b19b7ca5e10  /home/hclau/ecdsa_research/overnight-20261014/product-evidence/b3-fold75/raw-body.bin\n4c70200201f1cc1024c46d74de5602005dc47a949d7bdfbd8ab17f87da0ee7e8  /home/hclau/ecdsa_research/overnight-20261014/product-evidence/b3-fold75/pre-y33.bin\n790ee3be9c2ecb894949e2481ff62f9a0449b440edfae69c963e7d558cd51edf  /home/hclau/ecdsa_research/overnight-20261014/product-evidence/b3-fold75/boundaries.tsv\n080fdd26854c8fc0360896b9fcb5f5c0e9d792521fc822301ddf278f8b0599cb  /home/hclau/ecdsa_research/overnight-20261014/product-b3-arithmetic-compare/known-official-failures.tsv\n5a70e547bb6091e8b877a2bf8c719ac217b0cbfbcb25b6bb4050b8d140e2ae72  /home/hclau/ecdsa_research/overnight-20261014/product-evidence/b3-paired/independent.tsv\n",
+  "full_points_replayed_per_source": 271,
+  "exported_cases_per_source": 16,
+  "folds_per_case": 2,
+  "producer_cases": 64,
+  "all_unfolded_integer_producers_exact": true,
+  "binding": "Both source observers retain all binding assertions and original whole-circuit/raw stream byteidentity; exact copied Y33 transform and both emission/final hash domains; final raw coordinates and phase on all271/source equal archived global transcript replay.",
+  "producer_frame": "Source actual open ripple linear sums, real three overflow E sums, source complement and restored carries; independent fault test detects corrupted carry.",
+  "resource": "Dedicated targets,16GiB virtual cap,4 buildthreads/1 native runtime; original streams and all protected files untouched.",
+  "phase_scope": "Final raw within-source transcript exact; cross-source transcripts unaligned. No intermediate phase cause claim.",
+  "findings": "B3 point8033 tick75 width56 misses borrow into bit56; C5 width57 handles same producer. Independent94 tick104 both width56 miss borrow. All64 observed transforms agree exactly modulo their actual source windows.",
+  "correction": "Earlier message assumed both tick75 windows56; primary source and native evidence corrected C5 to57 before reporting cause.",
+  "artifact_hashes": {
+    "borrow-certificate-output.json": "c9baf6aca64784f51762f7c6e633a7aa8de4a5608895a54cb9fb3fc94150a029",
+    "borrow-certificate-syntax-failed.py": "31a07dd426f10e01c0505b6dd5832de7df075f0a659a82c7470f57f7d5c45a50",
+    "input.sha256": "96443c7c24f969d7a3913c318d49e1bf30683137f290521b57c843075b7c8a02",
+    "model-summary.json": "fccef725ddbae356ef160625f60652f0ff0f6e065befb6c756dcc62f95ea6b37",
+    "native.sha256": "14ba187ea539eb2f0f02c739c678b1d282e75c316ce4651e3a6a5be7400f8aa9",
+    "run.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "run.log": "8d0605d7fad0539f36de8c1c8542358fdeda49634b7c512bdedf004aefd713b3",
+    "source.sha256": "eb6108bce2d7aedc8b6a0f618656ffcb2929edc215aeafa193edc332dd6de10e"
+  }
+}

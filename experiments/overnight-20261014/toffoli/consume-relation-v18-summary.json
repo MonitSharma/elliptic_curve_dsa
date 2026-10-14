@@ -1,0 +1,120 @@
+{
+  "status": "fixed_interface_closed_affine_product_UNSAT",
+  "source_lf_sha256": "879b85060f6a5cfa412561d64860f1cab697f7a334f180f5be9102070d5a23b9",
+  "input_netlist_sha256": "ddd348636d468168dd55209fe134b47e3a4c7891d41291189812ee2e193d4be8",
+  "factor_netlist_sha256": "5d5d2f9098db9d6c060aa8f5feb72832ec9f14aa979649f4a3573bd199cf18c9",
+  "description_sha256": "0fb4b681ef71b351f9592342f108d5f634e5c20b59f7e356c64c33815a5a4b49",
+  "domain_rows": 262144,
+  "desired_span_rank": 51,
+  "value_AND_budget": 32,
+  "formal_proof_certificate_saved": false,
+  "qualified_score": null,
+  "limits": "One new fused value interface only. No globaloptimality, native cleanup/phase, physical width or full cost/score.",
+  "seconds": 0.5041633611544967,
+  "final_AND_count": 15,
+  "pid": 2710068,
+  "exit_code": 0,
+  "raw_evidence_directory": "research-output/overnight-20261014/toffoli/consume-relation-v18",
+  "evidence_sha256": {
+    "raw-receipt.json": "5f93123919f5aba5e29b1ef65fb2a43544b4135260d578e1cab1fb5b5e730aa4",
+    "run.log": "4ed7496581c07b277d50331547eb6256d9201552ccb2e364eb37de7fe0524a6f",
+    "run.pid": "0c0c9e48ffc68dc160215e8dd817ebda10b505e90da6e1778ca60000f7109027",
+    "run.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "settings.txt": "796d5d6a108e4063e807108b52f248c6928c35225d428db88b96157e057cddc2",
+    "finished.txt": "1638893d5f0eb9aa535482f5798cf87cf3688b3fa60ffa1aecc7f386110675d6"
+  },
+  "terminal_closure": {
+    "status": "nondecomposable_kernel_unresolved",
+    "computed_ANDs": 15,
+    "stages": [
+      {
+        "current_span_rank": 34,
+        "desired_span_rank": 51,
+        "pair_products": 561,
+        "kernel_dimension": 88,
+        "kernel_basis_extensions": 1
+      }
+    ],
+    "gates": [
+      [
+        2,
+        128
+      ],
+      [
+        524292,
+        524544
+      ],
+      [
+        1572872,
+        1573376
+      ],
+      [
+        16,
+        3670016
+      ],
+      [
+        32,
+        4194304
+      ],
+      [
+        4194338,
+        4195360
+      ],
+      [
+        29363298,
+        29363300
+      ],
+      [
+        29363232,
+        8391744
+      ],
+      [
+        8389632,
+        8390656
+      ],
+      [
+        8192,
+        16384
+      ],
+      [
+        201364490,
+        41945156
+      ],
+      [
+        134254600,
+        222335008
+      ],
+      [
+        3670032,
+        268460032
+      ],
+      [
+        8428544,
+        134217728
+      ],
+      [
+        4096,
+        32768
+      ]
+    ],
+    "limits": "The kernel permits nonzero extensions, but this witness search has not factored them. No impossibility claim."
+  },
+  "terminal_factor": {
+    "status": "unsat",
+    "prefix_ANDs": 15,
+    "current_span_rank": 34,
+    "desired_span_rank": 51,
+    "pair_products": 561,
+    "kernel_dimension": 88,
+    "quadratic_equations": 473,
+    "extension_quotient_rank": 1,
+    "equation_sanity_checks": 1000,
+    "solver": "5.1.0",
+    "timeout_seconds": 119,
+    "seconds": 0.008075214922428131,
+    "proof_scope": "No AND of arbitrary affine forms of S can extend S inside W. A circuit attaining W-minus-input rank must keep every AND in W, so it cannot reach W from the contained raw-input span."
+  },
+  "preliminary_rank10_description_sha256": "409d71a95c1be8c752ca049705152953536c9cff3aca1c6b129930f29ce82f2b",
+  "preliminary_source_sha256": "32a59cff4527490139771b45d47ba914bb2ce1fc327edd7ad7b970742158c5a3",
+  "preliminary_scope": "Earlier single-known-relation greedy reduction also reached rank10. Frozen final source additionally tests all pairs of known-basis toggles without lower rank; neither proves minimum."
+}

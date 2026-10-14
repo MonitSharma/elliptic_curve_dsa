@@ -1,0 +1,24 @@
+diff --git a/src/point_add/tests_midg_k24.rs b/src/point_add/tests_midg_k24.rs
+index 35f25863..166d85c1 100644
+--- a/src/point_add/tests_midg_k24.rs
++++ b/src/point_add/tests_midg_k24.rs
+@@ -878,3 +878,19 @@ fn k24_returned_f_actual699_state_phase_v2() {
+     assert_eq!(apps, invoice, "exact same-binary prepass application invoice");
+     eprintln!("K24_RETURNED_F_NATIVE_PASS candidate_width=693 reference_width=694 packs={packs} lanes={} physical_applications={apps} independent_hmr_coefficients={coefficients} all693=true false_R_window_DATA=true caller_fv_fr=true profiles=3 caller_profiles=2 whole=false", 64 * packs);
+ }
++
++#[test]
++fn qubit_diag2379_full_column_negative_control(){
++    use super::frogdrop_col::{Fd,ColScr,column_pl};
++    let cases=&[("shot2379_div2_HT_q25",86,["e26559806c2ecb566f7962aa261d471ea","d4dce6895ac3a82661405f567","12179a6af1f59b73310f9f0522e49d09"],100,1,0,["133e1010d4755452a8ff53761ab2a4559c7a0063","93db256981c2fb2487876d7d9","d4dce6895ac3a82661405f567"],100,1,0)];let (cols,_,_)=super::pointadd_frogdrop::col_pars(&super::frogdrop_sched::from_text(super::pointadd_frogdrop::SCHED_FROGDROP));
++    for &(label,ci,values,size,phase,switch,outvalues,outsize,outphase,outswitch)in cases{
++        let mut b=builder();let ring=b.alloc_n(276);let q=b.alloc_n(128);let sy=b.alloc_n(8);let sx=b.alloc_n(8);let ph=b.alloc();let pool=b.alloc_n(13);let dirty=b.alloc_n(259);let rev:Vec<_>=ring.iter().rev().copied().collect();let mut fd=Fd{ring:ring.clone(),q:q.clone(),sy:sy.clone(),sx:sx.clone(),ph,cnt:q[121..].to_vec()};let cp=&cols[ci];let sc=ColScr::carve_col(&pool,&sx,&dirty,24,23,40,cp.sz.1>255);
++        let parse=|s:&str|N::from_str_radix(s,16).unwrap();let mut input=vec![0u64;693];let mut rng=Rng::new(0x20261014_1234+ci as u64);for &id in &dirty{input[id.0 as usize]=rng.next();}
++        for lane in 0..64{put(&mut input,&ring,lane,parse(values[0]));put(&mut input,&rev[..parse(values[1]).bit_len()],lane,parse(values[1]));put(&mut input,&q,lane,parse(values[2]));put(&mut input,&sy,lane,N::from(size as u64));}input[ph.0 as usize]=if phase!=0{u64::MAX}else{0};input[sc.sw.0 as usize]=if switch!=0{u64::MAX}else{0};
++        let mut expected=input.clone();for &id in &ring{expected[id.0 as usize]=0;}for lane in 0..64{put(&mut expected,&ring,lane,parse(outvalues[0]));put(&mut expected,&rev[..parse(outvalues[1]).bit_len()],lane,parse(outvalues[1]));put(&mut expected,&q,lane,parse(outvalues[2]));put(&mut expected,&sy,lane,N::ZERO);put(&mut expected,&sx,lane,N::from(outsize as u64));}expected[ph.0 as usize]=if outphase!=0{u64::MAX}else{0};expected[sc.sw.0 as usize]=if outswitch!=0{u64::MAX}else{0};
++        let record=rec(&mut b,|b|column_pl(b,&mut fd,cp,&sc,None));let forward=emitted(&mut b,&record,false);let inverse=emitted(&mut b,&record,true);let got=run(&forward,693,&|words|*words=input.clone());let bad:Vec<_>=got.q.iter().zip(&expected).enumerate().filter_map(|(i,(x,y))|if x!=y{Some(i)}else{None}).collect();eprintln!("FIXED2379_NEGATIVE forward_bad={bad:?} phase={:x} q={:x} sy={:x} sx={:x}",got.phase,get(&got.q,&q,0),get(&got.q,&sy,0),get(&got.q,&sx,0));assert!(!bad.is_empty(),"Known quotient overflow must be reproduced by this unchanged source");let back=run(&inverse,693,&|words|*words=got.q.clone());eprintln!("FIXED2379_NEGATIVE inverse_all_wires_restore={} inverse_phase={:x}",back.q==input,back.phase);eprintln!("FIXED2379_NEGATIVE_CONTROL_COMPLETE label={label} column={ci} width=693 lanes=64 payload=false measurement_coefficients=UNASSESSED");
++    }
++    eprintln!("FIXED2379_DIAGNOSTIC_COMPLETE columns={} lanes={} measurement_coefficients=UNASSESSED scope=full_columns_no_payload",cases.len(),cases.len()*64);
++}
++
++

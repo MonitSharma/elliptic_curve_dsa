@@ -1,0 +1,115 @@
+{
+  "status": "selected_interface_closed_affine_product_UNSAT",
+  "netlist_sha256": "d6bf2410418bd8707d5768ca274ba74ce79c7e5964189605bdb2b33d22977b85",
+  "description_sha256": "04b4c0465a46ceef78d385f8facf454f5fc286489b1660edebf300050c4e4577",
+  "factor_netlist_sha256": "c794f61da6fff5f1d427fee3e9b408aab29e6b763275b546e5908def10871fdd",
+  "source_lf_sha256": "879b85060f6a5cfa412561d64860f1cab697f7a334f180f5be9102070d5a23b9",
+  "domain_rows": 16384,
+  "desired_span_rank": 43,
+  "value_AND_budget": 28,
+  "prefix_AND_count": 12,
+  "all_prefix_and_mapped_output_rows_verified": 16384,
+  "steps": [
+    {
+      "closure": {
+        "status": "nondecomposable_kernel_unresolved",
+        "computed_ANDs": 12,
+        "stages": [
+          {
+            "current_span_rank": 27,
+            "desired_span_rank": 43,
+            "pair_products": 351,
+            "kernel_dimension": 69,
+            "kernel_basis_extensions": 1
+          }
+        ],
+        "gates": [
+          [
+            2,
+            128
+          ],
+          [
+            2,
+            1024
+          ],
+          [
+            32772,
+            33024
+          ],
+          [
+            163848,
+            164352
+          ],
+          [
+            16,
+            425984
+          ],
+          [
+            525314,
+            524320
+          ],
+          [
+            68610,
+            2052
+          ],
+          [
+            1641478,
+            1572928
+          ],
+          [
+            8192,
+            16384
+          ],
+          [
+            8413184,
+            426000
+          ],
+          [
+            65544,
+            69632
+          ],
+          [
+            69640,
+            2097156
+          ]
+        ],
+        "limits": "The kernel permits nonzero extensions, but this witness search has not factored them. No impossibility claim."
+      },
+      "factor": {
+        "status": "unsat",
+        "prefix_ANDs": 12,
+        "current_span_rank": 27,
+        "desired_span_rank": 43,
+        "pair_products": 351,
+        "kernel_dimension": 69,
+        "quadratic_equations": 282,
+        "extension_quotient_rank": 1,
+        "equation_sanity_checks": 1000,
+        "solver": "5.1.0",
+        "timeout_seconds": 119,
+        "seconds": 0.005420763976871967,
+        "proof_scope": "No AND of arbitrary affine forms of S can extend S inside W. A circuit attaining W-minus-input rank must keep every AND in W, so it cannot reach W from the contained raw-input span.",
+        "query_sha256": "88132d1de504e0a5c51fd82edd709080aaec46035967a6c07f424543e673f74d",
+        "query_bytes": 36606
+      }
+    }
+  ],
+  "formal_proof_certificate_saved": false,
+  "qualified_score": null,
+  "limits": "Selected explicit arithmetic rank43 interface only; no global constructor optimality, cleanup/phase/native/width/full-score claim.",
+  "seconds": 0.30497483257204294,
+  "final_AND_count": 12,
+  "pid": 2744769,
+  "exit_code": 0,
+  "raw_evidence_directory": "research-output/overnight-20261014/toffoli/cubic-v23",
+  "evidence_sha256": {
+    "raw-receipt.json": "d4ccc719a548bd95805f6d40ed725584afa7c794970fadbcb909965093e250f4",
+    "run.log": "0d9212a51ab204d172e4b062c8cb58d4cbc3f2cf6850c1142f9034a9a08dbe1b",
+    "run.pid": "9a499bfe542c93e5b78a7c2e83dc60e06e8825761fa23ef9c1d1fc0f347f078c",
+    "run.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "finished.txt": "dee208d81a4c6952c98b84c28b08115c2d23f5d07087ffbb77e7b71668043249",
+    "settings.txt": "2da951c7b0ed75314367ee8210c2374660d7cbbb6b3b6d4c2e5c1edb4849642d",
+    "factor-netlist.json": "c794f61da6fff5f1d427fee3e9b408aab29e6b763275b546e5908def10871fdd",
+    "query-1.smt2": "88132d1de504e0a5c51fd82edd709080aaec46035967a6c07f424543e673f74d"
+  }
+}

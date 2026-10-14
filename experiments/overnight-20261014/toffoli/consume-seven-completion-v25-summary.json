@@ -1,0 +1,106 @@
+{
+  "status": "selected_interface_closed_affine_product_UNSAT",
+  "source_lf_sha256": "879b85060f6a5cfa412561d64860f1cab697f7a334f180f5be9102070d5a23b9",
+  "netlist_sha256": "df8010c5f4f8453aede50140b637026ad5192651f3771f26ee8e1188f5afc502",
+  "domain_rows": 2097152,
+  "desired_span_rank": 46,
+  "rank_minimum_value_AND_budget": 24,
+  "steps": [
+    {
+      "closure": {
+        "status": "nondecomposable_kernel_unresolved",
+        "computed_ANDs": 4,
+        "stages": [
+          {
+            "current_span_rank": 22,
+            "desired_span_rank": 46,
+            "pair_products": 231,
+            "kernel_dimension": 22,
+            "kernel_basis_extensions": 1
+          },
+          {
+            "current_span_rank": 23,
+            "desired_span_rank": 46,
+            "pair_products": 253,
+            "kernel_dimension": 26,
+            "kernel_basis_extensions": 1
+          },
+          {
+            "current_span_rank": 24,
+            "desired_span_rank": 46,
+            "pair_products": 276,
+            "kernel_dimension": 30,
+            "kernel_basis_extensions": 1
+          },
+          {
+            "current_span_rank": 25,
+            "desired_span_rank": 46,
+            "pair_products": 300,
+            "kernel_dimension": 34,
+            "kernel_basis_extensions": 1
+          },
+          {
+            "current_span_rank": 26,
+            "desired_span_rank": 46,
+            "pair_products": 325,
+            "kernel_dimension": 38,
+            "kernel_basis_extensions": 1
+          }
+        ],
+        "gates": [
+          [
+            2,
+            128
+          ],
+          [
+            4194308,
+            4194560
+          ],
+          [
+            12582920,
+            12583424
+          ],
+          [
+            16,
+            29360128
+          ]
+        ],
+        "limits": "The kernel permits nonzero extensions, but this witness search has not factored them. No impossibility claim."
+      },
+      "factor": {
+        "status": "unsat",
+        "prefix_ANDs": 4,
+        "current_span_rank": 26,
+        "desired_span_rank": 46,
+        "pair_products": 325,
+        "kernel_dimension": 38,
+        "quadratic_equations": 287,
+        "extension_quotient_rank": 1,
+        "equation_sanity_checks": 1000,
+        "solver": "5.1.0",
+        "timeout_seconds": 114,
+        "seconds": 0.004490288905799389,
+        "proof_scope": "No AND of arbitrary affine forms of S can extend S inside W. A circuit attaining W-minus-input rank must keep every AND in W, so it cannot reach W from the contained raw-input span.",
+        "query_sha256": "56839fa50e9348113739f3c7c10e4292d4406336fcbcade72ba6e07a3cd9525d",
+        "query_bytes": 21131
+      }
+    }
+  ],
+  "qualified_score": null,
+  "formal_proof_certificate_saved": false,
+  "limits": "One rank-minimum changed low13/carry13 value interface. Closure negatives do not exclude34-AND circuits with additional auxiliary directions, nor other nonlinear consumer contracts. No cleanup/phase/native/width/full-cost claim.",
+  "seconds": 1.5028685266152024,
+  "final_AND_count": 4,
+  "pid": 2754468,
+  "exit_code": 0,
+  "raw_evidence_directory": "research-output/overnight-20261014/toffoli/consume-v25",
+  "evidence_sha256": {
+    "raw-receipt.json": "7d6d3dbd4fac77ab5af3a689b5175390cb420b6cd17b3fb640d5900309ca28f9",
+    "run.log": "c21254d1d5c04c2590aa3d3d486b0c1ef36edffd764998da4f2ee71099056bc0",
+    "run.pid": "c0518f19ebba0d49499d52579b4d176d5e641b8d087b9b8ff668abbead54c5bb",
+    "run.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "finished.txt": "3cdb6e0b8ce1dc3aacda20f404362ba210069c950400e8d48619b5e2ad225282",
+    "settings.txt": "50c9c9e01c2ef8752cda6a80835b3ee8490a8ec46bf611add2b5565c312b9267",
+    "query-1.smt2": "56839fa50e9348113739f3c7c10e4292d4406336fcbcade72ba6e07a3cd9525d"
+  }
+}
