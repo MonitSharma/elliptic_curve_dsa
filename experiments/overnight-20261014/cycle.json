@@ -13,6 +13,38 @@
   "server_workspace": "/home/hclau/ecdsa_research/overnight-20261014",
   "initial_public_targets": {"maximum_qubits": 692, "maximum_toffoli": 761155, "maximum_product": 939681127},
   "original_qualified_candidates": [],
+  "first_hour": {
+    "public_records": 1561,
+    "eligible_records": 1220,
+    "pareto_points": 44,
+    "constructor_necessary_AND_bound": 26,
+    "original_constructor_ANDs": 31,
+    "qubit_failing_inputs_paired": [1170, 1937, 4131, 4202, 8048],
+    "sixth_compact_failure_localized": false,
+    "k25_status": "Targeted column repair passes; other reciprocal and QB23 failures remain; no full qualification",
+    "classical_factor_candidate": "Eight exact emitted CCX replacements, 6.5 depth proxy; paired evidence only; no qualified score",
+    "reports": ["coordinator/README.md", "qubits/FINDINGS.md", "toffoli/README.md", "product/report.md"]
+  },
+  "jobs_at_first_hour_checkpoint": [
+    {
+      "pid": 2358879,
+      "kind": "Original-transcript compact diagnostic identifying all failure indices",
+      "log": "/home/hclau/ecdsa_research/overnight-20261014/qubits/evidence/original-all.log",
+      "exit": "/home/hclau/ecdsa_research/overnight-20261014/qubits/evidence/original-all.exit",
+      "memory_limit_GiB": 128,
+      "runtime_threads": 1,
+      "qualified_score": null
+    },
+    {
+      "pid": 2359412,
+      "kind": "Unchanged official-builder binding of the exact eight-CCX candidate; no scorer",
+      "log": "/home/hclau/ecdsa_research/overnight-20261014/product-evidence/candidate-builder/run.log",
+      "memory_limit_GiB": 16,
+      "build_threads": 4,
+      "runtime_threads": 1,
+      "qualified_score": null
+    }
+  ],
   "nonce_search": false,
   "official_submission": false
 }

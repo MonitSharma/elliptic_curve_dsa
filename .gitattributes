@@ -2,3 +2,8 @@
 *.sh text eol=lf
 # Experiment patches carry their own exact line endings.
 *.patch -text -whitespace
+# Source-bound overnight receipts and helpers use their recorded Linux bytes.
+experiments/overnight-20261014/**/*.json text eol=lf
+experiments/overnight-20261014/**/*.py text eol=lf
+experiments/overnight-20261014/**/*.rs text eol=lf
+experiments/overnight-20261014/**/Cargo.lock text eol=lf

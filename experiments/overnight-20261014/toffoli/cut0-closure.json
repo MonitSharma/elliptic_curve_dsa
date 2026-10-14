@@ -1,0 +1,48 @@
+{
+  "cut": {
+    "first": "y5",
+    "last": "upper5",
+    "AND_count": 5,
+    "boundary_span_dimension": 4,
+    "gap": 1
+  },
+  "compressed_exact_rows": 200,
+  "source_rows": 16384,
+  "input_span_rank": 9,
+  "required_final_span_rank": 13,
+  "closure_span_rank": 11,
+  "rank_bound_attainable": false,
+  "witness_gates": [
+    [
+      8,
+      16
+    ],
+    [
+      32,
+      64
+    ]
+  ],
+  "stages": [
+    {
+      "current_span_rank": 9,
+      "affine_forms": 512,
+      "pairs_examined": 4068,
+      "extension_found": true
+    },
+    {
+      "current_span_rank": 10,
+      "affine_forms": 1024,
+      "pairs_examined": 32272,
+      "extension_found": true
+    },
+    {
+      "current_span_rank": 11,
+      "affine_forms": 2048,
+      "pairs_examined": 2096128,
+      "extension_found": false
+    }
+  ],
+  "seconds": 0.4530000000959262,
+  "limits": "All affine products exhaustively checked only if closure stalls. This decides rank-bound attainability, not larger circuit optimum or phase cost.",
+  "targets_sha256": "3782bb13d1a8e6df62e2d54444d3b2a707d1c2d8198e408b4b551042a651de47"
+}

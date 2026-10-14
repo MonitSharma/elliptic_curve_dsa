@@ -1,8 +1,8 @@
 # Public resource frontier
 
-Snapshot analyzed 2026-10-14T18:16:48.326742+08:00 (Singapore time).
+Snapshot analyzed 2026-10-14T19:15:46.617335+08:00 (Singapore time).
 
-[1,560 public submissions](https://api.ecdsa.fail/api/benchmarks/1ffb695a-309b-46b6-a728-2f97d8c7be74/submissions) contain 1,219 eligible records and **43 nondominated resource pairs**.
+[1,561 public submissions](https://api.ecdsa.fail/api/benchmarks/1ffb695a-309b-46b6-a728-2f97d8c7be74/submissions) contain 1,220 eligible records and **44 nondominated resource pairs**.
 
 Accepted and explicitly score-only rejected records qualify; failures and claimed-only metrics do not. This is a dated snapshot, not independent reproduction. Promotion uses the scalar product.
 
@@ -27,6 +27,7 @@ Accepted and explicitly score-only rejected records qualify; failures and claime
 | 799 | 17,340,825 | 13,855,319,175 | [666b952b](https://api.ecdsa.fail/api/submissions/666b952b-4ba5-4a21-a279-d544b67bdea8) |
 | 819 | 14,489,348 | 11,866,776,012 | [3e7f1342](https://api.ecdsa.fail/api/submissions/3e7f1342-4588-4a5f-a80e-f1b8187c657c) |
 | 843 | 11,947,178 | 10,071,471,054 | [4a8ade44](https://api.ecdsa.fail/api/submissions/4a8ade44-9259-4e2d-bc80-91186c2a19ce) |
+| 874 | 2,398,215 | 2,096,039,910 | [ae537372](https://api.ecdsa.fail/api/submissions/ae537372-a846-424e-b613-9c4038a0a46e) |
 | 877 | 2,331,376 | 2,044,616,752 | [7be7b9a5](https://api.ecdsa.fail/api/submissions/7be7b9a5-99c3-4fd1-9d27-310f4f2d33c1) |
 | 880 | 2,272,805 | 2,000,068,400 | [c56a97ad](https://api.ecdsa.fail/api/submissions/c56a97ad-27a2-4644-ae29-bfe42b386f6f) |
 | 883 | 2,255,931 | 1,991,987,073 | [5da304d6](https://api.ecdsa.fail/api/submissions/5da304d6-799b-4caf-bd73-b9b7af4619e9) |

@@ -1,0 +1,128 @@
+{
+  "qualification": "No original submission-ready candidate. Baseline component tests and synthesis/negative research only.",
+  "native_fixture": {
+    "status": "passing_baseline_component_fixture",
+    "tests_passed": 2,
+    "tests_failed": 0,
+    "command": "CARGO_BUILD_JOBS=4 cargo test --offline --locked --release --bin build_circuit toffoli_native_fold -- --nocapture --test-threads=1",
+    "source": {
+      "base_revision": "c5bb1ec876db859a3f9f8a9052c140a145df834e",
+      "qualification": "Baseline component verification only; no production arithmetic change, no original full-circuit improvement or score.",
+      "patch_sha256": "20de89c28f382716431c0136092763a328eea5673afcf566fbba439afa0058dc",
+      "source_lf_sha256": {
+        "src/point_add/y15_onefold.rs": "e379fd53d626bb42c2998b37f180c0279327ff150575fedbdc3e80b6c63aeeb1",
+        "src/point_add/toffoli_native_fold.rs": "5e477b4bdc7ac854a7109bcd21fbba18492c49eb30976ab51cfb4337ee868392"
+      },
+      "apply_to": "Clean base only; all added source remains under src/point_add/; protected harness untouched.",
+      "command": "CARGO_BUILD_JOBS=4 cargo test --offline --locked --release --bin build_circuit toffoli_native_fold -- --nocapture --test-threads=1",
+      "scope": "Width56 fin0: all16384 low input states,38 high words, zero plus79 independent measurement coefficients. Width57fin1 and56fin2: same values,4 phase words each. Arbitrary high-word coverage is not established."
+    },
+    "host": "LHC-104-070",
+    "server_directory": "/home/hclau/ecdsa_research/overnight-20261014/toffoli",
+    "job_pid": 2337904,
+    "exit_status": 0,
+    "log_sha256": "a77ff040f9206fc3fe3c1799759410ef2fd70a7289271db231c911585d73edaa",
+    "server_log": "/home/hclau/ecdsa_research/overnight-20261014/toffoli/toffoli-native-fold-v4-20261014.log",
+    "settings_sha256": "172d9a36d7072ff4c18c01a992bc105e1dbc84513d85220f9c3a64643cefed45",
+    "memory_limit_KiB": 16777216,
+    "build_threads": 4,
+    "runtime_threads": 1,
+    "peak_RSS_KiB": 1148664,
+    "elapsed": "1:29.77",
+    "fixtures": [
+      {
+        "width": 56,
+        "fin": 0,
+        "raw_low_inputs": 16384,
+        "high_words": 38,
+        "measurement_basis_coefficients": 79,
+        "zero_outcome_word": true,
+        "simulated_cases": 49807360
+      },
+      {
+        "width": 57,
+        "fin": 1,
+        "raw_low_inputs": 16384,
+        "high_words": 38,
+        "phase_words": 4,
+        "simulated_cases": 2490368
+      },
+      {
+        "width": 56,
+        "fin": 2,
+        "raw_low_inputs": 16384,
+        "high_words": 38,
+        "phase_words": 4,
+        "simulated_cases": 2490368
+      }
+    ],
+    "negative_control": "Removed final low-carry CZ repair; phase garbage detected.",
+    "phase_scope": "Fin0 structurally excludes measurement-conditioned value operations, nested measurement conditions and combined direct/stack conditions. Phase is linear in measurements; zero and all79 coefficient checks cover all outcome words for the38 selected high words. Fin1/2 cover4 words only.",
+    "limits": "No arbitrary high-word proof, no full point-addition validation, no original circuit change or score."
+  },
+  "complete_constructor_obstruction": {
+    "status": "verified_closed_subspace_obstruction",
+    "independent_method": "least-significant-pivot GF(2) rank plus subspace intersection dimension",
+    "checks": [
+      {
+        "prefix_ANDs": 7,
+        "S_rank": 22,
+        "W_rank": 40,
+        "quadratic_product_span_rank": 209,
+        "product_plus_W_rank": 226,
+        "intersection_rank": 23,
+        "closed": false
+      },
+      {
+        "prefix_ANDs": 8,
+        "S_rank": 23,
+        "W_rank": 40,
+        "quadratic_product_span_rank": 228,
+        "product_plus_W_rank": 245,
+        "intersection_rank": 23,
+        "closed": true
+      }
+    ],
+    "source_interface_cases": 16384,
+    "arithmetic_mismatches": 0,
+    "minimum_AND_bound_for_complete_value_interface": 26,
+    "original_constructor_ANDs": 31,
+    "source_lf_sha256": "879b85060f6a5cfa412561d64860f1cab697f7a334f180f5be9102070d5a23b9",
+    "netlist_sha256": "d6bf2410418bd8707d5768ca274ba74ce79c7e5964189605bdb2b33d22977b85",
+    "receipt_sha256": "bf2657424c0af0aa119a178f31812fc2790af1661f251ae64c45be0d89f629ad",
+    "limits": "Fixed14raw-input/28output value interface; changed interfaces, native phase and full-circuit cost remain separate."
+  },
+  "failed_or_superseded": [
+    {
+      "experiment": "Initial native fixture",
+      "status": "Positive fixtures passed; unexercised top-CZ negative control did not detect fault",
+      "exit_status": 101,
+      "log_sha256": "46f1111da7d7345fea37739cb896665b883a739642b1afb14090ebee79e6ec0a",
+      "preserved_source": "toffoli_native_fold_fault_v1.rs"
+    },
+    {
+      "experiment": "v2 launcher",
+      "status": "Failed before tests due to CRLF shell script",
+      "log_sha256": "25b363c3150070de52f3da956c71acb1d7c9eeaca4af9f0f2e1faa59bd1a74f6",
+      "preserved_source": "toffoli_native_failed_crlf_v2.sh"
+    },
+    {
+      "experiment": "4AND SAT cut",
+      "status": "canceled_superseded_by_exhaustive_closure",
+      "signal": "SIGTERM",
+      "exit_status": 143,
+      "job_pid": 2315250,
+      "solver_pid": 2315296,
+      "log_sha256": "2e9a276290f9debc7152ae5870f1a371ea4632fee0b1a2964a4cc190ab2316b1",
+      "limits": "Cancellation is not an UNSAT result."
+    }
+  ],
+  "sparse_thirty_AND_search": {
+    "status": "no_witness_in_incomplete_search",
+    "planes": 63,
+    "pairs_checked": 166699302,
+    "seconds": 477.59417141601443,
+    "limits": "Sparse, time-limited search; no lower-bound or scored-result claim.",
+    "receipt_sha256": "0d72d7912a63ed61427da49d4bec0d84e6764abe1526e26567b095a74ea8f892"
+  }
+}

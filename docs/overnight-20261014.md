@@ -72,3 +72,58 @@ Fetch and review staged changes before normal fast-forward project pushes.
 
 No new original candidate has qualified at cycle start. Track-specific reports
 will record experiments and terminal status as evidence becomes available.
+
+## First findings (before 19:00 Singapore time)
+
+- The original Q693 stream has now been independently regenerated as a research
+  diagnostic, matching its public hash `9fcdc344…91721`. This generation has no
+  official score. A wrapper exit-marker path defect was preserved and repaired
+  in the evidence collection; the timed generation itself exited0.
+- Shot1170 is also wrong on the independently generated unchanged Q693 base.
+  The arithmetic audit identifies a reciprocal-search error in its corresponding
+  Euclidean HR column. An initial native base/compact column comparison is
+  **invalid**: shared build-cache identities reused the baseline executable.
+  Those logs are preserved as invalid duplicate-binary evidence. Unique
+  executable names, embedded variant/source provenance and binary hashes are
+  required for the corrected rerun. Whole-column equivalence remains unverified;
+  other failing cases remain under paired investigation.
+- Corrected native column probes now use distinct executable identities,
+  separate build directories and embedded source hashes. All693 words match
+  at stages0–10 on the admitted shot1170 HR state; both results are one divisor
+  too high, and both inverses restore all words with zero phase. The invalid
+  initial comparison remains excluded. Five selected failing compact inputs
+  also fail on the public base under paired replay; the sixth is not localized.
+  K25 passes its targeted column repair, but QB23 overflow remains unresolved.
+  Its follow-up integer audit still flags other reciprocal cases; higher
+  precision alone is not yet a complete repair.
+- Seven-atom and sparse degree-eight exact simplification found no gate saving
+  on the complete Q1234 stream. The seven-atom variant is byte-identical to the
+  preserved baseline. No unchanged full benchmark was repeated.
+- Paired Q1234 tests exposed inherited structured-input failures: all128 tested
+  `P=-2A` cases and63 of128 distinct-x same-y zero-slope cases fail classically.
+  Their four phase batches fail, with no final ancilla garbage. These on-curve
+  inputs pass the official generator's distinct-x/non-infinity filters. They
+  are counterexamples, not population failure estimates or scored results.
+- The fixed complete constructor value interface now has a checked26-AND
+  necessary bound, stronger than the previous25 rank bound. The current31
+  is not proved optimal. A changed constructor-plus-consumer interface remains
+  an open lead; complete scratch, carry, cleanup and phase costs are unresolved.
+- Conservative unconditional-reset wire packing still peaks at1234. Three
+  immutable value abstractions find only the new carry target zero at the first
+  peak, exposing no proven parking lane. [Allocation evidence](../experiments/overnight-20261014/coordinator/README.md).
+
+No new original candidate has qualified. Current work continues into stronger
+gate identities, broader constructor interfaces, paired low-width failures and
+precise quotient ownership; the research window remains active.
+
+At the first hourly refresh, the API contains1,561 submissions,1,220 eligible
+records and44 Pareto points. The three objective records and strict targets are
+unchanged. The public comparison plot is refreshed with eligible official
+records only; no overnight diagnostic is admitted to the README results.
+
+The exact classical-factor candidate lowers eight emitted CCX gates in external
+analysis (depth proxy6.5, not a score). All final states and phase agree with the
+baseline on9,024 paired points plus independent/structured checks. A common
+independent measurement transcript exposes one inherited phase-garbage batch
+in both on the baseline point packet. Its actual unchanged-builder binding is
+pending; it has no qualified score and cannot alone bridge the record gap.

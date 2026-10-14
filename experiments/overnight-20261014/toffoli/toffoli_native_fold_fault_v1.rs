@@ -1,0 +1,104 @@
+//! Research fixture: exhaustive forward-fold low-input domain and measurement phase.
+use super::*;
+use crate::circuit::{analyze_ops, OperationType};
+use crate::sim::Simulator;
+use sha3::digest::XofReader;
+
+struct MeasurementWord {
+    selected: Option<usize>,
+    index: usize,
+}
+impl XofReader for MeasurementWord {
+    fn read(&mut self, output: &mut [u8]) {
+        assert_eq!(output.len(), 8);
+        output.fill(if self.selected == Some(self.index) { 255 } else { 0 });
+        self.index += 1;
+    }
+}
+
+fn expected(acc: u64, ev: u64, nv: u64, k1: u64, k2: u64, mw: usize) -> u64 {
+    let c3 = u64::from((acc & 7) + ev >= 8);
+    let c4 = (acc >> 3 & 1) & c3;
+    let r = nv + (acc & 7);
+    let a4 = r & 1;
+    let a5 = (r ^ (r >> 1)) & 1;
+    let a = acc >> 4 & 1;
+    let z = acc >> 5 & 1;
+    let c5 = (a & a4) | (a & c4) | (a4 & c4);
+    let y3 = (k1 | k2) & ((acc >> 3 & 1) ^ c3);
+    let y4 = k2 & (a ^ c4 ^ a4);
+    let y5 = (k1 & k2) & (z ^ c5 ^ a5);
+    let k = r as i128 + 8 * (y3 as i128 + 2*y4 as i128 + 4*y5 as i128 - c3 as i128);
+    assert!((-7..=70).contains(&k));
+    ((acc as i128 + ev as i128 - ((1i128 << 32) + 976)*k) & ((1i128 << mw)-1)) as u64
+}
+
+fn run_native(mw: usize, fin: usize, phase_coefficients: bool, inject_fault: bool) -> bool {
+    let mut c = Builder::new();
+    let acc = c.alloc_qubits(mw);
+    let e: [QubitId;3] = c.alloc_qubits(3).try_into().unwrap();
+    let nm: [QubitId;3] = c.alloc_qubits(3).try_into().unwrap();
+    let shift: [QubitId;2] = c.alloc_qubits(2).try_into().unwrap();
+    fold_fwd_v2(&mut c, &acc, e, nm, shift[0], shift[1], fin, None, false, 0);
+    assert_eq!(c.active_qubits() as usize, mw+8, "fixture returns all scratch");
+    let mut ops = c.take_ops();
+    if inject_fault {
+        let i = ops.iter().position(|o| o.kind == OperationType::CZ).expect("phase repair");
+        ops.remove(i);
+    }
+    let (nq, nb, _, _) = analyze_ops(ops.iter());
+    let measurements = ops.iter().filter(|o| matches!(o.kind, OperationType::Hmr | OperationType::R)).count();
+    let choices: Vec<Option<usize>> = if phase_coefficients {
+        std::iter::once(None).chain((0..measurements).map(Some)).collect()
+    } else { vec![None, Some(0), Some(measurements/2), Some(measurements-1)] };
+    let mut count = 0usize;
+    for selected in choices {
+        let mut xof = MeasurementWord { selected, index:0 };
+        let mut sim = Simulator::new(nq as usize, nb as usize, &mut xof);
+        for high in [0u64, ((1u64 << mw)-1) & !63u64] {
+            for base in (0usize..1<<14).step_by(64) {
+                sim.clear_for_shot();
+                for shot in 0..64 {
+                    let raw = (base+shot) as u64;
+                    let value = (raw & 63) | high;
+                    for (i,&q) in acc.iter().enumerate() {
+                        *sim.qubit_mut(q) |= ((value >> i) & 1) << shot;
+                    }
+                    for (i,&q) in e.iter().chain(nm.iter()).chain(shift.iter()).enumerate() {
+                        *sim.qubit_mut(q) |= ((raw >> (i+6)) & 1) << shot;
+                    }
+                }
+                // Each batch independently supplies the selected measurement basis vector.
+                sim.xof.index = 0;
+                sim.apply_iter(ops.iter());
+                if sim.phase != 0 { return false; }
+                for shot in 0..64 {
+                    let raw = (base+shot) as u64;
+                    let want = expected((raw & 63)|high, raw>>6&7, raw>>9&7, raw>>12&1, raw>>13&1, mw);
+                    let got = acc.iter().enumerate().fold(0u64, |v,(i,&q)| v|((sim.qubit(q)>>shot&1)<<i));
+                    if got != want { panic!("native fold mismatch width={mw} fin={fin} raw={raw} high={high:#x} got={got:#x} want={want:#x}"); }
+                    for (i,&q) in e.iter().chain(nm.iter()).chain(shift.iter()).enumerate() {
+                        assert_eq!(sim.qubit(q)>>shot&1, raw>>(i+6)&1, "input passenger changed");
+                    }
+                }
+                for &q in acc.iter().chain(e.iter()).chain(nm.iter()).chain(shift.iter()) { *sim.qubit_mut(q)=0; }
+                assert!(sim.qubits.iter().all(|&v|v==0), "native fold scratch");
+                count += 64;
+            }
+        }
+    }
+    eprintln!("TOFFOLI_NATIVE width={mw} fin={fin} measurements={measurements} checked_coefficients={phase_coefficients} cases={count} ops={}",ops.len());
+    true
+}
+
+#[test]
+fn toffoli_native_fold_all_inputs() {
+    assert!(run_native(56,0,true,false));
+    assert!(run_native(57,1,false,false));
+    assert!(run_native(56,2,false,false));
+}
+
+#[test]
+fn toffoli_native_fold_detects_phase_fault() {
+    assert!(!run_native(56,0,true,true));
+}

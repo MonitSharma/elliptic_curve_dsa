@@ -63,7 +63,7 @@ appear here. The outlined square is that reproduction, not our own improvement.
 Left: the storage/gate tradeoff, with a logarithmic gate axis. Right: the product
 leaders. The dashed line marks the best public product.*
 
-Latest snapshot: **1,560 submissions, 1,219 eligible official records and 43
+Latest snapshot: **1,561 submissions, 1,220 eligible official records and 44
 Pareto points**, refreshed on 14 October 2026.
 
 | Objective | Current public record | Our strict target |
@@ -103,6 +103,11 @@ recorded reproduction. This establishes a working environment and a reproducible
 starting circuit. It is an existing public design, not a new contribution,
 a reproduction of the latest leader, or a new official platform evaluation.
 [Exact source, score and verification receipt](docs/data/server-verification.json)
+
+Overnight independent diagnostics have also found inherited structured-input
+and measurement-phase counterexamples to this baseline. Its table records the
+original passing benchmark packet, not arbitrary-input correctness.
+[Counterexamples and paired evidence](experiments/overnight-20261014/product/report.md)
 
 The baseline is valid on its complete benchmark packet, but its product is worse
 than today's leader. Re-submitting it would not advance the challenge. We have

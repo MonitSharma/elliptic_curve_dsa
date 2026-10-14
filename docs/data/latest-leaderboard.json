@@ -1,14 +1,14 @@
 {
-  "analyzed_at": "2026-10-14T18:16:48.326742+08:00",
+  "analyzed_at": "2026-10-14T19:15:46.617335+08:00",
   "source": "https://api.ecdsa.fail/api/benchmarks/1ffb695a-309b-46b6-a728-2f97d8c7be74/submissions",
-  "record_count": 1560,
+  "record_count": 1561,
   "status_counts": {
     "accepted": 628,
-    "rejected": 701,
+    "rejected": 702,
     "failed": 228,
     "cancelled": 3
   },
-  "eligible_count": 1219,
+  "eligible_count": 1220,
   "benchmark_mode": "scalar",
   "closes_at": "2026-12-31T23:59:59.000Z",
   "eligibility": "Accepted or score-only rejected; positive integer official metrics; score equals Q*T.",
@@ -287,6 +287,19 @@
       },
       "createdAt": "2026-10-11T00:11:37.465Z",
       "submissionCommitSha": "4074901cf86366d1af747ccde53e983bc72eb4bd",
+      "solverUsername": "jieyilong",
+      "rejectionReason": "score did not improve current best"
+    },
+    {
+      "id": "ae537372-a846-424e-b613-9c4038a0a46e",
+      "status": "rejected",
+      "officialScore": 2096039910,
+      "officialMetrics": {
+        "qubits": 874,
+        "toffoli": 2398215
+      },
+      "createdAt": "2026-10-14T11:02:18.660Z",
+      "submissionCommitSha": "5429a5fae2ad7d8ffa57b3ea0e7f1ff4fed3d939",
       "solverUsername": "jieyilong",
       "rejectionReason": "score did not improve current best"
     },
@@ -630,7 +643,7 @@
     }
   ],
   "input_sha256": {
-    "submissions.json": "74901fcdfde8c7ddba29f046d96aca209c1672bdc582376ab23da3ddfb2db636",
+    "submissions.json": "42d250afee203bec8b9e7ba698d5f88bba70bff4137b28d728c5ab75cca56d6b",
     "benchmark.json": "b554882f8bf30e064d00f08be44b88b62dff46d3472b35886eaef7707d4ec411"
   }
 }

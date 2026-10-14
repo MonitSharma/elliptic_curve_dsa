@@ -138,6 +138,11 @@ ANDs**. The current unshed construction accounts for 31 forward ANDs (six low
 carries, four gate wires, seven k-construction ANDs, fourteen addend ANDs).
 The six-AND gap is search room, not an attainable saving or complete-cost claim.
 Cleanup, retained carries, phase repair and live width remain part of the cost.
+The overnight cycle subsequently strengthened this fixed complete value-interface
+bound to **26 ANDs** with a source-bound closed-subspace obstruction, independently
+checked on all 16,384 inputs. Thus at most five constructor ANDs remain below the
+current 31 within that interface; no saving is implemented or scored by this
+bound. [Proof, negative controls and native scope](../experiments/overnight-20261014/toffoli/README.md).
 
 Reproduce the source-bound targets and rank analysis with:
 

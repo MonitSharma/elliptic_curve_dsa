@@ -1,0 +1,12 @@
+{
+  "base_revision": "c5bb1ec876db859a3f9f8a9052c140a145df834e",
+  "qualification": "Baseline component verification only; no production arithmetic change, no original full-circuit improvement or score.",
+  "patch_sha256": "20de89c28f382716431c0136092763a328eea5673afcf566fbba439afa0058dc",
+  "source_lf_sha256": {
+    "src/point_add/y15_onefold.rs": "e379fd53d626bb42c2998b37f180c0279327ff150575fedbdc3e80b6c63aeeb1",
+    "src/point_add/toffoli_native_fold.rs": "5e477b4bdc7ac854a7109bcd21fbba18492c49eb30976ab51cfb4337ee868392"
+  },
+  "apply_to": "Clean base only; all added source remains under src/point_add/; protected harness untouched.",
+  "command": "CARGO_BUILD_JOBS=4 cargo test --offline --locked --release --bin build_circuit toffoli_native_fold -- --nocapture --test-threads=1",
+  "scope": "Width56 fin0: all16384 low input states,38 high words, zero plus79 independent measurement coefficients. Width57fin1 and56fin2: same values,4 phase words each. Arbitrary high-word coverage is not established."
+}

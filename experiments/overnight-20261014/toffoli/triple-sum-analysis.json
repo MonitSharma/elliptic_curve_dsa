@@ -1,0 +1,26 @@
+{
+  "interfaces": [
+    {
+      "interface": "triple-only",
+      "AND_rank_bound": 5,
+      "cases": 64,
+      "input_count": 6,
+      "output_count": 6
+    },
+    {
+      "interface": "triple-and-low-two-sum-bits",
+      "AND_rank_bound": 5,
+      "cases": 64,
+      "input_count": 6,
+      "output_count": 8
+    },
+    {
+      "interface": "triple-and-full-sum",
+      "AND_rank_bound": 7,
+      "cases": 64,
+      "input_count": 6,
+      "output_count": 10
+    }
+  ],
+  "limits": "Value-only bounds; full constructor consumes signed upper sum and cleanup controls."
+}

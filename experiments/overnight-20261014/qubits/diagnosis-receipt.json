@@ -1,0 +1,211 @@
+{
+  "scope": "Research diagnostics; no qualified score or submission",
+  "source_revision": "c95b9325913abacca9c86bdebad10a20633cd04e",
+  "existing_compact_patch_preserved": true,
+  "protected_submission_files_modified": false,
+  "packet_sha256": "fbeaf4f6dd9584527f974d49244d0a3af69f3f1370ef7cbe25e603061f90ba6e",
+  "base_stream_sha256": "9fcdc3449204b433cb060645423f86b42b32e7ec8858688b137fbbf6a7591721",
+  "compact_stream_sha256": "256422fd6e3520191300810546cb80974cb86c36354065d4c28fe564e078407d",
+  "first_counterexample": {
+    "shot": 1170,
+    "paired_identical_points": true,
+    "inherited_failure_established_for_this_input": true,
+    "all_six_original_failures_attributed": false,
+    "compact_exact_original_rng": {
+      "batch": 18,
+      "mismatches": 1,
+      "phase": "0x0",
+      "dirty_ancillas": 22,
+      "diagnostic_exit": 0,
+      "semantic_pass": false
+    },
+    "base_independent_measurement_rng": {
+      "batch": 18,
+      "mismatches": 1,
+      "phase": "0x0",
+      "dirty_ancillas": 34,
+      "diagnostic_exit": 0,
+      "semantic_pass": false
+    },
+    "localization": {
+      "division": 2,
+      "euclid_step": 36,
+      "column": 35,
+      "error": "K24 reciprocal HR search accepts one additional Y",
+      "exact_quotient": 2216631,
+      "expected_t_next": "0x187da29bb20aa8d1b197f85",
+      "actual_t_next": "0x187da3550f94d89be89ec5d"
+    }
+  },
+  "native_column_v1": {
+    "status": "invalid_duplicate_binary",
+    "cause": "Same external Cargo package name/version and target reused baseline binary for compact variant",
+    "logs_preserved": true
+  },
+  "native_column_v2": {
+    "status": "valid_component_differential",
+    "unique_package_names": true,
+    "distinct_source_tags_verified": true,
+    "base_operations": 1044546,
+    "compact_operations": 1044014,
+    "equal_quantum_words_at_stages": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "quantum_words": 693,
+    "payload": false,
+    "default_local_builder_cancellation": true,
+    "all_wires_inverse_restore": true,
+    "forward_phase": "0x0",
+    "inverse_phase": "0x0",
+    "all_input_equivalence_proof": false
+  },
+  "native_column_attested": {
+    "status": "valid_attested_component_differential",
+    "completed_job_pid": 2349764,
+    "diagnostic_exit": 0,
+    "separate_target_directories": true,
+    "unique_package_binary_names": true,
+    "embedded_commit_source_hashes_checked": true,
+    "stages_all_693_words_equal": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "no_payload": true,
+    "forward_inverse_phase": "0x0",
+    "all_wires_inverse_restore": true,
+    "earlier_v3_wrappers": "failed_binary_or_path_name_bookkeeping; original logs and exit1 preserved"
+  },
+  "clean_base_generation": {
+    "status": "generated_diagnostic_stream",
+    "generation_exit": 0,
+    "emitted_operations": 1128700062,
+    "peak_qubits": 693,
+    "emitted_toffolis": 338637532,
+    "valid_score": null,
+    "elapsed": "10:00.97",
+    "maximum_RSS_KiB": 951852,
+    "outer_wrapper": "relative_exit_trap_path_failed_after_chdir",
+    "repaired_marker": "base-stream-generation.exit",
+    "failure_note": "Original wrapper log preserved; no unchanged rerun"
+  },
+  "audit": {
+    "intended_denominators": 18048,
+    "valuation_or_modeled_map_violations": 0,
+    "arithmetic_flags": [
+      1170,
+      1937,
+      4131,
+      4202,
+      8048
+    ],
+    "quotient_cap_counterexample": {
+      "shot": 8048,
+      "division": 2,
+      "euclid_step": 25,
+      "quotient": 8505374,
+      "cap": 8388608
+    }
+  },
+  "paired_many": {
+    "status": "completed_diagnostics",
+    "diagnostic_exit": 0,
+    "semantic_pass": false,
+    "batches": [
+      18,
+      30,
+      64,
+      65,
+      125
+    ],
+    "inputs_per_stream": 320,
+    "same_fixed_rng_words": true,
+    "semantic_measurement_mapping_may_differ": true,
+    "failed_shots_on_both": [
+      1170,
+      1937,
+      4131,
+      4202,
+      8048
+    ],
+    "base_phase_batches": [
+      30,
+      125
+    ],
+    "compact_phase_batches": [
+      30,
+      65
+    ],
+    "base_dirty_ancilla_counts": [
+      34,
+      27,
+      31,
+      28,
+      34
+    ],
+    "compact_dirty_ancilla_counts": [
+      22,
+      34,
+      33,
+      20,
+      29
+    ],
+    "sixth_original_compact_mismatch": "not_yet_localized",
+    "base_elapsed": "3:10.77",
+    "compact_elapsed": "2:35.31"
+  },
+  "log_sha256": {
+    "base-paired-batch18.log": "4c649267f8e9972b027e93b8812803bae3ccf9237daa16fc0db56ffeff6d79ee",
+    "base-stream.log": "58fe5f57e4f3fd0d0be339f06b734d9e415f52cb93731b0533692a657e3a1fe8",
+    "column-base-attested.log": "16a1ee12ee92217ea072b0da202c681bb22e36db0f48834501806c8e479e1406",
+    "column-base.log": "8342ad11873c3c0f0de112532f7723a9c212adc4938777844b67ebe980b840d9",
+    "column-compact-attested.log": "8021cdc685d7ffa5ee88081d14007952f219eefc1e13aa3dade7d687161eb567",
+    "column-compact.log": "8095ebabb4b3a5c19fb4323f58004a87bf4ebbb7e2e273e94d5575688d06b160",
+    "column-pair-attested.log": "1310b30737c3c37ffd1316f693ca8a0ce79a657fd4834f635bdbb171edf7b3b0",
+    "column-pair.log": "e218ca9d0fb7e45e8cb6e9e9f054ae6804b59d9489d2070224f9b576ee093fc2",
+    "column-state-comparison-attested.json": "7a6d5978cce4500c6784371b1af389d4762e10ce63cdb30d12e4a38d29f97a4a",
+    "column-state-comparison.json": "2964ba277a290bed9399ffff54d9709805bcb5b6e12c28f868e7e573af9560ba",
+    "compact-exact-batch18.log": "d62545041b60b23c05132b31df15eec00f0d68222edded22124b4c989417087c",
+    "compact-packet-audit-reciprocal.json": "41e477ef0c38bed90a1960831fe7456ed1448bf7b766a11845750215305386a7",
+    "compact-packet.tsv": "fbeaf4f6dd9584527f974d49244d0a3af69f3f1370ef7cbe25e603061f90ba6e",
+    "k25-components.log": "e364f439bd33fb664843e0e1450151293d6974eeb48404c1276488a4ed10a656",
+    "paired-many-base.log": "23bc113a039ac25d219e4132dd88100ccfbfa12dae1d4742257d1eb6ce40eb49",
+    "paired-many-compact.log": "58dba503e824aa646d07099688eb886a66795bada8d57ab074cb475d8cec2ab5"
+  },
+  "k25_components": {
+    "status": "passing_component_repair",
+    "base_revision": "c95b9325913abacca9c86bdebad10a20633cd04e",
+    "source_manifest": "candidate-k25-manifest.json",
+    "patch": "candidate-k25.patch",
+    "passed": 18,
+    "failed": 0,
+    "ignored": 1,
+    "exact_column35_cases": 64,
+    "scope": "one HR column without payload plus prior K24-focused component suite",
+    "phase": "0x0",
+    "all_wires_inverse_restore": true,
+    "full_circuit_benchmark": "not_run_known_QB23_counterexample",
+    "nonce_changed": false,
+    "qualified_score": null,
+    "component_width": 693,
+    "maximum_RSS_KiB": 587324
+  }
+}

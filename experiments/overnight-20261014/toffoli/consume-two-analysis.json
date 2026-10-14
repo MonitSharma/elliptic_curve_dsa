@@ -1,0 +1,70 @@
+{
+  "source_cases": 65536,
+  "arithmetic_mismatches": 0,
+  "input_span_rank": 17,
+  "value_output_span_rank": 41,
+  "source_ANDs": 33,
+  "rank_AND_lower_bound": 24,
+  "closure": {
+    "status": "nondecomposable_kernel_unresolved",
+    "computed_ANDs": 4,
+    "stages": [
+      {
+        "current_span_rank": 17,
+        "desired_span_rank": 41,
+        "pair_products": 136,
+        "kernel_dimension": 17,
+        "kernel_basis_extensions": 1
+      },
+      {
+        "current_span_rank": 18,
+        "desired_span_rank": 41,
+        "pair_products": 153,
+        "kernel_dimension": 21,
+        "kernel_basis_extensions": 1
+      },
+      {
+        "current_span_rank": 19,
+        "desired_span_rank": 41,
+        "pair_products": 171,
+        "kernel_dimension": 25,
+        "kernel_basis_extensions": 1
+      },
+      {
+        "current_span_rank": 20,
+        "desired_span_rank": 41,
+        "pair_products": 190,
+        "kernel_dimension": 29,
+        "kernel_basis_extensions": 1
+      },
+      {
+        "current_span_rank": 21,
+        "desired_span_rank": 41,
+        "pair_products": 210,
+        "kernel_dimension": 33,
+        "kernel_basis_extensions": 1
+      }
+    ],
+    "gates": [
+      [
+        2,
+        128
+      ],
+      [
+        131076,
+        131328
+      ],
+      [
+        393224,
+        393728
+      ],
+      [
+        16,
+        917504
+      ]
+    ],
+    "limits": "The kernel permits nonzero extensions, but this witness search has not factored them. No impossibility claim."
+  },
+  "netlist_sha256": "4fc048c2b27d9e919c8ff9591989398eeda616fc76a77437ea326a9e2e26d9b0",
+  "status": "new value-interface lead; no native replacement or scored saving"
+}

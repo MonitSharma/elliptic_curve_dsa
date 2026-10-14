@@ -1,0 +1,44 @@
+{
+  "collected_at_utc": "2026-10-14T10:32:56.371845+00:00",
+  "checkout": "/home/hclau/ecdsa_research/overnight-20261014/product",
+  "baseline_revision": "c5bb1ec876db859a3f9f8a9052c140a145df834e",
+  "candidate_patch_sha256": "61befa61cc35307daf31e11b484dc9f2b30dab1c44092d49cc75f9cf29da5926",
+  "source_sha256": {
+    "src/point_add/mod.rs": "8a331ed173136b5bd052c2fbe3dfd86779cbc80b7afa39aabb0466cc0c71856b",
+    "src/point_add/product7_simplify.rs": "921045a6782ac053e4db074d698c89f03f67b6156f4fb98e8079be1c858c6258",
+    "src/point_add/tests_truth7.rs": "19ddc0147818dd124a0dfe5816c2bba8172c7edefead39fff0eecf3d3b53c4db",
+    "src/point_add/truth7_simplify.rs": "f61a0a70dda4a9ad08d8d6415b9b268b761cacdba83480fc45ab94b170225fd1"
+  },
+  "protected_tracked_changes": [],
+  "generated_results_tsv_changed": false,
+  "other_untracked_files": [],
+  "evidence_kind": "research_diagnostic",
+  "status": "completed_diagnostic",
+  "qualified_score": null,
+  "protected_sha256": {
+    "benchmark.sh": "122a65431ad42a1bad5114af9e8f8301fe5cb08c01adaeee00799c9f0d0ed92a",
+    "Cargo.toml": "3c80178b08d29a158abb29a7dcb8eefc67c66f60f2c3bd14483b65eeca0740dc",
+    "Cargo.lock": "42ff16919e551891ad1b21821329b116d133194245a0e0734a33573dfe598e07",
+    "rust-toolchain": "92b454c1ccf330de9b94242f73bc3214370fb420d5152baeec12dc82ceef9dcc",
+    "src/bin/eval_circuit.rs": "b35314bc47a5f8eecbf60459e6c76c9b43aa034eeb9b7ec3421655d74f9e890b",
+    "src/bin/build_circuit.rs": "ac013f1d851156a117c7d41ddb16cb5bb014ed4e6ed4679df143207b46852f33",
+    "src/circuit.rs": "ac2255f6bcb6895c9da2dfe21c3a051a0ef8fc4e0af9598634fec0035dbf35c6",
+    "src/sim.rs": "f0c72f2a280cd68acee1dbf8282098f72d6b3bf4311e0abf96d122fe002256d7",
+    "src/weierstrass_elliptic_curve.rs": "ecfca15ee3b831c243fbea559ff4b8937be47fe591a4f14786ec2b9bfb30bded"
+  },
+  "stream": {
+    "path": "/home/hclau/ecdsa_research/overnight-20261014/product-evidence/relations7/ops.bin",
+    "sha256": "49b35cf7640ebd529d76894eb8bef93ebf57e7e970fe14b3c27c8c5feb6e73e4",
+    "bytes": 39381407
+  },
+  "log": {
+    "path": "/home/hclau/ecdsa_research/overnight-20261014/product-evidence/relations7/run.log",
+    "sha256": "53112b00c9a571055d09d0f254dce144664161cc82fdc37d30922aab83fbc3a0"
+  },
+  "exit_status": 0,
+  "failure_counts": {
+    "classical_mismatches": null,
+    "phase_garbage_batches": null,
+    "ancilla_garbage_batches": null
+  }
+}
