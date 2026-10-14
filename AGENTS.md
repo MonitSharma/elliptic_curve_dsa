@@ -10,6 +10,10 @@ records before comparing. Read README.md and docs/research-plan.md first.
 - Keep source revision, patch, tests, logs and stream hashes for each experiment.
   Preserve failed experiments with clear status. Do not claim component results
   as full point-addition records, or old reports as newly verified evidence.
+- README result plots may contain only officially evaluated public records or
+  complete locally passing benchmark reproductions, with provenance stated.
+  Keep failed, pending and component-only experiments in separate Markdown
+  reports. Never display their generated or diagnostic counts as scored results.
 - Do not search identity-tail nonces or tune hash-derived test packets. Run the
   unchanged official benchmark on final source and independent tests as needed.
 - The three tracks are Git submodules. Save experimental diffs under

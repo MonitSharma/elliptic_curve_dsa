@@ -69,10 +69,13 @@ def main():
     b.set_ylim(-.6, 1.8)
     b.grid(axis="x", alpha=.2)
     b.set_axisbelow(True)
-    fig.suptitle("Compact reciprocal progress · unchanged full width: 693 qubits", fontsize=15, y=.97)
+    fig.suptitle("FAILED EXPERIMENT · compact reciprocal · 693 qubits", fontsize=15, y=.97,
+                 color="#a12525")
     fig.text(.5, .085, "These are emitted counts, not mean executed Toffolis.\n" + footer,
              ha="center", fontsize=10, color="#454b52")
-    out = ROOT / "docs/figures/research-progress.png"
+    # Experimental costs belong with the failure report, never in README results.
+    out = ROOT / "experiments/qubits/figures/diagnostic-counts.png"
+    out.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(out, dpi=180)
     plt.close(fig)
     print(out)

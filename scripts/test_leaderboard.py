@@ -37,6 +37,24 @@ class LeaderboardTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             lb.analyze([], {})
 
+    def test_local_plot_requires_complete_passing_evidence(self):
+        import copy
+        import json
+        receipt = json.loads((Path(__file__).resolve().parents[1] /
+                             "docs/data/server-verification.json").read_text())
+        self.assertEqual(lb.verified_reproduction(receipt), dict(qubits=1234, toffoli=761658))
+        faults = [("shots", 64), ("official_harness_unchanged", False),
+                  ("classical_mismatches", 1), ("phase_garbage_batches", 1),
+                  ("ancilla_garbage_batches", 1), ("stream_sha256", None)]
+        for key, value in faults:
+            broken = copy.deepcopy(receipt)
+            broken["product_baseline"][key] = value
+            self.assertIsNone(lb.verified_reproduction(broken), key)
+        broken = copy.deepcopy(receipt)
+        broken["product_baseline"]["score"]["score"] -= 1
+        self.assertIsNone(lb.verified_reproduction(broken))
+        self.assertIsNone(lb.verified_reproduction({"full_candidate": {"status": "failed_validation"}}))
+
 
 if __name__ == "__main__":
     unittest.main()

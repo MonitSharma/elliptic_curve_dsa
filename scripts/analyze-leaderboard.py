@@ -70,6 +70,26 @@ def write_json(path, value):
     path.write_text(json.dumps(value, indent=2) + "\n", encoding="utf-8")
 
 
+def verified_reproduction(receipt):
+    """Admit the complete unchanged baseline replay; fail closed on partial evidence."""
+    b = receipt.get("product_baseline") or {}
+    if b.get("official_harness_unchanged") is not True or b.get("shots") != 9024:
+        return None
+    if any(type(b.get(k)) is not int or b[k] != 0 for k in
+           ("classical_mismatches", "phase_garbage_batches", "ancilla_garbage_batches")):
+        return None
+    score = b.get("score") or {}
+    metrics = score.get("metrics") or {}
+    q, t = metrics.get("qubits"), metrics.get("toffoli")
+    if not all(type(v) is int and v > 0 for v in (q, t)) or score.get("score") != q*t:
+        return None
+    if not all(isinstance(b.get(k), str) and len(b[k]) == n and
+               all(c in "0123456789abcdef" for c in b[k])
+               for k, n in (("source_revision", 40), ("stream_sha256", 64), ("log_sha256", 64))):
+        return None
+    return metrics
+
+
 def plot(summary, records):
     import os
     os.environ.setdefault("MPLCONFIGDIR", str(ROOT / ".tools/matplotlib"))
@@ -83,11 +103,17 @@ def plot(summary, records):
     frontier = summary["frontier"]
     q = [s["officialMetrics"]["qubits"] for s in frontier]
     t = [s["officialMetrics"]["toffoli"] / 1e6 for s in frontier]
+    receipt_path = ROOT / "docs/data/server-verification.json"
+    local = verified_reproduction(json.loads(receipt_path.read_text())) if receipt_path.exists() else None
     for ax in axes:
         ax.scatter([s["officialMetrics"]["qubits"] for s in points],
                    [s["officialMetrics"]["toffoli"] / 1e6 for s in points],
-                   s=12, alpha=.25, c="#9aa5b1", label="Eligible official records")
+                   s=12, alpha=.25, c="#9aa5b1", label="Officially scored public circuits")
         ax.plot(q, t, "o-", color="#167d8d", ms=4, lw=1.5, label="Pareto frontier")
+        if local:
+            ax.scatter(local["qubits"], local["toffoli"] / 1e6, marker="s", s=100,
+                       facecolors="none", edgecolors="#682e87", linewidths=1.6, zorder=5,
+                       label="Our passing public-baseline replay")
         ax.set_xlabel("Peak logical qubits")
         ax.set_ylabel("Mean executed Toffolis (millions)")
         ax.grid(alpha=.2)
@@ -109,8 +135,9 @@ def plot(summary, records):
                     fontsize=8, arrowprops={"arrowstyle": "-", "color": color})
     axes[0].legend(loc="lower left", fontsize=8)
     axes[1].legend(loc="upper right", fontsize=8)
-    fig.suptitle(f'ECDSA.fail · {summary["record_count"]:,} submissions · '
-                 f'{len(frontier)} frontier points · snapshot {summary["analyzed_at"][:10]}')
+    fig.suptitle(f'Verified benchmark results · {len(frontier)} public frontier points · '
+                 f'{summary["analyzed_at"][:10]}\n'
+                 'No failed, pending or component-only candidates', fontsize=12)
     dest = ROOT / "docs/figures/frontier.png"
     dest.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(dest, dpi=180)

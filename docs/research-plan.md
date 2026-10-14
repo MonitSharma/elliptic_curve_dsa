@@ -6,6 +6,11 @@ rounded mean executed T ≤ **761,155**, and Q × T ≤ **939,681,127**. The
 revisions. The minimum-width leader is now Q693; the historical Q694 target is
 obsolete. No new record from this workspace has qualified or been submitted.
 
+[Experiment outcomes](experiment-outcomes.md) separates passing baseline
+reproduction from failed and unfinished research. Only complete verified
+benchmark results belong in the README plots. Start Toffoli/product changes on
+the reproduced Q1234 baseline while retaining a separate qubit diagnosis track.
+
 ## What changed in this iteration
 
 The Windows copy had three empty gitlinks and no `.gitmodules`, plus a tracked

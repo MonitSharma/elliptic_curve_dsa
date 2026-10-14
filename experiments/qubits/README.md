@@ -21,6 +21,11 @@ The first reported mismatch is shot 1170. It has no qualified score and is not
 ready to submit. The patch is preserved for diagnosis, not as a validated full
 circuit improvement. See `docs/data/qubit-experiment.json` for the receipt.
 
+The [outcome report](../../docs/experiment-outcomes.md) records what worked and
+what failed, including the diagnostic cost chart. Regenerate that research-only
+chart with `python scripts/plot-research-progress.py`; it is excluded from README
+result plots.
+
 The new k-lane remainder stores overflow in the existing quotient flag, uses a
 virtual leading-one comparator, and appends the dividend one **after** the zero
 carry-in comparison. The first implementation's premature append failed at
