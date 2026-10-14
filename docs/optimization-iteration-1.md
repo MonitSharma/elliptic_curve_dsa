@@ -1,3 +1,5 @@
+> Historical report from the earlier Mac workspace. Several referenced evidence files and uncommitted track changes are absent in this checkout. See [the recovery audit](data/workspace-audit.json) and [current research plan](research-plan.md). These claims are not fresh verification.
+
 # First optimization iteration
 
 Historical root-checkout experiment, 14 October 2026. For the current three-track

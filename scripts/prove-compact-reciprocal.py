@@ -46,5 +46,6 @@ def prove(k):
 if __name__ == "__main__":
     results = [prove(k) for k in [*range(2, 9), 16, 24]]
     path = ROOT / "agents/qubits/research-output/compact-step-arithmetic-proof.json"
+    path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(results, indent=2) + "\n")
     print(json.dumps(results, indent=2))

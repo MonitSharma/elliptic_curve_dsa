@@ -1,0 +1,4 @@
+# Linux benchmark scripts must remain executable by bash after a Windows clone.
+*.sh text eol=lf
+# Experiment patches carry their own exact line endings.
+*.patch -text -whitespace

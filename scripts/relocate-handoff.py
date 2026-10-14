@@ -19,6 +19,19 @@ def link(object_dir, source):
 
 
 def main():
+    # Restored tracks are normal Git submodules. Their .git files and
+    # core.worktree paths are relative and survive moving the whole archive.
+    tracks = [ROOT / "agents" / name for name in ("qubits", "toffoli", "product")]
+    if all((folder / ".git").is_file() for folder in tracks):
+        subprocess.run(["git", "submodule", "sync"], cwd=ROOT, check=True)
+        for folder in tracks:
+            revision = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=folder, text=True).strip()
+            subprocess.run(["git", "fsck", "--connectivity-only", "--no-dangling"], cwd=folder, check=True)
+            print(f"{folder.name}: {revision}, portable submodule accessible")
+        return
+    if not all((folder / ".git").is_dir() for folder in tracks):
+        raise SystemExit("Tracks are missing or mixed. Run git submodule update --init; do not invent Git metadata.")
+    # Legacy complete Mac archives used shared standalone clones.
     cache = ROOT / "agents/source-cache.git/objects"
     link(cache, ROOT / ".git/objects")
     subprocess.run(["git", "--git-dir", str(cache.parent), "config", "remote.origin.url",

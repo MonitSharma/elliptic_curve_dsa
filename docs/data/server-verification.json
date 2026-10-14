@@ -1,0 +1,64 @@
+{
+  "verified_at": "2026-10-14T08:47:26.496773+00:00",
+  "server": {
+    "checked_at": "2026-10-14T08:47:26.496773+00:00",
+    "hostname": "LHC-104-070",
+    "cpu_affinity_count": 144,
+    "load_average": [
+      35.71728515625,
+      36.0107421875,
+      35.91259765625
+    ],
+    "memory": {
+      "MemTotal_bytes": 540384096256,
+      "MemAvailable_bytes": 297764519936,
+      "SwapTotal_bytes": 8589930496,
+      "SwapFree_bytes": 8302059520
+    },
+    "disk_free_bytes": 5123207737344,
+    "schedulers": {
+      "squeue": null,
+      "qstat": null
+    },
+    "active_processes": [
+      "    PID %CPU %MEM COMMAND",
+      "1918489 1763 19.5 python",
+      "1932309 1748 22.6 python",
+      "2271252  700  0.0 ps",
+      "2271251 45.4  0.0 python3",
+      "2271200  6.0  0.0 sshd",
+      "3958097  4.2  0.0 tmxbc",
+      "1705398  3.8  0.1 ds_agent",
+      "1706320  2.5  0.0 ds_am",
+      "1702756  1.0  0.0 alloy",
+      "3777359  0.7  0.0 python",
+      "1702753  0.1  0.0 containerd",
+      "1706202  0.1  0.0 tm_netagent",
+      "     17  0.0  0.0 rcu_preempt",
+      "4134305  0.0  0.0 kworker/0:0-kacpi_notify"
+    ],
+    "ecdsa_workspace": "/home/hclau/ecdsa_research",
+    "chemistry_repository_modified": false
+  },
+  "product_baseline": {
+    "source_revision": "c5bb1ec876db859a3f9f8a9052c140a145df834e",
+    "official_harness_unchanged": true,
+    "local_dev_sandbox_fallback": true,
+    "score": {
+      "score": 939885972,
+      "metrics": {
+        "toffoli": 761658,
+        "qubits": 1234
+      }
+    },
+    "shots": 9024,
+    "classical_mismatches": 0,
+    "phase_garbage_batches": 0,
+    "ancilla_garbage_batches": 0,
+    "stream_sha256": "49b35cf7640ebd529d76894eb8bef93ebf57e7e970fe14b3c27c8c5feb6e73e4",
+    "log_sha256": "ee21839f429ca6be4666636ff5b65f53608bb703b56a5a5b5aaba051386a20c2",
+    "maximum_RSS_KiB": 4221828,
+    "elapsed": "4:03.85",
+    "qualification": "Reproduction of public baseline, not an original improvement or platform submission"
+  }
+}

@@ -1,3 +1,5 @@
+> Historical report from the earlier Mac workspace. Several referenced evidence files and uncommitted track changes are absent in this checkout. See [the recovery audit](data/workspace-audit.json) and [current research plan](research-plan.md). These claims are not fresh verification.
+
 # Optimization proposal and continuation priorities
 
 Updated for the CPU-server handoff on 14 October 2026. The objective is improvement

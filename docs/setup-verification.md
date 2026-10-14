@@ -1,3 +1,5 @@
+> Historical report from the earlier Mac workspace. Several referenced evidence files and uncommitted track changes are absent in this checkout. See [the recovery audit](data/workspace-audit.json) and [current research plan](research-plan.md). These claims are not fresh verification.
+
 # Setup and result verification provenance
 
 This document separates the initial Mac installation from subsequent research.

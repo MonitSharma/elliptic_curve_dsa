@@ -1,72 +1,70 @@
-# Local setup and portable activation
+# Local setup
 
-For moving to another computer/CPU server, use [docs/SERVER_HANDOFF.md](docs/SERVER_HANDOFF.md).
-The current Mac environment is installed locally; server runtimes must be recreated.
+This recovered checkout is on **Windows**, not the earlier Mac. The Mac runtimes,
+virtual environment, benchmark streams and uncommitted track helpers are absent.
+Historical instructions are preserved under `docs/archive/`.
+The current desktop has an i7-12700K, 20 logical CPUs and about 31.7 GiB RAM;
+only about 6.4 GiB was free at inspection. The low-width operation vector alone
+exceeds local RAM. See `docs/data/local-machine.json`.
 
-## This Mac
+## Restore the public tracks
 
-From the workspace root:
-
-```bash
-source ./activate.sh
-cargo --version
-python -c 'import numpy, z3; print(numpy.__version__, z3.get_version_string())'
-./scripts/benchmark-local.sh --note "Describe the experiment"
+```powershell
+git submodule update --init --jobs 3
+git submodule status
 ```
 
-Activation supports bash and zsh and resolves paths from its own location. It
-selects the root virtual environment, Rust1.93.0 and root `target/`. When the
-project-local Rust installation exists it uses `.tools/cargo` and `.tools/rustup`;
-otherwise it sources the destination's existing rustup environment. It does not
-change shell startup files. CLI config stays under `.tools/config`.
+The pins are public source revisions. Submodule initialization never recreates
+ignored files or uncommitted research. Use `scripts/audit-workspace.py` to see
+what is missing. Do not run the legacy relocation script against these submodules.
 
-For a separate track:
+## Python research on Windows
 
-```bash
-source agents/qubits/activate-track.sh
-# Other terminals can select agents/toffoli or agents/product instead.
+This session uses the desktop app's bundled Python 3.12.14 to create an isolated
+`.venv-research`. Its interpreter is:
+
+```powershell
+& .venv-research/Scripts/python.exe scripts/audit-workspace.py
+& .venv-research/Scripts/python.exe scripts/test_leaderboard.py
+& .venv-research/Scripts/python.exe scripts/analyze-leaderboard.py --refresh --plot
+& .venv-research/Scripts/python.exe scripts/prove-compact-reciprocal.py
 ```
 
-Track activation changes directory and selects that track's `target/`. Each track
-has independent code/build outputs; dependencies are shared. Always activate from
-a known workspace location or use the script's full path after changing directories.
+On another machine with Python installed:
 
-## Installed tools
-
-- Rust1.93.0, matching `rust-toolchain`, and a C linker.
-- Python3.13.7 with NumPy, pandas, Matplotlib, ipykernel and Z3-solver5.1.0.0.
-- Bun1.4.3 and the official ecdsafail CLI v2026.10.13-1 on this Mac.
-- `requirements-research.txt`: pinned Python versions; recreate this environment
-  rather than moving the existing `.venv` across operating systems.
-- The CLI is optional for direct local benchmarks. Installation/authentication
-  on a new machine are separate from source transfer.
-
-## Benchmark interpretation
-
-The official `./benchmark.sh` builds the untrusted circuit generator, confines it,
-then validates `ops.bin` in the trusted scorer. All9,024 shots must pass output,
-phase and ancilla checks. Score = rounded mean executed T × peak logical Q.
-The scorer does not implement the archived README's forward/reverse identity test.
-Use separate inverse/population checks; a passing canonical packet is not a
-universal-correctness proof for inherited approximate arithmetic.
-
-The root baseline is Q1235/T761156/product940027660. The product track reproduces
-Q1234/T761658/product939885972. No original improvement has qualified. Low-Q
-component fixtures must not be confused with full point-add verification.
-
-Edit only `src/point_add/` for candidate submissions. Preserve the harness, scorer,
-simulator, Cargo dependencies/toolchain and prefix bindings. Let the harness append
-`results.tsv`. Research helpers/documentation are outside contestant scope.
-
-## Transfer
-
-```bash
-python3 scripts/create-handoff.py
+```powershell
+python -m venv .venv-research
+& .venv-research/Scripts/python.exe -m pip install matplotlib==3.11.2 z3-solver==5.1.0.0
 ```
 
-The archive under `handoff/` includes source, shared Git stores and ignored research
-evidence. It excludes `.tools`, `.venv`, `target/` and caches. This omits CLI credentials
-and incompatible binaries. On the destination, verify files, repair Git object paths
-with `scripts/relocate-handoff.py`, then recreate the environment as documented in
-[SERVER_HANDOFF.md](docs/SERVER_HANDOFF.md). The low-Q operation vector alone is
-59.4GiB; use a suitably provisioned server for the complete unchanged benchmark.
+The earlier `requirements-research.txt` remains a historical Mac lockfile. The
+current research environment is recorded in `docs/data/research-environment.txt`.
+These optional packages do not alter the challenge's protected Cargo dependencies.
+
+## Circuit compilation and official scoring
+
+Use [the Linux CPU server](docs/SERVER_HANDOFF.md). No local Rust compiler was
+found on this Windows machine. Native benchmark execution on Windows has not
+been qualified; the official shell harness runs on Linux.
+
+On Linux with the pinned toolchain installed:
+
+```bash
+cd agents/product
+export CARGO_BUILD_JOBS=4
+cargo +1.93.0 fetch --locked
+bash ./benchmark.sh --note "Exact candidate description"
+```
+
+For focused qubit component checks:
+
+```bash
+cd agents/qubits
+CARGO_BUILD_JOBS=4 cargo +1.93.0 test --release --locked --offline \
+  --bin build_circuit tests_midg_k24 -- --nocapture
+```
+
+Keep research changes in a patch under `experiments/` as well as the submodule
+working tree. A root-repository commit cannot preserve uncommitted submodule
+files. Public submission candidates must be built from their exact final source
+and checked with the unchanged harness.

@@ -1,0 +1,100 @@
+{
+  "recorded_at": "2026-10-14T17:21:57.882360+08:00",
+  "base_revision": "c95b9325913abacca9c86bdebad10a20633cd04e",
+  "patch_sha256": "dec1be0a68939fdb7d7ca106ce3ca55af763c80e17e8c60b7f3899c929df9b2d",
+  "source_sha256": {
+    "src/point_add/frogdrop.rs": "3df45378dcb9ebfbae1c19d4c213f15cf6dbe2433ff0567d919cf697dd5bedeb",
+    "src/point_add/midg.rs": "5e5ba9daca99727aa3b972fb57fb71b2dc937f52110ed0fd9998d2354fa9fb53",
+    "src/point_add/tests_midg_k24.rs": "b29a0a60b863128706f3b6f8fdf93188f4110d71bd0c121715bbfddcd8679247"
+  },
+  "component_suite": {
+    "passed": 17,
+    "failed": 0,
+    "ignored": 1,
+    "vform_cases": 1536,
+    "independent_measurement_phase_coefficients": 1089536,
+    "exhaustive_comparator_cases": 43688,
+    "exhaustive_restoring_step_cases": 16383,
+    "emitted_vform_savings": 572,
+    "vform_prices": [
+      {
+        "clean_helper_lanes": 0,
+        "baseline_emitted_Toffolis": 19525,
+        "candidate_emitted_Toffolis": 18953
+      },
+      {
+        "clean_helper_lanes": 4,
+        "baseline_emitted_Toffolis": 18081,
+        "candidate_emitted_Toffolis": 17509
+      },
+      {
+        "clean_helper_lanes": 8,
+        "baseline_emitted_Toffolis": 18009,
+        "candidate_emitted_Toffolis": 17437
+      }
+    ]
+  },
+  "column_regression": {
+    "passed": true,
+    "columns": 203,
+    "varied_payloads": 64,
+    "phase": 0,
+    "maximum_RSS_KiB": 20135916,
+    "elapsed_seconds": 110.11,
+    "memory_limit_GiB": 64
+  },
+  "resource_failures": {
+    "broad_suite_GiB": 8,
+    "single_column_fixture_GiB": 16,
+    "full_suite_passed": false
+  },
+  "full_candidate": {
+    "status": "failed_validation",
+    "qubits": 693,
+    "emitted_operations": 1128046998,
+    "emitted_Toffolis": 337360828,
+    "rounded_mean_executed_Toffolis": null,
+    "official_score": null,
+    "compressed_stream_sha256": "256422fd6e3520191300810546cb80974cb86c36354065d4c28fe564e078407d",
+    "server_job_PID": 2277715,
+    "server_scorer_PID": 2283149,
+    "log": "/home/hclau/ecdsa_research/logs/qubits-compact-candidate.log",
+    "exit_marker": "/home/hclau/ecdsa_research/logs/qubits-compact-candidate.exit",
+    "memory_limit_GiB": 128,
+    "nonce_search": false,
+    "public_submission": false,
+    "last_observed_RSS_KiB": 61712908,
+    "nohup_verified": true,
+    "hangup_ignored_by_parent_and_scorer": true,
+    "launch_command": "nohup bash server-qubits-candidate.sh > logs/qubits-compact-candidate.log 2>&1 < /dev/null &",
+    "official_harness_unchanged": true,
+    "server_job_active": false,
+    "server_scorer_active": false,
+    "exit_status": 1,
+    "shots": 9024,
+    "classical_mismatches": 6,
+    "phase_garbage_batches": 3,
+    "ancilla_garbage_batches": 6,
+    "first_classical_mismatch_shot": 1170,
+    "diagnostic_unqualified_mean_executed_Toffolis": 335575751.423,
+    "maximum_RSS_KiB": 62572324,
+    "benchmark_elapsed": "38:17.50",
+    "result_collected_at": "2026-10-14T17:44:57.798547+08:00"
+  },
+  "log_sha256": {
+    "compact-fixed.log": "e023fca30068d307667c6f0bf80e166bd15f4dc16b398f8a42c52aa95f3dde8b",
+    "qubits-columns64.log": "1a60d3e4e711a9b31aefa070051747c5e067effdce86f95677a62a855c6e00dc",
+    "qubits-regression.log": "edeabeedea6dae12600f5b04c150e1768a54ce87f59b7d90d7edb2af916e3903",
+    "qubits-columns.log": "e253f4affb16c53abd790e8c524a9bde1ca9724076303b7f676d80db014b089c",
+    "compact-step-debug.log": "4a2bac0a08631bb231ec5e02f54bd2b781a81284497b181371843aa8c87edb92",
+    "qubits-compact-candidate.log": "cd09fbfff3121045cd2bdab255470b20af4b0ad24919c7b7d9c6eb22e602fc18"
+  },
+  "qualification": "Failed full validation; no qualified score or submission. Component and fixed-traversal checks remain valid within their tested scope. Inherited versus introduced failure is not yet established.",
+  "last_checked_at": "2026-10-14T17:44:57.798547+08:00",
+  "public_baseline_emission": {
+    "source_revision": "c95b9325913abacca9c86bdebad10a20633cd04e",
+    "emitted_Toffolis": 338637532,
+    "source": "https://api.ecdsa.fail/api/submissions/261d4e06-ad9f-4a0a-9c13-12726127c1d8",
+    "evidence": "Public submission author report; not independently rebuilt in this workspace."
+  }
+}

@@ -1,15 +1,16 @@
-# Derived Pareto frontier — latest saved snapshot
+# Public resource frontier
 
-Saved on 14 October 2026; this is historical evidence, not live leaderboard data.
+Snapshot analyzed 2026-10-14T17:31:42.721199+08:00 (Singapore time).
 
-Source: `research-output/parallel-20261014/submissions.json`, 1,558 records, 1,217 eligible scored records, **42 nondominated resource pairs**.
+[1,560 public submissions](https://api.ecdsa.fail/api/benchmarks/1ffb695a-309b-46b6-a728-2f97d8c7be74/submissions) contain 1,219 eligible records and **43 nondominated resource pairs**.
 
-Includes accepted and official score-only rejected records with consistent positive metrics; excludes correctness failures, other rejection categories and claimed-only results. The scalar product winner is Q1234/T761658/939885972. The minimum width is Q694, and minimum Toffoli count is761156 atQ1235. None is an original result of this workspace.
+Accepted and explicitly score-only rejected records qualify; failures and claimed-only metrics do not. This is a dated snapshot, not independent reproduction. Promotion uses the scalar product.
 
-For migration and continued research, read [the server handoff](SERVER_HANDOFF.md) and [campaign report](parallel-campaign.md). The earlier plot and `scripts/analyze-leaderboard.py` use `research-output/all-submissions.json` (1,557 records/41 points); they do not reproduce this newer table without updating their data selection and hardcoded annotations. The newer derived records are saved in `research-output/parallel-20261014/derived-frontier.json`.
+![Resource frontier](figures/frontier.png)
 
-| Qubits | Toffolis | Product score | Submission |
+| Qubits | Rounded mean Toffolis | Product | Submission |
 |---:|---:|---:|---|
+| 693 | 336,852,456 | 233,438,752,008 | [261d4e06](https://api.ecdsa.fail/api/submissions/261d4e06-ad9f-4a0a-9c13-12726127c1d8) |
 | 694 | 336,751,889 | 233,705,810,966 | [3bcef1d9](https://api.ecdsa.fail/api/submissions/3bcef1d9-8c99-4cb8-b89b-0b2a774e19a5) |
 | 695 | 336,748,755 | 234,040,384,725 | [bcb97b34](https://api.ecdsa.fail/api/submissions/bcb97b34-a457-4d1a-bc54-149858d5a384) |
 | 696 | 331,320,494 | 230,599,063,824 | [88367054](https://api.ecdsa.fail/api/submissions/88367054-b476-4822-84bb-0b734e87ba42) |
@@ -50,5 +51,7 @@ For migration and continued research, read [the server handoff](SERVER_HANDOFF.m
 | 1,172 | 945,335 | 1,107,932,620 | [73c5e2a8](https://api.ecdsa.fail/api/submissions/73c5e2a8-f15c-4b01-a3ac-8d0ac1807391) |
 | 1,173 | 944,566 | 1,107,975,918 | [1d602397](https://api.ecdsa.fail/api/submissions/1d602397-0e14-4314-8834-3e80db97b02c) |
 | 1,174 | 943,826 | 1,108,051,724 | [ee410040](https://api.ecdsa.fail/api/submissions/ee410040-42fd-4a53-bcea-1150b7e2c5bf) |
-| 1,234 | 761,658 | 939,885,972 | [620e39b7](https://api.ecdsa.fail/api/submissions/620e39b7-1691-4d23-9265-46d984a3f63d) |
+| 1,234 | 761,492 | 939,681,128 | [7927f4b0](https://api.ecdsa.fail/api/submissions/7927f4b0-83de-4e77-a16e-dd3a620a2b11) |
 | 1,235 | 761,156 | 940,027,660 | [26dd1d00](https://api.ecdsa.fail/api/submissions/26dd1d00-8e45-4f13-adcf-5eac665ca15f) |
+
+Reproduce with `python scripts/analyze-leaderboard.py --snapshot research-output/public-20261014 --plot`. Use `--refresh` to fetch a new dated snapshot. Compact records, source hashes and targets: [data/latest-leaderboard.json](data/latest-leaderboard.json).
