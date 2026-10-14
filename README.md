@@ -4,18 +4,18 @@
 
 This project studies the quantum circuit at the heart of the
 [ECDSA.fail challenge](https://ecdsa.fail/): adding an elliptic-curve point to
-another point. Our aim is to advance three resource recordsâ€”**logical qubits**,
-**Toffoli gates**, and their **product**â€”through reproducible circuit design,
+another point. Our aim is to advance three resource records—**logical qubits**,
+**Toffoli gates**, and their **product**—through reproducible circuit design,
 mathematical proofs and measured experiments.
 
-> **Verified status Â· 15 October 2026 (Singapore):** complete public reproductions
+> **Verified status · 15 October 2026 (Singapore):** complete public reproductions
 > pass all 9,024 benchmark shots at **Q1234 / T761,658** and **Q1235 / T761,156**.
 > **We have no original submission-ready improvement in any of the three tracks.**
 > Failed and unfinished experiments are documented separately in
 > [experiment outcomes](docs/experiment-outcomes.md).
 
-[Objectives](#our-three-objectives) Â· [Verified frontier](#where-the-public-frontier-stands) Â·
-[Verified results](#what-we-have-verified) Â· [Next steps](#next-steps) Â·
+[Objectives](#our-three-objectives) · [Verified frontier](#where-the-public-frontier-stands) ·
+[Verified results](#what-we-have-verified) · [Next steps](#next-steps) ·
 [Reproduce](#explore-and-reproduce)
 
 ## Why point addition matters
@@ -27,7 +27,7 @@ problem. That algorithm repeatedly performs elliptic-curve arithmetic, so making
 one of its central operations cheaper can reduce the resources of the larger
 computation.
 
-Our circuit implements the in-place operation **`P â†’ P + A`**, where `P` is a
+Our circuit implements the in-place operation **`P → P + A`**, where `P` is a
 quantum point and `A` is a classically supplied point on secp256k1. It must retain
 quantum coherence, return temporary storage to its initial state and avoid
 unwanted relative phase. Ordinary classical arithmetic that gives the right
@@ -43,7 +43,7 @@ private-key recovery system or require physical quantum hardware.
 |---|---|---|
 | **Q: peak logical qubits** | The largest amount of quantum storage used at once | Use fewer qubits |
 | **T: mean executed Toffolis** | The average number of costly three-bit reversible gates executed per input | Use fewer expensive gates |
-| **Q Ã— T** | The challenge's score, balancing storage and gate cost | Minimize the product |
+| **Q × T** | The challenge's score, balancing storage and gate cost | Minimize the product |
 
 A logical qubit is an error-corrected computational resource, not one physical
 qubit. The scorer uses rounded **mean executed** Toffolis, including conditional
@@ -68,12 +68,12 @@ Pareto points**, refreshed on 15 October 2026 (Singapore).
 
 | Objective | Current public record | Our strict target |
 |---|---:|---:|
-| Minimum qubits | **693**, at T336,852,456 | **Q â‰¤ 692** |
-| Minimum Toffolis | **761,156**, at Q1235 | **T â‰¤ 761,155** |
-| Minimum product | **939,396,074**, at Q1234/T761,261 | **Q Ã— T â‰¤ 939,396,073** |
+| Minimum qubits | **693**, at T336,852,456 | **Q ≤ 692** |
+| Minimum Toffolis | **761,156**, at Q1235 | **T ≤ 761,155** |
+| Minimum product | **939,396,074**, at Q1234/T761,261 | **Q × T ≤ 939,396,073** |
 
-At Q1234, a product improvement now needs T â‰¤ **761,260**. At Q1235 it needs
-T â‰¤ **760,644**. These targets change as other participants improve the record.
+At Q1234, a product improvement now needs T ≤ **761,260**. At Q1235 it needs
+T ≤ **760,644**. These targets change as other participants improve the record.
 The new product record supersedes the Q1234/T761,658 circuit we reproduced.
 
 Sources: [full frontier](docs/frontier-results.md),
@@ -93,7 +93,7 @@ plot and all README result tables.
 
 ## What we have verified
 
-| Circuit | Peak Q | Mean executed T | Q Ã— T | Evidence |
+| Circuit | Peak Q | Mean executed T | Q × T | Evidence |
 |---|---:|---:|---:|---|
 | Historical public reproduction `c5bb1ec8` | **1,234** | **761,658** | **939,885,972** | Preserved complete **9,024-shot pass** |
 | Reproduced public Toffoli leader `b3c9fdd6` | **1,235** | **761,156** | **940,027,660** | All **9,024 shots passed**, 14 October 2026 UTC |
@@ -150,8 +150,8 @@ faster to verify than the low-width circuit.
 
 1. **Toffolis and product:** optimize the complete fold construction and cleanup
    together, rather than the isolated correction tables, whose fixed interfaces
-   already meet their AND-count lower bounds. At Q1234, T â‰¤ **761,260** beats
-   today's product; T â‰¤ **761,155** beats both the Toffoli and product records.
+   already meet their AND-count lower bounds. At Q1234, T ≤ **761,260** beats
+   today's product; T ≤ **761,155** beats both the Toffoli and product records.
    Each replacement must include its scratch, cleanup and phase-repair cost.
 2. **Qubits:** collect repaired HT25 and bank-swap generation,
    then address the documented quotient/search precision boundaries. Paired

@@ -57,7 +57,7 @@ Our new form uses **24 remainder lanes and the existing quotient flag**:
 2. Clear the rotated low lane. The odd-divisor comparator needs a **zero**
    carry-in; inserting the dividend one before comparison is wrong.
 3. XOR the overflow and low-word comparison to get the quotient decision, then
-   subtract conditionally. Within `D` odd, MSB set, `0 ÃƒÂ¢Ã¢â‚¬Â°Ã‚Â¤ R < D`, the two decisions
+   subtract conditionally. Within `D` odd, MSB set, `0 ≤ R < D`, the two decisions
    cannot both be true.
 4. Append the dividend one and use the resulting remainder parity to clear the
    flag. Recorded inverse playback supplies the corresponding cleanup.
@@ -69,9 +69,9 @@ envelope, seven crossing-reserve lanes and inherited tail are unchanged.
 
 | Evidence | Result | Scope |
 |---|---|---|
-| Z3 restoring identity, widths 2ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“8, 16, 24 | No domain counterexamples; missing-overflow faults detected | Arithmetic identity |
+| Z3 restoring identity, widths 2–8, 16, 24 | No domain counterexamples; missing-overflow faults detected | Arithmetic identity |
 | Virtual leading-one comparator | 43,688 exhaustive cases, forward/inverse | Small target widths and arbitrary flags |
-| Compact restoring step | 16,383 exhaustive cases | Precisions 2ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“8, all odd normalized divisors and remainders |
+| Compact restoring step | 16,383 exhaustive cases | Precisions 2–8, all odd normalized divisors and remainders |
 | Native N276 V-form | 1,536 cases; 1,089,536 independent measurement-phase coefficients | Active/inactive mixtures, boundary sizes, dirty passengers, forward/inverse |
 | Focused K24 suite | 17 passed, one existing ignored research test | Component regression |
 | Fixture emitted Toffoli saving | **572 per complete V-form** in each tested helper-bank size | Not a full-circuit mean count |
@@ -169,7 +169,7 @@ The next gate experiment should synthesize across this complete constructor
 and consume/cleanup interface, then emit and prove a native replacement.
 Do not repeat the missing earlier phase-reader scans without a new hypothesis.
 
-For product, preserve Q1234 and target T ÃƒÂ¢Ã¢â‚¬Â°Ã‚Â¤ **761,491**; at Q1235 the strict
+For product, preserve Q1234 and target T ≤ **761,491**; at Q1235 the strict
 product target is **760,875**. An improvement must survive the final rounded
 mean count. Prefer material savings that persist on paired and independent
 inputs over a one-unit change in a hash-derived packet's mean.

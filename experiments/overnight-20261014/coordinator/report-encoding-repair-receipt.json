@@ -1,0 +1,47 @@
+{
+  "fixed_at_utc": "2026-10-14T21:44:23.448692+00:00",
+  "original_commit": "cd8a739a9f9972aa22bb200d2209946bdfa6094c",
+  "cause": "Repeated cp1252 default decoding of UTF8 text before UTF8 saves on Windows. Reversed affected nonASCII runs only; all ASCII text, numbers, paths and source hashes preserved.",
+  "files": [
+    {
+      "path": "README.md",
+      "before_bytes": 13051,
+      "after_bytes": 12989,
+      "before_sha256": "b383a40247c76adf1e3bc1573450a0dd4f315308ed3667b1d7cdc443719c653c",
+      "after_sha256": "0b81cb4fa018bf0de5ca021521c90f93c71cd8444268f66b58017144d367fe9c",
+      "repaired_runs": 18,
+      "max_repeated_encoding_layers": 1,
+      "ASCII_content_unchanged": true
+    },
+    {
+      "path": "docs/overnight-final-report.md",
+      "before_bytes": 225088,
+      "after_bytes": 16180,
+      "before_sha256": "4cc1031a76bc610f2bb1a5bd7cbba373fa4141a01088f664ad97e355c68b3e35",
+      "after_sha256": "0b027ff652822c00bbe7a0c78d2047c0612e2cfd9296860c0fa0c508961d976d",
+      "repaired_runs": 4,
+      "max_repeated_encoding_layers": 12,
+      "ASCII_content_unchanged": true
+    },
+    {
+      "path": "docs/SERVER_HANDOFF.md",
+      "before_bytes": 11172,
+      "after_bytes": 9457,
+      "before_sha256": "2ede4eb3bba3ced8d46f8d68889291855e0fedc74cd82f038065104bf8a6f290",
+      "after_sha256": "6786ede0a7a4d6728a426b58dbb8dbcc37909715b95ec4a5eae060ad09de44dd",
+      "repaired_runs": 2,
+      "max_repeated_encoding_layers": 7,
+      "ASCII_content_unchanged": true
+    },
+    {
+      "path": "docs/research-plan.md",
+      "before_bytes": 14560,
+      "after_bytes": 14430,
+      "before_sha256": "88de069bd7b87b45705594e8a577517927d960b4985fe5ad7f42dd7464c48133",
+      "after_sha256": "ae9d54288f3de61f53689028e2703de091f77d773befc3078318935a254f42ea",
+      "repaired_runs": 4,
+      "max_repeated_encoding_layers": 3,
+      "ASCII_content_unchanged": true
+    }
+  ]
+}
