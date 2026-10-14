@@ -1,0 +1,534 @@
+diff --git a/src/point_add/square.rs b/src/point_add/square.rs
+index 06169872..9bde42e8 100755
+--- a/src/point_add/square.rs
++++ b/src/point_add/square.rs
+@@ -160,7 +160,8 @@ fn diag_correction_known_top(circ:&mut Builder, x:&[QubitId], product:&[QubitId]
+ fn tri_square_cin(circ:&mut Builder, x:&[QubitId], product:&[QubitId], inverse:bool) {
+     let m=x.len();
+     assert_eq!(product.len(),2*m);
+-    assert!(m>=3);
++    assert!(m>=3);
++    if inverse && row0_copy() {super::const_arith::sub_const(circ,product,U256::from(4));}
+     if inverse {
+         circ.cx(x[m-1],product[2*m-1]);
+         diag_correction_known_top(circ,x,product);
+@@ -199,7 +200,8 @@ fn tri_square_cin(circ:&mut Builder, x:&[QubitId], product:&[QubitId], inverse:b
+     }
+     if !inverse {
+         circ.cx(x[m-1],product[2*m-1]);
+-        diag_correction(circ,x,product,true);
++        diag_correction(circ,x,product,true);
++        if row0_copy() {super::const_arith::add_const(circ,product,U256::from(4));}
+     }
+ }
+ 
+@@ -773,7 +775,7 @@ fn add_cross(circ:&mut Builder,cross:&[QubitId],acc:&[QubitId],inverse:bool,
+     let replan=super::leapfrog::C35_SQ_REPLAN&&inverse&&held.is_empty()&&xkept.is_empty()&&recover.as_ref().is_some_and(|(p,f)|p.sizes.len()==1&&f.is_empty());
+     let recover=if replan{None}else{recover};
+     let full=acc;
+-    let acc=match super::optional_env::<usize>("SQ_ASM_TAIL"){Some(e)=>&full[..full.len().min(cross.len()+e)],None=>full};
++    let acc=full; // Exact full assembly for the +2 producer prototype.
+     let mut room=super::pingpong::walk_max_qubits().saturating_sub(circ.active_qubits()as usize);
+     if inverse&&!xkept.is_empty()&&recover.is_none(){
+         assert!(held.is_empty());super::modular::sub_low_kept(circ,cross,acc,std::mem::take(xkept));return None;
+@@ -942,7 +944,7 @@ fn tri_square_k2r_inner(circ: &mut Builder, x: &[QubitId], product: &[QubitId],
+     } else if cut_sqident() {addsub_wide_low(circ,b2,&cross,true,Carry0::Zero,Carry1::CopiesCarry0);}
+     else {sub_wide(circ,b2,&cross);}
+     });
+-    if row0_copy() {circ.x(b2[1]);}
++    // Uniform +2: keep b2 as unbiased b² through assembly.
+     if let Some(q)=k0{circ.cx(cross[1],q);circ.release_clean(q);}
+     // product += 2ab << lo, exact full ripple to the top (x^2 < 2^(2m), so the
+     // top never overflows).
+@@ -982,20 +984,20 @@ fn tri_square_k2r_inv(
+     if lo < m - lo && super::env_flag("SQ_ODD_NODE_TOPS") {
+         // 2ab + b^2 = b(2a+b) < 2^(2hi+1) when lo = hi-1: zero top after the re-add.
+         let (c0,c1)=if cut_sqident(){(Carry0::Zero,Carry1::CopiesCarry0)}else{(Carry0::Full,Carry1::Full)};
+-        if row0_copy() {circ.x(b2[1]);}
++        // b2 is already unbiased b²; restore +2 only before its inverse.
+         super::modular::addsub_wide_known_top(circ,b2,&cross,false,c0,c1,false);
+-        if row0_copy() {circ.x(b2[1]);}
++        // b2 is already unbiased b²; restore +2 only before its inverse.
+         if cut_sqident() { addsub_wide_low(circ, a2, &cross, false, first, Carry1::CopiesCarry0); }
+         else { addsub_wide_low(circ,a2,&cross,false,first,Carry1::Full); }
+     } else if cut_sqident() {
+-        if row0_copy() {circ.x(b2[1]);}
++        // b2 is already unbiased b²; restore +2 only before its inverse.
+         addsub_wide_low(circ, b2, &cross, false, Carry0::Zero, Carry1::CopiesCarry0);
+-        if row0_copy() {circ.x(b2[1]);}
++        // b2 is already unbiased b²; restore +2 only before its inverse.
+         addsub_wide_low(circ, a2, &cross, false, first, Carry1::CopiesCarry0);
+     } else {
+-        if row0_copy() {circ.x(b2[1]);}
++        // b2 is already unbiased b²; restore +2 only before its inverse.
+         add_wide(circ, b2, &cross);
+-        if row0_copy() {circ.x(b2[1]);}
++        // b2 is already unbiased b²; restore +2 only before its inverse.
+         addsub_wide_low(circ,a2,&cross,false,first,Carry1::Full);
+     }
+     square_half_inv(circ, &t, &cross, sum);
+@@ -1009,6 +1011,7 @@ fn tri_square_k2r_inv(
+         if let Some(q)=k1{assert!(super::modular::go_c0_clear());circ.release_clean(q);}
+     }else{sum_bank_inverse(circ,a,&t,flat_sum_carries);}
+     circ.free(carry);
++    if row0_copy() {circ.x(b2[1]);}
+     square_b_inv(circ, bs, b2, high);
+ }
+ 
+@@ -1048,9 +1051,8 @@ fn retained_cross2_bits(r:&K2Retained,x:&[QubitId],out:&mut Vec<Cross2Loan>) {
+ }
+ fn cross2_erase(circ:&mut Builder,l:Cross2Loan) {
+     // cross[2] = a0*t1 ^ a1*t0 ^ a0*t0 ^ a0, for t=a+b.
+-    // SQ_ROW0_COPY: bit 2 is flipped (see cross2_restore); unflip it first so
+-    // the phase repair below stays exact rather than off by (-1)^m.
+-    if row0_copy(){circ.x(l.q);}
++    // Cross offset is zero under the uniform +2 producer contract.
++    // Uniform +2 node bias makes retained cross offset zero.
+     let m=circ.alloc_bit();circ.hmr(l.q,m);
+     circ.cz_if(l.a0,l.t1,m);circ.cz_if(l.a1,l.t0,m);
+     circ.cz_if(l.a0,l.t0,m);circ.z_if(l.a0,m);circ.free_bit(m);
+@@ -1059,9 +1061,8 @@ fn cross2_restore(circ:&mut Builder,l:Cross2Loan) {
+     // Two products after an exactly restored Clifford source-frame change.
+     circ.cx(l.t0,l.t1);circ.x(l.t1);circ.ccx(l.a0,l.t1,l.q);
+     circ.x(l.t1);circ.cx(l.t0,l.t1);circ.ccx(l.a1,l.t0,l.q);
+-    // SQ_ROW0_COPY: every node's cross offset is 4 (mod 8), which flips bit 2
+-    // and leaves bits 0 and 1 alone. The erase only changes by a global phase.
+-    if row0_copy(){circ.x(l.q);}
++    // Restore the unbiased cross bit; no offset-dependent Clifford flip.
++    // Uniform +2 node bias makes retained cross offset zero.
+ }
+ 
+ /// Materialise `x^2` in a fresh register, run `folds` against it, then uncompute
+@@ -1133,7 +1134,8 @@ fn with_square(circ: &mut Builder, x: &[QubitId], policy_name: &str, folds: impl
+ /// [`tri_square_k2r_inner`]. A leaf stores `x^2 - 2`. A node stores
+ /// `x^2 + Na + c 2^lo + Nb 2^(2 lo)`, where its cross holds `2ab + c` with
+ /// `c = Nt - Na - Nb + 2` (the 2 is the cleared bit 1 of b2).
+-fn k2r_offset(m: usize, flat: bool) -> U256 {
++fn k2r_offset(m: usize, flat: bool) -> U256 {
++    if row0_copy() {return U256::from(2);}
+     let p = super::SECP256K1_P;
+     let leaf = p - U256::from(2);
+     let lo = m / 2;
+@@ -1441,3 +1443,7 @@ mod g3_tests {
+         assert_eq!(bad, 0);
+     }
+ }
++
++#[cfg(test)]
++#[path="tests_positive_bias.rs"]
++mod research_positive_bias;
+diff --git a/src/point_add/tests_positive_bias.rs b/src/point_add/tests_positive_bias.rs
+new file mode 100644
+index 00000000..e9419ca2
+--- /dev/null
++++ b/src/point_add/tests_positive_bias.rs
+@@ -0,0 +1,80 @@
++use super::*;
++use crate::circuit::{analyze_ops,QubitOrBit};
++use crate::sim::Simulator;
++use sha3::digest::XofReader;
++
++struct Tape {seed:u64,at:u64}
++impl XofReader for Tape {
++ fn read(&mut self,out:&mut[u8]) {
++  assert_eq!(out.len(),8);let at=self.at;self.at+=1;
++  let mut z=self.seed.wrapping_add(at.wrapping_mul(0x9e3779b97f4a7c15));
++  z=(z^(z>>30)).wrapping_mul(0xbf58476d1ce4e5b9);z=(z^(z>>27)).wrapping_mul(0x94d049bb133111eb);z^=z>>31;
++  if self.seed==0{z=0;}if self.seed==1{z=u64::MAX;}out.copy_from_slice(&z.to_le_bytes());
++ }
++}
++fn prepare(){
++ super::super::clear_process_env();super::super::install_skywalk_submission_recipe();
++ std::env::set_var("EXACT_PAIR_CARRY","1");super::super::leapfrog::install_recipe();
++ assert!(row0_copy());assert_eq!(super::super::optional_env::<usize>("SQ_LEND_RETAINED_CROSS2").unwrap_or(0),0);
++}
++fn reg(ids:&[QubitId])->Vec<QubitOrBit>{ids.iter().map(|&q|QubitOrBit::Qubit(q)).collect()}
++fn circuit(m:usize,node:bool,cap:Option<usize>)->(Vec<crate::circuit::Op>,usize,Vec<QubitId>,Vec<QubitId>,Vec<QubitId>){
++ let mut c=Builder::new();let x=c.alloc_qubits(m);let product=c.alloc_qubits(2*m);let output=c.alloc_qubits(2*m);let _sentinel=c.alloc_bits(2);
++ let mut cut=0;
++ super::super::pingpong::with_phase_cap(cap,||{
++  if node {
++   let retained=tri_square_k2r(&mut c,&x,&product);cut=c.op_count();
++   for (&a,&b)in product.iter().zip(&output){c.cx(a,b);}
++   tri_square_k2r_inv(&mut c,&x,&product,retained);
++  }else{
++   tri_square(&mut c,&x,&product,false);cut=c.op_count();
++   for (&a,&b)in product.iter().zip(&output){c.cx(a,b);}
++   tri_square(&mut c,&x,&product,true);
++  }
++ });
++ c.declare_qubit_register(&x);c.declare_qubit_register(&product);c.declare_qubit_register(&output);
++ (c.take_ops(),cut,x,product,output)
++}
++fn exhaustive(node:bool,range:std::ops::RangeInclusive<usize>){
++ prepare();let mut cases=0;
++ for m in range {for limited in [false,true]{
++  let cap=limited.then_some(5*m+4);let(ops,cut,x,product,output)=circuit(m,node,cap);
++  let(nq,nb,_,_)=analyze_ops(ops.iter());let rx=reg(&x);let rp=reg(&product);let ro=reg(&output);
++  let mask=(1u64<<(2*m))-1;
++  for pattern in 0..32u64 {for start in (0..1usize<<m).step_by(64){
++   let count=64.min((1<<m)-start);let mut tape=Tape{seed:pattern,at:0};let mut sim=Simulator::new(nq as usize,nb as usize,&mut tape);
++   let mut expected=vec![0u64;nq as usize];let mut sentinel=[0u64;2];
++   for lane in 0..count{
++    let value=(start+lane)as u64;let dirty=value.wrapping_mul(0x9e37).wrapping_add(pattern)&mask;
++    sim.set_register(&rx,U256::from(value),lane);sim.set_register(&ro,U256::from(dirty),lane);
++    let out=dirty^(value*value+2);
++    for(i,&q)in x.iter().enumerate(){expected[q.0 as usize]|=((value>>i)&1)<<lane;}
++    for(i,&q)in output.iter().enumerate(){expected[q.0 as usize]|=((out>>i)&1)<<lane;}
++    sentinel[0]|=(value&1)<<lane;sentinel[1]|=((value>>1)&1)<<lane;
++   }
++   sim.bits[0]=sentinel[0];sim.bits[1]=sentinel[1];
++   sim.apply_iter(ops[..cut].iter());
++   for lane in 0..count{let v=(start+lane)as u64;assert_eq!(sim.get_register(&rp,lane),U256::from(v*v+2),"forward m={m} node={node} cap={cap:?} pattern={pattern} input={v}");}
++   sim.apply_iter(ops[cut..].iter());
++   let active=if count==64{u64::MAX}else{(1u64<<count)-1};
++   for(q,(&got,&want))in sim.qubits.iter().zip(&expected).enumerate(){assert_eq!(got&active,want,"all-q m={m} node={node} cap={cap:?} pattern={pattern} start={start} q={q}");}
++   assert_eq!(sim.phase&active,0,"phase m={m} node={node} cap={cap:?} pattern={pattern} start={start}");
++   assert_eq!(sim.bits[0]&active,sentinel[0]);assert_eq!(sim.bits[1]&active,sentinel[1]);cases+=count;
++  }}
++  eprintln!("POSITIVE_BIAS_COMPONENT m={m} node={node} cap={cap:?} ops={} touched_q={nq} measurement_patterns=32 all_basis_inputs={} scored=false",ops.len(),1usize<<m);
++ }}
++ eprintln!("POSITIVE_BIAS_SUITE node={node} native_cases={cases} phase_scope=32_fixed_measurement_patterns classical_inputs_preserved=2 score=NONE");
++}
++#[test]fn uniform_positive_leaf_exhaustive(){exhaustive(false,3..=8);}
++#[test]fn uniform_positive_node_exhaustive(){exhaustive(true,6..=10);}
++#[test]fn uniform_positive_bias_fault_detection(){
++ prepare();let(ops,cut,x,product,_)=circuit(6,true,None);let(nq,nb,_,_)=analyze_ops(ops.iter());
++ let mut tape=Tape{seed:0,at:0};let mut sim=Simulator::new(nq as usize,nb as usize,&mut tape);
++ sim.set_register(&reg(&x),U256::ZERO,0);sim.apply_iter(ops[..cut].iter());assert_eq!(sim.get_register(&reg(&product),0),U256::from(2));
++ // A deliberate failure to preserve the declared +2 output bias is observable at input0.
++ let mut faulty=ops[..cut].to_vec();let mut flip=crate::circuit::Op::empty();flip.kind=crate::circuit::OperationType::X;flip.q_target=product[1];faulty.push(flip);
++ let mut tape=Tape{seed:0,at:0};let mut sim=Simulator::new(nq as usize,nb as usize,&mut tape);sim.apply_iter(faulty.iter());assert_ne!(sim.get_register(&reg(&product),0),U256::from(2));
++}
++
++#[path="tests_positive_large.rs"]
++mod production_sized;
+diff --git a/src/point_add/tests_positive_large.rs b/src/point_add/tests_positive_large.rs
+new file mode 100644
+index 00000000..483e9140
+--- /dev/null
++++ b/src/point_add/tests_positive_large.rs
+@@ -0,0 +1,103 @@
++use super::*;
++#[path="tests_positive_phase_polynomial.rs"]
++mod phase_kernel;
++
++fn scramble(mut z:u64)->u64{z=(z^(z>>30)).wrapping_mul(0xbf58476d1ce4e5b9);z=(z^(z>>27)).wrapping_mul(0x94d049bb133111eb);z^(z>>31)}
++fn samples(m:usize)->Vec<U256>{
++ let one=U256::from(1);let mask=(one<<m)-one;let mut values=vec![U256::ZERO,one,U256::from(2),U256::from(3),U256::from(4),mask,mask-one];
++ for i in 0..m{let p=one<<i;for v in [p,p-one,(p+one)&mask]{if !values.contains(&v){values.push(v);}}}
++ for low in [0u64,1,2,u64::MAX]{for high in [0u64,1,2,u64::MAX]{let v=(U256::from(low)+(U256::from(high)<<64))&mask;if !values.contains(&v){values.push(v);}}}
++ let mut at=0u64;while values.len()<512{let lo=scramble(at^0x9174a85029bfec63);let hi=scramble(at^0x6408bfe7aaf90151);let top=scramble(at^0x214b61c93505dc84);let v=(U256::from(lo)+(U256::from(hi)<<64)+(U256::from(top)<<128))&mask;if !values.contains(&v){values.push(v);}at+=1;}
++ values
++}
++// Independent full-width schoolbook integer reference (up to258 output bits).
++fn square_plus_two(x:U256,width:usize)->Vec<bool>{
++ let a=x.as_limbs();let mut words=[0u64;8];
++ for i in 0..4{for j in 0..4{
++  let term=a[i]as u128*a[j]as u128;let k=i+j;let z=words[k]as u128+(term as u64)as u128;words[k]=z as u64;
++  let mut carry=(term>>64)+(z>>64);let mut k=k+1;
++  while carry!=0{let z=words[k]as u128+carry;words[k]=z as u64;carry=z>>64;k+=1;}
++ }}
++ let mut carry=2u128;let mut k=0;while carry!=0{let z=words[k]as u128+carry;words[k]=z as u64;carry=z>>64;k+=1;}
++ (0..width).map(|i|((words[i/64]>>(i%64))&1)!=0).collect()
++}
++fn large_circuit(m:usize,policy:&str,cap:usize,inject_dirty_loan:bool)->(Vec<crate::circuit::Op>,Vec<QubitId>,Vec<QubitId>,usize){
++ let mut c=Builder::new();let abi=c.alloc_qubits(512);let classical=c.alloc_bits(512);let x=abi[256..256+m].to_vec();
++ let mut output=abi[..(2*m).min(256)].to_vec();if 2*m>256{output.extend(c.alloc_qubits(2*m-256));}
++ let mut loan_count=0;
++ crate::point_add::pingpong::with_phase_cap(Some(cap),||with_square(&mut c,&x,policy,|c,product|{
++  for (&a,&b)in product.iter().zip(&output){c.cx(a,b);}
++  // Physically lease every currently free/loaned wire. R before use checks
++  // its promised zero through a fresh independent phase coefficient.
++  loan_count=c.y42_alloc_state().0.len();let borrowed=c.alloc_qubits(loan_count);
++  for(i,&q)in borrowed.iter().enumerate(){if inject_dirty_loan&&i==0{c.x(q);}c.free(q);c.reacquire(q);c.cx(x[0],q);c.cx(x[0],q);}
++  for &q in borrowed.iter().rev(){c.free(q);}
++ }));
++ c.declare_qubit_register(&abi);c.declare_qubit_register(&output);c.declare_bit_register(&classical);
++ (c.take_ops(),x,output,loan_count)
++}
++fn initial(nq:usize,nb:usize,x:&[QubitId],output:&[QubitId],values:&[U256],pattern:u64)->(Vec<u64>,Vec<u64>,Vec<u64>){
++ let mut q=vec![0u64;nq];let mut b=vec![0u64;nb];
++ for i in 0..512{q[i]=scramble(i as u64^pattern.wrapping_mul(0x731954ec39217ab5));b[i]=scramble(i as u64^pattern.wrapping_mul(0xc6147a8934c00273));}
++ for &id in x{q[id.0 as usize]=0;}
++ for &id in output.iter().filter(|id|id.0>=512){q[id.0 as usize]=scramble(id.0^pattern);}
++ for(lane,value)in values.iter().enumerate(){for(i,&id)in x.iter().enumerate(){q[id.0 as usize]|=u64::from(value.bit(i))<<lane;}}
++ let mut expected=q.clone();for(lane,value)in values.iter().enumerate(){for(i,bit)in square_plus_two(*value,output.len()).iter().enumerate(){if *bit{expected[output[i].0 as usize]^=1u64<<lane;}}}
++ (q,b,expected)
++}
++#[test]fn uniform_positive_large_native_contracts(){
++ prepare();let mut cases=0usize;
++ for m in [64,65,66,128,129]{let values=samples(m);for policy in ["SQ_A_POLICY","SQ_B_POLICY","SQ_C_POLICY"]{for cap in [1234,1200]{
++  let(ops,x,output,loans)=large_circuit(m,policy,cap,false);let(nq,nb,_,_)=analyze_ops(ops.iter());
++  assert!(loans>0);
++  for pattern in 0..32{for chunk in values.chunks(64){let(q,b,expected)=initial(nq as usize,nb as usize,&x,&output,chunk,pattern);let mut tape=Tape{seed:pattern,at:0};let mut sim=Simulator::new(nq as usize,nb as usize,&mut tape);sim.qubits.clone_from(&q);sim.bits.clone_from(&b);sim.apply_iter(ops.iter());
++   let mask=if chunk.len()==64{u64::MAX}else{(1u64<<chunk.len())-1};
++   for(i,(&got,&want))in sim.qubits.iter().zip(&expected).enumerate(){assert_eq!(got&mask,want&mask,"large-q m={m} policy={policy} cap={cap} pattern={pattern} q={i}");}
++   for i in 0..512{assert_eq!(sim.bits[i]&mask,b[i]&mask,"classicalABI i={i}");}
++   assert_eq!(sim.phase&mask,0,"large-phase m={m} policy={policy} cap={cap} pattern={pattern}");cases+=chunk.len();
++  }}
++  eprintln!("POSITIVE_LARGE_NATIVE m={m} policy={policy} cap={cap} samples={} MR_patterns=32 borrowed_wires={loans} ops={} touched_q={nq} all_q_and_classical_ABI_and_phase=PASS scored=false",values.len(),ops.len());
++ }}}
++ eprintln!("POSITIVE_LARGE_SUITE native_cases={cases} score=NONE");
++}
++#[test]fn uniform_positive_large_all_measurement_outcomes(){
++ prepare();let mut proved=0;let mut inconclusive=0;
++ for m in [64,65,66,128,129]{let values=samples(m);for policy in ["SQ_A_POLICY","SQ_B_POLICY","SQ_C_POLICY"]{
++  let(ops,x,output,_)=large_circuit(m,policy,1200,false);let(nq,nb,_,_)=analyze_ops(ops.iter());let(q,b,expected)=initial(nq as usize,nb as usize,&x,&output,&values[..64],0);
++  match phase_kernel::audit(&ops,&q,&b){
++   Ok(a)=>{assert_eq!(a.qubits,expected);proved+=64;eprintln!("POSITIVE_LARGE_ALL_MR m={m} policy={policy} input_lanes=64 measurements={} max_phase_terms={} max_q_terms={} exact_ALL_MR=PASS",a.measurements,a.maximum_phase_terms,a.maximum_quantum_terms);},
++   Err(e)if e.starts_with("inconclusive:")=>{inconclusive+=1;eprintln!("POSITIVE_LARGE_ALL_MR m={m} policy={policy} INCONCLUSIVE {e}");},
++   Err(e)=>panic!("positive large symbolic m={m} policy={policy}: {e}"),
++  }
++ }}
++ assert!(proved>0);eprintln!("POSITIVE_LARGE_ALL_MR_SUITE proved_fixed_input_cases={proved} inconclusive_fixtures={inconclusive} global_input_proof=false score=NONE");
++}
++#[test]fn uniform_positive_large_dirty_loan_phase_fault(){
++ prepare();let values=vec![U256::ZERO;64];let(ops,x,output,loans)=large_circuit(64,"SQ_B_POLICY",1200,true);assert!(loans>0);let(nq,nb,_,_)=analyze_ops(ops.iter());let(q,b,expected)=initial(nq as usize,nb as usize,&x,&output,&values,0);
++ let e=phase_kernel::audit(&ops,&q,&b).unwrap_err();assert!(e.starts_with("nonzero phase polynomial"),"{e}");
++ let mut tape=Tape{seed:0,at:0};let mut sim=Simulator::new(nq as usize,nb as usize,&mut tape);sim.qubits.clone_from(&q);sim.bits.clone_from(&b);sim.apply_iter(ops.iter());assert_eq!(sim.qubits,expected);assert_eq!(sim.phase,0);
++ eprintln!("POSITIVE_LARGE_FAULT clean_values_and_zero_MR_native_pass_but_ALL_MR_phase_rejects=true");
++}
++#[test]fn inspect_positive_large_first_phase_measurement(){
++ prepare();let(ops,_,_,_)=large_circuit(128,"SQ_A_POLICY",1200,false);let mut measurement=0;
++ for(at,op)in ops.iter().enumerate(){if matches!(op.kind,crate::circuit::OperationType::R|crate::circuit::OperationType::Hmr){
++  if measurement==3862{eprintln!("FIRST_PHASE_MEASUREMENT id={measurement} at={at} kind={:?} q={} c_target={} c_condition={}",op.kind,op.q_target.0,op.c_target.0,op.c_condition.0);
++   for i in at.saturating_sub(8)..(at+9).min(ops.len()){let o=&ops[i];eprintln!("FIRST_PHASE_NEIGHBOR at={i} kind={:?} a={} b={} t={} cb={} cond={}",o.kind,o.q_control1.0,o.q_control2.0,o.q_target.0,o.c_target.0,o.c_condition.0);}
++  }measurement+=1;
++ }}
++}
++
++#[test]fn inspect_positive_cross2_remaining_phase(){
++ prepare();let m=128;let values=samples(m);let(ops,x,output,_)=large_circuit(m,"SQ_A_POLICY",1200,false);let(nq,nb,_,_)=analyze_ops(ops.iter());
++ for (batch,chunk)in values.chunks(64).enumerate(){let(q,b,expected)=initial(nq as usize,nb as usize,&x,&output,chunk,1);
++  let mut tape=Tape{seed:1,at:0};let mut sim=Simulator::new(nq as usize,nb as usize,&mut tape);sim.qubits.clone_from(&q);sim.bits.clone_from(&b);sim.apply_iter(ops.iter());
++  eprintln!("REMAINING_PHASE batch={batch} input_start={} native_phase={:#x}",batch*64,sim.phase);
++  match phase_kernel::audit(&ops,&q,&b){Ok(a)=>{assert_eq!(a.qubits,expected);eprintln!("REMAINING_PHASE_ALL_MR batch={batch} PASS");},Err(e)=>{
++   eprintln!("REMAINING_PHASE_ALL_MR batch={batch} ERROR {e}");
++   for(lane,v)in chunk.iter().enumerate(){eprintln!("REMAINING_PHASE_INPUT batch={batch} lane={lane} value={v:#x}");}
++   if let Some(first)=e.split("first Some(([").nth(1){let ids=first.split(']').next().unwrap();let wanted:Vec<usize>=ids.split(',').map(|v|v.trim().parse().unwrap()).collect();let mut mr=0;
++    for(at,o)in ops.iter().enumerate(){if matches!(o.kind,crate::circuit::OperationType::R|crate::circuit::OperationType::Hmr){if wanted.contains(&mr){eprintln!("REMAINING_PHASE_MAP mr={mr} op={at} kind={:?} q={}",o.kind,o.q_target.0);for i in at.saturating_sub(5)..(at+8).min(ops.len()){let r=&ops[i];eprintln!("REMAINING_PHASE_NEIGHBOR at={i} kind={:?} a={} b={} t={} cb={} cond={}",r.kind,r.q_control1.0,r.q_control2.0,r.q_target.0,r.c_target.0,r.c_condition.0);}}mr+=1;}}
++   }
++  }}
++ }
++}
+diff --git a/src/point_add/tests_positive_phase_polynomial.rs b/src/point_add/tests_positive_phase_polynomial.rs
+new file mode 100644
+index 00000000..098953dc
+--- /dev/null
++++ b/src/point_add/tests_positive_phase_polynomial.rs
+@@ -0,0 +1,214 @@
++//! Exact Boolean-ring phase audit for fixed bit-packed basis inputs.
++//!
++//! Independent indeterminates denote EACH R/HMR outcome, never mutable BitIds.
++//! u64 coefficients hold 64 separate input lanes. Zero ANF proves zero phase
++//! for all measurement choices on those inputs. Overflow is inconclusive.
++use crate::circuit::{analyze_ops, Op, OperationType as K, NO_BIT};
++use std::collections::BTreeMap;
++
++const TERM_CAP: usize = 8192;
++const MULTIPLY_WORK_CAP: usize = 1_000_000;
++
++#[derive(Clone, Debug, PartialEq, Eq)]
++struct Poly(BTreeMap<Vec<u32>, u64>);
++
++fn union(a: &[u32], b: &[u32]) -> Vec<u32> {
++    let (mut i, mut j, mut out) = (0, 0, Vec::with_capacity(a.len() + b.len()));
++    while i < a.len() || j < b.len() {
++        if j == b.len() || (i < a.len() && a[i] < b[j]) { out.push(a[i]); i += 1; }
++        else if i == a.len() || b[j] < a[i] { out.push(b[j]); j += 1; }
++        else { out.push(a[i]); i += 1; j += 1; }
++    }
++    out
++}
++
++impl Poly {
++    fn constant(v: u64) -> Self {
++        let mut terms = BTreeMap::new();
++        if v != 0 { terms.insert(Vec::new(), v); }
++        Self(terms)
++    }
++    fn variable(id: u32) -> Self { Self(BTreeMap::from([(vec![id], u64::MAX)])) }
++    fn scalar(&self) -> Option<u64> {
++        if self.0.is_empty() { Some(0) }
++        else if self.0.len() == 1 { self.0.get(&Vec::new()).copied() }
++        else { None }
++    }
++    fn accumulate(&mut self, monomial: Vec<u32>, value: u64) {
++        if value == 0 { return; }
++        let entry = self.0.entry(monomial.clone()).or_insert(0);
++        *entry ^= value;
++        if *entry == 0 { self.0.remove(&monomial); }
++    }
++    fn xor(&self, other: &Self) -> Result<Self, String> {
++        let mut result = self.clone();
++        for (monomial, value) in &other.0 { result.accumulate(monomial.clone(), *value); }
++        if result.0.len() > TERM_CAP { return Err("inconclusive: XOR term cap".into()); }
++        Ok(result)
++    }
++    fn and(&self, other: &Self) -> Result<Self, String> {
++        if let Some(mask) = self.scalar() { return Ok(other.masked(mask)); }
++        if let Some(mask) = other.scalar() { return Ok(self.masked(mask)); }
++        if self.0.len().saturating_mul(other.0.len()) > MULTIPLY_WORK_CAP {
++            return Err("inconclusive: multiplication work cap".into());
++        }
++        let mut result = Self::constant(0);
++        for (a, av) in &self.0 { for (b, bv) in &other.0 {
++            result.accumulate(union(a, b), av & bv);
++            if result.0.len() > TERM_CAP { return Err("inconclusive: AND term cap".into()); }
++        }}
++        Ok(result)
++    }
++    fn masked(&self, mask: u64) -> Self {
++        Self(self.0.iter().filter_map(|(m, v)| ((*v & mask) != 0).then(|| (m.clone(), *v & mask))).collect())
++    }
++    fn not(&self) -> Result<Self, String> { self.xor(&Self::constant(u64::MAX)) }
++}
++
++#[derive(Debug)]
++pub struct Audit {
++    pub qubits: Vec<u64>,
++    pub measurements: u64,
++    pub maximum_phase_terms: usize,
++    pub maximum_quantum_terms: usize,
++}
++
++/// Classical slots start at the supplied constants, with remaining scratch 0.
++/// Final quantum values must be independent of measurements. Classical scratch
++/// may retain outcomes. This is a finite INPUT-domain proof, not a score.
++pub fn audit(ops: &[Op], input: &[u64], initial_bits: &[u64]) -> Result<Audit, String> {
++    let (nq, nb, _, _) = analyze_ops(ops.iter());
++    if input.len() < nq as usize { return Err("input shorter than quantum allocation".into()); }
++    let mut q: Vec<_> = input.iter().map(|v| Poly::constant(*v)).collect();
++    let mut bits = vec![Poly::constant(0); (nb as usize).max(initial_bits.len())];
++    for (bit, value) in initial_bits.iter().enumerate() { bits[bit] = Poly::constant(*value); }
++    let mut phase = Poly::constant(0);
++    let mut base = Poly::constant(u64::MAX);
++    let mut stack = Vec::new();
++    let mut next_measurement = 0u32;
++    let (mut max_phase, mut max_quantum) = (0, 1);
++    for (index, op) in ops.iter().enumerate() {
++        let condition = if op.c_condition == NO_BIT { base.clone() }
++            else { base.and(&bits[op.c_condition.0 as usize])? };
++        let (a, b, t, bit) = (op.q_control1.0 as usize, op.q_control2.0 as usize,
++                             op.q_target.0 as usize, op.c_target.0 as usize);
++        match op.kind {
++            K::PushCondition => { stack.push(base); base = condition; }
++            K::PopCondition => { base = stack.pop().ok_or_else(|| format!("unbalanced pop at {index}"))?; }
++            K::X => { q[t] = q[t].xor(&condition)?; }
++            K::CX => { q[t] = q[t].xor(&condition.and(&q[a])?)?; }
++            K::CCX => { q[t] = q[t].xor(&condition.and(&q[a].and(&q[b])?)?)?; }
++            K::Swap => {
++                let delta = condition.and(&q[a].xor(&q[t])?)?;
++                q[a] = q[a].xor(&delta)?; q[t] = q[t].xor(&delta)?;
++            }
++            K::R | K::Hmr => {
++                let m = Poly::variable(next_measurement);
++                next_measurement = next_measurement.checked_add(1).ok_or("measurement id overflow")?;
++                phase = phase.xor(&condition.and(&q[t].and(&m)?)?)?;
++                if op.kind == K::Hmr {
++                    bits[bit] = bits[bit].xor(&condition.and(&bits[bit].xor(&m)?)?)?;
++                }
++                q[t] = q[t].and(&condition.not()?)?;
++            }
++            K::BitInvert => { bits[bit] = bits[bit].xor(&condition)?; }
++            K::BitStore0 => { bits[bit] = bits[bit].and(&condition.not()?)?; }
++            K::BitStore1 => { bits[bit] = bits[bit].xor(&condition.and(&bits[bit].not()?)?)?; }
++            K::Neg => { phase = phase.xor(&condition)?; }
++            K::Z => { phase = phase.xor(&condition.and(&q[t])?)?; }
++            K::CZ => { phase = phase.xor(&condition.and(&q[a].and(&q[t])?)?)?; }
++            K::CCZ => { phase = phase.xor(&condition.and(&q[a].and(&q[b].and(&q[t])?)?)?)?; }
++            K::Register | K::AppendToRegister | K::DebugPrint => {}
++        }
++        max_phase = max_phase.max(phase.0.len());
++        match op.kind {
++            K::X | K::CX | K::CCX | K::R | K::Hmr => { max_quantum = max_quantum.max(q[t].0.len()); }
++            K::Swap => { max_quantum = max_quantum.max(q[t].0.len()).max(q[a].0.len()); }
++            _ => {}
++        }
++    }
++    if !stack.is_empty() { return Err("unclosed condition stack".into()); }
++    if !phase.0.is_empty() {
++        return Err(format!("nonzero phase polynomial: {} terms; first {:?}", phase.0.len(), phase.0.first_key_value()));
++    }
++    let mut output = Vec::with_capacity(q.len());
++    for (slot, value) in q.iter().enumerate() {
++        output.push(value.scalar().ok_or_else(|| format!("measurement-dependent final quantum slot {slot}"))?);
++    }
++    Ok(Audit { qubits: output, measurements: next_measurement as u64,
++               maximum_phase_terms: max_phase, maximum_quantum_terms: max_quantum })
++}
++
++#[cfg(test)]
++mod tests {
++    use super::*;
++    use crate::circuit::{BitId, QubitId};
++    fn native(ops: &[Op], input: &[u64], words: &[u64]) -> (Vec<u64>, u64) {
++        struct Reader<'a> { words: &'a [u64], at: usize }
++        impl sha3::digest::XofReader for Reader<'_> {
++            fn read(&mut self, bytes: &mut [u8]) {
++                assert_eq!(bytes.len(),8); bytes.copy_from_slice(&self.words[self.at].to_le_bytes()); self.at+=1;
++            }
++        }
++        let (_,nb,_,_)=analyze_ops(ops.iter());let mut reader=Reader{words,at:0};
++        let mut sim=quantum_ecc::sim::Simulator::new(input.len(),nb as usize,&mut reader);
++        sim.qubits=input.to_vec();sim.apply_iter(ops.iter());(sim.qubits,sim.phase)
++    }
++    fn gate(k: K, a: Option<u64>, b: Option<u64>, t: Option<u64>, bit: Option<u64>, condition: Option<u64>) -> Op {
++        let mut op = Op::empty(); op.kind = k;
++        if let Some(a) = a { op.q_control1 = QubitId(a); }
++        if let Some(b) = b { op.q_control2 = QubitId(b); }
++        if let Some(t) = t { op.q_target = QubitId(t); }
++        if let Some(bit) = bit { op.c_target = BitId(bit); }
++        if let Some(c) = condition { op.c_condition = BitId(c); }
++        op.validate(); op
++    }
++    #[test]
++    fn snapshot_mutation_nested_push_and_phase_fault() {
++        let mut ops = vec![
++            gate(K::Hmr,None,None,Some(0),Some(0),None),
++            gate(K::PushCondition,None,None,None,None,Some(0)),
++            gate(K::BitInvert,None,None,None,Some(0),None),
++            gate(K::BitStore1,None,None,None,Some(1),None),
++            gate(K::PushCondition,None,None,None,None,Some(1)),
++            gate(K::Z,None,None,Some(1),None,None),
++            gate(K::PopCondition,None,None,None,None,None),
++            gate(K::PopCondition,None,None,None,None,None),
++        ];
++        let mask=0x934ce2086ffa3145;let input=[mask,mask,!mask];
++        let result=audit(&ops,&input,&[]).unwrap();assert_eq!(result.qubits,vec![0,mask,!mask]);assert_eq!(result.measurements,1);
++        for m in [0,u64::MAX,0x682ab19376cdfe08] {let(q,phase)=native(&ops,&input,&[m]);assert_eq!(q,result.qubits);assert_eq!(phase,0);}
++        ops[5].q_target=QubitId(2);
++        assert!(audit(&ops,&input,&[]).unwrap_err().starts_with("nonzero phase polynomial"));
++        assert_eq!(native(&ops,&input,&[u64::MAX]).1,u64::MAX);
++    }
++    #[test]
++    fn conditional_hmr_boolean_idempotence_and_value_restoration() {
++        let ops=vec![
++            gate(K::Hmr,None,None,Some(0),Some(0),None),
++            gate(K::PushCondition,None,None,None,None,Some(0)),
++            gate(K::Hmr,None,None,Some(1),Some(1),None),
++            gate(K::Z,None,None,Some(2),None,Some(1)),
++            gate(K::CX,Some(2),None,Some(1),None,None),
++            gate(K::PopCondition,None,None,None,None,None),
++        ];
++        let input=[0,0x123456789abcdef0,0x123456789abcdef0];
++        let result=audit(&ops,&input,&[]).unwrap();assert_eq!(result.qubits,input);assert_eq!(result.measurements,2);
++        assert!(result.maximum_quantum_terms>1);
++        for m in [0,u64::MAX] {for n in [0,u64::MAX] {let(q,phase)=native(&ops,&input,&[m,n]);assert_eq!(q,input);assert_eq!(phase,0);}}
++    }
++    #[test]
++    fn discarded_phase_only_block_is_detected() {
++        let ops=vec![gate(K::Hmr,None,None,Some(0),Some(0),None),
++            gate(K::PushCondition,None,None,None,None,Some(0)),
++            gate(K::CCZ,Some(1),Some(2),Some(3),None,None),
++            gate(K::PopCondition,None,None,None,None,None)];
++        assert!(audit(&ops,&[0,u64::MAX,u64::MAX,u64::MAX],&[]).unwrap_err().starts_with("nonzero phase polynomial"));
++        assert_eq!(native(&ops,&[0,u64::MAX,u64::MAX,u64::MAX],&[u64::MAX]).1,u64::MAX);
++    }
++    #[test]
++    fn support_limit_is_inconclusive() {
++        let many=Poly((0..TERM_CAP+1).map(|i|(vec![i as u32],1u64)).collect());
++        assert_eq!(many.xor(&Poly::constant(0)).unwrap_err(),"inconclusive: XOR term cap");
++    }
++}

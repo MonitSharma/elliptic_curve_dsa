@@ -1,0 +1,48 @@
+{
+  "status": "no_witness_in_chosen_external_direction",
+  "source_lf_sha256": "879b85060f6a5cfa412561d64860f1cab697f7a334f180f5be9102070d5a23b9",
+  "netlist_sha256": "d6bf2410418bd8707d5768ca274ba74ce79c7e5964189605bdb2b33d22977b85",
+  "domain_rows": 16384,
+  "outside_definition": {
+    "left_original_affine_mask": 8192,
+    "right_original_affine_mask": 229392,
+    "left_input_index": 13,
+    "right_output_index": 24,
+    "label": "k1*(acc3+C3)"
+  },
+  "old_extra_masks": [
+    524288,
+    2097152,
+    4194304,
+    8388608,
+    16777216,
+    67108864
+  ],
+  "subspaces_total": 651,
+  "scope": "All rank45 interfaces in the old span plus this chosen exact external consumer-sum function that contain W40 and the external function. Extended constructor domain; actual producer admission, cleanup and complete circuit cost separate.",
+  "all651_subspaces_completed": true,
+  "seconds": 619.2614740105346,
+  "limits": "Chosen external function only. No global lower bound; trusted factor UNSAT has no saved formal proof certificate. Any witness needs independent full-domain evaluation and complete native cleanup/phase cost.",
+  "records_examined": 651,
+  "status_counts": {
+    "chosen_interface_affine_product_obstruction": 650,
+    "exact_quadratic_span_obstruction": 1
+  },
+  "closed_prefix_AND_distribution": {
+    "15": 2,
+    "13": 15,
+    "12": 96,
+    "17": 1,
+    "14": 4,
+    "11": 209,
+    "10": 324
+  },
+  "witnesses": 0,
+  "solver_unknowns": 0,
+  "raw_receipt_bytes": 5169966,
+  "raw_receipt_sha256": "621794b8df9e5cf506d4cf7200d9289ec879b6033aaf5f4a38c45a3469ab2b4b",
+  "pid": 2467053,
+  "log_sha256": "434a6a7612776ec5a86a37a1ccf39491c836ba05b3495626ab9ec5b69b6e4064",
+  "settings_sha256": "5a121562c9dcf38d47c8ebf38af716599d1571c15ecb343da01ac312463c7320",
+  "exit": 0
+}

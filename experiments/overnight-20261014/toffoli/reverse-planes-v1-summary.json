@@ -1,0 +1,51 @@
+{
+  "status": "no_24_AND_witness_in_original_reverse_span",
+  "source_lf_sha256": "879b85060f6a5cfa412561d64860f1cab697f7a334f180f5be9102070d5a23b9",
+  "netlist_sha256": "c9aeb7af36991ee5d96577514f6497a55179beccd80106e7ed4794d9dc64af11",
+  "domain_rows": 16384,
+  "original_AND_count": 25,
+  "raw_rank": 15,
+  "target_plus_raw_rank": 34,
+  "original_internal_rank": 40,
+  "early_kp1_AND": [
+    130,
+    1027
+  ],
+  "hidden_original_masks": [
+    65536,
+    131072,
+    262144,
+    524288,
+    1048576,
+    2097152
+  ],
+  "scope": "All63 rank39 original-span hyperplanes containing complete reverse addend fields and raw inputs. First AND is original kp1, supporting early low n1/c5/c6 scheduling. W producer admission and complete consumer/measurement cleanup remain separate.",
+  "all63_planes_completed": true,
+  "seconds": 20.81847534328699,
+  "limits": "Only original internal span. Trusted UNSAT without formal proof certificate; outside functions, actual producer admission and cleanup/full cost separate.",
+  "records_examined": 63,
+  "status_counts": {
+    "exact_quadratic_span_obstruction": 4,
+    "chosen_interface_affine_product_obstruction": 59
+  },
+  "closed_prefix_AND_distribution": {
+    "7": 10,
+    "8": 3,
+    "10": 1,
+    "12": 1,
+    "6": 12,
+    "9": 1,
+    "3": 12,
+    "5": 8,
+    "4": 6,
+    "2": 9
+  },
+  "witnesses": 0,
+  "solver_unknowns": 0,
+  "raw_receipt_bytes": 254248,
+  "raw_receipt_sha256": "24940aaa26889abb4ac53b252ae6fc1f94d7200f400eacc134738299869c48c4",
+  "pid": 2477150,
+  "log_sha256": "08b518a8ddc096c49d96477fb9dd1ab548d40576980867490bc2de679d52ab3f",
+  "settings_sha256": "867850b7f9956905d4a5c28984ca48f0e257887bcdb49632be694f25e5158ef5",
+  "exit": 0
+}

@@ -224,3 +224,47 @@ checks continue; inherited division-zero phase errors remain separate.
 No new complete passing benchmark is claimed. Research continues until the
 20:14:23 UTC deadline, with source patches, failed attempts and active-job
 records preserved separately from public scored results.
+
+## Fourth checkpoint
+
+The 14:41 UTC public refresh still has 1,562 submissions, 1,221 eligible
+records and 45 Pareto points. The three leaders and strict targets are
+unchanged. No original candidate has qualified.
+
+N275/K16 now has a source-bound complete stream with maximum referenced
+width 692, 3,832,705,108 operations and SHA256
+`ad1205994a3927ba76e90a086eadcf800d5876efe36425495cc8e83e21c6a26f`.
+These are generation diagnostics, not a scored record. The unchanged official
+evaluator is running all 9,024 correctness shots in an isolated protected
+harness, with the completed stream as its input. Nonces remain 34/5. The
+single large evaluator has a 256 GiB limit and approximately 200 GiB actual
+operation storage; other work uses small, separately bounded processes.
+[Generation and provenance](../experiments/overnight-20261014/qubits/n275-generation-receipt.json).
+
+An independent exact decision-diagram checker removes the earlier phase
+proof limits by collecting only unreachable nodes. Five native kernel tests,
+including an independent truth-table check and fault controls, pass. All
+measurement outcomes are proved for 74 fixed-input forward/inverse instances
+of the Q693 prototype and 116 instances of N275-v2, covering every tested
+column, payload and dirty owner fixture. This is finite component evidence;
+the complete curve input domain still requires the official evaluation.
+[Exact phase proof](../experiments/overnight-20261014/coordinator/DECISION_PHASE_PROOF.md).
+
+The constructor search exhausts 1,953 selected mixed external interfaces
+and 2,604 reverse interfaces without a witness or unknown solver result.
+A new consumer cleanup passes native and independent all-measurement tests,
+but its full guard occurs zero times in the unchanged complete baseline.
+Expanding that guard encounters an allocator-order assertion before a complete
+bound stream. Actual late carry lifetimes are now being studied separately;
+no component gate count is promoted to a full score.
+[Constructor evidence](../experiments/overnight-20261014/toffoli/fourth-checkpoint-receipt.json),
+[actual guard census](../experiments/overnight-20261014/product/h45-census-results.md).
+
+The uniform+2 square protocol passes 491,520 production-sized native cases
+and exact all-measurement checks on 30,720 fixed input/layout instances. A
+coupled diagnostic repairs all tested literal-zero x residues, while the
+P=-2A y error and phase defects persist. Its complete builder still fails an
+allocator assertion and its partial resource diagnostics are worse, so this
+is preserved as arithmetic research rather than a resource candidate.
+[Component results](../experiments/overnight-20261014/product/positive-bias-exact-results.md),
+[coupled diagnosis](../experiments/overnight-20261014/product/positive-production-results.md).

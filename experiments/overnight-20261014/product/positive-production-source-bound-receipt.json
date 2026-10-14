@@ -1,0 +1,47 @@
+{
+  "collected_at_utc": "2026-10-14T14:15:31.106551+00:00",
+  "evidence_kind": "source_bound_arithmetic_diagnostics",
+  "qualified_score": null,
+  "status": "partial_repair_full_point_failures_preserved",
+  "baseline_revision": "c5bb1ec876db859a3f9f8a9052c140a145df834e",
+  "builder_status": 101,
+  "builder_failure": "inherited linear_restore fixed operation-table length:11325109 versus11459358",
+  "runtime_raw_path_assertion": true,
+  "raw_ops": 11319802,
+  "protected_tracked_changes": [],
+  "source_sha256": {
+    "src/point_add/builder.rs": "d070dde70764322d9f302865848a320fca383bf089aece79eb1fe95fb6bf2da0",
+    "src/point_add/leapfrog.rs": "6a74aeb2f1624997fa85b5ee7c613fd9a7916f95c20c7027fde5de2f2265467b",
+    "src/point_add/square.rs": "e93f9a97c5a005c45df17faad8e67398b3efc277597405bbefc4cc47a408944b"
+  },
+  "protected_sha256": {
+    "benchmark.sh": "122a65431ad42a1bad5114af9e8f8301fe5cb08c01adaeee00799c9f0d0ed92a",
+    "Cargo.toml": "3c80178b08d29a158abb29a7dcb8eefc67c66f60f2c3bd14483b65eeca0740dc",
+    "Cargo.lock": "42ff16919e551891ad1b21821329b116d133194245a0e0734a33573dfe598e07",
+    "rust-toolchain": "92b454c1ccf330de9b94242f73bc3214370fb420d5152baeec12dc82ceef9dcc",
+    "src/bin/eval_circuit.rs": "b35314bc47a5f8eecbf60459e6c76c9b43aa034eeb9b7ec3421655d74f9e890b",
+    "src/bin/build_circuit.rs": "ac013f1d851156a117c7d41ddb16cb5bb014ed4e6ed4679df143207b46852f33",
+    "src/circuit.rs": "ac2255f6bcb6895c9da2dfe21c3a051a0ef8fc4e0af9598634fec0035dbf35c6",
+    "src/sim.rs": "f0c72f2a280cd68acee1dbf8282098f72d6b3bf4311e0abf96d122fe002256d7",
+    "src/weierstrass_elliptic_curve.rs": "ecfca15ee3b831c243fbea559ff4b8937be47fe591a4f14786ec2b9bfb30bded"
+  },
+  "builder_patch_sha256": "2f92f249f716481e3caef78589ff071bf6bf04fc4d9b6bc6db34312a4b486d00",
+  "builder_binary_sha256": "07a3c82f55239a4506414237b9d728473b0d2e5975190106aa415de4b895b00c",
+  "replay_binary_sha256": "1b3f93e952729f6529f5ef07598ae17c23eb148bf053fd01ee3a0ee0841a60a3",
+  "replay_source_sha256": {
+    "src/main.rs": "0ddec211aeef903fdcc92f5d9d88fe0ff1b911921032612b015ba0612591462d",
+    "Cargo.toml": "d147d0fcf68cf7e89fefacd3537b02a9c874391d1f3563a6747e2305918257f1"
+  },
+  "raw_stream_sha256": "f6b272fc274c47db4d5a8f135144acd00582b9cf31022d18fb48e1cd262c346a",
+  "metadata_sha256": "90d3c470b05a7cc83419edef8c964031298201ac8d9d1f15f2625f149b96fd2a",
+  "logs": {
+    "/home/hclau/ecdsa_research/overnight-20261014/product-evidence/positive-production/run.log": "28b24e1907eaaf893b12cd306ba8358a119198b2c894b85b2904baa6e31e06f3",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-evidence/positive-production/replay.log": "8c8a9cd8586da1102c8b414fce07fb9321a2f49c7d3d8fa571a503ac676df800",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-evidence/positive-production-broader/replay.log": "bca736f12fa7f8683ee3baf233eed8d20db2555530047ba9ced63e486015b331"
+  },
+  "packets": {
+    "/home/hclau/ecdsa_research/overnight-20261014/product-evidence/structured-detail/structured.tsv": "06f780d0ceb90585eb5142a4fd1e62cb3b7eb2b403ea40649e563d376992a1dd",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-evidence/classical-xor-factors/independent.tsv": "6c7e804a0ff8e6273daa9736b53e8a5819e732bec090b12683aebdcc793b7db5"
+  },
+  "scope": "256 fixed structured and256 independent native point tests; exact producer all-MR fixed-input proof separate; no official benchmark/tail tuning"
+}

@@ -1,0 +1,53 @@
+{
+  "evidence_kind": "independent_component_all_measurement_proof",
+  "qualified_score": null,
+  "kernel_sha256": "330d91852ddc82740ac9bec4b8d8fb94d2ca5c5ca843fd4e56d1fed6123fab98",
+  "cleanup_helper_sha256": "a3de0bf45baa2efd199c1b5d178a4c65f12aab9e0e17dcb9c4a92f5bb4fe6f22",
+  "domains": {
+    "low_inputs": 16384,
+    "higher_words": 4,
+    "room_profiles": [
+      14,
+      26,
+      45,
+      50
+    ],
+    "variants": 2,
+    "nested_mutable_conditions": [
+      false,
+      true
+    ],
+    "fixed_basis_layouts_each_run": 1048576,
+    "native_measurement_domains_each_layout": 3,
+    "native_cases_each_run": 3145728
+  },
+  "runs": {
+    "regenerating_loan_to_H45": {
+      "receipt": "h45-audit-r1-receipt.json",
+      "source_sha256": {
+        "src/point_add/product_h45_phase_kernel.rs": "330d91852ddc82740ac9bec4b8d8fb94d2ca5c5ca843fd4e56d1fed6123fab98",
+        "src/point_add/product_h45_phase_tests.rs": "3d1617386b6c9005044dae07c77ed8902de12bfcd43b26601e26e19db65acdc7",
+        "src/point_add/toffoli_carry_cleanup_v1.rs": "a3de0bf45baa2efd199c1b5d178a4c65f12aab9e0e17dcb9c4a92f5bb4fe6f22",
+        "src/point_add/y15_onefold.rs": "16185f0ace59087df902e16b55a5f3562028246adfef1cc499029958d4d5ccba"
+      },
+      "native_sha256": "f5946f09dbe007c4bd7fb0bdcc4326c96783995bb1250cf21777cd8027b14209",
+      "log_sha256": "2a54da3810e5d5a7d3755d451078b8028889945b5932ee790f9a9862525bed3f",
+      "all_six_suites_passed": true,
+      "removed_CZ_fault_detected": true
+    },
+    "original_NONloan_to_H45_loan": {
+      "receipt": "h45-nonloan-r2-receipt.json",
+      "source_sha256": {
+        "src/point_add/product_h45_phase_kernel.rs": "330d91852ddc82740ac9bec4b8d8fb94d2ca5c5ca843fd4e56d1fed6123fab98",
+        "src/point_add/product_h45_phase_tests.rs": "5457b97bc1aca141250f8525c6da8b5bee268b4ac9f8e5448ffb952a6b8007a8",
+        "src/point_add/toffoli_carry_cleanup_v1.rs": "a3de0bf45baa2efd199c1b5d178a4c65f12aab9e0e17dcb9c4a92f5bb4fe6f22",
+        "src/point_add/y15_onefold.rs": "16185f0ace59087df902e16b55a5f3562028246adfef1cc499029958d4d5ccba"
+      },
+      "native_sha256": "3cd01ee01675800fe0074af29810b7ecb10c11f808534b90490c25610adbd10b",
+      "log_sha256": "de037d98a1e8878aa321fd47bca865c7ded4ca5d08a40f18c06fdc77f6afccef",
+      "all_six_suites_passed": true,
+      "removed_CZ_fault_detected": true
+    }
+  },
+  "limits": "Exact ALLMR for fixed basis/layout families, not every higher-register input. Separate source-domain14 proof covers cleanup boundary independent of higher register given ladder bank restoration. Complete production/binding/scoring separate."
+}

@@ -1,0 +1,34 @@
+{
+  "status": "native_component_pass_full_benchmark_unrun",
+  "source_variant": "candidate-n275-v2",
+  "base_revision": "c95b9325913abacca9c86bdebad10a20633cd04e",
+  "patch_sha256": "10a0d56672b4327a341eca3a88fb0aaa34f1cad0a1e68c65ce30461b286cb17f",
+  "initial_variant": {
+    "name": "candidate-n275",
+    "pid": 2468409,
+    "exit": 0,
+    "completed_at_utc": "2026-10-14T13:36:25Z",
+    "passed_tests": 9,
+    "log_sha256": "0d0c219700ccf1dcc8ea537464593f0b8836df943df5590323dceaa68e66bfef"
+  },
+  "latest_variant": {
+    "name": "candidate-n275-v2",
+    "pid": 2472667,
+    "exit": 0,
+    "completed_at_utc": "2026-10-14T13:41:32Z",
+    "passed_tests": 10,
+    "log_sha256": "e52783431dddf0767bc5ee9f771ec0c9a284f3ab941353abec2c8943cd9ad9a8",
+    "remote_log": "/home/hclau/ecdsa_research/overnight-20261014/qubits/evidence/n275-v2-components.log"
+  },
+  "resources": {
+    "virtual_memory_gib": 16,
+    "build_threads": 4,
+    "runtime_threads": 1,
+    "dedicated_target": true
+  },
+  "scope": "Native components only: exact arithmetic, all-wire inverse/scratch/passengers and sampled phase. No full point-add peak or score.",
+  "phase": "Unitary selector/donor/preposition primitives zero independent measurement coefficients; full column/payload arbitrary-measurement phase unproved here.",
+  "full_benchmark_run": false,
+  "new_packet_tuned": false,
+  "protected_files_modified": false
+}

@@ -1,0 +1,2318 @@
+diff --git a/src/point_add/builder.rs b/src/point_add/builder.rs
+index 600f382e..25044463 100755
+--- a/src/point_add/builder.rs
++++ b/src/point_add/builder.rs
+@@ -1,622 +1,649 @@
+-//! The circuit builder: wire and bit allocation, the gate vocabulary every
+-//! construction in this tree emits through, and the phase report.
+-//!
+-//! Everything here is book-keeping over one `Vec<Op>`. The two censuses it
+-//! carries only observe that vector -- see [`record`](super::record) -- so no
+-//! knob reachable from this file can move the op stream.
+-
+-use crate::circuit::{BitId, Op, OperationType, QubitId, QubitOrBit, RegisterId, NO_BIT};
+-
+-use super::record::{At, CcxCensus, PeakCensus, ReplaySites};
+-
+-/// Width of [`Builder::phase_kind_ops`]: one slot per [`OperationType`], so
+-/// `op.kind as usize` indexes it directly. `DebugPrint` is the last variant.
+-const OP_KINDS: usize = OperationType::DebugPrint as usize + 1;
+-
+-pub struct Builder {
+-    ops: Vec<Op>,
+-    model: bool,
+-    model_depth: usize,
+-    model_total: usize,
+-    model_weighted: f64,
+-    model_phase_native: usize,
+-    model_phase_weighted: f64,
+-    model_max: u32,
+-    /// Ops of each kind emitted since the last [`Builder::set_phase`]; only the
+-    /// two Toffoli kinds are reported, but indexing by `kind` is cheaper than
+-    /// branching on it.
+-    phase_kind_ops: [usize; OP_KINDS],
+-    next_qubit: u32,
+-    next_bit: u32,
+-    free_bits: Vec<u32>,
+-    next_register: u32,
+-    free_qubits: Vec<u32>,
+-    active_qubits: u32,
+-    peak_qubits: u32,
+-    phase: &'static str,
+-    peak_census: PeakCensus,
+-    ccx_census: CcxCensus,
+-    replay_sites: ReplaySites,
+-    /// PP_J_SFUSE: parked wire ids a fresh allocation must not take.
+-    avoid_ids: Vec<u32>,
+-    /// K3b: running (B count, B sum 2^-w, F count, F sum 2^-w) over replay repair sites (lambda proxy).
+-    pub k3b_sites: (usize, f64, usize, f64),
+-    /// B3a phase report (`HEO_PHASE_REPORT=1` under the research overlay).
+-    /// Observes the op stream only; off in the default build.
+-    report: Option<Box<PhaseReport>>,
+-    /// B3b: running peak since the last `take_win_peak` (book-keeping only).
+-    win_peak: u32,
+-}
+-
+-/// Per-phase native / expected Toffoli and peak, plus the global peak's op and
+-/// phase. Expected weight is 2^-(condition depth), the same rule as model mode.
+-#[derive(Default)]
+-pub struct PhaseReport {
+-    depth: u32,
+-    phase_native: usize,
+-    phase_expected: f64,
+-    total_native: usize,
+-    total_expected: f64,
+-    peak: u32,
+-    peak_op: usize,
+-    peak_phase: &'static str,
+-}
+-
+-impl Builder {
+-    pub(crate) fn current_phase(&self)->&'static str {self.phase}
+-    /// R3: run `body` and return its peak live count.
+-    pub(crate) fn r3_peak<R>(&mut self,body:impl FnOnce(&mut Self)->R)->(R,u32){let saved=self.win_peak;self.win_peak=self.active_qubits();let r=body(self);let peak=self.win_peak.max(self.active_qubits);self.win_peak=saved.max(peak);(r,peak)}
+-    pub(crate) fn fold_trace(&mut self,label:&str,body:impl FnOnce(&mut Self)) {
+-        if std::env::var_os("FOLD_FD_TRANSPORT").is_none(){body(self);return;}
+-        let saved=self.win_peak;let base=self.active_qubits();let before=self.report_totals().map_or(0.,|x|x.1);self.win_peak=base;body(self);let peak=self.win_peak;self.win_peak=saved.max(peak);
+-        eprintln!("FOLD_FD_PART\t{label}\t{base}\t{peak}\t{}",self.report_totals().map_or(0.,|x|x.1)-before);
+-    }
+-    pub fn new() -> Self {
+-        Self {
+-            ops: Vec::new(),
+-            // Count-only model mode is disabled in this submission.
+-            model: false,
+-            model_depth: 0, model_total: 0, model_weighted: 0.0,
+-            model_phase_native: 0, model_phase_weighted: 0.0, model_max: 0,
+-            phase_kind_ops: [0; OP_KINDS],
+-            next_qubit: 0,
+-            next_bit: 0,
+-            free_bits: Vec::new(),
+-            next_register: 0,
+-            free_qubits: Vec::new(),
+-            active_qubits: 0,
+-            peak_qubits: 0,
+-            phase: "init",
+-            peak_census: PeakCensus::new(),
+-            ccx_census: CcxCensus::new(),
+-            replay_sites: ReplaySites::new(),
+-            k3b_sites: (0, 0.0, 0, 0.0),
+-            report: super::heo::phase_report_enabled().then(Box::default),
+-            win_peak: 0,
+-            avoid_ids: Vec::new(),
+-        }
+-    }
+-    /// Highest live-qubit count seen so far over the whole build (tracked in
+-    /// every mode by `note_peak`).
+-    pub fn peak_total(&self) -> u32 { self.model_max }
+-    /// Ops emitted so far (diagnostic cursor for the B3a probes).
+-    pub fn op_count(&self) -> usize { self.ops.len() }
+-    /// B3b: peak live count since the previous call (book-keeping only).
+-    pub fn take_win_peak(&mut self) -> u32 { let p = self.win_peak.max(self.active_qubits); self.win_peak = self.active_qubits; p }
+-    /// B3b: (native, expected) Toffoli so far, when the phase report is on.
+-    pub fn report_totals(&self) -> Option<(usize, f64)> { self.report.as_deref().map(|r| (r.total_native, r.total_expected)) }
+-    pub(crate) fn i35_cost(&self)->f64{self.model_weighted}
+-    /// Running expected (condition-weighted) Toffoli count of the phase report; 0 when the report is off.
+-    pub(crate) fn expected_total(&self) -> f64 { self.report.as_deref().map_or(0.0, |r| r.total_expected) }
+-    pub fn i13_dims(&self)->(usize,usize){(self.next_qubit as usize,self.next_bit as usize)}
+-    pub fn take_ops(&mut self) -> Vec<Op> {
+-        if self.model {
+-            eprintln!("MODEL_PHASE {} {} {} {}", self.phase, self.peak_qubits,
+-                self.model_phase_native, self.model_phase_weighted);
+-            eprintln!("MODEL_TOTAL {} {} {}", self.model_max, self.model_total, self.model_weighted);
+-        }
+-        std::mem::take(&mut self.ops)
+-    }
+-    fn push_op(&mut self, op: Op) {
+-        // Tripwire, live only while tracing: every gate the score counts must
+-        // have been attributed by `ccx_census` first. CCX is the only scored
+-        // kind emitted today, so this is what a new CCZ path would trip.
+-        if self.ccx_census.watching() && CcxCensus::scored(op.kind) {
+-            assert!(
+-                self.ccx_census.covers(self.ops.len()),
+-                "{:?} at op {} reached push_op without CcxCensus::on_gate",
+-                op.kind,
+-                self.ops.len()
+-            );
+-        }
+-        self.phase_kind_ops[op.kind as usize] += 1;
+-        if let Some(r) = self.report.as_deref_mut() {
+-            match op.kind {
+-                OperationType::PushCondition => r.depth += 1,
+-                OperationType::PopCondition => r.depth -= 1,
+-                OperationType::CCX | OperationType::CCZ => {
+-                    let w = 2.0_f64.powi(-(r.depth as i32));
+-                    r.phase_native += 1; r.phase_expected += w;
+-                    r.total_native += 1; r.total_expected += w;
+-                }
+-                _ => {}
+-            }
+-        }
+-        if self.model {
+-            match op.kind {
+-                OperationType::PushCondition => self.model_depth += 1,
+-                OperationType::PopCondition => self.model_depth -= 1,
+-                OperationType::CCX | OperationType::CCZ => {
+-                    let weight = 2.0_f64.powi(-(self.model_depth as i32));
+-                    self.model_total += 1; self.model_weighted += weight;
+-                    self.model_phase_native += 1; self.model_phase_weighted += weight;
+-                }, _ => {}
+-            }
+-        } else { self.ops.push(op); }
+-    }
+-    /// Close the current phase: report its Toffoli count and peak width on
+-    /// stdout -- which is what `build_circuit` prints -- and start a new one.
+-    pub(crate) fn phase_name(&self) -> &'static str { self.phase }
+-    pub fn set_phase(&mut self, p: &'static str) {
+-        self.report_phase();
+-        if self.model {
+-            eprintln!("MODEL_PHASE {} {} {} {}", self.phase, self.peak_qubits,
+-                self.model_phase_native, self.model_phase_weighted);
+-        }
+-        self.model_phase_native = 0; self.model_phase_weighted = 0.0;
+-        self.peak_qubits = self.active_qubits;
+-        self.phase_kind_ops = [0; OP_KINDS];
+-        self.phase = p;
+-    }
+-
+-    /// Where the build is, for the recorders in [`record`].
+-    fn at(&self) -> At {
+-        At {
+-            phase: self.phase,
+-            op: self.ops.len(),
+-            active: self.active_qubits,
+-        }
+-    }
+-    /// Attach build-time context to the next Toffoli emitted; see
+-    /// [`CcxCensus::note`].
+-    pub fn ccx_note(&mut self, note: u64) {
+-        self.ccx_census.note(note);
+-    }
+-
+-    /// Book-keeping only -- emits no ops. Called by both routes that raise
+-    /// `active_qubits`: a fresh `alloc_qubit` and a `reacquire` of a parked one.
+-    fn note_peak(&mut self) {
+-        self.peak_qubits = self.peak_qubits.max(self.active_qubits);
+-        self.model_max = self.model_max.max(self.active_qubits);
+-        self.win_peak = self.win_peak.max(self.active_qubits);
+-        if let Some(r) = self.report.as_deref_mut() {
+-            if self.active_qubits > r.peak {
+-                r.peak = self.active_qubits;
+-                r.peak_op = self.ops.len();
+-                r.peak_phase = self.phase;
+-            }
+-        }
+-    }
+-
+-    /// Print the closing phase's line of the B3a report (no-op when off).
+-    fn report_phase(&mut self) {
+-        if let Some(r) = self.report.as_deref_mut() {
+-            eprintln!("HEO_PHASE {} native={} expected={:.1} peak={} ops={}", self.phase,
+-                r.phase_native, r.phase_expected, self.peak_qubits, self.ops.len());
+-            r.phase_native = 0; r.phase_expected = 0.0;
+-        }
+-    }
+-
+-    #[track_caller]
+-    pub fn alloc_qubit(&mut self) -> QubitId {
+-        self.active_qubits += 1;
+-        if std::env::var_os("DIRTY_ALLOC_TRACE").is_some() && self.active_qubits as usize > super::pingpong::heo_hooks::cap() {eprintln!("DIRTY_OVER_ALLOC\t{}\t{}\t{}",self.ops.len(),self.active_qubits,std::panic::Location::caller());}
+-        self.note_peak();
+-        let pick = if self.avoid_ids.is_empty() {
+-            self.free_qubits.pop()
+-        } else {
+-            let avoid = &self.avoid_ids;
+-            self.free_qubits.iter().rposition(|f| !avoid.contains(f)).map(|pos| self.free_qubits.remove(pos))
+-        };
+-        let qid = if let Some(q) = pick {
+-            QubitId(q.into())
+-        } else {
+-            let q = self.next_qubit;
+-            self.next_qubit += 1;
+-            QubitId(q.into())
+-        };
+-        if self.peak_census.enabled() {
+-            let (at, caller) = (self.at(), std::panic::Location::caller());
+-            self.peak_census
+-                .on_alloc(at, qid.0, caller.file(), caller.line());
+-        }
+-        qid
+-    }
+-    #[track_caller]
+-    pub fn alloc_qubits(&mut self, n: usize) -> Vec<QubitId> {
+-        if self.peak_census.enabled() {
+-            let c = std::panic::Location::caller();
+-            self.peak_census.batch(Some((c.file(), c.line())));
+-            let out = (0..n).map(|_| self.alloc_qubit()).collect();
+-            self.peak_census.batch(None);
+-            out
+-        } else {
+-            (0..n).map(|_| self.alloc_qubit()).collect()
+-        }
+-    }
+-    /// PP_J_SFUSE: set the parked wires fresh allocations must skip.
+-    pub fn set_avoid(&mut self, qs: &[QubitId]) {
+-        self.avoid_ids = qs.iter().map(|q| q.0.try_into().expect("qubit id fits in u32")).collect();
+-    }
+-    pub fn alloc_bit(&mut self) -> BitId {
+-        if let Some(b) = self.free_bits.pop() {
+-            return BitId(b.into());
+-        }
+-        let b = self.next_bit;
+-        self.next_bit += 1;
+-        BitId(b.into())
+-    }
+-    /// Return a classical bit to the pool.
+-    ///
+-    /// Unlike [`Builder::free`] for a qubit this emits nothing -- a bit carries no
+-    /// state the simulator has to clear, because every allocation site's first
+-    /// op on a bit *writes* it (`hmr`'s target, or a `bit_store`), never reads
+-    /// it. That is the whole safety condition, and it is what makes reuse
+-    /// invisible to the op stream: freeing a bit changes only which id later
+-    /// allocations get.
+-    ///
+-    /// The caller owns the lifetime: free only after the last op that reads the
+-    /// bit, and never while it is the live `push_condition`.
+-    pub fn free_bit(&mut self, b: BitId) {
+-        self.free_bits
+-            .push(b.0.try_into().expect("bit id fits in u32"));
+-    }
+-    pub fn free_bit_vec(&mut self, bs: &[BitId]) {
+-        for &b in bs {
+-            self.free_bit(b);
+-        }
+-    }
+-    pub fn alloc_bits(&mut self, n: usize) -> Vec<BitId> {
+-        (0..n).map(|_| self.alloc_bit()).collect()
+-    }
+-    pub fn free(&mut self, q: QubitId) {
+-        self.r(q);
+-        self.release_clean(q);
+-    }
+-    /// Return a qubit that the caller has unitarily restored to |0> without
+-    /// emitting a reset. This preserves the measurement stream when a clean
+-    /// temporary is parked and reused inside one reversible cell.
+-    pub fn release_clean(&mut self, q: QubitId) {
+-        self.free_qubits
+-            .push(q.0.try_into().expect("qubit id fits in u32"));
+-        if self.active_qubits > 0 {
+-            self.active_qubits -= 1;
+-        }
+-        let at = self.at();
+-        self.peak_census.on_free(at, q.0);
+-    }
+-    /// y42-railtop: the allocator's state (free wires and free bits in the order later allocations take them, and the
+-    /// next fresh bit).
+-    pub(crate) fn y42_alloc_state(&self) -> (Vec<u32>, Vec<u32>, u32) {
+-        (self.free_qubits.clone(), self.free_bits.clone(), self.next_bit)
+-    }
+-    /// y42-railtop: a fingerprint of an allocator state.
+-    pub(crate) fn y42_alloc_hash(st: &(Vec<u32>, Vec<u32>, u32)) -> u64 {
+-        let mut h = 14695981039346656037u64;
+-        for &x in st.0.iter().chain([u32::MAX].iter()).chain(st.1.iter()).chain([u32::MAX, st.2].iter()) {
+-            h = (h ^ x as u64).wrapping_mul(1099511628211);
+-        }
+-        h
+-    }
+-    /// y42-railtop: after a payload op that ran on another plan than the base's, the allocator set to the state the
+-    /// base's op leaves (`free_q`; the free bits `before.1[..bits_keep]` then `bits_tail`; `next_bit`), so that every
+-    /// later op gets the base's wires and bits. Asserted: the op gave back every wire and every bit it took, and the
+-    /// recorded state holds the same free wires and the same free bits (with the base's fresh ones).
+-    pub(crate) fn y42_alloc_set(&mut self, before: &(Vec<u32>, Vec<u32>, u32), free_q: &[u32], bits_keep: usize, bits_tail: &[u32], next_bit: u32) {
+-        let sorted = |v: &[u32]| {
+-            let mut v = v.to_vec();
+-            v.sort_unstable();
+-            v
+-        };
+-        assert_eq!(sorted(&self.free_qubits), sorted(&before.0), "y42: the payload op changed the set of free wires");
+-        assert!(self.next_bit >= before.2 && next_bit >= before.2, "y42: bit counter");
+-        let mut now = before.1.clone();
+-        now.extend(before.2..self.next_bit);
+-        assert_eq!(sorted(&self.free_bits), sorted(&now), "y42: the payload op kept a classical bit");
+-        assert_eq!(sorted(free_q), sorted(&before.0), "y42: the recorded free wires are not this tick's");
+-        let mut bits = before.1[..bits_keep].to_vec();
+-        bits.extend_from_slice(bits_tail);
+-        let mut base = before.1.clone();
+-        base.extend(before.2..next_bit);
+-        assert_eq!(sorted(&bits), sorted(&base), "y42: the recorded free bits are not this tick's");
+-        self.free_qubits = free_q.to_vec();
+-        self.free_bits = bits;
+-        self.next_bit = next_bit;
+-    }
+-    pub fn free_vec(&mut self, qs: &[QubitId]) {
+-        for &q in qs {
+-            self.free(q);
+-        }
+-    }
+-    /// N2 research patch (sim/patch_n2_sf.py, SL_N2_REACQ): take back the free wire `q` itself, keeping the free list's
+-    /// order (unlike [`Builder::reacquire`]); false (nothing done) when `q` is not free.
+-    pub fn n2_take(&mut self, q: QubitId) -> bool {
+-        let Some(pos) = self.free_qubits.iter().rposition(|&f| u64::from(f) == q.0) else {
+-            return false;
+-        };
+-        self.free_qubits.remove(pos);
+-        self.active_qubits += 1;
+-        self.note_peak();
+-        if self.peak_census.enabled() {
+-            let at = self.at();
+-            self.peak_census.on_alloc(at, q.0, "reacquire", 0);
+-        }
+-        true
+-    }
+-    pub fn reacquire(&mut self, q: QubitId) {
+-        let pos = self
+-            .free_qubits
+-            .iter()
+-            .position(|&free_q| u64::from(free_q) == q.0)
+-            .unwrap_or_else(|| {
+-                panic!(
+-                    "reacquire qubit {:?} that is not currently free (phase '{}', ops {})",
+-                    q,
+-                    self.phase,
+-                    self.ops.len()
+-                )
+-            });
+-        self.free_qubits.swap_remove(pos);
+-        self.active_qubits += 1;
+-        self.note_peak();
+-
+-        if self.peak_census.enabled() {
+-            let at = self.at();
+-            self.peak_census.on_alloc(at, q.0, "reacquire", 0);
+-        }
+-    }
+-    /// Declare a register over `members`, in order.
+-    ///
+-    /// The op stream tells a qubit member from a bit member only by which target
+-    /// field is set, so one routine serves both and the two spellings below just
+-    /// tag their elements.
+-    fn declare_register(&mut self, members: impl Iterator<Item = QubitOrBit>) {
+-        let r = RegisterId(self.next_register.into());
+-        self.next_register += 1;
+-        for m in members {
+-            let mut op = Op::empty();
+-            op.kind = OperationType::AppendToRegister;
+-            match m {
+-                QubitOrBit::Qubit(q) => op.q_target = q,
+-                QubitOrBit::Bit(b) => op.c_target = b,
+-            }
+-            op.r_target = r;
+-            self.push_op(op);
+-        }
+-        let mut op = Op::empty();
+-        op.kind = OperationType::Register;
+-        op.r_target = r;
+-        self.push_op(op);
+-    }
+-    pub fn declare_qubit_register(&mut self, qs: &[QubitId]) {
+-        self.declare_register(qs.iter().copied().map(QubitOrBit::Qubit));
+-    }
+-    pub fn declare_bit_register(&mut self, bs: &[BitId]) {
+-        self.declare_register(bs.iter().copied().map(QubitOrBit::Bit));
+-    }
+-    pub fn x(&mut self, q: QubitId) {
+-        let mut op = Op::empty();
+-        op.kind = OperationType::X;
+-        op.q_target = q;
+-        self.push_op(op);
+-    }
+-
+-    /// `x(q)`, applied only on the branch where classical bit `c` is set.
+-    pub fn x_if_bit(&mut self, q: QubitId, c: BitId) {
+-        self.push_condition(c);
+-        self.x(q);
+-        self.pop_condition();
+-    }
+-    pub fn cx(&mut self, ctrl: QubitId, tgt: QubitId) {
+-        assert_ne!(ctrl, tgt, "invalid CX with aliased control/target {ctrl:?}",);
+-        let mut op = Op::empty();
+-        op.kind = OperationType::CX;
+-        op.q_control1 = ctrl;
+-        op.q_target = tgt;
+-        self.push_op(op);
+-    }
+-    #[track_caller]
+-    pub fn ccx(&mut self, c1: QubitId, c2: QubitId, tgt: QubitId) {
+-        if c1 == c2 {
+-            if c1 != tgt {
+-                self.cx(c1, tgt);
+-            }
+-            return;
+-        }
+-        assert!(
+-            c1 != tgt && c2 != tgt,
+-            "invalid CCX with target aliased to a control: {c1:?}, {c2:?}, {tgt:?}"
+-        );
+-        let mut op = Op::empty();
+-        op.kind = OperationType::CCX;
+-        op.q_control2 = c1;
+-        op.q_control1 = c2;
+-        op.q_target = tgt;
+-
+-        // Attribution for the dead-CCX hunt. `ccx` is #[track_caller], so
+-        // Location::caller() here is the construction that wanted the Toffoli,
+-        // not a helper inside this file.
+-        if self.ccx_census.watching() {
+-            let at = self.at();
+-            self.ccx_census
+-                .on_gate(at, OperationType::CCX, std::panic::Location::caller());
+-        }
+-
+-        self.push_op(op);
+-    }
+-    /// `CZ(a, b)`, degenerating to `Z(a)` when both operands are the same wire --
+-    /// which is what `Addend::One` leans on in the constant ladder, where a hard
+-    /// one has no wire of its own and collapses onto the other operand. `cond`
+-    /// gates the gate on a classical bit; `NO_BIT` means unconditional.
+-    pub fn cz_if(&mut self, a: QubitId, b: QubitId, cond: BitId) {
+-        let mut op = Op::empty();
+-        if a == b {
+-            op.kind = OperationType::Z;
+-            op.q_target = a;
+-        } else {
+-            op.kind = OperationType::CZ;
+-            op.q_control1 = a;
+-            op.q_target = b;
+-        }
+-        op.c_condition = cond;
+-        self.push_op(op);
+-    }
+-    pub fn cz(&mut self, a: QubitId, b: QubitId) {
+-        self.cz_if(a, b, NO_BIT);
+-    }
+-    pub fn push_condition(&mut self, cond: BitId) {
+-        let mut op = Op::empty();
+-        op.kind = OperationType::PushCondition;
+-        op.c_condition = cond;
+-        self.push_op(op);
+-    }
+-    pub fn pop_condition(&mut self) {
+-        let mut op = Op::empty();
+-        op.kind = OperationType::PopCondition;
+-        self.push_op(op);
+-    }
+-    pub fn swap(&mut self, a: QubitId, b: QubitId) {
+-        if a == b {
+-            return;
+-        }
+-        let mut op = Op::empty();
+-        op.kind = OperationType::Swap;
+-        op.q_control1 = a;
+-        op.q_target = b;
+-        self.push_op(op);
+-    }
+-    fn r(&mut self, q: QubitId) {
+-        let mut op = Op::empty();
+-        op.kind = OperationType::R;
+-        op.q_target = q;
+-        self.push_op(op);
+-    }
+-    pub fn hmr(&mut self, q: QubitId, c: BitId) {
+-        let mut op = Op::empty();
+-        op.kind = OperationType::Hmr;
+-        op.q_target = q;
+-        op.c_target = c;
+-        self.push_op(op);
+-    }
+-
+-    /// `Z(q)` under `cond`: the degenerate [`Builder::cz_if`] above.
+-    pub fn z_if(&mut self, q: QubitId, cond: BitId) {
+-        self.cz_if(q, q, cond);
+-    }
+-
+-    pub fn bit_store0(&mut self, dst: BitId) {
+-        let mut op = Op::empty();
+-        op.kind = OperationType::BitStore0;
+-        op.c_target = dst;
+-        self.push_op(op);
+-    }
+-
+-    pub fn bit_store1(&mut self, dst: BitId) {
+-        let mut op = Op::empty();
+-        op.kind = OperationType::BitStore1;
+-        op.c_target = dst;
+-        self.push_op(op);
+-    }
+-
+-    fn bit_invert(&mut self, dst: BitId) {
+-        let mut op = Op::empty();
+-        op.kind = OperationType::BitInvert;
+-        op.c_target = dst;
+-        self.push_op(op);
+-    }
+-
+-    pub fn bit_copy(&mut self, dst: BitId, a: BitId) {
+-        self.bit_store0(dst);
+-        self.push_condition(a);
+-        self.bit_store1(dst);
+-        self.pop_condition();
+-    }
+-
+-    pub fn bit_xor_into(&mut self, dst: BitId, a: BitId) {
+-        self.push_condition(a);
+-        self.bit_invert(dst);
+-        self.pop_condition();
+-    }
+-
+-    pub fn bit_and_xor_into(&mut self, dst: BitId, a: BitId, b: BitId) {
+-        self.push_condition(a);
+-        self.push_condition(b);
+-        self.bit_invert(dst);
+-        self.pop_condition();
+-        self.pop_condition();
+-    }
+-    /// `X` on every wire in `qs`.
+-    pub fn x_all(&mut self, qs: &[QubitId]) {
+-        for &q in qs {
+-            self.x(q);
+-        }
+-    }
+-
+-    /// `CX` from one control onto every wire in `qs`.
+-    pub fn cx_all(&mut self, ctrl: QubitId, qs: &[QubitId]) {
+-        for &q in qs {
+-            self.cx(ctrl, q);
+-        }
+-    }
+-
+-    /// Copy `src` onto `dst`, wire for wire. Self-inverse. Slice the wider side
+-    /// at the call site: matching the widths here keeps the zip from quietly
+-    /// dropping a tail.
+-    pub fn cx_pairs(&mut self, src: &[QubitId], dst: &[QubitId]) {
+-        assert_eq!(src.len(), dst.len(), "cx_pairs: width mismatch");
+-        for (&s, &d) in src.iter().zip(dst) {
+-            self.cx(s, d);
+-        }
+-    }
+-
+-    /// Live wires right now. The walk reads it to decide how much ladder it can
+-    /// afford against `PP_WALK_MAX_QUBITS`.
+-    pub fn active_qubits(&self) -> u32 {
+-        self.active_qubits
+-    }
+-
+-    /// Record one replay repair site; see [`ReplaySites::record`].
+-    pub fn record_replay_site(&mut self, kind: char, round: usize, pos: usize, width: usize) {
+-        let at = self.at();
+-        let p = 2.0_f64.powi(-(width as i32));
+-        if kind == 'B' { if pos != width { self.k3b_sites.0 += 1; self.k3b_sites.1 += p; } } else { self.k3b_sites.2 += 1; self.k3b_sites.3 += p; }
+-        self.replay_sites.record(at, kind, round, pos, width);
+-    }
+-
+-    /// y33: the end-of-build sweep of [`super::y33_clears`] (Toffoli that only clear a wire before its reset become a
+-    /// measurement and phase gates). Called once, by `build_point_add`, just before [`Builder::finalize_records`].
+-    pub(crate) fn y33_clears(&mut self) {
+-        if !super::y33_clears::Y33_CLEARS || self.model {
+-            return;
+-        }
+-        let (sites, toffoli) = super::y33_clears::sweep(&mut self.ops, &mut self.next_bit);
+-        if let Some(r) = self.report.as_deref_mut() {
+-            r.total_native -= toffoli;
+-            r.total_expected -= toffoli as f64;
+-        }
+-        eprintln!("Y33_CLEARS sites={sites} toffoli={toffoli}");
+-    }
+-
+-    /// Emit all three recorders' output. Called once, at the end of
+-    /// `build_point_add`.
+-    pub fn finalize_records(&mut self) {
+-        self.report_phase();
+-        if let Some(r) = self.report.as_deref() {
+-            eprintln!("HEO_TOTAL native={} expected={:.1} peak={} peak_op={} peak_phase={} qubits_touched={}",
+-                r.total_native, r.total_expected, r.peak, r.peak_op, r.peak_phase, self.next_qubit);
+-        }
+-        self.peak_census.finalize();
+-        self.ccx_census.finalize();
+-        self.replay_sites.finalize();
+-    }
+-}
++//! The circuit builder: wire and bit allocation, the gate vocabulary every
++//! construction in this tree emits through, and the phase report.
++//!
++//! Everything here is book-keeping over one `Vec<Op>`. The two censuses it
++//! carries only observe that vector -- see [`record`](super::record) -- so no
++//! knob reachable from this file can move the op stream.
++
++use crate::circuit::{BitId, Op, OperationType, QubitId, QubitOrBit, RegisterId, NO_BIT};
++
++use super::record::{At, CcxCensus, PeakCensus, ReplaySites};
++
++/// Width of [`Builder::phase_kind_ops`]: one slot per [`OperationType`], so
++/// `op.kind as usize` indexes it directly. `DebugPrint` is the last variant.
++const OP_KINDS: usize = OperationType::DebugPrint as usize + 1;
++
++pub struct Builder {
++    ops: Vec<Op>,
++    model: bool,
++    model_depth: usize,
++    model_total: usize,
++    model_weighted: f64,
++    model_phase_native: usize,
++    model_phase_weighted: f64,
++    model_max: u32,
++    /// Ops of each kind emitted since the last [`Builder::set_phase`]; only the
++    /// two Toffoli kinds are reported, but indexing by `kind` is cheaper than
++    /// branching on it.
++    phase_kind_ops: [usize; OP_KINDS],
++    next_qubit: u32,
++    next_bit: u32,
++    free_bits: Vec<u32>,
++    next_register: u32,
++    free_qubits: Vec<u32>,
++    active_qubits: u32,
++    peak_qubits: u32,
++    phase: &'static str,
++    peak_census: PeakCensus,
++    ccx_census: CcxCensus,
++    replay_sites: ReplaySites,
++    /// PP_J_SFUSE: parked wire ids a fresh allocation must not take.
++    avoid_ids: Vec<u32>,
++    /// K3b: running (B count, B sum 2^-w, F count, F sum 2^-w) over replay repair sites (lambda proxy).
++    pub k3b_sites: (usize, f64, usize, f64),
++    /// B3a phase report (`HEO_PHASE_REPORT=1` under the research overlay).
++    /// Observes the op stream only; off in the default build.
++    report: Option<Box<PhaseReport>>,
++    /// B3b: running peak since the last `take_win_peak` (book-keeping only).
++    win_peak: u32,
++}
++
++/// Per-phase native / expected Toffoli and peak, plus the global peak's op and
++/// phase. Expected weight is 2^-(condition depth), the same rule as model mode.
++#[derive(Default)]
++pub struct PhaseReport {
++    depth: u32,
++    phase_native: usize,
++    phase_expected: f64,
++    total_native: usize,
++    total_expected: f64,
++    peak: u32,
++    peak_op: usize,
++    peak_phase: &'static str,
++}
++
++impl Builder {
++    pub(crate) fn current_phase(&self)->&'static str {self.phase}
++    /// R3: run `body` and return its peak live count.
++    pub(crate) fn r3_peak<R>(&mut self,body:impl FnOnce(&mut Self)->R)->(R,u32){let saved=self.win_peak;self.win_peak=self.active_qubits();let r=body(self);let peak=self.win_peak.max(self.active_qubits);self.win_peak=saved.max(peak);(r,peak)}
++    pub(crate) fn fold_trace(&mut self,label:&str,body:impl FnOnce(&mut Self)) {
++        if std::env::var_os("FOLD_FD_TRANSPORT").is_none(){body(self);return;}
++        let saved=self.win_peak;let base=self.active_qubits();let before=self.report_totals().map_or(0.,|x|x.1);self.win_peak=base;body(self);let peak=self.win_peak;self.win_peak=saved.max(peak);
++        eprintln!("FOLD_FD_PART\t{label}\t{base}\t{peak}\t{}",self.report_totals().map_or(0.,|x|x.1)-before);
++    }
++    pub fn new() -> Self {
++        Self {
++            ops: Vec::new(),
++            // Count-only model mode is disabled in this submission.
++            model: false,
++            model_depth: 0, model_total: 0, model_weighted: 0.0,
++            model_phase_native: 0, model_phase_weighted: 0.0, model_max: 0,
++            phase_kind_ops: [0; OP_KINDS],
++            next_qubit: 0,
++            next_bit: 0,
++            free_bits: Vec::new(),
++            next_register: 0,
++            free_qubits: Vec::new(),
++            active_qubits: 0,
++            peak_qubits: 0,
++            phase: "init",
++            peak_census: PeakCensus::new(),
++            ccx_census: CcxCensus::new(),
++            replay_sites: ReplaySites::new(),
++            k3b_sites: (0, 0.0, 0, 0.0),
++            report: super::heo::phase_report_enabled().then(Box::default),
++            win_peak: 0,
++            avoid_ids: Vec::new(),
++        }
++    }
++    /// Highest live-qubit count seen so far over the whole build (tracked in
++    /// every mode by `note_peak`).
++    pub fn peak_total(&self) -> u32 { self.model_max }
++    /// Ops emitted so far (diagnostic cursor for the B3a probes).
++    pub fn op_count(&self) -> usize { self.ops.len() }
++    /// B3b: peak live count since the previous call (book-keeping only).
++    pub fn take_win_peak(&mut self) -> u32 { let p = self.win_peak.max(self.active_qubits); self.win_peak = self.active_qubits; p }
++    /// B3b: (native, expected) Toffoli so far, when the phase report is on.
++    pub fn report_totals(&self) -> Option<(usize, f64)> { self.report.as_deref().map(|r| (r.total_native, r.total_expected)) }
++    pub(crate) fn i35_cost(&self)->f64{self.model_weighted}
++    /// Running expected (condition-weighted) Toffoli count of the phase report; 0 when the report is off.
++    pub(crate) fn expected_total(&self) -> f64 { self.report.as_deref().map_or(0.0, |r| r.total_expected) }
++    pub fn i13_dims(&self)->(usize,usize){(self.next_qubit as usize,self.next_bit as usize)}
++    pub fn take_ops(&mut self) -> Vec<Op> {
++        if self.model {
++            eprintln!("MODEL_PHASE {} {} {} {}", self.phase, self.peak_qubits,
++                self.model_phase_native, self.model_phase_weighted);
++            eprintln!("MODEL_TOTAL {} {} {}", self.model_max, self.model_total, self.model_weighted);
++        }
++        {
++            use std::io::Write;
++            let path = "/home/hclau/ecdsa_research/overnight-20261014/product-evidence/h45-expanded/raw-ops.bin";
++            let mut w = std::io::BufWriter::new(std::fs::File::create(path).unwrap());
++            w.write_all(b"QECCOPSZ").unwrap();
++            w.write_all(&(self.ops.len() as u64).to_le_bytes()).unwrap();
++            let mut enc = zstd::stream::write::Encoder::new(w, 3).unwrap();
++            for op in &self.ops {
++                let mut rec=[0u8;56];
++                rec[..4].copy_from_slice(&(op.kind as u32).to_le_bytes());
++                for (j,v) in [op.q_control2.0,op.q_control1.0,op.q_target.0,op.c_target.0,op.c_condition.0,op.r_target.0].iter().enumerate() {
++                    rec[8+j*8..16+j*8].copy_from_slice(&v.to_le_bytes());
++                }
++                enc.write_all(&rec).unwrap();
++            }
++            enc.finish().unwrap().flush().unwrap();
++            eprintln!("RAW_OPS_SNAPSHOT ops={} path={path}", self.ops.len());
++        }
++        std::mem::take(&mut self.ops)
++    }
++    fn push_op(&mut self, op: Op) {
++        // Tripwire, live only while tracing: every gate the score counts must
++        // have been attributed by `ccx_census` first. CCX is the only scored
++        // kind emitted today, so this is what a new CCZ path would trip.
++        if self.ccx_census.watching() && CcxCensus::scored(op.kind) {
++            assert!(
++                self.ccx_census.covers(self.ops.len()),
++                "{:?} at op {} reached push_op without CcxCensus::on_gate",
++                op.kind,
++                self.ops.len()
++            );
++        }
++        self.phase_kind_ops[op.kind as usize] += 1;
++        if let Some(r) = self.report.as_deref_mut() {
++            match op.kind {
++                OperationType::PushCondition => r.depth += 1,
++                OperationType::PopCondition => r.depth -= 1,
++                OperationType::CCX | OperationType::CCZ => {
++                    let w = 2.0_f64.powi(-(r.depth as i32));
++                    r.phase_native += 1; r.phase_expected += w;
++                    r.total_native += 1; r.total_expected += w;
++                }
++                _ => {}
++            }
++        }
++        if self.model {
++            match op.kind {
++                OperationType::PushCondition => self.model_depth += 1,
++                OperationType::PopCondition => self.model_depth -= 1,
++                OperationType::CCX | OperationType::CCZ => {
++                    let weight = 2.0_f64.powi(-(self.model_depth as i32));
++                    self.model_total += 1; self.model_weighted += weight;
++                    self.model_phase_native += 1; self.model_phase_weighted += weight;
++                }, _ => {}
++            }
++        } else { self.ops.push(op); }
++    }
++    /// Close the current phase: report its Toffoli count and peak width on
++    /// stdout -- which is what `build_circuit` prints -- and start a new one.
++    pub(crate) fn phase_name(&self) -> &'static str { self.phase }
++    pub fn set_phase(&mut self, p: &'static str) {
++        self.report_phase();
++        if self.model {
++            eprintln!("MODEL_PHASE {} {} {} {}", self.phase, self.peak_qubits,
++                self.model_phase_native, self.model_phase_weighted);
++        }
++        self.model_phase_native = 0; self.model_phase_weighted = 0.0;
++        self.peak_qubits = self.active_qubits;
++        self.phase_kind_ops = [0; OP_KINDS];
++        self.phase = p;
++    }
++
++    /// Where the build is, for the recorders in [`record`].
++    fn at(&self) -> At {
++        At {
++            phase: self.phase,
++            op: self.ops.len(),
++            active: self.active_qubits,
++        }
++    }
++    /// Attach build-time context to the next Toffoli emitted; see
++    /// [`CcxCensus::note`].
++    pub fn ccx_note(&mut self, note: u64) {
++        self.ccx_census.note(note);
++    }
++
++    /// Book-keeping only -- emits no ops. Called by both routes that raise
++    /// `active_qubits`: a fresh `alloc_qubit` and a `reacquire` of a parked one.
++    fn note_peak(&mut self) {
++        self.peak_qubits = self.peak_qubits.max(self.active_qubits);
++        self.model_max = self.model_max.max(self.active_qubits);
++        self.win_peak = self.win_peak.max(self.active_qubits);
++        if let Some(r) = self.report.as_deref_mut() {
++            if self.active_qubits > r.peak {
++                r.peak = self.active_qubits;
++                r.peak_op = self.ops.len();
++                r.peak_phase = self.phase;
++            }
++        }
++    }
++
++    /// Print the closing phase's line of the B3a report (no-op when off).
++    fn report_phase(&mut self) {
++        if self.report.is_some() {
++            let end = self.ops.len();
++            for (j, o) in self.ops[end.saturating_sub(100)..].iter().enumerate() {
++                let at = end.saturating_sub(100) + j;
++                eprintln!("PHASE_ANCHOR {} {} {} {} {} {} {} {} {} {}", self.phase, at, end,
++                    o.kind as u32, o.q_control2.0, o.q_control1.0, o.q_target.0,
++                    o.c_target.0, o.c_condition.0, o.r_target.0);
++            }
++        }
++        if let Some(r) = self.report.as_deref_mut() {
++            eprintln!("HEO_PHASE {} native={} expected={:.1} peak={} ops={}", self.phase,
++                r.phase_native, r.phase_expected, self.peak_qubits, self.ops.len());
++            r.phase_native = 0; r.phase_expected = 0.0;
++        }
++    }
++
++    #[track_caller]
++    pub fn alloc_qubit(&mut self) -> QubitId {
++        self.active_qubits += 1;
++        if std::env::var_os("DIRTY_ALLOC_TRACE").is_some() && self.active_qubits as usize > super::pingpong::heo_hooks::cap() {eprintln!("DIRTY_OVER_ALLOC\t{}\t{}\t{}",self.ops.len(),self.active_qubits,std::panic::Location::caller());}
++        self.note_peak();
++        let pick = if self.avoid_ids.is_empty() {
++            self.free_qubits.pop()
++        } else {
++            let avoid = &self.avoid_ids;
++            self.free_qubits.iter().rposition(|f| !avoid.contains(f)).map(|pos| self.free_qubits.remove(pos))
++        };
++        let qid = if let Some(q) = pick {
++            QubitId(q.into())
++        } else {
++            let q = self.next_qubit;
++            self.next_qubit += 1;
++            QubitId(q.into())
++        };
++        if self.peak_census.enabled() {
++            let (at, caller) = (self.at(), std::panic::Location::caller());
++            self.peak_census
++                .on_alloc(at, qid.0, caller.file(), caller.line());
++        }
++        qid
++    }
++    #[track_caller]
++    pub fn alloc_qubits(&mut self, n: usize) -> Vec<QubitId> {
++        if self.peak_census.enabled() {
++            let c = std::panic::Location::caller();
++            self.peak_census.batch(Some((c.file(), c.line())));
++            let out = (0..n).map(|_| self.alloc_qubit()).collect();
++            self.peak_census.batch(None);
++            out
++        } else {
++            (0..n).map(|_| self.alloc_qubit()).collect()
++        }
++    }
++    /// PP_J_SFUSE: set the parked wires fresh allocations must skip.
++    pub fn set_avoid(&mut self, qs: &[QubitId]) {
++        self.avoid_ids = qs.iter().map(|q| q.0.try_into().expect("qubit id fits in u32")).collect();
++    }
++    pub fn alloc_bit(&mut self) -> BitId {
++        if let Some(b) = self.free_bits.pop() {
++            return BitId(b.into());
++        }
++        let b = self.next_bit;
++        self.next_bit += 1;
++        BitId(b.into())
++    }
++    /// Return a classical bit to the pool.
++    ///
++    /// Unlike [`Builder::free`] for a qubit this emits nothing -- a bit carries no
++    /// state the simulator has to clear, because every allocation site's first
++    /// op on a bit *writes* it (`hmr`'s target, or a `bit_store`), never reads
++    /// it. That is the whole safety condition, and it is what makes reuse
++    /// invisible to the op stream: freeing a bit changes only which id later
++    /// allocations get.
++    ///
++    /// The caller owns the lifetime: free only after the last op that reads the
++    /// bit, and never while it is the live `push_condition`.
++    pub fn free_bit(&mut self, b: BitId) {
++        self.free_bits
++            .push(b.0.try_into().expect("bit id fits in u32"));
++    }
++    pub fn free_bit_vec(&mut self, bs: &[BitId]) {
++        for &b in bs {
++            self.free_bit(b);
++        }
++    }
++    pub fn alloc_bits(&mut self, n: usize) -> Vec<BitId> {
++        (0..n).map(|_| self.alloc_bit()).collect()
++    }
++    pub fn free(&mut self, q: QubitId) {
++        self.r(q);
++        self.release_clean(q);
++    }
++    /// Return a qubit that the caller has unitarily restored to |0> without
++    /// emitting a reset. This preserves the measurement stream when a clean
++    /// temporary is parked and reused inside one reversible cell.
++    pub fn release_clean(&mut self, q: QubitId) {
++        self.free_qubits
++            .push(q.0.try_into().expect("qubit id fits in u32"));
++        if self.active_qubits > 0 {
++            self.active_qubits -= 1;
++        }
++        let at = self.at();
++        self.peak_census.on_free(at, q.0);
++    }
++    /// y42-railtop: the allocator's state (free wires and free bits in the order later allocations take them, and the
++    /// next fresh bit).
++    pub(crate) fn y42_alloc_state(&self) -> (Vec<u32>, Vec<u32>, u32) {
++        (self.free_qubits.clone(), self.free_bits.clone(), self.next_bit)
++    }
++    /// y42-railtop: a fingerprint of an allocator state.
++    pub(crate) fn y42_alloc_hash(st: &(Vec<u32>, Vec<u32>, u32)) -> u64 {
++        let mut h = 14695981039346656037u64;
++        for &x in st.0.iter().chain([u32::MAX].iter()).chain(st.1.iter()).chain([u32::MAX, st.2].iter()) {
++            h = (h ^ x as u64).wrapping_mul(1099511628211);
++        }
++        h
++    }
++    /// y42-railtop: after a payload op that ran on another plan than the base's, the allocator set to the state the
++    /// base's op leaves (`free_q`; the free bits `before.1[..bits_keep]` then `bits_tail`; `next_bit`), so that every
++    /// later op gets the base's wires and bits. Asserted: the op gave back every wire and every bit it took, and the
++    /// recorded state holds the same free wires and the same free bits (with the base's fresh ones).
++    pub(crate) fn y42_alloc_set(&mut self, before: &(Vec<u32>, Vec<u32>, u32), free_q: &[u32], bits_keep: usize, bits_tail: &[u32], next_bit: u32) {
++        let sorted = |v: &[u32]| {
++            let mut v = v.to_vec();
++            v.sort_unstable();
++            v
++        };
++        assert_eq!(sorted(&self.free_qubits), sorted(&before.0), "y42: the payload op changed the set of free wires");
++        assert!(self.next_bit >= before.2 && next_bit >= before.2, "y42: bit counter");
++        let mut now = before.1.clone();
++        now.extend(before.2..self.next_bit);
++        assert_eq!(sorted(&self.free_bits), sorted(&now), "y42: the payload op kept a classical bit");
++        assert_eq!(sorted(free_q), sorted(&before.0), "y42: the recorded free wires are not this tick's");
++        let mut bits = before.1[..bits_keep].to_vec();
++        bits.extend_from_slice(bits_tail);
++        let mut base = before.1.clone();
++        base.extend(before.2..next_bit);
++        assert_eq!(sorted(&bits), sorted(&base), "y42: the recorded free bits are not this tick's");
++        self.free_qubits = free_q.to_vec();
++        self.free_bits = bits;
++        self.next_bit = next_bit;
++    }
++    pub fn free_vec(&mut self, qs: &[QubitId]) {
++        for &q in qs {
++            self.free(q);
++        }
++    }
++    /// N2 research patch (sim/patch_n2_sf.py, SL_N2_REACQ): take back the free wire `q` itself, keeping the free list's
++    /// order (unlike [`Builder::reacquire`]); false (nothing done) when `q` is not free.
++    pub fn n2_take(&mut self, q: QubitId) -> bool {
++        let Some(pos) = self.free_qubits.iter().rposition(|&f| u64::from(f) == q.0) else {
++            return false;
++        };
++        self.free_qubits.remove(pos);
++        self.active_qubits += 1;
++        self.note_peak();
++        if self.peak_census.enabled() {
++            let at = self.at();
++            self.peak_census.on_alloc(at, q.0, "reacquire", 0);
++        }
++        true
++    }
++    pub fn reacquire(&mut self, q: QubitId) {
++        let pos = self
++            .free_qubits
++            .iter()
++            .position(|&free_q| u64::from(free_q) == q.0)
++            .unwrap_or_else(|| {
++                panic!(
++                    "reacquire qubit {:?} that is not currently free (phase '{}', ops {})",
++                    q,
++                    self.phase,
++                    self.ops.len()
++                )
++            });
++        self.free_qubits.swap_remove(pos);
++        self.active_qubits += 1;
++        self.note_peak();
++
++        if self.peak_census.enabled() {
++            let at = self.at();
++            self.peak_census.on_alloc(at, q.0, "reacquire", 0);
++        }
++    }
++    /// Declare a register over `members`, in order.
++    ///
++    /// The op stream tells a qubit member from a bit member only by which target
++    /// field is set, so one routine serves both and the two spellings below just
++    /// tag their elements.
++    fn declare_register(&mut self, members: impl Iterator<Item = QubitOrBit>) {
++        let r = RegisterId(self.next_register.into());
++        self.next_register += 1;
++        for m in members {
++            let mut op = Op::empty();
++            op.kind = OperationType::AppendToRegister;
++            match m {
++                QubitOrBit::Qubit(q) => op.q_target = q,
++                QubitOrBit::Bit(b) => op.c_target = b,
++            }
++            op.r_target = r;
++            self.push_op(op);
++        }
++        let mut op = Op::empty();
++        op.kind = OperationType::Register;
++        op.r_target = r;
++        self.push_op(op);
++    }
++    pub fn declare_qubit_register(&mut self, qs: &[QubitId]) {
++        self.declare_register(qs.iter().copied().map(QubitOrBit::Qubit));
++    }
++    pub fn declare_bit_register(&mut self, bs: &[BitId]) {
++        self.declare_register(bs.iter().copied().map(QubitOrBit::Bit));
++    }
++    pub fn x(&mut self, q: QubitId) {
++        let mut op = Op::empty();
++        op.kind = OperationType::X;
++        op.q_target = q;
++        self.push_op(op);
++    }
++
++    /// `x(q)`, applied only on the branch where classical bit `c` is set.
++    pub fn x_if_bit(&mut self, q: QubitId, c: BitId) {
++        self.push_condition(c);
++        self.x(q);
++        self.pop_condition();
++    }
++    pub fn cx(&mut self, ctrl: QubitId, tgt: QubitId) {
++        assert_ne!(ctrl, tgt, "invalid CX with aliased control/target {ctrl:?}",);
++        let mut op = Op::empty();
++        op.kind = OperationType::CX;
++        op.q_control1 = ctrl;
++        op.q_target = tgt;
++        self.push_op(op);
++    }
++    #[track_caller]
++    pub fn ccx(&mut self, c1: QubitId, c2: QubitId, tgt: QubitId) {
++        if c1 == c2 {
++            if c1 != tgt {
++                self.cx(c1, tgt);
++            }
++            return;
++        }
++        assert!(
++            c1 != tgt && c2 != tgt,
++            "invalid CCX with target aliased to a control: {c1:?}, {c2:?}, {tgt:?}"
++        );
++        let mut op = Op::empty();
++        op.kind = OperationType::CCX;
++        op.q_control2 = c1;
++        op.q_control1 = c2;
++        op.q_target = tgt;
++
++        // Attribution for the dead-CCX hunt. `ccx` is #[track_caller], so
++        // Location::caller() here is the construction that wanted the Toffoli,
++        // not a helper inside this file.
++        if self.ccx_census.watching() {
++            let at = self.at();
++            self.ccx_census
++                .on_gate(at, OperationType::CCX, std::panic::Location::caller());
++        }
++
++        self.push_op(op);
++    }
++    /// `CZ(a, b)`, degenerating to `Z(a)` when both operands are the same wire --
++    /// which is what `Addend::One` leans on in the constant ladder, where a hard
++    /// one has no wire of its own and collapses onto the other operand. `cond`
++    /// gates the gate on a classical bit; `NO_BIT` means unconditional.
++    pub fn cz_if(&mut self, a: QubitId, b: QubitId, cond: BitId) {
++        let mut op = Op::empty();
++        if a == b {
++            op.kind = OperationType::Z;
++            op.q_target = a;
++        } else {
++            op.kind = OperationType::CZ;
++            op.q_control1 = a;
++            op.q_target = b;
++        }
++        op.c_condition = cond;
++        self.push_op(op);
++    }
++    pub fn cz(&mut self, a: QubitId, b: QubitId) {
++        self.cz_if(a, b, NO_BIT);
++    }
++    pub fn push_condition(&mut self, cond: BitId) {
++        let mut op = Op::empty();
++        op.kind = OperationType::PushCondition;
++        op.c_condition = cond;
++        self.push_op(op);
++    }
++    pub fn pop_condition(&mut self) {
++        let mut op = Op::empty();
++        op.kind = OperationType::PopCondition;
++        self.push_op(op);
++    }
++    pub fn swap(&mut self, a: QubitId, b: QubitId) {
++        if a == b {
++            return;
++        }
++        let mut op = Op::empty();
++        op.kind = OperationType::Swap;
++        op.q_control1 = a;
++        op.q_target = b;
++        self.push_op(op);
++    }
++    fn r(&mut self, q: QubitId) {
++        let mut op = Op::empty();
++        op.kind = OperationType::R;
++        op.q_target = q;
++        self.push_op(op);
++    }
++    pub fn hmr(&mut self, q: QubitId, c: BitId) {
++        let mut op = Op::empty();
++        op.kind = OperationType::Hmr;
++        op.q_target = q;
++        op.c_target = c;
++        self.push_op(op);
++    }
++
++    /// `Z(q)` under `cond`: the degenerate [`Builder::cz_if`] above.
++    pub fn z_if(&mut self, q: QubitId, cond: BitId) {
++        self.cz_if(q, q, cond);
++    }
++
++    pub fn bit_store0(&mut self, dst: BitId) {
++        let mut op = Op::empty();
++        op.kind = OperationType::BitStore0;
++        op.c_target = dst;
++        self.push_op(op);
++    }
++
++    pub fn bit_store1(&mut self, dst: BitId) {
++        let mut op = Op::empty();
++        op.kind = OperationType::BitStore1;
++        op.c_target = dst;
++        self.push_op(op);
++    }
++
++    fn bit_invert(&mut self, dst: BitId) {
++        let mut op = Op::empty();
++        op.kind = OperationType::BitInvert;
++        op.c_target = dst;
++        self.push_op(op);
++    }
++
++    pub fn bit_copy(&mut self, dst: BitId, a: BitId) {
++        self.bit_store0(dst);
++        self.push_condition(a);
++        self.bit_store1(dst);
++        self.pop_condition();
++    }
++
++    pub fn bit_xor_into(&mut self, dst: BitId, a: BitId) {
++        self.push_condition(a);
++        self.bit_invert(dst);
++        self.pop_condition();
++    }
++
++    pub fn bit_and_xor_into(&mut self, dst: BitId, a: BitId, b: BitId) {
++        self.push_condition(a);
++        self.push_condition(b);
++        self.bit_invert(dst);
++        self.pop_condition();
++        self.pop_condition();
++    }
++    /// `X` on every wire in `qs`.
++    pub fn x_all(&mut self, qs: &[QubitId]) {
++        for &q in qs {
++            self.x(q);
++        }
++    }
++
++    /// `CX` from one control onto every wire in `qs`.
++    pub fn cx_all(&mut self, ctrl: QubitId, qs: &[QubitId]) {
++        for &q in qs {
++            self.cx(ctrl, q);
++        }
++    }
++
++    /// Copy `src` onto `dst`, wire for wire. Self-inverse. Slice the wider side
++    /// at the call site: matching the widths here keeps the zip from quietly
++    /// dropping a tail.
++    pub fn cx_pairs(&mut self, src: &[QubitId], dst: &[QubitId]) {
++        assert_eq!(src.len(), dst.len(), "cx_pairs: width mismatch");
++        for (&s, &d) in src.iter().zip(dst) {
++            self.cx(s, d);
++        }
++    }
++
++    /// Live wires right now. The walk reads it to decide how much ladder it can
++    /// afford against `PP_WALK_MAX_QUBITS`.
++    pub fn active_qubits(&self) -> u32 {
++        self.active_qubits
++    }
++
++    /// Record one replay repair site; see [`ReplaySites::record`].
++    pub fn record_replay_site(&mut self, kind: char, round: usize, pos: usize, width: usize) {
++        let at = self.at();
++        let p = 2.0_f64.powi(-(width as i32));
++        if kind == 'B' { if pos != width { self.k3b_sites.0 += 1; self.k3b_sites.1 += p; } } else { self.k3b_sites.2 += 1; self.k3b_sites.3 += p; }
++        self.replay_sites.record(at, kind, round, pos, width);
++    }
++
++    /// y33: the end-of-build sweep of [`super::y33_clears`] (Toffoli that only clear a wire before its reset become a
++    /// measurement and phase gates). Called once, by `build_point_add`, just before [`Builder::finalize_records`].
++    pub(crate) fn y33_clears(&mut self) {
++        if !super::y33_clears::Y33_CLEARS || self.model {
++            return;
++        }
++        let (sites, toffoli) = super::y33_clears::sweep(&mut self.ops, &mut self.next_bit);
++        if let Some(r) = self.report.as_deref_mut() {
++            r.total_native -= toffoli;
++            r.total_expected -= toffoli as f64;
++        }
++        eprintln!("Y33_CLEARS sites={sites} toffoli={toffoli}");
++    }
++
++    /// Emit all three recorders' output. Called once, at the end of
++    /// `build_point_add`.
++    pub fn finalize_records(&mut self) {
++        self.report_phase();
++        if let Some(r) = self.report.as_deref() {
++            eprintln!("HEO_TOTAL native={} expected={:.1} peak={} peak_op={} peak_phase={} qubits_touched={}",
++                r.total_native, r.total_expected, r.peak, r.peak_op, r.peak_phase, self.next_qubit);
++        }
++        self.peak_census.finalize();
++        self.ccx_census.finalize();
++        self.replay_sites.finalize();
++    }
++}
+diff --git a/src/point_add/y15_onefold.rs b/src/point_add/y15_onefold.rs
+index ce87200e..61e725fc 100755
+--- a/src/point_add/y15_onefold.rs
++++ b/src/point_add/y15_onefold.rs
+@@ -19,6 +19,7 @@
+ //! erase of m0 and m1) and y15-room (copies of W, measured clear, two lean wires, fused ticks); see Y15_KEEP_ROOM for
+ //! how a reverse tick-pass chooses between the kept carries and the copies, and for the builder counts.
+ use super::*;
++thread_local! { static TOFFOLI_CARRY_CLEANUP_MODE:std::cell::Cell<bool>=const{std::cell::Cell::new(true)}; static TOFFOLI_CARRY_CLEANUP_HITS:std::cell::Cell<usize>=const{std::cell::Cell::new(0)}; }
+ fn reverse_loan_selected(rev:bool,t:usize)->bool {rev && (124..=126).contains(&t) && CONSUMER_LOANS}
+ 
+ 
+@@ -1776,7 +1777,11 @@ fn fold_undo_low_c(c: &mut Builder, acc: &[QubitId], e: [QubitId; 3], cw: [Qubit
+ /// part by one either way, 1 for its sign. 32 fixed wires (6 low carries, 4 gate wires, 22 core ANDs).
+ #[allow(clippy::too_many_arguments)]
+ fn fold_fwd_v2(c: &mut Builder, acc: &[QubitId], e: [QubitId; 3], nm: [QubitId; 3], k1: QubitId, k2: QubitId, fin: usize, mut esh: Option<&mut ESh>, ttm: bool, drop: usize) -> Vec<usize> {
+-    let loan=PAYLOAD_AT.with(|x|x.get().is_some_and(|(rev,t)|carry_loan_selected(rev,t)));
++    // Parameter-only extension: retain the baseline nine selected loans and
++    // admit only actual payload forward folds with the proved fin0 interface.
++    let extra_loan=TOFFOLI_CARRY_CLEANUP_MODE.with(|x|x.get()) && fin==0 && !ttm && drop==0
++        && PAYLOAD_AT.with(|x|x.get().is_some_and(|(rev,_)|!rev));
++    let loan=extra_loan || PAYLOAD_AT.with(|x|x.get().is_some_and(|(rev,t)|carry_loan_selected(rev,t)));
+     LOAN_ACTIVE.with(|x|x.set(loan));
+ 
+     let mw = acc.len();
+@@ -1855,6 +1860,8 @@ fn fold_fwd_v2(c: &mut Builder, acc: &[QubitId], e: [QubitId; 3], nm: [QubitId;
+         lin_and_erase(c, tt_q, &l(k1), &l(k2));
+     }
+     let (plan, lean45, drops) = fold_plan_d(c, mw, "forward", drop);
++    assert!(!extra_loan || !lean45,"H45 expanded parameter guard requires a nonlean admissible ladder");
++    eprintln!("PRODUCT_H45_EXPANDED payload={:?} mw={} extra={} loan={} fin={} ttm={} lean45={} drop={} at={} plan={:?}",PAYLOAD_AT.with(|x|x.get()),mw,extra_loan,loan,fin,ttm,lean45,drop,c.op_count(),plan);
+     // y28 (s2-2): sums 4 and 5 are written here and the two carries come back only under c6's measured bit
+     let lean_m = lean45 && Y28_LEAN_FWD;
+     assert!(!loan || !lean45 || lean_m,"C3 supports the shipped deferred lean form");
+@@ -1872,6 +1879,18 @@ fn fold_fwd_v2(c: &mut Builder, acc: &[QubitId], e: [QubitId; 3], nm: [QubitId;
+         else {lin_and_erase(c, c4, &l(acc[3]), &l(c3));}
+     }
+     ladder_d(c, acc, &add, 6, c6, &plan, &drops);
++    if TOFFOLI_CARRY_CLEANUP_MODE.with(|x|x.get()) && loan && fin==0 && !ttm && !lean45 && drop==0 {
++        assert_eq!(recs.len(),27,"exact constructor record interface");
++        let q=|i:usize|match &recs[i] {Rec::And(q,_,_)|Rec::Maj(q,_,_,_)=>*q,_=>panic!("cleanup record is carry marker")};
++        let bank:[QubitId;30]=[c1,c2,c4,q(0),q(1),q(2),q(3),q(4),q(5),c5,q(7),c6,q(9),q(10),q(11),q(12),q(13),q(14),q(15),q(16),q(17),q(18),q(19),q(20),q(21),q(22),q(23),q(24),q(25),q(26)];
++        let unique:std::collections::HashSet<_>=bank.iter().map(|q|q.0).collect();assert_eq!(unique.len(),30);
++        assert!(!unique.contains(&c3.0));
++        for input in acc.iter().chain(e.iter()).chain(nm.iter()).chain([k1,k2].iter()) {assert!(!unique.contains(&input.0));}
++        lin_xor_into(c,&a4,acc[4]);c.cx(c4,acc[4]);lin_xor_into(c,&a5,acc[5]);c.cx(c5,acc[5]);
++        c.cx(e[0],acc[0]);c.cx(e[1],acc[1]);c.cx(c1,acc[1]);c.cx(e[2],acc[2]);c.cx(c2,acc[2]);
++        toffoli_carry_cleanup_v1::run(c,acc,e,nm,[k1,k2],&bank);
++        TOFFOLI_CARRY_CLEANUP_HITS.with(|x|x.set(x.get()+1));LOAN_ACTIVE.with(|x|x.set(false));return plan;
++    }
+     let (c4, c5) = if lean_m {
+         (c.alloc_qubit(), c.alloc_qubit())
+     } else if lean45 {
+@@ -4535,3 +4554,6 @@ fn rt0_letter_erase(c: &mut Builder, r1: &[QubitId], r0v: &[Lin], letter: &[Qubi
+ /// chain is read by m1's Z alone, so it is built and erased only when m1's bit is set as well: a quarter of a Toffoli
+ /// a pass. Exact (the same measurements in the same order). false: built on every shot with m0's bit set.
+ const Y36_TOP_M1: bool = true;
++
++#[path="toffoli_carry_cleanup_v1.rs"]
++mod toffoli_carry_cleanup_v1;
+\ No newline at end of file
+diff --git a/src/point_add/toffoli_carry_cleanup_v1.rs b/src/point_add/toffoli_carry_cleanup_v1.rs
+new file mode 100644
+index 00000000..13bd711f
+--- /dev/null
++++ b/src/point_add/toffoli_carry_cleanup_v1.rs
+@@ -0,0 +1,975 @@
++//! Frozen exact non-lean c3-loan cleanup; component research, no score claim.
++use super::*;
++pub(super) fn run(c:&mut Builder,acc:&[QubitId],e:[QubitId;3],nm:[QubitId;3],shift:[QubitId;2],bank:&[QubitId;30]) {
++    let mut data=vec![Lin::k(true)];data.extend(acc[..6].iter().map(|&q|l(q)));
++    data.extend(e.iter().chain(nm.iter()).chain(shift.iter()).map(|&q|l(q)));
++    c.cx(bank[27],bank[28]);
++    c.cx(bank[26],bank[28]);
++    c.cx(bank[26],bank[27]);
++    c.cx(bank[25],bank[28]);
++    c.cx(bank[24],bank[28]);
++    c.cx(bank[24],bank[23]);
++    c.cx(bank[23],bank[28]);
++    c.cx(bank[23],bank[22]);
++    c.swap(bank[25],bank[23]);
++    c.cx(bank[22],bank[21]);
++    c.swap(bank[25],bank[22]);
++    c.cx(bank[21],bank[29]);
++    c.cx(bank[21],bank[25]);
++    c.cx(bank[21],bank[24]);
++    c.cx(bank[21],bank[22]);
++    c.cx(bank[20],bank[28]);
++    c.cx(bank[20],bank[26]);
++    c.cx(bank[20],bank[25]);
++    c.cx(bank[20],bank[19]);
++    c.cx(bank[19],bank[28]);
++    c.cx(bank[19],bank[27]);
++    c.cx(bank[19],bank[26]);
++    c.swap(bank[24],bank[19]);
++    c.cx(bank[18],bank[26]);
++    c.swap(bank[25],bank[18]);
++    c.cx(bank[17],bank[28]);
++    c.swap(bank[22],bank[17]);
++    c.cx(bank[16],bank[22]);
++    c.cx(bank[16],bank[21]);
++    c.cx(bank[16],bank[15]);
++    c.cx(bank[16],bank[14]);
++    c.cx(bank[16],bank[13]);
++    c.cx(bank[16],bank[12]);
++    c.cx(bank[16],bank[11]);
++    c.cx(bank[16],bank[9]);
++    c.cx(bank[16],bank[6]);
++    c.cx(bank[16],bank[5]);
++    c.cx(bank[16],bank[4]);
++    c.swap(bank[20],bank[16]);
++    c.cx(bank[15],bank[29]);
++    c.cx(bank[15],bank[28]);
++    c.cx(bank[15],bank[27]);
++    c.swap(bank[20],bank[15]);
++    c.cx(bank[14],bank[29]);
++    c.cx(bank[14],bank[28]);
++    c.cx(bank[14],bank[20]);
++    c.cx(bank[14],bank[19]);
++    c.swap(bank[18],bank[14]);
++    c.cx(bank[13],bank[28]);
++    c.cx(bank[13],bank[20]);
++    c.cx(bank[13],bank[19]);
++    c.cx(bank[13],bank[17]);
++    c.swap(bank[16],bank[13]);
++    c.cx(bank[12],bank[29]);
++    c.cx(bank[12],bank[28]);
++    c.cx(bank[12],bank[27]);
++    c.cx(bank[12],bank[20]);
++    c.cx(bank[12],bank[18]);
++    c.cx(bank[12],bank[17]);
++    c.swap(bank[14],bank[12]);
++    c.swap(bank[15],bank[11]);
++    c.cx(bank[9],bank[15]);
++    c.swap(bank[13],bank[9]);
++    c.cx(bank[8],bank[19]);
++    c.cx(bank[8],bank[17]);
++    c.cx(bank[7],bank[26]);
++    c.cx(bank[7],bank[16]);
++    c.cx(bank[7],bank[14]);
++    c.cx(bank[7],bank[13]);
++    c.cx(bank[7],bank[12]);
++    c.cx(bank[7],bank[2]);
++    c.swap(bank[8],bank[7]);
++    c.cx(bank[6],bank[16]);
++    c.cx(bank[6],bank[14]);
++    c.swap(bank[10],bank[6]);
++    c.cx(bank[5],bank[29]);
++    c.cx(bank[5],bank[28]);
++    c.cx(bank[5],bank[24]);
++    c.swap(bank[7],bank[5]);
++    c.cx(bank[4],bank[28]);
++    c.cx(bank[4],bank[27]);
++    c.cx(bank[4],bank[22]);
++    c.cx(bank[4],bank[21]);
++    c.cx(bank[4],bank[15]);
++    c.cx(bank[4],bank[13]);
++    c.cx(bank[4],bank[11]);
++    c.cx(bank[4],bank[10]);
++    c.cx(bank[4],bank[9]);
++    c.cx(bank[4],bank[7]);
++    c.swap(bank[6],bank[4]);
++    c.cx(bank[2],bank[13]);
++    c.swap(bank[11],bank[2]);
++    c.cx(bank[1],bank[29]);
++    c.cx(bank[1],bank[28]);
++    c.cx(bank[1],bank[23]);
++    c.cx(bank[1],bank[15]);
++    c.cx(bank[1],bank[9]);
++    c.cx(bank[1],bank[8]);
++    c.swap(bank[5],bank[1]);
++    c.cx(bank[0],bank[28]);
++    c.cx(bank[0],bank[27]);
++    c.cx(bank[0],bank[26]);
++    c.cx(bank[0],bank[24]);
++    c.cx(bank[0],bank[23]);
++    c.cx(bank[0],bank[22]);
++    c.cx(bank[0],bank[21]);
++    c.cx(bank[0],bank[13]);
++    c.cx(bank[0],bank[12]);
++    c.cx(bank[0],bank[6]);
++    c.cx(bank[0],bank[5]);
++    lin_xor_into(c,&data[7],bank[0]);
++    lin_xor_into(c,&data[8],bank[5]);
++    lin_xor_into(c,&data[9],bank[8]);
++    lin_xor_into(c,&data[2],bank[9]);
++    lin_xor_into(c,&data[8],bank[9]);
++    lin_xor_into(c,&data[11],bank[9]);
++    lin_xor_into(c,&data[2],bank[12]);
++    lin_xor_into(c,&data[8],bank[12]);
++    lin_xor_into(c,&data[11],bank[12]);
++    lin_xor_into(c,&data[1],bank[13]);
++    lin_xor_into(c,&data[7],bank[13]);
++    lin_xor_into(c,&data[10],bank[13]);
++    lin_xor_into(c,&data[2],bank[15]);
++    lin_xor_into(c,&data[8],bank[15]);
++    lin_xor_into(c,&data[11],bank[15]);
++    lin_xor_into(c,&data[1],bank[21]);
++    lin_xor_into(c,&data[7],bank[21]);
++    lin_xor_into(c,&data[10],bank[21]);
++    lin_xor_into(c,&data[1],bank[23]);
++    lin_xor_into(c,&data[2],bank[23]);
++    lin_xor_into(c,&data[7],bank[23]);
++    lin_xor_into(c,&data[8],bank[23]);
++    lin_xor_into(c,&data[10],bank[23]);
++    lin_xor_into(c,&data[11],bank[23]);
++    lin_xor_into(c,&data[2],bank[24]);
++    lin_xor_into(c,&data[8],bank[24]);
++    lin_xor_into(c,&data[11],bank[24]);
++    lin_xor_into(c,&data[3],bank[26]);
++    lin_xor_into(c,&data[9],bank[26]);
++    lin_xor_into(c,&data[12],bank[26]);
++    lin_xor_into(c,&data[2],bank[27]);
++    lin_xor_into(c,&data[3],bank[27]);
++    lin_xor_into(c,&data[8],bank[27]);
++    lin_xor_into(c,&data[9],bank[27]);
++    lin_xor_into(c,&data[11],bank[27]);
++    lin_xor_into(c,&data[12],bank[27]);
++    lin_xor_into(c,&data[1],bank[28]);
++    lin_xor_into(c,&data[2],bank[28]);
++    lin_xor_into(c,&data[3],bank[28]);
++    lin_xor_into(c,&data[7],bank[28]);
++    lin_xor_into(c,&data[8],bank[28]);
++    lin_xor_into(c,&data[9],bank[28]);
++    lin_xor_into(c,&data[10],bank[28]);
++    lin_xor_into(c,&data[11],bank[28]);
++    lin_xor_into(c,&data[12],bank[28]);
++    lin_xor_into(c,&data[1],bank[29]);
++    lin_xor_into(c,&data[2],bank[29]);
++    lin_xor_into(c,&data[3],bank[29]);
++    lin_xor_into(c,&data[7],bank[29]);
++    lin_xor_into(c,&data[8],bank[29]);
++    lin_xor_into(c,&data[9],bank[29]);
++    lin_xor_into(c,&data[10],bank[29]);
++    lin_xor_into(c,&data[11],bank[29]);
++    lin_xor_into(c,&data[12],bank[29]);
++    let m=c.alloc_bit();c.hmr(bank[29],m);c.push_condition(m);
++    lin_cz(c,&(data[1].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[1].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[1].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[19])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[4])));
++    lin_cz(c,&(data[3].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[3].clone()),&(l(bank[4])));
++    lin_cz(c,&(data[4].clone()),&(l(bank[18])));
++    lin_cz(c,&(data[5].clone()),&(l(bank[4])));
++    lin_cz(c,&(data[7].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[7].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[7].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[19])));
++    lin_cz(c,&(data[8].clone()),&(data[10].clone()));
++    lin_cz(c,&(data[9].clone()),&(data[10].clone()));
++    lin_cz(c,&(data[10].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[19])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[4])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[4])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[5])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[6])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[7])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[9])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[10])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[19])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[28])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[5])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[6])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[7])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[9])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[10])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[28])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[29]);
++    let m=c.alloc_bit();c.hmr(bank[28],m);c.push_condition(m);
++    lin_cz(c,&(data[1].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[1].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[1].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[23])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[25])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[26])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[16])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[19])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[25])));
++    lin_cz(c,&(data[3].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[3].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[4].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[4].clone()),&(l(bank[16])));
++    lin_cz(c,&(data[4].clone()),&(l(bank[18])));
++    lin_cz(c,&(data[5].clone()),&(l(bank[4])));
++    lin_cz(c,&(data[5].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[5].clone()),&(l(bank[9])));
++    lin_cz(c,&(data[5].clone()),&(l(bank[22])));
++    lin_cz(c,&(data[5].clone()),&(l(bank[23])));
++    lin_cz(c,&(data[5].clone()),&(l(bank[24])));
++    lin_cz(c,&(data[7].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[7].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[7].clone()),&(l(bank[4])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[23])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[26])));
++    lin_cz(c,&(data[8].clone()),&(data[10].clone()));
++    lin_cz(c,&(data[8].clone()),&(l(bank[4])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[25])));
++    lin_cz(c,&(data[9].clone()),&(data[10].clone()));
++    lin_cz(c,&(data[9].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[4])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[23])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[25])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[26])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[16])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[19])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[25])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[13].clone()),&(l(bank[11])));
++    lin_cz(c,&(data[14].clone()),&(l(bank[11])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[1])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[4])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[25])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[2])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[5])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[6])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[9])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[12])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[26])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[4])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[14])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[18])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[25])));
++    lin_cz(c,&(l(bank[3])),&(l(bank[11])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[5])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[10])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[14])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[17])));
++    lin_cz(c,&(l(bank[5])),&(l(bank[14])));
++    lin_cz(c,&(l(bank[5])),&(l(bank[16])));
++    lin_cz(c,&(l(bank[5])),&(l(bank[19])));
++    lin_cz(c,&(l(bank[6])),&(l(bank[16])));
++    lin_cz(c,&(l(bank[6])),&(l(bank[19])));
++    lin_cz(c,&(l(bank[9])),&(l(bank[16])));
++    lin_cz(c,&(l(bank[9])),&(l(bank[19])));
++    lin_cz(c,&(l(bank[12])),&(l(bank[18])));
++    lin_cz(c,&(l(bank[14])),&(l(bank[23])));
++    lin_cz(c,&(l(bank[14])),&(l(bank[26])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[28]);
++    let m=c.alloc_bit();c.hmr(bank[27],m);c.push_condition(m);
++    lin_cz(c,&(data[1].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[1].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[25])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[26])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[25])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[26])));
++    lin_cz(c,&(data[3].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[3].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[3].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[7].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[7].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[7].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[7].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[23])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[26])));
++    lin_cz(c,&(data[8].clone()),&(data[10].clone()));
++    lin_cz(c,&(data[8].clone()),&(data[11].clone()));
++    lin_cz(c,&(data[8].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[8].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[23])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[25])));
++    lin_cz(c,&(data[9].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[9].clone()),&(l(bank[0])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[23])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[26])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[25])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[26])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[25])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[26])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[0])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[13].clone()),&(l(bank[11])));
++    lin_cz(c,&(data[14].clone()),&(l(bank[11])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[23])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[25])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[23])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[25])));
++    lin_cz(c,&(l(bank[3])),&(l(bank[11])));
++    lin_cz(c,&(l(bank[5])),&(l(bank[23])));
++    lin_cz(c,&(l(bank[5])),&(l(bank[26])));
++    lin_cz(c,&(l(bank[7])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[8])),&(l(bank[23])));
++    lin_cz(c,&(l(bank[8])),&(l(bank[26])));
++    lin_cz(c,&(l(bank[10])),&(l(bank[23])));
++    lin_cz(c,&(l(bank[10])),&(l(bank[26])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[27]);
++    let m=c.alloc_bit();c.hmr(bank[26],m);c.push_condition(m);
++    lin_cz(c,&(data[1].clone()),&(data[3].clone()));
++    lin_cz(c,&(data[1].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[1].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[1].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[1].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[3].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[3].clone()),&(data[10].clone()));
++    lin_cz(c,&(data[3].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[3].clone()),&(l(bank[0])));
++    lin_cz(c,&(data[3].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[3].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[3].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[3].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[3].clone()),&(l(bank[18])));
++    lin_cz(c,&(data[3].clone()),&(l(bank[23])));
++    lin_cz(c,&(data[4].clone()),&(data[13].clone()));
++    lin_cz(c,&(data[4].clone()),&(data[14].clone()));
++    lin_cz(c,&(data[4].clone()),&(l(bank[3])));
++    lin_cz(c,&(data[7].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[7].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[7].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[18])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[23])));
++    lin_cz(c,&(data[8].clone()),&(data[10].clone()));
++    lin_cz(c,&(data[8].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[8].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[18])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[23])));
++    lin_cz(c,&(data[9].clone()),&(data[10].clone()));
++    lin_cz(c,&(data[9].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[18])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[23])));
++    lin_cz(c,&(data[10].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[10].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[0])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[18])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[23])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[14])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[18])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[23])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[5])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[14])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[18])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[23])));
++    lin_cz(c,&(l(bank[5])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[5])),&(l(bank[14])));
++    lin_cz(c,&(l(bank[5])),&(l(bank[18])));
++    lin_cz(c,&(l(bank[5])),&(l(bank[23])));
++    lin_cz(c,&(l(bank[7])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[7])),&(l(bank[14])));
++    lin_cz(c,&(l(bank[7])),&(l(bank[18])));
++    lin_cz(c,&(l(bank[7])),&(l(bank[23])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[26]);
++    let m=c.alloc_bit();c.hmr(bank[25],m);c.push_condition(m);
++    lin_cz(c,&(data[3].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[3].clone()),&(l(bank[16])));
++    lin_cz(c,&(data[3].clone()),&(l(bank[20])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[16])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[20])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[16])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[20])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[16])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[20])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[16])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[20])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[14])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[16])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[20])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[14])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[16])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[20])));
++    lin_cz(c,&(l(bank[5])),&(l(bank[14])));
++    lin_cz(c,&(l(bank[5])),&(l(bank[16])));
++    lin_cz(c,&(l(bank[5])),&(l(bank[20])));
++    lin_cz(c,&(l(bank[7])),&(l(bank[14])));
++    lin_cz(c,&(l(bank[7])),&(l(bank[16])));
++    lin_cz(c,&(l(bank[7])),&(l(bank[20])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[25]);
++    let m=c.alloc_bit();c.hmr(bank[24],m);c.push_condition(m);
++    lin_cz(c,&(data[2].clone()),&(data[3].clone()));
++    lin_cz(c,&(data[2].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[2].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[16])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[18])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[20])));
++    lin_cz(c,&(data[3].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[3].clone()),&(data[11].clone()));
++    lin_cz(c,&(data[3].clone()),&(l(bank[6])));
++    lin_cz(c,&(data[8].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[8].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[16])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[18])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[20])));
++    lin_cz(c,&(data[11].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[11].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[16])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[18])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[20])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[6])));
++    lin_cz(c,&(l(bank[6])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[6])),&(l(bank[10])));
++    lin_cz(c,&(l(bank[6])),&(l(bank[16])));
++    lin_cz(c,&(l(bank[6])),&(l(bank[18])));
++    lin_cz(c,&(l(bank[6])),&(l(bank[20])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[24]);
++    let m=c.alloc_bit();c.hmr(bank[23],m);c.push_condition(m);
++    lin_cz(c,&(data[1].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[21])));
++    lin_cz(c,&(data[2].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[2].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[2].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[18])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[21])));
++    lin_cz(c,&(data[7].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[7].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[18])));
++    lin_cz(c,&(data[8].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[8].clone()),&(data[11].clone()));
++    lin_cz(c,&(data[8].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[18])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[21])));
++    lin_cz(c,&(data[9].clone()),&(data[11].clone()));
++    lin_cz(c,&(data[9].clone()),&(l(bank[0])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[21])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[18])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[21])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[10])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[14])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[18])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[21])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[5])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[10])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[14])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[18])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[21])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[23]);
++    let m=c.alloc_bit();c.hmr(bank[22],m);c.push_condition(m);
++    lin_cz(c,&(data[1].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[1].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[1].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[16])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[18])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[20])));
++    lin_cz(c,&(data[7].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[7].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[7].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[16])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[18])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[20])));
++    lin_cz(c,&(data[8].clone()),&(data[10].clone()));
++    lin_cz(c,&(data[9].clone()),&(data[10].clone()));
++    lin_cz(c,&(data[10].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[16])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[18])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[20])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[22]);
++    let m=c.alloc_bit();c.hmr(bank[21],m);c.push_condition(m);
++    lin_cz(c,&(data[1].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[1].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[1].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[4])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[19])));
++    lin_cz(c,&(data[7].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[7].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[7].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[19])));
++    lin_cz(c,&(data[8].clone()),&(data[10].clone()));
++    lin_cz(c,&(data[8].clone()),&(l(bank[4])));
++    lin_cz(c,&(data[9].clone()),&(data[10].clone()));
++    lin_cz(c,&(data[9].clone()),&(l(bank[4])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[4])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[19])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[4])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[4])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[5])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[10])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[14])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[19])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[21]);
++    let m=c.alloc_bit();c.hmr(bank[20],m);c.push_condition(m);
++    lin_cz(c,&(data[4].clone()),&(l(bank[18])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[1])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[1])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[2])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[5])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[10])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[14])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[20]);
++    let m=c.alloc_bit();c.hmr(bank[19],m);c.push_condition(m);
++    lin_cz(c,&(data[3].clone()),&(l(bank[16])));
++    lin_cz(c,&(data[3].clone()),&(l(bank[17])));
++    lin_cz(c,&(data[4].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[4].clone()),&(l(bank[16])));
++    lin_cz(c,&(data[5].clone()),&(l(bank[4])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[4])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[16])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[17])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[4])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[16])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[17])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[4])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[16])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[17])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[16])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[17])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[1])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[4])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[16])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[17])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[2])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[5])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[10])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[4])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[16])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[17])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[5])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[10])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[14])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[17])));
++    lin_cz(c,&(l(bank[5])),&(l(bank[16])));
++    lin_cz(c,&(l(bank[5])),&(l(bank[17])));
++    lin_cz(c,&(l(bank[7])),&(l(bank[16])));
++    lin_cz(c,&(l(bank[7])),&(l(bank[17])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[19]);
++    let m=c.alloc_bit();c.hmr(bank[18],m);c.push_condition(m);
++    lin_cz(c,&(data[4].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[4].clone()),&(l(bank[16])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[4])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[4])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[4])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[1])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[4])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[2])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[5])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[10])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[14])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[4])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[5])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[10])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[16])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[18]);
++    let m=c.alloc_bit();c.hmr(bank[17],m);c.push_condition(m);
++    lin_cz(c,&(data[7].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[13].clone()),&(l(bank[11])));
++    lin_cz(c,&(data[14].clone()),&(l(bank[11])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[1])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[2])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[5])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[12])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[14])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[14])));
++    lin_cz(c,&(l(bank[3])),&(l(bank[11])));
++    lin_cz(c,&(l(bank[12])),&(l(bank[14])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[17]);
++    let m=c.alloc_bit();c.hmr(bank[16],m);c.push_condition(m);
++    lin_cz(c,&(data[7].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[13].clone()),&(l(bank[11])));
++    lin_cz(c,&(data[14].clone()),&(l(bank[11])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[1])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[2])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[5])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[10])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[14])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[14])));
++    lin_cz(c,&(l(bank[3])),&(l(bank[11])));
++    lin_cz(c,&(l(bank[10])),&(l(bank[14])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[16]);
++    let m=c.alloc_bit();c.hmr(bank[15],m);c.push_condition(m);
++    lin_cz(c,&(data[1].clone()),&(data[2].clone()));
++    lin_cz(c,&(data[1].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[1].clone()),&(data[11].clone()));
++    lin_cz(c,&(data[1].clone()),&(l(bank[6])));
++    lin_cz(c,&(data[2].clone()),&(data[6].clone()));
++    lin_cz(c,&(data[2].clone()),&(data[7].clone()));
++    lin_cz(c,&(data[2].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[2].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[2].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[11])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[13])));
++    lin_cz(c,&(data[5].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[5].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[5].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[5].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[5].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[5].clone()),&(l(bank[11])));
++    lin_cz(c,&(data[5].clone()),&(l(bank[13])));
++    lin_cz(c,&(data[6].clone()),&(data[7].clone()));
++    lin_cz(c,&(data[6].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[6].clone()),&(data[11].clone()));
++    lin_cz(c,&(data[6].clone()),&(l(bank[0])));
++    lin_cz(c,&(data[6].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[6].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[6].clone()),&(l(bank[11])));
++    lin_cz(c,&(data[6].clone()),&(l(bank[13])));
++    lin_cz(c,&(data[7].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[7].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[7].clone()),&(data[11].clone()));
++    lin_cz(c,&(data[7].clone()),&(l(bank[6])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[11])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[13])));
++    lin_cz(c,&(data[8].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[8].clone()),&(data[11].clone()));
++    lin_cz(c,&(data[8].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[11])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[13])));
++    lin_cz(c,&(data[9].clone()),&(data[11].clone()));
++    lin_cz(c,&(data[9].clone()),&(l(bank[0])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[11])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[13])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[11])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[13])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[5])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[11])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[13])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[15]);
++    let m=c.alloc_bit();c.hmr(bank[14],m);c.push_condition(m);
++    lin_cz(c,&(data[3].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[3].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[3].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[7].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[8].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[9].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[12].clone()),&(l(bank[0])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[13].clone()),&(l(bank[11])));
++    lin_cz(c,&(data[14].clone()),&(l(bank[11])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[3])),&(l(bank[11])));
++    lin_cz(c,&(l(bank[8])),&(l(bank[10])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[14]);
++    let m=c.alloc_bit();c.hmr(bank[13],m);c.push_condition(m);
++    lin_cz(c,&(data[1].clone()),&(data[5].clone()));
++    lin_cz(c,&(data[1].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[1].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[1].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[11])));
++    lin_cz(c,&(data[5].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[5].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[5].clone()),&(data[10].clone()));
++    lin_cz(c,&(data[5].clone()),&(l(bank[0])));
++    lin_cz(c,&(data[5].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[5].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[5].clone()),&(l(bank[11])));
++    lin_cz(c,&(data[7].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[7].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[7].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[11])));
++    lin_cz(c,&(data[8].clone()),&(data[10].clone()));
++    lin_cz(c,&(data[9].clone()),&(data[10].clone()));
++    lin_cz(c,&(data[10].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[11])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[13]);
++    let m=c.alloc_bit();c.hmr(bank[12],m);c.push_condition(m);
++    lin_cz(c,&(data[1].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[9])));
++    lin_cz(c,&(data[3].clone()),&(data[7].clone()));
++    lin_cz(c,&(data[3].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[3].clone()),&(l(bank[0])));
++    lin_cz(c,&(data[3].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[3].clone()),&(l(bank[6])));
++    lin_cz(c,&(data[3].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[3].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[3].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[4].clone()),&(data[13].clone()));
++    lin_cz(c,&(data[4].clone()),&(data[14].clone()));
++    lin_cz(c,&(data[4].clone()),&(l(bank[3])));
++    lin_cz(c,&(data[7].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[7].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[8].clone()),&(data[11].clone()));
++    lin_cz(c,&(data[8].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[0])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[9])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[9])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[0])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[6])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[8])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[5])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[10])));
++    lin_cz(c,&(l(bank[5])),&(l(bank[9])));
++    lin_cz(c,&(l(bank[6])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[6])),&(l(bank[10])));
++    lin_cz(c,&(l(bank[7])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[8])),&(l(bank[9])));
++    lin_cz(c,&(l(bank[9])),&(l(bank[10])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[12]);
++    let m=c.alloc_bit();c.hmr(bank[11],m);c.push_condition(m);
++    lin_cz(c,&(data[4].clone()),&(data[7].clone()));
++    lin_cz(c,&(data[4].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[4].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[4].clone()),&(l(bank[0])));
++    lin_cz(c,&(data[4].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[4].clone()),&(l(bank[8])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[11]);
++    let m=c.alloc_bit();c.hmr(bank[10],m);c.push_condition(m);
++    lin_cz(c,&(data[1].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[3].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[3].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[3].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[7].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[8].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[8].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[9].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[9].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[0])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[7])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[5])));
++    lin_cz(c,&(l(bank[5])),&(l(bank[7])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[10]);
++    let m=c.alloc_bit();c.hmr(bank[9],m);c.push_condition(m);
++    lin_cz(c,&(data[1].clone()),&(data[2].clone()));
++    lin_cz(c,&(data[1].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[1].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[2].clone()),&(data[3].clone()));
++    lin_cz(c,&(data[2].clone()),&(data[7].clone()));
++    lin_cz(c,&(data[2].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[2].clone()),&(data[10].clone()));
++    lin_cz(c,&(data[2].clone()),&(data[11].clone()));
++    lin_cz(c,&(data[2].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[2].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[6])));
++    lin_cz(c,&(data[3].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[3].clone()),&(data[11].clone()));
++    lin_cz(c,&(data[3].clone()),&(l(bank[6])));
++    lin_cz(c,&(data[7].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[7].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[8].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[8].clone()),&(data[10].clone()));
++    lin_cz(c,&(data[8].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[8].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[9].clone()),&(data[11].clone()));
++    lin_cz(c,&(data[9].clone()),&(l(bank[6])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[11].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[11].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[6])));
++    lin_cz(c,&(l(bank[5])),&(l(bank[6])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[9]);
++    let m=c.alloc_bit();c.hmr(bank[8],m);c.push_condition(m);
++    lin_cz(c,&(data[3].clone()),&(data[7].clone()));
++    lin_cz(c,&(data[3].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[3].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[3].clone()),&(l(bank[0])));
++    lin_cz(c,&(data[3].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[4].clone()),&(data[13].clone()));
++    lin_cz(c,&(data[4].clone()),&(data[14].clone()));
++    lin_cz(c,&(data[4].clone()),&(l(bank[3])));
++    lin_cz(c,&(data[7].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[8].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[9].clone()),&(l(bank[0])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[5])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[8]);
++    let m=c.alloc_bit();c.hmr(bank[7],m);c.push_condition(m);
++    lin_cz(c,&(data[1].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[2].clone()),&(data[11].clone()));
++    lin_cz(c,&(data[2].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[7].clone()),&(data[11].clone()));
++    lin_cz(c,&(data[8].clone()),&(data[11].clone()));
++    lin_cz(c,&(data[8].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[0])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[2])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[7]);
++    let m=c.alloc_bit();c.hmr(bank[6],m);c.push_condition(m);
++    lin_cz(c,&(data[1].clone()),&(data[2].clone()));
++    lin_cz(c,&(data[1].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[1].clone()),&(data[11].clone()));
++    lin_cz(c,&(data[1].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[2].clone()),&(data[7].clone()));
++    lin_cz(c,&(data[2].clone()),&(data[10].clone()));
++    lin_cz(c,&(data[7].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[7].clone()),&(data[11].clone()));
++    lin_cz(c,&(data[8].clone()),&(data[10].clone()));
++    lin_cz(c,&(data[10].clone()),&(data[11].clone()));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[6]);
++    let m=c.alloc_bit();c.hmr(bank[5],m);c.push_condition(m);
++    lin_cz(c,&(data[2].clone()),&(data[7].clone()));
++    lin_cz(c,&(data[2].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[2].clone()),&(l(bank[0])));
++    lin_cz(c,&(data[7].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[8].clone()),&(l(bank[0])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[5]);
++    let m=c.alloc_bit();c.hmr(bank[4],m);c.push_condition(m);
++    lin_cz(c,&(data[6].clone()),&(l(bank[3])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[4]);
++    let m=c.alloc_bit();c.hmr(bank[3],m);c.push_condition(m);
++    lin_cz(c,&(data[13].clone()),&(data[14].clone()));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[3]);
++    let m=c.alloc_bit();c.hmr(bank[2],m);c.push_condition(m);
++    lin_cz(c,&(data[1].clone()),&(data[10].clone()));
++    lin_cz(c,&(data[7].clone()),&(data[10].clone()));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[2]);
++    let m=c.alloc_bit();c.hmr(bank[1],m);c.push_condition(m);
++    lin_cz(c,&(data[5].clone()),&(data[14].clone()));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[1]);
++    let m=c.alloc_bit();c.hmr(bank[0],m);c.push_condition(m);
++    lin_cz(c,&(data[1].clone()),&(data[7].clone()));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[0]);
++}

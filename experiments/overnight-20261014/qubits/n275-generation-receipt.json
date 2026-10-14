@@ -1,0 +1,70 @@
+{
+  "status": "generation_and_bounded_metadata_pass_benchmark_pending",
+  "source_variant": "candidate-n275-v2",
+  "patch_sha256": "10a0d56672b4327a341eca3a88fb0aaa34f1cad0a1e68c65ce30461b286cb17f",
+  "base_revision": "c95b9325913abacca9c86bdebad10a20633cd04e",
+  "nonce": {
+    "target": 34,
+    "control": 5,
+    "unchanged": true
+  },
+  "wrapper_pid": 2502104,
+  "build_child_pid": 2502592,
+  "exit": 0,
+  "completed_at_utc": "2026-10-14T14:29:18Z",
+  "stream_path": "/home/hclau/ecdsa_research/overnight-20261014/qubits/evidence/n275-v2-ops.bin",
+  "stream_sha256": "ad1205994a3927ba76e90a086eadcf800d5876efe36425495cc8e83e21c6a26f",
+  "metadata": {
+    "alignof_op": 8,
+    "compressed_bytes": 5184686203,
+    "emitted_counts_by_kind": [
+      0,
+      4,
+      1024,
+      0,
+      0,
+      0,
+      277258482,
+      2170476,
+      514298346,
+      48152562,
+      54061686,
+      0,
+      45451762,
+      2886439490,
+      0,
+      2435638,
+      2435638,
+      0
+    ],
+    "measured_loader_vec_capacity": null,
+    "op_vec_bytes": 214631486048,
+    "ops": 3832705108,
+    "peak_method": "same maximum referenced IDs as protected circuit::analyze_ops; no operation vector retained",
+    "protected_loader_requested_capacity": 3832705108,
+    "referenced_bits": 2390621,
+    "referenced_qubits": 692,
+    "referenced_registers": 4,
+    "scope": "stream diagnostic metadata, not a score",
+    "sizeof_op": 56
+  },
+  "source_builder_binary_sha256": "44ffd2e16940ca63dbc4a48eb7c9045229dc3bd83894d6059cbbbc28f79c543d",
+  "generation": {
+    "wall_time": "21:41.19",
+    "max_rss_kib": 1191232
+  },
+  "bounded_scan": {
+    "wall_time": "1:24.41",
+    "max_rss_kib": 6912
+  },
+  "log_sha256": "eacee1d3de558f2cb2c5c127dae4864fe05c3a7eabcd24831ee51667174d9654",
+  "protected_placeholder_is_evaluation_input": false,
+  "exact_stream_fixture": {
+    "pid": 2499578,
+    "exit": 0,
+    "physical_ops": 462,
+    "byte_equal_unchanged_writer": true
+  },
+  "scope": "Generated diagnostic N/Q/static counts only. No full point-add record or scored Toffoli claim.",
+  "official_evaluation_launched": false
+}

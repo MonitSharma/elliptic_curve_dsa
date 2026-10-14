@@ -264,3 +264,52 @@ all 651 four-dimensional subspaces of the six old temporary directions, adjoinin
 the selected `acc3*k1` function outside the old span. The
 [third checkpoint](third-checkpoint-receipt.json) records its pending status,
 limits and process identity; it is not a negative completed result.
+
+## Fourth checkpoint: changed consumer phase interface
+
+The earlier pending search completed. The selected `acc3*k1` extension found
+no 30-AND value witness in either its [651 direct-containing planes](external-planes-v2-summary.json)
+or its [1,953 mixed planes](external-mixed-v4-summary.json). An independent
+enumeration agrees on the complete selected family; together with the 63
+original-span planes, this covers rank-45 interfaces in that one rank-47 span.
+The [consumer-sum external direction](external-planes-v3-summary.json) also
+completed all 651 selected planes without a witness. These negative results
+include trusted solver UNSAT, with no saved formal proof certificates; other
+external functions and larger spans remain open.
+
+A separate [reverse joint model](reverse-constructor-model-v1.json) combines
+the quotient prefix with its fixed 12-AND table. All 16,384 primitive inputs and
+78 integer quotient values pass reconstruction. The raw rank is 15, the full
+value-interface rank 34, and the source uses 25 ANDs. Its
+[63 original-span planes](reverse-planes-v1-summary.json) and
+[2,604 selected external planes](reverse-external-v2-summary.json) found no
+24-AND witness. The early kp1 requirement is preserved. No global 25-AND
+optimality or complete reverse-fold cost claim follows.
+
+The [new carry-cleanup report](carry-cleanup-report-v1.md) changes the consumer
+interface rather than retaining original acc3. After its final bit3 write and
+y3 rebase, the remaining 30 physical helpers admit an exact quadratic cleanup
+basis. The [truth/rebase proof](carry-cleanup-rebase-v1.json) verifies every
+16,384-row identity, 164 reversible linear gates and 745 quadratic phase terms.
+The [passing native receipt](carry-cleanup-native-v1r2-receipt.json) preserves
+100,925,440 positive cases, all measurement coefficients for 38 tested upper
+words, dirty passengers/scratch, a detected phase fault, and seven paired
+complete-component costs that save exactly one executed AND per shot. Previous
+compile and fixture-assumption failures remain preserved.
+
+The full c5 builder's independently reported guard census finds **zero calls**
+to that existing guarded interface. It is therefore a positive component
+result, not a full resource record. An early loan expansion is being researched
+separately by the product track. The resource-only
+[tight-room trace](carry-trace-v2-receipt.json) preserves all 93 successful and
+33 failed room/tick contexts; those recipes are not full-circuit frequencies.
+
+The actual deferred lean route has an exact
+[one-AND c6 phase factor](actual-lean-c4-swap-v2.json) with a prospective mean
+saving of 0.5 per admitted fold. Physical scheduling and native proof are
+pending. Its abstract E2-missing case is unadmitted for actual fin4 because ESh
+also changes E0/E1. Fin3 retains all E inputs; broader transfer needs exact
+producer lifetime evidence. No new full qualified score is claimed.
+
+The [fourth receipt](fourth-checkpoint-receipt.json) freezes the completed files
+and records these pending scope obligations.

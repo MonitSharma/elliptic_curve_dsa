@@ -135,18 +135,58 @@
     {
       "pid": 2469463,
       "kind": "Production-sized uniform+2 square component native/all-MR checks",
-      "log": "/home/hclau/ecdsa_research/overnight-20261014/product-evidence/positive-bias-large/run.log",
+      "log": "/home/hclau/ecdsa_research/overnight-20261014/product-evidence/positive-bias-large/tests.log",
       "memory_limit_GiB": 16,
       "build_threads": 4,
       "runtime_threads": 1,
-      "qualified_score": null
+      "qualified_score": null,
+      "exit": "/home/hclau/ecdsa_research/overnight-20261014/product-evidence/positive-bias-large/tests.exit"
     },
     {
       "pid": 2468409,
       "kind": "N275 componentonly prototype, carry-tail alias auditpending",
-      "log": "/home/hclau/ecdsa_research/overnight-20261014/qubits/evidence/n275-native/run.log",
+      "log": "/home/hclau/ecdsa_research/overnight-20261014/qubits/evidence/n275-components.log",
       "memory_limit_GiB": 16,
       "build_threads": 4,
+      "runtime_threads": 1,
+      "qualified_score": null,
+      "exit": "/home/hclau/ecdsa_research/overnight-20261014/qubits/evidence/n275-components.exit"
+    }
+  ],
+  "fourth_checkpoint": {
+    "checkpoint_prepared_utc": "2026-10-14T15:09:00Z",
+    "public_refresh_utc": "2026-10-14T14:41:00Z",
+    "public_records": 1562,
+    "eligible_records": 1221,
+    "pareto_points": 45,
+    "records_changed": false,
+    "original_qualified_candidates": [],
+    "N275_v2": {
+      "generated_ops": 3832705108,
+      "referenced_qubits": 692,
+      "stream_sha256": "ad1205994a3927ba76e90a086eadcf800d5876efe36425495cc8e83e21c6a26f",
+      "status": "Unchanged official9024benchmark active; no qualified score",
+      "nonce_target": 34,
+      "nonce_control": 5
+    },
+    "exact_phase": {
+      "Q693_instances": 74,
+      "N275_v2_instances": 116,
+      "kernel_tests": 5,
+      "scope": "All independent measurement outcomes on fixed input lanes; component evidence"
+    },
+    "constructor": "1953 mixed and2604 reverse interfaces closed without witness; H45 native/all-MR pass but actual complete guard zero; expanded builder assertion failure preserved",
+    "square": "Uniform+2 exact production-sized components pass; coupled zero-x repaired, minus2A y and phase errors persist; complete builder assertion failure and worse partial resources"
+  },
+  "jobs_at_fourth_checkpoint": [
+    {
+      "pid": 2532160,
+      "native_evaluator_pid": 2534382,
+      "kind": "Unchanged protected official N275-v2 complete9024benchmark",
+      "log": "/home/hclau/ecdsa_research/overnight-20261014/qubits/evidence/n275-v2-official-eval.log",
+      "exit": "/home/hclau/ecdsa_research/overnight-20261014/qubits/evidence/n275-v2-official-eval.exit",
+      "cycle_log": "/home/hclau/ecdsa_research/overnight-20261014/qubits/evidence/n275-v2-official-cycle.log",
+      "memory_limit_GiB": 256,
       "runtime_threads": 1,
       "qualified_score": null
     }

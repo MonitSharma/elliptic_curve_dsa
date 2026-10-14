@@ -1,0 +1,64 @@
+{
+  "status": "no_24_AND_witness_in_selected_reverse_extension",
+  "source_lf_sha256": "879b85060f6a5cfa412561d64860f1cab697f7a334f180f5be9102070d5a23b9",
+  "netlist_sha256": "c9aeb7af36991ee5d96577514f6497a55179beccd80106e7ed4794d9dc64af11",
+  "domain_rows": 16384,
+  "original_ANDs": 25,
+  "raw_pair": [
+    4,
+    13
+  ],
+  "outside_label": "k1*W3",
+  "early_kp1_AND": [
+    130,
+    1027
+  ],
+  "hidden_original_masks": [
+    65536,
+    131072,
+    262144,
+    524288,
+    1048576,
+    2097152
+  ],
+  "outside_truth_sha256": "a890dffc22c5a08bf117b41720d3c18cac7f8a6069cb7dda3cd92a21ec9ec53a",
+  "enumeration": {
+    "all_rank5_planes_in_7_dimensions": 2667,
+    "old_only_excluded": 63,
+    "external_planes": 2604,
+    "p_containing": 651,
+    "mixed": 1953,
+    "independent_methods": "mixed+direct decomposition and full seven-coordinate RREF agree exactly",
+    "set_sha256": "12d55f9ad6fcdb8ef85e7d0e21826210e8c751d788ad78df3c451f4cba0ada48"
+  },
+  "scope": "Every rank39 interface in V40+span(k1*W3) containing the complete W34 reverse output/input span and some external direction. Early kp1 is retained as first AND. Restricted value-interface search; producer, cleanup and complete circuit cost separate.",
+  "all2604_external_planes_completed": true,
+  "seconds": 621.0156609611586,
+  "limits": "Only selected V40+span(k1*W3). Trusted factor UNSAT without formal proof dump; unknown/incomplete preserved; full producer/consumer/phase cost remains separate.",
+  "records_examined": 2604,
+  "status_counts": {
+    "chosen_interface_affine_product_obstruction": 2598,
+    "exact_quadratic_span_obstruction": 6
+  },
+  "closed_prefix_AND_distribution": {
+    "6": 213,
+    "8": 23,
+    "10": 3,
+    "7": 168,
+    "5": 228,
+    "12": 2,
+    "9": 11,
+    "4": 508,
+    "3": 704,
+    "2": 456,
+    "1": 288
+  },
+  "witnesses": 0,
+  "solver_unknowns": 0,
+  "raw_receipt_bytes": 7521735,
+  "raw_receipt_sha256": "088ee51f2079ba0b79b6feda602aca1b136eb3a62bdcf4959716a062ad025340",
+  "pid": 2483412,
+  "log_sha256": "61a5e1e3b0358480d9ac3d0fa820558e45aad22a91f2a526b89a20dce6b57f44",
+  "settings_sha256": "2ee422e46b263d07904e72375a135012aba390d01718c4898a2c00da05170888",
+  "exit": 0
+}

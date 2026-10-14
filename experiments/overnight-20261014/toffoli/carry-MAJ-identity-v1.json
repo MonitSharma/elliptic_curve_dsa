@@ -1,0 +1,52 @@
+{
+  "status": "all16384_original_c3_MAJ_and_consumer_loan_identity_verified",
+  "source_lf_sha256": "879b85060f6a5cfa412561d64860f1cab697f7a334f180f5be9102070d5a23b9",
+  "netlist_sha256": "d6bf2410418bd8707d5768ca274ba74ce79c7e5964189605bdb2b33d22977b85",
+  "domain_rows": 16384,
+  "guard": "loan && fin==0 && ttm; c2,E2,acc2 coherently live",
+  "identity": "c3=MAJ(acc2,E2,c2)=y3_loan+OR(k1,k2)*final_bit3",
+  "TT_need_table": [
+    {
+      "y5_measurement": 0,
+      "y3_measurement": 0,
+      "tt_built_at_y5": 0,
+      "tt_built_at_y3": 0,
+      "final_need": 0,
+      "old_unconditional_TT_ANDs": 1,
+      "new_conditional_TT_ANDs": 0
+    },
+    {
+      "y5_measurement": 0,
+      "y3_measurement": 1,
+      "tt_built_at_y5": 0,
+      "tt_built_at_y3": 1,
+      "final_need": 1,
+      "old_unconditional_TT_ANDs": 1,
+      "new_conditional_TT_ANDs": 1
+    },
+    {
+      "y5_measurement": 1,
+      "y3_measurement": 0,
+      "tt_built_at_y5": 1,
+      "tt_built_at_y3": 0,
+      "final_need": 1,
+      "old_unconditional_TT_ANDs": 1,
+      "new_conditional_TT_ANDs": 1
+    },
+    {
+      "y5_measurement": 1,
+      "y3_measurement": 1,
+      "tt_built_at_y5": 1,
+      "tt_built_at_y3": 0,
+      "final_need": 1,
+      "old_unconditional_TT_ANDs": 1,
+      "new_conditional_TT_ANDs": 1
+    }
+  ],
+  "old_TT_regeneration_ANDs": 1,
+  "new_mean_TT_regeneration_ANDs": 0.75,
+  "prospective_mean_saving_per_guarded_fold": 0.25,
+  "phase_status": "Existing source TtLate OR(y5,y3) protocol restored to normal conditional AND construction; full modified native all-measurement verification pending.",
+  "native_verified": false,
+  "limits": "Only original carry availablefin0 guard. No fullcircuit count, measurement phase or record claim. Actual producer contexts and full modified cleanup still need native/exact verification."
+}

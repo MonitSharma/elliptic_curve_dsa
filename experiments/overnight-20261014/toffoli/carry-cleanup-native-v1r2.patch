@@ -1,0 +1,1264 @@
+diff --git a/src/point_add/y15_onefold.rs b/src/point_add/y15_onefold.rs
+index ce87200e..57756254 100755
+--- a/src/point_add/y15_onefold.rs
++++ b/src/point_add/y15_onefold.rs
+@@ -19,6 +19,7 @@
+ //! erase of m0 and m1) and y15-room (copies of W, measured clear, two lean wires, fused ticks); see Y15_KEEP_ROOM for
+ //! how a reverse tick-pass chooses between the kept carries and the copies, and for the builder counts.
+ use super::*;
++thread_local! { static TOFFOLI_CARRY_CLEANUP_MODE:std::cell::Cell<bool>=const{std::cell::Cell::new(false)}; static TOFFOLI_CARRY_CLEANUP_HITS:std::cell::Cell<usize>=const{std::cell::Cell::new(0)}; }
+ fn reverse_loan_selected(rev:bool,t:usize)->bool {rev && (124..=126).contains(&t) && CONSUMER_LOANS}
+ 
+ 
+@@ -1872,6 +1873,18 @@ fn fold_fwd_v2(c: &mut Builder, acc: &[QubitId], e: [QubitId; 3], nm: [QubitId;
+         else {lin_and_erase(c, c4, &l(acc[3]), &l(c3));}
+     }
+     ladder_d(c, acc, &add, 6, c6, &plan, &drops);
++    if TOFFOLI_CARRY_CLEANUP_MODE.with(|x|x.get()) && loan && fin==0 && !ttm && !lean45 && drop==0 {
++        assert_eq!(recs.len(),27,"exact constructor record interface");
++        let q=|i:usize|match &recs[i] {Rec::And(q,_,_)|Rec::Maj(q,_,_,_)=>*q,_=>panic!("cleanup record is carry marker")};
++        let bank:[QubitId;30]=[c1,c2,c4,q(0),q(1),q(2),q(3),q(4),q(5),c5,q(7),c6,q(9),q(10),q(11),q(12),q(13),q(14),q(15),q(16),q(17),q(18),q(19),q(20),q(21),q(22),q(23),q(24),q(25),q(26)];
++        let unique:std::collections::HashSet<u64>=bank.iter().map(|q|q.0).collect();assert_eq!(unique.len(),30);
++        assert!(!unique.contains(&c3.0));
++        for input in acc.iter().chain(e.iter()).chain(nm.iter()).chain([k1,k2].iter()) {assert!(!unique.contains(&input.0));}
++        lin_xor_into(c,&a4,acc[4]);c.cx(c4,acc[4]);lin_xor_into(c,&a5,acc[5]);c.cx(c5,acc[5]);
++        c.cx(e[0],acc[0]);c.cx(e[1],acc[1]);c.cx(c1,acc[1]);c.cx(e[2],acc[2]);c.cx(c2,acc[2]);
++        toffoli_carry_cleanup_v1::run(c,acc,e,nm,[k1,k2],&bank);
++        TOFFOLI_CARRY_CLEANUP_HITS.with(|x|x.set(x.get()+1));LOAN_ACTIVE.with(|x|x.set(false));return plan;
++    }
+     let (c4, c5) = if lean_m {
+         (c.alloc_qubit(), c.alloc_qubit())
+     } else if lean45 {
+@@ -4535,3 +4548,16 @@ fn rt0_letter_erase(c: &mut Builder, r1: &[QubitId], r0v: &[Lin], letter: &[Qubi
+ /// chain is read by m1's Z alone, so it is built and erased only when m1's bit is set as well: a quarter of a Toffoli
+ /// a pass. Exact (the same measurements in the same order). false: built on every shot with m0's bit set.
+ const Y36_TOP_M1: bool = true;
++
++#[path="toffoli_carry_cleanup_v1.rs"]
++mod toffoli_carry_cleanup_v1;
++#[cfg(test)]
++#[path="toffoli_native_fold.rs"]
++mod toffoli_native_fold;
++#[cfg(test)]
++#[path="toffoli_carry_cleanup_tests_v1.rs"]
++mod toffoli_carry_cleanup_tests_v1;
++
++#[cfg(test)]
++#[path="toffoli_phase_linear_blocks_v1.rs"]
++mod toffoli_phase_linear_blocks_v1;
+diff --git a/src/point_add/toffoli_carry_cleanup_tests_v1.rs b/src/point_add/toffoli_carry_cleanup_tests_v1.rs
+new file mode 100644
+index 00000000..76dd02f9
+--- /dev/null
++++ b/src/point_add/toffoli_carry_cleanup_tests_v1.rs
+@@ -0,0 +1,65 @@
++//! Native exact low-domain phase coefficients and complete-cost paired folds.
++use super::*;
++use crate::circuit::{analyze_ops,OperationType};
++use crate::sim::Simulator;
++use sha3::digest::XofReader;
++struct Words(u64);
++impl XofReader for Words {fn read(&mut self,out:&mut[u8]) {assert_eq!(out.len(),8);self.0^=self.0<<13;self.0^=self.0>>7;self.0^=self.0<<17;out.copy_from_slice(&self.0.to_le_bytes());}}
++fn with_mode<R>(on:bool,f:impl FnOnce()->R)->R {
++    let old=TOFFOLI_CARRY_CLEANUP_MODE.with(|x|x.replace(on));
++    let at=PAYLOAD_AT.with(|x|x.replace(Some((false,128))));
++    TOFFOLI_CARRY_CLEANUP_HITS.with(|x|x.set(0));let result=f();
++    TOFFOLI_CARRY_CLEANUP_MODE.with(|x|x.set(old));PAYLOAD_AT.with(|x|x.set(at));result
++}
++#[test]
++fn toffoli_carry_cleanup_all_inputs_all_phase_coefficients_v1() {
++    for on in [false,true] {
++        assert!(with_mode(on,||super::toffoli_native_fold::run_native(56,0,true,false)));
++        let hits=TOFFOLI_CARRY_CLEANUP_HITS.with(|x|x.get());assert_eq!(hits,usize::from(on));
++        eprintln!("TOFFOLI_CARRY_NATIVE_PHASE new={on} hits={hits} all16384_low_inputs=true upper_words=38 all_measurement_coefficients=true");
++    }
++}
++#[test]
++fn toffoli_carry_cleanup_phase_fault_detected_v1() {
++    assert!(!with_mode(true,||super::toffoli_native_fold::run_native(56,0,true,true)));
++}
++fn fixture(room:usize,on:bool)->(u64,u64,u32,usize,usize) {
++    let mw=56usize;let mut c=Builder::new();let acc=c.alloc_qubits(mw);
++    let e:[QubitId;3]=c.alloc_qubits(3).try_into().unwrap();let nm:[QubitId;3]=c.alloc_qubits(3).try_into().unwrap();
++    let shift:[QubitId;2]=c.alloc_qubits(2).try_into().unwrap();
++    let pads=c.alloc_qubits(cells::cap()-(mw+8+30+room));let active=c.active_qubits();
++    let (_,peak)=with_mode(on,||c.r3_peak(|c|fold_fwd_v2(c,&acc,e,nm,shift[0],shift[1],0,None,false,0)));
++    let hits=TOFFOLI_CARRY_CLEANUP_HITS.with(|x|x.get());assert_eq!(c.active_qubits(),active);
++    let ops=c.take_ops();let emitted=ops.iter().filter(|op|matches!(op.kind,OperationType::CCX|OperationType::CCZ)).count() as u64;
++    let (nq,nb,_,_)=analyze_ops(ops.iter());let mut words=Words(0x93AB_CDEF_6789_4521);let mut sim=Simulator::new(nq as usize,nb as usize,&mut words);
++    let highmask=((1u64<<mw)-1)&!63;let mut shots=0;
++    for high in [0,highmask,0xAAAA_AAAA_AAAA_AAAA&highmask] {
++        for base in (0..1usize<<14).step_by(64) {
++            sim.clear_for_shot();sim.xof.0=0x93AB_CDEF_6789_4521^(base as u64)^high.rotate_left(17);
++            for shot in 0..64 {
++                let raw=(base+shot) as u64;let value=(raw&63)|high;
++                for (i,&q) in acc.iter().enumerate() {*sim.qubit_mut(q)|=(value>>i&1)<<shot;}
++                for (i,&q) in e.iter().chain(nm.iter()).chain(shift.iter()).enumerate() {*sim.qubit_mut(q)|=(raw>>(i+6)&1)<<shot;}
++            }
++            for &q in &pads {*sim.qubit_mut(q)=0xA55A_F00F_1234_5678;}
++            sim.apply_iter(ops.iter());assert_eq!(sim.phase,0,"phase room={room} new={on}");
++            for shot in 0..64 {
++                let raw=(base+shot) as u64;let want=super::toffoli_native_fold::expected((raw&63)|high,raw>>6&7,raw>>9&7,raw>>12&1,raw>>13&1,mw);
++                let got=acc.iter().enumerate().fold(0u64,|value,(i,&q)|value|((sim.qubit(q)>>shot&1)<<i));assert_eq!(got,want,"value room={room} new={on} raw={raw}");
++                for (i,&q) in e.iter().chain(nm.iter()).chain(shift.iter()).enumerate() {assert_eq!(sim.qubit(q)>>shot&1,raw>>(i+6)&1);}
++            }
++            for &q in &pads {assert_eq!(sim.qubit(q),0xA55A_F00F_1234_5678);}
++            for &q in acc.iter().chain(e.iter()).chain(nm.iter()).chain(shift.iter()).chain(pads.iter()) {*sim.qubit_mut(q)=0;}
++            assert!(sim.qubits.iter().all(|&value|value==0),"dirty scratch room={room} new={on}");shots+=64;
++        }
++    }
++    (emitted,sim.stats.toffoli_gates,peak,shots,hits)
++}
++#[test]
++fn toffoli_carry_cleanup_complete_cost_v1() {
++    for room in [12,14,18,26,36,45,50] {
++        let old=fixture(room,false);let new=fixture(room,true);assert_eq!(new.4,1);
++        assert_eq!(old.0,new.0+1);assert_eq!(old.1,new.1+old.3 as u64);
++        eprintln!("TOFFOLI_CARRY_COMPONENT room={room} shots={} old_emitted={} new_emitted={} old_executed={} new_executed={} old_peak={} new_peak={} hits={}",old.3,old.0,new.0,old.1,new.1,old.2,new.2,new.4);
++    }
++}
+diff --git a/src/point_add/toffoli_carry_cleanup_v1.rs b/src/point_add/toffoli_carry_cleanup_v1.rs
+new file mode 100644
+index 00000000..13bd711f
+--- /dev/null
++++ b/src/point_add/toffoli_carry_cleanup_v1.rs
+@@ -0,0 +1,975 @@
++//! Frozen exact non-lean c3-loan cleanup; component research, no score claim.
++use super::*;
++pub(super) fn run(c:&mut Builder,acc:&[QubitId],e:[QubitId;3],nm:[QubitId;3],shift:[QubitId;2],bank:&[QubitId;30]) {
++    let mut data=vec![Lin::k(true)];data.extend(acc[..6].iter().map(|&q|l(q)));
++    data.extend(e.iter().chain(nm.iter()).chain(shift.iter()).map(|&q|l(q)));
++    c.cx(bank[27],bank[28]);
++    c.cx(bank[26],bank[28]);
++    c.cx(bank[26],bank[27]);
++    c.cx(bank[25],bank[28]);
++    c.cx(bank[24],bank[28]);
++    c.cx(bank[24],bank[23]);
++    c.cx(bank[23],bank[28]);
++    c.cx(bank[23],bank[22]);
++    c.swap(bank[25],bank[23]);
++    c.cx(bank[22],bank[21]);
++    c.swap(bank[25],bank[22]);
++    c.cx(bank[21],bank[29]);
++    c.cx(bank[21],bank[25]);
++    c.cx(bank[21],bank[24]);
++    c.cx(bank[21],bank[22]);
++    c.cx(bank[20],bank[28]);
++    c.cx(bank[20],bank[26]);
++    c.cx(bank[20],bank[25]);
++    c.cx(bank[20],bank[19]);
++    c.cx(bank[19],bank[28]);
++    c.cx(bank[19],bank[27]);
++    c.cx(bank[19],bank[26]);
++    c.swap(bank[24],bank[19]);
++    c.cx(bank[18],bank[26]);
++    c.swap(bank[25],bank[18]);
++    c.cx(bank[17],bank[28]);
++    c.swap(bank[22],bank[17]);
++    c.cx(bank[16],bank[22]);
++    c.cx(bank[16],bank[21]);
++    c.cx(bank[16],bank[15]);
++    c.cx(bank[16],bank[14]);
++    c.cx(bank[16],bank[13]);
++    c.cx(bank[16],bank[12]);
++    c.cx(bank[16],bank[11]);
++    c.cx(bank[16],bank[9]);
++    c.cx(bank[16],bank[6]);
++    c.cx(bank[16],bank[5]);
++    c.cx(bank[16],bank[4]);
++    c.swap(bank[20],bank[16]);
++    c.cx(bank[15],bank[29]);
++    c.cx(bank[15],bank[28]);
++    c.cx(bank[15],bank[27]);
++    c.swap(bank[20],bank[15]);
++    c.cx(bank[14],bank[29]);
++    c.cx(bank[14],bank[28]);
++    c.cx(bank[14],bank[20]);
++    c.cx(bank[14],bank[19]);
++    c.swap(bank[18],bank[14]);
++    c.cx(bank[13],bank[28]);
++    c.cx(bank[13],bank[20]);
++    c.cx(bank[13],bank[19]);
++    c.cx(bank[13],bank[17]);
++    c.swap(bank[16],bank[13]);
++    c.cx(bank[12],bank[29]);
++    c.cx(bank[12],bank[28]);
++    c.cx(bank[12],bank[27]);
++    c.cx(bank[12],bank[20]);
++    c.cx(bank[12],bank[18]);
++    c.cx(bank[12],bank[17]);
++    c.swap(bank[14],bank[12]);
++    c.swap(bank[15],bank[11]);
++    c.cx(bank[9],bank[15]);
++    c.swap(bank[13],bank[9]);
++    c.cx(bank[8],bank[19]);
++    c.cx(bank[8],bank[17]);
++    c.cx(bank[7],bank[26]);
++    c.cx(bank[7],bank[16]);
++    c.cx(bank[7],bank[14]);
++    c.cx(bank[7],bank[13]);
++    c.cx(bank[7],bank[12]);
++    c.cx(bank[7],bank[2]);
++    c.swap(bank[8],bank[7]);
++    c.cx(bank[6],bank[16]);
++    c.cx(bank[6],bank[14]);
++    c.swap(bank[10],bank[6]);
++    c.cx(bank[5],bank[29]);
++    c.cx(bank[5],bank[28]);
++    c.cx(bank[5],bank[24]);
++    c.swap(bank[7],bank[5]);
++    c.cx(bank[4],bank[28]);
++    c.cx(bank[4],bank[27]);
++    c.cx(bank[4],bank[22]);
++    c.cx(bank[4],bank[21]);
++    c.cx(bank[4],bank[15]);
++    c.cx(bank[4],bank[13]);
++    c.cx(bank[4],bank[11]);
++    c.cx(bank[4],bank[10]);
++    c.cx(bank[4],bank[9]);
++    c.cx(bank[4],bank[7]);
++    c.swap(bank[6],bank[4]);
++    c.cx(bank[2],bank[13]);
++    c.swap(bank[11],bank[2]);
++    c.cx(bank[1],bank[29]);
++    c.cx(bank[1],bank[28]);
++    c.cx(bank[1],bank[23]);
++    c.cx(bank[1],bank[15]);
++    c.cx(bank[1],bank[9]);
++    c.cx(bank[1],bank[8]);
++    c.swap(bank[5],bank[1]);
++    c.cx(bank[0],bank[28]);
++    c.cx(bank[0],bank[27]);
++    c.cx(bank[0],bank[26]);
++    c.cx(bank[0],bank[24]);
++    c.cx(bank[0],bank[23]);
++    c.cx(bank[0],bank[22]);
++    c.cx(bank[0],bank[21]);
++    c.cx(bank[0],bank[13]);
++    c.cx(bank[0],bank[12]);
++    c.cx(bank[0],bank[6]);
++    c.cx(bank[0],bank[5]);
++    lin_xor_into(c,&data[7],bank[0]);
++    lin_xor_into(c,&data[8],bank[5]);
++    lin_xor_into(c,&data[9],bank[8]);
++    lin_xor_into(c,&data[2],bank[9]);
++    lin_xor_into(c,&data[8],bank[9]);
++    lin_xor_into(c,&data[11],bank[9]);
++    lin_xor_into(c,&data[2],bank[12]);
++    lin_xor_into(c,&data[8],bank[12]);
++    lin_xor_into(c,&data[11],bank[12]);
++    lin_xor_into(c,&data[1],bank[13]);
++    lin_xor_into(c,&data[7],bank[13]);
++    lin_xor_into(c,&data[10],bank[13]);
++    lin_xor_into(c,&data[2],bank[15]);
++    lin_xor_into(c,&data[8],bank[15]);
++    lin_xor_into(c,&data[11],bank[15]);
++    lin_xor_into(c,&data[1],bank[21]);
++    lin_xor_into(c,&data[7],bank[21]);
++    lin_xor_into(c,&data[10],bank[21]);
++    lin_xor_into(c,&data[1],bank[23]);
++    lin_xor_into(c,&data[2],bank[23]);
++    lin_xor_into(c,&data[7],bank[23]);
++    lin_xor_into(c,&data[8],bank[23]);
++    lin_xor_into(c,&data[10],bank[23]);
++    lin_xor_into(c,&data[11],bank[23]);
++    lin_xor_into(c,&data[2],bank[24]);
++    lin_xor_into(c,&data[8],bank[24]);
++    lin_xor_into(c,&data[11],bank[24]);
++    lin_xor_into(c,&data[3],bank[26]);
++    lin_xor_into(c,&data[9],bank[26]);
++    lin_xor_into(c,&data[12],bank[26]);
++    lin_xor_into(c,&data[2],bank[27]);
++    lin_xor_into(c,&data[3],bank[27]);
++    lin_xor_into(c,&data[8],bank[27]);
++    lin_xor_into(c,&data[9],bank[27]);
++    lin_xor_into(c,&data[11],bank[27]);
++    lin_xor_into(c,&data[12],bank[27]);
++    lin_xor_into(c,&data[1],bank[28]);
++    lin_xor_into(c,&data[2],bank[28]);
++    lin_xor_into(c,&data[3],bank[28]);
++    lin_xor_into(c,&data[7],bank[28]);
++    lin_xor_into(c,&data[8],bank[28]);
++    lin_xor_into(c,&data[9],bank[28]);
++    lin_xor_into(c,&data[10],bank[28]);
++    lin_xor_into(c,&data[11],bank[28]);
++    lin_xor_into(c,&data[12],bank[28]);
++    lin_xor_into(c,&data[1],bank[29]);
++    lin_xor_into(c,&data[2],bank[29]);
++    lin_xor_into(c,&data[3],bank[29]);
++    lin_xor_into(c,&data[7],bank[29]);
++    lin_xor_into(c,&data[8],bank[29]);
++    lin_xor_into(c,&data[9],bank[29]);
++    lin_xor_into(c,&data[10],bank[29]);
++    lin_xor_into(c,&data[11],bank[29]);
++    lin_xor_into(c,&data[12],bank[29]);
++    let m=c.alloc_bit();c.hmr(bank[29],m);c.push_condition(m);
++    lin_cz(c,&(data[1].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[1].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[1].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[19])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[4])));
++    lin_cz(c,&(data[3].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[3].clone()),&(l(bank[4])));
++    lin_cz(c,&(data[4].clone()),&(l(bank[18])));
++    lin_cz(c,&(data[5].clone()),&(l(bank[4])));
++    lin_cz(c,&(data[7].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[7].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[7].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[19])));
++    lin_cz(c,&(data[8].clone()),&(data[10].clone()));
++    lin_cz(c,&(data[9].clone()),&(data[10].clone()));
++    lin_cz(c,&(data[10].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[19])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[4])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[4])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[5])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[6])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[7])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[9])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[10])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[19])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[28])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[5])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[6])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[7])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[9])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[10])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[28])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[29]);
++    let m=c.alloc_bit();c.hmr(bank[28],m);c.push_condition(m);
++    lin_cz(c,&(data[1].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[1].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[1].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[23])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[25])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[26])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[16])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[19])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[25])));
++    lin_cz(c,&(data[3].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[3].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[4].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[4].clone()),&(l(bank[16])));
++    lin_cz(c,&(data[4].clone()),&(l(bank[18])));
++    lin_cz(c,&(data[5].clone()),&(l(bank[4])));
++    lin_cz(c,&(data[5].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[5].clone()),&(l(bank[9])));
++    lin_cz(c,&(data[5].clone()),&(l(bank[22])));
++    lin_cz(c,&(data[5].clone()),&(l(bank[23])));
++    lin_cz(c,&(data[5].clone()),&(l(bank[24])));
++    lin_cz(c,&(data[7].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[7].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[7].clone()),&(l(bank[4])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[23])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[26])));
++    lin_cz(c,&(data[8].clone()),&(data[10].clone()));
++    lin_cz(c,&(data[8].clone()),&(l(bank[4])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[25])));
++    lin_cz(c,&(data[9].clone()),&(data[10].clone()));
++    lin_cz(c,&(data[9].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[4])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[23])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[25])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[26])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[16])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[19])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[25])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[13].clone()),&(l(bank[11])));
++    lin_cz(c,&(data[14].clone()),&(l(bank[11])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[1])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[4])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[25])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[2])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[5])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[6])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[9])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[12])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[26])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[4])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[14])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[18])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[25])));
++    lin_cz(c,&(l(bank[3])),&(l(bank[11])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[5])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[10])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[14])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[17])));
++    lin_cz(c,&(l(bank[5])),&(l(bank[14])));
++    lin_cz(c,&(l(bank[5])),&(l(bank[16])));
++    lin_cz(c,&(l(bank[5])),&(l(bank[19])));
++    lin_cz(c,&(l(bank[6])),&(l(bank[16])));
++    lin_cz(c,&(l(bank[6])),&(l(bank[19])));
++    lin_cz(c,&(l(bank[9])),&(l(bank[16])));
++    lin_cz(c,&(l(bank[9])),&(l(bank[19])));
++    lin_cz(c,&(l(bank[12])),&(l(bank[18])));
++    lin_cz(c,&(l(bank[14])),&(l(bank[23])));
++    lin_cz(c,&(l(bank[14])),&(l(bank[26])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[28]);
++    let m=c.alloc_bit();c.hmr(bank[27],m);c.push_condition(m);
++    lin_cz(c,&(data[1].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[1].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[25])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[26])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[25])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[26])));
++    lin_cz(c,&(data[3].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[3].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[3].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[7].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[7].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[7].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[7].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[23])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[26])));
++    lin_cz(c,&(data[8].clone()),&(data[10].clone()));
++    lin_cz(c,&(data[8].clone()),&(data[11].clone()));
++    lin_cz(c,&(data[8].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[8].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[23])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[25])));
++    lin_cz(c,&(data[9].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[9].clone()),&(l(bank[0])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[23])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[26])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[25])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[26])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[25])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[26])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[0])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[13].clone()),&(l(bank[11])));
++    lin_cz(c,&(data[14].clone()),&(l(bank[11])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[23])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[25])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[23])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[25])));
++    lin_cz(c,&(l(bank[3])),&(l(bank[11])));
++    lin_cz(c,&(l(bank[5])),&(l(bank[23])));
++    lin_cz(c,&(l(bank[5])),&(l(bank[26])));
++    lin_cz(c,&(l(bank[7])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[8])),&(l(bank[23])));
++    lin_cz(c,&(l(bank[8])),&(l(bank[26])));
++    lin_cz(c,&(l(bank[10])),&(l(bank[23])));
++    lin_cz(c,&(l(bank[10])),&(l(bank[26])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[27]);
++    let m=c.alloc_bit();c.hmr(bank[26],m);c.push_condition(m);
++    lin_cz(c,&(data[1].clone()),&(data[3].clone()));
++    lin_cz(c,&(data[1].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[1].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[1].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[1].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[3].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[3].clone()),&(data[10].clone()));
++    lin_cz(c,&(data[3].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[3].clone()),&(l(bank[0])));
++    lin_cz(c,&(data[3].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[3].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[3].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[3].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[3].clone()),&(l(bank[18])));
++    lin_cz(c,&(data[3].clone()),&(l(bank[23])));
++    lin_cz(c,&(data[4].clone()),&(data[13].clone()));
++    lin_cz(c,&(data[4].clone()),&(data[14].clone()));
++    lin_cz(c,&(data[4].clone()),&(l(bank[3])));
++    lin_cz(c,&(data[7].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[7].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[7].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[18])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[23])));
++    lin_cz(c,&(data[8].clone()),&(data[10].clone()));
++    lin_cz(c,&(data[8].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[8].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[18])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[23])));
++    lin_cz(c,&(data[9].clone()),&(data[10].clone()));
++    lin_cz(c,&(data[9].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[18])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[23])));
++    lin_cz(c,&(data[10].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[10].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[0])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[18])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[23])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[14])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[18])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[23])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[5])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[14])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[18])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[23])));
++    lin_cz(c,&(l(bank[5])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[5])),&(l(bank[14])));
++    lin_cz(c,&(l(bank[5])),&(l(bank[18])));
++    lin_cz(c,&(l(bank[5])),&(l(bank[23])));
++    lin_cz(c,&(l(bank[7])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[7])),&(l(bank[14])));
++    lin_cz(c,&(l(bank[7])),&(l(bank[18])));
++    lin_cz(c,&(l(bank[7])),&(l(bank[23])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[26]);
++    let m=c.alloc_bit();c.hmr(bank[25],m);c.push_condition(m);
++    lin_cz(c,&(data[3].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[3].clone()),&(l(bank[16])));
++    lin_cz(c,&(data[3].clone()),&(l(bank[20])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[16])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[20])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[16])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[20])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[16])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[20])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[16])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[20])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[14])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[16])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[20])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[14])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[16])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[20])));
++    lin_cz(c,&(l(bank[5])),&(l(bank[14])));
++    lin_cz(c,&(l(bank[5])),&(l(bank[16])));
++    lin_cz(c,&(l(bank[5])),&(l(bank[20])));
++    lin_cz(c,&(l(bank[7])),&(l(bank[14])));
++    lin_cz(c,&(l(bank[7])),&(l(bank[16])));
++    lin_cz(c,&(l(bank[7])),&(l(bank[20])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[25]);
++    let m=c.alloc_bit();c.hmr(bank[24],m);c.push_condition(m);
++    lin_cz(c,&(data[2].clone()),&(data[3].clone()));
++    lin_cz(c,&(data[2].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[2].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[16])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[18])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[20])));
++    lin_cz(c,&(data[3].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[3].clone()),&(data[11].clone()));
++    lin_cz(c,&(data[3].clone()),&(l(bank[6])));
++    lin_cz(c,&(data[8].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[8].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[16])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[18])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[20])));
++    lin_cz(c,&(data[11].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[11].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[16])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[18])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[20])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[6])));
++    lin_cz(c,&(l(bank[6])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[6])),&(l(bank[10])));
++    lin_cz(c,&(l(bank[6])),&(l(bank[16])));
++    lin_cz(c,&(l(bank[6])),&(l(bank[18])));
++    lin_cz(c,&(l(bank[6])),&(l(bank[20])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[24]);
++    let m=c.alloc_bit();c.hmr(bank[23],m);c.push_condition(m);
++    lin_cz(c,&(data[1].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[21])));
++    lin_cz(c,&(data[2].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[2].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[2].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[18])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[21])));
++    lin_cz(c,&(data[7].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[7].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[18])));
++    lin_cz(c,&(data[8].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[8].clone()),&(data[11].clone()));
++    lin_cz(c,&(data[8].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[18])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[21])));
++    lin_cz(c,&(data[9].clone()),&(data[11].clone()));
++    lin_cz(c,&(data[9].clone()),&(l(bank[0])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[21])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[18])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[21])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[10])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[14])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[18])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[21])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[5])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[10])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[14])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[18])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[21])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[23]);
++    let m=c.alloc_bit();c.hmr(bank[22],m);c.push_condition(m);
++    lin_cz(c,&(data[1].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[1].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[1].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[16])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[18])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[20])));
++    lin_cz(c,&(data[7].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[7].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[7].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[16])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[18])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[20])));
++    lin_cz(c,&(data[8].clone()),&(data[10].clone()));
++    lin_cz(c,&(data[9].clone()),&(data[10].clone()));
++    lin_cz(c,&(data[10].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[16])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[18])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[20])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[22]);
++    let m=c.alloc_bit();c.hmr(bank[21],m);c.push_condition(m);
++    lin_cz(c,&(data[1].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[1].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[1].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[4])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[19])));
++    lin_cz(c,&(data[7].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[7].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[7].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[19])));
++    lin_cz(c,&(data[8].clone()),&(data[10].clone()));
++    lin_cz(c,&(data[8].clone()),&(l(bank[4])));
++    lin_cz(c,&(data[9].clone()),&(data[10].clone()));
++    lin_cz(c,&(data[9].clone()),&(l(bank[4])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[4])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[19])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[4])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[4])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[5])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[10])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[14])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[19])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[21]);
++    let m=c.alloc_bit();c.hmr(bank[20],m);c.push_condition(m);
++    lin_cz(c,&(data[4].clone()),&(l(bank[18])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[1])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[1])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[2])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[5])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[10])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[14])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[20]);
++    let m=c.alloc_bit();c.hmr(bank[19],m);c.push_condition(m);
++    lin_cz(c,&(data[3].clone()),&(l(bank[16])));
++    lin_cz(c,&(data[3].clone()),&(l(bank[17])));
++    lin_cz(c,&(data[4].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[4].clone()),&(l(bank[16])));
++    lin_cz(c,&(data[5].clone()),&(l(bank[4])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[4])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[16])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[17])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[4])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[16])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[17])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[4])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[16])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[17])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[16])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[17])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[1])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[4])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[16])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[17])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[2])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[5])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[10])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[4])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[16])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[17])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[5])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[10])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[14])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[17])));
++    lin_cz(c,&(l(bank[5])),&(l(bank[16])));
++    lin_cz(c,&(l(bank[5])),&(l(bank[17])));
++    lin_cz(c,&(l(bank[7])),&(l(bank[16])));
++    lin_cz(c,&(l(bank[7])),&(l(bank[17])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[19]);
++    let m=c.alloc_bit();c.hmr(bank[18],m);c.push_condition(m);
++    lin_cz(c,&(data[4].clone()),&(l(bank[14])));
++    lin_cz(c,&(data[4].clone()),&(l(bank[16])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[4])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[4])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[4])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[1])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[4])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[2])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[5])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[10])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[14])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[4])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[5])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[10])));
++    lin_cz(c,&(l(bank[4])),&(l(bank[16])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[18]);
++    let m=c.alloc_bit();c.hmr(bank[17],m);c.push_condition(m);
++    lin_cz(c,&(data[7].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[13].clone()),&(l(bank[11])));
++    lin_cz(c,&(data[14].clone()),&(l(bank[11])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[1])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[2])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[5])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[12])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[14])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[14])));
++    lin_cz(c,&(l(bank[3])),&(l(bank[11])));
++    lin_cz(c,&(l(bank[12])),&(l(bank[14])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[17]);
++    let m=c.alloc_bit();c.hmr(bank[16],m);c.push_condition(m);
++    lin_cz(c,&(data[7].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[1])));
++    lin_cz(c,&(data[13].clone()),&(l(bank[11])));
++    lin_cz(c,&(data[14].clone()),&(l(bank[11])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[1])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[2])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[5])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[10])));
++    lin_cz(c,&(l(bank[1])),&(l(bank[14])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[14])));
++    lin_cz(c,&(l(bank[3])),&(l(bank[11])));
++    lin_cz(c,&(l(bank[10])),&(l(bank[14])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[16]);
++    let m=c.alloc_bit();c.hmr(bank[15],m);c.push_condition(m);
++    lin_cz(c,&(data[1].clone()),&(data[2].clone()));
++    lin_cz(c,&(data[1].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[1].clone()),&(data[11].clone()));
++    lin_cz(c,&(data[1].clone()),&(l(bank[6])));
++    lin_cz(c,&(data[2].clone()),&(data[6].clone()));
++    lin_cz(c,&(data[2].clone()),&(data[7].clone()));
++    lin_cz(c,&(data[2].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[2].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[2].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[11])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[13])));
++    lin_cz(c,&(data[5].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[5].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[5].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[5].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[5].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[5].clone()),&(l(bank[11])));
++    lin_cz(c,&(data[5].clone()),&(l(bank[13])));
++    lin_cz(c,&(data[6].clone()),&(data[7].clone()));
++    lin_cz(c,&(data[6].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[6].clone()),&(data[11].clone()));
++    lin_cz(c,&(data[6].clone()),&(l(bank[0])));
++    lin_cz(c,&(data[6].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[6].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[6].clone()),&(l(bank[11])));
++    lin_cz(c,&(data[6].clone()),&(l(bank[13])));
++    lin_cz(c,&(data[7].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[7].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[7].clone()),&(data[11].clone()));
++    lin_cz(c,&(data[7].clone()),&(l(bank[6])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[11])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[13])));
++    lin_cz(c,&(data[8].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[8].clone()),&(data[11].clone()));
++    lin_cz(c,&(data[8].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[11])));
++    lin_cz(c,&(data[8].clone()),&(l(bank[13])));
++    lin_cz(c,&(data[9].clone()),&(data[11].clone()));
++    lin_cz(c,&(data[9].clone()),&(l(bank[0])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[11])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[13])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[11])));
++    lin_cz(c,&(l(bank[0])),&(l(bank[13])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[5])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[11])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[13])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[15]);
++    let m=c.alloc_bit();c.hmr(bank[14],m);c.push_condition(m);
++    lin_cz(c,&(data[3].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[3].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[3].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[7].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[8].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[9].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[12].clone()),&(l(bank[0])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[13].clone()),&(l(bank[11])));
++    lin_cz(c,&(data[14].clone()),&(l(bank[11])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[3])),&(l(bank[11])));
++    lin_cz(c,&(l(bank[8])),&(l(bank[10])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[14]);
++    let m=c.alloc_bit();c.hmr(bank[13],m);c.push_condition(m);
++    lin_cz(c,&(data[1].clone()),&(data[5].clone()));
++    lin_cz(c,&(data[1].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[1].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[1].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[1].clone()),&(l(bank[11])));
++    lin_cz(c,&(data[5].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[5].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[5].clone()),&(data[10].clone()));
++    lin_cz(c,&(data[5].clone()),&(l(bank[0])));
++    lin_cz(c,&(data[5].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[5].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[5].clone()),&(l(bank[11])));
++    lin_cz(c,&(data[7].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[7].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[7].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[7].clone()),&(l(bank[11])));
++    lin_cz(c,&(data[8].clone()),&(data[10].clone()));
++    lin_cz(c,&(data[9].clone()),&(data[10].clone()));
++    lin_cz(c,&(data[10].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[11])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[13]);
++    let m=c.alloc_bit();c.hmr(bank[12],m);c.push_condition(m);
++    lin_cz(c,&(data[1].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[9])));
++    lin_cz(c,&(data[3].clone()),&(data[7].clone()));
++    lin_cz(c,&(data[3].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[3].clone()),&(l(bank[0])));
++    lin_cz(c,&(data[3].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[3].clone()),&(l(bank[6])));
++    lin_cz(c,&(data[3].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[3].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[3].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[4].clone()),&(data[13].clone()));
++    lin_cz(c,&(data[4].clone()),&(data[14].clone()));
++    lin_cz(c,&(data[4].clone()),&(l(bank[3])));
++    lin_cz(c,&(data[7].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[7].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[8].clone()),&(data[11].clone()));
++    lin_cz(c,&(data[8].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[0])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[8])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[9])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[10])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[9])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[0])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[6])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[8])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[5])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[10])));
++    lin_cz(c,&(l(bank[5])),&(l(bank[9])));
++    lin_cz(c,&(l(bank[6])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[6])),&(l(bank[10])));
++    lin_cz(c,&(l(bank[7])),&(l(bank[8])));
++    lin_cz(c,&(l(bank[8])),&(l(bank[9])));
++    lin_cz(c,&(l(bank[9])),&(l(bank[10])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[12]);
++    let m=c.alloc_bit();c.hmr(bank[11],m);c.push_condition(m);
++    lin_cz(c,&(data[4].clone()),&(data[7].clone()));
++    lin_cz(c,&(data[4].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[4].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[4].clone()),&(l(bank[0])));
++    lin_cz(c,&(data[4].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[4].clone()),&(l(bank[8])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[11]);
++    let m=c.alloc_bit();c.hmr(bank[10],m);c.push_condition(m);
++    lin_cz(c,&(data[1].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[3].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[3].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[3].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[7].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[8].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[8].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[9].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[9].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[0])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[7])));
++    lin_cz(c,&(l(bank[2])),&(l(bank[5])));
++    lin_cz(c,&(l(bank[5])),&(l(bank[7])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[10]);
++    let m=c.alloc_bit();c.hmr(bank[9],m);c.push_condition(m);
++    lin_cz(c,&(data[1].clone()),&(data[2].clone()));
++    lin_cz(c,&(data[1].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[1].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[2].clone()),&(data[3].clone()));
++    lin_cz(c,&(data[2].clone()),&(data[7].clone()));
++    lin_cz(c,&(data[2].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[2].clone()),&(data[10].clone()));
++    lin_cz(c,&(data[2].clone()),&(data[11].clone()));
++    lin_cz(c,&(data[2].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[2].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[2].clone()),&(l(bank[6])));
++    lin_cz(c,&(data[3].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[3].clone()),&(data[11].clone()));
++    lin_cz(c,&(data[3].clone()),&(l(bank[6])));
++    lin_cz(c,&(data[7].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[7].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[8].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[8].clone()),&(data[10].clone()));
++    lin_cz(c,&(data[8].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[8].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[9].clone()),&(data[11].clone()));
++    lin_cz(c,&(data[9].clone()),&(l(bank[6])));
++    lin_cz(c,&(data[10].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[11].clone()),&(data[12].clone()));
++    lin_cz(c,&(data[11].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[7])));
++    lin_cz(c,&(data[12].clone()),&(l(bank[6])));
++    lin_cz(c,&(l(bank[5])),&(l(bank[6])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[9]);
++    let m=c.alloc_bit();c.hmr(bank[8],m);c.push_condition(m);
++    lin_cz(c,&(data[3].clone()),&(data[7].clone()));
++    lin_cz(c,&(data[3].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[3].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[3].clone()),&(l(bank[0])));
++    lin_cz(c,&(data[3].clone()),&(l(bank[5])));
++    lin_cz(c,&(data[4].clone()),&(data[13].clone()));
++    lin_cz(c,&(data[4].clone()),&(data[14].clone()));
++    lin_cz(c,&(data[4].clone()),&(l(bank[3])));
++    lin_cz(c,&(data[7].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[8].clone()),&(data[9].clone()));
++    lin_cz(c,&(data[9].clone()),&(l(bank[0])));
++    lin_cz(c,&(data[9].clone()),&(l(bank[5])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[8]);
++    let m=c.alloc_bit();c.hmr(bank[7],m);c.push_condition(m);
++    lin_cz(c,&(data[1].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[2].clone()),&(data[11].clone()));
++    lin_cz(c,&(data[2].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[7].clone()),&(data[11].clone()));
++    lin_cz(c,&(data[8].clone()),&(data[11].clone()));
++    lin_cz(c,&(data[8].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[0])));
++    lin_cz(c,&(data[11].clone()),&(l(bank[2])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[7]);
++    let m=c.alloc_bit();c.hmr(bank[6],m);c.push_condition(m);
++    lin_cz(c,&(data[1].clone()),&(data[2].clone()));
++    lin_cz(c,&(data[1].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[1].clone()),&(data[11].clone()));
++    lin_cz(c,&(data[1].clone()),&(l(bank[2])));
++    lin_cz(c,&(data[2].clone()),&(data[7].clone()));
++    lin_cz(c,&(data[2].clone()),&(data[10].clone()));
++    lin_cz(c,&(data[7].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[7].clone()),&(data[11].clone()));
++    lin_cz(c,&(data[8].clone()),&(data[10].clone()));
++    lin_cz(c,&(data[10].clone()),&(data[11].clone()));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[6]);
++    let m=c.alloc_bit();c.hmr(bank[5],m);c.push_condition(m);
++    lin_cz(c,&(data[2].clone()),&(data[7].clone()));
++    lin_cz(c,&(data[2].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[2].clone()),&(l(bank[0])));
++    lin_cz(c,&(data[7].clone()),&(data[8].clone()));
++    lin_cz(c,&(data[8].clone()),&(l(bank[0])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[5]);
++    let m=c.alloc_bit();c.hmr(bank[4],m);c.push_condition(m);
++    lin_cz(c,&(data[6].clone()),&(l(bank[3])));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[4]);
++    let m=c.alloc_bit();c.hmr(bank[3],m);c.push_condition(m);
++    lin_cz(c,&(data[13].clone()),&(data[14].clone()));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[3]);
++    let m=c.alloc_bit();c.hmr(bank[2],m);c.push_condition(m);
++    lin_cz(c,&(data[1].clone()),&(data[10].clone()));
++    lin_cz(c,&(data[7].clone()),&(data[10].clone()));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[2]);
++    let m=c.alloc_bit();c.hmr(bank[1],m);c.push_condition(m);
++    lin_cz(c,&(data[5].clone()),&(data[14].clone()));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[1]);
++    let m=c.alloc_bit();c.hmr(bank[0],m);c.push_condition(m);
++    lin_cz(c,&(data[1].clone()),&(data[7].clone()));
++    c.pop_condition();c.free_bit(m);c.release_clean(bank[0]);
++}
+diff --git a/src/point_add/toffoli_native_fold.rs b/src/point_add/toffoli_native_fold.rs
+new file mode 100644
+index 00000000..e84d4bfc
+--- /dev/null
++++ b/src/point_add/toffoli_native_fold.rs
+@@ -0,0 +1,120 @@
++//! Research fixture: exhaustive forward-fold low-input domain and measurement phase.
++use super::*;
++use crate::circuit::{analyze_ops, OperationType};
++use crate::sim::Simulator;
++use sha3::digest::XofReader;
++
++struct MeasurementWord {
++    selected: Option<usize>,
++    index: usize,
++}
++impl XofReader for MeasurementWord {
++    fn read(&mut self, output: &mut [u8]) {
++        assert_eq!(output.len(), 8);
++        output.fill(if self.selected == Some(self.index) { 255 } else { 0 });
++        self.index += 1;
++    }
++}
++
++pub(super) fn expected(acc: u64, ev: u64, nv: u64, k1: u64, k2: u64, mw: usize) -> u64 {
++    let c3 = u64::from((acc & 7) + ev >= 8);
++    let c4 = (acc >> 3 & 1) & c3;
++    let r = nv + (acc & 7);
++    let a4 = r & 1;
++    let a5 = (r ^ (r >> 1)) & 1;
++    let a = acc >> 4 & 1;
++    let z = acc >> 5 & 1;
++    let c5 = (a & a4) | (a & c4) | (a4 & c4);
++    let y3 = (k1 | k2) & ((acc >> 3 & 1) ^ c3);
++    let y4 = k2 & (a ^ c4 ^ a4);
++    let y5 = (k1 & k2) & (z ^ c5 ^ a5);
++    let k = r as i128 + 8 * (y3 as i128 + 2*y4 as i128 + 4*y5 as i128 - c3 as i128);
++    assert!((-7..=70).contains(&k));
++    ((acc as i128 + ev as i128 - ((1i128 << 32) + 976)*k) & ((1i128 << mw)-1)) as u64
++}
++
++pub(super) fn run_native(mw: usize, fin: usize, phase_coefficients: bool, inject_fault: bool) -> bool {
++    let mut c = Builder::new();
++    let acc = c.alloc_qubits(mw);
++    let e: [QubitId;3] = c.alloc_qubits(3).try_into().unwrap();
++    let nm: [QubitId;3] = c.alloc_qubits(3).try_into().unwrap();
++    let shift: [QubitId;2] = c.alloc_qubits(2).try_into().unwrap();
++    fold_fwd_v2(&mut c, &acc, e, nm, shift[0], shift[1], fin, None, false, 0);
++    assert_eq!(c.active_qubits() as usize, mw+8, "fixture returns all scratch");
++    let mut ops = c.take_ops();
++    // This roomy fixture has no measurement-conditioned value operations.
++    // Its remaining phase is therefore linear in the measurement outcomes,
++    // so checking zero and every individual coefficient covers all outcomes.
++    let (blocks,linear_ops)=super::toffoli_phase_linear_blocks_v1::check(&ops);
++    eprintln!("TOFFOLI_NATIVE_PHASE_STRUCTURE blocks={blocks} linear_conjugation_ops={linear_ops} conditioned_block_values_identity=true");
++    if inject_fault {
++        // The final low carry's repair is exercised by acc0=E0=1.
++        // The first repair was always zero on the chosen upper payloads;
++        // that ineffective negative control is preserved in the first log.
++        let i = ops.iter().rposition(|o| o.kind == OperationType::CZ).expect("phase repair");
++        ops.remove(i);
++    }
++    let (nq, nb, _, _) = analyze_ops(ops.iter());
++    let measurements = ops.iter().filter(|o| matches!(o.kind, OperationType::Hmr | OperationType::R)).count();
++    let choices: Vec<Option<usize>> = if inject_fault { vec![Some(measurements-1)] } else if phase_coefficients {
++        std::iter::once(None).chain((0..measurements).map(Some)).collect()
++    } else { vec![None, Some(0), Some(measurements/2), Some(measurements-1)] };
++    let mut count = 0usize;
++    let mask = ((1u64 << mw)-1) & !63;
++    let mut high_words = vec![0, mask, 0xAAAA_AAAA_AAAA_AAAA & mask, 0x5555_5555_5555_5555 & mask];
++    for bit in [6,7,9,16,17,31,32,38,39,mw-1] {
++        high_words.extend([1u64 << bit, mask ^ (1u64 << bit), ((1u64 << bit)-1) & mask,
++                           mask & !((1u64 << bit)-1)]);
++    }
++    high_words.sort_unstable(); high_words.dedup();
++    let high_word_count = high_words.len();
++    for selected in choices {
++        let mut xof = MeasurementWord { selected, index:0 };
++        let mut sim = Simulator::new(nq as usize, nb as usize, &mut xof);
++        for &high in &high_words {
++            for base in (0usize..1<<14).step_by(64) {
++                sim.clear_for_shot();
++                for shot in 0..64 {
++                    let raw = (base+shot) as u64;
++                    let value = (raw & 63) | high;
++                    for (i,&q) in acc.iter().enumerate() {
++                        *sim.qubit_mut(q) |= ((value >> i) & 1) << shot;
++                    }
++                    for (i,&q) in e.iter().chain(nm.iter()).chain(shift.iter()).enumerate() {
++                        *sim.qubit_mut(q) |= ((raw >> (i+6)) & 1) << shot;
++                    }
++                }
++                // Each batch independently supplies the selected measurement basis vector.
++                sim.xof.index = 0;
++                sim.apply_iter(ops.iter());
++                if sim.phase != 0 { return false; }
++                for shot in 0..64 {
++                    let raw = (base+shot) as u64;
++                    let want = expected((raw & 63)|high, raw>>6&7, raw>>9&7, raw>>12&1, raw>>13&1, mw);
++                    let got = acc.iter().enumerate().fold(0u64, |v,(i,&q)| v|((sim.qubit(q)>>shot&1)<<i));
++                    if got != want { panic!("native fold mismatch width={mw} fin={fin} raw={raw} high={high:#x} got={got:#x} want={want:#x}"); }
++                    for (i,&q) in e.iter().chain(nm.iter()).chain(shift.iter()).enumerate() {
++                        assert_eq!(sim.qubit(q)>>shot&1, raw>>(i+6)&1, "input passenger changed");
++                    }
++                }
++                for &q in acc.iter().chain(e.iter()).chain(nm.iter()).chain(shift.iter()) { *sim.qubit_mut(q)=0; }
++                assert!(sim.qubits.iter().all(|&v|v==0), "native fold scratch");
++                count += 64;
++            }
++        }
++    }
++    eprintln!("TOFFOLI_NATIVE width={mw} fin={fin} measurements={measurements} high_words={high_word_count} checked_coefficients={phase_coefficients} cases={count} ops={}",ops.len());
++    true
++}
++
++#[test]
++fn toffoli_native_fold_all_inputs() {
++    assert!(run_native(56,0,true,false));
++    assert!(run_native(57,1,false,false));
++    assert!(run_native(56,2,false,false));
++}
++
++#[test]
++fn toffoli_native_fold_detects_phase_fault() {
++    assert!(!run_native(56,0,true,true));
++}
+diff --git a/src/point_add/toffoli_phase_linear_blocks_v1.rs b/src/point_add/toffoli_phase_linear_blocks_v1.rs
+new file mode 100644
+index 00000000..4c943bc1
+--- /dev/null
++++ b/src/point_add/toffoli_phase_linear_blocks_v1.rs
+@@ -0,0 +1,32 @@
++//! Prove conditioned linear conjugations restore values; phase then affine in MR.
++use crate::circuit::{Op,OperationType};
++use std::collections::{BTreeMap,BTreeSet};
++pub(super) fn check(ops:&[Op])->(usize,usize) {
++    let mut depth=0usize;let mut blocks=0usize;let mut linear_ops=0usize;
++    let mut rows:BTreeMap<u64,BTreeSet<u64>>=BTreeMap::new();
++    fn value(rows:&BTreeMap<u64,BTreeSet<u64>>,q:u64)->BTreeSet<u64> {rows.get(&q).cloned().unwrap_or_else(||BTreeSet::from([q]))}
++    for op in ops {
++        match op.kind {
++            OperationType::PushCondition=>{assert_eq!(depth,0,"no multiplied MR conditions");depth=1;rows.clear();continue;},
++            OperationType::PopCondition=>{assert_eq!(depth,1);for (&q,row) in &rows {assert_eq!(row,&BTreeSet::from([q]),"conditioned linear block changes q{q}");}depth=0;blocks+=1;continue;},
++            _=>{}
++        }
++        if depth==1 {
++            assert_eq!(op.c_condition.0,u64::MAX,"no direct/stack condition product");
++            match op.kind {
++                OperationType::CX=>{
++                    let source=value(&rows,op.q_control1.0);let mut target=value(&rows,op.q_target.0);
++                    for bit in source {if !target.insert(bit) {target.remove(&bit);}}
++                    rows.insert(op.q_target.0,target);linear_ops+=1;
++                },
++                OperationType::X=>{let mut target=value(&rows,op.q_target.0);if !target.insert(u64::MAX) {target.remove(&u64::MAX);}rows.insert(op.q_target.0,target);linear_ops+=1;},
++                OperationType::Swap=>{let a=value(&rows,op.q_control1.0);let b=value(&rows,op.q_target.0);rows.insert(op.q_control1.0,b);rows.insert(op.q_target.0,a);linear_ops+=1;},
++                OperationType::Z|OperationType::CZ|OperationType::CCZ|OperationType::Neg=>{},
++                _=>panic!("conditioned nonlinear/nonphase op {:?}",op.kind),
++            }
++        } else if op.c_condition.0!=u64::MAX {
++            assert!(matches!(op.kind,OperationType::Z|OperationType::CZ|OperationType::CCZ|OperationType::Neg),"direct-conditioned value operation {:?}",op.kind);
++        }
++    }
++    assert_eq!(depth,0);(blocks,linear_ops)
++}

@@ -1,0 +1,159 @@
+{
+  "status": "native_changed_carry_cleanup_passed_component_only_current_fullguard_zero",
+  "baseline_revision": "c5bb1ec876db859a3f9f8a9052c140a145df834e",
+  "source_sha256": {
+    "src/point_add/toffoli_carry_cleanup_tests_v1.rs": "4d79c20eaa463800d1ce4ce134921ca4f2ea707228e49d20e250cea081fb07aa",
+    "src/point_add/toffoli_carry_cleanup_v1.rs": "a3de0bf45baa2efd199c1b5d178a4c65f12aab9e0e17dcb9c4a92f5bb4fe6f22",
+    "src/point_add/toffoli_native_fold.rs": "6e0990391fee6a9291e0de96a3a4dcc5207b62d82850de4546a4aa1d4e11785c",
+    "src/point_add/toffoli_phase_linear_blocks_v1.rs": "3e2285edfcdf9affe321f8caf80d91d8febe2014db37ae6e15767945ee1f7d42",
+    "src/point_add/y15_onefold.rs": "efaa53db3f83ed15dd5e5688439f6c246578fde1d061e1ea5838dec9d2bb7b30"
+  },
+  "candidate_patch_sha256": "9bb4b03ab603d93dcf89484335b8fb20d1e63f952fd0b1eb7901235eba85c5bf",
+  "pid": 2533045,
+  "exit": 0,
+  "protected_tracked_changes": [],
+  "phase_fixtures": [
+    {
+      "width": 56,
+      "fin": 0,
+      "measurements": 80,
+      "upper_words": 38,
+      "cases": 50429952,
+      "ops": 5336
+    },
+    {
+      "width": 56,
+      "fin": 0,
+      "measurements": 79,
+      "upper_words": 38,
+      "cases": 49807360,
+      "ops": 5963
+    }
+  ],
+  "paired_cost_fixtures": [
+    {
+      "room": 12,
+      "shots": 49152,
+      "old_emitted": 117,
+      "new_emitted": 116,
+      "old_executed": 4864896,
+      "new_executed": 4815744,
+      "old_peak": 1251,
+      "new_peak": 1251,
+      "hits": 1
+    },
+    {
+      "room": 14,
+      "shots": 49152,
+      "old_emitted": 115,
+      "new_emitted": 114,
+      "old_executed": 4821888,
+      "new_executed": 4772736,
+      "old_peak": 1251,
+      "new_peak": 1251,
+      "hits": 1
+    },
+    {
+      "room": 18,
+      "shots": 49152,
+      "old_emitted": 111,
+      "new_emitted": 110,
+      "old_executed": 4712064,
+      "new_executed": 4662912,
+      "old_peak": 1251,
+      "new_peak": 1251,
+      "hits": 1
+    },
+    {
+      "room": 26,
+      "shots": 49152,
+      "old_emitted": 103,
+      "new_emitted": 102,
+      "old_executed": 4521984,
+      "new_executed": 4472832,
+      "old_peak": 1251,
+      "new_peak": 1251,
+      "hits": 1
+    },
+    {
+      "room": 36,
+      "shots": 49152,
+      "old_emitted": 93,
+      "new_emitted": 92,
+      "old_executed": 4276224,
+      "new_executed": 4227072,
+      "old_peak": 1251,
+      "new_peak": 1251,
+      "hits": 1
+    },
+    {
+      "room": 45,
+      "shots": 49152,
+      "old_emitted": 84,
+      "new_emitted": 83,
+      "old_executed": 4055040,
+      "new_executed": 4005888,
+      "old_peak": 1251,
+      "new_peak": 1251,
+      "hits": 1
+    },
+    {
+      "room": 50,
+      "shots": 49152,
+      "old_emitted": 81,
+      "new_emitted": 80,
+      "old_executed": 3981312,
+      "new_executed": 3932160,
+      "old_peak": 1249,
+      "new_peak": 1249,
+      "hits": 1
+    }
+  ],
+  "total_positive_native_cases": 100925440,
+  "phase_structure": "No nested/direct multipliedMR guards; each conditioned linear block independently restores all symbolicqubits, so its phase is affineinMR. Zeroand everyMR coefficient checked for both tested38upperword layouts.",
+  "fault_control": "Removed finalCZ detected innew cleanup fixture; negative testpassed.",
+  "test_seconds": 38.68,
+  "wall_seconds": 128.8,
+  "peak_rss_KiB": 1195984,
+  "hashes": {
+    "run.log": "0c203c4a2fa5d9aaba315f978a95ca341c49fda46a2587b3b65e9af3cb0834d0",
+    "settings.txt": "4bf19ed82709d7301aee81d42a43c596839162bcfedd627812eb29fc49c0dccb",
+    "test-binary.sha256": "c468ce5870bc7fc6174dbdc39f1776e3927768ff506568317e6e46e2a6960a48",
+    "receipt/receipt.json": "06697eff7f9fed3e91dcc3479d708d39c6a65f8487257e14fb6d00946167b46c"
+  },
+  "failed_versions": [
+    {
+      "version": "v1",
+      "status": "compile_only_QubitId_hash_assertion_failed",
+      "exit": 101,
+      "pid": 2516574,
+      "source_sha256": {
+        "src/point_add/toffoli_carry_cleanup_tests_v1.rs": "0bb515eaa0f10c16aa07a815be3ba79b435b97fb168260402c321482009a4d5d",
+        "src/point_add/toffoli_carry_cleanup_v1.rs": "a3de0bf45baa2efd199c1b5d178a4c65f12aab9e0e17dcb9c4a92f5bb4fe6f22",
+        "src/point_add/toffoli_native_fold.rs": "1a3b12ded78cf0507489c66f538c9cefc844c71d0a2d66ba8a273798f481b4e4",
+        "src/point_add/y15_onefold.rs": "60850ae813ad9c20ee20ec2d39b1d6f95bbb91bcb40601b5f72f6bc01eb5fea5"
+      },
+      "candidate_patch_sha256": "66e0ef7127ee9d6d0c6ac0e9acae6cce0fd18304e223c3b00b55baa6db5ec0bb",
+      "log_sha256": "c7e0237daea0b565dc0c1455b820e690b288546f2d02613692bb66ac39fe7d9e",
+      "all_inputs_or_all_measurements_passed": false
+    },
+    {
+      "version": "v1r1",
+      "status": "fixture_phase_structure_and_unmatched_rng_cost_assertions_failed",
+      "exit": 101,
+      "pid": 2519574,
+      "source_sha256": {
+        "src/point_add/toffoli_carry_cleanup_tests_v1.rs": "0bb515eaa0f10c16aa07a815be3ba79b435b97fb168260402c321482009a4d5d",
+        "src/point_add/toffoli_carry_cleanup_v1.rs": "a3de0bf45baa2efd199c1b5d178a4c65f12aab9e0e17dcb9c4a92f5bb4fe6f22",
+        "src/point_add/toffoli_native_fold.rs": "1a3b12ded78cf0507489c66f538c9cefc844c71d0a2d66ba8a273798f481b4e4",
+        "src/point_add/y15_onefold.rs": "7aa6232013c934c3e77cc83369c12519fdf9d8f35502e988e2e83d51f7e8f385"
+      },
+      "candidate_patch_sha256": "16f1c9abc2f32e579d2121c43c3e0671addc4e57f308b6013688cd1a7b9a1d1a",
+      "log_sha256": "2b46f6fbf66ef4b8dc66b92bb712bcb6afd88bfc70c04c8aecf1fb9b771ac6c6",
+      "all_inputs_or_all_measurements_passed": false
+    }
+  ],
+  "fullrecord": null,
+  "current_c5_fullguard_occurrences": 0,
+  "limits": "OneANDsaving is only per guarded component relativeto shippedloan. Testedupperwords do not alone prove everyupperinput. Independent low-domain polynomial/rebase identity appliesat its explicitbank boundary; expandedearlyloan changesladderplans and needsproducer/completequalification. No fullresource record fromthis fixture."
+}

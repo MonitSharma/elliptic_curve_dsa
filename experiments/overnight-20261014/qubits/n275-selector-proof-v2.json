@@ -1,0 +1,101 @@
+{
+  "scope": "Source-bound finite predicates only; determinant and source lower-envelope admission are separate assumptions, not full circuit proof",
+  "source_sha256": "0d9d7e4e6a0fef834e52e05cf090ba55205d1dcca5fbfaca6c41b3dc35b7363a",
+  "SY_admitted": 128,
+  "SY_full_words_checked": 256,
+  "small_cubes": [
+    [
+      127,
+      1
+    ],
+    [
+      126,
+      2
+    ],
+    [
+      124,
+      4
+    ],
+    [
+      120,
+      8
+    ],
+    [
+      112,
+      16
+    ],
+    [
+      96,
+      32
+    ],
+    [
+      96,
+      64
+    ],
+    [
+      127,
+      96
+    ]
+  ],
+  "large_cubes": [
+    [
+      127,
+      0
+    ],
+    [
+      127,
+      97
+    ],
+    [
+      126,
+      98
+    ],
+    [
+      124,
+      100
+    ],
+    [
+      120,
+      104
+    ],
+    [
+      112,
+      112
+    ]
+  ],
+  "SZ_admitted_sizes_checked": 60,
+  "SZ_low_words_checked": 64,
+  "SZ_SY_admitted_pairs_checked": 1424,
+  "max_parked_index_small_SY_QB24": 119,
+  "Q120_127_clean_under_admitted_bounds": true,
+  "high6_cubes": [
+    [
+      63,
+      37
+    ],
+    [
+      62,
+      38
+    ],
+    [
+      56,
+      40
+    ],
+    [
+      48,
+      48
+    ]
+  ],
+  "high7_cubes": [
+    [
+      32,
+      0
+    ],
+    [
+      63,
+      32
+    ]
+  ],
+  "inactive_case": "Disjoint selectors may alias high SY bits; act separately prevents window changes. Care/normalization inverse restores arbitrary inactive words, as native unitary fixtures check.",
+  "status": "pass"
+}

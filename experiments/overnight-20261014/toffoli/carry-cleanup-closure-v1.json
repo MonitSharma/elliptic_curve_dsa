@@ -1,0 +1,1023 @@
+{
+  "status": "changed_consumer_carry_phase_interfaces_computed",
+  "source_lf_sha256": "879b85060f6a5cfa412561d64860f1cab697f7a334f180f5be9102070d5a23b9",
+  "netlist_sha256": "d6bf2410418bd8707d5768ca274ba74ce79c7e5964189605bdb2b33d22977b85",
+  "domain_rows": 16384,
+  "cases": [
+    {
+      "status": "free_quadratic_cleanup_basis_found",
+      "initial_rank": 15,
+      "interface_rank": 45,
+      "closed_rank": 45,
+      "initial_original_masks": [
+        1,
+        130,
+        33028,
+        98824,
+        229392,
+        263202,
+        34868294,
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096,
+        8192,
+        16384
+      ],
+      "chain": [
+        {
+          "original_affine_mask": 32896,
+          "quadratic_mask": 524288,
+          "pair_basis_rank": 15
+        },
+        {
+          "original_affine_mask": 16777216,
+          "quadratic_mask": 295147905179352825856,
+          "pair_basis_rank": 15
+        },
+        {
+          "original_affine_mask": 1048576,
+          "quadratic_mask": 604462909807314591547392,
+          "pair_basis_rank": 15
+        },
+        {
+          "original_affine_mask": 524288,
+          "quadratic_mask": 20282409603651670423947251286016,
+          "pair_basis_rank": 15
+        },
+        {
+          "original_affine_mask": 67108864,
+          "quadratic_mask": 20282409603651670423947251286016,
+          "pair_basis_rank": 19
+        },
+        {
+          "original_affine_mask": 65792,
+          "quadratic_mask": 5316952547958870794956218522379747328,
+          "pair_basis_rank": 19
+        },
+        {
+          "original_affine_mask": 4296048640,
+          "quadratic_mask": 43556309484462969303526130363155932774400,
+          "pair_basis_rank": 19
+        },
+        {
+          "original_affine_mask": 2097152,
+          "quadratic_mask": 446014925570891912889255726867186870332162048,
+          "pair_basis_rank": 19
+        },
+        {
+          "original_affine_mask": 8520192,
+          "quadratic_mask": 6173383272919435174465318388151971685158554827751424,
+          "pair_basis_rank": 23
+        },
+        {
+          "original_affine_mask": 73015560196,
+          "quadratic_mask": 1809251394333168648906449759860737773760308981058144430269269886909519233024,
+          "pair_basis_rank": 23
+        },
+        {
+          "original_affine_mask": 6291456,
+          "quadratic_mask": 3620269635731174836960759561801377967594330215561118284745711478076621193216,
+          "pair_basis_rank": 23
+        },
+        {
+          "original_affine_mask": 8880128,
+          "quadratic_mask": 5862170972592932602883910429310976,
+          "pair_basis_rank": 26
+        },
+        {
+          "original_affine_mask": 206167050244,
+          "quadratic_mask": 44471917715115407612048809792168275371341300802429738948695029879475643407935491500900859024244736,
+          "pair_basis_rank": 26
+        },
+        {
+          "original_affine_mask": 34636802,
+          "quadratic_mask": 2015309933468533592107113306907611397053499093266905514731190392960581632,
+          "pair_basis_rank": 28
+        },
+        {
+          "original_affine_mask": 284393472,
+          "quadratic_mask": 1202453804620494167538923350256129823393363209083260222746098638037863383352407861654622148775065061978917568512,
+          "pair_basis_rank": 28
+        },
+        {
+          "original_affine_mask": 4430301188,
+          "quadratic_mask": 386335266344987369649066139775370697441057583268346357817279048098253201423918246552982750225264956938135797760,
+          "pair_basis_rank": 30
+        },
+        {
+          "original_affine_mask": 552828928,
+          "quadratic_mask": 693167423530203869410075725821876801768855789424153383042509858870599096032107795785889108739747659988755670381449191737108987904,
+          "pair_basis_rank": 30
+        },
+        {
+          "original_affine_mask": 413138944000,
+          "quadratic_mask": 22181357552966519031142813174914167384259382453437475465657016167413784250899191225411763399121342452061234395554964194919897366528,
+          "pair_basis_rank": 30
+        },
+        {
+          "original_affine_mask": 1342177280,
+          "quadratic_mask": 741389694851719673463283711780513934646870109726025886328144954717592370207040196264320663958967420000953820104184612811870465469448192,
+          "pair_basis_rank": 33
+        },
+        {
+          "original_affine_mask": 963700064256,
+          "quadratic_mask": 18730500234940135649174352916056173000944403140340132725703187547248340781678580566904555919955938567324217702967682026517951889478499521099988992,
+          "pair_basis_rank": 33
+        },
+        {
+          "original_affine_mask": 4026531840,
+          "quadratic_mask": 191704115652703960999319868069507310187006287143328070072564203073532391579763400800423201781420109639559065756429142071809400635392,
+          "pair_basis_rank": 35
+        },
+        {
+          "original_affine_mask": 2061585384450,
+          "quadratic_mask": 1652282974896958976926075907552762760382095662754401398040984064249744037958026310466161844890273219002494864974148402439164899716321729736142225408,
+          "pair_basis_rank": 35
+        },
+        {
+          "original_affine_mask": 8591015936,
+          "quadratic_mask": 1471233694549748627515613354483791218981867152515939127953392127186459422015741358180740909624935317504,
+          "pair_basis_rank": 37
+        },
+        {
+          "original_affine_mask": 2199023356934,
+          "quadratic_mask": 57971651016611003134112304549984522707479338254246628882928091097170286980444882639829526492685630430703900326322301660334795819820457554393446744064,
+          "pair_basis_rank": 37
+        },
+        {
+          "original_affine_mask": 107377330180,
+          "quadratic_mask": 2478966285151942628956519189489486682375970835822859612476560862921221892780607279183963640145825216030836818147522522283113680300088595604489349829345891292063585009664,
+          "pair_basis_rank": 37
+        },
+        {
+          "original_affine_mask": 17179869184,
+          "quadratic_mask": 33331636198108863587693547713357018691640057409783431077812943303338693158129106983219771786350667056812588654922935251635133789774809771860963246242870899053541855640682496,
+          "pair_basis_rank": 37
+        },
+        {
+          "original_affine_mask": 4449594675208,
+          "quadratic_mask": 79088922619882795369706996368940777656628649080185037446047396860511635515967492794598162575657590120486005035284771574954267195832934813860930859369549307966906852175918186981113368068354946061303808,
+          "pair_basis_rank": 41
+        },
+        {
+          "original_affine_mask": 13303930787852,
+          "quadratic_mask": 6506528161621192682803510329359411416670922549671334572629950694252372718015996814829665274194629995501456082467164686563804321792949992397428628141818675268437882422517660506663703288883876845216848934510595103006228742144,
+          "pair_basis_rank": 42
+        },
+        {
+          "original_affine_mask": 33582082956302,
+          "quadratic_mask": 117211191215095236007659958953223010686055446458608070063230785202960706030199912998721500216321364259906708337821421156686048520967284074388792170004629520115021124765117277561136131478078451746962132737655342164020941709563585408360513536,
+          "pair_basis_rank": 42
+        },
+        {
+          "original_affine_mask": 37249449237518,
+          "quadratic_mask": 2449460051089241471165111725205595033480410607590049481520124143663016277170396722954184599510011577278880034993583889744713525878772816789631304778388242230683604385178924443555448752038744497043013632,
+          "pair_basis_rank": 44
+        }
+      ],
+      "stages": [
+        {
+          "rank_before": 15,
+          "rank_after": 19,
+          "quadratic_products": 105,
+          "extensions": 4
+        },
+        {
+          "rank_before": 19,
+          "rank_after": 23,
+          "quadratic_products": 171,
+          "extensions": 4
+        },
+        {
+          "rank_before": 23,
+          "rank_after": 26,
+          "quadratic_products": 253,
+          "extensions": 3
+        },
+        {
+          "rank_before": 26,
+          "rank_after": 28,
+          "quadratic_products": 325,
+          "extensions": 2
+        },
+        {
+          "rank_before": 28,
+          "rank_after": 30,
+          "quadratic_products": 378,
+          "extensions": 2
+        },
+        {
+          "rank_before": 30,
+          "rank_after": 33,
+          "quadratic_products": 435,
+          "extensions": 3
+        },
+        {
+          "rank_before": 33,
+          "rank_after": 35,
+          "quadratic_products": 528,
+          "extensions": 2
+        },
+        {
+          "rank_before": 35,
+          "rank_after": 37,
+          "quadratic_products": 595,
+          "extensions": 2
+        },
+        {
+          "rank_before": 37,
+          "rank_after": 41,
+          "quadratic_products": 666,
+          "extensions": 4
+        },
+        {
+          "rank_before": 41,
+          "rank_after": 42,
+          "quadratic_products": 820,
+          "extensions": 1
+        },
+        {
+          "rank_before": 42,
+          "rank_after": 44,
+          "quadratic_products": 861,
+          "extensions": 2
+        },
+        {
+          "rank_before": 44,
+          "rank_after": 45,
+          "quadratic_products": 946,
+          "extensions": 1
+        }
+      ],
+      "all_interface_coordinates_in_closed_basis": [
+        1,
+        130,
+        33156,
+        1082248,
+        16,
+        32,
+        64,
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096,
+        8192,
+        16384,
+        32896,
+        1048832,
+        76579712,
+        262144,
+        131072,
+        4194304,
+        37748736,
+        9470848,
+        65536,
+        268600322,
+        524288,
+        1076889604,
+        580027264,
+        2190640000,
+        9169961856,
+        45140312960,
+        2261120,
+        137439117440,
+        1099511627776,
+        549777834240,
+        19924996,
+        161481216,
+        7140868608,
+        30064771072,
+        97173865474,
+        274878958726,
+        3848320061448,
+        7742240588288,
+        13630637769088,
+        17697459050892
+      ],
+      "fin": 0,
+      "tt_erased": false,
+      "removed_original_gate_indices": [
+        2
+      ],
+      "physical_scope": "non-lean bank; acc3 final and y3+c3 basis; acc4/5 final linear writes; fin>0 low0..2 still original for ordinary low carry rebuild"
+    },
+    {
+      "status": "proper_phase_closed_subspace_obstruction",
+      "initial_rank": 15,
+      "interface_rank": 44,
+      "closed_rank": 23,
+      "initial_original_masks": [
+        1,
+        130,
+        33028,
+        98824,
+        229392,
+        263202,
+        34868294,
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096,
+        8192,
+        16384
+      ],
+      "chain": [
+        {
+          "original_affine_mask": 32896,
+          "quadratic_mask": 524288,
+          "pair_basis_rank": 15
+        },
+        {
+          "original_affine_mask": 16777216,
+          "quadratic_mask": 295147905179352825856,
+          "pair_basis_rank": 15
+        },
+        {
+          "original_affine_mask": 1048576,
+          "quadratic_mask": 604462909807314591547392,
+          "pair_basis_rank": 15
+        },
+        {
+          "original_affine_mask": 65792,
+          "quadratic_mask": 20769504346789367571507956181630976,
+          "pair_basis_rank": 18
+        },
+        {
+          "original_affine_mask": 4296048640,
+          "quadratic_mask": 42535947754438475299891546849915568128,
+          "pair_basis_rank": 18
+        },
+        {
+          "original_affine_mask": 2097152,
+          "quadratic_mask": 217780799206759869007965171322831218147328,
+          "pair_basis_rank": 18
+        },
+        {
+          "original_affine_mask": 73015560196,
+          "quadratic_mask": 205688071212682236444159776640271259097581401606769486481850368,
+          "pair_basis_rank": 21
+        },
+        {
+          "original_affine_mask": 6291456,
+          "quadratic_mask": 437087152360561710826839672808670189860192846777531236335222784,
+          "pair_basis_rank": 21
+        }
+      ],
+      "stages": [
+        {
+          "rank_before": 15,
+          "rank_after": 18,
+          "quadratic_products": 105,
+          "extensions": 3
+        },
+        {
+          "rank_before": 18,
+          "rank_after": 21,
+          "quadratic_products": 153,
+          "extensions": 3
+        },
+        {
+          "rank_before": 21,
+          "rank_after": 23,
+          "quadratic_products": 210,
+          "extensions": 2
+        },
+        {
+          "rank_before": 23,
+          "rank_after": 23,
+          "quadratic_products": 253,
+          "extensions": 0
+        }
+      ],
+      "all_interface_coordinates_in_closed_basis": [
+        1,
+        130,
+        33156,
+        295816,
+        16,
+        32,
+        64,
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096,
+        8192,
+        16384,
+        32896,
+        262400,
+        null,
+        131072,
+        1048576,
+        5242880,
+        null,
+        65536,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        688256,
+        null,
+        null,
+        null,
+        2885636,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "fin": 0,
+      "tt_erased": true,
+      "removed_original_gate_indices": [
+        2,
+        4
+      ],
+      "physical_scope": "non-lean bank; acc3 final and y3+c3 basis; acc4/5 final linear writes; fin>0 low0..2 still original for ordinary low carry rebuild"
+    },
+    {
+      "status": "proper_phase_closed_subspace_obstruction",
+      "initial_rank": 15,
+      "interface_rank": 44,
+      "closed_rank": 24,
+      "initial_original_masks": [
+        1,
+        2,
+        4,
+        8,
+        229392,
+        263202,
+        34868294,
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096,
+        8192,
+        16384
+      ],
+      "chain": [
+        {
+          "original_affine_mask": 32768,
+          "quadratic_mask": 524288,
+          "pair_basis_rank": 15
+        },
+        {
+          "original_affine_mask": 1048576,
+          "quadratic_mask": 4194304,
+          "pair_basis_rank": 15
+        },
+        {
+          "original_affine_mask": 16777216,
+          "quadratic_mask": 295147905179352825856,
+          "pair_basis_rank": 15
+        },
+        {
+          "original_affine_mask": 4294967296,
+          "quadratic_mask": 39614081257132168813960249344,
+          "pair_basis_rank": 15
+        },
+        {
+          "original_affine_mask": 524288,
+          "quadratic_mask": 20282409603651670423947251286016,
+          "pair_basis_rank": 15
+        },
+        {
+          "original_affine_mask": 3145728,
+          "quadratic_mask": 35219000786944,
+          "pair_basis_rank": 20
+        },
+        {
+          "original_affine_mask": 67108864,
+          "quadratic_mask": 2596148429267413814265248164610048,
+          "pair_basis_rank": 20
+        },
+        {
+          "original_affine_mask": 73016543236,
+          "quadratic_mask": 3923284365587979595451015786193988428147662063935166611456,
+          "pair_basis_rank": 22
+        },
+        {
+          "original_affine_mask": 7340032,
+          "quadratic_mask": 12554203470773361527671578846415332908057722520021745270784,
+          "pair_basis_rank": 22
+        }
+      ],
+      "stages": [
+        {
+          "rank_before": 15,
+          "rank_after": 20,
+          "quadratic_products": 105,
+          "extensions": 5
+        },
+        {
+          "rank_before": 20,
+          "rank_after": 22,
+          "quadratic_products": 190,
+          "extensions": 2
+        },
+        {
+          "rank_before": 22,
+          "rank_after": 24,
+          "quadratic_products": 231,
+          "extensions": 2
+        },
+        {
+          "rank_before": 24,
+          "rank_after": 24,
+          "quadratic_products": 276,
+          "extensions": 0
+        }
+      ],
+      "all_interface_coordinates_in_closed_basis": [
+        1,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64,
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096,
+        8192,
+        16384,
+        32768,
+        null,
+        524288,
+        65536,
+        1114112,
+        9437184,
+        null,
+        131072,
+        null,
+        2097152,
+        null,
+        null,
+        null,
+        null,
+        null,
+        262144,
+        null,
+        null,
+        null,
+        5572612,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "fin": 1,
+      "tt_erased": false,
+      "removed_original_gate_indices": [
+        1,
+        2
+      ],
+      "physical_scope": "non-lean bank; acc3 final and y3+c3 basis; acc4/5 final linear writes; fin>0 low0..2 still original for ordinary low carry rebuild"
+    },
+    {
+      "status": "proper_phase_closed_subspace_obstruction",
+      "initial_rank": 15,
+      "interface_rank": 43,
+      "closed_rank": 22,
+      "initial_original_masks": [
+        1,
+        2,
+        4,
+        8,
+        229392,
+        263202,
+        34868294,
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096,
+        8192,
+        16384
+      ],
+      "chain": [
+        {
+          "original_affine_mask": 32768,
+          "quadratic_mask": 524288,
+          "pair_basis_rank": 15
+        },
+        {
+          "original_affine_mask": 1048576,
+          "quadratic_mask": 4194304,
+          "pair_basis_rank": 15
+        },
+        {
+          "original_affine_mask": 16777216,
+          "quadratic_mask": 295147905179352825856,
+          "pair_basis_rank": 15
+        },
+        {
+          "original_affine_mask": 4294967296,
+          "quadratic_mask": 39614081257132168813960249344,
+          "pair_basis_rank": 15
+        },
+        {
+          "original_affine_mask": 3145728,
+          "quadratic_mask": 8813407371264,
+          "pair_basis_rank": 19
+        },
+        {
+          "original_affine_mask": 73016543236,
+          "quadratic_mask": 233863097936027762270686505810487725995254708961280,
+          "pair_basis_rank": 20
+        },
+        {
+          "original_affine_mask": 7340032,
+          "quadratic_mask": 374144419156711147060143317175963360528295864041472,
+          "pair_basis_rank": 20
+        }
+      ],
+      "stages": [
+        {
+          "rank_before": 15,
+          "rank_after": 19,
+          "quadratic_products": 105,
+          "extensions": 4
+        },
+        {
+          "rank_before": 19,
+          "rank_after": 20,
+          "quadratic_products": 171,
+          "extensions": 1
+        },
+        {
+          "rank_before": 20,
+          "rank_after": 22,
+          "quadratic_products": 190,
+          "extensions": 2
+        },
+        {
+          "rank_before": 22,
+          "rank_after": 22,
+          "quadratic_products": 231,
+          "extensions": 0
+        }
+      ],
+      "all_interface_coordinates_in_closed_basis": [
+        1,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64,
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096,
+        8192,
+        16384,
+        32768,
+        null,
+        65536,
+        589824,
+        2621440,
+        null,
+        131072,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        262144,
+        null,
+        null,
+        null,
+        1902596,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "fin": 1,
+      "tt_erased": true,
+      "removed_original_gate_indices": [
+        1,
+        2,
+        4
+      ],
+      "physical_scope": "non-lean bank; acc3 final and y3+c3 basis; acc4/5 final linear writes; fin>0 low0..2 still original for ordinary low carry rebuild"
+    },
+    {
+      "status": "proper_phase_closed_subspace_obstruction",
+      "initial_rank": 15,
+      "interface_rank": 43,
+      "closed_rank": 23,
+      "initial_original_masks": [
+        1,
+        2,
+        4,
+        8,
+        229392,
+        263202,
+        34868294,
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096,
+        8192,
+        16384
+      ],
+      "chain": [
+        {
+          "original_affine_mask": 1048576,
+          "quadratic_mask": 4194304,
+          "pair_basis_rank": 15
+        },
+        {
+          "original_affine_mask": 16777216,
+          "quadratic_mask": 295147905179352825856,
+          "pair_basis_rank": 15
+        },
+        {
+          "original_affine_mask": 4294967296,
+          "quadratic_mask": 39614081257132168813960249344,
+          "pair_basis_rank": 15
+        },
+        {
+          "original_affine_mask": 524288,
+          "quadratic_mask": 20282409603651670423947251286016,
+          "pair_basis_rank": 15
+        },
+        {
+          "original_affine_mask": 3145728,
+          "quadratic_mask": 8804817436672,
+          "pair_basis_rank": 19
+        },
+        {
+          "original_affine_mask": 67108864,
+          "quadratic_mask": 20282409603651670423947251286016,
+          "pair_basis_rank": 19
+        },
+        {
+          "original_affine_mask": 73016543236,
+          "quadratic_mask": 478951624572984857130365963899120035162317592460263424,
+          "pair_basis_rank": 21
+        },
+        {
+          "original_affine_mask": 7340032,
+          "quadratic_mask": 1532495540865888858358347027150313942878710139247919104,
+          "pair_basis_rank": 21
+        }
+      ],
+      "stages": [
+        {
+          "rank_before": 15,
+          "rank_after": 19,
+          "quadratic_products": 105,
+          "extensions": 4
+        },
+        {
+          "rank_before": 19,
+          "rank_after": 21,
+          "quadratic_products": 171,
+          "extensions": 2
+        },
+        {
+          "rank_before": 21,
+          "rank_after": 23,
+          "quadratic_products": 210,
+          "extensions": 2
+        },
+        {
+          "rank_before": 23,
+          "rank_after": 23,
+          "quadratic_products": 253,
+          "extensions": 0
+        }
+      ],
+      "all_interface_coordinates_in_closed_basis": [
+        1,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64,
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096,
+        8192,
+        16384,
+        null,
+        262144,
+        32768,
+        557056,
+        4718592,
+        null,
+        65536,
+        null,
+        1048576,
+        null,
+        null,
+        null,
+        null,
+        null,
+        131072,
+        null,
+        null,
+        null,
+        2787332,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "fin": 2,
+      "tt_erased": false,
+      "removed_original_gate_indices": [
+        0,
+        1,
+        2
+      ],
+      "physical_scope": "non-lean bank; acc3 final and y3+c3 basis; acc4/5 final linear writes; fin>0 low0..2 still original for ordinary low carry rebuild"
+    },
+    {
+      "status": "proper_phase_closed_subspace_obstruction",
+      "initial_rank": 15,
+      "interface_rank": 42,
+      "closed_rank": 21,
+      "initial_original_masks": [
+        1,
+        2,
+        4,
+        8,
+        229392,
+        263202,
+        34868294,
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096,
+        8192,
+        16384
+      ],
+      "chain": [
+        {
+          "original_affine_mask": 1048576,
+          "quadratic_mask": 4194304,
+          "pair_basis_rank": 15
+        },
+        {
+          "original_affine_mask": 16777216,
+          "quadratic_mask": 295147905179352825856,
+          "pair_basis_rank": 15
+        },
+        {
+          "original_affine_mask": 4294967296,
+          "quadratic_mask": 39614081257132168813960249344,
+          "pair_basis_rank": 15
+        },
+        {
+          "original_affine_mask": 3145728,
+          "quadratic_mask": 2203385462784,
+          "pair_basis_rank": 18
+        },
+        {
+          "original_affine_mask": 73016543236,
+          "quadratic_mask": 28556104226718462932736487271474171649361969152,
+          "pair_basis_rank": 19
+        },
+        {
+          "original_affine_mask": 7340032,
+          "quadratic_mask": 45671926166590716193865151059853793263970418688,
+          "pair_basis_rank": 19
+        }
+      ],
+      "stages": [
+        {
+          "rank_before": 15,
+          "rank_after": 18,
+          "quadratic_products": 105,
+          "extensions": 3
+        },
+        {
+          "rank_before": 18,
+          "rank_after": 19,
+          "quadratic_products": 153,
+          "extensions": 1
+        },
+        {
+          "rank_before": 19,
+          "rank_after": 21,
+          "quadratic_products": 171,
+          "extensions": 2
+        },
+        {
+          "rank_before": 21,
+          "rank_after": 21,
+          "quadratic_products": 210,
+          "extensions": 0
+        }
+      ],
+      "all_interface_coordinates_in_closed_basis": [
+        1,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64,
+        128,
+        256,
+        512,
+        1024,
+        2048,
+        4096,
+        8192,
+        16384,
+        null,
+        32768,
+        294912,
+        1310720,
+        null,
+        65536,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        131072,
+        null,
+        null,
+        null,
+        952324,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "fin": 2,
+      "tt_erased": true,
+      "removed_original_gate_indices": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "physical_scope": "non-lean bank; acc3 final and y3+c3 basis; acc4/5 final linear writes; fin>0 low0..2 still original for ordinary low carry rebuild"
+    }
+  ],
+  "seconds": 0.125,
+  "native_verified": false,
+  "limits": "Quadratic phase-span construction on the unrestricted14-input primitive and non-lean bank only. Each constructive basis requires exact physical rebase, every independent measurement coefficient and producer/complete-builder integration. Negative result excludes all-free quadratic erasure within that explicit fixed span, not charged cleanup or all circuit optimizations."
+}

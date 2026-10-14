@@ -1,0 +1,39 @@
+{
+  "collected_at_utc": "2026-10-14T14:02:19.554506+00:00",
+  "checkout": "/home/hclau/ecdsa_research/overnight-20261014/product-old-producer-phase",
+  "baseline_revision": "c5bb1ec876db859a3f9f8a9052c140a145df834e",
+  "candidate_patch_sha256": "095cc221b7bd793f44b1af01cf6cf6983a3f6699daaa1a3d200b16772475bbfc",
+  "source_sha256": {
+    "src/point_add/square.rs": "cbb8554d21d0290d241402a506277ee1990b3cc1aa0c5e6d8c8d616674f4cb02",
+    "src/point_add/tests_positive_bias.rs": "f6eeac66013d5906db1012747043964cb5bb1cfc0eac4f540afd7a81abf7036b",
+    "src/point_add/tests_positive_large.rs": "767b320ba48ad499af9542b5d8ab59040b053180cb99d228234db503593e983d",
+    "src/point_add/tests_positive_phase_polynomial.rs": "330d91852ddc82740ac9bec4b8d8fb94d2ca5c5ca843fd4e56d1fed6123fab98"
+  },
+  "protected_tracked_changes": [],
+  "generated_results_tsv_changed": false,
+  "other_untracked_files": [],
+  "evidence_kind": "research_diagnostic",
+  "status": "completed_diagnostic",
+  "qualified_score": null,
+  "protected_sha256": {
+    "benchmark.sh": "122a65431ad42a1bad5114af9e8f8301fe5cb08c01adaeee00799c9f0d0ed92a",
+    "Cargo.toml": "3c80178b08d29a158abb29a7dcb8eefc67c66f60f2c3bd14483b65eeca0740dc",
+    "Cargo.lock": "42ff16919e551891ad1b21821329b116d133194245a0e0734a33573dfe598e07",
+    "rust-toolchain": "92b454c1ccf330de9b94242f73bc3214370fb420d5152baeec12dc82ceef9dcc",
+    "src/bin/eval_circuit.rs": "b35314bc47a5f8eecbf60459e6c76c9b43aa034eeb9b7ec3421655d74f9e890b",
+    "src/bin/build_circuit.rs": "ac013f1d851156a117c7d41ddb16cb5bb014ed4e6ed4679df143207b46852f33",
+    "src/circuit.rs": "ac2255f6bcb6895c9da2dfe21c3a051a0ef8fc4e0af9598634fec0035dbf35c6",
+    "src/sim.rs": "f0c72f2a280cd68acee1dbf8282098f72d6b3bf4311e0abf96d122fe002256d7",
+    "src/weierstrass_elliptic_curve.rs": "ecfca15ee3b831c243fbea559ff4b8937be47fe591a4f14786ec2b9bfb30bded"
+  },
+  "log": {
+    "path": "/home/hclau/ecdsa_research/overnight-20261014/product-evidence/old-producer-phase/tests.log",
+    "sha256": "6c9ec305a158f5622df166ab8321b4b6a3756dff536313865a3fe0909d084c6f"
+  },
+  "exit_status": 0,
+  "failure_counts": {
+    "classical_mismatches": null,
+    "phase_garbage_batches": null,
+    "ancilla_garbage_batches": null
+  }
+}

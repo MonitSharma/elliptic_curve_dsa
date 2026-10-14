@@ -154,6 +154,17 @@ source model nor those selected paired inputs establishes full equivalence.
 
 ## Reproduction commands
 
+The fourth checkpoint adds a canonical reduced decision-diagram kernel with
+exact live-root collection. It proves all measurement outcomes on the tested
+fixed-input component fixtures: 74 forward/inverse Q693 instances and 116
+N275-v2 instances. Every earlier limited fixture now passes. The kernel's five
+native tests include a separate truth-table oracle, classical snapshot and
+phase faults, and node-budget failure. Source-private proof crates prevent
+cross-checkout build-cache reuse. This finite component evidence does not
+replace the full unchanged official point-addition benchmark, which is active
+for the generated N275-v2 stream. [Proof and reproduction](DECISION_PHASE_PROOF.md),
+[complete source bindings and receipts](decision-phase-proof-receipt.json).
+
 The third checkpoint adds an exact conditional phase checker for all18
 operation types. Each R/HMR receives its own immutable Boolean variable;
 condition snapshots and mutable classical slots retain their exact semantics.
