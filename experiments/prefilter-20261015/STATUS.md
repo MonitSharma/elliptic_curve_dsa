@@ -547,3 +547,13 @@ Frozen268aefe234ede5eaab723e34e214b91f0bd8cac9b0f95d9ee90e3bf3ae8c951d independe
 ## Terminal auditor independent review
 
 Rootaudit-terminal.py SHA70dd1d4378b498600027aefabbe7e170a2c356a9a9571773766aa148d768348e andtest8286d3f1 reviewed onlyfromsource. No materialfindings;23stock adversariallanecontrols and11independentfullsyntheticcontrols PASS, with globalprefixindependentlyenumerated. No productionlogsread orrootfilesedited. [Review](review/terminal-audit-v1/REVIEW.md). Archive `evidence-terminal-review-supplement.tar.gz` SHA0db4231b6b1f9026ec64c2b7963336a559d87ea3b535f7c72091a53d36667420,8files, allmanifestentriesverified.
+
+
+## Deferred-sum integration review correction (terminal negative)
+
+The isolatedCAPI validation remains valid, but root's attempted drop-in integration is rejected. Initialreview checkedcomparison/fallbackReady paths and missed `rail_fast_ffi::rail_flags`, which usesexpected sum inreverse-denominator `model.sub(o.0,e.0)` BEFORE `expected_one`. Rootdisabledvalidationfound81/128first-witness rowdifferences; independentownedreview reproduces81frompreservedfixtures. Allgatesfalse,productionunchanged. [Correctedreview](review/lazy-sum-v1/REVIEW.md); initialincompletereview is explicitlyhistorical. Archive `evidence-lazy-review-negative.tar.gz` preservesmissedconsumer,sources,rowsandcorrectedreceipt. P/A-onlypreparationspeed doesnotestablishthisintegration'sequivalence.
+
+
+## Bounded NUMA affinity comparison (terminal, no robust win)
+
+Immutable disableddispatch binaryfa676f13,FAST_ZERO_DISPATCHabsent,3paired4096-nonce trials4threads,unboundversusnode3CPU+memorybind. All6complete4096rowsets identical; gatesfalse,productionunchanged. Medians17.630565sunboundvs18.275030sbound(3.66%slower); pairedratios1.13697/1.05051/.91739 showmixedresultsunderexistingload. CapturedCPUaffinitymatches54-71/126-143 andboundresidentpages~99.9%node3; separatepolicyprobereportsbind3. [Report](numa-affinity-v1/REPORT.md). Archive `evidence-numa-affinity-supplement.tar.gz` SHA70dd36efc52560664f07fa5d77fd204e7bc072cbdf2f378746a5a5800819acd7,43files/10serverrefs; allmanifestentriesand6rowidentitiesindependentlylocalverified.24576repeatedtimingattempts=4096distincttimingnonces,notoperationalsearch. Four-threadbudgetreleased.

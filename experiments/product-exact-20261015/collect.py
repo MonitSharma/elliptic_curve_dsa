@@ -13,7 +13,7 @@ for p in root.iterdir():
         out=dest/p.name
         if p.stat().st_size>200_000:
             out=out.with_name(out.name+'.gz')
-            with p.open('rb') as inp,gzip.open(out,'wb') as output: shutil.copyfileobj(inp,output)
+            with p.open('rb') as inp,gzip.GzipFile(filename=str(out),mode='wb',mtime=0) as output: shutil.copyfileobj(inp,output)
         else: shutil.copy2(p,out)
 shutil.copytree(root/'analyzer',dest/'analyzer',ignore=shutil.ignore_patterns('target'),dirs_exist_ok=True)
 if (root/'exact-replay').exists():shutil.copytree(root/'exact-replay',dest/'exact-replay',ignore=shutil.ignore_patterns('target'),dirs_exist_ok=True)
@@ -25,7 +25,7 @@ for name in ['follow-chain-20261016','scratch-20261016','scratch-v2-20261016','u
         out=dest/name/p.relative_to(source);out.parent.mkdir(parents=True,exist_ok=True)
         if p.stat().st_size>200_000:
             out=out.with_name(out.name+'.gz')
-            with p.open('rb') as inp,gzip.open(out,'wb') as output:shutil.copyfileobj(inp,output)
+            with p.open('rb') as inp,gzip.GzipFile(filename=str(out),mode='wb',mtime=0) as output:shutil.copyfileobj(inp,output)
         else:shutil.copy2(p,out)
 for name in ['scratch-tool','unfold-tool','flags-tool','flags-four-tool','flags-replay','anchored-replay','guard-cache-tool','guard-cache-bounded-tool','guard-cache-weighted-tool','scoped-cache-tool','scoped-replay','factor-cache-tool','factor-witness-tool','factored-cache-tool','recursive-unfold-tool','recursive-unfold-fast-tool','cache-certificate-tool','cache-certificate-v2-tool']:
     if (root/name).exists():shutil.copytree(root/name,dest/name,ignore=shutil.ignore_patterns('target'),dirs_exist_ok=True)
@@ -68,7 +68,7 @@ for name in ['candidate-split128','candidate-anf512','candidate-final','wide-can
         row['ownership_notice']='Coordinator owns live nonce-only qualification here. Original pre-nonce frozen source/stream is bound by WIDE_COMPOUND_FREEZE.json and WIDE_COMPOUND_SOURCE_FREEZE.json; use the coordinator wide15-record-20261016 archive for final source/stream/score.'
     elif (tree/'ops.bin').exists():row['stream_sha256']=hashlib.sha256((tree/'ops.bin').read_bytes()).hexdigest()
     manifest['all_candidates'][name]=row
-for name in ['product53-frozen-census-20261016','wide43-scratch-20261016','wide-to67-scratch-20261016','product-to67-rank-20261016','repair-cache53-20261016','recursive-unfold-20261016','recursive-unfold-v2-20261016','recursive-unfold-fast-20261016','cache-certificate-20261016','cache-certificate-parallel-20261016','cache-certificate-retry-20261016','cache-certificate-v2-20261016','cache-certificate67-20261016','product-to95-rank-20261016','wide-to95-rank-20261016','rank-source','phasefix-cache67-20261016','wide-to151-rank-20261016','wide-largecaps-20261016','repair53-native-20261016']:
+for name in ['product53-frozen-census-20261016','wide43-scratch-20261016','wide-to67-scratch-20261016','product-to67-rank-20261016','repair-cache53-20261016','recursive-unfold-20261016','recursive-unfold-v2-20261016','recursive-unfold-fast-20261016','cache-certificate-20261016','cache-certificate-parallel-20261016','cache-certificate-retry-20261016','cache-certificate-v2-20261016','cache-certificate67-20261016','product-to95-rank-20261016','wide-to95-rank-20261016','rank-source','phasefix-cache67-20261016','wide-to151-rank-20261016','wide-largecaps-20261016','repair53-native-20261016','repair-to67-rank-20261016','repair53-universal-20261016']:
     source=root/name
     if not source.exists():continue
     for p in source.rglob('*'):
@@ -77,7 +77,7 @@ for name in ['product53-frozen-census-20261016','wide43-scratch-20261016','wide-
         out=dest/name/p.relative_to(source);out.parent.mkdir(parents=True,exist_ok=True)
         if p.stat().st_size>200_000:
             out=out.with_name(out.name+'.gz')
-            with p.open('rb') as inp,gzip.open(out,'wb') as output:shutil.copyfileobj(inp,output)
+            with p.open('rb') as inp,gzip.GzipFile(filename=str(out),mode='wb',mtime=0) as output:shutil.copyfileobj(inp,output)
         else:shutil.copy2(p,out)
 for p in sorted(dest.rglob('*')):
     if p.is_file():manifest['files'][str(p.relative_to(dest))]=hashlib.sha256(p.read_bytes()).hexdigest()

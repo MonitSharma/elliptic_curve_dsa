@@ -1,8 +1,8 @@
 # Public resource frontier
 
-Snapshot analyzed 2026-10-16T04:08:27.183539+08:00 (Singapore time).
+Snapshot analyzed 2026-10-16T05:06:58.185179+08:00 (Singapore time).
 
-[1,571 public submissions](https://api.ecdsa.fail/api/benchmarks/1ffb695a-309b-46b6-a728-2f97d8c7be74/submissions) contain 1,230 eligible records and **50 nondominated resource pairs**.
+[1,572 public submissions](https://api.ecdsa.fail/api/benchmarks/1ffb695a-309b-46b6-a728-2f97d8c7be74/submissions) contain 1,231 eligible records and **51 nondominated resource pairs**.
 
 Accepted and explicitly score-only rejected records qualify; failures and claimed-only metrics do not. This is a dated snapshot, not independent reproduction. Promotion uses the scalar product.
 
@@ -14,6 +14,7 @@ The gold step is the public frontier. The cyan star marks our officially scored 
 
 | Qubits | Rounded mean Toffolis | Product | Submission |
 |---:|---:|---:|---|
+| 677 | 950,615,823 | 643,566,912,171 | [18912d63](https://api.ecdsa.fail/api/submissions/18912d63-9fc8-470d-91af-60a136629ce0) |
 | 678 | 821,185,886 | 556,764,030,708 | [b83078b5](https://api.ecdsa.fail/api/submissions/b83078b5-a62b-4c56-afe1-f982d55b76be) |
 | 680 | 669,414,940 | 455,202,159,200 | [ebf0b736](https://api.ecdsa.fail/api/submissions/ebf0b736-3264-4d35-9159-803349b6d6ac) |
 | 682 | 645,088,611 | 439,950,432,702 | [2c974054](https://api.ecdsa.fail/api/submissions/2c974054-85cf-4a0a-83b7-54ef12e1e579) |

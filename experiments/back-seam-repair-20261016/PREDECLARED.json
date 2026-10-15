@@ -1,0 +1,20 @@
+{
+  "source_revision": "4b2ec52fc55da796aa8f5ef851290297e8706424",
+  "family": "Both source-defined leapfrog::seam_add_reduce calls in the complete point addition, after divide and multiply",
+  "precision_increment": 1,
+  "change": "After the existing overflow HMR, borrow its cleared wire to compute !lower_sum_bit AND classical_cb_bit by classically guarded CX; supply and restore that seed in the existing comparator, and uncompute. Preserve every existing MR, classical write and scope snapshot.",
+  "resource_limit": "delta Toffoli=0, delta physicalQ=0, delta MR=0; only CX/X Clifford operations may be added",
+  "admission": "Both complete actual-final named regions must bind uniquely after unchanged inherited tables and assertions. Exact R5 prefix, low-only middle/high interface, immutable classical source lifetime, scratch cleanliness and full local phase/quantum/classical contracts must be proved. Reject rather than silently omit a site. Preserve all inherited edits and unrelated operations.",
+  "fixed_gate": {
+    "reference": "original public4b, excluding the failed zero-benefit front-seam component",
+    "label": "public4b-both-backseams-classical-borrow20to21-independent-20261016-v1",
+    "first_batch": 0,
+    "batches_per_source": 4096,
+    "shots_per_batch": 64,
+    "workers_per_source": 2,
+    "pass": "candidate failed batches <= reference, candidate expected failed batches per9024 <=18"
+  },
+  "selection": "complete named source family; independent of failed witnesses, census tick selections, official packet or nonce",
+  "nonce_search": false,
+  "submission": false
+}

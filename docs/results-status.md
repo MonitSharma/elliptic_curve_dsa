@@ -1,5 +1,16 @@
 # Results and submission status
 
+**05:09 checkpoint:** best complete queued result remains753721/Q1468.
+The repaired53 candidate passes native tests and its fixed fresh gate, saving
+39.349014T atQ1234 and fixing14value-failing shots with zero regressions in
+2.1million shots/source. Its fresh arithmetic-specific proof/filter qualification
+continues; no full benchmark or nonce is claimed. Product67's102.13839T remains
+qualified but unbenchmarked; product25 search has12,410,880 completed distinct
+nonces in the05:06 snapshot and no pass. Public Q minimum is now677; public
+T/product remain753771/939347948. Queue mode remains in force.
+[Repaired-source checks](../experiments/repair-zero-mr-20261016/STATUS.md) ·
+[Product studies](../experiments/product-exact-20261015/STATUS.md).
+
 **04:40 checkpoint:** product67's universal audit and independent known-bit
 controls now pass, in addition to its native reproduction and fresh failure-rate
 gate. It saves102.13839T diagnostically atQ1234; no complete product benchmark or

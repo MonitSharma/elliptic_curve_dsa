@@ -8,7 +8,9 @@ expected={
  'mask-lazy-supplement':'1bf8fcce985e741ad156b5fbc6e324d3b6736acf4716e1d4f0f8c4ea3115cdfa',
  'candidate67-controls':'8433b1dd26f914e5eafdb0498c4537f939c1bfa3ab764ba0ec1e46c86495808b',
  'scalar-split-supplement':'9eddecdeb5f77498e73500a12a5f5160cf46d9502b498bbac0e7470f6fe6a5a4',
- 'terminal-review-supplement':'0db4231b6b1f9026ec64c2b7963336a559d87ea3b535f7c72091a53d36667420'}
+ 'terminal-review-supplement':'0db4231b6b1f9026ec64c2b7963336a559d87ea3b535f7c72091a53d36667420',
+ 'lazy-review-negative':'12e35e90c97626a274c1d064e0377857d4280ad74751350d5e94fd8e40023690',
+ 'numa-affinity-supplement':'70dd36efc52560664f07fa5d77fd204e7bc072cbdf2f378746a5a5800819acd7'}
 result=[]
 for stem,sha in expected.items():
  path=root/f'evidence-{stem}.tar.gz';assert hashlib.sha256(path.read_bytes()).hexdigest()==sha

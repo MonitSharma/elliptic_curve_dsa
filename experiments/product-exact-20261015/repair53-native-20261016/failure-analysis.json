@@ -1,0 +1,48 @@
+{
+  "status": "COMPLETE_FIXED_SAMPLE_DESCRIPTIVE_ANALYSIS",
+  "label": "repair-plus53-frozen-20261016",
+  "parent_sha256": "2a522394cdf3e6a0df7784ad4db761030933c1f7ccd0ff8e641d68ec7a4dab3e",
+  "candidate_sha256": "13d1f7341415847c50e94de8fd835ee24ed7b7acc44d9adf66e59afe727abaae",
+  "all_rows_included": true,
+  "categories": {
+    "all": {
+      "parent_failed_batches": 4185,
+      "candidate_failed_batches": 4141,
+      "parent_only_failed_batches": 286,
+      "candidate_only_failed_batches": 242,
+      "paired_failed_batches_per_packet_reduction": 0.1893310546875,
+      "paired_reduction_standard_error": 0.09887089516347869
+    },
+    "value": {
+      "parent_failed_batches": 3388,
+      "candidate_failed_batches": 3376,
+      "parent_only_failed_batches": 12,
+      "candidate_only_failed_batches": 0,
+      "paired_failed_batches_per_packet_reduction": 0.0516357421875,
+      "paired_reduction_standard_error": 0.014903452624482673,
+      "parent_failed_shots": 3553,
+      "candidate_failed_shots": 3539
+    },
+    "phase": {
+      "parent_failed_batches": 2559,
+      "candidate_failed_batches": 2561,
+      "parent_only_failed_batches": 1100,
+      "candidate_only_failed_batches": 1102,
+      "paired_failed_batches_per_packet_reduction": -0.00860595703125,
+      "paired_reduction_standard_error": 0.2019223769260591,
+      "parent_failed_shots": 2649,
+      "candidate_failed_shots": 2653
+    },
+    "dirty": {
+      "parent_failed_batches": 0,
+      "candidate_failed_batches": 0,
+      "parent_only_failed_batches": 0,
+      "candidate_only_failed_batches": 0,
+      "paired_failed_batches_per_packet_reduction": 0.0,
+      "paired_reduction_standard_error": 0.0,
+      "parent_failed_shots": 0,
+      "candidate_failed_shots": 0
+    }
+  },
+  "interpretation": "Descriptive finite fixed sample. Exact caches preserve the repair-parent function under an original-MR projection, but these source replays use their own sequential MR coupling. Category and phase differences do not by themselves identify a corrected failure source or establish a universal failure-rate reduction. No resampling, sample extension, endpoint selection or nonce work follows this analysis."
+}

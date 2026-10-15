@@ -1,0 +1,23 @@
+SLICE_RNG_OBLIGATIONS input_ops=19 live_HMR_definitions=1 sample=[(6, 2)]
+SLICE before=19 after=10 outputs=registers0and1 prune_scopes=true
+SLICE_RNG_OBLIGATIONS input_ops=19 live_HMR_definitions=1 sample=[(6, 2)]
+SLICE before=19 after=13 outputs=registers0and1 prune_scopes=false
+SPECIALIZED unconditional_ops=1
+SLICE_FIXTURES assignments=512 quantum_and_classical_inputs=8 nested_guard_snapshot=true overwrite_kills=true dead_scope=true negative_live_gate_removal=true
+COMPACT ops=11635508 bytes=186168128 rng_words=906214
+STATIC_ZERO original_ops=11635508 value_ops=9066219
+SLICE_RNG_OBLIGATIONS input_ops=11635508 live_HMR_definitions=23093 sample=[(11633897, 773), (11628862, 768), (11621032, 768), (11620882, 768), (11620836, 768), (11616724, 685), (11566319, 769), (11501805, 684), (11487238, 684), (11472671, 684), (11458079, 684), (11443487, 684), (11428882, 684), (11414350, 684), (11399905, 684), (11385538, 684), (11371258, 684), (11356934, 684), (11342698, 684), (11328563, 684), (11314539, 684), (11300626, 684), (11286800, 684), (11273061, 684)]
+SLICE before=11635508 after=9920930 outputs=registers0and1 prune_scopes=true
+FULL_UNSIMPLIFIED_LIVENESS coordinate_cone_ops=9920930
+SLICE_RNG_OBLIGATIONS input_ops=9066219 live_HMR_definitions=71 sample=[(7017307, 699), (6997393, 699), (6977607, 699), (6958035, 703), (6938897, 703), (6919878, 703), (6900946, 703), (6882123, 703), (6863409, 703), (6844802, 703), (6826309, 703), (6807947, 703), (6789672, 703), (6771503, 703), (6753447, 703), (6735533, 703), (6717769, 703), (6700383, 697), (6682513, 697), (6664928, 697), (6647330, 701), (6647225, 697), (6629721, 701), (6629616, 697)]
+SLICE before=9066219 after=7947938 outputs=registers0and1 prune_scopes=true
+SLICE_RNG_OBLIGATIONS input_ops=9066219 live_HMR_definitions=7920 sample=[(9064839, 773), (9060354, 768), (9059106, 768), (9052910, 768), (9052870, 768), (9052841, 768), (9052834, 768), (9052808, 685), (9027821, 769), (8993315, 684), (8980897, 684), (8968479, 684), (8956061, 684), (8943642, 684), (8931290, 684), (8919002, 684), (8906789, 684), (8894645, 684), (8882576, 684), (8870579, 684), (8858658, 684), (8846824, 684), (8835087, 684), (8823447, 684)]
+SLICE before=9066219 after=8265428 outputs=registers0and1 prune_scopes=false
+SPECIALIZED unconditional_ops=7849079
+SLICE_VERIFIED shots=512 output_registers0and1=true phase_not_queried=true rejection_disabled=true
+ZERO_VALUE_VERIFIED shots=512 qubits=1234 bits=45701 full_and_simplified_all_qubit_classical_words=true phase_not_queried=true rejection_disabled=true
+ZERO_BENCH mode=full times=[0.039548436, 0.051833108, 0.051598324, 0.051814902, 0.051604723, 0.051810472, 0.051815858] best_ms_per_batch=4.943555
+ZERO_BENCH mode=static_simplified times=[0.034553635, 0.028726634, 0.02875346, 0.028796073, 0.028725955, 0.028733342, 0.028639065] best_ms_per_batch=3.579883
+ZERO_BENCH mode=all_scopes_slice times=[0.02562811, 0.025724504, 0.02575844, 0.025697176, 0.025663959, 0.027632166, 0.025704904] best_ms_per_batch=3.203514
+ZERO_BENCH mode=output_slice times=[0.024780542, 0.024603403, 0.024642545, 0.024650307, 0.024585004, 0.024596959, 0.024617381] best_ms_per_batch=3.073126
+ZERO_BENCH mode=specialized_slice times=[0.02660899, 0.026608679, 0.026522303, 0.026576278, 0.026654432, 0.026580869, 0.02651816] best_ms_per_batch=3.314770

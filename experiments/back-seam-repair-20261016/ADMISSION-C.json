@@ -1,0 +1,6 @@
+{
+  "reason": "Admission B correctly rejected temporary writes to overflow in the actual middle. Preserve that negative. Replace the no-write condition only by an exact universal value-interface proof, not by an assumed cancellation.",
+  "middle_proof": "Run the complete actual middle on an exact XOR-normalized immutable expression DAG with arbitrary entry quantum/classical values, fresh variable for every physical R/HMR, and value-snapshot Push/Pop semantics. Admit only if every protected next-low/high sum bit235..255 and overflow ends exactly equal to its own entry expression. No clean scratch assumptions, no value-only rewrite shortcuts, no unproved unknown treated as zero; unresolved means rejection.",
+  "unchanged_obligations": "Exact complete R5/source prefix, uniquely bound complete helper/suffix, unchanged classical cb lifetime and loads, scratch-zero entry, universal local phase proof, original tables/assertions retained; both source sites mandatory",
+  "selection": "same source family/precision and same fixed fresh gate; no sample-dependent selection"
+}

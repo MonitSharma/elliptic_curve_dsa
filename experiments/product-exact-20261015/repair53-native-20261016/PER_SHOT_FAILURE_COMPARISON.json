@@ -1,0 +1,39 @@
+{
+  "status": "COMPLETE_FIXED_SAMPLE_EXACT_FAILURE_LANE_COMPARISON",
+  "label": "repair-plus53-frozen-20261016",
+  "parent_rows_sha256": "962487d42d635c08e9b077aac16da353e29993079de723c13df28d1cb28c1d2a",
+  "candidate_rows_sha256": "0a56a8f19fea4a1d0716e2f544576521569a9a8517813c90e5957b419751f27f",
+  "batches_each": 32768,
+  "shots_each": 2097152,
+  "categories": {
+    "all": {
+      "parent_failed_shots": 4434,
+      "candidate_failed_shots": 4390,
+      "parent_only_failed_shots": 322,
+      "candidate_only_failed_shots": 278,
+      "same_failure_lanes": 4112
+    },
+    "value": {
+      "parent_failed_shots": 3553,
+      "candidate_failed_shots": 3539,
+      "parent_only_failed_shots": 14,
+      "candidate_only_failed_shots": 0,
+      "same_failure_lanes": 3539
+    },
+    "phase": {
+      "parent_failed_shots": 2649,
+      "candidate_failed_shots": 2653,
+      "parent_only_failed_shots": 1189,
+      "candidate_only_failed_shots": 1193,
+      "same_failure_lanes": 1460
+    },
+    "dirty": {
+      "parent_failed_shots": 0,
+      "candidate_failed_shots": 0,
+      "parent_only_failed_shots": 0,
+      "candidate_only_failed_shots": 0,
+      "same_failure_lanes": 0
+    }
+  },
+  "scope": "All declared rows and lanes, not selected witnesses. Scalar equality checked on every commonly failing lane. Fresh source replays have different sequential MR coupling, so phase/overall lane changes are descriptive. No source changes, extra sampling or nonce work."
+}

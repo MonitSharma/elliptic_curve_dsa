@@ -1,0 +1,8 @@
+{
+  "status": "PREDECLARED_DISTINCT_READ_ONLY_FACTOR_PAIR_CENSUS",
+  "sources": ["original4b", "product25", "product67", "public5a"],
+  "query": "Two CCX on same target sharing one unchanged control, both outside Push scopes, same unchanged explicit classical guard; earlier other control unchanged; no intervening target read/reset/swap/phase",
+  "theorem": "Earlier ab XOR into t commutes to later ac XOR because a,b unchanged and t unread. CX(b,c); CCX(a,c,t); CX(b,c) at the later gate realizes a(b XOR c) with arbitrary dirty c; no extra qubits/MR. Equal other controls cancel entirely.",
+  "counts": "Potential pairs can overlap; separate greedy disjoint intervals are reported, neither is a scored result",
+  "resources": "onecore less than4GiB, no candidate mutation, no packet data or nonce"
+}

@@ -1,0 +1,9 @@
+{
+  "status": "PREDECLARED_SOURCE_ONLY_PHYSICAL_COMMON_CONTROL_CENSUS",
+  "sources": ["original4b", "product25", "product67", "public5a"],
+  "query": "Consecutive CCX groups with identical unordered controls and unchanged explicit classical guard; no intervening operation or scope mutation",
+  "possible_exact_replacement": "Borrow an arbitrary existing donor absent from controls/targets; two guarded CCX and two guarded CX fanouts replace n>=3 guarded CCX",
+  "theorem": "For fixed captured active predicate g, donor D becomes D XOR gAB; first guarded fanout gives gD XOR gAB, uncompute restores D, second guarded fanout cancels gD. Every target receives gAB, for all original data and phases; no MR changes.",
+  "resources": "onecore, less than3GiB, read-only immutable streams; no candidate or nonce search",
+  "next_gate": "Only a positive source count justifies native primitive proof/source transformation; weighted fair-guard estimates are diagnostic only"
+}

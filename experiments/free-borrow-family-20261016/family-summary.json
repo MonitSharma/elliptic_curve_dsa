@@ -1,0 +1,52 @@
+{
+  "raw_identity_verified": true,
+  "raw_sha256": "ff5163962ff5337753235d79f4026893e35b0445ae7406bf03be76d8a3d27a69",
+  "queries": 2605,
+  "counts": {
+    "ordinary_chunk": 2093,
+    "TOP1": 512
+  },
+  "existing_seed_equals_next_lower_source_count": 2468,
+  "distinct_source_low1_low2_and_accumulator": true,
+  "lower_source_classifications": {
+    "unknown": 9872
+  },
+  "lower_accumulator_classifications": {
+    "unknown": 9872
+  },
+  "no_positive_constant_or_classical_lower_bit_certificates": true,
+  "unknown_is_not_nonclassical_proof": true,
+  "retaining_seed_while_widening_is_redundant": "MAJ(!a,b,b)=b",
+  "moving_seed_to_next_position_generically_nonlinear": true,
+  "semantics": "source-wide gate-inert diagnostic; no candidate source change, no finite inference elevated to proof",
+  "seams": [
+    {
+      "raw_op": 63593,
+      "q": 767,
+      "measurement_bit": 1574,
+      "source_line": 3983,
+      "family": "front classical"
+    },
+    {
+      "raw_op": 5392157,
+      "q": 50,
+      "measurement_bit": 691,
+      "source_line": 4101,
+      "family": "back classical"
+    },
+    {
+      "raw_op": 5892145,
+      "q": 783,
+      "measurement_bit": 1099,
+      "source_line": 4050,
+      "family": "T6 quantum"
+    },
+    {
+      "raw_op": 11255695,
+      "q": 50,
+      "measurement_bit": 768,
+      "source_line": 4101,
+      "family": "back classical"
+    }
+  ]
+}

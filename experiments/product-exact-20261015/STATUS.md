@@ -1,6 +1,6 @@
 # Exact product savings, 15 October 2026
 
-**Latest complete native/fresh-census result: 102.13839293 ± 0.44366693
+**Best complete exact-cache native/fresh-census result: 102.13839293 ± 0.44366693
 executed Toffolis saved per shot at unchanged Q1234**, on frozen67 stages.
 The coordinator's4 source-binding tests, normal generation and complete byte
 identity pass. Its full predeclared32,768-batch /2,097,152-shot census per source
@@ -388,9 +388,24 @@ are reused. Its final53 source now passes all512 anchored state/classical/
 phase/scratch comparisons against the repair parent, saving82.5390625 T on
 both fixed packets at Q1234 with63,095 classical slots. Its frozen stream is
 `13d1f7341415847c50e94de8fd835ee24ed7b7acc44d9adf66e59afe727abaae`;
-see `REPAIR53_FREEZE.json`. Normal native source admission/build is running.
-Its separate final32768-batch gate remains pending and compares
-against original4b, not only against the repair source. No nonce work follows
+see `REPAIR53_FREEZE.json`. Normal native generation is fully byte-identical;
+all18 loader/precision admission tests pass and every protected file is unchanged.
+The full point_add source archive and native receipt are preserved under
+`repair53-native-20261016`. Its separate final32768-batch gate is complete and
+PASSES against original4b: original4185 bad batches (18.00796509 per packet),
+candidate4141 (17.81863403), dirty0, net39.34901428 +/-0.50902702 T saved at Q1234.
+All2,097,152 shots/source and every declared batch are retained; see
+`repair53-census-summary.json`. Native receipt SHA256 is
+`27d04e4a54cf2c0139c57deb52703bb8f213a83d64fa3c05df45252ba921e644`;
+the full point_add source archive SHA256 is
+`ae16455aa839274355e0630870f92fc1aed10a24e7a6ee55bc09212aa7aaf890`.
+All-row analysis finds12 fewer value-failed batches and14 fewer value-failed
+shots, with0 newly value-failing batches. The overall paired per-packet
+reduction is0.189331 +/-0.098871 SEM, while phase-only differences are noisy.
+This is not the roughly1.1 unknown-floor solution. The arithmetic-changing
+repair cannot inherit the original4b value-mask model; its own source-bound
+model/proof is required before fast search. No nonce search or full official
+benchmark is claimed. No nonce work follows
 from the repair-alone result or from checkpoint diagnostics.
 
 The repaired-source checkpoint25 now passes all512 anchored full state/phase/
@@ -430,9 +445,13 @@ candidate1351 bad batches (5.81332397 per packet), versus original1335
 (5.74447632), dirty0. See `wide67-census-summary.json` and the coordinator's
 `wide67-native-20261016` full source/rows archive. No nonce search, resampling,
 earlier-checkpoint selection or resource record follows this failed gate.
-A separately predeclared four ranked7-stage
-cycles67→95 now runs on the existing scratch, using compact classical flags,
-with no further quantum slots offered. It leaves frozen67 untouched.
+A separately predeclared four ranked7-stage cycles67→95 is now terminal with
+all512 replay comparisons passing, saving66.94921875 T on each fixed packet.
+It uses existing Q1556 scratch with6,178 classical slots and10,548,147 ops.
+The stream SHA256 is
+`7c0ac9588dbf3aa90967315923778c9b3ccb954aae34bb71fc6c7bb970523109`;
+see `WIDE95_FREEZE.json`. Native/fresh qualification remains pending.
+Frozen67 is unchanged.
 
 The product67 universal append audit passed the same frozen v2 verifier on all
 42 stages26..67, composing with the immutable complete25 certificate. Its
@@ -465,4 +484,26 @@ same frozen wide95 source, each offering64 fresh quantum slots, pair256,
 product1M and density rank. Each uses one24GiB worker sequentially, with a
 fixed2-hour generation bound. The two sole final endpoints each have a distinct
 predeclared32768-batch original5a fresh gate after native full-byte identity.
+The cap2048 generation succeeds in4m30.89s with18.10GiB peak RSS, and all512
+replay comparisons pass at67.94921875 T saved on each packet. Actual emitted
+resources are Q1560/classical6229/10,548,555 ops; allocator width1620 is offered
+capacity, not the observed maximum. The stream is
+`f84c499f7c085847355cd8d5db8154fce8f66d7da99a1f99f871d2125232ebfb`;
+see `WIDE95_PLUS_CAP2048_FREEZE.json`. Native/fresh qualification is pending.
+The independent cap4096 case fails its declared24GiB address bound after
+3m28.50s (peak23.76GiB RSS), with allocation failure/signal6/return134, before
+emitting a candidate. Both cases and the negative log are preserved. No retry
+with changed limits is part of this plan. The executable and complete allocator
+source hashes are fixed in `wide-largecaps-20261016/DECLARATION.json`.
 No earlier checkpoint selection or nonce work is authorized by these probes.
+
+After the full repaired53 qualification was archived, a separately predeclared
+repair53→67 continuation started: exactly two seven-stage source-only rank
+cycles, one20GiB worker, no addedQ, sole final67 endpoint and a new fixed32768
+original4b gate. See `repair-to67-rank-20261016/DECLARATION.json`. All new leases
+are derived from that frozen corrected source; no source/packet tuning.
+The separate all53-stage universal audit now runs RELATIVE TO A29 source
+`1cd3457b...`, using the unchanged verifier with2x12GiB caps after the larger-cap
+worker ended. It must pass every source/guard/donor/cleanup/reconstruction
+obligation before any A29-relative conditional mask transfer is claimed.
+No original4b mask theorem is inherited across the arithmetic repair.

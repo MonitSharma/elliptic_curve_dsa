@@ -10,7 +10,7 @@ independent, and existing evidence, including the Q692 width result, is preserve
 
 ## Where we stand
 
-**16 October 2026, 04:40 Singapore — product search is active.** The frozen
+**16 October 2026, 05:09 Singapore — product search is active.** The frozen
 candidate passed its fresh failure-rate, proof and runtime gates. The new
 prefilter clears the measured search-cost gate; nonce screening starts at1,
 selects the lowest pass and remains in queue mode. This is ongoing research,
@@ -44,7 +44,7 @@ The complete scored packet passes; the circuit is not correct on every input.
 
 **Earlier on 15 October 2026 — one new complete local benchmark result: 692 logical qubits.**
 The original bank-swap v2 circuit passed all **9,024 shots**, with zero value,
-phase or ancilla failures. The refreshed public minimum is now **678 qubits**;
+phase or ancilla failures. The refreshed public minimum is now **677 qubits**;
 our preserved local result is no longer below it.
 It is **not an official submission**.
 Its width submission work remains deferred; the newer Toffoli candidate above is separate.
@@ -69,7 +69,7 @@ excluded from these performance figures.
 
 | Objective | Public record | Our result | Next strict target |
 |---|---:|---|---:|
-| **Minimum logical qubits** | 678 | **692 — complete local pass**, not submitted | Q ≤ 677 |
+| **Minimum logical qubits** | 677 | **692 — complete local pass**, not submitted | Q ≤ 676 |
 | **Minimum executed Toffolis** | **753,771 at Q1464 — ours** | **753,721/Q1468 complete local pass**, queued | T ≤ 753,770 |
 | **Minimum Q × T** | 939,347,948 at Q1234/T761,222 | No new qualified record | Q × T ≤ 939,347,947 |
 
@@ -86,9 +86,9 @@ the strict product threshold is **T ≤ 641,631**. At Q1235 it is **T ≤ 760,60
 at Q1234 it is **T ≤ 761,221**. These are independent objectives, using rounded
 mean executed Toffolis rather than emitted gates.
 
-Snapshot: **1,571 public submissions · 1,230 eligible scored records ·
-50 public Pareto points**, analyzed 16 October 2026 at 04:08 Singapore.
-The new width minimum, Q678 (jackylee0424, `b83078b5`), arrived after our
+Snapshot: **1,572 public submissions · 1,231 eligible scored records ·
+51 public Pareto points**, analyzed 16 October 2026 at 05:06 Singapore.
+The new width minimum, Q677 (jackylee0424, `18912d63`), arrived after our
 Toffoli submission.
 [Full frontier and provenance](docs/frontier-results.md) ·
 [Machine-readable records](docs/data/latest-leaderboard.json) ·

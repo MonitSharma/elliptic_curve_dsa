@@ -1,9 +1,43 @@
 # Agent handoff: start here
 
-Last updated 16 October 2026, 04:40 Singapore. This page is for an AI agent (or
+Last updated 16 October 2026, 05:09 Singapore. This page is for an AI agent (or
 person) continuing the work. It holds the current state, the rules, the tools
 and the next steps in order. Details live in the linked reports. Do not copy
 numbers from older reports without checking the date.
+
+**05:09 checkpoint:** public refresh05:06 finds new Q677/T950615823,
+source d9d5e99119f0ef7702f926ff3c70a9d1efd93903, submission18912d63;
+T753771 and product939347948 unchanged. Product25 live snapshot05:06:01
+has12,410,880 complete distinct rows/lower prefix12,345,344, no pass;
+archiveb5e0c504... independently verified. Production workers remain unchanged.
+
+Repaired53 native13d1f734... now PASS18tests/full stream identity;
+170 full source files independently rehashed, protected harness unchanged.
+Its sole fixed32768 paired census passes:4185parent/4141candidate failed
+batches, lambda18.007965/17.818634, zero dirty. Net39.349014±0.509027T
+saved atQ1234. Value failures3553→3539shots,12parent-only batches/zero
+candidate-only; phase/MR coupling remains noisy. No full benchmark or nonce.
+Original4b masks/zeroMR IR are INVALID for its changed arithmetic. Fresh
+A29-relative53 universal audit and A29 mask are active. Root fresh A29 zeroMR
+IRa408f996... passes512protected allq/b+512scope fixtures; no phase/MR
+independence claim. See experiments/repair-zero-mr-20261016/STATUS.md.
+
+The 3390-file product archiveaa137f82... is independently verified, with
+170 native repaired-source files checked separately. Supplementa8fedefb...
+reconstructs all3444 target artifacts exactly from this immutable base, including
+terminal2048/4096 studies. Offered64 scratch capacity yields actualQ1560,
+not1620: cap2048 saves one extra anchoredT beyondwide95; cap4096 terminates
+on its24GiB memory cap. Neither is scored. Repaired67 generation continues.
+
+Both-back-seam zero-cost phase repair has zero effect on its sole4096 census:
+531failures each, lambda18.27905>18; no search/composite. Its521-file and
+free-borrow208-file negative archives independently verified. New Flag12
+one-Toffoli lower-MAJ family has universal local phase/value proofs and12
+wrong-cleanup negatives; native/fresh qualification is active, no result yet.
+Post-cache composition must check added lower reads against donor leases.
+NUMA binding is negative (3.66% slower median); no active affinity changes.
+Two strict dirty-fanout/shared-control source queries find zero eligible sites
+on all4 fixed streams. All such diagnostics stay outside README resource plots.
 
 **04:40 checkpoint:** universal67 certificate303a75ec... nowPASS67stages,
 245820leases/540759uses, same verifier2e9f5ee6... as25. Per-input transferd774c492...,

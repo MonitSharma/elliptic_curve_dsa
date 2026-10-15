@@ -1,5 +1,32 @@
 # Research state and next experiments
 
+## Repaired-source qualification: 16 October 2026, 05:09 Singapore
+
+Repaired53 passes native tests, complete stream identity and its sole32768-batch
+fresh gate atQ1234:39.349014±0.509027T saved versus original4b, failed batches
+4185→4141, zero dirty. It fixes14value-failing shots with no new value failures
+in2,097,152shots/source. This is a small repair, not a demonstrated cure for the
+unexplained failure floor. Its changed arithmetic requires a fresh A29 mask,
+fresh zeroMR value function and A29-relative cache audit. The latter two proof
+streams are in progress; the new value-function component is complete and
+passes512protected allq/b checks plus512scope fixtures. No nonce/full benchmark
+has been run for repaired53.
+
+Product25 search remains unchanged:05:06 checkpoint12,410,880 distinct rows,
+no pass. Product67's102.13839T/Q1234 qualification remains available. The new
+Flag12 complete source family adds six expectedT without qubits and passes
+universal local measurement/phase cleanup proofs; its first native/fresh gate
+is pending. Composition with existing caches must include all newly read lower
+operand wires and donor leases, beyond matching the old wrapper bytes.
+
+Both back-seam zero-cost repair is a terminal negative: all fresh outcomes are
+identical and lambda18.27905 exceeds the cap. NUMA binding gives no robust speed
+gain. Two strict common-control/fanout source scans find no sites in4 frozen
+streams. Larger retained-ANF cap2048 adds one anchoredT saving at actualQ1560;
+cap4096 reaches its24GiB resource limit. Preserve all negatives without changing
+fixed samples or production runtime. Public05:06 refresh finds Q677; T/product
+records stay753771/939347948. Best complete queued result stays753721/Q1468.
+
 ## Universal67 complete; runtime follow-ups: 16 October 2026, 04:40 Singapore
 
 The 102.13839T/Q1234 product candidate now has a complete universal67 cache

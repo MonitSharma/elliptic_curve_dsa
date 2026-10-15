@@ -1,0 +1,15 @@
+{
+  "status": "PREDECLARED_DISABLED_PRODUCT67_RUNTIME_QUALIFICATION",
+  "candidate_sha256": "268aefe234ede5eaab723e34e214b91f0bd8cac9b0f95d9ee90e3bf3ae8c951d",
+  "candidate_ops": 17891821,
+  "source": "product-exact-20261015/product-to67-rank-20261016/product-67-retained-1024-proxy.bin",
+  "reference_value_function": "original4b via universal67 cache equivalence",
+  "certificate": "303a75ec86a4da8c3a4008646e1b8257768fa40e198f0b7172eeafd19408c7c6",
+  "mask": "560c12d5044dd895a4ef32adc905cdde48a780a196b3b28a75951c7f27b4fe9d",
+  "validation": ["candidate own Fiat prefix/tail vs protected at nonces1,2,17,255", "candidate full9024 q/b/phase/MR fallback shadow at nonce1", "zeroMR packed128 and partial17/count11/lookahead9 protected shadows", "all4096 row identity between already qualified generic and direct dispatch kernels"],
+  "timing": "3 alternating pairs of4096nonces at2threads, fixed1..4096",
+  "no_search_authority": true,
+  "no_nonce_selection": true,
+  "no_active_production_changes": true,
+  "resources": "2build threads then2validation threads; preserve100GiB MemAvailable"
+}
