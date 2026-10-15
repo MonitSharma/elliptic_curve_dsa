@@ -1,0 +1,9 @@
+{
+  "status": "EXACT_BOOLEAN_ANF_SNAPSHOT_STACK_IDENTITIES_PASS",
+  "depths_checked": 64,
+  "exact_equalities": 4160,
+  "general_reason": "S_i=S_(i-1)*g_i; S_i*S_j=S_i for j<i by idempotence; therefore product(S_1..S_i)=S_i.",
+  "arbitrary_mutated_original_guard_bits_rejected_as_replacement": true,
+  "not_a_cache_phase_or_donor_certificate": true,
+  "no_candidate_or_score": true
+}

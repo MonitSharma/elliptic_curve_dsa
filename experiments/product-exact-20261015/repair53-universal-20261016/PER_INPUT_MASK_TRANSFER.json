@@ -1,0 +1,27 @@
+{
+  "status": "CONDITIONAL_PER_INPUT_MASK_TRANSFER_THEOREM_NOT_A_MASK_PROOF",
+  "certificate_sha256": "02142a036ecbd985b4885f971a0f0027bd3df034fda42a82e44b37e67a1f9593",
+  "baseline_A29_stream_sha256": "1cd3457b44bd21d65921ce0d5b8352573a9c6f2bb2706430d367f68e5a7e5522",
+  "candidate_stream_sha256": "13d1f7341415847c50e94de8fd835ee24ed7b7acc44d9adf66e59afe727abaae",
+  "candidate_prefix": {
+    "path": "/home/hclau/ecdsa_research/product-exact-20261015/repair-cache53-20261016/repair-53-retained-1024.bin",
+    "ops": 16719364,
+    "pre_tail_ops": 16719268,
+    "pre_tail_bytes": 936279008,
+    "pre_tail_sha256": "4d97f642fa6773e572802188dca77f1a0720107771757fee8159719d9120d45f",
+    "pre_tail_sha3_256": "d7366ce5e307a1e4d76065dfb55d1339f60ccfee74b324bc55662ece71f709a2",
+    "serialization": "Each operation7 little-endian u64:kind,control2,control1,target,c_target,c_condition,r_target. Kind padding is zero. Same56-byte records as protected QECCOPSZ payload.",
+    "tail_ops": 96,
+    "tail_sha256": "de35b0e67bd2b427a34ad6b7c6a36c523fef04d796286b328ff858ca69999a2e",
+    "nonce": 1046072871510,
+    "tail_verified_48_adjacent_XX_pairs_q0_or_q1": true
+  },
+  "theorem": "For fixed ABI input x and scored output bit b, if a separate sound A29-source-bound mask proves F_A29,b(x,r) constant for every original A29 MR assignment r, the cache candidate bit equals F_A29,b(x,0) for every candidate MR assignment under the audited projection. No global MR-independence theorem is needed.",
+  "separate_premises": [
+    "A29 model/mask bound to baseline stream1cd3457b, its exact prefix, ABI and output bit ordering. Original4b masks are not valid across this arithmetic change.",
+    "Evaluate the sound A29 zero-MR value function on the candidate final-source Fiat inputs.",
+    "Final nonce source retains the exact audited prefix and48 adjacent XX identity pairs.",
+    "Any survivor still needs exact full phase/dirty checks and the unchanged official benchmark."
+  ],
+  "score": null
+}

@@ -1,9 +1,9 @@
 # Frozen product25 search is active
 
-The later immutable checkpoint at16October05:06:01 contains12,410,880completed
-distinct operational rows and a complete lower prefix through12,345,344, with no
+The later immutable checkpoint at16October06:09:18 contains22,523,904completed
+distinct operational rows and a complete lower prefix through22,401,024, with no
 pass. Its65-file source/progress archive SHA256 is
-`b5e0c5049d6240fec7f88830de434a9464d030ce1eda32e299c46910ecf2f1ee`.
+`aea35e05d43aab1a3ddf944a4c0bb338f8dae40df31b2d28ff6ad3ed44217ad0`.
 Active full JSONL files remain server-only. The read-only terminal auditor has
 23lane and11independent full synthetic integrity controls, with no material
 review finding. It must run on clean terminal logs before a lowest-pass claim;

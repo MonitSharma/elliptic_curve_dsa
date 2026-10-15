@@ -1,5 +1,28 @@
 # Research state and next experiments
 
+## Product candidates and official Toffoli result:16 October2026,06:05Singapore
+
+Public05:45 snapshot confirms independent Toffoli minimum753721/Q1468,
+our separately submitted03be8e19/sourceb5adb653. Its status is rejected solely
+for not improving Q*T. Q677 and product939347948 remain current. This run
+remains queue-only. Preserve the other chat's submission work and shared edits.
+
+Product25 has18,866,176 completed distinct nonces/no pass at05:46, with
+18,780,160 fully covered lower prefix. Plain67 saves102.13839T/Q1234 and has
+native/fresh/universal/disabled-runtime qualification; no67 search or benchmark.
+Repaired67 native/fresh PASS:49.55103+/-0.50630T/Q1234,4138->4134 failed
+batches,dirty0,12 value-lane repairs/zero new across2,097,152shots. Universal
+stages54..67 are active after the completed A29-relative53 prefix. Neither
+repair source may inherit original4b arithmetic masks or zeroMR IR.
+
+A29 complete37fold proofs still yield zero known output bits. Target square
+cleanup obligations next; root has one separate bounded original4b37fold
+trial. No mask/runtime change without independent source-bound verification.
+The extra-width cap2048 fresh gate fails1351vs1338old/1350newreference;
+archive/fullsource/cohorts verified and owned tree removed, no resampling or
+nonce search. Short-donor precision arithmetic remains a proved local primitive
+without a source-admitted donor; do not count its hypothetical cost as savings.
+
 ## Filter qualification and negative attribution:16 October2026,05:31Singapore
 
 Product67 passes complete disabled runtime qualification, including protected

@@ -1,0 +1,44 @@
+{
+  "status": "INDEPENDENT_REPAIRED53_UNIVERSAL_PREFIX_AND_REPAIRED67_NATIVE_ALL_RAW_LANES_VERIFIED",
+  "checkpoint_sha256": "9ec9889206393fd00ee7188c969c5fcdeffe6b23e34673acb9ba93dec047561e",
+  "universal53_stages": 53,
+  "leases": 202718,
+  "uses": 434008,
+  "verifier_and_source_match_previously_reviewed_kernel": true,
+  "repaired67_point_add_files": 170,
+  "repaired67_native_tests": 18,
+  "shots_per_source": 2097152,
+  "categories": {
+    "all": {
+      "parent_failed_shots": 4446,
+      "candidate_failed_shots": 4435,
+      "parent_only_failed_shots": 284,
+      "candidate_only_failed_shots": 273,
+      "same_failure_lanes": 4162
+    },
+    "value": {
+      "parent_failed_shots": 3632,
+      "candidate_failed_shots": 3620,
+      "parent_only_failed_shots": 12,
+      "candidate_only_failed_shots": 0,
+      "same_failure_lanes": 3620
+    },
+    "phase": {
+      "parent_failed_shots": 2695,
+      "candidate_failed_shots": 2584,
+      "parent_only_failed_shots": 1257,
+      "candidate_only_failed_shots": 1146,
+      "same_failure_lanes": 1438
+    },
+    "dirty": {
+      "parent_failed_shots": 0,
+      "candidate_failed_shots": 0,
+      "parent_only_failed_shots": 0,
+      "candidate_only_failed_shots": 0,
+      "same_failure_lanes": 0
+    }
+  },
+  "repaired67_final14_universal_stages_not_certified_by_this_checkpoint": true,
+  "no_original4b_arithmetic_mask_transfer": true,
+  "no_nonce_or_full_benchmark": true
+}

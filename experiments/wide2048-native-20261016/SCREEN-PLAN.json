@@ -1,0 +1,16 @@
+{
+  "status": "PREDECLARED_CONDITIONAL_SEARCH_NOT_STARTED",
+  "frozen_stream_sha256": "f84c499f7c085847355cd8d5db8154fce8f66d7da99a1f99f871d2125232ebfb",
+  "source_and_gate": "WIDE95_PLUS_CAP2048_FREEZE; sole32768 freshcohort against original5a AND complete753721 reference",
+  "prerequisites": ["normalnative byteidentity and4bindingtests PASS", "both presearch failurecomparisons PASS", "fullpointaddsource/patch/protectedfiles frozenandarchived", "fresh publicrecords checked", "available CPU/memory checked"],
+  "first_nonce": 1,
+  "max_nonces": 20000,
+  "workers": 4,
+  "selection": "Lowest passing nonce afterevery lower nonce accountedfor, including allinflight overrun records; neverselectby Toffolis",
+  "runner": "Independent own hash-pinned copy of existing exact nonce_screen; preservebinary/source/dependency hashes",
+  "final_source_changes": "TAIL_NONCE default only; exactpre-tail bytes mustremainidentical",
+  "required_after_selection": ["verbatimfull9024replay PASS", "unchangedbenchmark.sh full9024/allchannels0 PASS", "predeclaredFINAL-CENSUS-PLAN all32768rows/3sources PASS", "finalsourceonlypointadd andprotectedfiles unchanged", "freshpubliccomparison showsstrictT improvement"],
+  "failure_policy": "Noresampling failedgates, nosecondnonce chosenforT, preserveevery failure andsource",
+  "submission_mode": "queue",
+  "external_submission_authorized_by_this_run": false
+}

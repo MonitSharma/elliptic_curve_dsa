@@ -56,6 +56,9 @@ def analyze(records, benchmark):
         "closes_at": benchmark.get("closesAt"),
         "eligibility": "Accepted or score-only rejected; positive integer official metrics; score equals Q*T.",
         "leaders": {k: compact(v) for k, v in leaders.items()},
+        "our_low_toffoli": compact(min((s for s in scored if s.get("solverUsername") == "MonitSharma"),
+            key=lambda s: (s["officialMetrics"]["toffoli"], s["officialMetrics"]["qubits"])))
+            if any(s.get("solverUsername") == "MonitSharma" for s in scored) else None,
         "targets": {"maximum_qubits": leaders["qubits"]["officialMetrics"]["qubits"] - 1,
                     "maximum_toffoli": leaders["toffoli"]["officialMetrics"]["toffoli"] - 1,
                     "maximum_product": score - 1,
@@ -101,14 +104,19 @@ def plot(summary, records):
 
 
 def markdown(summary):
+    own = summary.get("our_low_toffoli")
+    own_caption = (f'The cyan star marks our officially scored submission `{own["id"][:8]}` '
+        f'(Q{own["officialMetrics"]["qubits"]}/T{own["officialMetrics"]["toffoli"]:,}). '
+        if own else "")
     rows = ["# Public resource frontier", "", f'Snapshot analyzed {summary["analyzed_at"]} (Singapore time).', "",
         f'[{summary["record_count"]:,} public submissions]({API}/submissions) contain '
         f'{summary["eligible_count"]:,} eligible records and **{len(summary["frontier"])} nondominated resource pairs**.', "",
         "Accepted and explicitly score-only rejected records qualify; failures and claimed-only metrics do not. "
         "This is a dated snapshot, not independent reproduction. Promotion uses the scalar product.", "",
         "![Resource frontier](figures/frontier.png)", "",
-        "The gold step is the public frontier. The cyan star marks our officially scored submission `3f32acd2` "
-        "(Q1464/T753,771); it was rejected solely because its product did not improve the scalar leader. "
+        "The gold step is the public frontier. " + own_caption +
+        ("It was rejected solely because its product did not improve the scalar leader. "
+         if own and own.get("rejectionReason") == "score did not improve current best" else "") +
         "The cyan diamond is our separately verified local Q692 pass; it is not an official submission. "
         "Failed correctness experiments are excluded.", "",
         "![Independent Toffoli and product objectives](figures/record-tradeoffs.png)", "",

@@ -1,5 +1,18 @@
 # Results and submission status
 
+**06:05 checkpoint:** public05:45 refresh confirms our753721/Q1468 is
+officially scored as03be8e19/sourceb5adb653, the lowest independent T. Rejected
+solely because Q*T did not improve; Q677/product939347948 stay current.
+The separate authorized chat submitted it; this run remainsqueue. Product25
+has18,866,176 completed distinct nonces/no pass at05:46. Plain67's102.13839T
+atQ1234 has complete native/fresh/universal/disabled-filter qualification but
+no full benchmark. Repaired67 native/fresh saves49.55103T/Q1234 and fixes12
+value lanes with zero new in2.1million shots; last14 cache audit stages active.
+Its fresh arithmetic mask still has zero useful bits. Extra-width cap2048
+fails its fixed gate1351vs1338old/1350newreference; no search/resample/record.
+[Public snapshot](../experiments/wide2048-native-20261016/public-before-screen.json) ·
+[Failed wide candidate](../experiments/wide2048-native-20261016/STATUS.md).
+
 **05:31 checkpoint:** separate authorized submission chat uploaded the complete
 753721/Q1468 source as03be8e19 at05:19; public validation is pending, no new
 official metrics yet. This research run remainsqueue. Product67 now passes its

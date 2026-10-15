@@ -1,0 +1,683 @@
+{
+  "base_revision": "4b2ec52fc55da796aa8f5ef851290297e8706424",
+  "repair_parent_stream": "repair-cache53-20261016/input-1cd3457b.bin",
+  "repair_parent_sha256": "1cd3457b44bd21d65921ce0d5b8352573a9c6f2bb2706430d367f68e5a7e5522",
+  "repair_source_snapshot": "repair-cache53-20261016/repair-point-add-source",
+  "repair_source_manifest": "repair-cache53-20261016/repair-source-files.json",
+  "repair_parent_prefix_manifest": {
+    "path": "/home/hclau/ecdsa_research/product-exact-20261015/repair-cache53-20261016/input-1cd3457b.bin",
+    "ops": 11636536,
+    "pre_tail_ops": 11636440,
+    "pre_tail_bytes": 651640640,
+    "pre_tail_sha256": "516c9df2d2bda776cccc17f650a184c5f0373cd7cc10fbf3e0ab69f0b08c446b",
+    "pre_tail_sha3_256": "48f7819ca8f09675fb4a81a7cc076fc2c6bb34c9a37baab190e4cb2d58ebe226",
+    "serialization": "Each operation7 little-endian u64:kind,control2,control1,target,c_target,c_condition,r_target. Kind padding is zero. Same56-byte records as protected QECCOPSZ payload.",
+    "tail_ops": 96,
+    "tail_sha256": "de35b0e67bd2b427a34ad6b7c6a36c523fef04d796286b328ff858ca69999a2e",
+    "nonce": 1046072871510,
+    "tail_verified_48_adjacent_XX_pairs_q0_or_q1": true
+  },
+  "stages": [
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "affine",
+      "atom_cap": 128,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "anf",
+      "atom_cap": 512,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "anf",
+      "atom_cap": 512,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "anf",
+      "atom_cap": 512,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "anf",
+      "atom_cap": 512,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "anf",
+      "atom_cap": 512,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "anf",
+      "atom_cap": 512,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "anf",
+      "atom_cap": 512,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "anf",
+      "atom_cap": 512,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "start",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "start",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "anf",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "start",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "start",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "start",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "anf",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "start",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    }
+  ],
+  "external_stream": "repair-to67-rank-20261016/repair-67-retained-1024-proxy.bin",
+  "external_stream_sha256": "0beec42b117e5f623736c4171e156d8ffdfaeeb585285636f91bab2838e7c10b",
+  "resources": {
+    "path": "/home/hclau/ecdsa_research/product-exact-20261015/repair-to67-rank-20261016/repair-67-retained-1024-proxy.bin",
+    "ops": 17898400,
+    "qubits": 1234,
+    "classical_bits": 66245,
+    "registers": 4,
+    "u16_physical_ids_supported": false
+  },
+  "prefix_manifest": {
+    "path": "/home/hclau/ecdsa_research/product-exact-20261015/repair-to67-rank-20261016/repair-67-retained-1024-proxy.bin",
+    "ops": 17898400,
+    "pre_tail_ops": 17898304,
+    "pre_tail_bytes": 1002305024,
+    "pre_tail_sha256": "c59cde58aa9ce2cf9b8f99ff4246a0848a1d84ef0648ba2818b3895ed8503c35",
+    "pre_tail_sha3_256": "bcfe79307962dbd9e06d6673a2f780fa10a66ef3b9435a25d9ad6b3e78ae440f",
+    "serialization": "Each operation7 little-endian u64:kind,control2,control1,target,c_target,c_condition,r_target. Kind padding is zero. Same56-byte records as protected QECCOPSZ payload.",
+    "tail_ops": 96,
+    "tail_sha256": "de35b0e67bd2b427a34ad6b7c6a36c523fef04d796286b328ff858ca69999a2e",
+    "nonce": 1046072871510,
+    "tail_verified_48_adjacent_XX_pairs_q0_or_q1": true
+  },
+  "packets": {
+    "independent": {
+      "shots": "256",
+      "unequal_batches": "0",
+      "left_bad": "0",
+      "right_bad": "0",
+      "left_phase_batches": "0",
+      "right_phase_batches": "0",
+      "left_dirty_batches": "0",
+      "right_dirty_batches": "0",
+      "paired_gate_saving_total": "23690",
+      "paired_gate_saving_mean": "92.5390625",
+      "score": "NONE"
+    },
+    "structured": {
+      "shots": "256",
+      "unequal_batches": "0",
+      "left_bad": "189",
+      "right_bad": "189",
+      "left_phase_batches": "4",
+      "right_phase_batches": "4",
+      "left_dirty_batches": "0",
+      "right_dirty_batches": "0",
+      "paired_gate_saving_total": "23690",
+      "paired_gate_saving_mean": "92.5390625",
+      "score": "NONE"
+    }
+  },
+  "native_source_port": "pending",
+  "fresh_failure_census_vs_original4b": "pending; sole final32768 plan in declaration",
+  "nonce_search_performed": false,
+  "score": null,
+  "declaration": "repair-to67-rank-20261016/DECLARATION.json",
+  "chain_manifest": "repair-to67-rank-20261016/stage-67.manifest",
+  "scope": "Fixed corrected-source67 endpoint; all512 original-A29-versus-final quantum/classical/phase/scratch comparisons pass. All14 added stages were fixed before metrics, no packet-selected stop. Source and class IDs are u64, exact census uses u32; an obsolete16-bit limit does not reject or truncate this source."
+}

@@ -4,14 +4,16 @@
 753721/Q1468 fifteen-stage entry below was submitted as
 [`03be8e19`](https://api.ecdsa.fail/api/submissions/03be8e19-ab3b-45c7-9c62-9d78970c4d95)
 after a fresh complete unchanged benchmark and source-hash check. Official
-validation is pending. Other candidates remain in queue mode.
+metrics confirm753721/Q1468 (public check05:45); rejection is solely because
+Q*T does not improve. It is the independent public Toffoli minimum.
+Other candidates remain in queue mode.
 [Submission receipt](../wide15-record-20261016/submission-20261016/STATUS.md).
 
 ## 1. Lowest ready Toffoli count — fifteen-stage candidate
 
-**Submitted, validating:**753721 executed Toffolis at Q1468; unchanged benchmark passes all9024
-shots with zero value/phase/ancilla failures. Public minimum at16October01:46
-Singapore remains753771/Q1464. This improves the independent T target by50.
+**Submitted and officially scored:**753721 executed Toffolis at Q1468; unchanged benchmark passes all9024
+shots with zero value/phase/ancilla failures. Public minimum at16October05:45
+Singapore is this753721/Q1468. The next strict T target is753720.
 Product1106462428 does not beat939347948; four extra qubits are deliberate.
 
 - [Submission note](../wide15-record-20261016/SUBMISSION-NOTE.md)
@@ -29,7 +31,7 @@ Product1106462428 does not beat939347948; four extra qubits are deliberate.
 
 ## 2. Lower-width Toffoli alternative — four-stage candidate
 
-**Ready:**753745 executed Toffolis at Q1464; complete unchanged benchmark
+**Complete archived alternative, superseded for the T record:**753745 executed Toffolis at Q1464; complete unchanged benchmark
 passes9024 shots with zero value/phase/ancilla failures. Public minimum at
 16October00:19 Singapore remains753771/Q1464. Product1103482680 does not
 beat the product record939347948; target the independent Toffoli record.

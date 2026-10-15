@@ -1,0 +1,26 @@
+{
+  "status": "INDEPENDENT_READ_ONLY_REVIEW_SUPPORTS_CONDITIONAL_COORDINATE_MASK_TRANSFER",
+  "material_findings": [],
+  "classical_interface_reproduced": true,
+  "all12_cases": true,
+  "quantum_contract_source_hash": "60c67ef28bd0c07eeaf45314c540bf92476c6beb3201ccbd529314f9dec240db",
+  "original_ABI_covers_prefix_unknowns": true,
+  "source_native_binding_reviewed": true,
+  "transfer_theorem": "For each full candidate MR tape, delete the12 inserted cleanup draws. Arbitrary old classical entry state and enclosing snapshot produce identical old bit outputs; independently proved clean-carry q restoration produces identical q outputs. Untouched operations compose inductively. Thus candidate coordinates equal original coordinates on the projected old tape, and every original input-conditioned MR-free scored bit remains MR-free in the candidate.",
+  "required_new_certificate": [
+    "original and candidate stream hashes",
+    "original mask/proof hashes and physical input/output port maps",
+    "all12 actual helper blob hashes and exact native outside-region identity",
+    "globally proved carry-zero preconditions and induction through prior q restorations",
+    "arbitrary-entry classical transducer and complete MR projection including inactive draws",
+    "new-bit namespace disjointness"
+  ],
+  "not_claimed": [
+    "same unprojected physical MR tape",
+    "phase equality or failure-rate transfer",
+    "candidate Fiat seed equality",
+    "new source-chain certificate issued",
+    "runtime integration or production search changes"
+  ],
+  "review_scope": "Code and receipts reviewed; exact classical interface rerun independently. The24 Rust quantum contracts and full native stream verifier were inspected, not rerun by this reviewer."
+}

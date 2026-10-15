@@ -20,6 +20,18 @@ No nonce search, complete official product benchmark or scored record is
 claimed here. The stream SHA256 is
 `268aefe234ede5eaab723e34e214b91f0bd8cac9b0f95d9ee90e3bf3ae8c951d`.
 
+The correctness-improving A29 plus67-cache candidate now also passes native
+reproduction and its full fresh gate: **49.55102968 +/-0.50629794 net T saved
+versus original4b, at Q1234**. All18 admission tests pass and normal native
+output is byte-identical to frozen `0beec42b117e5f623736c4171e156d8ffdfaeeb585285636f91bab2838e7c10b`.
+The sole declared32,768-batch sample has candidate4134 bad batches
+(17.78851318/packet), versus original4138 (17.80572510), with0 dirty shots.
+It retains all29 uniform precision repairs and has66,245 classical slots.
+`repair67-census-summary.json`, `REPAIR67_FREEZE.json` and `REPAIR67_ABI.json`
+bind this result. All53 preceding A29-relative universal cache stages are
+complete; the final14-stage universal append is running. No nonce, official
+product benchmark or scored product record is claimed here.
+
 The earlier complete25-stage result saves58.15367794 ± 0.44249333 T at Q1234.
 Normal native generation is byte-identical to the frozen external stream;
 all 27 new native stage tests pass. Its full, predeclared fresh census includes
@@ -507,3 +519,86 @@ The separate all53-stage universal audit now runs RELATIVE TO A29 source
 worker ended. It must pass every source/guard/donor/cleanup/reconstruction
 obligation before any A29-relative conditional mask transfer is claimed.
 No original4b mask theorem is inherited across the arithmetic repair.
+
+
+The four fixed recursive-unfolding cases are now all terminal, with every512
+full quantum/classical/phase/scratch comparison passing. The product53 cases
+at caps128/512 both save90.47265625 T on both anchored packets at Q1234
+(+2 T versus their input). Generation costs16m39s and49m53s, respectively.
+The wide43 cap128 case saves56.94921875 T at actualQ1471 (+5 T), whereas
+cap512 saves51.94921875 T at actualQ1473 (+0 T), taking17m39s and41m59s.
+All four outcomes, resources, complete recipe manifests and stream hashes are
+retained in `recursive-unfold-fast-20261016/RESULTS.json`. These fixed-packet
+numbers are diagnostic: no native source port, fresh failure gate, nonce search
+or scored record is claimed. The larger normalization cap was not a monotonic
+improvement; its slower/no-gain result is preserved. The worker is released.
+
+
+The separately declared corrected67 endpoint is now frozen with all512
+anchored quantum/classical/phase/scratch comparisons passing, preserving A29's
+original-MR projection. Both fixed packets save92.5390625 T versus A29 (+10 T
+versus corrected53). The final stream is
+`0beec42b117e5f623736c4171e156d8ffdfaeeb585285636f91bab2838e7c10b`,
+Q1234/classical66,245/17,898,400 ops. See `REPAIR67_FREEZE.json` and the
+prefix manifest. Classical IDs exceed16 bits; no truncation or obsoleteu16
+admission rejection is applied. Protected Op IDs remain64-bit and frozen exact
+census supports32-bit IDs. Native source generation is running with2 build
+threads/20GiB, retaining A29's29 precision repairs and original nonce ordering.
+Its18 source/protected tests, full byte identity and the sole predeclared
+32,768-batch original4b fresh gate are pending. No nonce search or scored record
+is claimed. The first53 A29-relative universal stages and the additional14
+stage theorem remain separate proof obligations, independent of this512 check.
+
+
+Public-record refresh relayed by the coordinator at05:45:43 Singapore time,
+16 October: the separate user chat's wide15 submission
+`03be8e19-ab3b-45c7-9c62-9d78970c4d95` is officially evaluated at T753721/Q1468,
+source `b5adb653d5ac6e344b27fc4fb9ed274718720e96`. It is the new public Toffoli
+holder even though that submission's product-category score was rejected.
+The next strict T target is753720; product939347948/Q1234 and widthQ677 are
+unchanged. This experiment run remains queue-only and has submitted nothing.
+The coordinator's wide2048 fixed cohort already includes this newly official
+source as a third reference, without changing candidate rows or resampling.
+
+
+The corrected53 A29-relative universal audit is COMPLETE: every53 stages,
+202,718 leases and434,008 replaced uses pass, without sampled inputs. The
+immutable `repair53-universal-20261016/CACHE_EQUIVALENCE_CERTIFICATE.json` has
+SHA256`02142a036ecbd985b4885f971a0f0027bd3df034fda42a82e44b37e67a1f9593`;
+the separate per-input mask-transfer JSON has
+SHA256`9913bcf5d004edf3e788ba41d646f138d02132f3ab1024597a70e136dc2ece79`.
+This proves cache equivalence from correctedA29 source1cd3457b to13d1f734 for
+all original A29 ABI inputs/MR under the original-MR projection, independently
+of private cache MR. It does not inherit original4b's coordinate function or
+mask across the precision repair. A separately sound A29 per-input independence
+mask remains required before using its zero-MR value evaluator as a filter.
+The corrected67 extension needs fourteen further universal stages after its
+native/full fresh gate; no equivalence claim for those stages is made here.
+
+
+The coordinator's cap2048 native reproduction is now complete (four source
+binding tests and full byte identity pass), but its sole fixed32,768-batch gate
+FAILS. Candidate has1,351 failed batches, versus1,338 for original5a and1,350
+for the newly official753721 holder, all on the same predeclared candidate
+cohort. No nonce search, resampling or earlier-checkpoint selection follows.
+The coordinator independently verified all161 source files,17 protected
+dependencies and all three cohorts, retained its44-artifact archive, and safely
+removed its owned failed native tree. Our immutable external stream and recipe
+remain preserved;67.94921875 T remains an anchored diagnostic, not a record.
+
+
+The corrected67 fixed sample's complete lane comparison is also preserved:
+value failures3632->3620, with12 parent-only value-failing lanes repaired and
+0 newly value-failing lanes across all2,097,152 shots. Overall failed shots
+4446->4435; phase2695->2584 and dirty0. The phase/overall lane changes remain
+descriptive under different sequential MR coupling, not a universal phase-rate
+claim or resolution of the unknown failure floor. Raw parent/candidate rows
+have SHA256`ac85f59eaa1947ce6b7180a2a38ec9ecfa91ced3f3ad56efedbb4465bd94eee0`
+and`eaa8bc9e0d06739dc055fce91c60158b7336d819990c2e5add476fc0657110c6`.
+The final14-stage universal append is now running from the source-bound plan
+SHA256`96340706f8ffeacfaed14237dc617dd92ef0515e1e9de520cfbca6f4db28016c`.
+A rejected prelaunch schema assumption (the frozen config contains all67
+stages, rather than only14) and its logs/helper are preserved. Admission now
+requires the exact first53 manifest/config prefix and audits only54..67.
+No worker ran before the corrected plan was admitted; frozen source and the
+complete fresh sample were unchanged. The final composed theorem is pending.

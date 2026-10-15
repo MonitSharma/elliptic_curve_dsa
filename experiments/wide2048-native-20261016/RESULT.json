@@ -1,0 +1,52 @@
+{
+  "status": "COMPLETE_NATIVE_REPRODUCTION_FRESH_GATE_FAILED_NO_NONCE",
+  "stream_sha256": "f84c499f7c085847355cd8d5db8154fce8f66d7da99a1f99f871d2125232ebfb",
+  "native_tests": 4,
+  "changed_files": [
+    "src/point_add/frozen_cache_wide2048.bin",
+    "src/point_add/frozen_cache_wide2048.rs",
+    "src/point_add/mod.rs"
+  ],
+  "protected_files_checked": 17,
+  "source_files": 161,
+  "full_source_archive_sha256": "609f0772474280429759de0b28fb31d72e6000e64e37b56cc86dfdf9fc0f29c0",
+  "patch_sha256": "4bdbeec6b954c71dd005262d3b2535ffd23b2d8462209046749b79ac5ce9e87e",
+  "census": {
+    "status": "FRESH_CENSUS_COMPLETE_NOT_A_RESOURCE_RECORD",
+    "name": "wide2048",
+    "label": "wide95-plus-retained2048-scratch64-frozen-20261016",
+    "batches_each": 32768,
+    "shots_each": 2097152,
+    "failed_batches": {
+      "parent": 1338,
+      "candidate": 1351
+    },
+    "failures_per_packet": {
+      "parent": 5.75738525390625,
+      "candidate": 5.813323974609375
+    },
+    "dirty_shots": [
+      0,
+      0
+    ],
+    "paired_mean_T_saving": 67.88560199737549,
+    "saving_standard_error": 0.2830249352133989,
+    "failure_gate_pass": false,
+    "nonce_search_performed": false
+  },
+  "reference753721": {
+    "status": "SAME_FIXED_SAMPLE_COMPARISON_AGAINST_COMPLETE753721_REFERENCE",
+    "label": "wide95-plus-retained2048-scratch64-frozen-20261016",
+    "reference_sha256": "1d8c05eeee7b43dd694506b5efe963c771461b7e690bc62f409947b2306b7d77",
+    "reference_failed_batches": 1350,
+    "reference_dirty_shots": 0,
+    "candidate_failed_batches": 1351,
+    "failure_gate_pass": false,
+    "candidate_rows_reused_without_resampling": true,
+    "not_an_official_validation_claim": true
+  },
+  "nonce_eligible": false,
+  "active_candidate_retained_pending_source_archive_verification": true,
+  "nonce_search": false,
+  "resource_record": false
+}

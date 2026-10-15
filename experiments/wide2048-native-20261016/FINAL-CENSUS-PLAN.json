@@ -1,0 +1,16 @@
+{
+  "status": "DECLARED_BEFORE_ANY_CANDIDATE_NONCE_SCREENING",
+  "candidate_presearch_sha256": "f84c499f7c085847355cd8d5db8154fce8f66d7da99a1f99f871d2125232ebfb",
+  "label": "wide2048-final-nonce-20261016-v1",
+  "first_batch": 0,
+  "batches_per_source": 32768,
+  "shots_per_batch": 64,
+  "sources": ["original public5a01aad987...", "complete753721 reference1d8c05ee...", "same frozen wide2048 circuit with only lowest-passing identity-tail nonce changed"],
+  "runner_sha256": "790e92266ea67ec54ef701b2deed76fe8d0b766b411ca9eab877f82ae2c11a66",
+  "workers_per_source": 1,
+  "requirements": "Candidate failed batches <= BOTH references, lambda<=18 andzero dirty; all32768rows/source required",
+  "no_resampling_or_extension_after_gate_failure": true,
+  "preconditions": ["native and sole presearch fresh gate completePASS against both references", "source/protectedfiles frozen andarchived", "ascendingfrom1 lowestpass policy", "completeunchanged9024benchmarkPASS on finalsource", "exactpreTailprefix preserved"],
+  "submission_mode": "queue",
+  "this_final_census_plan_alone_does_not_authorize_a_search": true
+}

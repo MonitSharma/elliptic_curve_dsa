@@ -1,9 +1,43 @@
 # Agent handoff: start here
 
-Last updated 16 October 2026, 05:31 Singapore. This page is for an AI agent (or
+Last updated 16 October 2026, 06:05 Singapore. This page is for an AI agent (or
 person) continuing the work. It holds the current state, the rules, the tools
 and the next steps in order. Details live in the linked reports. Do not copy
 numbers from older reports without checking the date.
+
+**06:05 checkpoint:** public read-only refresh at05:45 confirms our753721/Q1468
+is now officially scored, submission03be8e19, sourceb5adb653. The service rejects
+it solely because its product does not improve the accepted product record;
+it is the independent public Toffoli minimum. Q677 and product939347948 remain
+unchanged. Submission was performed by the separate authorized chat; this run
+remainsqueue. Preserve its shared README/submission edits.
+
+Product25 unchanged search:05:46 snapshot18,866,176 distinct completed nonces,
+complete lower prefix18,780,160, no pass. Immutable snapshot2a8caa82... verified.
+Plain product67 remains the strongest qualified saving:102.13839T/Q1234,
+native/fresh/universal/cache-transfer/disabled-runtime PASS, no67nonce or full
+benchmark. Repaired67 now passes native and sole32768fresh gate atQ1234:
+49.55103+/-0.50630T saved,4134candidate/4138parent failed batches,dirty0.
+Value lanes3632->3620:12fixed/zero new in2,097,152shots; final14-stage cache
+audit is active. Repaired53 universal A29-relative audit is complete; independent
+root review nowPASS, including all53logs/hashchain and identical reviewed
+kernel. Root independently verifies67's170native files and all failure lanes.
+Neither repair may reuse original4b arithmetic masks.
+
+A29 whole-lifetime v3/v4 proofs accept the exact mapped folds, including all37
+in v4, but still certify zero output bits; residual square cleanup is being
+investigated with source-bound contracts. Root separately tests the same37
+whole folds on original4b in original37-mask-20261016, with fresh local proofs,
+original reset files, private outputs, one core and24GiB. Production mask560c
+and search stay unchanged. Never infer global independence from local proofs.
+
+Rootwide2048 is TERMINAL FAILED: sole32768sample gives1351candidate versus
+1338old5a/1350new753721 failed batches. No resample/search/fullbenchmark.
+161source files/17protected dependencies/allthree full cohorts verified;
+owned tree removed after archive and workload checks. Its conditional nonce
+plans are abandoned. The failure team is testing a potential short-donor exact
+precision primitive; no donor has yet been proved available in the target
+source and there is no new circuit candidate from it.
 
 **05:31 checkpoint:** product67 complete disabled filter nowPASS ownFiat
 controls, protected9024q/b/phase/physicalMR,128+partialpackedshadows and all6

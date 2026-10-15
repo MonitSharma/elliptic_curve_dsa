@@ -86,7 +86,8 @@ def render(summary, points, baseline, local):
     mq = leaders["qubits"]["officialMetrics"]
     mp = leaders["product"]["officialMetrics"]
     mt = leaders["toffoli"]["officialMetrics"]
-    own = next((s for s in points if s["id"] == "3f32acd2-71bf-4cc7-bae6-7407be97fe3b"), None)
+    own = min((s for s in points if s.get("solverUsername") == "MonitSharma"),
+        key=lambda s: (s["officialMetrics"]["toffoli"], s["officialMetrics"]["qubits"]), default=None)
     q = [s["officialMetrics"]["qubits"] for s in front]
     t = [s["officialMetrics"]["toffoli"] for s in front]
     xmin, xmax = frontier_limits(summary, local)
@@ -125,7 +126,7 @@ def render(summary, points, baseline, local):
     note(ax, f'Best product · Q{mp["qubits"]}\nT{mp["toffoli"]:,}', (mp["qubits"], mp["toffoli"]), (1000, 2.8e6), gold)
     if own:
         m = own["officialMetrics"]
-        note(ax, f'Our official score · Q{m["qubits"]}\nT{m["toffoli"]:,} · submission 3f32acd2',
+        note(ax, f'Our official score · Q{m["qubits"]}\nT{m["toffoli"]:,} · submission {own["id"][:8]}',
             (m["qubits"], m["toffoli"]), (1185, 2.2e7), cyan)
     handles = [Line2D([], [], color=gold, lw=2, label="Official public frontier"),
         Line2D([], [], marker="*", markersize=12, ls="", color=cyan, label="Our officially scored Toffoli entry"),
@@ -176,7 +177,7 @@ def render(summary, points, baseline, local):
         fig.text(xcard + .018, .35, "Official metrics; no product promotion", fontsize=9, color=muted)
     fig.text(.09, .21, f'Next low-T target: T ≤ {mt["toffoli"] - 1:,}.  At Q{mt["qubits"]}, product improvement needs T ≤ {(product - 1) // mt["qubits"]:,}.', fontsize=11, weight="bold")
     fig.text(.09, .165, f'At Q{mp["qubits"]}, the strict product target remains T ≤ {(product - 1) // mp["qubits"]:,}.', fontsize=10, color=muted)
-    fig.text(.09, .105, 'Official Toffoli minimum: 3f32acd2. Product promotion still belongs to 85d067da.', fontsize=10, color=muted)
+    fig.text(.09, .105, f'Official Toffoli minimum: {leaders["toffoli"]["id"][:8]}. Product promotion belongs to {leaders["product"]["id"][:8]}.', fontsize=10, color=muted)
     fig.text(.09, .065, 'Q692 remains a separate local result. Failed correctness and component-only results are excluded.', fontsize=9, color=muted)
     save(fig, "record-tradeoffs")
 

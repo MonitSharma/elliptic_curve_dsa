@@ -11,7 +11,8 @@ expected={
  'terminal-review-supplement':'0db4231b6b1f9026ec64c2b7963336a559d87ea3b535f7c72091a53d36667420',
  'lazy-review-negative':'12e35e90c97626a274c1d064e0377857d4280ad74751350d5e94fd8e40023690',
  'numa-affinity-supplement':'70dd36efc52560664f07fa5d77fd204e7bc072cbdf2f378746a5a5800819acd7',
- 'a29-mask-supplement':'fef4d6884bd3b775ba69041d04a0efa727b78b0c187be6b17dd6f09a20e730f1'}
+ 'a29-mask-supplement':'fef4d6884bd3b775ba69041d04a0efa727b78b0c187be6b17dd6f09a20e730f1',
+ 'a29-wholefold-supplement':'754a866dedfb9a9b50b462d57558c774b0a02c53e46f5c86efd70af904a01c78'}
 result=[]
 for stem,sha in expected.items():
  path=root/f'evidence-{stem}.tar.gz';assert hashlib.sha256(path.read_bytes()).hexdigest()==sha
@@ -21,5 +22,5 @@ for stem,sha in expected.items():
   manifest=json.load(archive.extractfile('MANIFEST.json'))
   for item in manifest['files']:
    data=archive.extractfile(item['path']).read();assert len(data)==item.get('size',item.get('bytes'));assert hashlib.sha256(data).hexdigest()==item['sha256'],item['path']
- result.append({'archive':path.name,'sha256':sha,'verified_files':len(manifest['files']),'server_refs_not_downloaded':len(manifest.get('server_only_refs',manifest.get('server_only_binaries',[]))),'no_extraction_or_active_file_changes':True})
+ result.append({'archive':path.name,'sha256':sha,'verified_files':len(manifest['files']),'server_refs_not_downloaded':len(manifest.get('server_only_refs',manifest.get('server_only_binaries',manifest.get('server_only_hashrefs',[])))),'no_extraction_or_active_file_changes':True})
 (root/'root-followup-supplement-verification.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result))

@@ -1,0 +1,14 @@
+{
+  "status": "STRUCTURAL FAMILY FROZEN BEFORE CANDIDATE/CENSUS",
+  "family": "Every source pingpong::merged::flag_erase call on frozen public4b, all source widths (ten16 and two18)",
+  "source": "4b2ec52fc55da796aa8f5ef851290297e8706424",
+  "stream_sha256": "2a522394cdf3e6a0df7784ad4db761030933c1f7ccd0ff8e641d68ec7a4dab3e",
+  "selection": "source function and complete family only; independent of input/measurement witnesses",
+  "sites": 12,
+  "projected_added_mean_Toffoli": "6",
+  "added_physical_MR": 12,
+  "added_qubits": 0,
+  "admission": "All sites must have exact source frame and source-bit seed, available just-HMR-cleared target, full balanced byte-identical region after inherited tables, no lower-wire alias, and universal value/MR/phase contracts plus scratch restoration. Any rejection stops entire family, no silent site dropping.",
+  "test": "One fixed fresh 4096-batch paired census against original4b, only after all admission/native/protected checks; no resampling negative gate.",
+  "fresh_label": "public4b-all-flag-erase-lower-majority-borrow-independent-20261016-v1"
+}

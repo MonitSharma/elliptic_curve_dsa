@@ -310,6 +310,16 @@ input and MR assignment, independently of every added cache measurement.
 The checker is an executable symbolic certificate audit with an explicit
 trusted kernel; it is not a proof-assistant verification.
 
+There is also a pointwise resource corollary under that original-MR mapping.
+For one admitted lease with a active old uses, the old program executes a
+CCX gates, while the cache executes exactly one when a>0 and zero otherwise.
+All host reconstruction, subsequent CX uses, HMR and CZ cleanup are free in
+the Toffoli counter. Thus its saving is a-1[a>0], which is nonnegative for
+every input and mapped original MR assignment. Compose this bound over all
+leases and stages. It does not make a fixed packet's measured saving a
+universal constant, or align the physical sequential MR words across different
+source replays; fresh censuses and complete final benchmarks remain necessary.
+
 Once every source-bound stage audit passes, an all-input original4b theorem
 that coordinates are independent of every original MR transfers to product25:
 compose the exact cache gadgets, then substitute any original MR assignment,
@@ -392,3 +402,17 @@ the separately predeclared composite-versus-original4b32768-batch census in
 `REPAIR53_FRESH_CENSUS_PLAN.json`. This is a new correctness-improving source,
 not a resampling of the failed original53 gate. The original4b conditional-mask
 certificate alone does not certify the changed repair function.
+
+
+A future endpoint-product proof front is prepared in concept only. The old
+semantic128 original-source trials recovered zero additional controls, and all
+completed native ports disable that optional prototype. The coordinator now
+requires a bounded source-only census on the completed95 source before any new
+generator. It must show written/restored cleanup controls using the richer
+current symbolic support. Product expressions at the last use and cleanup must
+be compared within the same immutable-ID Support state: IDs allocated by
+independent passes are not interchangeable. The old disabled two-pass prototype
+is not a universal certificate and is not authority for a new rewrite. Any new
+stream would require an independent endpoint-product checker, all use, phase,
+donor, guard and cleanup obligations, and a separately fixed full fresh gate.
+No such source census, generator, new stream or qualification has launched yet.
