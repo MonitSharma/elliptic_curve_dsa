@@ -87,7 +87,7 @@ at Q1234 it is **T ≤ 761,221**. These are independent objectives, using rounde
 mean executed Toffolis rather than emitted gates.
 
 Snapshot: **1,571 public submissions · 1,230 eligible scored records ·
-50 public Pareto points**, analyzed 16 October 2026 at 02:35 Singapore.
+50 public Pareto points**, analyzed 16 October 2026 at 04:08 Singapore.
 The new width minimum, Q678 (jackylee0424, `b83078b5`), arrived after our
 Toffoli submission.
 [Full frontier and provenance](docs/frontier-results.md) ·

@@ -1,9 +1,26 @@
 # Agent handoff: start here
 
-Last updated 16 October 2026, 03:50 Singapore. This page is for an AI agent (or
+Last updated 16 October 2026, 04:15 Singapore. This page is for an AI agent (or
 person) continuing the work. It holds the current state, the rules, the tools
 and the next steps in order. Details live in the linked reports. Do not copy
 numbers from older reports without checking the date.
+
+**04:15 checkpoint:** product25 search continues unchanged, about3.8million
+complete nonces and no pass at04:12. Final paired census is now predeclared in
+`product25-operational-20261016/FINAL-CENSUS-PLAN.json`, label
+`product25-final-nonce-20261016-v1`,32768batches/source, no failed-gate resampling.
+Public04:08 refresh leaves all records unchanged. Wide67Q1556 native tests and
+exact stream pass, but sole32768 fresh gate FAILS1351candidatevs1335parent;
+61.4383T diagnostic, no nonce. All161sourcefiles/41outer artifacts verified,
+owned native worktree safely removed. Separatewide95 remains active.
+Front-seam zeroT/zeroQ phase-precision repair9aaf3117 passes universal local
+proof/native admission but fixed4096 freshgateFAILS cap18.14136, exactlysame
+outcomesasparent; no measuredbenefit/no search/no phasefix67launch. Phase509file
+andseam283file archives independentlyverified. Agentfailure now audits structural
+ordinary/TOP1freeborrow and bothbackseams. Prefilteragent boundedQ1233route has
+585unhandledspans and752paidT, so no candidate; separatepruned-mask analysisnext.
+Productagent owns repaired53nativeport/census and universal67append, thenproduct95.
+Keepactiveproduct25source/libsimmutable; do not overwrite/restart its directory.
 
 **03:50 active search:** root started frozen product25 at03:47:11,4processes×12
 threads, source180af069... from nonce1, lowestpass only, queue mode. All gates

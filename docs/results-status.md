@@ -1,5 +1,16 @@
 # Results and submission status
 
+**04:15 checkpoint:** public records refreshed at04:08 remain unchanged.
+The active product25 search has screened about3.8million nonces with no pass.
+Its final32,768-batch census was declared before nonce selection. Wide67 fails
+its fixed fresh gate(1351candidate/1335parent); the zero-T front-seam repair
+has identical fresh outcomes to its parent and exceeds the18-failure cap.
+Neither enters nonce search. These negative research results and their full
+sources/logs are preserved separately from resource records.
+[Wide67](../experiments/wide67-native-20261016/STATUS.md) ·
+[Front-seam repair](../experiments/seam-phase-repair-20261016/STATUS.md).
+Best complete queued result remains T753721/Q1468; nothing was submitted.
+
 **03:50 operational checkpoint:** product25 ascending search started03:47 on
 48threads after complete source-bound mask/transfer/runtime/census/cost gates.
 No pass or product record is claimed. New measured mean cost19.6hours at48threads

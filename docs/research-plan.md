@@ -1,5 +1,35 @@
 # Research state and next experiments
 
+## Fresh-gate negatives and search checkpoint: 16 October 2026, 04:15 Singapore
+
+Public refresh at 04:08 is unchanged: Q678, T753771 and product939347948.
+Product25 has screened about 3.8 million nonces without a pass. Its final
+32,768-batch paired census protocol was frozen before any selected nonce,
+label `product25-final-nonce-20261016-v1`; failed gates will not be resampled.
+The operational source and libraries remain immutable.
+
+Wide67 native reproduction passes, but its fixed fresh gate fails: 1,351
+candidate versus 1,335 parent failed batches, zero dirty shots. Its diagnostic
+61.4383T saving at Q1556 is not a resource result. Complete sources and logs
+were archived and verified before owned-tree cleanup.
+[Failed qualification](../experiments/wide67-native-20261016/STATUS.md).
+
+The source-defined front-seam precision extension adds four CX and no T, Q
+or measurements. Universal local phase/source proofs and native checks pass,
+but its fixed fresh sample has exactly the parent's failure outcomes and
+18.14136 failed batches per packet, above the cap. It is ineligible and has
+no measured floor benefit. Phase localization and this negative repair are
+preserved separately; ordinary/TOP1 free-borrow checks and both back seams
+are the next structural families.
+[Phase diagnosis](../experiments/phase-localization-20261016/STATUS.md) ·
+[Rejected repair](../experiments/seam-phase-repair-20261016/STATUS.md).
+
+Product67 universal cache certification, repaired53 recomputation and fixed
+wide95 continue. Bounded Q1233 scratch-loan analysis is incomplete and exceeds
+the product cost budget, so it has produced no candidate. Separate source-only
+mask-cone analysis may reduce future screening cost; it cannot alter the active
+search's selected runtime.
+
 ## Operational prefilter and product67 qualification:16October2026,03:50Singapore
 
 Frozen product25 is now searching from nonce1 on48threads in queue mode. The

@@ -1,0 +1,23 @@
+{
+  "source_revision": "4b2ec52fc55da796aa8f5ef851290297e8706424",
+  "structural_family": "the unique classical-ox overflow erase in leapfrog::seed_r0_seam, the front seam before the divide walk",
+  "change": "prepend exactly one lower comparison bit using the just-HMR-cleared overflow wire as a borrowed carry, computed and uncomputed by a CX conditioned on the corresponding immutable classical ox bit",
+  "fixed_precision_increment": 1,
+  "required_extra_toffoli": 0,
+  "required_extra_physical_qubits": 0,
+  "required_extra_measurement_draws": 0,
+  "admission": "all inherited passes and assertions run unchanged; require a unique complete source-bound old front-seam region after those passes, balanced scopes, immutable input source, prefix-proved clean scratch, identical quantum/classical external interfaces and unchanged measurement sequence",
+  "on_failure": "preserve rejection; do not bypass anchors or silently omit the named site",
+  "candidate_selection": "named source primitive and classical operand structure, independent of census ticks, packets and nonces",
+  "fresh_gate": {
+    "reference": "original public4b",
+    "label": "public4b-frontseam-classical-borrow20to21-independent-20261016-v1",
+    "first_batch": 0,
+    "batches_per_source": 4096,
+    "shots_per_batch": 64,
+    "workers_per_source": 2,
+    "global_failure_gate": "candidate failed batches <= original, expected failed batches per9024 <=18"
+  },
+  "nonce_search": false,
+  "submission": false
+}
