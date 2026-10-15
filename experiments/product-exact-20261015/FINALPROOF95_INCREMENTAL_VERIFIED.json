@@ -1,0 +1,13 @@
+{
+  "status": "LOCAL_AND_SERVER_FULL_COMPOSED_CONTENT_HASH_VERIFICATION_PASS",
+  "target_artifacts": 3845,
+  "root_base_archive_sha256": "aa137f820aad142765c2d56ef0aa582cdc451fc5ea0cb3a7d564f4a8c6ebcf96",
+  "previous_supplement_sha256": "9ec9889206393fd00ee7188c969c5fcdeffe6b23e34673acb9ba93dec047561e",
+  "followup_sha256": "97be8c18510792140822ff6c6fe134f36500b1602feede058ab6c13110ddcf5d",
+  "followup_bytes": 750713,
+  "canonical_archive_sha256": "18e060f60a4e0facc46fd81d847f1832bf344c2edd0801814924e640c6b4bd2b",
+  "canonical_archive_bytes": 123179065,
+  "protected_candidates_checked": 12,
+  "protected_mismatches": [],
+  "verification": "verify_followup_incremental.py revalidates every3703 logical-base file through the original verifier, then checks every3845 current target against newly stored content, an explicitly verified same-hash alias or the unchanged same path/hash. Canonical full archive separately hashes to the server verification result. Historical tracked base remains unchanged."
+}

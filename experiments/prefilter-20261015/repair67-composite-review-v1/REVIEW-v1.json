@@ -1,0 +1,43 @@
+{
+  "status": "INDEPENDENT_STATIC_REVIEW_WITH_ONE_VALIDATION_GAP_NO_RUNTIME_AUTHORITY",
+  "reviewed_root_files": [
+    {
+      "path": "experiments\\repair67-conditional-filter-20261016\\DECLARATION.json",
+      "sha256": "304b1893415e8000354ffa8126734980c79100c37a515855433338f1e0866a87"
+    },
+    {
+      "path": "experiments\\repair67-conditional-filter-20261016\\COMPOSITE_BINDING.json",
+      "sha256": "d19c011287293671ae14a87b380c5fbf17a9ac0009d8dd27c5966c3830525909"
+    },
+    {
+      "path": "experiments\\repair67-conditional-filter-20261016\\prepare.py",
+      "sha256": "76f64164f92b86d15dbbcc5b6d3b7ec658b2648628381ab3a3559e4c8e727878"
+    },
+    {
+      "path": "experiments\\repair67-conditional-filter-20261016\\guard.rs",
+      "sha256": "194f40e8d61d68b2f348961936f3bf30315efb703b03dca411d8018418c8ec2b"
+    },
+    {
+      "path": "experiments\\repair67-conditional-filter-20261016\\run.sh",
+      "sha256": "98e1a626e977bb18ce8c5263e110a1914a10e24ab0ea62e956bc2ed3e0ee4cbc"
+    }
+  ],
+  "passes": [
+    "Conditional theorem b351 and all original/A29/G/cache67/ABI receipts are pinned through COMPOSITE_BINDING and sha_check calls.",
+    "Candidate-own source hash and full op count pinned; identity tail checked; candidate-own Fiat seed controls at1,2,17,255.",
+    "Original zero-MR slice812f and generic/direct kernels remain pinned; shadow patch explicitly loads original2a rather than changed candidate.",
+    "Guard ports P.x,P.y,A.x,A.y coordinate LSB order match canonical1024 ABI; packed point index/64 and index%64 match original masks.",
+    "Raw G output is complemented to safe; original certificate AND safe implements dependency D_old OR G. Short-circuit iterator consumption advances only for provisional witnesses.",
+    "Fixed445 case parsing pinned;428old safe/3excluded/14repair excluded and418retained checked, plus original/candidate protected zero-MR known-bit equality on safe inputs.",
+    "Classical c/bt compact fields are u32 with65535/66244 controls and66245workspace assertion; original quantum indexes remain u16-safe.",
+    "PROOF_ACCEPTED false is asserted; all output rows remain unauthoritative; no selected nonce."
+  ],
+  "finding": {
+    "priority": "validation_gap_before_any_authority",
+    "detail": "run.py clears FORCE_FULL_FALLBACK but does not set it in any trial. validate_early checks all9024 q/bit/phase/MR states but bypasses exact_early and scheduler done-path classification. Require a small forced-fallback route test against protected outcome/classification, including phase/ancilla handling.",
+    "reported_to_root": true
+  },
+  "generated_server_composite_sources_available_at_review": false,
+  "scope": "Inspected predecessor source snapshots and exact prepare.py transformations. Final generated-source/hash/control review pending publication.",
+  "production_edits": false
+}

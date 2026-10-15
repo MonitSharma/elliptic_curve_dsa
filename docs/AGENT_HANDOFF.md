@@ -1,9 +1,59 @@
 # Agent handoff: start here
 
-Last updated 16 October 2026, 06:05 Singapore. This page is for an AI agent (or
+Last updated 16 October 2026, 06:54 Singapore. This page is for an AI agent (or
 person) continuing the work. It holds the current state, the rules, the tools
 and the next steps in order. Details live in the linked reports. Do not copy
 numbers from older reports without checking the date.
+
+**06:54 checkpoint:** public full refresh06:08 confirms Q677,
+T753721/Q1468 (our separately submitted03be8e19), and product939347948.
+Product25 unchanged ascending search has28,557,312 distinct completed nonces,
+complete lower prefix28,446,720 at06:45:59; no pass. Immutable65-file snapshot
+f5b517ef... independently verified. Preserve its four active workers and source.
+
+Plain67 remains the strongest qualified saving:102.13839T/Q1234, no67nonce or
+complete benchmark. Repaired67's universal proof is now COMPLETE: all67stages,
+245849leases/540826uses. Root independently checked every actual newstage54..67
+log, immutable kernel/protected hashes and complete source chain. The full3845
+artifact history verifies through unchanged3390base,9ec98892delta and new
+750713-byte97be8c18delta; no oversized canonical archive is committed.
+
+The new A29 conditional arithmetic theorem b351ae4c... permits transfer only
+when public discrepancy G355f9951... is zero. All29 paired helpers have arbitrary
+dirty entry contracts, independent internal MR and complete live-classical/frame
+proofs. Actual-prefix composition uses1831784nodes/1024ports, and independent
+root compiler/binary/ABI review passes. New dependency is old_dependency OR G.
+Existing fixed445 coverage retains418/421 old certified value witnesses and
+excludes all14 parent-only repaired53 lanes. This is not a fresh census or
+phase/Fiat transfer. Isolated repair67-conditional-filter-20261016 is now in
+DISABLED qualification, including ownFiat, protected9024fullstate/phase/MR,
+fixed445 known-bit containment, wide classical65535/66244 and explicit forced
+scheduler fallback. Initial missing receipt and detached Cargo PATH failures
+precede evaluation and are preserved; continuation uses the same prepared tool.
+Do not enable or replace any production filter from these static proofs alone.
+
+Failure attribution now uses actual final2a, not the old raw pre-table observer.
+Every431 witness/all413 original64-lane contexts exactly matches protected
+q/b/phase/T. Advisory-unexplained55witnesses/54batches gives1.8588867 perpacket
+on that fixed4096cohort, distinct from oldB3's roughly1.1. Fourteen cases first
+fail one low_keep_add because N2-loaned scratch q555/q556 enters dirty; the
+observed +/-4/8 matches the reused carry. Generic reversible repair/cost is
+pending. Never reset away the retained quantum information. Separately, the
+predeclared all-four C130 square carry candidate (+16T/Q0/MR0) is frozen and
+its sole32768/source fresh census remains active; no subset/resampling/composite.
+
+New method negatives: earlier global cleanup found no selected opportunity
+outside existing LCA admission on either fixed4b/95. Restored-product endpoint
+analysis recovered159nonconstant endpoints, but ALL42 feasible selected leases
+have mutually exclusive execution guards and exactly zero reuse gain. No
+renderer was justified. Preserve both reports and the independent guard proofs.
+Scope restoration alone passes4.4million protected lanes, not a circuit result.
+
+Current priority: finish disabled repaired67 integration and independent review;
+continue original25 search; derive source-family N2 loan repair; finish frozen
+square census. No external submission from this run; preserve the other chat's
+README upload note and submission directory. Root main HEAD3deaf6a2 contains
+the README facts only; the latest remotely verified backup is448b3686.
 
 **06:05 checkpoint:** public read-only refresh at05:45 confirms our753721/Q1468
 is now officially scored, submission03be8e19, sourceb5adb653. The service rejects

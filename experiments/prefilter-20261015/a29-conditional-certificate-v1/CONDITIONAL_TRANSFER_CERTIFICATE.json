@@ -1,0 +1,186 @@
+{
+  "status": "SOURCE_BOUND_CONDITIONAL_VALUE_MASK_TRANSFER_THEOREM_NO_RUNTIME_AUTHORITY",
+  "original_stream_sha256": "2a522394cdf3e6a0df7784ad4db761030933c1f7ccd0ff8e641d68ec7a4dab3e",
+  "original_mask_sha256": "560c12d5044dd895a4ef32adc905cdde48a780a196b3b28a75951c7f27b4fe9d",
+  "A29_stream_sha256": "1cd3457b44bd21d65921ce0d5b8352573a9c6f2bb2706430d367f68e5a7e5522",
+  "public_discrepancy_guard": {
+    "path": "prefilter-20261015/a29-conditional-prefix-v1/public-discrepancy-guard.bin",
+    "sha256": "355f9951eda21a7204a96fd391b3208e8d6e000dce6a14feb40d8f19b637f2b3",
+    "bytes": 29308580
+  },
+  "theorem": "For each declared input x and scored bit j, if raw G(x)=0 and raw original dependency D_j(x)=0, every A29 measurement tape produces the same scored bit as original4b at zero MR. The audited A29-relative67 cache projection preserves that value for every candidate measurement tape. Thus a mismatch of that original zero-MR bit against the protected curve result is a sufficient rejection certificate.",
+  "combined_dependency": "D_new,j(x) = D_original,j(x) OR G(x)",
+  "known_bit": "NOT D_new,j(x); equivalently (NOT D_original,j(x)) AND (NOT G(x))",
+  "polarity": "MRMASK01 raw root is dependency/discrepancy; MaskProgram.eval complements it. G=1 requires fallback, never rejection on this certificate.",
+  "proof_chain": [
+    "Each of29 actual old/new helper pairs is universally proved in one common immutable input namespace with arbitrary dirty entry q/classical bits and independent changed-middle MR. All physical q-output differences, not only the next payload bit, are retained.",
+    "Every old/new frame digest and all outside-operation byte equality are bound to the actual final streams. All29 local q contracts have no entry-zero assumptions.",
+    "Exact classical ANF proves equal live versions under identical prefix/suffix MR roles. Unequal versions are killed by an unchanged depth-zero unconditional overwrite before any read or captured guard. Replacement boundary scope stacks are empty.",
+    "Actual A29 finite prefix proves every substituted local q port input-only, not a zero-MR coincidence; retained coefficient definitions make the composed public1024-port G exact.",
+    "Induction on earlier false local guards transfers common entries and live interfaces from A29 to original; outside equal operations preserve them. This proves final q equality under the MR projection when G=0.",
+    "Original2a-bound per-bit dependency proof and universal A29-relative67 cache equivalence compose only through this new conditional theorem, never by assuming an unchanged arithmetic function."
+  ],
+  "proof_receipts": [
+    {
+      "path": "prefilter-20261015/evidence/mask-freeze-v3.json",
+      "sha256": "8cfdef7f489b89be57fc4d512692dda804fc31b74157c68a4cd2e8c1d074d021",
+      "bytes": 9418
+    },
+    {
+      "path": "prefilter-20261015/evidence/mr-mask-tip-v3.json",
+      "sha256": "7cef301c2a1af169a0f08af7bf9d577c2520374d24893410a3301402e80c1126",
+      "bytes": 142671
+    },
+    {
+      "path": "prefilter-20261015/MR-MASK-ABI.txt",
+      "sha256": "b8f88763117ac3e53c88f0484ef08d1a2ffce1e84e11f8bbfa3f3751cb090d01",
+      "bytes": 1963
+    },
+    {
+      "path": "prefilter-20261015/a29-conditional-family-v1/PREDECLARED-FAMILY.json",
+      "sha256": "a7826679419995ad6bef719a4e234aba469d9eb5ac0c7a816a2b9a49a841dd3e",
+      "bytes": 7201
+    },
+    {
+      "path": "prefilter-20261015/a29-conditional-family-v1/actual-fullstream-frame-binding.json",
+      "sha256": "0699366b2fb9cad934a4b1f7f32fc7358c93a10e1a4f5bc41a9b94cf7a240636",
+      "bytes": 13246
+    },
+    {
+      "path": "prefilter-20261015/a29-conditional-family-v1/family-summary.json",
+      "sha256": "36d0c4e9b924fbcf026dfc27ff70d741c8304270df0eb680a9386ac7a10d9ef2",
+      "bytes": 10024
+    },
+    {
+      "path": "prefilter-20261015/a29-conditional-family-v1/live-classical-proof.json",
+      "sha256": "b9660369618a32164d70c709a3c918df2307f07c8a6928c0a0f9656f66f4dd0c",
+      "bytes": 17424
+    },
+    {
+      "path": "prefilter-20261015/a29-conditional-validation-v1/summary.json",
+      "sha256": "18dbbe423181493074a246629742048257f303f62570f725b40d76e6119d256b",
+      "bytes": 9012
+    },
+    {
+      "path": "prefilter-20261015/a29-conditional-prefix-v1/global.json",
+      "sha256": "6ee3c0e91137d2871ca50988adcd944a44511ce483b51255ac0e65f465e253a5",
+      "bytes": 75138
+    },
+    {
+      "path": "prefilter-20261015/a29-conditional-prefix-v1/local-guards.json",
+      "sha256": "85742478d4cf1052ddb862629f9c973454f1f1b1ff0c0e4f39702c54342fefeb",
+      "bytes": 17419
+    },
+    {
+      "path": "prefilter-20261015/a29-conditional-prefix-v1/INDUCTION.md",
+      "sha256": "f3cc0ad26922c11f4d22b15ede632505ba75e03177505010503c021dc6021697",
+      "bytes": 3476
+    },
+    {
+      "path": "prefilter-20261015/a29-conditional-prefix-v1/ROOT_INDEPENDENT_REVIEW.json",
+      "sha256": "d5a3441b77ff557ba6a22a4cd9cb477b94435379630f66e68861180c5f133620",
+      "bytes": 779
+    },
+    {
+      "path": "prefilter-20261015/a29-conditional-coverage-v1/summary.json",
+      "sha256": "7eff4af6c46ded2c3635383071d0b33025af96b04dfa6cda1917c7b936104dd3",
+      "bytes": 298798
+    },
+    {
+      "path": "prefilter-20261015/a29-conditional-subset-v1/result.json",
+      "sha256": "f39122445f71c247c2ac0612e8044417b1147a75cdf4f1677d9f8e774ab6dd87",
+      "bytes": 51347
+    },
+    {
+      "path": "prefilter-20261015/a29-conditional-certificate-v1/EXACT_RETAINED_SUBSET.json",
+      "sha256": "d0ebdae527279624b18776173e41c8c5e65749bfcce07802ac72dd8eab723543",
+      "bytes": 122407
+    },
+    {
+      "path": "prefilter-20261015/evidence/a29-paired-family-archive-receipt.json",
+      "sha256": "176df9255883a1fead178c12b998b6936e8b946917f911e4aa072bb0ef0d6c8a",
+      "bytes": 241
+    },
+    {
+      "path": "prefilter-20261015/evidence/a29-conditional-prefix-archive-receipt.json",
+      "sha256": "1993b7444508f8ce9c5a7cbb849a1569098747edd1922e4085c1c269f74cf481",
+      "bytes": 245
+    }
+  ],
+  "ABI": {
+    "public_ports": 1024,
+    "order": [
+      "P.x",
+      "P.y",
+      "A.x",
+      "A.y"
+    ],
+    "bits_within_coordinate": "LSB first",
+    "scored_outputs": 512,
+    "order_scored": [
+      "reg0 x",
+      "reg1 y"
+    ],
+    "registers": "Four ordered256-bit declarations; quantum regs0/1 and classical regs2/3.",
+    "candidate67_ABI_receipt": {
+      "path": "product-exact-20261015/REPAIR67_ABI.json",
+      "sha256": "61cb74a939cd5370e1701bb8850e2c6d642e6776893e14038f2d89f848f84d1c",
+      "bytes": 744882
+    },
+    "candidate_qubits": 1234,
+    "candidate_classical_bits": 66245,
+    "fallback_classical_index_min_width": 32,
+    "fallback_workspace_min_classical_words": 66245,
+    "reject_u16_truncation": true
+  },
+  "A29_relative_cache67": {
+    "candidate_stream_sha256": "0beec42b117e5f623736c4171e156d8ffdfaeeb585285636f91bab2838e7c10b",
+    "universal_certificate": {
+      "path": "product-exact-20261015/repair67-universal-20261016/CACHE_EQUIVALENCE_CERTIFICATE.json",
+      "sha256": "3cb037399462d45683c9790793ed1bfbff2df2934898f38f9ffe2cd857ff4d39",
+      "bytes": 5127
+    },
+    "conditional_transfer": {
+      "path": "product-exact-20261015/repair67-universal-20261016/PER_INPUT_MASK_TRANSFER.json",
+      "sha256": "0bfcc1dd3657e1c8eb6ae8ce404c1c91da22eb9c7b3622d3ad8dbfecbf12a1e3",
+      "bytes": 1811
+    },
+    "prefix_sha256": "c59cde58aa9ce2cf9b8f99ff4246a0848a1d84ef0648ba2818b3895ed8503c35",
+    "pre_tail_ops": 17898304,
+    "nonce_rule": "Only the audited identical prefix plus48 adjacent XX identity pairs onq0/q1; verify any new tail.",
+    "own_Fiat_inputs_required": true
+  },
+  "fixed_existing_coverage": {
+    "inputs": 445,
+    "old_value_witnesses": 431,
+    "old_certified": 421,
+    "retained": 418,
+    "parent_only_repair_lanes": 14,
+    "parent_only_original_certified": 14,
+    "parent_only_G_true": 14,
+    "new_eligibility_sample": false,
+    "new_source_tuning": false
+  },
+  "cost_scope": {
+    "guard_component_median_seconds_445": 0.023423890583217144,
+    "conditions": "SingleCcore, same445distinctfixedinputs repeated9times, allocation and inputpacking excluded; no end-to-end or fresh-input throughput claim.",
+    "end_to_end_runtime_claim": false,
+    "recommended_order": "Evaluate G only after original-mask and original zero-MR value propose a rejection."
+  },
+  "runtime_integration_requirements": [
+    "Independently bind and review the composite binary, source variants, input/output mapping, guard evaluator and all library hashes.",
+    "Use candidate final-source own Fiat inputs; preserve all MR ordinals/draws and arbitrary enclosing snapshots in full candidate fallback.",
+    "Assert u32 or wider classical IDs and workspace>=66245 before loading candidate67; unknown or unavailable certificate results must fall back.",
+    "Validate protected known-bit containment, exact fallback/full phase/garbage and scheduler bookkeeping on distinct controls, then perform a measured cost gate.",
+    "Official unchanged benchmark, frozen fresh failure census eligibility, nonce disclosure and lowest-pass policy remain separate."
+  ],
+  "not_claimed": [
+    "All scored bits MR-independent",
+    "G=1 implies a final difference",
+    "Phase/garbage correctness transfers",
+    "Physical MR tapes or Fiat transcripts transfer",
+    "A passing nonce",
+    "A scored record",
+    "Operational/search authority"
+  ]
+}

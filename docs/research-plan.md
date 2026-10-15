@@ -1,5 +1,29 @@
 # Research state and next experiments
 
+## Conditional filter and source-family repair:16 October2026,06:54Singapore
+
+Keep the product25 ascending search unchanged;06:45:59 checkpoint has28.56m
+distinct nonces/no pass. Product67's102.13839T/Q1234 remains the strongest fully
+qualified diagnostic saving. Repaired67's49.55103T/Q1234 universal cache proof
+is complete across all67stages, with every appended proof log independently
+reviewed. No67source has a selected nonce or complete official benchmark.
+
+Finish isolated disabled repaired67 filter qualification using the new
+source-bound theorem: old_dependency OR public_discrepancy_G. All29 paired
+arithmetic contracts and actual input-only guard composition are proved;
+fixed existing coverage retains418/421 old certified failures. Guard G1 must
+fall back. Full candidate ownFiat/phase/garbage/MR and classical66245-word
+workspace controls are separate. Never infer runtime authority from the proof
+manifest, original masks alone, or repeated warm guard component timings.
+
+Investigate a generic exact N2 clean-loan repair: actual current4b fixed witness
+replay pinpoints dirty scratch in the first low add on14 unexplained cases.
+Cover every source-defined loan site and account for quantum information,
+phase, width and full T cost. The separate all-four C130 square precision
+candidate stays frozen through its sole fresh32768/source gate; no selected
+subset, resampling or cache composite. Preserve negative global-cleanup and
+159-endpoint/42-disjoint-guard results; neither justified a renderer.
+
 ## Product candidates and official Toffoli result:16 October2026,06:05Singapore
 
 Public05:45 snapshot confirms independent Toffoli minimum753721/Q1468,

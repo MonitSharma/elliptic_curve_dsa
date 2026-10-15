@@ -1,0 +1,17 @@
+# Conditional original-to-A29 value transfer
+
+This is a proposed source-chain proof for independent review. No filter is enabled.
+
+For each of the 29 source-defined precision replacements, the paired component checker proves that every physical quantum output difference is an exact Boolean function of the quantum entry bits alone. Both sides use one immutable symbolic namespace, arbitrary entry quantum/classical values, and independent internal measurement variables. The old and new helper value contracts are proved universally first. Every difference is included, including the adjacent existing bits at ticks127 and128. The discrepancy guard is their Boolean OR.
+
+The independent frame-binding receipt checks each old/new body against the actual frozen streams and checks every operation outside those bodies for byte equality. The separate exact classical theorem shares only identical prefix/suffix measurement roles, keeps changed-middle measurements independent, and proves every live outgoing classical version equal. A differing version must be killed by an unchanged unconditional overwrite before any read, including a captured condition. All replacement boundaries have empty condition stacks.
+
+The finite A29 prefix interpreter composes each local discrepancy function only after proving that every substituted quantum port is independent of all measurements and conservative opaque symbols. Its coefficient graph retains exact immutable definitions for all input-only caps. Thus each composed guard is a function of the original1024 declared input bits, not a zero-measurement observation. Let G be the OR of all29 composed guards.
+
+For an input with G=0, induct over the replacements. Before the first replacement, the two programs are identical. If all earlier guards are false, quantum states agree and every observable classical version agrees under the stated measurement projection. The current A29 entry is therefore the common entry. Its false local guard makes every quantum output equal by the paired theorem. Its live classical interface remains equal; dead versions cannot affect later behavior before their unchanged kill. Empty boundary stacks prevent hidden snapshot differences. Byte-identical operations between replacements preserve this relation. This proves complete final quantum value equality for all measurement tapes under the projection.
+
+Any entry-zero preconditions would transfer to the old side only under this same earlier-guard induction. The current29 paired contracts in fact require no entry-zero preconditions, so arbitrary dirty quantum entries are covered.
+
+Consequently an original scored bit certified independent of every original measurement is also independent of every A29 measurement when G=0. A future combined dependency mask must be original_dependency OR G. The raw exported root is G; zero permits transfer. MaskProgram.eval returns NOT(G), the safe equality mask. The old mask is not reused without this new source-bound chain certificate.
+
+Remaining gates: independent review of the proof/receipts and compiler, completed actual-prefix export and protected containment, empirical coverage/cost on predeclared existing inputs, and a distinct composite-mask manifest. Phase correctness, failure rates, physical Fiat transcripts and unprojected measurement tapes do not transfer through this argument. Cache67 requires its separately proved A29-relative cache equivalence and sufficient classical workspace.

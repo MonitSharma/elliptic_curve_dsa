@@ -15,7 +15,21 @@ the separate per-input mask-transfer companion and exact register ABI are
 preserved in `cache-certificate67-20261016` and `PRODUCT67_ABI.json`.
 All four256-bit original registers and ordered annotations are unchanged.
 This is a conditional source-transfer theorem, not global MR independence.
-The separately predeclared product95 continuation has started after this audit.
+The separately predeclared product95 continuation is now frozen after all512
+coupled quantum/classical/phase/scratch replay checks passed. Its fixed packets
+show112.47265625 T saved at Q1234, with61,343 classical slots. Stream SHA256:
+`ba87b9ceb0691ccfe8c509539cfc38e774ee02134363c19e3541c6e942723e84`.
+This is diagnostic evidence only; no native port or fresh failure gate is
+claimed for95. Its completed read-only endpoint-product census found159
+restored, nonconstant control products across78 groups (165 raw-write-rejected
+use endpoints checked); both independent source passes agree. The separate
+donor/profit planner selected42 leases with a naive5.40625 T proxy. An
+independent decoder and exact local classical-guard audit then proved every
+selected lease has mutually exclusive use masks, hence **zero reuse savings**
+for arbitrary local classical inputs and internal measurement assignments.
+All42 local truth tables also give zero. This method is terminal negative:
+no renderer, alternative ranking, new circuit or sampling is justified.
+See `ENDPOINT-PRODUCT-NEGATIVE.md` and the complete source-bound audit JSON.
 No nonce search, complete official product benchmark or scored record is
 claimed here. The stream SHA256 is
 `268aefe234ede5eaab723e34e214b91f0bd8cac9b0f95d9ee90e3bf3ae8c951d`.
@@ -28,9 +42,14 @@ The sole declared32,768-batch sample has candidate4134 bad batches
 (17.78851318/packet), versus original4138 (17.80572510), with0 dirty shots.
 It retains all29 uniform precision repairs and has66,245 classical slots.
 `repair67-census-summary.json`, `REPAIR67_FREEZE.json` and `REPAIR67_ABI.json`
-bind this result. All53 preceding A29-relative universal cache stages are
-complete; the final14-stage universal append is running. No nonce, official
-product benchmark or scored product record is claimed here.
+bind this result. The A29-relative universal audit is now complete: all67
+stages,245,849 leases and540,826 replaced uses passed without sampled inputs.
+The immutable certificate SHA256 is
+`3cb037399462d45683c9790793ed1bfbff2df2934898f38f9ffe2cd857ff4d39`.
+Its separate per-input transfer companion requires a sound A29-specific mask;
+it does not transfer the original4b arithmetic function or establish global
+A29 measurement independence. No nonce, official product benchmark or scored
+product record is claimed here.
 
 The earlier complete25-stage result saves58.15367794 ± 0.44249333 T at Q1234.
 Normal native generation is byte-identical to the frozen external stream;

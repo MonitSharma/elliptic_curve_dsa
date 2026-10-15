@@ -1,0 +1,25 @@
+{
+  "status": "PREDECLARED_DISABLED_COMPOSITE_QUALIFICATION_ONLY",
+  "original_stream": "2a522394cdf3e6a0df7784ad4db761030933c1f7ccd0ff8e641d68ec7a4dab3e",
+  "arithmetic_stream": "1cd3457b44bd21d65921ce0d5b8352573a9c6f2bb2706430d367f68e5a7e5522",
+  "candidate_stream": "0beec42b117e5f623736c4171e156d8ffdfaeeb585285636f91bab2838e7c10b",
+  "discrepancy_guard": "355f9951eda21a7204a96fd391b3208e8d6e000dce6a14feb40d8f19b637f2b3",
+  "new_dependency": "original_dependency OR discrepancy_guard",
+  "implementation": "Evaluate immutable original zero-MR value and knownness; evaluate G only for provisional wrong-value points; retain a provisional witness only when G=0. No rejection enabled.",
+  "protected_controls": [
+    "Candidate-own Fiat prefix/tail byte controls at nonces1,2,17,255",
+    "Actual candidate full9024 quantum/classical/phase/physicalMR equality against protected Simulator",
+    "Original zero-MR sliced value shadow uses original2a, never changed candidate as the original premise",
+    "All445 pre-existing diagnostic inputs: G0 conditional scored known-bit equality with protected candidate zero-MR; G1 must disable every original certificate",
+    "Classical IDs65535 and66244 roundtrip through unchanged wide compact ABI and protected comparison",
+    "Forced scheduler fallback at fixed nonces1/2, lookahead1, generic/direct: compare exact early kind/shots with protected Simulator classifier",
+    "Partial11 at nonce17/lookahead9 and128 at nonce1 compare generic/direct full rows",
+    "Three alternating paired4096 nonce trials, fixed nonce1 and2threads; disabled only, no selected nonce"
+  ],
+  "minimum_classical_workspace": 66245,
+  "new_census_or_nonce_search_authorized_by_this_declaration": false,
+  "production_changed": false,
+  "threads": 2,
+  "memory_cap_GiB": 24,
+  "submission_mode": "queue"
+}

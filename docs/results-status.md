@@ -1,5 +1,19 @@
 # Results and submission status
 
+**06:54 checkpoint:** official full refresh06:08 confirms our753721/Q1468,
+Q677 and product939347948. Plain67 saves102.13839T atQ1234 with native/fresh/
+universal/disabled-runtime qualification, still no67nonce or complete benchmark.
+Repaired67 saves49.55103T atQ1234; all67universal stages now independently
+verified. Its new conditional arithmetic prefilter retains418/421 existing
+certified value witnesses and is in isolated disabled runtime qualification.
+Product25's unchanged search has28,557,312 distinct completed nonces/no pass
+at06:45:59. The actual current-source failure observer identifies dirty N2-loan
+scratch behind14 previously unexplained low-bit errors; an exact repair is
+pending. Frozen four-site square carry repair has one fresh census active.
+Neither proof components nor diagnostic savings are complete resource records.
+[Conditional qualification](../experiments/repair67-conditional-filter-20261016/DECLARATION.json) ·
+[Research handoff](AGENT_HANDOFF.md).
+
 **06:05 checkpoint:** public05:45 refresh confirms our753721/Q1468 is
 officially scored as03be8e19/sourceb5adb653, the lowest independent T. Rejected
 solely because Q*T did not improve; Q677/product939347948 stay current.

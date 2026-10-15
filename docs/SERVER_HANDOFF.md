@@ -1,5 +1,28 @@
 # CPU server: ECDSA research handoff
 
+## Active research:16 October2026,06:54Singapore
+
+Current authoritative state is [AGENT_HANDOFF.md](AGENT_HANDOFF.md); the dated
+sections below preserve older runs. Host LHC-104-070 has263GiB available in the
+latest preflight. Leave unrelated two18-thread lattice jobs and all foreign
+submission work untouched. ECDSA root is /home/hclau/ecdsa_research.
+
+product25-operational-20261016 remains active with48threads across PIDs3893465,
+3893466,3893468,3893469. No binary/source/library/affinity changes. The06:45:59
+immutable checkpoint has28,557,312 complete distinct rows/no pass, lowerprefix
+28,446,720. Do not apply terminal-log acceptance to active JSONL files.
+
+repair67-conditional-filter-20261016 is a separate DISABLED validation,2build/
+runtime threads,24GiB cap; continuation PID287229. Original prerequisite/build
+failures are preserved before evaluation; same15prepared tool source files are
+rechecked. No production authority or nonce search is granted by its theorem.
+failure-census-20261015's square parent PID163483 uses4workers, then the frozen
+candidate on the same sole32768batches. The failure agent owns its continuation.
+N2-loan source-family diagnosis uses at mostoneadditional core. Product endpoint
+and prefilter proof jobs are terminal; their full archives are verified locally.
+
+No chemistry changes, external submissions, active-search restarts or resampling.
+
 ## Current work separation — 15 October 2026
 
 **Start with [AGENT_HANDOFF.md](AGENT_HANDOFF.md)** for state, tools and next steps.

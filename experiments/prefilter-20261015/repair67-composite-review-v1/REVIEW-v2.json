@@ -1,0 +1,74 @@
+{
+  "status": "INDEPENDENT_GENERATED_SOURCE_REVIEW_PASS_RUNTIME_RECEIPTS_PENDING",
+  "reviewed_generated_sources": [
+    {
+      "path": "tool/src/packed_body.rs",
+      "sha256": "0e8577064a0dfd5b9ad6469eca6ee678d47d1d2ec22a152dae63f85198e89d35"
+    },
+    {
+      "path": "tool/src/guard.rs",
+      "sha256": "d3bc163b13867ec0e8ed62dd76917bfc288ff8623889f32de3c5ad30019f4018"
+    },
+    {
+      "path": "tool/src/transfer.rs",
+      "sha256": "f286cdc5d1afa104fb6b23d211b920daf740f0bb00ca2894f5dd4f280f5d2c2f"
+    },
+    {
+      "path": "tool/src/fast_sim_wide.rs",
+      "sha256": "d53d033714abae9f367da6dc9f9eb93e9740449133479a82713d8becf76f0fec"
+    },
+    {
+      "path": "tool/src/early.rs",
+      "sha256": "e7151df4b3ea32d02b47334ba6618c5034d9e992df32d925256c8ff822262daa"
+    },
+    {
+      "path": "tool/src/masks.rs",
+      "sha256": "5c9eb4c0a6c8da2a9cc4cdfb2ea7f3462a88ec853c90d58765f5a6922664a06b"
+    }
+  ],
+  "prepared_manifest_sha256": "6ea8fe51292e9acb80423cab2883392d682a220d010427066c0d4b5c0e061070",
+  "generated_driver_sha256": "d167e90af08fa111e3e5f0c4de7a4b13dba583737645a64f28743794b3c90b5a",
+  "root_inputs": [
+    {
+      "path": "C:\\Users\\monitsharma\\Downloads\\elliptic_curve_dsa\\experiments\\repair67-conditional-filter-20261016\\DECLARATION.json",
+      "sha256": "b4118ec3653bff5078bcbe4b1f7a5895ff7f9a140dce756c92a768f04a0a7e45"
+    },
+    {
+      "path": "C:\\Users\\monitsharma\\Downloads\\elliptic_curve_dsa\\experiments\\repair67-conditional-filter-20261016\\COMPOSITE_BINDING.json",
+      "sha256": "d19c011287293671ae14a87b380c5fbf17a9ac0009d8dd27c5966c3830525909"
+    },
+    {
+      "path": "C:\\Users\\monitsharma\\Downloads\\elliptic_curve_dsa\\experiments\\repair67-conditional-filter-20261016\\prepare.py",
+      "sha256": "b1fda18dc86ed128871e71cdd9d1db248ca9ab0be4c23c6e6bfa84635c96b88f"
+    },
+    {
+      "path": "C:\\Users\\monitsharma\\Downloads\\elliptic_curve_dsa\\experiments\\repair67-conditional-filter-20261016\\guard.rs",
+      "sha256": "d3bc163b13867ec0e8ed62dd76917bfc288ff8623889f32de3c5ad30019f4018"
+    },
+    {
+      "path": "C:\\Users\\monitsharma\\Downloads\\elliptic_curve_dsa\\experiments\\repair67-conditional-filter-20261016\\run.sh",
+      "sha256": "98e1a626e977bb18ce8c5263e110a1914a10e24ab0ea62e956bc2ed3e0ee4cbc"
+    }
+  ],
+  "source_checks": [
+    "Binding pins conditional theorem b351, source2a/A291cd/candidate0bee, original560c, guard355f, cache67 3cb/0bf and ABI61cb.",
+    "Both mask and guard use identical canonical1024 public-input ports P.x/P.y/A.x/A.y, bitLSB first and point-index vector packing.",
+    "Raw G=0 is safe. Only provisional old known-wrong points enter guard, and their iterator is consumed only on true original_wrong; final retained certificate is old_wrong AND NOT G.",
+    "Original zero-MR IR812f and generic/direct libraries are pinned. Protected shadow explicitly loads original2a and asserts ordered register identity with candidate.",
+    "Fixed445 inputs hash pinned;428safe/3excluded old431 and14excluded repair cases asserted;418retained known-wrong checks plus protected original/candidate known-bit equality on safe inputs.",
+    "Full fallback compiler uses u32 classical c/bt, asserts66245workspace, and tests65535/66244 through protected state/phase/MR comparisons.",
+    "Own candidate Fiat prefix and identity tail are bound, nonce seed tests1/2/17/255. Full fallback uses actual candidate prefix and original post9024-input reader, preserving quantum/classical/phase/garbage and every MR draw.",
+    "Generated force=True control enters scheduler done path at nonces1/2/lookahead1, compares exact_early(kind,shots) to protected Simulator on same post-input tape, and compares generic/direct output rows.",
+    "PROOF_ACCEPTED remains false, asserted at main; output explicitly unauthoritative and no selected nonce."
+  ],
+  "historical_finding": {
+    "receipt_sha256": "e4625ba9128043452ecc659631534d0ae4622e134ef2717f8110f363fba11a23",
+    "finding": "No forced scheduler fallback trial in initial driver",
+    "resolution": "Explicit forced scheduler test now present in generated run.py and protected_fallback_kind in guard.rs; source-reviewed, execution receipt pending."
+  },
+  "limitations": [
+    "This source review does not claim that pending protected tests or cost gate have passed.",
+    "No operational search or runtime authority is issued.",
+    "No production or root source edits were made."
+  ]
+}

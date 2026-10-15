@@ -1,0 +1,27 @@
+{
+  "status": "CONDITIONAL_PER_INPUT_MASK_TRANSFER_THEOREM_NOT_A_MASK_PROOF",
+  "certificate_sha256": "3cb037399462d45683c9790793ed1bfbff2df2934898f38f9ffe2cd857ff4d39",
+  "baseline_A29_stream_sha256": "1cd3457b44bd21d65921ce0d5b8352573a9c6f2bb2706430d367f68e5a7e5522",
+  "candidate_stream_sha256": "0beec42b117e5f623736c4171e156d8ffdfaeeb585285636f91bab2838e7c10b",
+  "candidate_prefix": {
+    "path": "/home/hclau/ecdsa_research/product-exact-20261015/repair-to67-rank-20261016/repair-67-retained-1024-proxy.bin",
+    "ops": 17898400,
+    "pre_tail_ops": 17898304,
+    "pre_tail_bytes": 1002305024,
+    "pre_tail_sha256": "c59cde58aa9ce2cf9b8f99ff4246a0848a1d84ef0648ba2818b3895ed8503c35",
+    "pre_tail_sha3_256": "bcfe79307962dbd9e06d6673a2f780fa10a66ef3b9435a25d9ad6b3e78ae440f",
+    "serialization": "Each operation7 little-endian u64:kind,control2,control1,target,c_target,c_condition,r_target. Kind padding is zero. Same56-byte records as protected QECCOPSZ payload.",
+    "tail_ops": 96,
+    "tail_sha256": "de35b0e67bd2b427a34ad6b7c6a36c523fef04d796286b328ff858ca69999a2e",
+    "nonce": 1046072871510,
+    "tail_verified_48_adjacent_XX_pairs_q0_or_q1": true
+  },
+  "theorem": "For each fixed ABI input x and scored output bit b, a separately sound A29-source-bound proof that F_A29,b(x,r) is constant for all original A29 MR r implies the audited67 cache output equals F_A29,b(x,0) for every candidate MR under the audited original-MR projection.",
+  "separate_premises": [
+    "A29-specific model/mask, never original4b across this arithmetic change.",
+    "Evaluate candidate final-source own Fiat inputs.",
+    "New nonce retains the identical audited prefix and48 adjacent XX identity pairs.",
+    "Full phase/dirty checks and unchanged official benchmark remain required."
+  ],
+  "score": null
+}
