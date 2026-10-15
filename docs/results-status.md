@@ -29,7 +29,10 @@ drop budget.
 | +4 / +6 rail bits and anchors, smoothed tail | 1468 / 1472 | 763,076 / 767,661 | 4.78 / 5.37 |
 
 Tail smoothing is free; rails must widen with their YP8 anchors; more than
-+2 bits stops helping. A constant ~1.1 batches of non-walk failures remains.
++2 bits stops helping (the tail cliff returns, and non-walk failures rise with
+width). Convergence-aware envelopes with a rebuilt tail descent eliminate
+unconverged walks and halve walk failures (762,908 T, 3.79), but non-walk
+failures rise, so every walk-only lever plateaus at about 3.7–4.2. A constant ~1.1 batches of non-walk failures remains.
 None of these is close to the < 0.1 expected failed batches needed.
 [Census and figure](../experiments/failure-census-20261015/STATUS.md) ·
 [trace](../experiments/trace-value-20261015/STATUS.md) ·

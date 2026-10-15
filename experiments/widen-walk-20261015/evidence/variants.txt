@@ -14,3 +14,11 @@ smooth-cap1800 0 smooth 0 0 0 1800
 smooth-cap2200 0 smooth 0 0 0 2200
 mid2-smooth-anch2-cap1800 2 smooth 0 2 0 1800
 mid2-smooth-anch2-cap2200 2 smooth 0 2 0 2200
+env-late3 r70-129:3,130-131:2,132-133:1 smooth 0 f
+env-late2 r70-129:2,130-131:1 smooth 0 f
+env-ramp r50-69:1,70-89:2,90-129:3,130-131:2,132-133:1 smooth 0 f
+env-late4 r90-129:4,130-131:3,132-133:2,134-135:1 smooth 0 f
+env-greedy r80-99:1,110-133:1 smooth 0 f
+smooth-hold2 0 t:9-9-8-7-6/9-9-8-7-6/7-7-6-6-5/7-7-6-6-5 0 0
+late3full-tail3 r70-136:3 t:12-12-11-10-9/10-10-9-8-7/8-8-7-6-5 0 f
+late3full-tail3hold r70-136:3 t:12-12-11-10-9/12-12-11-10-9/10-10-9-8-7/10-10-9-8-7/8-8-7-6-5/8-8-7-6-5 0 f

@@ -109,7 +109,11 @@ the record, and that margin is the budget for making it genuinely correct.
     test set, for +37 Toffolis;
   - widening the rails *together with* their choice-window anchors by 2 bits
     gives 4.2, for +4.7K Toffolis;
-  - +4 and +6 bits do no better.
+  - +4 and +6 bits do no better: they recreate the tail cliff, and other
+    stages degrade as rails widen;
+  - convergence-aware (late-weighted, tapered) envelopes and a rebuilt tail
+    descent remove the unconverged walks and halve walk failures. Non-walk
+    failures then rise, so the total stays at about 3.8.
 
   A constant ~1.1 batches of non-walk failures remains in every variant. The
   benchmark needs under 0.1.

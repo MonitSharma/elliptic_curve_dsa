@@ -34,7 +34,7 @@ GROUPS = [
     ("Narrow repairs (Q1267–1282)", "#eb6834", "s", lambda r: 1267 <= r["qubits"] <= 1282),
     ("Wide circuit and its repairs (Q1464)", "#1baf7a", "D", lambda r: r["qubits"] == 1464),
 ]
-WIDEN = ("Walk-table widening (Q1464–1474)", "#eda100", "^")
+WIDEN = ("Walk-envelope variants (Q1464–1484)", "#eda100", "^")
 
 INK, MUTED, GRID, SURFACE = "#1f1f1e", "#6b6a63", "#e6e5df", "#fcfcfb"
 plt.rcParams.update({"font.size": 11, "axes.edgecolor": MUTED, "axes.labelcolor": INK,

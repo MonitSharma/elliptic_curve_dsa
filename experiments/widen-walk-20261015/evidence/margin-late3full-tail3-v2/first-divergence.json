@@ -1,0 +1,698 @@
+{
+ "shots": 88,
+ "first_kind": {
+  "FWD_RAIL divide": 15,
+  "NONE (no walk-rail event)": 45,
+  "FWD_RAIL multiply": 28
+ },
+ "fwd": [
+  {
+   "shot": 0,
+   "phase": "divide",
+   "tick": 134,
+   "corrupt": "target",
+   "widths": [
+    15,
+    15
+   ],
+   "tape": "[0, 0, 0, 0, 0]",
+   "diff_log2": 15,
+   "target_delta_zero": false,
+   "diff_is_pow2": true,
+   "diff_eq_2^w": true,
+   "diff_eq_2^(w-1)": false
+  },
+  {
+   "shot": 2,
+   "phase": "multiply",
+   "tick": 117,
+   "corrupt": "target",
+   "widths": [
+    50,
+    50
+   ],
+   "tape": "[1, 1, 1, 0, 0]",
+   "diff_log2": 50,
+   "target_delta_zero": false,
+   "diff_is_pow2": true,
+   "diff_eq_2^w": true,
+   "diff_eq_2^(w-1)": false
+  },
+  {
+   "shot": 4,
+   "phase": "divide",
+   "tick": 125,
+   "corrupt": "target",
+   "widths": [
+    34,
+    32
+   ],
+   "tape": "[0, 0, 0, 0, 0]",
+   "diff_log2": 33,
+   "target_delta_zero": false,
+   "diff_is_pow2": true,
+   "diff_eq_2^w": false,
+   "diff_eq_2^(w-1)": false
+  },
+  {
+   "shot": 5,
+   "phase": "multiply",
+   "tick": 89,
+   "corrupt": "target",
+   "widths": [
+    105,
+    105
+   ],
+   "tape": "[1, 0, 1, 0, 0]",
+   "diff_log2": 105,
+   "target_delta_zero": false,
+   "diff_is_pow2": true,
+   "diff_eq_2^w": true,
+   "diff_eq_2^(w-1)": false
+  },
+  {
+   "shot": 6,
+   "phase": "multiply",
+   "tick": 134,
+   "corrupt": "source",
+   "widths": [
+    15,
+    15
+   ],
+   "tape": "[0, 0, 1, 1, 0]",
+   "diff_log2": -1,
+   "target_delta_zero": true,
+   "diff_is_pow2": false,
+   "diff_eq_2^w": false,
+   "diff_eq_2^(w-1)": false
+  },
+  {
+   "shot": 7,
+   "phase": "multiply",
+   "tick": 30,
+   "corrupt": "target",
+   "widths": [
+    216,
+    216
+   ],
+   "tape": "[0, 0, 0, 0, 1]",
+   "diff_log2": 213,
+   "target_delta_zero": false,
+   "diff_is_pow2": true,
+   "diff_eq_2^w": false,
+   "diff_eq_2^(w-1)": false
+  },
+  {
+   "shot": 9,
+   "phase": "divide",
+   "tick": 67,
+   "corrupt": "target",
+   "widths": [
+    145,
+    143
+   ],
+   "tape": "[1, 1, 1, 0, 0]",
+   "diff_log2": 144,
+   "target_delta_zero": false,
+   "diff_is_pow2": true,
+   "diff_eq_2^w": false,
+   "diff_eq_2^(w-1)": false
+  },
+  {
+   "shot": 10,
+   "phase": "divide",
+   "tick": 138,
+   "corrupt": "source",
+   "widths": [
+    7,
+    7
+   ],
+   "tape": "[1, 1, 0, 1, 0]",
+   "diff_log2": -1,
+   "target_delta_zero": true,
+   "diff_is_pow2": false,
+   "diff_eq_2^w": false,
+   "diff_eq_2^(w-1)": false
+  },
+  {
+   "shot": 12,
+   "phase": "multiply",
+   "tick": 108,
+   "corrupt": "source",
+   "widths": [
+    67,
+    67
+   ],
+   "tape": "[0, 0, 0, 0, 0]",
+   "diff_log2": 68,
+   "target_delta_zero": false,
+   "diff_is_pow2": true,
+   "diff_eq_2^w": false,
+   "diff_eq_2^(w-1)": false
+  },
+  {
+   "shot": 14,
+   "phase": "multiply",
+   "tick": 137,
+   "corrupt": "source",
+   "widths": [
+    9,
+    9
+   ],
+   "tape": "[1, 1, 1, 0, 0]",
+   "diff_log2": 9,
+   "target_delta_zero": false,
+   "diff_is_pow2": true,
+   "diff_eq_2^w": true,
+   "diff_eq_2^(w-1)": false
+  },
+  {
+   "shot": 16,
+   "phase": "multiply",
+   "tick": 134,
+   "corrupt": "target",
+   "widths": [
+    15,
+    15
+   ],
+   "tape": "[0, 0, 0, 1, 1]",
+   "diff_log2": 12,
+   "target_delta_zero": false,
+   "diff_is_pow2": true,
+   "diff_eq_2^w": false,
+   "diff_eq_2^(w-1)": false
+  },
+  {
+   "shot": 17,
+   "phase": "divide",
+   "tick": 126,
+   "corrupt": "target",
+   "widths": [
+    30,
+    32
+   ],
+   "tape": "[1, 1, 1, 0, 0]",
+   "diff_log2": 32,
+   "target_delta_zero": false,
+   "diff_is_pow2": true,
+   "diff_eq_2^w": false,
+   "diff_eq_2^(w-1)": false
+  },
+  {
+   "shot": 19,
+   "phase": "multiply",
+   "tick": 62,
+   "corrupt": "target",
+   "widths": [
+    154,
+    154
+   ],
+   "tape": "[0, 0, 0, 0, 1]",
+   "diff_log2": 152,
+   "target_delta_zero": false,
+   "diff_is_pow2": true,
+   "diff_eq_2^w": false,
+   "diff_eq_2^(w-1)": false
+  },
+  {
+   "shot": 20,
+   "phase": "divide",
+   "tick": 35,
+   "corrupt": "source",
+   "widths": [
+    206,
+    206
+   ],
+   "tape": "[0, 0, 1, 1, 0]",
+   "diff_log2": -1,
+   "target_delta_zero": true,
+   "diff_is_pow2": false,
+   "diff_eq_2^w": false,
+   "diff_eq_2^(w-1)": false
+  },
+  {
+   "shot": 21,
+   "phase": "multiply",
+   "tick": 40,
+   "corrupt": "source",
+   "widths": [
+    197,
+    197
+   ],
+   "tape": "[0, 0, 1, 1, 0]",
+   "diff_log2": -1,
+   "target_delta_zero": true,
+   "diff_is_pow2": false,
+   "diff_eq_2^w": false,
+   "diff_eq_2^(w-1)": false
+  },
+  {
+   "shot": 22,
+   "phase": "multiply",
+   "tick": 134,
+   "corrupt": "source",
+   "widths": [
+    15,
+    15
+   ],
+   "tape": "[1, 1, 1, 1, 0]",
+   "diff_log2": 15,
+   "target_delta_zero": false,
+   "diff_is_pow2": false,
+   "diff_eq_2^w": false,
+   "diff_eq_2^(w-1)": false
+  },
+  {
+   "shot": 24,
+   "phase": "multiply",
+   "tick": 135,
+   "corrupt": "source",
+   "widths": [
+    13,
+    13
+   ],
+   "tape": "[0, 1, 1, 0, 0]",
+   "diff_log2": 13,
+   "target_delta_zero": false,
+   "diff_is_pow2": true,
+   "diff_eq_2^w": true,
+   "diff_eq_2^(w-1)": false
+  },
+  {
+   "shot": 25,
+   "phase": "divide",
+   "tick": 90,
+   "corrupt": "target",
+   "widths": [
+    101,
+    103
+   ],
+   "tape": "[1, 0, 0, 0, 0]",
+   "diff_log2": 102,
+   "target_delta_zero": false,
+   "diff_is_pow2": true,
+   "diff_eq_2^w": false,
+   "diff_eq_2^(w-1)": false
+  },
+  {
+   "shot": 27,
+   "phase": "multiply",
+   "tick": 52,
+   "corrupt": "source",
+   "widths": [
+    174,
+    174
+   ],
+   "tape": "[0, 0, 0, 0, 0]",
+   "diff_log2": 174,
+   "target_delta_zero": false,
+   "diff_is_pow2": true,
+   "diff_eq_2^w": true,
+   "diff_eq_2^(w-1)": false
+  },
+  {
+   "shot": 28,
+   "phase": "multiply",
+   "tick": 120,
+   "corrupt": "source",
+   "widths": [
+    44,
+    44
+   ],
+   "tape": "[0, 0, 1, 1, 0]",
+   "diff_log2": -1,
+   "target_delta_zero": true,
+   "diff_is_pow2": false,
+   "diff_eq_2^w": false,
+   "diff_eq_2^(w-1)": false
+  },
+  {
+   "shot": 32,
+   "phase": "divide",
+   "tick": 134,
+   "corrupt": "target",
+   "widths": [
+    15,
+    15
+   ],
+   "tape": "[0, 0, 0, 0, 0]",
+   "diff_log2": 15,
+   "target_delta_zero": false,
+   "diff_is_pow2": true,
+   "diff_eq_2^w": true,
+   "diff_eq_2^(w-1)": false
+  },
+  {
+   "shot": 34,
+   "phase": "multiply",
+   "tick": 58,
+   "corrupt": "target",
+   "widths": [
+    162,
+    162
+   ],
+   "tape": "[1, 1, 1, 0, 0]",
+   "diff_log2": 162,
+   "target_delta_zero": false,
+   "diff_is_pow2": true,
+   "diff_eq_2^w": true,
+   "diff_eq_2^(w-1)": false
+  },
+  {
+   "shot": 38,
+   "phase": "divide",
+   "tick": 59,
+   "corrupt": "target",
+   "widths": [
+    160,
+    158
+   ],
+   "tape": "[0, 1, 1, 0, 0]",
+   "diff_log2": 159,
+   "target_delta_zero": false,
+   "diff_is_pow2": true,
+   "diff_eq_2^w": false,
+   "diff_eq_2^(w-1)": false
+  },
+  {
+   "shot": 39,
+   "phase": "multiply",
+   "tick": 61,
+   "corrupt": "source",
+   "widths": [
+    156,
+    156
+   ],
+   "tape": "[0, 0, 1, 0, 1]",
+   "diff_log2": -1,
+   "target_delta_zero": true,
+   "diff_is_pow2": false,
+   "diff_eq_2^w": false,
+   "diff_eq_2^(w-1)": false
+  },
+  {
+   "shot": 41,
+   "phase": "divide",
+   "tick": 22,
+   "corrupt": "source",
+   "widths": [
+    230,
+    230
+   ],
+   "tape": "[0, 0, 1, 0, 1]",
+   "diff_log2": -1,
+   "target_delta_zero": true,
+   "diff_is_pow2": false,
+   "diff_eq_2^w": false,
+   "diff_eq_2^(w-1)": false
+  },
+  {
+   "shot": 44,
+   "phase": "multiply",
+   "tick": 62,
+   "corrupt": "source",
+   "widths": [
+    154,
+    154
+   ],
+   "tape": "[0, 0, 1, 1, 0]",
+   "diff_log2": -1,
+   "target_delta_zero": true,
+   "diff_is_pow2": false,
+   "diff_eq_2^w": false,
+   "diff_eq_2^(w-1)": false
+  },
+  {
+   "shot": 54,
+   "phase": "multiply",
+   "tick": 134,
+   "corrupt": "target",
+   "widths": [
+    15,
+    15
+   ],
+   "tape": "[0, 0, 0, 1, 0]",
+   "diff_log2": 14,
+   "target_delta_zero": false,
+   "diff_is_pow2": true,
+   "diff_eq_2^w": false,
+   "diff_eq_2^(w-1)": true
+  },
+  {
+   "shot": 57,
+   "phase": "multiply",
+   "tick": 58,
+   "corrupt": "target",
+   "widths": [
+    162,
+    162
+   ],
+   "tape": "[1, 0, 0, 1, 0]",
+   "diff_log2": 161,
+   "target_delta_zero": false,
+   "diff_is_pow2": true,
+   "diff_eq_2^w": false,
+   "diff_eq_2^(w-1)": true
+  },
+  {
+   "shot": 58,
+   "phase": "multiply",
+   "tick": 56,
+   "corrupt": "target",
+   "widths": [
+    166,
+    166
+   ],
+   "tape": "[1, 1, 1, 0, 0]",
+   "diff_log2": 166,
+   "target_delta_zero": false,
+   "diff_is_pow2": true,
+   "diff_eq_2^w": true,
+   "diff_eq_2^(w-1)": false
+  },
+  {
+   "shot": 62,
+   "phase": "multiply",
+   "tick": 134,
+   "corrupt": "target",
+   "widths": [
+    15,
+    15
+   ],
+   "tape": "[1, 0, 1, 0, 1]",
+   "diff_log2": 13,
+   "target_delta_zero": false,
+   "diff_is_pow2": true,
+   "diff_eq_2^w": false,
+   "diff_eq_2^(w-1)": false
+  },
+  {
+   "shot": 63,
+   "phase": "multiply",
+   "tick": 103,
+   "corrupt": "source",
+   "widths": [
+    77,
+    77
+   ],
+   "tape": "[1, 1, 0, 1, 0]",
+   "diff_log2": -1,
+   "target_delta_zero": true,
+   "diff_is_pow2": false,
+   "diff_eq_2^w": false,
+   "diff_eq_2^(w-1)": false
+  },
+  {
+   "shot": 66,
+   "phase": "multiply",
+   "tick": 61,
+   "corrupt": "target",
+   "widths": [
+    156,
+    156
+   ],
+   "tape": "[0, 0, 0, 0, 0]",
+   "diff_log2": 156,
+   "target_delta_zero": false,
+   "diff_is_pow2": true,
+   "diff_eq_2^w": true,
+   "diff_eq_2^(w-1)": false
+  },
+  {
+   "shot": 69,
+   "phase": "multiply",
+   "tick": 120,
+   "corrupt": "target",
+   "widths": [
+    44,
+    44
+   ],
+   "tape": "[0, 0, 0, 0, 0]",
+   "diff_log2": 44,
+   "target_delta_zero": false,
+   "diff_is_pow2": true,
+   "diff_eq_2^w": true,
+   "diff_eq_2^(w-1)": false
+  },
+  {
+   "shot": 72,
+   "phase": "divide",
+   "tick": 40,
+   "corrupt": "target",
+   "widths": [
+    197,
+    197
+   ],
+   "tape": "[0, 0, 0, 0, 0]",
+   "diff_log2": 197,
+   "target_delta_zero": false,
+   "diff_is_pow2": true,
+   "diff_eq_2^w": true,
+   "diff_eq_2^(w-1)": false
+  },
+  {
+   "shot": 74,
+   "phase": "multiply",
+   "tick": 53,
+   "corrupt": "target",
+   "widths": [
+    172,
+    172
+   ],
+   "tape": "[0, 0, 0, 1, 0]",
+   "diff_log2": 171,
+   "target_delta_zero": false,
+   "diff_is_pow2": true,
+   "diff_eq_2^w": false,
+   "diff_eq_2^(w-1)": true
+  },
+  {
+   "shot": 75,
+   "phase": "divide",
+   "tick": 68,
+   "corrupt": "target",
+   "widths": [
+    143,
+    143
+   ],
+   "tape": "[0, 0, 0, 1, 0]",
+   "diff_log2": 142,
+   "target_delta_zero": false,
+   "diff_is_pow2": true,
+   "diff_eq_2^w": false,
+   "diff_eq_2^(w-1)": true
+  },
+  {
+   "shot": 77,
+   "phase": "multiply",
+   "tick": 52,
+   "corrupt": "source",
+   "widths": [
+    174,
+    174
+   ],
+   "tape": "[0, 1, 1, 1, 0]",
+   "diff_log2": 173,
+   "target_delta_zero": false,
+   "diff_is_pow2": true,
+   "diff_eq_2^w": false,
+   "diff_eq_2^(w-1)": true
+  },
+  {
+   "shot": 78,
+   "phase": "divide",
+   "tick": 139,
+   "corrupt": "source",
+   "widths": [
+    5,
+    5
+   ],
+   "tape": "[1, 1, 0, 0, 1]",
+   "diff_log2": -1,
+   "target_delta_zero": true,
+   "diff_is_pow2": false,
+   "diff_eq_2^w": false,
+   "diff_eq_2^(w-1)": false
+  },
+  {
+   "shot": 82,
+   "phase": "divide",
+   "tick": 83,
+   "corrupt": "target",
+   "widths": [
+    116,
+    114
+   ],
+   "tape": "[0, 0, 0, 0, 0]",
+   "diff_log2": 116,
+   "target_delta_zero": false,
+   "diff_is_pow2": true,
+   "diff_eq_2^w": false,
+   "diff_eq_2^(w-1)": false
+  },
+  {
+   "shot": 83,
+   "phase": "multiply",
+   "tick": 52,
+   "corrupt": "target",
+   "widths": [
+    174,
+    174
+   ],
+   "tape": "[1, 1, 1, 0, 0]",
+   "diff_log2": 174,
+   "target_delta_zero": false,
+   "diff_is_pow2": true,
+   "diff_eq_2^w": true,
+   "diff_eq_2^(w-1)": false
+  },
+  {
+   "shot": 84,
+   "phase": "multiply",
+   "tick": 63,
+   "corrupt": "target",
+   "widths": [
+    153,
+    153
+   ],
+   "tape": "[0, 1, 0, 0, 0]",
+   "diff_log2": 152,
+   "target_delta_zero": false,
+   "diff_is_pow2": true,
+   "diff_eq_2^w": false,
+   "diff_eq_2^(w-1)": true
+  },
+  {
+   "shot": 85,
+   "phase": "multiply",
+   "tick": 41,
+   "corrupt": "source",
+   "widths": [
+    195,
+    195
+   ],
+   "tape": "[1, 1, 0, 1, 0]",
+   "diff_log2": -1,
+   "target_delta_zero": true,
+   "diff_is_pow2": false,
+   "diff_eq_2^w": false,
+   "diff_eq_2^(w-1)": false
+  },
+  {
+   "shot": 87,
+   "phase": "divide",
+   "tick": 49,
+   "corrupt": "target",
+   "widths": [
+    180,
+    178
+   ],
+   "tape": "[0, 0, 0, 0, 0]",
+   "diff_log2": 179,
+   "target_delta_zero": false,
+   "diff_is_pow2": true,
+   "diff_eq_2^w": false,
+   "diff_eq_2^(w-1)": false
+  }
+ ]
+}

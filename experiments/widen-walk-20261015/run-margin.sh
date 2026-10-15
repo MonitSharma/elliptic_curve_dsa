@@ -2,9 +2,11 @@
 # Rail-margin histograms (need - width per forward tick) for one widened variant. Diagnostic; score=NONE.
 set -euo pipefail
 v=$1
+rnd=${2:-random8192.tsv}
+tag=${3:-}
 base=/home/hclau/ecdsa_research/widen-walk-20261015
 tv=/home/hclau/ecdsa_research/trace-value-20261015
-root=$base/margin-$v
+root=$base/margin-$v${tag:+-$tag}
 mkdir "$root"; cd "$root"; echo $$ > run.pid
 trap 'rc=$?; printf "%s\n" "$rc" > "$root/run.exit"' EXIT
 ulimit -v 16777216
@@ -14,7 +16,7 @@ sed "s#/home/hclau/ecdsa_research/trace-value-20261015#$root#" "$tv/value_trace_
 cp "$tv/prepare.py" "$tv/points.py" .
 python3 points.py "$base/$v/census.jsonl" fails.tsv /home/hclau/ecdsa_research/guard-sweep-20261015 > points.log
 python3 prepare.py "$root" "$base/$v/src-b3" "$root/fails.tsv" "$(cut -d' ' -f1 $base/$v/stream.sha256)" > prepare.log 2>&1
-cp "$tv/random8192.tsv" packets/random.tsv
+cp "$tv/$rnd" packets/random.tsv
 cd observer-b3
 cargo build --release --locked --offline --bin build_circuit > ../build.log 2>&1
 /usr/bin/time -v "$CARGO_TARGET_DIR/release/build_circuit" > ../trace.log 2>&1

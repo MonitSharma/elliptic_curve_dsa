@@ -99,6 +99,100 @@ Uniform widening has plateaued, so the next steps are targeted:
    uniform bits.
 3. Find why +4/+6 regress before buying more width.
 
+## Why +4/+6 regress (traced on each variant's own census failures)
+
+| Variant | Walk-rail first | Endpoint (not converged) | No walk event | Total /262K |
+|---|---:|---:|---:|---:|
+| +2 bits, anchors | 52 | 5 | 32 | 89 |
+| +4 bits, anchors | 69 | 11 | 38 | 118 |
+| +6 bits, anchors | 77 | 7 | 57 | 141 |
+
+Two effects, both measured:
+
+1. **The tail cliff came back, an artifact of this experiment's builder.** As
+   width grows, mid-walk failures vanish (at +6 almost none before tick 130),
+   but they pile up at ticks 130–137 as source-rail corruption with a correct
+   target (48 of 77 at +6). That is the original tick-136 signature. The
+   smoothed rows 137/138 were fixed at 9/7 bits while +k raised row 136, so at
+   +6 row 136 ends at 14 bits and row 137 starts at 9.
+2. **Non-walk failures rise with rail width:** 32 → 38 → 57. Wider rails
+   appear to degrade other approximate stages, plausibly the per-tick fitted
+   profiles (`I35_PROFILE`, `PP_N_BADJ`, fold/compare windows) tuned to the
+   original widths. The walk cap is not the limit: caps 1800 and 2200 give
+   byte-identical streams.
+
+## Convergence-aware envelopes
+
+**Shape data.** The margin observer now also prints, per walk leg, the maximum
+excess in each 10-tick bin (`WALKBINS`), and full trajectories for failing
+inputs (`TRAJ`). It ran on `smooth` over four independent 8,192-input chunks:
+32,768 walks, 65,527 legs, chunk hashes in `evidence/random-chunks.sha256`.
+`shape_analysis.py` (output `evidence/shape-smooth.json`) shows:
+
+- ticks 0–49 never come within 2 bits of overflow;
+- P(excess ≥ 0) rises steadily from about 2×10⁻⁵ per bin at ticks 60–69 to
+  about 9×10⁻⁵ at ticks 120–139.
+
+That is lag accumulating. With trajectories held fixed, late-weighted
+envelopes looked far better than uniform ones (+3 from tick 70: 0 of 65,527
+legs fail, at about 3.7K T).
+
+**Tapered designs** (deltas fall to 0 by tick 136 to keep the tail descent; anchors follow):
+
+| Variant | Rows | T | Failed batches /packet |
+|---|---|---:|---:|
+| `env-greedy` | +1 on 80–99 and 110–133 | 754,527 | 5.30 |
+| `env-late2` | +2 on 70–129, taper | 755,970 | 5.44 |
+| `env-late3` | +3 on 70–129, taper | 757,099 | 4.68 |
+| `env-late4` | +4 on 90–129, taper | 756,895 | 4.78 |
+| `env-ramp` | 1→2→3 from tick 50, taper | 757,143 | 4.78 |
+
+The model over-predicted. Paired failure locations explain why.
+
+| Ticks | `smooth` | `env-late3` |
+|---|---:|---:|
+| 70–129 (widened) | 66 | **20** |
+| 130+ (taper) | 17 | **33** |
+
+Widening rescues slow walks only temporarily: they still lag and then fail in
+the narrow tail.
+
+**Rebuilt tails** (`prepare.py` tail mode `t:W-n0-n1-n2-nb/...`; inserted
+ticks get anchors n2−3):
+
+| Variant | Rows / tail | Q | T | Failed batches /packet |
+|---|---|---:|---:|---:|
+| `smooth-hold2` | +0; each descent row held twice | 1474 | 759,190 | 5.89 |
+| `late3full-tail3` | +3 on 70–136; 3-row descent to park | 1474 | 762,908 | 3.79 |
+| `late3full-tail3hold` | same, each descent row held twice | 1484 | 768,464 | 3.86 |
+
+The trace of `late3full-tail3` on its own failures splits them as follows:
+
+| Family | `smooth` | `late3full-tail3` |
+|---|---:|---:|
+| Walk-rail | 96 | **43** |
+| Endpoint | 3 | **0** |
+| No walk event | 32 | **45** |
+
+So **slow walks can be made to finish**: no endpoint failures, walk failures
+more than halved. But the residual moved to unwidened ticks 30–69 (22 of 43,
+mostly multiply), and the non-walk family grew. Extra ticks beyond a proper
+descent buy nothing.
+
+**Conclusion.** Every walk-only lever plateaus at about 3.7–4.2 expected
+failed batches, P(pass) ≈ 2%.
+
+| Variant | Diag. T | Margin under the record |
+|---|---:|---:|
+| `mid2-smooth-anch2` (best under the record) | 758,446 | 2.7K |
+| `late3full-tail3` | 762,908 | over |
+
+What remains is about half non-walk failures, which grow when rails widen,
+plus early-tick walk failures that appear only after the late ticks are
+widened. The next lever is not more walk width. It is the room-sensitive,
+per-tick fitted profiles that widening disturbs, and the non-walk (payload)
+failures.
+
 ## Provenance
 
 Server `/home/hclau/ecdsa_research/widen-walk-20261015/`, all variant, trace

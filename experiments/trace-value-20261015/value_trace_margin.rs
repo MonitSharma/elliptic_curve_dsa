@@ -4,6 +4,8 @@
 //! Diagnostic only; score=NONE.
 //! value_trace_margin.rs variant: also histograms, per forward tick, the bits the exact rail values
 //! need minus the rail width (inputs with no earlier event only), over an optional `random` family.
+//! It also prints, per input and leg, the max excess in each 10-tick bin (WALKBINS) and, for inputs
+//! whose final point is wrong, the full per-tick trajectory (TRAJ).
 use crate::circuit::{analyze_ops, Op, QubitId};
 use alloy_primitives::U256;
 use sha3::{Shake256,digest::{Update,ExtendableOutput}};
@@ -58,6 +60,8 @@ pub fn run(ops:&[Op]){
             let mut events:Vec<Vec<(usize,String)>>=vec![Vec::new();rows.len()];
             let mut seen=HashMap::<(&str,&str),Vec<bool>>::new();
             let mut stack=HashMap::<usize,Vec<(&str,Vec<[U256;2]>)>>::new();
+            let mut traj:Vec<Vec<(&str,usize,i64,i64)>>=vec![Vec::new();rows.len()];
+            let mut bins:Vec<HashMap<&str,[i64;15]>>=vec![HashMap::new();rows.len()];
             let mut entry=Vec::<[U256;2]>::new();let mut cursor=0;let mut unmatched_rev=0usize;
             sim.apply_observed(ops.iter(),|idx,s,_,_|{
                 while cursor<marks.len()&&marks[cursor].at==idx{
@@ -80,6 +84,9 @@ pub fn run(ops:&[Op]){
                                     let need=|v:U256|->i64{let mag=if v>p>>1{p-v}else{v};let r=if m.low{mag>>1}else{mag};r.bit_len() as i64+1};
                                     *hist.entry((m.phase,'T',m.tick,need(want)-m.rails[ti].len() as i64)).or_insert(0)+=1;
                                     *hist.entry((m.phase,'S',m.tick,need(source)-m.rails[si].len() as i64)).or_insert(0)+=1;
+                                    let (et,es)=(need(want)-m.rails[ti].len() as i64,need(source)-m.rails[si].len() as i64);
+                                    traj[lane].push((m.phase,m.tick,et,es));
+                                    let b=bins[lane].entry(m.phase).or_insert([-999;15]);let k=(m.tick/10).min(14);b[k]=b[k].max(et.max(es));
                                 }
                                 if (want!=vals[lane][ti]||source!=vals[lane][si])&&!fs[lane]{
                                     fs[lane]=true;
@@ -123,6 +130,9 @@ pub fn run(ops:&[Op]){
                 let cls=format!("final_bad={} first={first} {first_phase}",xb||yb);
                 *summary.entry(cls).or_insert(0)+=1;
                 eprintln!("TRACE family={family} shot={} final_bad={} x_bad={xb} y_bad={yb} events={}",batch*64+lane,xb||yb,ev.len());
+                let mut bk:Vec<_>=bins[lane].iter().collect();bk.sort();
+                for (ph,b) in bk{eprintln!("WALKBINS family={family} shot={} phase={ph} bad={} bins={}",batch*64+lane,xb||yb,b.iter().map(|x|x.to_string()).collect::<Vec<_>>().join(","));}
+                if xb||yb{for (ph,t,et,es) in &traj[lane]{eprintln!("TRAJ family={family} shot={} phase={ph} tick={t} excessT={et} excessS={es}",batch*64+lane);}}
                 for (at,e) in ev.iter(){eprintln!("  EVENT family={family} shot={} at={at} {e}",batch*64+lane);}
             }
             if unmatched_rev>0{eprintln!("UNMATCHED_REV family={family} batch={batch} count={unmatched_rev}");}

@@ -1,0 +1,186 @@
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+   Compiling libc v0.2.185
+   Compiling typenum v1.19.0
+   Compiling version_check v0.9.5
+   Compiling find-msvc-tools v0.1.9
+   Compiling proc-macro2 v1.0.106
+   Compiling generic-array v0.14.9
+   Compiling shlex v1.3.0
+   Compiling quote v1.0.45
+   Compiling unicode-ident v1.0.24
+   Compiling pkg-config v0.3.33
+   Compiling jobserver v0.1.34
+   Compiling unicode-segmentation v1.13.2
+   Compiling crypto-common v0.1.6
+   Compiling block-buffer v0.10.4
+   Compiling cc v1.2.60
+   Compiling syn v2.0.117
+   Compiling convert_case v0.10.0
+   Compiling zstd-safe v7.2.4
+   Compiling unicode-xid v0.2.6
+   Compiling paste v1.0.15
+   Compiling digest v0.10.7
+   Compiling cpufeatures v0.2.17
+   Compiling ruint-macro v1.2.1
+   Compiling keccak v0.1.6
+   Compiling foldhash v0.2.0
+   Compiling cfg-if v1.0.4
+   Compiling const-hex v1.18.1
+   Compiling hashbrown v0.16.1
+   Compiling ruint v1.17.2
+   Compiling zstd-sys v2.0.16+zstd.1.5.7
+   Compiling sha3 v0.10.8
+   Compiling bytes v1.11.1
+   Compiling itoa v1.0.18
+   Compiling rustc-hash v2.1.2
+   Compiling derive_more-impl v2.1.1
+   Compiling derive_more v2.1.1
+   Compiling alloy-primitives v1.5.7
+   Compiling zstd v0.13.3
+   Compiling quantum_ecc v0.1.0 (/home/hclau/ecdsa_research/widen-walk-20261015/margin-mid2-smooth-anch2-v2/observer-b3)
+warning: unused doc comment
+   --> src/bin/../point_add/pingpong.rs:116:1
+    |
+116 | /// K3b pricing instrument: `K3B_EXTRA_ROOM=k` as a CELL pin raises the cap by k inside that cell only.
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ rustdoc does not generate documentation for macro invocations
+    |
+    = help: to document an item produced by a macro, the macro must produce the documentation as part of its expansion
+    = note: `#[warn(unused_doc_comments)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused doc comment
+    --> src/bin/../point_add/pingpong.rs:3996:1
+     |
+3996 | / /// y15-core: a carry-in for the next [`chunked_add`]'s first chunk, as (low, wire): the caller has already added
+3997 | | /// positions [0, low) (sums written, carries kept) and the first chunk's ripple runs on [low, hi) with this carry-in.
+3998 | | /// The chunk plan and the boundary compares are those of the plain add. Unset (the default) changes nothing.
+     | |_------------------------------------------------------------------------------------------------------------^
+     |   |
+     |   rustdoc does not generate documentation for macro invocations
+     |
+     = help: to document an item produced by a macro, the macro must produce the documentation as part of its expansion
+
+warning: unused import: `f_slice`
+  --> src/bin/../point_add/pingpong.rs:56:22
+   |
+56 |     add_f_window, f, f_slice, ripple_add, ripple_add_lent,
+   |                      ^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `fold_guard`
+  --> src/bin/../point_add/pingpong.rs:59:32
+   |
+59 | use super::{env_flag, env_raw, fold_guard, pinned_env, required_env, Builder, N, SECP256K1_P};
+   |                                ^^^^^^^^^^
+
+warning: unused doc comment
+   --> src/bin/../point_add/heo.rs:99:1
+    |
+ 99 | / /// `HEO_PIN_<name>` overrides a pinned head setting. None when the overlay is off.
+100 | | /// K3b: per-cell pin overrides (set by `heo_carry` around one payload cell). Consulted before `HEO_PIN_*`.
+    | |_----------------------------------------------------------------------------------------------------------^
+    |   |
+    |   rustdoc does not generate documentation for macro invocations
+    |
+    = help: to document an item produced by a macro, the macro must produce the documentation as part of its expansion
+
+warning: unused doc comment
+   --> src/bin/../point_add/heo_carry.rs:313:1
+    |
+313 | /// Run `body`, booking its Toffoli under `comp` and its window peak under `(label, t)`.
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ rustdoc does not generate documentation for macro invocations
+    |
+    = help: to document an item produced by a macro, the macro must produce the documentation as part of its expansion
+
+warning: unused import: `AtomicUsize`
+    --> src/bin/../point_add/heo_carry.rs:1879:29
+     |
+1879 |     use std::sync::atomic::{AtomicUsize, Ordering};
+     |                             ^^^^^^^^^^^
+
+warning: unused doc comment
+   --> src/bin/../point_add/square.rs:637:1
+    |
+637 | / /// Recursion policy: a sum half of at least this many bits is split again
+638 | | /// instead of squared triangularly. `B(m) = m(m-1)/2 + 4m - 3` for the base
+639 | | /// case against `K(m) = B(a) + B(b) + B(b+1) + a + 7b + 1` for one split puts
+640 | | /// the break-even near 60 bits; the tree-wide peak, not the count, is what
+641 | | /// bounds how deep this may go, so it is a pinned knob rather than a constant.
+    | |_------------------------------------------------------------------------------^
+    |   |
+    |   rustdoc does not generate documentation for macro invocations
+    |
+    = help: to document an item produced by a macro, the macro must produce the documentation as part of its expansion
+
+warning: unused doc comment
+   --> src/bin/../point_add/square.rs:643:1
+    |
+643 | / /// Same policy for the low half `a`, whose split leaves `a` itself modified
+644 | | /// until the inverse -- so `a` must be consumed (into `t = a + b`) before its
+645 | | /// split is built. Disabled by pinning it above any half width (>= 129).
+    | |_------------------------------------------------------------------------^
+    |   |
+    |   rustdoc does not generate documentation for macro invocations
+    |
+    = help: to document an item produced by a macro, the macro must produce the documentation as part of its expansion
+
+warning: unused import: `f_slice`
+  --> src/bin/../point_add/j_fuse.rs:24:39
+   |
+24 | use super::modular::{add_f_window, f, f_slice, ripple_add};
+   |                                       ^^^^^^^
+
+warning: unused variable: `room`
+  --> src/bin/../point_add/joint_lowfold.rs:24:9
+   |
+24 |     let room=walk_max_qubits().saturating_sub(circ.active_qubits()as usize);
+   |         ^^^^ help: if this is intentional, prefix it with an underscore: `_room`
+   |
+   = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `loans`
+  --> src/bin/../point_add/joint_lowfold.rs:25:9
+   |
+25 |     let loans=REPLAY_SIGN_LOANS.with(|s|s.get());
+   |         ^^^^^ help: if this is intentional, prefix it with an underscore: `_loans`
+
+warning: unused variable: `loans`
+  --> src/bin/../point_add/retained_prebias.rs:12:6
+   |
+12 |  let loans=REPLAY_SIGN_LOANS.with(|s|s.get());
+   |      ^^^^^ help: if this is intentional, prefix it with an underscore: `_loans`
+
+warning: unused variable: `p`
+   --> src/bin/../point_add/heo_carry.rs:244:104
+    |
+244 |             cell_windows: std::env::var("HEO_CELL_WINDOWS").ok().filter(|p| !p.trim().is_empty()).map(|p| {
+    |                                                                                                        ^ help: if this is intentional, prefix it with an underscore: `_p`
+
+warning: unused variable: `p`
+   --> src/bin/../point_add/heo_carry.rs:236:103
+    |
+236 |             proxy_esw: std::env::var("HEO_PROXY_ENVELOPE").ok().filter(|p| !p.trim().is_empty()).map(|p| {
+    |                                                                                                       ^ help: if this is intentional, prefix it with an underscore: `_p`
+
+warning: unused variable: `p`
+    --> src/bin/../point_add/heo_carry.rs:1890:74
+     |
+1890 |     let ovr = OVR.get_or_init(|| std::env::var("K3B_CELL_OVR").ok().map(|p| {
+     |                                                                          ^ help: if this is intentional, prefix it with an underscore: `_p`
+
+warning: unused variable: `path`
+   --> src/bin/../point_add/heo.rs:195:13
+    |
+195 |         let path = std::env::var("HEO_ENVELOPE").expect("HEO_WALK needs HEO_ENVELOPE=<path to `esw ead` lines>");
+    |             ^^^^ help: if this is intentional, prefix it with an underscore: `_path`
+
+warning: unused variable: `path`
+   --> src/bin/../point_add/heo.rs:230:16
+    |
+230 |             Ok(path) => {
+    |                ^^^^ help: if this is intentional, prefix it with an underscore: `_path`
+
+warning: `quantum_ecc` (bin "build_circuit") generated 18 warnings (run `cargo fix --bin "build_circuit" -p quantum_ecc` to apply 12 suggestions)
+    Finished `release` profile [optimized] target(s) in 1m 35s

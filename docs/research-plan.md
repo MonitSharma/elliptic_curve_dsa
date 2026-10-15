@@ -81,6 +81,13 @@ walks) shows that most first rail violations are genuine 1-bit overflows by
 rare slow walks. +2 bits with anchors fixes 4 of 5 paired walk failures but
 plateaus beyond that.
 
+**Convergence-aware envelopes (follow-up):** late-weighted, tapered widening
+plus a rebuilt tail descent removes unconverged walks and halves walk failures,
+but non-walk failures grow (32 → 45 per 262K) and new walk failures appear at
+unwidened ticks 30–69. Walk-only repairs plateau at about 3.7–4.2 failed
+batches. The per-tick fitted profiles (`I35_PROFILE`, `PP_N_BADJ`, fold/compare
+windows), tuned to the original widths, are the likely coupling.
+
 **For the other agent:** every variant keeps about 32 failures per 262K shots
 (~1.1 batches per packet) with **no walk-rail event**. That floor is untouched
 by walk widening and is plausibly your payload-fold boundary target. Fixing it
