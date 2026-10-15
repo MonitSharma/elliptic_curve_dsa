@@ -10,8 +10,15 @@ qubits**, in that order; submission mode **queue**. See
 [`experiments/autorun-20261015-2239/LOG.md`](../experiments/autorun-20261015-2239/LOG.md)
 before starting overlapping jobs. Four isolated workstreams cover the
 prefilter, exact product savings, unexplained failure localization, and the
-wide cache pass. No new result is qualified yet. Public refresh at 22:39
-leaves all three records unchanged.
+wide cache pass. No new result is qualified yet. Public refresh at 23:53
+leaves all three records unchanged. Product native chain has exact replay
+saving 14.48828125 T/Q1234, byte-identical native generation and 21 passing
+tests, but initial census exceeds the cap; fixed 32768-batch paired extension
+is running. Wide chain saves 23.03515625 T/Q1464 in replay. See
+[candidate status](../experiments/product-exact-20261015/STATUS.md).
+Search acceleration combines validated C curve preparation, exact SIMD8
+simulation and SHAKE8; full integration is pending. Arithmetic predictions
+may prioritize an exact check but must never directly skip a nonce.
 
 ## 1. Read in this order
 
@@ -139,7 +146,14 @@ after touching the data or plots.
 4. **Win back failure rate cheaply** (each batch removed cuts the search
    about e-fold). The non-walk floor of about 1.1 batches is unlocalized;
    the payload-fold boundary work (`trace-audit-20261015/FOLD-BOUNDARY.md`) is
-   the lead.
+   the lead. **23:15 update:** all 31 saved cases now have observed faulty
+   primitives: 17 forward Y15 folds, 12 reverse folds, two square merged
+   windows. The existing addend supplies the fold correction's sign, but
+   high-word propagation and clean phase repair remain unresolved. A uniform
+   +4 actual Y15 window costs 1064.71 T at unchanged Q1464 and removes about
+   1.14 failed batches on the **unsmoothed** parent. Do not treat its 7.68/6.54
+   census rates as the official circuit's rates.
+   [Verified terminal diagnosis](../experiments/failure-floor-20261015/STATUS.md).
 
 ## 7. Pitfalls already hit
 

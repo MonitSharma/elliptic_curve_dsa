@@ -1,0 +1,17 @@
+from pathlib import Path
+import subprocess,json,hashlib
+root=Path(__file__).resolve().parent
+assert subprocess.run(['pgrep','-f',str(root/'observer-b3/target/release/build_circuit')],stdout=subprocess.DEVNULL).returncode!=0
+old=root/'forward-fold-observer';old.mkdir()
+for name in ['generate.log','stream.sha256','binary.sha256','run.exit','run.pid','build.log','observer-tracked.patch','manifest.json']:
+ p=root/name
+ if p.exists():(old/name).write_bytes(p.read_bytes())
+base=root/'observer-b3/src/point_add';(old/'payload_trace.rs').write_bytes((base/'payload_trace.rs').read_bytes());(base/'payload_trace.rs').write_bytes((root/'payload_trace.rs').read_bytes())
+p=base/'y15_onefold.rs';s=p.read_text();s=s.replace('payload_trace::fold_begin(c.op_count(),acc,e,nm,k1,k2);','payload_trace::fold_begin(c.op_count(),acc,e,nm,k1,k2,false,&[]);')
+start=s.index('fn fold_rev_v2(');end=s.index('\n/// ',start);part=s[start:end]
+needle='    let mw = acc.len();';assert part.count(needle)==1;part=part.replace(needle,needle+'\n    let observe_id=super::super::payload_trace::fold_begin(c.op_count(),acc,e,nm,k1,k2,true,src);')
+needle='    plan\n}';assert part.count(needle)==1;part=part.replace(needle,'    super::super::payload_trace::fold_end(observe_id,c.op_count());\n'+needle);s=s[:start]+part+s[end:];p.write_text(s)
+p=base/'leapfrog.rs';s=p.read_text();needle='            y15::fwd_tick0_one(c, &letter, &mut pay);';assert s.count(needle)==1;s=s.replace(needle,'            let observe_id=super::payload_trace::begin(c.op_count(),c.current_phase(),t,false,&pay);\n'+needle+'\n            super::payload_trace::end(observe_id,c.op_count(),&pay,&letter,false);');p.write_text(s)
+manifest=json.loads((root/'manifest.json').read_text());manifest['observer_revision']='direct forward/reverse fold entry and exit wires; initial optimized tick included; saved reverse tape'
+manifest['source_files']={str(p.relative_to(root/'observer-b3')):hashlib.sha256(p.read_bytes()).hexdigest() for p in base.rglob('*') if p.is_file()}
+(root/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')

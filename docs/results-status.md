@@ -3,7 +3,34 @@
 **Active run, 15 October 2026, 22:39 Singapore:** public records refreshed
 and unchanged. User priority is product, then Toffolis, then qubits;
 submission mode is **queue**. Four isolated experiments are in progress,
-with no newly qualified score. [Run log](../experiments/autorun-20261015-2239/LOG.md).
+with no newly qualified score. Public refresh at 23:53 leaves all records
+unchanged (1,571 submissions, 1,229 eligible).
+[Run log](../experiments/autorun-20261015-2239/LOG.md).
+
+**Frozen exact candidates, still unqualified:** the product chain saves
+14.48828125 T at unchanged Q1234 in aligned whole-stream replay and its native
+point-add implementation generates the identical stream and passes 21 tests.
+Its initial fresh census exceeds the 18-batch cap; a predeclared larger
+census includes that complete sample. The wide chain saves 23.03515625 T at
+Q1464 in replay and is undergoing native reproduction and census. These are
+diagnostic savings, not completed benchmark scores.
+[Candidate evidence](../experiments/product-exact-20261015/STATUS.md).
+
+**Search tools:** curve preparation now measures 9.39 microseconds per fresh
+shot and agrees with the protected reference. The integrated scalar screen
+is 4.23x faster on an identical test. An eight-lane simulator kernel matches
+full protected state and RNG and is about 10x faster for simulation alone;
+eight-lane SHAKE integration and complete-screen validation are underway.
+The arithmetic model remains advisory; only exact simulation can reject a
+nonce. [Curve evidence](../experiments/scalar-fast-20261015/STATUS.md) ·
+[SHAKE evidence](../experiments/shake8-20261015/STATUS.md).
+
+**New diagnosis:** all 31 saved failures previously lacking walk-rail events
+are localized to payload folds (29) or square merged windows (2), with
+production-wire observations and unchanged protected-simulator agreement.
+The tested window widening costs about 1065 T and is unsuitable for the
+current records. No cheap exact repair is qualified.
+[Source-bound report](../experiments/failure-floor-20261015/STATUS.md).
 
 Updated 15 October 2026, 19:19 Singapore. **Our T753,771/Q1464 submission is
 officially scored and is the current public Toffoli minimum.** The service
@@ -24,7 +51,7 @@ qubits. Next strict targets are T753,770 or product 939,347,947.
 [source-bound report and evidence](../experiments/nonce-screen-20261015/STATUS.md) ·
 [refreshed frontier](frontier-results.md).
 
-**Product record, 22:07 Singapore: blocked by search cost.** On the public
+**Earlier product study, 22:07 Singapore: blocked by search cost.** On the public
 tip `4b2ec52f`, the record circuit fails 17.69 batches per packet on fresh
 inputs, and its fresh mean (761,221.70 T) already sits at the strict threshold.
 A lowest-pass screen would need about 1.6×10⁸ nonces, about 58 days on 64

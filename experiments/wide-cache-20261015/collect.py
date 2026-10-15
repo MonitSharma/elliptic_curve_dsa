@@ -5,11 +5,11 @@ import json
 import tarfile
 root=Path(__file__).resolve().parent
 paths=[]
-for directory in ['evidence','sweep','extra']:
+for directory in ['evidence','sweep','extra','intern','single']:
  for p in (root/directory).rglob('*'):
   if p.is_file() and p.suffix not in ['.bin'] and p.name not in ['build_circuit','paired_diagnostic']:
    paths.append(p)
-for pattern in ['*.py','*.sh','*.exit','*.log']:
+for pattern in ['*.py','*.sh','*.rs','*.exit','*.log','*.md']:
  paths.extend(root.glob(pattern))
 paths=sorted(set(paths))
 manifest={str(p.relative_to(root)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}

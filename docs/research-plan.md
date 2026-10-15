@@ -17,15 +17,32 @@ pass, but the census has 161 failed batches against the parent's 159; the
 screen gate stopped and no nonce was searched. Larger structural limits and
 other exact public passes are in progress. [Evidence and scope](../experiments/wide-cache-20261015/STATUS.md).
 
-**Failure localization progress:** an observer that matches the protected
-simulator and preserves its parent stream exactly places 29 of the 31
-previously unexplained cases at payload folds: 17 divide, 12 multiply. Exact
-signed-window arithmetic reproduces each wrong output and its correction;
-two cases remain unlocalized. Internal-wire verification and a costed clean
-quantum correction remain pending; this is not a repair or resource result.
+**Failure localization completed for the saved 31 inputs:** a gate-inert
+observer places 17 at forward payload folds, 12 at reverse payload folds,
+and two at the square's merged C-product windows. Direct production-wire
+checks reproduce every dropped signed carry and full output error. The
+observer matches the protected simulator on every state word, bit, phase
+and T count, with 256 clean controls. This is the unsmoothed wide parent,
+not the official smoothed source. Uniformly adding four actual Y15 window
+bits costs 1064.71 ± 0.96 T at unchanged Q1464 and reduces paired failed
+batches from 7.68 to 6.54 per packet. A cheap exact repair remains unresolved;
+there is no new score. [Complete diagnosis and evidence](../experiments/failure-floor-20261015/STATUS.md).
 
 This entry describes work in progress, with **no new qualified result**.
 [Persistent run log](../experiments/autorun-20261015-2239/LOG.md).
+
+**23:53 checkpoint:** a frozen four-stage exact chain reaches 14.48828125 T
+at Q1234 and 23.03515625 T at Q1464 in complete event-aligned replay. The
+product native port is byte-identical and passes 21 tests. Its first census
+exceeds the cap; a predeclared 32768-batch extension preserves the complete
+initial sample. No nonce search is authorized until the failure gate passes.
+Curve preparation meets the 10-microsecond target with protected-reference
+agreement. Exact SIMD8 and SHAKE8 kernels are validated separately; integration
+will support advisory arithmetic batch selection followed by exact simulation,
+which safely avoids relying on an unproved arithmetic rejection model.
+[Exact chain](../experiments/product-exact-20261015/STATUS.md) ·
+[Curve preparation](../experiments/scalar-fast-20261015/STATUS.md) ·
+[SHAKE8](../experiments/shake8-20261015/STATUS.md).
 
 ## Current priorities: 15 October 2026 user direction
 
