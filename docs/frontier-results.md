@@ -1,6 +1,6 @@
 # Public resource frontier
 
-Snapshot analyzed 2026-10-15T22:07:52.563046+08:00 (Singapore time).
+Snapshot analyzed 2026-10-15T22:39:50.372614+08:00 (Singapore time).
 
 [1,570 public submissions](https://api.ecdsa.fail/api/benchmarks/1ffb695a-309b-46b6-a728-2f97d8c7be74/submissions) contain 1,229 eligible records and **50 nondominated resource pairs**.
 

@@ -1,0 +1,12 @@
+# Research run: 15 October 2026, 22:39 Singapore
+
+Submission mode: **queue**. Priority: product, Toffolis, qubits.
+
+- 22:39 Read README, research plan, handoff, results, frontier data/figure, search-cost report/figure and pasted unattended plan. Preserved existing track edits.
+- 22:39 Refreshed public records: Q679; our T753771/Q1464 (`5a7c3902`); product 939347948 at Q1234/T761222 (`4b2ec52f`). 1570 submissions, 1229 eligible, 50 frontier points.
+- 22:39 Server verified `LHC-104-070`, 144 CPUs, 316 GiB available, load 36.3; unrelated jobs use ~36 cores. Scheduler unavailable. ECDSA upstream is a clean detached checkout; research directory itself is not a Git repository. No chemistry changes.
+- 22:40 Three agents assigned isolated experiment directories: conservative prefilter, exact width-free product savings, and unexplained failure localization. Each budget <=16 threads and <=60 GiB; coordinator <=16 threads, combined <=64, >=100 GiB free. Maximum three simultaneous builds.
+- 22:41 Coordinator experiment: parent official source `5a7c3902`; port exact larger-expression cache with caps 128/1000000 before identity tail. Predict ~101 T saving, extra cache Q acceptable, unchanged failure rate. Gate: primitive phase/value tests, frozen-source hashes, paired 4096-batch census, failure rate no worse than parent, then ascending lowest-pass nonce search and unchanged benchmark. No external submission.
+- 22:48 Wide cache native tests pass (including phase-fault negative control); generation complete. Parent 4096-batch census complete; candidate census and event-aligned differential replay running. Qualification launcher will proceed only if census failure rate is no worse than freshly measured parent and savings exceed 15 T. Source freezes before ascending nonce screen; queue mode enforced.
+- 22:48 Failure-floor agent reconstructs 17 real random-input errors exactly with dropped signed fold-window carry (16 negative, one positive). Direct wire proof, correction circuit and complete cost remain pending. Prefilter scalar preparation matches 4101 reference cases, with preliminary ~65x scalar speedup; whole-screen speed unmeasured.
+- 22:56 Direct cache transfer is terminal and unqualified: Q1468, 6.43 +/- 0.75 T paired saving, 161 vs159 failed batches, no nonce search. Verified56 archived evidence artifacts locally. Corrected handoff estimate; testing larger structural caps and existing exact public cleanup passes next.

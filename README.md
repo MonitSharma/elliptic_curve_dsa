@@ -3,8 +3,8 @@
 **Smaller quantum circuits for secp256k1 point addition. Three independent goals:
 fewer logical qubits, fewer Toffolis, and a lower qubit × Toffoli product.**
 
-**Current priority — 15 October 2026 (night):** improve any of the three
-records (qubits, Toffolis or Q × T) through long unattended runs driven by
+**Current priority — 15 October 2026 (night):** improve **Q × T first,
+Toffolis second, qubits third**, through long unattended runs driven by
 [docs/AUTONOMOUS_PROMPT.md](docs/AUTONOMOUS_PROMPT.md). Each objective stays
 independent, and existing evidence, including the Q692 width result, is preserved.
 

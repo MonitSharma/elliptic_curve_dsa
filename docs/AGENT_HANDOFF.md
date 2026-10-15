@@ -5,6 +5,14 @@ person) continuing the work. It holds the current state, the rules, the tools
 and the next steps in order. Details live in the linked reports. Do not copy
 numbers from older reports without checking the date.
 
+**Active run, started 22:39 Singapore:** user priority is **product, Toffolis,
+qubits**, in that order; submission mode **queue**. See
+[`experiments/autorun-20261015-2239/LOG.md`](../experiments/autorun-20261015-2239/LOG.md)
+before starting overlapping jobs. Four isolated workstreams cover the
+prefilter, exact product savings, unexplained failure localization, and the
+wide cache pass. No new result is qualified yet. Public refresh at 22:39
+leaves all three records unchanged.
+
 ## 1. Read in this order
 
 1. [`AGENTS.md`](../AGENTS.md): binding project rules, including the
@@ -96,7 +104,14 @@ after touching the data or plots.
 
 ## 6. Next steps, in priority order
 
-1. **Lower our own Toffoli record (cheap, a few hours).** Start from commit
+1. **Lower our own Toffoli record.** The direct cache transfer was measured
+   during the 22:39 run: **6.43 ± 0.75 T**, Q1468, on official source
+   `5a7c3902`; it does **not** deliver the 101 T measured on B3. Its first
+   census has 161 failed batches versus 159 for its fresh paired parent, so
+   screening was not launched. Larger expression limits and additional exact
+   public passes are being tested. See
+   [wide-cache status](../experiments/wide-cache-20261015/STATUS.md).
+   The original proposed recipe was: start from commit
    `7ff2ba53` (recreate it from its patch; see the tools table). Port the larger-expression cache (cache-retention 128/1,000,000,
    about −101 T, about +5 qubits; width is free for this record) into
    `src/point_add` as a final pass before the nonce tail. Then do these in order:
@@ -106,7 +121,8 @@ after touching the data or plots.
    3. Run `benchmark.sh` and write the report and note in the style of
       `nonce-screen-20261015`.
 
-   Expected result is about 753,670 T. Also consider `mid2-smooth-anch2` (failure rate 4.18, but
+   The earlier expected result of about 753,670 T is **not supported by the
+   measured direct transfer**. Also consider `mid2-smooth-anch2` (failure rate 4.18, but
    +4.7K T, so worse for T).
 2. **Unblock the product record with a classical value-failure prefilter.**
    Model the leapfrog GCD walk (`src/point_add/leapfrog.rs`, steps table in

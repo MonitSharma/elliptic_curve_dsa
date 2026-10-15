@@ -1,5 +1,32 @@
 # Research state and next experiments
 
+## Active parallel run: 15 October 2026, 22:39 Singapore
+
+User priority is **product, then Toffolis, then qubits**. Submission mode is
+**queue**. The refreshed public records are unchanged: product 939347948
+(Q1234/T761222, `4b2ec52f`), our official T753771/Q1464 (`5a7c3902`), and Q679.
+Four isolated workstreams are running: a conservative fast failure prefilter,
+exact width-free product savings, localization of the 31 unexplained failures,
+and the larger-expression cache on our official wide source. The cache's
+larger symbolic limits are isolated from every pre-existing pass.
+
+**Measured correction to the proposed cache gain:** the 128/1000000 cache
+on our actual official source saves 6.43 ± 0.75 T at Q1468, rather than the
+~101 T previously measured on B3. Native tests and whole-stream aligned replay
+pass, but the census has 161 failed batches against the parent's 159; the
+screen gate stopped and no nonce was searched. Larger structural limits and
+other exact public passes are in progress. [Evidence and scope](../experiments/wide-cache-20261015/STATUS.md).
+
+**Failure localization progress:** an observer that matches the protected
+simulator and preserves its parent stream exactly places 29 of the 31
+previously unexplained cases at payload folds: 17 divide, 12 multiply. Exact
+signed-window arithmetic reproduces each wrong output and its correction;
+two cases remain unlocalized. Internal-wire verification and a costed clean
+quantum correction remain pending; this is not a repair or resource result.
+
+This entry describes work in progress, with **no new qualified result**.
+[Persistent run log](../experiments/autorun-20261015-2239/LOG.md).
+
 ## Current priorities: 15 October 2026 user direction
 
 **Start here (handoff):** [docs/AGENT_HANDOFF.md](AGENT_HANDOFF.md) has the

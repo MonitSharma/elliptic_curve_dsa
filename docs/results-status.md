@@ -1,5 +1,10 @@
 # Results and submission status
 
+**Active run, 15 October 2026, 22:39 Singapore:** public records refreshed
+and unchanged. User priority is product, then Toffolis, then qubits;
+submission mode is **queue**. Four isolated experiments are in progress,
+with no newly qualified score. [Run log](../experiments/autorun-20261015-2239/LOG.md).
+
 Updated 15 October 2026, 19:19 Singapore. **Our T753,771/Q1464 submission is
 officially scored and is the current public Toffoli minimum.** The service
 rejected it solely because its product did not improve the scalar best.
