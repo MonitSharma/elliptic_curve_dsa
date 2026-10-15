@@ -1,5 +1,26 @@
 # CPU server: ECDSA research handoff
 
+## Current work separation — 15 October 2026
+
+The original Q692 local pass remains frozen. The separate submission-preparation
+chat owns `/home/hclau/ecdsa_research/q692_readiness_20261015/`. Its normal v6
+benchmark failed with 3 value, 2 phase-batch and 3 ancilla-batch failures;
+subsequent diagnosis must use those same failing inputs. Do not alter that
+chat's checkout or stop its jobs.
+
+The product and Toffoli cycles in `product-focus-20261015/` and
+`toffoli-readiness-20261015/` have finished. Their paired gate savings do not
+qualify as records; there is no background search from this chat. Read
+[the current result summary](results-status.md) before using older job-status
+notes below. Always inspect live process identities before acting on saved PIDs.
+
+**Terminal update, 15 October 2026, 06:12 Singapore:** bank-swap v2 completed
+exit 0, all 9,024 shots passing, Q692/T1,481,382,858. The original queue and
+evaluator are terminal. Read-only review rechecked the exact source, stream,
+protected binary, failure channels and score. No duplicate evaluation is needed.
+[Result, paths and limits](../experiments/followup-20261015/bankswap-terminal/RESULT.md).
+The older pending-job descriptions below are historical snapshots.
+
 **Completed ten-hour cycle with live calculation handoff:** [final report](overnight-final-report.md) and
 [exact handoff receipt](../experiments/overnight-20261014/coordinator/final-handoff.json)
 supersede the historical setup below. No original submission-ready improvement

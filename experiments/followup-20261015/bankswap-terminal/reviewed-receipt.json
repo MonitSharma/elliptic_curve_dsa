@@ -1,0 +1,62 @@
+{
+  "status": "complete_local_benchmark_pass_reviewed",
+  "reviewed_at_utc": "2026-10-14T22:15:15.531550+00:00",
+  "provenance": "Overnight candidate completed during this follow-up; newly collected result, not newly invented source",
+  "baseline_revision": "c95b9325913abacca9c86bdebad10a20633cd04e",
+  "candidate_source": "/home/hclau/ecdsa_research/overnight-20261014/qubits/candidate-ht25-bankswap-v2",
+  "candidate_changed_paths": [
+    "src/point_add/frogdrop.rs",
+    "src/point_add/frogdrop_col.rs",
+    "src/point_add/midg.rs",
+    "src/point_add/payload.rs",
+    "src/point_add/pointadd_frogdrop.rs",
+    "src/point_add/tests_frogdrop.rs",
+    "src/point_add/tests_midg_k24.rs"
+  ],
+  "source_sha256": {
+    "src/point_add/frogdrop.rs": "52ac7c1feed5dcde04052755d98669205bcf7908943bb425e19e18bc6c14c5f6",
+    "src/point_add/frogdrop_col.rs": "950c6a7432abc2f5eafcdf3b36c6c984794b748f11130ac0db2d8dce2416287b",
+    "src/point_add/midg.rs": "e2a12cadd8c8d33bfdd4aea8ac426880310b5779406ac493baa36525d9aeaefc",
+    "src/point_add/payload.rs": "babe0ded7bdb353f16437c82bf7a185e8245283ff9c1d1529386c3d3bdce342f",
+    "src/point_add/pointadd_frogdrop.rs": "03fd24a0ebfe2bdf2bfb33e620ea121ce89910bb832ccd627b274f8c2a0a391d",
+    "src/point_add/tests_frogdrop.rs": "468d910af1f437cc71bebb0201eb3d3bf6779496a48275ce9ada7c80093e2f20",
+    "src/point_add/tests_midg_k24.rs": "8395eea15cb11154fc344b04694557ff92bbe9ab84f7ad5d1e0a2d6f3deba56d"
+  },
+  "patch_sha256": "61bd0d94831feea58dee9fc1c6a9cc2db10ed32e9a65f95ed5ebfe33a9a32f43",
+  "stream_sha256": "03cb7a3f0cc5bbb1c4d07a3cfed809e3623137425ebd7c725f158737f4a77739",
+  "protected_binary_sha256": "88b6fd33dfcd85b317ed6694c10715dbb6b4d5926838400ec7c4e23cdda77e3a",
+  "log_sha256": "e32fc1651ffe9c974dce46a0196dd9ccf8ced7e077b0771ac3c0789b8df31f3f",
+  "terminal_receipt_sha256": "4d083fb6b530eeaa87f27be50b94aae53bb3530e5db27078428fa4d68d748f15",
+  "launch_attestation_sha256": "3db91e694ecf6dd4a86e038e24b649d5c89d10fb34eac8e27c1c3ed25ad78dc8",
+  "source_and_protected_files_rechecked": true,
+  "protected_evaluator_unchanged": true,
+  "exact_generated_stream_used": true,
+  "placeholder_used": false,
+  "shots": 9024,
+  "classical_mismatches": 0,
+  "phase_garbage_batches": 0,
+  "ancilla_garbage_batches": 0,
+  "native_exit": 0,
+  "wrapper_exit": 0,
+  "score": {
+    "score": 1025116937736,
+    "metrics": {
+      "toffoli": 1481382858,
+      "qubits": 692
+    }
+  },
+  "total_executed_toffoli": 13367998912206,
+  "native_component_tests": 17,
+  "exact_phase_tests": 17,
+  "fixed_input_all_measurement_instances": 704,
+  "serializer_fixture_operations": 462,
+  "benchmark_qualified": true,
+  "officially_submitted": false,
+  "all_input_correctness_proved": false,
+  "submission_packaging_qualified": false,
+  "limitation": "Finite benchmark pass; quotient/precision boundary limitations remain. External streamed generation and unchanged protected evaluator are bound; standard submission packaging is not yet qualified.",
+  "previous_public_width": 693,
+  "width_reduction": 1,
+  "improved_objective": "qubits_only",
+  "evidence_directory": "/home/hclau/ecdsa_research/overnight-20261014/qubits/evidence"
+}

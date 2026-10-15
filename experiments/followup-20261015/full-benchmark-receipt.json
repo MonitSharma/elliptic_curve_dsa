@@ -1,0 +1,42 @@
+{
+  "collected_at_utc": "2026-10-14T22:08:10.308350+00:00",
+  "checkout": "/home/hclau/ecdsa_research/followup-20261015/b3-guarded-zero",
+  "baseline_revision": "b3c9fdd6e24bcd33450ab0d10884ab5ff9c46ab7",
+  "candidate_patch_sha256": "1879a2e7f315375b98afb4b1c4522188188572a218f4b64c6293ae2caf06120a",
+  "source_sha256": {
+    "src/point_add/guarded_zero.rs": "af0dee94b55ad008d54680f2d40af0519e2f7449ae57abfd6ed481c18028c9d4",
+    "src/point_add/mod.rs": "3fdf4fab2340241436d62c696bd960cab8b7593635b45c06914952d904ff7e45"
+  },
+  "protected_tracked_changes": [],
+  "generated_results_tsv_changed": true,
+  "other_untracked_files": [],
+  "evidence_kind": "unchanged_full_benchmark",
+  "status": "failed",
+  "qualified_score": null,
+  "protected_sha256": {
+    "benchmark.sh": "122a65431ad42a1bad5114af9e8f8301fe5cb08c01adaeee00799c9f0d0ed92a",
+    "Cargo.toml": "3c80178b08d29a158abb29a7dcb8eefc67c66f60f2c3bd14483b65eeca0740dc",
+    "Cargo.lock": "42ff16919e551891ad1b21821329b116d133194245a0e0734a33573dfe598e07",
+    "rust-toolchain": "92b454c1ccf330de9b94242f73bc3214370fb420d5152baeec12dc82ceef9dcc",
+    "src/bin/eval_circuit.rs": "b35314bc47a5f8eecbf60459e6c76c9b43aa034eeb9b7ec3421655d74f9e890b",
+    "src/bin/build_circuit.rs": "ac013f1d851156a117c7d41ddb16cb5bb014ed4e6ed4679df143207b46852f33",
+    "src/circuit.rs": "ac2255f6bcb6895c9da2dfe21c3a051a0ef8fc4e0af9598634fec0035dbf35c6",
+    "src/sim.rs": "f0c72f2a280cd68acee1dbf8282098f72d6b3bf4311e0abf96d122fe002256d7",
+    "src/weierstrass_elliptic_curve.rs": "ecfca15ee3b831c243fbea559ff4b8937be47fe591a4f14786ec2b9bfb30bded"
+  },
+  "stream": {
+    "path": "/home/hclau/ecdsa_research/followup-20261015/b3-guarded-zero/ops.bin",
+    "sha256": "52895ef965870babb9198ab8c3825fa0829cb8e90a1a048ab9ced7b985a78b3f",
+    "bytes": 39740463
+  },
+  "log": {
+    "path": "/home/hclau/ecdsa_research/followup-20261015/guarded-zero-evidence-v2/benchmark.log",
+    "sha256": "4c0c7a56c92b561ded15b573596d7b0fb279ca9e564a596f814a947cad3cd558"
+  },
+  "exit_status": 1,
+  "failure_counts": {
+    "classical_mismatches": 16,
+    "phase_garbage_batches": 9,
+    "ancilla_garbage_batches": 0
+  }
+}

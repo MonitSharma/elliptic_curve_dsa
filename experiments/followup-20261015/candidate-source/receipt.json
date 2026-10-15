@@ -1,0 +1,32 @@
+{
+  "collected_at_utc": "2026-10-14T22:00:36.902409+00:00",
+  "checkout": "C:\\Users\\monitsharma\\Downloads\\elliptic_curve_dsa\\agents\\toffoli",
+  "baseline_revision": "b3c9fdd6e24bcd33450ab0d10884ab5ff9c46ab7",
+  "candidate_patch_sha256": "1879a2e7f315375b98afb4b1c4522188188572a218f4b64c6293ae2caf06120a",
+  "source_sha256": {
+    "src/point_add/guarded_zero.rs": "af0dee94b55ad008d54680f2d40af0519e2f7449ae57abfd6ed481c18028c9d4",
+    "src/point_add/mod.rs": "aa562200575edc34ec7b31de45078621b899fc0144286e257437243ca7fac545"
+  },
+  "protected_tracked_changes": [],
+  "generated_results_tsv_changed": false,
+  "other_untracked_files": [],
+  "evidence_kind": "research_diagnostic",
+  "status": "pending",
+  "qualified_score": null,
+  "protected_sha256": {
+    "benchmark.sh": "8b704bcb8ad2c80c1894802994195b89500ff94259849199a832b9daf94e5a0e",
+    "Cargo.toml": "d36eac9222524a26239ef876741f848c8f3a2e0308f61282a471d40fae160f67",
+    "Cargo.lock": "1638d3d0ceff4d04b16a854779dd47fc0d059d511c5d527d9841ecf68e01740d",
+    "rust-toolchain": "5fe1ac5e1be3c1b707a75ff83991ef958901a746acd47619b318339e34288eb1",
+    "src/bin/eval_circuit.rs": "951928bb1ffe4a27a673674391e535840f25df4d9c48d9b0a684432d99558940",
+    "src/bin/build_circuit.rs": "9cca5ddf3345badcc8d77e1fa792dd34b654158eb58dfc5496cf00fe77dc24c0",
+    "src/circuit.rs": "302f2b83539b6fc6ff4a33cc77b29f660c0f8e3b48c6c09ed88483016d7646fb",
+    "src/sim.rs": "048a087c3059eb4269e8815fdccf922bfdfaa2dc9564e5b2cc2eeba33e2d5c46",
+    "src/weierstrass_elliptic_curve.rs": "b23e3ad6b06f3df39ba72a5ba32550e406087120f22dbcf100fd4000b56252f7"
+  },
+  "failure_counts": {
+    "classical_mismatches": null,
+    "phase_garbage_batches": null,
+    "ancilla_garbage_batches": null
+  }
+}

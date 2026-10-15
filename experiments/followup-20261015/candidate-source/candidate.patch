@@ -1,0 +1,186 @@
+diff --git a/src/point_add/mod.rs b/src/point_add/mod.rs
+index 292237d7..33f7e4c7 100755
+--- a/src/point_add/mod.rs
++++ b/src/point_add/mod.rs
+@@ -20,6 +20,7 @@ mod affine_simplify;
+ mod interned_witness;
+ mod quadratic_simplify;
+ mod truth_simplify;
++mod guarded_zero;
+ mod builder;
+ mod classical;
+ mod compare;
+@@ -600,6 +601,7 @@ pub fn build() -> Vec<Op> {
+             ops.splice(w..w + 1, rep);
+         }
+     }
++    ops = guarded_zero::run(ops);
+     let nonce: u64 = required_env("TAIL_NONCE");
+     let mut x = Op::empty();
+     x.kind = OperationType::X;
+diff --git a/src/point_add/guarded_zero.rs b/src/point_add/guarded_zero.rs
+new file mode 100644
+index 00000000..b74dd79f
+--- /dev/null
++++ b/src/point_add/guarded_zero.rs
+@@ -0,0 +1,160 @@
++//! Conservative classical support proof for quantum controls.
++//! A cube over immutable classical atoms contains every assignment on which a
++//! wire may be one. Joining cubes enlarges the set. Fresh atoms represent whole
++//! classical functions, including measurement outcomes; identifiers never recur.
++//! Only a contradiction between a gate guard and its controls removes a CCX.
++//! No measurements, classical updates, wire allocations or phase gates change.
++use crate::circuit::{analyze_ops, Op, OperationType as K, QubitOrBit, NO_BIT};
++use std::collections::BTreeSet;
++type Cube = Option<BTreeSet<i64>>;
++fn yes() -> Cube { Some(BTreeSet::new()) }
++fn and(a: &Cube, b: &Cube) -> Cube {
++    let (a,b) = (a.as_ref()?, b.as_ref()?);
++    if a.iter().any(|x| b.contains(&-*x)) { None }
++    else { Some(a.union(b).copied().collect()) }
++}
++fn join(a: &Cube, b: &Cube) -> Cube {
++    match (a,b) {
++        (None,v)|(v,None) => v.clone(),
++        (Some(a),Some(b)) => Some(a.intersection(b).copied().collect()),
++    }
++}
++fn implies(a: &Cube, b: &Cube) -> bool {
++    match (a,b) { (None,_)=>true, (Some(a),Some(b))=>a.is_superset(b), _=>false }
++}
++struct State { q: Vec<Cube>, bits: Vec<Cube>, base: Cube, stack: Vec<Cube>, atom: i64 }
++impl State {
++    fn fresh(&mut self) -> Cube {
++        self.atom=self.atom.checked_add(1).expect("classical atom overflow");
++        Some(BTreeSet::from([self.atom]))
++    }
++    fn inverse(&mut self, a: &Cube) -> Cube {
++        match a {
++            None=>yes(), Some(v) if v.is_empty()=>None,
++            Some(v) if v.len()==1=>Some(BTreeSet::from([-*v.first().unwrap()])),
++            _=>self.fresh(),
++        }
++    }
++    fn new(ops: &[Op]) -> Self {
++        let (nq,nb,_,registers)=analyze_ops(ops.iter());
++        let mut s=Self{q:vec![None;nq as usize],bits:vec![None;nb as usize],base:yes(),stack:vec![],atom:0};
++        let mut seen=BTreeSet::new();
++        for reg in registers { for slot in reg { match slot {
++            QubitOrBit::Qubit(q)=>s.q[q.0 as usize]=yes(),
++            QubitOrBit::Bit(b)=>if seen.insert(b.0) {s.bits[b.0 as usize]=s.fresh();},
++        }}}
++        s
++    }
++    fn guard(&self,o:&Op)->Cube {
++        if o.c_condition==NO_BIT {self.base.clone()} else {and(&self.base,&self.bits[o.c_condition.0 as usize])}
++    }
++    fn step(&mut self,o:&Op,g:Cube) {
++        let t=o.q_target.0 as usize;
++        let b=o.c_target.0 as usize;
++        match o.kind {
++            K::PushCondition=>{self.stack.push(self.base.clone());self.base=g;},
++            K::PopCondition=>{self.base=self.stack.pop().expect("condition underflow");},
++            K::X|K::CX|K::CCX=>{
++                let mut delta=g;
++                if o.kind!=K::X {delta=and(&delta,&self.q[o.q_control1.0 as usize]);}
++                if o.kind==K::CCX {delta=and(&delta,&self.q[o.q_control2.0 as usize]);}
++                self.q[t]=join(&self.q[t],&delta);
++            },
++            K::Swap=>{
++                let a=o.q_control1.0 as usize;
++                let qt=join(&self.q[t],&and(&g,&self.q[a]));
++                let qa=join(&self.q[a],&and(&g,&self.q[t]));
++                self.q[t]=qt;self.q[a]=qa;
++            },
++            K::R|K::Hmr=>{
++                if implies(&self.q[t],&g) {self.q[t]=None;}
++                if o.kind==K::Hmr {
++                    let random=self.fresh();
++                    if g.is_some() {
++                        self.bits[b]=if implies(&self.bits[b],&g) {and(&g,&random)} else {self.fresh()};
++                    }
++                }
++            },
++            K::BitInvert|K::BitStore0|K::BitStore1=>{
++                if g.is_none() {return;}
++                let old=self.bits[b].clone();
++                self.bits[b]=match o.kind {
++                    K::BitStore0=>if implies(&old,&g) {None} else {self.fresh()},
++                    K::BitStore1=>if old.is_none() {g} else if old==yes()||g==yes() {yes()} else {self.fresh()},
++                    _=>if g==yes() {self.inverse(&old)} else if old.is_none() {g} else if old==g {None}
++                       else if implies(&old,&g) {
++                           let diff:Vec<_>=old.as_ref().unwrap().difference(g.as_ref().unwrap()).copied().collect();
++                           if diff.len()==1 {and(&g,&Some(BTreeSet::from([-diff[0]])))} else {self.fresh()}
++                       } else {self.fresh()},
++                };
++            },
++            _=>{},
++        }
++    }
++}
++pub(super) fn run(ops: Vec<Op>) -> Vec<Op> {
++    let mut s=State::new(&ops);
++    let mut out=Vec::with_capacity(ops.len());
++    let mut removed=0usize;
++    for (i,o) in ops.into_iter().enumerate() {
++        let g=s.guard(&o);
++        let drop=o.kind==K::CCX && g.is_some()
++            && and(&and(&g,&s.q[o.q_control1.0 as usize]),&s.q[o.q_control2.0 as usize]).is_none();
++        s.step(&o,g);
++        if drop {removed+=1;eprintln!("GUARDED_ZERO drop={i} gate={o:?}");} else {out.push(o);}
++    }
++    assert!(s.stack.is_empty());
++    eprintln!("GUARDED_ZERO removed={removed} added_qubits=0 added_measurements=0");
++    out
++}
++
++#[cfg(test)]
++mod tests {
++    use super::*;
++    use crate::circuit::{BitId,QubitId,RegisterId};
++    use crate::sim::Simulator;
++    use sha3::digest::{Update,ExtendableOutput};
++    fn gate(k:K,a:u64,b:u64,t:u64,bt:u64,c:u64)->Op {
++        let mut o=Op::empty();o.kind=k;o.q_control1=QubitId(a);o.q_control2=QubitId(b);
++        o.q_target=QubitId(t);o.c_target=BitId(bt);o.c_condition=BitId(c);o.validate();o
++    }
++    const N:u64=u64::MAX;
++    #[test]
++    fn guarded_zero_native_dirty_inputs_phase_and_snapshot_mutation() {
++        let mut p=vec![];
++        let mut reg=Op::empty();reg.kind=K::Register;reg.r_target=RegisterId(0);p.push(reg);
++        for q in [0,1,4] {let mut o=Op::empty();o.kind=K::AppendToRegister;o.r_target=RegisterId(0);o.q_target=QubitId(q);p.push(o);}
++        for b in [0,1] {let mut o=Op::empty();o.kind=K::AppendToRegister;o.r_target=RegisterId(0);o.c_target=BitId(b);p.push(o);}
++        p.extend([
++            gate(K::CX,0,N,2,N,0),gate(K::BitInvert,N,N,N,0,N),gate(K::CX,1,N,3,N,0),
++            gate(K::CCX,2,3,4,N,N), // incompatible classical supports
++            gate(K::PushCondition,N,N,N,N,0),gate(K::BitInvert,N,N,N,0,N),
++            gate(K::CCX,0,2,4,N,1), // stack captures the old guard
++            gate(K::PopCondition,N,N,N,N,N),gate(K::CZ,4,N,0,N,N),
++            gate(K::Hmr,N,N,2,2,N),gate(K::Hmr,N,N,3,3,N),
++            gate(K::Z,N,N,1,N,2),gate(K::CCX,0,1,4,N,N), // must survive
++        ]);
++        let out=run(p.clone());assert_eq!(p.len()-out.len(),2);
++        for seed in 0..16u64 {
++            let mut hash=sha3::Shake256::default();hash.update(b"guarded-zero-native-v1");hash.update(&seed.to_le_bytes());
++            let mut xa=hash.clone().finalize_xof();let mut xb=hash.finalize_xof();
++            let mut a=Simulator::new(5,4,&mut xa);let mut b=Simulator::new(5,4,&mut xb);
++            for (i,q) in [0,1,4].into_iter().enumerate(){a.qubits[q]=(0..64).fold(0,|v,l|v|(((l>>i)&1)as u64)<<l);}
++            for i in 0..2 {a.bits[i]=(0..64).fold(0,|v,l|v|(((l>>(i+3))&1)as u64)<<l);}
++            a.bits[2]=0xa5a5a5a5a5a5a5a5;a.bits[3]=u64::MAX;a.phase=0x55aa55aa55aa55aa;
++            b.qubits=a.qubits.clone();b.bits=a.bits.clone();b.phase=a.phase;
++            a.apply_iter(p.iter());b.apply_iter(out.iter());
++            assert_eq!(a.qubits,b.qubits);assert_eq!(a.bits,b.bits);assert_eq!(a.phase,b.phase);
++            assert!(a.stats.toffoli_gates>b.stats.toffoli_gates);
++        }
++    }
++    #[test]
++    fn guarded_zero_dirty_control_must_not_be_forgotten() {
++        let mut s=State{q:vec![yes(),yes(),yes()],bits:vec![yes()],base:yes(),stack:vec![],atom:0};
++        let g=s.fresh();
++        let o=gate(K::Hmr,N,N,0,0,N);s.step(&o,g);
++        assert_eq!(s.q[0],yes());
++        assert!(and(&s.q[0],&s.q[1]).is_some());
++        assert!(!implies(&yes(),&Some(BTreeSet::from([1]))));
++    }
++}

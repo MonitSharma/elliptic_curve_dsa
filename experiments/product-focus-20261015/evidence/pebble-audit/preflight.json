@@ -1,0 +1,40 @@
+{
+  "checked_at": "2026-10-14T23:19:57.298389+00:00",
+  "hostname": "LHC-104-070",
+  "cpu_affinity_count": 144,
+  "load_average": [
+    37.572265625,
+    36.08251953125,
+    35.630859375
+  ],
+  "memory": {
+    "MemTotal_bytes": 540384096256,
+    "MemAvailable_bytes": 294085873664,
+    "SwapTotal_bytes": 8589930496,
+    "SwapFree_bytes": 8228270080
+  },
+  "disk_free_bytes": 5065968132096,
+  "schedulers": {
+    "squeue": null,
+    "qstat": null
+  },
+  "active_processes": [
+    "    PID %CPU %MEM COMMAND",
+    "1918489 1763 19.5 python",
+    "1932309 1742 22.6 python",
+    "2900832 80.0  0.0 python3",
+    "2900772 44.0  0.0 cargo",
+    "3958097  4.2  0.0 tmxbc",
+    "1705398  3.8  0.1 ds_agent",
+    "1706320  2.7  0.0 ds_am",
+    "1702756  1.0  0.0 alloy",
+    "3777359  0.7  0.0 python",
+    "1702753  0.1  0.0 containerd",
+    "1706202  0.1  0.0 tm_netagent",
+    "2899047  0.1  0.0 sshd",
+    "     17  0.0  0.0 rcu_preempt",
+    "   2866  0.0  0.0 dockerd"
+  ],
+  "ecdsa_workspace": "/home/hclau/ecdsa_research",
+  "chemistry_repository_modified": false
+}

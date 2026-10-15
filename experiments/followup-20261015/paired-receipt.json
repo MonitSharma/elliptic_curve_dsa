@@ -1,0 +1,51 @@
+{
+  "status": "complete_paired_agreement_inherited_failures_not_qualified",
+  "baseline_revision": "b3c9fdd6e24bcd33450ab0d10884ab5ff9c46ab7",
+  "candidate_stream_sha256": "52895ef965870babb9198ab8c3825fa0829cb8e90a1a048ab9ced7b985a78b3f",
+  "packets": {
+    "independent": {
+      "shots": 256,
+      "unequal_batches": 0,
+      "left_bad": 1,
+      "right_bad": 1,
+      "left_phase_shots": 1,
+      "right_phase_shots": 1,
+      "left_phase_batches": 1,
+      "right_phase_batches": 1,
+      "left_dirty_batches": 0,
+      "right_dirty_batches": 0,
+      "log_sha256": "1b31a8adc65199badf0d004685e1651a190a69ed46d08516fdf83e12b034bc00"
+    },
+    "structured": {
+      "shots": 256,
+      "unequal_batches": 0,
+      "left_bad": 189,
+      "right_bad": 189,
+      "left_phase_shots": 142,
+      "right_phase_shots": 142,
+      "left_phase_batches": 4,
+      "right_phase_batches": 4,
+      "left_dirty_batches": 0,
+      "right_dirty_batches": 0,
+      "log_sha256": "a4d681fd04d4c38c9f058374a1a146adfd5bf1de01722d9875c3b3b04f3fbebc"
+    },
+    "candidate": {
+      "shots": 9024,
+      "unequal_batches": 0,
+      "left_bad": 16,
+      "right_bad": 16,
+      "left_phase_shots": 9,
+      "right_phase_shots": 9,
+      "left_phase_batches": 9,
+      "right_phase_batches": 9,
+      "left_dirty_batches": 0,
+      "right_dirty_batches": 0,
+      "log_sha256": "4ad89004c914b0a0d4e71e77b4758fee1f1609c7912c5fa7ab4e7b843580d50c"
+    }
+  },
+  "bindings": "27c5e99e06a3779255fa6e85d0b3f8c2a49dd1641d467be8994d857527ee9aeb  /home/hclau/ecdsa_research/overnight-20261014/product-b3-replay-target/release/product_paired_diagnostic\n0f10de57f45349c89163faf6e5ab0694aec3d3bfa720f10ee8b185a9fb2914ce  /home/hclau/ecdsa_research/overnight-20261014/product-evidence/b3-baseline/run/ops.bin\n52895ef965870babb9198ab8c3825fa0829cb8e90a1a048ab9ced7b985a78b3f  /home/hclau/ecdsa_research/followup-20261015/b3-guarded-zero/ops.bin\nbcd539c4bd8a507567d664f7a12b0a290d312c9607f7d63b908cd54ac0e656d9  /home/hclau/ecdsa_research/overnight-20261014/product-b3-replay/src/main.rs\n",
+  "packet_hashes": "ce36aee911cc81ad3a51e5908264fc520765050a1774850b886d7cb86d67e9a2  /home/hclau/ecdsa_research/followup-20261015/guarded-zero-paired/candidate.tsv\n5a70e547bb6091e8b877a2bf8c719ac217b0cbfbcb25b6bb4050b8d140e2ae72  /home/hclau/ecdsa_research/followup-20261015/guarded-zero-paired/independent.tsv\nb301ed3786d2285e3f2a2d326eb726c4a4b731e35f97cdc98e42933ad74a4b7c  /home/hclau/ecdsa_research/followup-20261015/guarded-zero-paired/structured.tsv\n",
+  "qualified_score": null,
+  "independent_packet_scope": "Existing fixed B3 domain independent of stream hashes; reused, not freshly selected",
+  "server_directory": "/home/hclau/ecdsa_research/followup-20261015/guarded-zero-paired"
+}

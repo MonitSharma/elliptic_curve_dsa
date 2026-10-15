@@ -1,6 +1,37 @@
 # Experiment outcomes: verified baselines and unfinished research
 
-[Final ten-hour report and current handoff](overnight-final-report.md) supersedes dated checkpoint statuses below. No original submission-ready improvement has qualified.
+## Current result summary — 15 October 2026
+
+[Results and submission status](results-status.md) is the consolidated current
+view. Original Q692 bank-swap v2: complete local pass. Later Q692 normal-build
+v6: complete FAIL (3 value / 2 phase batches / 3 ancilla batches). The two
+versions are not interchangeable.
+
+The separate [product cycle](../experiments/product-focus-20261015/REPORT.md)
+found an exact three-Toffoli paired saving but no qualifying record. The
+[Toffoli cycle](../experiments/toffoli-readiness-20261015/REPORT.md) retained
+about four saved Toffolis at Q1235, or 74.91796875 per shot at Q1239 in the two
+fixed 256-shot comparisons. These are diagnostic relative savings on circuits
+with inherited correctness failures, not scored results. All patches, tests
+and terminal evidence are preserved. No candidate is submission-ready.
+
+Earlier pending descriptions below are historical snapshots.
+
+**Terminal update:** the overnight bank-swap v2 circuit has now passed all 9,024
+shots at **Q692 / T1,481,382,858**, with zero value, phase and ancilla failures.
+This is a local width improvement over public Q693, not an official submission;
+standard build packaging and general arithmetic correctness remain unqualified.
+[Reviewed passing result](../experiments/followup-20261015/bankswap-terminal/RESULT.md).
+
+[15 October follow-up](../experiments/followup-20261015/REPORT.md): a new
+point-addition-only pass removes two exactly proved B3 Toffolis, but the full
+9,024-shot benchmark fails with 16 value mismatches and 9 phase batches.
+Paired replay confirms identical failures in unchanged B3, with all final states
+equal across 9,536 shots. This is a preserved simplification, not a qualified
+record. The report also records negative structural/width searches and proofs.
+
+[Final ten-hour report](overnight-final-report.md) supersedes older checkpoint
+statuses below; the terminal update above supersedes its pending bank-swap status.
 
 Updated 15 October 2026, Singapore time. This report preserves unsuccessful
 experiments and component-level findings. **No original candidate in this

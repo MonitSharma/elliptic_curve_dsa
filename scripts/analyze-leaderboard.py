@@ -91,57 +91,12 @@ def verified_reproduction(receipt):
 
 
 def plot(summary, records):
-    import os
-    os.environ.setdefault("MPLCONFIGDIR", str(ROOT / ".tools/matplotlib"))
-    import matplotlib
-    matplotlib.use("Agg")
-    import matplotlib.pyplot as plt
-    import numpy as np
-    plt.rcParams.update({"font.size": 10, "axes.spines.top": False, "axes.spines.right": False})
-    fig, axes = plt.subplots(1, 2, figsize=(12, 5), layout="constrained")
-    points = eligible(records)
-    frontier = summary["frontier"]
-    q = [s["officialMetrics"]["qubits"] for s in frontier]
-    t = [s["officialMetrics"]["toffoli"] / 1e6 for s in frontier]
-    receipt_path = ROOT / "docs/data/server-verification.json"
-    local = verified_reproduction(json.loads(receipt_path.read_text())) if receipt_path.exists() else None
-    for ax in axes:
-        ax.scatter([s["officialMetrics"]["qubits"] for s in points],
-                   [s["officialMetrics"]["toffoli"] / 1e6 for s in points],
-                   s=12, alpha=.25, c="#9aa5b1", label="Officially scored public circuits")
-        ax.plot(q, t, "o-", color="#167d8d", ms=4, lw=1.5, label="Pareto frontier")
-        if local:
-            ax.scatter(local["qubits"], local["toffoli"] / 1e6, marker="s", s=100,
-                       facecolors="none", edgecolors="#682e87", linewidths=1.6, zorder=5,
-                       label="Our passing public-baseline replay")
-        ax.set_xlabel("Peak logical qubits")
-        ax.set_ylabel("Mean executed Toffolis (millions)")
-        ax.grid(alpha=.2)
-    axes[0].set_yscale("log")
-    axes[0].set_title("Public resource tradeoffs")
-    axes[1].set_xlim(1100, 1255)
-    axes[1].set_ylim(.70, 1.15)
-    axes[1].set_title("Product race (expanded)")
-    xx = np.linspace(1100, 1255, 300)
-    score = summary["leaders"]["product"]["officialScore"]
-    axes[1].plot(xx, score / xx / 1e6, "--", color="#d38027", label="Current best Q × T")
-    for name, color, xy in (("qubits", "#b84d59", (8, -24)), ("toffoli", "#426cc3", (-105, 35)),
-                            ("product", "#d38027", (-115, -35))):
-        m = summary["leaders"][name]["officialMetrics"]
-        ax = axes[0] if name == "qubits" else axes[1]
-        ax.scatter(m["qubits"], m["toffoli"] / 1e6, c=color, s=45, zorder=4)
-        ax.annotate(f'{name.title()}: Q{m["qubits"]}, T{m["toffoli"]:,}',
-                    (m["qubits"], m["toffoli"] / 1e6), xytext=xy, textcoords="offset points",
-                    fontsize=8, arrowprops={"arrowstyle": "-", "color": color})
-    axes[0].legend(loc="lower left", fontsize=8)
-    axes[1].legend(loc="upper right", fontsize=8)
-    fig.suptitle(f'Verified benchmark results · {len(frontier)} public frontier points · '
-                 f'{summary["analyzed_at"][:10]}\n'
-                 'No failed, pending or component-only candidates', fontsize=12)
-    dest = ROOT / "docs/figures/frontier.png"
-    dest.parent.mkdir(parents=True, exist_ok=True)
-    fig.savefig(dest, dpi=180)
-    plt.close(fig)
+    from frontier_plot import render, verified_width
+    local = verified_width(json.loads((ROOT / "experiments/verification-20261015/independent-verification.json").read_text()))
+    if local is None:
+        raise ValueError("Local width result lacks complete passing evidence")
+    baseline = verified_reproduction(json.loads((ROOT / "docs/data/server-verification.json").read_text()))
+    render(summary, eligible(records), baseline, local)
 
 
 def markdown(summary):
@@ -151,13 +106,16 @@ def markdown(summary):
         "Accepted and explicitly score-only rejected records qualify; failures and claimed-only metrics do not. "
         "This is a dated snapshot, not independent reproduction. Promotion uses the scalar product.", "",
         "![Resource frontier](figures/frontier.png)", "",
+        "The gold step is the public frontier. The cyan diamond is our separately verified local Q692 pass; it is not an official submission. Failed experiments are excluded.", "",
+        "![Independent Toffoli and product objectives](figures/record-tradeoffs.png)", "",
         "| Qubits | Rounded mean Toffolis | Product | Submission |", "|---:|---:|---:|---|"]
     for s in summary["frontier"]:
         m = s["officialMetrics"]
         rows.append(f'| {m["qubits"]:,} | {m["toffoli"]:,} | {s["officialScore"]:,} | '
                     f'[{s["id"][:8]}](https://api.ecdsa.fail/api/submissions/{s["id"]}) |')
-    rows += ["", "Reproduce with `python scripts/analyze-leaderboard.py --snapshot "
+    rows += ["", "Refresh with `python scripts/analyze-leaderboard.py --snapshot "
              "research-output/public-20261014 --plot`. Use `--refresh` to fetch a new dated snapshot. "
+             "Regenerate both figures offline with `python scripts/frontier_plot.py`. "
              "Compact records, source hashes and targets: [data/latest-leaderboard.json](data/latest-leaderboard.json).", ""]
     return "\n".join(rows)
 
@@ -183,6 +141,7 @@ def main():
     for name, leader in summary["leaders"].items():
         record = next(s for s in records if s["id"] == leader["id"])
         (folder / f"leader-{name}.md").write_text(record.get("note") or "No public note.", encoding="utf-8")
+    write_json(ROOT / "docs/data/public-plot-points.json", [compact(s) for s in eligible(records)])
     if args.plot:
         plot(summary, records)
     (ROOT / "docs/frontier-results.md").write_text(markdown(summary), encoding="utf-8")

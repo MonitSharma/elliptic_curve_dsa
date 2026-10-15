@@ -1,0 +1,379 @@
+   Compiling cache_audit v0.1.0 (/home/hclau/ecdsa_research/product-focus-20261015/lazy-cache-native-v3/crate)
+warning: constant `ATOM_CAP` is never used
+ --> src/affine_simplify.rs:7:7
+  |
+7 | const ATOM_CAP: usize = 32;
+  |       ^^^^^^^^
+  |
+  = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: struct `Affine` is never constructed
+  --> src/affine_simplify.rs:10:8
+   |
+10 | struct Affine {
+   |        ^^^^^^
+
+warning: associated items `constant`, `is_zero`, `is_one`, `complement`, and `complements` are never used
+  --> src/affine_simplify.rs:16:8
+   |
+15 | impl Affine {
+   | ----------- associated items in this implementation
+16 |     fn constant(value: bool) -> Self {
+   |        ^^^^^^^^
+...
+23 |     fn is_zero(&self) -> bool {
+   |        ^^^^^^^
+...
+27 |     fn is_one(&self) -> bool {
+   |        ^^^^^^
+...
+31 |     fn complement(&self) -> Self {
+   |        ^^^^^^^^^^
+...
+38 |     fn complements(&self, other: &Self) -> bool {
+   |        ^^^^^^^^^^^
+
+warning: enum `Rewrite` is never used
+  --> src/affine_simplify.rs:43:17
+   |
+43 | pub(super) enum Rewrite {
+   |                 ^^^^^^^
+
+warning: method `emit` is never used
+  --> src/affine_simplify.rs:51:19
+   |
+50 | impl Rewrite {
+   | ------------ method in this implementation
+51 |     pub(super) fn emit(self, op: Op, result: &mut Vec<Op>) {
+   |                   ^^^^
+
+warning: struct `Support` is never constructed
+  --> src/affine_simplify.rs:74:19
+   |
+74 | pub(super) struct Support {
+   |                   ^^^^^^^
+
+warning: associated items `new`, `fresh`, `xor`, `and`, `ccx_rewrite`, and `step` are never used
+   --> src/affine_simplify.rs:83:19
+    |
+ 82 | impl Support {
+    | ------------ associated items in this implementation
+ 83 |     pub(super) fn new(ops: &[Op]) -> Self {
+    |                   ^^^
+...
+117 |     fn fresh(&mut self) -> Affine {
+    |        ^^^^^
+...
+126 |     fn xor(&mut self, a: &Affine, b: &Affine) -> Affine {
+    |        ^^^
+...
+153 |     fn and(&mut self, a: &Affine, b: &Affine) -> Affine {
+    |        ^^^
+...
+167 |     fn ccx_rewrite(condition: &Affine, a: &Affine, b: &Affine, op: &Op) -> Rewrite {
+    |        ^^^^^^^^^^^
+...
+181 |     pub(super) fn step(&mut self, op: &Op) -> Rewrite {
+    |                   ^^^^
+
+warning: function `simplify` is never used
+   --> src/affine_simplify.rs:280:15
+    |
+280 | pub(crate) fn simplify(ops: Vec<Op>) -> Vec<Op> {
+    |               ^^^^^^^^
+
+warning: method `zero_qubits` is never used
+   --> src/affine_simplify.rs:290:30
+    |
+290 | impl Support { pub(super) fn zero_qubits(&self) -> Vec<usize> {
+    | ------------                 ^^^^^^^^^^^
+    | |
+    | method in this implementation
+
+warning: field `0` is never read
+  --> src/interned_witness.rs:48:8
+   |
+48 |     Cx(QubitId),
+   |     -- ^^^^^^^
+   |     |
+   |     field in this variant
+   |
+help: consider changing the field to be of unit type to suppress this warning while preserving the field numbering, or remove the field
+   |
+48 -     Cx(QubitId),
+48 +     Cx(()),
+   |
+
+warning: method `emit` is never used
+  --> src/interned_witness.rs:52:19
+   |
+51 | impl Rewrite {
+   | ------------ method in this implementation
+52 |     pub(super) fn emit(self, op: Op, result: &mut Vec<Op>) {
+   |                   ^^^^
+
+warning: function `simplify` is never used
+   --> src/interned_witness.rs:299:15
+    |
+299 | pub(crate) fn simplify(ops: Vec<Op>) -> Vec<Op> {
+    |               ^^^^^^^^
+
+warning: function `witnesses` is never used
+   --> src/interned_witness.rs:310:15
+    |
+310 | pub(crate) fn witnesses(ops:Vec<Op>)->Vec<Op>{
+    |               ^^^^^^^^^
+
+warning: constant `MONOMIAL_CAP` is never used
+ --> src/quadratic_simplify.rs:8:7
+  |
+8 | const MONOMIAL_CAP: usize = 32;
+  |       ^^^^^^^^^^^^
+
+warning: struct `Quadratic` is never constructed
+  --> src/quadratic_simplify.rs:11:8
+   |
+11 | struct Quadratic {
+   |        ^^^^^^^^^
+
+warning: associated items `constant`, `is_zero`, `is_one`, `complement`, and `complements` are never used
+  --> src/quadratic_simplify.rs:17:8
+   |
+16 | impl Quadratic {
+   | -------------- associated items in this implementation
+17 |     fn constant(value: bool) -> Self {
+   |        ^^^^^^^^
+...
+24 |     fn is_zero(&self) -> bool {
+   |        ^^^^^^^
+...
+28 |     fn is_one(&self) -> bool {
+   |        ^^^^^^
+...
+32 |     fn complement(&self) -> Self {
+   |        ^^^^^^^^^^
+...
+39 |     fn complements(&self, other: &Self) -> bool {
+   |        ^^^^^^^^^^^
+
+warning: struct `Support` is never constructed
+  --> src/quadratic_simplify.rs:47:19
+   |
+47 | pub(super) struct Support {
+   |                   ^^^^^^^
+
+warning: associated items `new`, `fresh`, `xor`, `and`, `ccx_rewrite`, and `step` are never used
+   --> src/quadratic_simplify.rs:56:19
+    |
+ 55 | impl Support {
+    | ------------ associated items in this implementation
+ 56 |     pub(super) fn new(ops: &[Op]) -> Self {
+    |                   ^^^
+...
+ 90 |     fn fresh(&mut self) -> Quadratic {
+    |        ^^^^^
+...
+101 |     fn xor(&mut self, a: &Quadratic, b: &Quadratic) -> Quadratic {
+    |        ^^^
+...
+128 |     fn and(&mut self, a: &Quadratic, b: &Quadratic) -> Quadratic {
+    |        ^^^
+...
+183 |     fn ccx_rewrite(condition: &Quadratic, a: &Quadratic, b: &Quadratic, op: &Op) -> Rewrite {
+    |        ^^^^^^^^^^^
+...
+197 |     pub(super) fn step(&mut self, op: &Op) -> Rewrite {
+    |                   ^^^^
+
+warning: function `simplify` is never used
+   --> src/quadratic_simplify.rs:296:15
+    |
+296 | pub(crate) fn simplify(ops: Vec<Op>) -> Vec<Op> {
+    |               ^^^^^^^^
+
+warning: method `zero_qubits` is never used
+   --> src/quadratic_simplify.rs:313:30
+    |
+313 | impl Support { pub(super) fn zero_qubits(&self) -> Vec<usize> {
+    | ------------                 ^^^^^^^^^^^
+    | |
+    | method in this implementation
+
+warning: constant `SUPPORT_CAP` is never used
+  --> src/truth_simplify.rs:10:7
+   |
+10 | const SUPPORT_CAP: usize = 6;
+   |       ^^^^^^^^^^^
+
+warning: struct `Truth` is never constructed
+  --> src/truth_simplify.rs:13:8
+   |
+13 | struct Truth {
+   |        ^^^^^
+
+warning: multiple associated items are never used
+  --> src/truth_simplify.rs:20:8
+   |
+19 | impl Truth {
+   | ---------- associated items in this implementation
+20 |     fn row_mask(count: usize) -> u64 {
+   |        ^^^^^^^^
+...
+29 |     fn constant(value: bool) -> Self {
+   |        ^^^^^^^^
+...
+36 |     fn is_zero(&self) -> bool {
+   |        ^^^^^^^
+...
+39 |     fn is_one(&self) -> bool {
+   |        ^^^^^^
+...
+43 |     fn complement(&self) -> Self {
+   |        ^^^^^^^^^^
+...
+50 |     fn complements(&self, other: &Self) -> bool {
+   |        ^^^^^^^^^^^
+...
+54 |     fn canonical(mut atoms: Vec<u64>, mut table: u64) -> Self {
+   |        ^^^^^^^^^
+...
+80 |     fn value_in_union(&self, positions: &[usize], row: usize) -> u64 {
+   |        ^^^^^^^^^^^^^^
+
+warning: struct `Support` is never constructed
+  --> src/truth_simplify.rs:89:8
+   |
+89 | struct Support {
+   |        ^^^^^^^
+
+warning: multiple associated items are never used
+   --> src/truth_simplify.rs:98:8
+    |
+ 97 | impl Support {
+    | ------------ associated items in this implementation
+ 98 |     fn new(ops: &[Op]) -> Self {
+    |        ^^^
+...
+132 |     fn fresh(&mut self) -> Truth {
+    |        ^^^^^
+...
+141 |     fn combine(&mut self, a: &Truth, b: &Truth, is_and: bool) -> Truth {
+    |        ^^^^^^^
+...
+170 |     fn xor(&mut self, a: &Truth, b: &Truth) -> Truth {
+    |        ^^^
+...
+189 |     fn and(&mut self, a: &Truth, b: &Truth) -> Truth {
+    |        ^^^
+...
+202 |     fn ccx_rewrite(condition: &Truth, a: &Truth, b: &Truth, op: &Op) -> Rewrite {
+    |        ^^^^^^^^^^^
+...
+216 |     fn step(&mut self, op: &Op) -> Rewrite {
+    |        ^^^^
+
+warning: function `simplify` is never used
+   --> src/truth_simplify.rs:316:15
+    |
+316 | pub(crate) fn simplify(ops: Vec<Op>) -> Vec<Op> {
+    |               ^^^^^^^^
+
+warning: function `simplify_products` is never used
+   --> src/truth_simplify.rs:321:15
+    |
+321 | pub(crate) fn simplify_products(ops: Vec<Op>) -> Vec<Op> {
+    |               ^^^^^^^^^^^^^^^^^
+
+warning: function `simplify_with_products` is never used
+   --> src/truth_simplify.rs:328:4
+    |
+328 | fn simplify_with_products(ops: Vec<Op>, use_products: bool) -> Vec<Op> {
+    |    ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `audit_zero` is never used
+   --> src/truth_simplify.rs:359:15
+    |
+359 | pub(crate) fn audit_zero(ops: &[Op], target: usize) {
+    |               ^^^^^^^^^^
+
+warning: function `exact_product` is never used
+  --> src/product_simplify.rs:11:4
+   |
+11 | fn exact_product(a: &Truth, b: &Truth) -> Option<Truth> {
+   |    ^^^^^^^^^^^^^
+
+warning: struct `Hit` is never constructed
+  --> src/product_simplify.rs:45:19
+   |
+45 | pub(super) struct Hit {
+   |                   ^^^
+
+warning: method `emit` is never used
+  --> src/product_simplify.rs:52:19
+   |
+51 | impl Hit {
+   | -------- method in this implementation
+52 |     pub(super) fn emit(self, original: Op, result: &mut Vec<Op>) {
+   |                   ^^^^
+
+warning: struct `Index` is never constructed
+  --> src/product_simplify.rs:64:19
+   |
+64 | pub(super) struct Index {
+   |                   ^^^^^
+
+warning: multiple associated items are never used
+   --> src/product_simplify.rs:70:19
+    |
+ 69 | impl Index {
+    | ---------- associated items in this implementation
+ 70 |     pub(super) fn new(state: &Support, ops: &[Op]) -> Self {
+    |                   ^^^
+...
+ 89 |     fn insert(&mut self, state: &Support, q: usize) {
+    |        ^^^^^^
+...
+ 98 |     fn remove(&mut self, state: &Support, q: usize) {
+    |        ^^^^^^
+...
+108 |     fn permitted(&self, q: usize, op: &Op) -> bool {
+    |        ^^^^^^^^^
+...
+115 |     fn lookup(&self, product: &Truth, op: &Op) -> Option<Hit> {
+    |        ^^^^^^
+...
+131 |     pub(super) fn before(&mut self, state: &Support, op: &Op) -> Option<Hit> {
+    |                   ^^^^^^
+...
+153 |     pub(super) fn after(&mut self, state: &Support, op: &Op) {
+    |                   ^^^^^
+
+warning: function `quantum_changes` is never used
+   --> src/product_simplify.rs:164:4
+    |
+164 | fn quantum_changes(op: &Op) -> Vec<usize> {
+    |    ^^^^^^^^^^^^^^^
+
+warning: function `quantum_touches` is never used
+   --> src/product_simplify.rs:173:4
+    |
+173 | fn quantum_touches(op: &Op) -> Vec<usize> {
+    |    ^^^^^^^^^^^^^^^
+
+warning: `cache_audit` (bin "cache_audit" test) generated 36 warnings
+    Finished `release` profile [optimized] target(s) in 1.21s
+     Running unittests src/main.rs (/home/hclau/ecdsa_research/product-focus-20261015/erase-audit/target/release/deps/cache_audit-82fb075e2dfee997)
+
+running 2 tests
+test cache_audit::tests::lazy_cache_native_dirty_abi_guards_and_phase ... LAZY_WINDOW donor=5 start=10 end=23 proxy=0.5 uses=[12, 20, 22]
+LAZY_SUMMARY width=8 repeated_groups=1 raw_repetitions=2 eligible=1 selected=1 available_proxy=0.5 selected_proxy=0.5 structural_repetitions=2
+LAZY_RENDER windows=1 dropped_original_zero_resets=1 old_ops=24 new_ops=58
+LAZY_NATIVE cases=3072 saved=1536
+ok
+test cache_audit::tests::lazy_cache_phase_fault_is_detected ... LAZY_WINDOW donor=5 start=10 end=23 proxy=0.5 uses=[12, 20, 22]
+LAZY_SUMMARY width=8 repeated_groups=1 raw_repetitions=2 eligible=1 selected=1 available_proxy=0.5 selected_proxy=0.5 structural_repetitions=2
+LAZY_RENDER windows=1 dropped_original_zero_resets=1 old_ops=24 new_ops=58
+ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

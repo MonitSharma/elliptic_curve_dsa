@@ -1,0 +1,206 @@
+   Compiling libc v0.2.185
+   Compiling typenum v1.19.0
+   Compiling version_check v0.9.5
+   Compiling shlex v1.3.0
+   Compiling proc-macro2 v1.0.106
+   Compiling generic-array v0.14.9
+   Compiling find-msvc-tools v0.1.9
+   Compiling pkg-config v0.3.33
+   Compiling unicode-ident v1.0.24
+   Compiling quote v1.0.45
+   Compiling unicode-segmentation v1.13.2
+   Compiling jobserver v0.1.34
+   Compiling convert_case v0.10.0
+   Compiling cc v1.2.60
+   Compiling syn v2.0.117
+   Compiling block-buffer v0.10.4
+   Compiling crypto-common v0.1.6
+   Compiling zstd-safe v7.2.4
+   Compiling unicode-xid v0.2.6
+   Compiling paste v1.0.15
+   Compiling digest v0.10.7
+   Compiling foldhash v0.2.0
+   Compiling keccak v0.1.6
+   Compiling cfg-if v1.0.4
+   Compiling ruint-macro v1.2.1
+   Compiling cpufeatures v0.2.17
+   Compiling const-hex v1.18.1
+   Compiling ruint v1.17.2
+   Compiling hashbrown v0.16.1
+   Compiling zstd-sys v2.0.16+zstd.1.5.7
+   Compiling sha3 v0.10.8
+   Compiling bytes v1.11.1
+   Compiling rustc-hash v2.1.2
+   Compiling itoa v1.0.18
+   Compiling derive_more-impl v2.1.1
+   Compiling derive_more v2.1.1
+   Compiling alloy-primitives v1.5.7
+   Compiling zstd v0.13.3
+   Compiling quantum_ecc v0.1.0 (/home/hclau/ecdsa_research/q692_readiness_20261015/clean-replay-v6-binary)
+warning: unused import: `ttk_add`
+ --> src/bin/../point_add/canonical_short_clean.rs:4:20
+  |
+4 | use super::arith::{ttk_add,ttk_carry};
+  |                    ^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable does not need to be mutable
+    --> src/bin/../point_add/frogdrop.rs:1272:9
+     |
+1272 |     let mut tail_from = |b: &mut B, m: &[bool], j: usize| -> (Vec<G>, Vec<QubitId>, Vec<QubitId>) {
+     |         ----^^^^^^^^^
+     |         |
+     |         help: remove this `mut`
+     |
+     = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `h`
+   --> src/bin/../point_add/frogdrop_col.rs:547:9
+    |
+547 |     let h = cp.h as isize;
+    |         ^ help: if this is intentional, prefix it with an underscore: `_h`
+    |
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: value assigned to `f1_last` is never read
+    --> src/bin/../point_add/frogdrop_col.rs:539:9
+     |
+ 539 |         f1_last = b.tof;
+     |         ^^^^^^^^^^^^^^^
+...
+1188 |     stage!(); // 11
+     |     -------- in this macro invocation
+     |
+     = help: maybe it is overwritten before being read?
+     = note: `#[warn(unused_assignments)]` (part of `#[warn(unused)]`) on by default
+     = note: this warning originates in the macro `stage` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: value assigned to `f1_last` is never read
+    --> src/bin/../point_add/frogdrop_col.rs:539:9
+     |
+ 539 |         f1_last = b.tof;
+     |         ^^^^^^^^^^^^^^^
+...
+1118 |         stage!();
+     |         -------- in this macro invocation
+     |
+     = help: maybe it is overwritten before being read?
+     = note: this warning originates in the macro `stage` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: value assigned to `last` is never read
+    --> src/bin/../point_add/frogdrop_col.rs:542:43
+     |
+ 542 |             prof_v.push((stn, v - last)); last = v;
+     |                                           ^^^^^^^^
+...
+1188 |     stage!(); // 11
+     |     -------- in this macro invocation
+     |
+     = help: maybe it is overwritten before being read?
+     = note: this warning originates in the macro `stage` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: value assigned to `last` is never read
+    --> src/bin/../point_add/frogdrop_col.rs:542:43
+     |
+ 542 |             prof_v.push((stn, v - last)); last = v;
+     |                                           ^^^^^^^^
+...
+1118 |         stage!();
+     |         -------- in this macro invocation
+     |
+     = help: maybe it is overwritten before being read?
+     = note: this warning originates in the macro `stage` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: variable does not need to be mutable
+    --> src/bin/../point_add/frogdrop_col.rs:1336:17
+     |
+1336 |             let mut mk_q = |b: &mut B, neg: bool| rec(b, |b| probe_gated(b, q, 0, cp.m, &fd.sy, &[(sc.cmpc, neg)],
+     |                 ----^^^^
+     |                 |
+     |                 help: remove this `mut`
+
+warning: variable does not need to be mutable
+    --> src/bin/../point_add/frogdrop_col.rs:1340:17
+     |
+1340 |             let mut mk_r = |b: &mut B, neg: bool| rec(b, |b| super::frogdrop::msb_probe_cut_range_x(b, &rev, &mx,
+     |                 ----^^^^
+     |                 |
+     |                 help: remove this `mut`
+
+warning: unused variable: `mt`
+    --> src/bin/../point_add/payload.rs:1260:9
+     |
+1260 |     let mt = (n - (cp.sz.0 + cp.h) + 1).min(nq.max(cp.xw) + 1);
+     |         ^^ help: if this is intentional, prefix it with an underscore: `_mt`
+
+warning: unused variable: `srange`
+    --> src/bin/../point_add/payload.rs:1264:9
+     |
+1264 |     let srange = (szlo + sylo, (szhi + syhi).min(257));
+     |         ^^^^^^ help: if this is intentional, prefix it with an underscore: `_srange`
+
+warning: unused variable: `kp`
+   --> src/bin/../point_add/midg.rs:557:13
+    |
+557 |     let (k, kp, tot) = (cp.k, cp.kp, cp.tot);
+    |             ^^
+    |
+help: you might have meant to pattern match on the similarly named constant `KP`
+    |
+557 -     let (k, kp, tot) = (cp.k, cp.kp, cp.tot);
+557 +     let (k, point_add::pointadd_frogdrop::KP, tot) = (cp.k, cp.kp, cp.tot);
+    |
+help: if this is intentional, prefix it with an underscore
+    |
+557 |     let (k, _kp, tot) = (cp.k, cp.kp, cp.tot);
+    |             +
+
+warning: `quantum_ecc` (bin "build_circuit") generated 12 warnings (run `cargo fix --bin "build_circuit" -p quantum_ecc` to apply 8 suggestions)
+    Finished `release` profile [optimized] target(s) in 43.31s
+!! no sandbox available (bubblewrap/sandbox-exec); running build_circuit UNCONFINED (dev fallback)
+=== quantum_ecc: build_circuit (untrusted stage) ===
+
+-- building circuit --
+frogdrop: ops 1413812844 peak qubits 692 width 692 emitted Toffoli 479915092
+  emitted ops : 1413812844
+  wrote       : ops.bin (3893939226 bytes on disk, 79173519280 uncompressed, 20.3x)
+
+=== build_circuit OK ===
+=== quantum_ecc: eval_circuit (trusted stage) ===
+
+  loaded ops  : 1413812844
+  qubits      : 692
+  bits        : 2353373
+
+-- correctness tests (9024 shots) --
+  tested shots            : 9024
+  classical mismatches    : 3
+  phase-garbage batches   : 2
+  ancilla-garbage batches : 3
+
+!! correctness FAILED: CLASSICAL MISMATCH shot 2726: got (0xf81d8e54e20d13fbcb5987aa15cf1be35c7951ba1f626582789980ee091ee905,0x5d18f112c48b9213434f1d02a296a26527c68f20911c9c6bca2fa7a89faf4792) exp (0xe87f60efa328b508f346f3caca1e81bf7930083db5504a11440b9b96c5bd8737,0x3985a15c478dfcc9caf1b9ad55f095320c2f3253a8f5474bea89477792b89cae)
+Command exited with non-zero status 1
+	Command being timed: "./benchmark.sh --note Q692 exact predicate factoring; pristine current-base replay; normal build; unchanged benchmark"
+	User time (seconds): 2661.92
+	System time (seconds): 257.96
+	Percent of CPU this job got: 101%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 47:58.34
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 78185676
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 82358518
+	Voluntary context switches: 6106
+	Involuntary context switches: 5001
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 15512304
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1

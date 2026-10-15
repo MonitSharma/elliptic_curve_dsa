@@ -1,5 +1,17 @@
 # Ten-hour ECDSA research report
 
+**Later publication checkpoint, 15 October 2026:** the original Q692 local
+pass remains our only new complete passing resource improvement. A later
+normal-build Q692 version failed correctness; new product/Toffoli cache
+experiments also retain inherited failures. None is submission-ready.
+[Current results and version distinctions](results-status.md).
+
+**Post-window terminal update:** the final bank-swap v2 job finished during the
+15 October follow-up and passed all 9,024 shots at **Q692/T1,481,382,858**.
+This is a reviewed local width improvement, not an official submission or an
+all-input correctness proof. [Passing result and exact evidence](../experiments/followup-20261015/bankswap-terminal/RESULT.md).
+The pending statuses below describe the original ten-hour checkpoint.
+
 Window: 14 October 2026 10:14:23–20:14:23 UTC (18:14:23–04:14:23 Singapore).
 This report and [the final handoff receipt](../experiments/overnight-20261014/coordinator/final-handoff.json)
 separate terminal evidence from calculations still in progress. Source, patches,

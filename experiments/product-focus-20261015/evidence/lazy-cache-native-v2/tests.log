@@ -1,0 +1,11 @@
+   Compiling cache_audit v0.1.0 (/home/hclau/ecdsa_research/product-focus-20261015/lazy-cache-native-v2/crate)
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `sha3`
+   --> src/cache_audit.rs:127:10
+    |
+127 |     impl sha3::digest::XofReader for Word {fn read(&mut self,out:&mut [u8]){assert_eq!(out.len(),8);out.copy_from_slice(&self.0.to_le_byt...
+    |          ^^^^ use of unresolved module or unlinked crate `sha3`
+    |
+    = help: if you wanted to use a crate named `sha3`, use `cargo add sha3` to add it to your `Cargo.toml`
+
+For more information about this error, try `rustc --explain E0433`.
+error: could not compile `cache_audit` (bin "cache_audit" test) due to 1 previous error

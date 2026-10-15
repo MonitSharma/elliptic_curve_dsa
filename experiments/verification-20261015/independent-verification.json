@@ -1,0 +1,92 @@
+{
+  "status": "INDEPENDENTLY_VERIFIED_LOCAL_Q692_PASS_SUBMISSION_NOT_READY",
+  "verified_at_utc": "2026-10-14T22:27:07.031447+00:00",
+  "bounded_stream_rescan_completed_at_utc": "2026-10-14T22:31:08.423209+00:00",
+  "original_benchmark_rerun": false,
+  "source_base": "c95b9325913abacca9c86bdebad10a20633cd04e",
+  "candidate_patch_sha256": "61bd0d94831feea58dee9fc1c6a9cc2db10ed32e9a65f95ed5ebfe33a9a32f43",
+  "full_stream_sha256": "03cb7a3f0cc5bbb1c4d07a3cfed809e3623137425ebd7c725f158737f4a77739",
+  "protected_binary_sha256": "88b6fd33dfcd85b317ed6694c10715dbb6b4d5926838400ec7c4e23cdda77e3a",
+  "benchmark_log_sha256": "e32fc1651ffe9c974dce46a0196dd9ccf8ced7e077b0771ac3c0789b8df31f3f",
+  "score_sha256": "65457639758d7436425e6685bb3076cc755ed5df2e2078a71dd6fdaec5a79328",
+  "candidate_changed_files_checked": 7,
+  "candidate_protected_files_compared_to_git": 17,
+  "harness_tracked_source_files_compared_to_git": 206,
+  "shots": 9024,
+  "failures": {
+    "value": 0,
+    "phase_batches": 0,
+    "ancilla_batches": 0
+  },
+  "qubits": 692,
+  "total_executed_toffoli": 13367998912206,
+  "rounded_mean_executed_toffoli": 1481382858,
+  "product": 1025116937736,
+  "all_input_correctness_proved": false,
+  "normal_build_path_qualified": false,
+  "full_stream_rescan": {
+    "ops": 2472354640,
+    "referenced_qubits": 692,
+    "referenced_bits": 2353373,
+    "compressed_bytes": 4671477345,
+    "sizeof_op": 56,
+    "op_vector_bytes": 138451859840,
+    "operation_vector_allocated": false
+  },
+  "public": {
+    "refreshed_at": "2026-10-15T06:24:29.092515+08:00",
+    "input_sha256": {
+      "benchmark": "9f71fc268ceeda0202c9f3394d7b49cb64ba9779af8afec1e8c7ec8f890524e2",
+      "submissions": "02df0b4b873247d3b1660368f774bf5b82f620ef9ae09db865309cd19c00fafa"
+    },
+    "minimum_qubits": {
+      "id": "261d4e06-ad9f-4a0a-9c13-12726127c1d8",
+      "status": "rejected",
+      "officialScore": 233438752008,
+      "officialMetrics": {
+        "qubits": 693,
+        "toffoli": 336852456
+      },
+      "createdAt": "2026-10-14T07:38:03.467Z",
+      "submissionCommitSha": "c95b9325913abacca9c86bdebad10a20633cd04e",
+      "solverUsername": "jackylee0424",
+      "rejectionReason": "score did not improve current best"
+    },
+    "product_leader": {
+      "id": "767d8d5a-321c-4164-a43e-330561bd1a6e",
+      "status": "accepted",
+      "officialScore": 939396074,
+      "officialMetrics": {
+        "qubits": 1234,
+        "toffoli": 761261
+      },
+      "createdAt": "2026-10-14T19:15:50.656Z",
+      "submissionCommitSha": "441d9ef9f5fe05107f4390e9f623caffdf77349d",
+      "solverUsername": "kaankolcu",
+      "rejectionReason": null
+    }
+  },
+  "submission": {
+    "current_public_source_ref": "441d9ef9f5fe05107f4390e9f623caffdf77349d",
+    "workflow": "https://github.com/Layr-Labs/ecdsafail-challenge/blob/441d9ef9f5fe05107f4390e9f623caffdf77349d/.github/workflows/benchmark.yml",
+    "workflow_checked_in_public_git_object_store": true,
+    "timeout_minutes": 45,
+    "runner_label": "blacksmith-32vcpu-ubuntu-2404",
+    "runner_advertised_RAM_GB": 128,
+    "runner_primary_documentation": "https://docs.blacksmith.sh/blacksmith-runners/overview",
+    "observed_local_evaluation_duration": "1:56:33",
+    "observed_RSS_KiB": 135226668,
+    "blockers": [
+      "Normal submission generation not qualified; current evidence used exact streamed generation.",
+      "Operation vector alone is128.943GiB, above documented128GB runner memory (even interpreting GB asGiB). Actual hosted hardware/swap not inspected.",
+      "Local116minute evaluation does not establish completion within45minute workflow; hosted CPU differs.",
+      "Scalar challenge promotes product; width-only result has worse product and would not displace currentleader."
+    ],
+    "recommendation": "Preserve verified width-only result. Resolve stock build/resource fit or obtain organizer-approved larger evaluation before treating it as submission-ready."
+  },
+  "audit_v1": {
+    "status": "INVALID_AUDIT_ASSERTION_NOT_CANDIDATE_FAILURE",
+    "reason": "Overstrict byte substring check found point_add in protected library documentation comments. Correctedv2 checked executable module declarations; candidate/harness unchanged."
+  },
+  "preservation": "Pre-existing modified docs, dirty submodules and follow-up evidence left unchanged."
+}

@@ -1,12 +1,16 @@
 # Public resource frontier
 
-Snapshot analyzed 2026-10-15T04:05:19.867956+08:00 (Singapore time).
+Snapshot analyzed 2026-10-15T09:37:02.983843+08:00 (Singapore time).
 
 [1,564 public submissions](https://api.ecdsa.fail/api/benchmarks/1ffb695a-309b-46b6-a728-2f97d8c7be74/submissions) contain 1,223 eligible records and **45 nondominated resource pairs**.
 
 Accepted and explicitly score-only rejected records qualify; failures and claimed-only metrics do not. This is a dated snapshot, not independent reproduction. Promotion uses the scalar product.
 
 ![Resource frontier](figures/frontier.png)
+
+The gold step is the public frontier. The cyan diamond is our separately verified local Q692 pass; it is not an official submission. Failed experiments are excluded.
+
+![Independent Toffoli and product objectives](figures/record-tradeoffs.png)
 
 | Qubits | Rounded mean Toffolis | Product | Submission |
 |---:|---:|---:|---|
@@ -56,4 +60,4 @@ Accepted and explicitly score-only rejected records qualify; failures and claime
 | 1,234 | 761,261 | 939,396,074 | [767d8d5a](https://api.ecdsa.fail/api/submissions/767d8d5a-321c-4164-a43e-330561bd1a6e) |
 | 1,235 | 761,156 | 940,027,660 | [26dd1d00](https://api.ecdsa.fail/api/submissions/26dd1d00-8e45-4f13-adcf-5eac665ca15f) |
 
-Reproduce with `python scripts/analyze-leaderboard.py --snapshot research-output/public-20261014 --plot`. Use `--refresh` to fetch a new dated snapshot. Compact records, source hashes and targets: [data/latest-leaderboard.json](data/latest-leaderboard.json).
+Refresh with `python scripts/analyze-leaderboard.py --snapshot research-output/public-20261014 --plot`. Use `--refresh` to fetch a new dated snapshot. Regenerate both figures offline with `python scripts/frontier_plot.py`. Compact records, source hashes and targets: [data/latest-leaderboard.json](data/latest-leaderboard.json).

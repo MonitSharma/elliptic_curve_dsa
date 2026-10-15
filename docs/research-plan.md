@@ -1,5 +1,41 @@
 # Research state and next experiments
 
+## Current priorities: 15 October 2026 publication
+
+The [current results](results-status.md) distinguish the original passing Q692
+circuit from its later normal-build v6, which failed all-channel correctness
+qualification (3 value / 2 phase batches / 3 ancilla batches). Preserve the original
+pass and repair the new version on its fixed counterexamples.
+
+Toffoli and product are independent objectives. The latest wider B3 cache saves
+74.91796875 executed Toffolis per shot in two fixed 256-shot comparisons, but
+retains arithmetic failures. It has no qualified score. A larger width is
+acceptable for a new Toffoli record; requiring a product win would be incorrect.
+Repair the baseline arithmetic, retain exact savings and evaluate total costs.
+[Toffoli report](../experiments/toffoli-readiness-20261015/REPORT.md) ·
+[Product report](../experiments/product-focus-20261015/REPORT.md).
+
+The entries below preserve earlier research checkpoints; a historical pending
+status does not override these terminal results.
+
+## 15 October follow-up
+
+**Width result:** the final overnight bank-swap v2 evaluation subsequently passed
+all 9,024 shots at **692 qubits**, rounded mean **1,481,382,858 Toffolis**, and
+product **1,025,116,937,736**. Source, stream and protected evaluator bindings were
+rechecked. This meets the public Q692 target locally; it does not improve T or
+product. Standard submission packaging and arithmetic-domain limitations remain.
+[Terminal result](../experiments/followup-20261015/bankswap-terminal/RESULT.md).
+
+[Exact two-gate candidate and complete failed evaluation](../experiments/followup-20261015/REPORT.md):
+the new guarded-zero pass changes only point-addition source and removes two
+provably zero B3 Toffolis. Native tests, independent Boolean proofs and a complete
+stream differential pass. Its unchanged 9,024-shot benchmark fails with 16 value
+mismatches and 9 phase batches; paired baseline/candidate replay agrees on all
+9,536 official, independent and structured shots. No record qualifies. B3 wire
+reuse and early measurement scheduling still peak at 1,235. Preserve this pass
+for a repaired arithmetic base; do not seek a lucky validation packet.
+
 ## Ten-hour research cycle: final evidence and handoff
 
 [The final report](overnight-final-report.md) supersedes the historical experiment
