@@ -1,0 +1,12 @@
+--- a/src/point_add/value_trace.rs
++++ b/src/point_add/value_trace.rs
+@@ -76,7 +76,8 @@
+                                     fs[lane]=true;
+                                     let which=if source!=vals[lane][si]{"source"}else{"target"};
+                                     let diff=sub(vals[lane][ti],want,p);
+-                                    events[lane].push((m.at,format!("FWD_RAIL phase={} tick={} corrupt={which} widths={:?} tape={tape:?} diff_t={:#x} log2diff={}",m.phase,m.tick,[m.rails[0].len(),m.rails[1].len()],diff,diff.bit_len())));
++                                    let diff_s=sub(vals[lane][si],source,p);
++                                    events[lane].push((m.at,format!("FWD_RAIL phase={} tick={} corrupt={which} widths={:?} tape={tape:?} diff_t={:#x} log2diff={} diff_s={:#x} got_t={:#x} want_t={:#x} got_s={:#x} want_s={:#x} low={}",m.phase,m.tick,[m.rails[0].len(),m.rails[1].len()],diff,diff.bit_len(),diff_s,vals[lane][ti],want,vals[lane][si],source,m.low)));
+                                 }
+                             }
+                             if Some(&m.tick)==last_tick.get(m.phase){

@@ -1,0 +1,68 @@
+diff --git a/src/point_add/leapfrog.rs b/src/point_add/leapfrog.rs
+index 469ebd0d..3c1de448 100755
+--- a/src/point_add/leapfrog.rs
++++ b/src/point_add/leapfrog.rs
+@@ -7709,3 +7709,54 @@ pub(crate) fn rt0_pilot() {
+         sim.stats.toffoli_gates as f64 / shots as f64
+     );
+ }
++
++// Exact generic choice-map proof on exhaustive small signed domains and the saved wide case.
++#[cfg(test)]
++mod rail_choice_regression {
++    use super::*;
++    use crate::{circuit::analyze_ops,sim::Simulator};
++    use sha3::digest::XofReader;
++    struct Words(u64);
++    impl XofReader for Words { fn read(&mut self,b:&mut[u8]){assert_eq!(b.len(),8);b.copy_from_slice(&self.0.to_le_bytes());} }
++    fn put(words:&mut[u64],qs:&[QubitId],lane:usize,v:i128){for(i,q)in qs.iter().enumerate(){if (v>>i)&1!=0{words[q.0 as usize]|=1u64<<lane;}}}
++    fn check(w:usize,cases:&[(i128,i128,bool)],negative:bool)->usize{
++        let bits=if negative{w-1}else{w};let mut c=Builder::new();let sign=c.alloc_qubit();let source=c.alloc_qubits(bits);let target=c.alloc_qubits(bits);
++        fast_add_halve_choice_lr(&mut c,sign,&source,&target);let fwd=c.op_count();
++        fast_double_sub_choice_lr(&mut c,sign,&source,&target);let ops=c.take_ops();let(nq,nb,_,_)=analyze_ops(ops.iter());
++        let mut checked=0;
++        for chunk in cases.chunks(64){
++            let mut inputs=vec![0u64;nq as usize];let mut want=inputs.clone();
++            for lane in 0..64{
++                let(t,b,s)=chunk[lane%chunk.len()];assert!(t&1!=0&&b&1!=0);
++                put(&mut inputs,&target,lane,(t-1)/2);put(&mut inputs,&source,lane,(b-1)/2);if s{inputs[sign.0 as usize]|=1u64<<lane;}
++            }
++            want.copy_from_slice(&inputs);
++            for lane in 0..64{let(t,b,s)=chunk[lane%chunk.len()];let result=(t+if s{-b}else{b})/2;for q in &target{want[q.0 as usize]&=!(1u64<<lane);}put(&mut want,&target,lane,result);}
++            let dirty=vec![0xa5a5a5a5a5a5a5a5u64;nb as usize];
++            let audit=super::super::rail_kernel::audit(&ops[..fwd],&inputs,&dirty).expect("all-measurement forward proof");
++            if negative{
++                // The narrow output wraps; prove that the sign-extended arithmetic result differs.
++                let(t,b,s)=chunk[0];let expected=(t+if s{-b}else{b})/2;let mask=(1i128<<bits)-1;
++                let raw=target.iter().enumerate().fold(0i128,|v,(i,q)|v|(((audit.qubits[q.0 as usize]&1)as i128)<<i));
++                let signed=if raw>>(bits-1)!=0{raw-(1i128<<bits)}else{raw};
++                let wrapped=expected&mask;assert_ne!(signed,expected);assert_eq!(signed,if wrapped>>(bits-1)!=0{wrapped-(1i128<<bits)}else{wrapped});
++            }else{assert_eq!(audit.qubits,want,"forward arithmetic, source, sign and scratch");}
++            let pair=super::super::rail_kernel::audit(&ops,&inputs,&dirty).expect("all-measurement inverse proof");assert_eq!(pair.qubits,inputs);
++            for word in [0,u64::MAX,0xa5a5a5a5a5a5a5a5]{let mut rng=Words(word);let mut sim=Simulator::new(nq as usize,nb as usize,&mut rng);sim.qubits=inputs.clone();sim.bits=dirty.clone();sim.phase=0x5a5a5a5a5a5a5a5a;sim.apply_iter(ops[..fwd].iter());assert_eq!(sim.qubits,audit.qubits);assert_eq!(sim.phase,0x5a5a5a5a5a5a5a5a);sim.apply_iter(ops[fwd..].iter());assert_eq!(sim.qubits,inputs);assert_eq!(sim.phase,0x5a5a5a5a5a5a5a5a);}
++            if !negative{
++                let mut fault=ops[..fwd].to_vec();let mut z=crate::circuit::Op::empty();z.kind=crate::circuit::OperationType::Z;z.q_target=source[0];fault.push(z);
++                if inputs[source[0].0 as usize]!=0{assert!(super::super::rail_kernel::audit(&fault,&inputs,&dirty).is_err(),"phase fault must be detected");}
++            }
++            checked+=chunk.len();
++        }
++        checked
++    }
++    #[test]
++    fn widened_choice_signed_and_inverse(){
++        super::super::install_skywalk_submission_recipe();let mut total=0;
++        for w in 3..=8{let lim=1i128<<(w-1);let mut cases=Vec::new();for t in (-lim+1..lim).step_by(2){for b in (-lim+1..lim).step_by(2){for s in [false,true]{cases.push((t,b,s));}}}total+=check(w,&cases,false);}
++        let saved=[(560663187727144509,166048669303574171,false)];
++        assert_eq!(check(60,&saved,true),1);assert_eq!(check(60,&saved,false),1);
++        eprintln!("WIDENED_CHOICE_PASS exhaustive_signed_cases={total} saved_width60=true old_width59_overflow_detected=true all_future_measurements=true forward_inverse_all_quantum=true native_patterns=3 dirty_classical=true phase_fault_detected=true score=NONE");
++    }
++}
+diff --git a/src/point_add/mod.rs b/src/point_add/mod.rs
+index 292237d7..a8a0447d 100755
+--- a/src/point_add/mod.rs
++++ b/src/point_add/mod.rs
+@@ -1,3 +1,4 @@
++#[cfg(test)] mod rail_kernel;
+ mod fd_coordinate;
+ mod back_seam;
+ pub mod cross_chunk_probe;

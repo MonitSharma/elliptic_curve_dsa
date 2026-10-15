@@ -1,0 +1,205 @@
+   Compiling q692_fixed_column_proof v0.1.0 (/home/hclau/ecdsa_research/q692_readiness_20261015/fixed-column-v9-r5-crate)
+warning: unused import: `weierstrass_elliptic_curve`
+ --> src/main.rs:2:31
+  |
+2 | use quantum_ecc::{circuit,sim,weierstrass_elliptic_curve};
+  |                               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `ttk_add`
+ --> /home/hclau/ecdsa_research/q692_readiness_20261015/candidate-repair-v9/src/point_add/canonical_short_clean.rs:4:20
+  |
+4 | use super::arith::{ttk_add,ttk_carry};
+  |                    ^^^^^^^
+
+warning: variable does not need to be mutable
+    --> /home/hclau/ecdsa_research/q692_readiness_20261015/candidate-repair-v9/src/point_add/frogdrop.rs:1272:9
+     |
+1272 |     let mut tail_from = |b: &mut B, m: &[bool], j: usize| -> (Vec<G>, Vec<QubitId>, Vec<QubitId>) {
+     |         ----^^^^^^^^^
+     |         |
+     |         help: remove this `mut`
+     |
+     = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `h`
+   --> /home/hclau/ecdsa_research/q692_readiness_20261015/candidate-repair-v9/src/point_add/frogdrop_col.rs:547:9
+    |
+547 |     let h = cp.h as isize;
+    |         ^ help: if this is intentional, prefix it with an underscore: `_h`
+    |
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: value assigned to `f1_last` is never read
+    --> /home/hclau/ecdsa_research/q692_readiness_20261015/candidate-repair-v9/src/point_add/frogdrop_col.rs:539:9
+     |
+ 539 |         f1_last = b.tof;
+     |         ^^^^^^^^^^^^^^^
+...
+1188 |     stage!(); // 11
+     |     -------- in this macro invocation
+     |
+     = help: maybe it is overwritten before being read?
+     = note: `#[warn(unused_assignments)]` (part of `#[warn(unused)]`) on by default
+     = note: this warning originates in the macro `stage` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: value assigned to `f1_last` is never read
+    --> /home/hclau/ecdsa_research/q692_readiness_20261015/candidate-repair-v9/src/point_add/frogdrop_col.rs:539:9
+     |
+ 539 |         f1_last = b.tof;
+     |         ^^^^^^^^^^^^^^^
+...
+1118 |         stage!();
+     |         -------- in this macro invocation
+     |
+     = help: maybe it is overwritten before being read?
+     = note: this warning originates in the macro `stage` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: value assigned to `last` is never read
+    --> /home/hclau/ecdsa_research/q692_readiness_20261015/candidate-repair-v9/src/point_add/frogdrop_col.rs:542:43
+     |
+ 542 |             prof_v.push((stn, v - last)); last = v;
+     |                                           ^^^^^^^^
+...
+1188 |     stage!(); // 11
+     |     -------- in this macro invocation
+     |
+     = help: maybe it is overwritten before being read?
+     = note: this warning originates in the macro `stage` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: value assigned to `last` is never read
+    --> /home/hclau/ecdsa_research/q692_readiness_20261015/candidate-repair-v9/src/point_add/frogdrop_col.rs:542:43
+     |
+ 542 |             prof_v.push((stn, v - last)); last = v;
+     |                                           ^^^^^^^^
+...
+1118 |         stage!();
+     |         -------- in this macro invocation
+     |
+     = help: maybe it is overwritten before being read?
+     = note: this warning originates in the macro `stage` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: variable does not need to be mutable
+    --> /home/hclau/ecdsa_research/q692_readiness_20261015/candidate-repair-v9/src/point_add/frogdrop_col.rs:1338:17
+     |
+1338 |             let mut mk_q = |b: &mut B, neg: bool| rec(b, |b| probe_gated(b, q, 0, cp.m, &fd.sy, &[(sc.cmpc, neg)],
+     |                 ----^^^^
+     |                 |
+     |                 help: remove this `mut`
+
+warning: variable does not need to be mutable
+    --> /home/hclau/ecdsa_research/q692_readiness_20261015/candidate-repair-v9/src/point_add/frogdrop_col.rs:1342:17
+     |
+1342 |             let mut mk_r = |b: &mut B, neg: bool| rec(b, |b| super::frogdrop::msb_probe_cut_range_x(b, &rev, &mx,
+     |                 ----^^^^
+     |                 |
+     |                 help: remove this `mut`
+
+warning: unused variable: `mt`
+    --> /home/hclau/ecdsa_research/q692_readiness_20261015/candidate-repair-v9/src/point_add/payload.rs:1260:9
+     |
+1260 |     let mt = (n - (cp.sz.0 + cp.h) + 1).min(nq.max(cp.xw) + 1);
+     |         ^^ help: if this is intentional, prefix it with an underscore: `_mt`
+
+warning: unused variable: `srange`
+    --> /home/hclau/ecdsa_research/q692_readiness_20261015/candidate-repair-v9/src/point_add/payload.rs:1264:9
+     |
+1264 |     let srange = (szlo + sylo, (szhi + syhi).min(257));
+     |         ^^^^^^ help: if this is intentional, prefix it with an underscore: `_srange`
+
+warning: unused variable: `kp`
+   --> /home/hclau/ecdsa_research/q692_readiness_20261015/candidate-repair-v9/src/point_add/midg.rs:557:13
+    |
+557 |     let (k, kp, tot) = (cp.k, cp.kp, cp.tot);
+    |             ^^
+    |
+help: you might have meant to pattern match on the similarly named constant `KP`
+    |
+557 -     let (k, kp, tot) = (cp.k, cp.kp, cp.tot);
+557 +     let (k, point_add::pointadd_frogdrop::KP, tot) = (cp.k, cp.kp, cp.tot);
+    |
+help: if this is intentional, prefix it with an underscore
+    |
+557 |     let (k, _kp, tot) = (cp.k, cp.kp, cp.tot);
+    |             +
+
+warning: fields `measurements`, `maximum_phase_size_bound`, and `maximum_quantum_size_bound` are never read
+   --> /home/hclau/ecdsa_research/overnight-20261014/qubits/evidence/ht25-bankswap-v2-decision/crate/phase-audit-kernel.rs:102:9
+    |
+100 | pub struct Audit {
+    |            ----- fields in this struct
+101 |     pub qubits: Vec<u64>,
+102 |     pub measurements: u64,
+    |         ^^^^^^^^^^^^
+103 |     pub maximum_phase_size_bound: usize,
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^
+104 |     pub maximum_quantum_size_bound: usize,
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `Audit` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `q692_fixed_column_proof` (bin "q692_fixed_column_proof") generated 14 warnings (run `cargo fix --bin "q692_fixed_column_proof" -p q692_fixed_column_proof` to apply 9 suggestions)
+    Finished `release` profile [optimized] target(s) in 6.93s
+     Running `fixed-column-target-v9/release/q692_fixed_column_proof`
+FIXED_COLUMN_BEGIN shot=2726 step=87 column=87 ht=true forward_ops=3640211
+FIXED_COLUMN_NATIVE_DIAG shot=2726 step=87 seed=0 phase=0 bad=[]
+FIXED_COLUMN_PASS shot=2726 step=87 seed=0 lanes=64 exact_payload=true all_measurements=true inverse=true
+FIXED_COLUMN_NATIVE_DIAG shot=2726 step=87 seed=1 phase=0 bad=[]
+FIXED_COLUMN_PASS shot=2726 step=87 seed=1 lanes=64 exact_payload=true all_measurements=true inverse=true
+FIXED_COLUMN_NATIVE_DIAG shot=2726 step=87 seed=2 phase=0 bad=[]
+FIXED_COLUMN_PASS shot=2726 step=87 seed=2 lanes=64 exact_payload=true all_measurements=true inverse=true
+FIXED_COLUMN_NATIVE_DIAG shot=2726 step=87 seed=3 phase=0 bad=[]
+FIXED_COLUMN_PASS shot=2726 step=87 seed=3 lanes=64 exact_payload=true all_measurements=true inverse=true
+FIXED_COLUMN_BEGIN shot=2726 step=88 column=88 ht=true forward_ops=3569208
+FIXED_COLUMN_NATIVE_DIAG shot=2726 step=88 seed=0 phase=0 bad=[]
+FIXED_COLUMN_PASS shot=2726 step=88 seed=0 lanes=64 exact_payload=true all_measurements=true inverse=true
+FIXED_COLUMN_NATIVE_DIAG shot=2726 step=88 seed=1 phase=0 bad=[]
+FIXED_COLUMN_PASS shot=2726 step=88 seed=1 lanes=64 exact_payload=true all_measurements=true inverse=true
+FIXED_COLUMN_NATIVE_DIAG shot=2726 step=88 seed=2 phase=0 bad=[]
+FIXED_COLUMN_PASS shot=2726 step=88 seed=2 lanes=64 exact_payload=true all_measurements=true inverse=true
+FIXED_COLUMN_NATIVE_DIAG shot=2726 step=88 seed=3 phase=0 bad=[]
+FIXED_COLUMN_PASS shot=2726 step=88 seed=3 lanes=64 exact_payload=true all_measurements=true inverse=true
+FIXED_COLUMN_BEGIN shot=2913 step=86 column=86 ht=true forward_ops=3537719
+FIXED_COLUMN_NATIVE_DIAG shot=2913 step=86 seed=0 phase=0 bad=[]
+FIXED_COLUMN_PASS shot=2913 step=86 seed=0 lanes=64 exact_payload=true all_measurements=true inverse=true
+FIXED_COLUMN_NATIVE_DIAG shot=2913 step=86 seed=1 phase=0 bad=[]
+FIXED_COLUMN_PASS shot=2913 step=86 seed=1 lanes=64 exact_payload=true all_measurements=true inverse=true
+FIXED_COLUMN_NATIVE_DIAG shot=2913 step=86 seed=2 phase=0 bad=[]
+FIXED_COLUMN_PASS shot=2913 step=86 seed=2 lanes=64 exact_payload=true all_measurements=true inverse=true
+FIXED_COLUMN_NATIVE_DIAG shot=2913 step=86 seed=3 phase=0 bad=[]
+FIXED_COLUMN_PASS shot=2913 step=86 seed=3 lanes=64 exact_payload=true all_measurements=true inverse=true
+FIXED_COLUMN_BEGIN shot=3532 step=52 column=51 ht=false forward_ops=3244959
+FIXED_COLUMN_NATIVE_DIAG shot=3532 step=52 seed=0 phase=0 bad=[]
+FIXED_COLUMN_PASS shot=3532 step=52 seed=0 lanes=64 exact_payload=true all_measurements=true inverse=true
+FIXED_COLUMN_NATIVE_DIAG shot=3532 step=52 seed=1 phase=0 bad=[]
+FIXED_COLUMN_PASS shot=3532 step=52 seed=1 lanes=64 exact_payload=true all_measurements=true inverse=true
+FIXED_COLUMN_NATIVE_DIAG shot=3532 step=52 seed=2 phase=0 bad=[]
+FIXED_COLUMN_PASS shot=3532 step=52 seed=2 lanes=64 exact_payload=true all_measurements=true inverse=true
+FIXED_COLUMN_NATIVE_DIAG shot=3532 step=52 seed=3 phase=0 bad=[]
+FIXED_COLUMN_PASS shot=3532 step=52 seed=3 lanes=64 exact_payload=true all_measurements=true inverse=true
+FIXED_COLUMN_SUITE_PASS cases=1024 columns=4 all_measurements=true exact_euclid_payload_oracle=true
+	Command being timed: "cargo +1.93.0 run --release --locked --offline --manifest-path fixed-column-v9-r5-crate/Cargo.toml"
+	User time (seconds): 31.12
+	System time (seconds): 2.51
+	Percent of CPU this job got: 137%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:24.47
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 558068
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 9
+	Minor (reclaiming a frame) page faults: 1009437
+	Voluntary context switches: 1466
+	Involuntary context switches: 66
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 8280
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

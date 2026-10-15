@@ -1,0 +1,69 @@
+   Compiling product_paired_diagnostic v0.1.0 (/home/hclau/ecdsa_research/repair-integration-20261015/phase-context-v2)
+warning: unused import: `QubitOrBit`
+ --> src/main.rs:4:53
+  |
+4 |     analyze_ops, BitId, Op, OperationType, QubitId, QubitOrBit, RegisterId,
+  |                                                     ^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `Write`
+  --> src/main.rs:13:32
+   |
+13 | use std::io::{BufReader, Read, Write};
+   |                                ^^^^^
+
+warning: unused import: `sim`
+   --> src/main.rs:185:27
+    |
+185 | use quantum_ecc::{circuit,sim};
+    |                           ^^^
+
+error[E0382]: use of moved value: `base`
+  --> src/phase_kernel.rs:91:10
+   |
+86 |     let mut base = Poly::constant(u64::MAX);
+   |         -------- move occurs because `base` has type `phase_kernel::Poly`, which does not implement the `Copy` trait
+...
+90 |     for (index, op) in ops.iter().enumerate() {
+   |     ----------------------------------------- inside of this loop
+91 |         (|| -> Result<(),String> {
+   |          ^^^^^^^^^^^^^^^^^^^^^^^ value moved into closure here, in previous iteration of loop
+...
+97 |             K::PushCondition => { stack.push(base); base = condition; }
+   |                                              ---- use occurs due to use in closure
+   |
+help: consider moving the expression out of the loop so it is only moved once
+   |
+90 ~     let mut value = stack.push(base);
+91 ~     for (index, op) in ops.iter().enumerate() {
+92 |         (|| -> Result<(),String> {
+...
+97 |         match op.kind {
+98 ~             K::PushCondition => { value; base = condition; }
+   |
+help: consider cloning the value if the performance cost is acceptable
+   |
+97 |             K::PushCondition => { stack.push(base.clone()); base = condition; }
+   |                                                  ++++++++
+
+warning: value assigned to `base` is never read
+  --> src/phase_kernel.rs:97:53
+   |
+97 |             K::PushCondition => { stack.push(base); base = condition; }
+   |                                                     ^^^^
+   |
+   = help: maybe it is overwritten before being read?
+   = note: `#[warn(unused_assignments)]` (part of `#[warn(unused)]`) on by default
+
+warning: value assigned to `base` is never read
+  --> src/phase_kernel.rs:98:34
+   |
+98 |             K::PopCondition => { base = stack.pop().ok_or_else(|| format!("unbalanced pop at {index}"))?; }
+   |                                  ^^^^
+   |
+   = help: maybe it is overwritten before being read?
+
+For more information about this error, try `rustc --explain E0382`.
+warning: `product_paired_diagnostic` (bin "product_paired_diagnostic" test) generated 5 warnings
+error: could not compile `product_paired_diagnostic` (bin "product_paired_diagnostic" test) due to 1 previous error; 5 warnings emitted

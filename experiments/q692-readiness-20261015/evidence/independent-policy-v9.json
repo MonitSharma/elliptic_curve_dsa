@@ -1,0 +1,102 @@
+{
+  "conservative_v2_failure_inputs": 0,
+  "envelope_failure_inputs": 0,
+  "flagged": [
+    {
+      "diagnosis": {
+        "candidate_policy_issues": [
+          {
+            "cap": 23,
+            "column": 47,
+            "gtest_ok": false,
+            "head": 32,
+            "kind": "Hr",
+            "quotient": "34582186",
+            "quotient_bits": 26,
+            "r_current": "1cfb39d56d73d911b6db80890d85e6e004e8b41",
+            "r_next": "11aa09f2dc7d4cfc4c1db1de2fa89886ea465b5",
+            "r_previous": "3bbcf22029d38e246ceae685610ab874aa47ab0420cdf",
+            "step": 48,
+            "sy": 79,
+            "t_current": "4490e4d0a7951753f3c8",
+            "t_next": "8d550f2183bbc255702883a907",
+            "t_previous": "143cfb60b0c0c259d637",
+            "z_bits": 153
+          }
+        ],
+        "envelope_check": null,
+        "largest_quotient": "34582186",
+        "public_predictor_k24": "gtest",
+        "reflected_dx": "2827561ad2ebf6aedb6bfdb43927e1c10f4ca9fc074c99fb24eeb20feb0d5282",
+        "uniform_k32_q25_predictor": "q0"
+      },
+      "fixed_independent_index": 3020,
+      "largest_v2": 6
+    },
+    {
+      "diagnosis": {
+        "candidate_policy_issues": [
+          {
+            "cap": 25,
+            "column": 75,
+            "gtest_ok": false,
+            "head": 25,
+            "kind": "Ht",
+            "quotient": "483292",
+            "quotient_bits": 19,
+            "r_current": "358671d85fbc912a760fec49f1a",
+            "r_next": "ea7fc23e9e68e83275215b5de1",
+            "r_previous": "18ab80f5bbbc521fb4b3ffbb6314be39",
+            "step": 75,
+            "sy": 106,
+            "t_current": "a6081db898e75571d824cc48606e3a2d5",
+            "t_next": "4c86526e1bc5ab7cb0e64e3176a11a1c68d931",
+            "t_previous": "a4d482a6222b7857e5ae5d1244388df25",
+            "z_bits": 132
+          }
+        ],
+        "envelope_check": null,
+        "largest_quotient": "483292",
+        "public_predictor_k24": "gtest",
+        "reflected_dx": "5b16940eff0ecb3282a8fa4d212fdd9e0ae137294e8b100dbd7ba0a47afcaa91",
+        "uniform_k32_q25_predictor": null
+      },
+      "fixed_independent_index": 23698,
+      "largest_v2": 6
+    },
+    {
+      "diagnosis": {
+        "candidate_policy_issues": [
+          {
+            "cap": 24,
+            "column": 14,
+            "gtest_ok": false,
+            "head": 32,
+            "kind": "Hr",
+            "quotient": "38938778",
+            "quotient_bits": 26,
+            "r_current": "16af0147c4c620876f8153144394bb14530e8ddf0c1984162b15",
+            "r_next": "5d7347ceba86ceffc847314f29d389dbd60277363750cb01753",
+            "r_previous": "34a5a9fbd7c41fba2de1e80a5066eeec79a79729d66cb922e1ef7b49f5",
+            "step": 15,
+            "sy": 27,
+            "t_current": "4dcd0f9",
+            "t_next": "b49225139f7a4",
+            "t_previous": "1fb59da",
+            "z_bits": 205
+          }
+        ],
+        "envelope_check": null,
+        "largest_quotient": "38938778",
+        "public_predictor_k24": "q0",
+        "reflected_dx": "1536e8b1e8c51c140eb5c1a68385f52acfadb5f453e9ee1af9c9a4fe0001d479",
+        "uniform_k32_q25_predictor": "q0"
+      },
+      "fixed_independent_index": 43312,
+      "largest_v2": 7
+    }
+  ],
+  "inputs": 50000,
+  "policy_failure_inputs": 3,
+  "scope": "fixed 50000 independent arithmetic inputs; classical policy diagnosis only; TC27/K25-large/K32-small/EMAX23; not curve-point execution or a score; every flagged input retained"
+}

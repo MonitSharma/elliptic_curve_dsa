@@ -1,18 +1,266 @@
 # Research state and next experiments
 
-## Current priorities: 15 October 2026 publication
+## Current priorities: 15 October 2026 user direction
+
+**Latest independent trace audit:** the 83 divide / 72 multiply first rail
+violations are confirmed from the complete saved log, but the prior analyzer
+counted zero as a power of two. The correct target-delta split is 98 nonzero
+powers of two, 55 zero deltas (source changed), and 2 other deltas. The 31
+no-event failures remain unlocalized. A prepared, unrun observer patch records
+both rail deltas and expected values so signed-range overflow can be tested
+directly before choosing the repair. Thirteen regression tests and packet/patch
+provenance checks pass. No new circuit or score is qualified.
+[Audit and corrected interpretation](../experiments/trace-audit-20261015/STATUS.md).
+
+**Payload fold design result:** the dropped signed carry c across window w
+requires a post-rotation field correction c*2^(w-s). The quotient-core Boolean
+model passes all16384 low-bit combinations; the correction passes524288 exhaustive
+toy cases and reproduces both saved tick120 counterexamples. At production
+windows56/57, c is bounded to -1,0,+1. Quantum synthesis, cleanup, phase proof
+and full cost remain untested; this is separate from the walk-rail repair.
+[Derivation and limits](../experiments/trace-audit-20261015/FOLD-BOUNDARY.md).
+
+**Latest no-wrapper division probe:** y=x fails identically without held zero
+flags, excluding that allocation change as the necessary cause. Only y=0
+passes among four predeclared payloads for the fixed denominator. Exact checks
+of131 forward ticks first diverge at120: T=229,S=p+217, coefficient−5, shift3.
+The56-bit fold returns2^53−107 instead ofp−107. Uniform57-bit forward folds
+double the error, consistent with wrapping a negative fold result−856 in
+the window. Next directly observe quotient/borrow wires and derive a general
+boundary correction; more guard bits alone do not fix this case. All64
+artifacts verified; no full-point or resource qualification.
+[Inherited failure and exact boundary evidence](../experiments/equal-division-20261015/STATUS.md).
+
+**Parallel agent (Claude) — honest failure-rate census, read before choosing
+the next repair:** the evaluator's packet is a hash of the stream, so a
+qualifying circuit must pass a *fresh* packet. On 262,144 independent shots,
+public B3 has P(pass) ≈ 2–6×10⁻⁹ (two censuses) and C5 ≈ 1.5×10⁻⁸. B3 pins a ground
+`TAIL_NONCE`. **No stream built today exceeds about 10⁻³**; the best wide
+variants fail about 7 batches per packet.
+
+About 90% of failed batches are **deterministic, fully garbled value errors**
+that repeat under every measurement seed. Phase-only failures (the
+y15/joint-carry target) are under 10%. Structured P=−2A/zero-payload cases have
+negligible probability under the benchmark's random sampling.
+
+A guard-knob sweep shows that `FOLD_GUARD`, `ERASE_COMPARE`, the walk, flag,
+joint and fit guards cannot buy the needed ~10× reduction.
+
+**Root cause located.** A gate-inert observer on the wide stream (final stream
+byte-identical, observer equal to the protected simulator, no events on the
+independent256 control) traces the first divergence of all 186 value failures:
+
+- 83 start at **divide** leapfrog walk rails;
+- 72 start at **multiply** walk rails;
+- 31 show no walk-rail event (unlocalized; not proven to be outside the walk).
+
+The original claim that 153 of 155 rail errors are exact ±2^k dropped bits is
+superseded by the independent audit above. Width truncation remains a hypothesis
+to test using expected signed ranges; ticks 130–137 include 40 first violations
+at tick 136, width 5.
+
+The leapfrog steps table header states that its envelope was fitted with a
+**0.00077-per-walk drop budget**. Refitting it with a near-zero budget (wider
+mid rails and a longer or wider tail) is the next repair, costed with the census.
+(An earlier pingpong-schedule walk model that "excluded the walk" was wrong for
+the leapfrog path and is withdrawn.)
+[Trace](../experiments/trace-value-20261015/STATUS.md).
+
+**Walk-table widening result** (wide parent 753,727 T, 7.16 failed batches per
+packet; diagnostic only):
+
+| Variant | T | Failed batches |
+|---|---:|---:|
+| +2 mid bits | 758,411 | 7.30 |
+| +2 mid bits, smoothed tick-137/138 cliff | 758,449 | 4.85 |
+| smoothed, plus 2 park ticks (Q1474) | 759,157 | 5.30 |
+
+Smoothing is nearly free; mid-walk widening does not help, so the 98
+target-delta cases are probably not plain envelope overflow. The audit's
+prepared rail-delta observer is the right next test.
+[Widening](../experiments/widen-walk-20261015/STATUS.md).
+
+The census takes about one minute per stream; gate candidates on it.
+[Census](../experiments/failure-census-20261015/STATUS.md) ·
+[all 29 streams](../experiments/failure-census-20261015/all-streams.md) ·
+[guard sweep](../experiments/guard-sweep-20261015/STATUS.md).
+
+**Latest quantum wrapper experiment:** the exact equality helper passes174760
+cases and2750 all-measurement batches, including a missing-correction negative
+test. Integration fails: structured wrong values rise128→254. A protected-
+simulator-matched observer shows that substituted division input y=x does not
+return1 and the wrapper's flag fails to uncompute. Final clean-ancilla counts
+did not expose that intermediate failure. All81 artifacts are verified. Next
+probe equal-input division on the explicit-interface control without held
+flags, then trace its first arithmetic divergence. Do not tune substitute
+constants to the fixed packets. No resource score qualifies.
+[Implementation, proof and failed oracle contract](../experiments/zero-payload-20261015/STATUS.md).
+
+**Latest reverse-carry diagnosis:** the wide witness is reverse tick1 at
+`y15_onefold.rs:2770`. Its reconstructed carry is correct, but equal21-bit upper
+words require borrow1 from omitted lower bits. This is the opposite of the
+forward tick124 counterexample; a constant predictor cannot fix both. Both
+observations match the protected simulator. A finite model rejects zero-seeding
+the carry chain as a general improvement. An exact algebraic zero-payload
+wrapper now covers divide as well as multiply (42576 finite cases): divide maps
+flagged zero to the denominator, then clears the resulting1. Next validate
+production seam/seed-fusion and output-encoding contracts, then implement and
+measure the wrapper. All57 artifacts verified; no quantum wrapper or score yet.
+[Opposite predicates and exact wrapper design](../experiments/y15-carry-source-20261015/STATUS.md).
+
+**Latest policy experiment:** uniform Y15 seedless comparisons include the old
+predictor bit in their windows. Narrow/wide candidates pass independent256,
+retain the same five old-packet value errors and128 structured errors, and
+still have exact native-verified phase witnesses. Diagnostic independent T
+increases by451.31/485.44 per shot at unchanged peaks1282/1464. The wide
+old-packet phase count is1 versus its parent's5; events differ, so this is not
+a monotone correctness claim. Both jobs are terminal;57 artifacts verified.
+Next attribute wide MR780824/op9553940 and inspect reconstructed carries.
+[Policy, results and next source check](../experiments/y15-unseeded-20261015/STATUS.md).
+
+**Latest exact carry diagnosis:** forward tick124 has correct reconstructed
+h1=1 and equal comparison words, but a false source-bit borrow predictor1
+reintroduces phase. The raw observer verifies the intended measurement bit
+and matches every protected-simulator state/phase/count on two assignments.
+An independent349184-case arithmetic model confirms both approximation risks.
+All83 artifacts and four attempts are preserved and verified. Next test a
+uniform Y15 seedless comparison policy that includes the old seed position,
+with full diagnostics on narrow and wide candidates; no score qualifies yet.
+[Exact values, failed attempts and next policy](../experiments/joint-carry-20261015/STATUS.md).
+
+**Latest phase attribution:** a byte-identical observer locates the wider
+circuit's witness in division's Y21 top-cut joint carry cleanup at
+`y15_onefold.rs:2770`. Its truncated carry reconstruction and comparison seed
+both need exact operand observation before choosing a repair. All 35 artifacts
+are verified; the run is terminal and supplies no resource score.
+[Source evidence and next check](../experiments/wide-phase-20261015/STATUS.md).
+
+**Latest width-for-Toffoli experiment:** strict fresh-wire restoration passes
+six allocator tests and preserves the cap1267 stream byte for byte. The wider
+circuit now builds, with diagnostic peak1464 and about2.21% fewer executed
+Toffolis on independent256; its diagnostic product is worse. Five old-packet
+value failures,128 structured failures and a native-verified phase witness
+remain. All55 artifacts and two patches are locally verified. Next attribute
+MR278924/op3610757 and repair the responsible comparison generally.
+[Allocator and wider-circuit evidence](../experiments/dynamic-pool-20261015/STATUS.md).
+
+The12:30 Singapore public refresh leaves the Toffoli/product targets unchanged;
+the public width minimum is now682, below the preserved local Q692 result.
+
+**Latest carry continuation:** byte-identical tracing and exact operand
+observation show equal pre/post-fold words and carry0, but a source-bit borrow
+predictor1. Replacing that terminal17-bit seeded comparison with18 unseeded
+bits preserves value results but exposes an earlier phase witness
+(MR551447/op7127612). An independent-word exhaustive model supports the policy
+tradeoff but is not a production correctness proof. A cap1536 Toffoli control
+fails the free-wire-set invariant before generating a stream. Next diagnose
+fresh returned capacity without weakening leak checks, enabling a meaningful
+width-for-Toffoli measurement. All91 artifacts are terminal and verified.
+[Carry evidence and next work](../experiments/carry-frame-20261015/STATUS.md).
+
+**Latest phase continuation:** byte-identical source tracing attributes the
+counterexample to the terminal reverse merged cell's approximate overflow
+comparison. A derived temporary cap1283 enables its existing exact overflow
+route (diagnostic peak1282), preserving all previous value results. The
+primitive passes174760 integer cases and2732 all-measurement proofs. The full
+candidate still has a native-verified phase witness at MR551557/op7129563,
+consistent with its adjacent truncated split-carry cleanup. Next confirm that
+source location and preserve the correct pre-fold carry information; blindly
+widening a post-fold comparison is not justified. All71 artifacts are terminal
+and locally verified; no record qualifies.
+[Source, candidate and proof](../experiments/phase-origin-20261015/STATUS.md).
+
+**Latest integration continuation:** the exact square repair and 140-round
+walk coexist: independent256 passes, the old packet retains five rail-overflow
+failures, and all zero-slope values pass while 128 P=-2A cases fail. Exact raw
+observation agrees with the protected simulator on 9551 inputs. An isolated
+decision-diagram audit of the prior square-room stream now yields a native-
+verified single-measurement phase counterexample: MR542827 / op6999605.
+All 122 artifacts are archived and verified. No record qualifies. Next trace
+that cleanup primitive and prove a general repair; preserve separate rail and
+zero-multiplicand work. Use isolated build targets for prepared variants.
+[Combined source, certificates and counterexample](../experiments/repair-integration-20261015/STATUS.md).
+
+**Latest completed continuation:** the cap1267 scratch-only control leaves all
+16 old packet failures. +3 interior headroom and two extra walk rounds reduce
+that to five while passing independent256. Separately, the integrated exact
+square repair fixes all 61 zero-slope value failures, leaving 128 P=-2A cases
+and phase errors. Its component proofs pass at the new cap. Two full-stream
+phase audits hit a complexity limit and are inconclusive. All work is terminal
+and archived; no record qualifies. Next combine the validated repairs, trace
+the five residual inputs on that exact source, locate the symbolic cap, and
+implement a justified zero-multiplicand exception treatment.
+[Controls, proofs and terminal evidence](../experiments/rail-control-20261015/STATUS.md).
+
+**Latest completed arithmetic experiment:** +1 headroom across interior fitted
+rail ticks, fixed seed/park boundaries, planner allowance 1267 and the tick-104
+repair. It passes independent256 and reduces the preserved packet's wrong
+values from 16 to 10; known15 leaves 11 and structured256 leaves 189. No score
+qualifies. The first uniform variant failed construction at forward tick 128
+for insufficient scratch; both sources and all terminal evidence are archived.
+Next, run a scratch-only control and trace the remaining fixed failures to
+separate headroom effects from payload replanning and endpoint defects.
+[Results and source](../experiments/rail-margin-20261015/STATUS.md).
+
+**Completed cache retention:** larger symbolic expressions save 101.109375
+executed Toffolis per shot at diagnostic Q1240 in both fixed 256-shot packets.
+Complete reconstruction and event-aligned replay preserve every state/phase,
+including inherited failures. No resource score qualifies.
+[Terminal evidence](../experiments/cache-retention-20261015/STATUS.md).
+
+Complemented controls pass proof/replay but add no measured savings. Reusing
+idle qubits with the larger expression cache regresses to 3.0625 saved Toffolis
+per shot from the prior 4.015625. Neither continuation improves the product.
+Preserve the old narrow configuration and the larger-expression wider version.
+[Complemented-cache](../experiments/cache-polarity-20261015/STATUS.md) ·
+[Idle-cache](../experiments/cache-idle-20261015/STATUS.md).
+
+**Latest completed continuation:** pre-Y33 rail tracing locates exact forward
+rail errors in 14 of the 16 failed packet shots. A widened choice primitive
+passes 43,680 exhaustive signed cases and all-measurement proofs, but its
+full-circuit tick-109 repair exposes another overflow at tick 110 and retains
+the failed endpoint. No record qualifies. The supported dynamic allocator now
+provides a working baseline for broader arithmetic experiments, with old-stream
+tables omitted rather than rebound. The public product target has tightened to
+939,347,947 (Q1234 needs T ≤ 761,221; Q1235 needs T ≤ 760,605).
+[New source, certificates, failures and terminal evidence](../experiments/rail-repair-20261015/REPORT.md).
+
+**Earlier completed continuation:** the B3 tick-104 borrow mitigation now
+integrates with checked scratch-order normalization. Event-aligned raw replay
+repairs the known independent input's value and phase with no new value
+failures across 9,536 preserved inputs. The native variant without stale
+optimization tables passes the 256-input independent packet, but retains 16
+failures on the old candidate packet and 189 structured failures. A finite
+local all-measurement proof passes; no official benchmark or record qualifies.
+[Source, proof scope, failures and next repair](../experiments/arithmetic-repair-20261015/REPORT.md).
+
+Focus new research on **lower rounded mean executed Toffolis** and **lower
+Q × T**. Defer width-only searches and Q692 submission engineering. Preserve
+their existing source, patches and evidence. A one-qubit reduction does not
+justify a large gate-cost increase for these active objectives; this observed
+tradeoff is specific to the tested designs, not a general lower bound.
+
+1. Repair demonstrated arithmetic/phase failures in the low-Toffoli baseline,
+   retain exact caching savings and measure the complete repaired circuit.
+2. Optimize product independently, accounting for all scratch, cleanup, phase
+   repair and correctness costs. Extra qubits may help Toffolis; accept them
+   for the product objective only when the complete measured Q × T improves.
+3. Run the unchanged full benchmark on final source, retain independent checks
+   and source/stream provenance, verify packaging and refresh public records
+   before claiming an improvement.
 
 The [current results](results-status.md) distinguish the original passing Q692
 circuit from its later normal-build v6, which failed all-channel correctness
 qualification (3 value / 2 phase batches / 3 ancilla batches). Preserve the original
-pass and repair the new version on its fixed counterexamples.
+pass and the failed version's fixed counterexamples for any later resumption.
 
 Toffoli and product are independent objectives. The latest wider B3 cache saves
-74.91796875 executed Toffolis per shot in two fixed 256-shot comparisons, but
+101.109375 executed Toffolis per shot in two fixed 256-shot comparisons, but
 retains arithmetic failures. It has no qualified score. A larger width is
 acceptable for a new Toffoli record; requiring a product win would be incorrect.
 Repair the baseline arithmetic, retain exact savings and evaluate total costs.
-[Toffoli report](../experiments/toffoli-readiness-20261015/REPORT.md) ·
+[Latest cache report](../experiments/cache-retention-20261015/STATUS.md) ·
+[Earlier Toffoli report](../experiments/toffoli-readiness-20261015/REPORT.md) ·
 [Product report](../experiments/product-focus-20261015/REPORT.md).
 
 The entries below preserve earlier research checkpoints; a historical pending

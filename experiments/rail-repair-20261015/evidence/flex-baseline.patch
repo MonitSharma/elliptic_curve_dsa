@@ -1,0 +1,39 @@
+diff --git a/src/point_add/leapfrog.rs b/src/point_add/leapfrog.rs
+index 469ebd0d..15fa369c 100755
+--- a/src/point_add/leapfrog.rs
++++ b/src/point_add/leapfrog.rs
+@@ -79,7 +79,7 @@ pub(crate) const Y42_SPEND_REV: &[(usize, usize)] = if Y42 { &[(0, 999)] } else
+ /// does nothing under YP8_VETO), and so is [`Y42_BOUND`]'s pass. Each stops the build on any change of the stream, so
+ /// a gate list with other switch values than the kept ones is built and compared without them, against the base built
+ /// without them.
+-pub(crate) const Y42_UNBOUND: bool = false;
++pub(crate) const Y42_UNBOUND: bool = true;
+ /// y42: the passes bound to the base's stream are replaced by one pass (y42_bound_pass.rs) with one table, bound to
+ /// this tree's own stream with the switches above as kept: the same edits, carried to their new op indices (27,533 of
+ /// the base's 27,537 edited ops; the other four lie at ops the tree's simplifiers write differently on this stream).
+@@ -89,7 +89,7 @@ pub(crate) const Y42_BOUND: bool = Y42 && !Y42_UNBOUND;
+ /// (leapfrog_data/y42_alloc.txt, dumped by a build with the pads held and [`Y42_TRACE`]; the state before the op is
+ /// checked against the table's fingerprint), so every later op takes the base's wires and bits and the bound table
+ /// stays valid. false: the allocator is put back as it was before the op.
+-pub(crate) const Y42_ALLOC: bool = Y42;
++pub(crate) const Y42_ALLOC: bool = false;
+ /// One row of leapfrog_data/y42_alloc.txt: fingerprint of the state before the op; after it: next bit, the length of
+ /// the free-bit list that is unchanged, the free wires, the rest of the free bits.
+ struct Y42Row {
+diff --git a/src/point_add/mod.rs b/src/point_add/mod.rs
+index 292237d7..21fd045b 100755
+--- a/src/point_add/mod.rs
++++ b/src/point_add/mod.rs
+@@ -562,9 +562,9 @@ pub fn build() -> Vec<Op> {
+     ops = reader_pass::run(ops);
+     // y42-railtop (leapfrog.rs `Y42_BOUND`; false = this gate list byte for byte): the edits of the four bound
+     // passes above as one table, carried to this tree's stream with the rail switches on
+-    ops = y42_bound_pass::run(ops);
+-    ops = square_guard::run(ops);
+-    ops = linear_restore::run(ops);
++    // y42_bound_pass: optional table applies only to the old stream; retained unchanged but not applied here.
++    // square_guard: optional table applies only to the old stream; retained unchanged but not applied here.
++    // linear_restore: optional table applies only to the old stream; retained unchanged but not applied here.
+     // SKY_REWRITE (q73b package rows: 105 rows proved exact by SAT on the q73b op stream, compiled in): replace SAT-proved linear-span CCX by CX chains.
+     // Lines: "widx c1 c2 t cst w1,w2,..|-" against this exact op stream (asserted). Skywalk stream only.
+     if !leapfrog::enabled() {

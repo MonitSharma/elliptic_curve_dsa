@@ -1,0 +1,277 @@
+{
+  "status": "exact finite arithmetic diagnosis, no score",
+  "score": null,
+  "control_wrong": [
+    421,
+    553,
+    562,
+    720,
+    2777,
+    2915,
+    3447,
+    3638,
+    4552,
+    5354,
+    6957,
+    6972,
+    7665,
+    7976,
+    8322,
+    9003
+  ],
+  "room_wrong": [
+    421,
+    553,
+    562,
+    720,
+    2777,
+    3447,
+    6957,
+    6972,
+    7665,
+    8322
+  ],
+  "removed_failures": [
+    2915,
+    3638,
+    4552,
+    5354,
+    7976,
+    9003
+  ],
+  "new_failures": [],
+  "raw_and_optimized_wrong_sets_equal": true,
+  "forward_rail_certificates": [
+    {
+      "shot": 553,
+      "phase": "divide",
+      "tick": 94,
+      "before_target": "-336963461498120559073973299",
+      "before_source": "-394840960742316436585430451",
+      "exact_integer_target": "-387606273336791951896498307",
+      "delta": [
+        "618970019642690137449562112",
+        "0"
+      ],
+      "tape": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "log_line": "FIRST_RAIL_BAD family=candidate shot=553 phase=divide tick=94 start=2944723 end=2971138 tape=[0, 0, 0, 0, 0] before_t=0xfffffffffffffffffffffffffffffffffffffffffee945362657a9406a1fa7fc before_s=0xfffffffffffffffffffffffffffffffffffffffffeb9652ca0fc0a7148643e7c expected_t=0xfffffffffffffffffffffffffffffffffffffffffebf612dd1a77e4b2c9babac got_t=0xbf612dd1a77e4c2c9baf7d got_s=0xfffffffffffffffffffffffffffffffffffffffffeb9652ca0fc0a7148643e7c widths=[88, 90]"
+    },
+    {
+      "shot": 562,
+      "phase": "multiply",
+      "tick": 91,
+      "before_target": "-41236446512411410228051639851",
+      "before_source": "-39498717969122554581570667051",
+      "exact_integer_target": "-39715934037033661537380788651",
+      "delta": [
+        "79228162514264337593543950336",
+        "0"
+      ],
+      "tape": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "log_line": "FIRST_RAIL_BAD family=candidate shot=562 phase=multiply tick=91 start=6787177 end=6793012 tape=[0, 0, 0, 0, 0] before_t=0xffffffffffffffffffffffffffffffffffffffff7ac202cb4876c5b89544fe04 before_s=0xffffffffffffffffffffffffffffffffffffffff805f6d205fcf28813a3e3a04 expected_t=0xffffffffffffffffffffffffffffffffffffffff7fabbfd5bce41c28259f1284 got_t=0x7fabbfd5bce41c29259f1655 got_s=0xffffffffffffffffffffffffffffffffffffffff805f6d205fcf28813a3e3a04 widths=[96, 96]"
+    },
+    {
+      "shot": 720,
+      "phase": "divide",
+      "tick": 124,
+      "before_target": "6146846611",
+      "before_source": "2065256725",
+      "exact_integer_target": "1026512917",
+      "delta": [
+        "-1073741824",
+        "0"
+      ],
+      "tape": [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "log_line": "FIRST_RAIL_BAD family=candidate shot=720 phase=divide tick=124 start=3714628 end=3739700 tape=[1, 1, 0, 0, 0] before_t=0x16e616f93 before_s=0x7b195115 expected_t=0x3d2f5815 got_t=0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffefd2f5444 got_s=0x7b195115 widths=[29, 31]"
+    },
+    {
+      "shot": 2777,
+      "phase": "divide",
+      "tick": 118,
+      "before_target": "24472267212769",
+      "before_source": "-220687071959",
+      "exact_integer_target": "3086619285591",
+      "delta": [
+        "-4398046511104",
+        "0"
+      ],
+      "tape": [
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "log_line": "FIRST_RAIL_BAD family=candidate shot=2777 phase=divide tick=118 start=3560238 end=3585820 tape=[0, 0, 1, 0, 0] before_t=0x1641e4cb47e1 before_s=0xffffffffffffffffffffffffffffffffffffffffffffffffffffffcb9e068158 expected_t=0x2cea8d89857 got_t=0xfffffffffffffffffffffffffffffffffffffffffffffffffffffecda8d89486 got_s=0xffffffffffffffffffffffffffffffffffffffffffffffffffffffcb9e068158 widths=[41, 43]"
+    },
+    {
+      "shot": 3447,
+      "phase": "divide",
+      "tick": 122,
+      "before_target": "-4740032349",
+      "before_source": "9568808797",
+      "exact_integer_target": "-8965211741",
+      "delta": [
+        "17179869184",
+        "0"
+      ],
+      "tape": [
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "log_line": "FIRST_RAIL_BAD family=candidate shot=3447 phase=divide tick=122 start=3663500 end=3689502 tape=[1, 1, 1, 0, 0] before_t=0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffde578d4d2 before_s=0x23a586f5d expected_t=0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffce9a1b5d2 got_t=0x1e9a1b9a3 got_s=0x23a586f5d widths=[33, 35]"
+    },
+    {
+      "shot": 6957,
+      "phase": "divide",
+      "tick": 91,
+      "before_target": "295554638977673202338783442391",
+      "before_source": "-4363678383512985460339211893",
+      "exact_integer_target": "9917907215476191551264984433",
+      "delta": [
+        "-19807040628566084398385987584",
+        "0"
+      ],
+      "tape": [
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      "log_line": "FIRST_RAIL_BAD family=candidate shot=6957 phase=divide tick=91 start=2864778 end=2891542 tape=[0, 1, 1, 0, 1] before_t=0x3bafd113b635b4926428a35d7 before_s=0xfffffffffffffffffffffffffffffffffffffffff1e67328d40f5bb6202e7dba expected_t=0x200be68b79f873f4950d0d71 got_t=0xffffffffffffffffffffffffffffffffffffffffe00be68b79f873f3950d09a0 got_s=0xfffffffffffffffffffffffffffffffffffffffff1e67328d40f5bb6202e7dba widths=[96, 94]"
+    },
+    {
+      "shot": 7665,
+      "phase": "divide",
+      "tick": 69,
+      "before_target": "-2134329973301796448391259133589688634820487",
+      "before_source": "147537762368780803213605596181555568170965",
+      "exact_integer_target": "-179501174071606279028705444656091654729707",
+      "delta": [
+        "348449143727040986586495598010130648530944",
+        "0"
+      ],
+      "tape": [
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      "log_line": "FIRST_RAIL_BAD family=candidate shot=7665 phase=divide tick=69 start=2260080 end=2288589 tape=[0, 1, 1, 1, 0] before_t=0xffffffffffffffffffffffffffffe77fc497524ce90a93ac053d8aae0eb834a8 before_s=0x1b1931372884da42cb3d68743af06bbd7d5 expected_t=0xfffffffffffffffffffffffffffffdf07e53615a364d5b428d4993833ed0cc44 got_t=0x1f07e53615a364d5b428d4993843ed0d015 got_s=0x1b1931372884da42cb3d68743af06bbd7d5 widths=[139, 137]"
+    },
+    {
+      "shot": 8322,
+      "phase": "multiply",
+      "tick": 76,
+      "before_target": "59293187284709147679911133970920551735",
+      "before_source": "-42873391749218208394809941278138972039",
+      "exact_integer_target": "1026237220968183705318824543298848731",
+      "delta": [
+        "0",
+        "85070591730234615865843651857942052864"
+      ],
+      "tape": [
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "log_line": "FIRST_RAIL_BAD family=candidate shot=8322 phase=multiply tick=76 start=6685985 end=6693506 tape=[1, 1, 0, 1, 0] before_t=0x2c9b73d651531ac1cca8d593bc9eb537 before_s=0xffffffffffffffffffffffffffffffffdfbee295ff3fc27c0f8b7e5dbfb1c4a8 expected_t=0xc5a566c5092dd3ddc3453f27c507db got_t=0xc5a566c5092dd3ddc3453f27c507db got_s=0x1fbee295ff3fc27c0f8b7e5ebfb1c879 widths=[125, 125]"
+    }
+  ],
+  "endpoint_only": {
+    "421": [
+      -1,
+      -3
+    ],
+    "6972": [
+      -3,
+      1
+    ]
+  },
+  "trace_summaries": [
+    {
+      "family": "known15",
+      "shots": "15",
+      "first_rail_failures": "5",
+      "final_bad": "11",
+      "observer_equal": "true",
+      "score": "NONE"
+    },
+    {
+      "family": "independent",
+      "shots": "256",
+      "first_rail_failures": "0",
+      "final_bad": "0",
+      "observer_equal": "true",
+      "score": "NONE"
+    },
+    {
+      "family": "structured",
+      "shots": "256",
+      "first_rail_failures": "129",
+      "final_bad": "189",
+      "observer_equal": "true",
+      "score": "NONE"
+    },
+    {
+      "family": "candidate",
+      "shots": "9024",
+      "first_rail_failures": "8",
+      "final_bad": "10",
+      "observer_equal": "true",
+      "score": "NONE"
+    }
+  ],
+  "structured_geometry": {
+    "zero_multiplicand": 128,
+    "zero_slope": 128,
+    "zero_multiplicand_tangent_identity": 128
+  },
+  "structured_wrong_by_family": {
+    "control": {
+      "minus_two_offset_wrong": 128,
+      "zero_slope_wrong": 61
+    },
+    "room": {
+      "minus_two_offset_wrong": 128,
+      "zero_slope_wrong": 61
+    }
+  },
+  "source_hashes": {
+    "trace": "00777e5b70faf545cf5e5b671d7141ed90c7a7955f6fc1e90ce9ffbb2ca7cfca",
+    "control": "f8b589420e8806f4ea9f761c7715985b0ebdf04d9283c92b58a898c5447f6c57",
+    "room": "dce39a36da63810559b8e8e88b7f3327f2162c24151b4ef2f37ea8397a8ce030",
+    "structured_packet": "6989696b13faddac33b47fc1dc36eccf7431b91a92757fa51ce8c2632f01774d"
+  },
+  "limitations": [
+    "Finite fixed inputs; no universal rail envelope proof.",
+    "Measurement events across arithmetic variants are unaligned.",
+    "Raw forward trace before Y33; it is not an all-optimized-stage phase proof.",
+    "Exceptional multiplication wrapper is only a proposed mechanism, not implemented."
+  ]
+}

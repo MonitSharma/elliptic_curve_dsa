@@ -1,0 +1,62 @@
+FULL_PHASE_DIAG nonzero phase polynomial represented by exact decision diagram: root=189312 size_bound=18446744073709551615 score=NONE
+BDD_WITNESS selected_count=1 expected_phase=0xffffffffffffffff selected=[780824]
+PHASE_ORIGIN measurement=780824 op=9553940
+PHASE_NEIGHBOR op=9553928 gate=Op { kind: CX, q_control2: QubitId(18446744073709551615), q_control1: QubitId(510), q_target: QubitId(1204), c_target: BitId(18446744073709551615), c_condition: BitId(18446744073709551615), r_target: RegisterId(18446744073709551615) }
+PHASE_NEIGHBOR op=9553929 gate=Op { kind: CX, q_control2: QubitId(18446744073709551615), q_control1: QubitId(789), q_target: QubitId(588), c_target: BitId(18446744073709551615), c_condition: BitId(18446744073709551615), r_target: RegisterId(18446744073709551615) }
+PHASE_NEIGHBOR op=9553930 gate=Op { kind: CX, q_control2: QubitId(18446744073709551615), q_control1: QubitId(692), q_target: QubitId(588), c_target: BitId(18446744073709551615), c_condition: BitId(18446744073709551615), r_target: RegisterId(18446744073709551615) }
+PHASE_NEIGHBOR op=9553931 gate=Op { kind: CX, q_control2: QubitId(18446744073709551615), q_control1: QubitId(510), q_target: QubitId(588), c_target: BitId(18446744073709551615), c_condition: BitId(18446744073709551615), r_target: RegisterId(18446744073709551615) }
+PHASE_NEIGHBOR op=9553932 gate=Op { kind: CX, q_control2: QubitId(18446744073709551615), q_control1: QubitId(588), q_target: QubitId(156), c_target: BitId(18446744073709551615), c_condition: BitId(18446744073709551615), r_target: RegisterId(18446744073709551615) }
+PHASE_NEIGHBOR op=9553933 gate=Op { kind: CZ, q_control2: QubitId(18446744073709551615), q_control1: QubitId(511), q_target: QubitId(135), c_target: BitId(18446744073709551615), c_condition: BitId(18446744073709551615), r_target: RegisterId(18446744073709551615) }
+PHASE_NEIGHBOR op=9553934 gate=Op { kind: CZ, q_control2: QubitId(18446744073709551615), q_control1: QubitId(692), q_target: QubitId(135), c_target: BitId(18446744073709551615), c_condition: BitId(18446744073709551615), r_target: RegisterId(18446744073709551615) }
+PHASE_NEIGHBOR op=9553935 gate=Op { kind: CZ, q_control2: QubitId(18446744073709551615), q_control1: QubitId(789), q_target: QubitId(135), c_target: BitId(18446744073709551615), c_condition: BitId(18446744073709551615), r_target: RegisterId(18446744073709551615) }
+PHASE_NEIGHBOR op=9553936 gate=Op { kind: CZ, q_control2: QubitId(18446744073709551615), q_control1: QubitId(156), q_target: QubitId(135), c_target: BitId(18446744073709551615), c_condition: BitId(18446744073709551615), r_target: RegisterId(18446744073709551615) }
+PHASE_NEIGHBOR op=9553937 gate=Op { kind: Z, q_control2: QubitId(18446744073709551615), q_control1: QubitId(18446744073709551615), q_target: QubitId(156), c_target: BitId(18446744073709551615), c_condition: BitId(18446744073709551615), r_target: RegisterId(18446744073709551615) }
+PHASE_NEIGHBOR op=9553938 gate=Op { kind: CX, q_control2: QubitId(18446744073709551615), q_control1: QubitId(156), q_target: QubitId(135), c_target: BitId(18446744073709551615), c_condition: BitId(18446744073709551615), r_target: RegisterId(18446744073709551615) }
+PHASE_NEIGHBOR op=9553939 gate=Op { kind: PopCondition, q_control2: QubitId(18446744073709551615), q_control1: QubitId(18446744073709551615), q_target: QubitId(18446744073709551615), c_target: BitId(18446744073709551615), c_condition: BitId(18446744073709551615), r_target: RegisterId(18446744073709551615) }
+PHASE_NEIGHBOR op=9553940 gate=Op { kind: Hmr, q_control2: QubitId(18446744073709551615), q_control1: QubitId(18446744073709551615), q_target: QubitId(135), c_target: BitId(1555), c_condition: BitId(18446744073709551615), r_target: RegisterId(18446744073709551615) }
+PHASE_NEIGHBOR op=9553941 gate=Op { kind: PushCondition, q_control2: QubitId(18446744073709551615), q_control1: QubitId(18446744073709551615), q_target: QubitId(18446744073709551615), c_target: BitId(18446744073709551615), c_condition: BitId(1554), r_target: RegisterId(18446744073709551615) }
+PHASE_NEIGHBOR op=9553942 gate=Op { kind: PushCondition, q_control2: QubitId(18446744073709551615), q_control1: QubitId(18446744073709551615), q_target: QubitId(18446744073709551615), c_target: BitId(18446744073709551615), c_condition: BitId(1555), r_target: RegisterId(18446744073709551615) }
+PHASE_NEIGHBOR op=9553943 gate=Op { kind: CX, q_control2: QubitId(18446744073709551615), q_control1: QubitId(490), q_target: QubitId(875), c_target: BitId(18446744073709551615), c_condition: BitId(18446744073709551615), r_target: RegisterId(18446744073709551615) }
+PHASE_NEIGHBOR op=9553944 gate=Op { kind: CX, q_control2: QubitId(18446744073709551615), q_control1: QubitId(489), q_target: QubitId(875), c_target: BitId(18446744073709551615), c_condition: BitId(18446744073709551615), r_target: RegisterId(18446744073709551615) }
+PHASE_NEIGHBOR op=9553945 gate=Op { kind: CX, q_control2: QubitId(18446744073709551615), q_control1: QubitId(491), q_target: QubitId(874), c_target: BitId(18446744073709551615), c_condition: BitId(18446744073709551615), r_target: RegisterId(18446744073709551615) }
+PHASE_NEIGHBOR op=9553946 gate=Op { kind: CX, q_control2: QubitId(18446744073709551615), q_control1: QubitId(692), q_target: QubitId(874), c_target: BitId(18446744073709551615), c_condition: BitId(18446744073709551615), r_target: RegisterId(18446744073709551615) }
+PHASE_NEIGHBOR op=9553947 gate=Op { kind: CX, q_control2: QubitId(18446744073709551615), q_control1: QubitId(789), q_target: QubitId(874), c_target: BitId(18446744073709551615), c_condition: BitId(18446744073709551615), r_target: RegisterId(18446744073709551615) }
+PHASE_NEIGHBOR op=9553948 gate=Op { kind: CX, q_control2: QubitId(18446744073709551615), q_control1: QubitId(585), q_target: QubitId(874), c_target: BitId(18446744073709551615), c_condition: BitId(18446744073709551615), r_target: RegisterId(18446744073709551615) }
+PHASE_NEIGHBOR op=9553949 gate=Op { kind: CX, q_control2: QubitId(18446744073709551615), q_control1: QubitId(492), q_target: QubitId(873), c_target: BitId(18446744073709551615), c_condition: BitId(18446744073709551615), r_target: RegisterId(18446744073709551615) }
+PHASE_NEIGHBOR op=9553950 gate=Op { kind: CX, q_control2: QubitId(18446744073709551615), q_control1: QubitId(692), q_target: QubitId(873), c_target: BitId(18446744073709551615), c_condition: BitId(18446744073709551615), r_target: RegisterId(18446744073709551615) }
+PHASE_NEIGHBOR op=9553951 gate=Op { kind: CX, q_control2: QubitId(18446744073709551615), q_control1: QubitId(789), q_target: QubitId(873), c_target: BitId(18446744073709551615), c_condition: BitId(18446744073709551615), r_target: RegisterId(18446744073709551615) }
+PHASE_NEIGHBOR op=9553952 gate=Op { kind: CX, q_control2: QubitId(18446744073709551615), q_control1: QubitId(132), q_target: QubitId(873), c_target: BitId(18446744073709551615), c_condition: BitId(18446744073709551615), r_target: RegisterId(18446744073709551615) }
+PHASE_NEIGHBOR op=9553953 gate=Op { kind: CX, q_control2: QubitId(18446744073709551615), q_control1: QubitId(493), q_target: QubitId(872), c_target: BitId(18446744073709551615), c_condition: BitId(18446744073709551615), r_target: RegisterId(18446744073709551615) }
+PHASE_NEIGHBOR op=9553954 gate=Op { kind: CX, q_control2: QubitId(18446744073709551615), q_control1: QubitId(692), q_target: QubitId(872), c_target: BitId(18446744073709551615), c_condition: BitId(18446744073709551615), r_target: RegisterId(18446744073709551615) }
+PHASE_NEIGHBOR op=9553955 gate=Op { kind: CX, q_control2: QubitId(18446744073709551615), q_control1: QubitId(789), q_target: QubitId(872), c_target: BitId(18446744073709551615), c_condition: BitId(18446744073709551615), r_target: RegisterId(18446744073709551615) }
+PHASE_NEIGHBOR op=9553956 gate=Op { kind: CX, q_control2: QubitId(18446744073709551615), q_control1: QubitId(129), q_target: QubitId(872), c_target: BitId(18446744073709551615), c_condition: BitId(18446744073709551615), r_target: RegisterId(18446744073709551615) }
+PHASE_NEIGHBOR op=9553957 gate=Op { kind: CX, q_control2: QubitId(18446744073709551615), q_control1: QubitId(494), q_target: QubitId(871), c_target: BitId(18446744073709551615), c_condition: BitId(18446744073709551615), r_target: RegisterId(18446744073709551615) }
+PHASE_NEIGHBOR op=9553958 gate=Op { kind: CX, q_control2: QubitId(18446744073709551615), q_control1: QubitId(692), q_target: QubitId(871), c_target: BitId(18446744073709551615), c_condition: BitId(18446744073709551615), r_target: RegisterId(18446744073709551615) }
+PHASE_NEIGHBOR op=9553959 gate=Op { kind: CX, q_control2: QubitId(18446744073709551615), q_control1: QubitId(789), q_target: QubitId(871), c_target: BitId(18446744073709551615), c_condition: BitId(18446744073709551615), r_target: RegisterId(18446744073709551615) }
+PHASE_WITNESS flipped_measurements=[] phase=0x0 wrong_values=0
+PHASE_WITNESS flipped_measurements=[780824] phase=0xffffffffffffffff wrong_values=0
+BDD_NATIVE_COUNTEREXAMPLE_VERIFIED=true
+SINGLE_MEASUREMENT_FAULT_VERIFIED=true
+	Command being timed: "/home/hclau/ecdsa_research/repair-integration-20261015/witness-target/release/product_paired_diagnostic ops.bin /home/hclau/ecdsa_research/repair-integration-20261015/packets/structured.tsv"
+	User time (seconds): 20.57
+	System time (seconds): 0.40
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:21.00
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 647504
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 167941
+	Voluntary context switches: 2
+	Involuntary context switches: 33
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 24
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

@@ -1,0 +1,12 @@
+{
+  "source_revision": "b3c9fdd6e24bcd33450ab0d10884ab5ff9c46ab7",
+  "status": "pending-generation",
+  "patch_sha256": "cdb9458573d697e7e645045794437d339b7a98634d48a5a7ac3a9c7deebb8c98",
+  "changed_files": [
+    "src/point_add/mod.rs",
+    "src/point_add/y15_onefold.rs"
+  ],
+  "scope": "Finite step104 mitigation. Three old-stream-only optional optimization tables are omitted; their code, data and binding assertions are unchanged.",
+  "qualified_score": null,
+  "independent_correctness": "not yet run; inherited width and exceptional-domain defects are expected to remain"
+}

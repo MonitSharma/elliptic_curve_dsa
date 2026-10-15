@@ -1,0 +1,11 @@
+Waiting for our bounded source-bound generation job.
+/home/hclau/ecdsa_research/q692_readiness_20261015/stream-v9.bin: OK
+Replaying the same three complete failed point additions.
+     Locking 193 packages to latest compatible versions
+FIXED_FULL_POINT_PASS 64_lanes three_previously_failed_curve_inputs phase_zero=True ancilla_zero=True diagnostic_only=True
+Replaying all 9024 inputs from the existing failed packet; no new packet.
+INDEPENDENT_CURVE_CONSTRUCTION_PASS pairs=3 on_curve=True distinct_x=True expected_addition=True
+     Locking 193 packages to latest compatible versions
+Traceback (most recent call last):
+  File "<stdin>", line 4, in <module>
+AssertionError: 64

@@ -72,7 +72,7 @@ def render(summary, points, baseline, local):
     leaders=summary["leaders"];front=summary["frontier"]
     q=[s["officialMetrics"]["qubits"] for s in front]
     t=[s["officialMetrics"]["toffoli"] for s in front]
-    fig=base("One local width improvement. Three independent goals.",
+    fig=base("One preserved local pass. Three independent goals.",
              "Public Pareto frontier + our complete local pass  ·  "+summary["analyzed_at"][:10])
     cards=[
         ("OUR LOCAL WIDTH",str(local["qubits"])+" qubits","9,024-shot pass · not submitted"),

@@ -1,0 +1,82 @@
+{
+  "score": null,
+  "status": "exact integer identity and finite exhaustive model passed; no quantum implementation",
+  "production_quotient_boolean_core_cases": 16384,
+  "toy": {
+    "nbits": 7,
+    "p": 111,
+    "cases": 524288,
+    "uncorrected_failures": 483365,
+    "corrected_failures": 0,
+    "signed_carry_counts": {
+      "-19": 159,
+      "-18": 738,
+      "-17": 2908,
+      "-16": 9649,
+      "-15": 14372,
+      "-14": 15246,
+      "-13": 15220,
+      "-12": 15872,
+      "-11": 15557,
+      "-10": 16130,
+      "-9": 17170,
+      "-8": 21471,
+      "-7": 28984,
+      "-6": 33118,
+      "-5": 36868,
+      "-4": 45288,
+      "-3": 53247,
+      "-2": 54853,
+      "-1": 51656,
+      "0": 40923,
+      "1": 22237,
+      "2": 9092,
+      "3": 3018,
+      "4": 512
+    },
+    "note": "111 is composite; this identity needs only an odd modulus so division by powers of two is invertible."
+  },
+  "production_counterexamples": [
+    {
+      "window": 56,
+      "e": 1,
+      "nm": 6,
+      "m": 0,
+      "signed_window_carry": -1,
+      "exact_w": -856,
+      "truncated_out": "0x1fffffffffff95",
+      "corrected_out": "0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffbc4",
+      "wanted": "0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffbc4"
+    },
+    {
+      "window": 57,
+      "e": 1,
+      "nm": 6,
+      "m": 0,
+      "signed_window_carry": -1,
+      "exact_w": -856,
+      "truncated_out": "0x3fffffffffff95",
+      "corrected_out": "0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffbc4",
+      "wanted": "0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffbc4"
+    }
+  ],
+  "production_window_correction_bound": {
+    "min": -300647779040,
+    "max": 30064777911,
+    "carry_values_at_window56_or57": [
+      -1,
+      0,
+      1
+    ]
+  },
+  "source_hashes": {
+    "C:\\Users\\monitsharma\\Downloads\\elliptic_curve_dsa\\experiments\\equal-division-20261015\\evidence\\observer-analysis.json": "68d22879ad68180ae7dc3930377cb8835d26544f975a4ad11c435d6ae13c0502",
+    "C:\\Users\\monitsharma\\Downloads\\elliptic_curve_dsa\\experiments\\equal-division-20261015\\evidence\\fold-analysis.json": "d9a85e068f0c753f6099bbf51416e97a8832ef1809e1cc9cb4d030adf3aabee0"
+  },
+  "limitations": [
+    "No internal production quotient/carry wire was directly observed.",
+    "No gate synthesis, ancilla cleanup or measurement-phase proof.",
+    "No full-point benchmark or resource improvement.",
+    "The mathematical carry correction may be too costly to use at every payload tick."
+  ]
+}

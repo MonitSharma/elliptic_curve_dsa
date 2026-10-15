@@ -1,0 +1,163 @@
+{
+  "score": null,
+  "status": "finite exact integer certificates; complete circuit remains failing",
+  "certificates": [
+    {
+      "shot": 562,
+      "phase": "multiply",
+      "tick": 92,
+      "tape": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "exact_signed_target": "-39688782028544773167904523451",
+      "target_delta": "79228162514264337593543950336",
+      "delta_power_of_two": 96,
+      "source_unchanged": true,
+      "all_integer_divisions_exact": true,
+      "observed_final_rail_widths": [
+        96,
+        96
+      ],
+      "trace_line": "FIRST_RAIL_BAD family=candidate shot=562 phase=multiply tick=92 start=6965220 end=6971080 tape=[0, 0, 0, 0, 0] before_t=0xffffffffffffffffffffffffffffffffffffffff805f6d205fcf28813a3e3a04 before_s=0xffffffffffffffffffffffffffffffffffffffff7fabbfd5bce41c28259f1284 expected_t=0xffffffffffffffffffffffffffffffffffffffff7fc2357f11417db34832f774 got_t=0x7fc2357f11417db44832fb45 got_s=0xffffffffffffffffffffffffffffffffffffffff7fabbfd5bce41c28259f1284 widths=[96, 96]"
+    },
+    {
+      "shot": 720,
+      "phase": "divide",
+      "tick": 125,
+      "tape": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "exact_signed_target": "1156355893",
+      "target_delta": "-1073741824",
+      "delta_power_of_two": 30,
+      "source_unchanged": true,
+      "all_integer_divisions_exact": true,
+      "observed_final_rail_widths": [
+        31,
+        29
+      ],
+      "trace_line": "FIRST_RAIL_BAD family=candidate shot=720 phase=divide tick=125 start=3769249 end=3794765 tape=[0, 0, 0, 0, 0] before_t=0x7b195115 before_s=0x3d2f5815 expected_t=0x44ec9735 got_t=0x4ec9735 got_s=0x3d2f5815 widths=[31, 29]"
+    },
+    {
+      "shot": 2777,
+      "phase": "divide",
+      "tick": 119,
+      "tape": [
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "exact_signed_target": "-2728377758887",
+      "target_delta": "4398046511104",
+      "delta_power_of_two": 42,
+      "source_unchanged": true,
+      "all_integer_divisions_exact": true,
+      "observed_final_rail_widths": [
+        43,
+        41
+      ],
+      "trace_line": "FIRST_RAIL_BAD family=candidate shot=2777 phase=divide tick=119 start=3610985 end=3637300 tape=[1, 1, 1, 0, 0] before_t=0xffffffffffffffffffffffffffffffffffffffffffffffffffffffcb9e068158 before_s=0x2cea8d89857 expected_t=0xfffffffffffffffffffffffffffffffffffffffffffffffffffffd83c0034788 got_t=0x184c0034b59 got_s=0x2cea8d89857 widths=[43, 41]"
+    },
+    {
+      "shot": 3447,
+      "phase": "divide",
+      "tick": 123,
+      "tape": [
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "exact_signed_target": "9040661373",
+      "target_delta": "-17179869184",
+      "delta_power_of_two": 34,
+      "source_unchanged": true,
+      "all_integer_divisions_exact": true,
+      "observed_final_rail_widths": [
+        35,
+        33
+      ],
+      "trace_line": "FIRST_RAIL_BAD family=candidate shot=3447 phase=divide tick=123 start=3717136 end=3743736 tape=[1, 1, 1, 0, 0] before_t=0x23a586f5d before_s=0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffce9a1b5d2 expected_t=0x21add8b7d got_t=0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffd1add87ac got_s=0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffce9a1b5d2 widths=[35, 33]"
+    },
+    {
+      "shot": 8322,
+      "phase": "multiply",
+      "tick": 135,
+      "tape": [
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "exact_signed_target": "281",
+      "target_delta": "-512",
+      "delta_power_of_two": 9,
+      "source_unchanged": true,
+      "all_integer_divisions_exact": true,
+      "observed_final_rail_widths": [
+        10,
+        10
+      ],
+      "trace_line": "FIRST_RAIL_BAD family=candidate shot=8322 phase=multiply tick=135 start=7114080 end=7114948 tape=[1, 0, 0, 1, 0] before_t=0xb0f before_s=0x14d expected_t=0x119 got_t=0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffb48 got_s=0x14d widths=[10, 10]"
+    }
+  ],
+  "trace_summaries": [
+    {
+      "family": "known15",
+      "shots": "15",
+      "first_rail_failures": "5",
+      "final_bad": "7",
+      "observer_equal": "true",
+      "score": "NONE"
+    },
+    {
+      "family": "independent",
+      "shots": "256",
+      "first_rail_failures": "0",
+      "final_bad": "0",
+      "observer_equal": "true",
+      "score": "NONE"
+    },
+    {
+      "family": "structured",
+      "shots": "256",
+      "first_rail_failures": "128",
+      "final_bad": "128",
+      "observer_equal": "true",
+      "score": "NONE"
+    },
+    {
+      "family": "candidate",
+      "shots": "9024",
+      "first_rail_failures": "5",
+      "final_bad": "5",
+      "observer_equal": "true",
+      "score": "NONE"
+    }
+  ],
+  "raw_bad": [
+    562,
+    720,
+    2777,
+    3447,
+    8322
+  ],
+  "trace_sha256": "766d13a1767c1a2130d90c86632902adfd60d85390592f83d6ddbd73e204f492",
+  "limitations": [
+    "No new widths fitted to these inputs.",
+    "Each discrepancy is a signed power of two with unchanged source; this diagnoses rail truncation but does not establish a universal safe envelope.",
+    "Raw pre-Y33 trace is not a phase proof of the optimized circuit."
+  ]
+}

@@ -1,0 +1,126 @@
+   Compiling product_paired_diagnostic v0.1.0 (/home/hclau/ecdsa_research/cache-polarity-20261015/analyzer)
+warning: unused imports: `QubitOrBit` and `analyze_ops`
+ --> src/main.rs:4:5
+  |
+4 |     analyze_ops, BitId, Op, OperationType, QubitId, QubitOrBit, RegisterId,
+  |     ^^^^^^^^^^^                                     ^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `quantum_ecc::sim::Simulator`
+ --> src/main.rs:6:5
+  |
+6 | use quantum_ecc::sim::Simulator;
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `sim`
+   --> src/main.rs:224:27
+    |
+224 | use quantum_ecc::{circuit,sim};
+    |                           ^^^
+
+warning: unused import: `HashSet`
+ --> src/lazy_cache.rs:2:32
+  |
+2 | use std::collections::{HashMap,HashSet};
+  |                                ^^^^^^^
+
+warning: unused import: `XofReader`
+ --> src/main.rs:9:40
+  |
+9 |     digest::{ExtendableOutput, Update, XofReader},
+  |                                        ^^^^^^^^^
+
+warning: constant `LIBRARY_SOURCE` is never used
+ --> src/main.rs:1:7
+  |
+1 | const LIBRARY_SOURCE:&str="/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline";
+  |       ^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: constant `NUM_TESTS` is never used
+  --> src/main.rs:29:7
+   |
+29 | const NUM_TESTS: usize = 9024;
+   |       ^^^^^^^^^
+
+warning: function `secp256k1` is never used
+   --> src/main.rs:135:4
+    |
+135 | fn secp256k1() -> WeierstrassEllipticCurve {
+    |    ^^^^^^^^^
+
+warning: function `fiat_shamir_seed` is never used
+   --> src/main.rs:167:4
+    |
+167 | fn fiat_shamir_seed(ops: &[Op]) -> sha3::Shake256Reader {
+    |    ^^^^^^^^^^^^^^^^
+
+warning: field `0` is never read
+  --> src/interned_witness.rs:48:8
+   |
+48 |     Cx(QubitId),
+   |     -- ^^^^^^^
+   |     |
+   |     field in this variant
+   |
+help: consider changing the field to be of unit type to suppress this warning while preserving the field numbering, or remove the field
+   |
+48 -     Cx(QubitId),
+48 +     Cx(()),
+   |
+
+warning: method `emit` is never used
+  --> src/interned_witness.rs:52:19
+   |
+51 | impl Rewrite {
+   | ------------ method in this implementation
+52 |     pub(super) fn emit(self, op: Op, result: &mut Vec<Op>) {
+   |                   ^^^^
+
+warning: function `simplify` is never used
+   --> src/interned_witness.rs:299:15
+    |
+299 | pub(crate) fn simplify(ops: Vec<Op>) -> Vec<Op> {
+    |               ^^^^^^^^
+
+warning: function `witnesses` is never used
+   --> src/interned_witness.rs:310:15
+    |
+310 | pub(crate) fn witnesses(ops:Vec<Op>)->Vec<Op>{
+    |               ^^^^^^^^^
+
+warning: methods `cache_zeros` and `cache_product` are never used
+   --> src/interned_witness.rs:355:19
+    |
+354 | impl Support {
+    | ------------ methods in this implementation
+355 |     pub(crate) fn cache_zeros(&self)->Vec<usize> {
+    |                   ^^^^^^^^^^^
+...
+358 |     pub(crate) fn cache_product(&mut self,op:&Op)->(bool,Vec<u64>) {
+    |                   ^^^^^^^^^^^^^
+
+warning: field `donors` is never read
+ --> src/lazy_cache.rs:4:64
+  |
+4 | struct Window {uses:Vec<usize>,start:usize,end:usize,proxy:f64,donors:Vec<usize>}
+  |        ------ field in this struct                             ^^^^^^
+  |
+  = note: `Window` has derived impls for the traits `Debug` and `Clone`, but these are intentionally ignored during dead code analysis
+
+warning: function `touches` is never used
+ --> src/lazy_cache.rs:5:4
+  |
+5 | fn touches(o:&Op)->Vec<usize>{
+  |    ^^^^^^^
+
+warning: function `audit` is never used
+   --> src/lazy_cache.rs:122:8
+    |
+122 | pub fn audit(ops:&[Op]) {let _=optimize(ops.to_vec());}
+    |        ^^^^^
+
+warning: `product_paired_diagnostic` (bin "product_paired_diagnostic") generated 17 warnings (run `cargo fix --bin "product_paired_diagnostic" -p product_paired_diagnostic` to apply 4 suggestions)
+    Finished `release` profile [optimized] target(s) in 4.41s

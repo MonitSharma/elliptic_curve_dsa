@@ -1,0 +1,216 @@
+{
+  "status": "finite arithmetic model only",
+  "score": null,
+  "rows": [
+    {
+      "bits": 5,
+      "comparison_width": 2,
+      "policies": {
+        "source_seed": {
+          "cases": 4096,
+          "wrong_h1": 256,
+          "wrong_window": 1024,
+          "wrong_joint_phase": 432,
+          "first_error": {
+            "target": 0,
+            "source0": 0,
+            "source1": 31,
+            "exact_h1": 0,
+            "rebuilt_h1": 1,
+            "g0": 0,
+            "compare": 0
+          }
+        },
+        "zero_seed": {
+          "cases": 4096,
+          "wrong_h1": 384,
+          "wrong_window": 1536,
+          "wrong_joint_phase": 832,
+          "first_error": {
+            "target": 19,
+            "source0": 31,
+            "source1": 31,
+            "exact_h1": 1,
+            "rebuilt_h1": 1,
+            "g0": 1,
+            "compare": 0
+          }
+        },
+        "zero_seed_extra_bit": {
+          "cases": 4096,
+          "wrong_h1": 128,
+          "wrong_window": 512,
+          "wrong_joint_phase": 576,
+          "first_error": {
+            "target": 23,
+            "source0": 31,
+            "source1": 31,
+            "exact_h1": 1,
+            "rebuilt_h1": 1,
+            "g0": 1,
+            "compare": 0
+          }
+        }
+      }
+    },
+    {
+      "bits": 6,
+      "comparison_width": 3,
+      "policies": {
+        "source_seed": {
+          "cases": 16384,
+          "wrong_h1": 512,
+          "wrong_window": 4096,
+          "wrong_joint_phase": 864,
+          "first_error": {
+            "target": 0,
+            "source0": 0,
+            "source1": 63,
+            "exact_h1": 0,
+            "rebuilt_h1": 1,
+            "g0": 0,
+            "compare": 0
+          }
+        },
+        "zero_seed": {
+          "cases": 16384,
+          "wrong_h1": 768,
+          "wrong_window": 6144,
+          "wrong_joint_phase": 1664,
+          "first_error": {
+            "target": 51,
+            "source0": 63,
+            "source1": 63,
+            "exact_h1": 1,
+            "rebuilt_h1": 1,
+            "g0": 1,
+            "compare": 0
+          }
+        },
+        "zero_seed_extra_bit": {
+          "cases": 16384,
+          "wrong_h1": 256,
+          "wrong_window": 2048,
+          "wrong_joint_phase": 1152,
+          "first_error": {
+            "target": 55,
+            "source0": 63,
+            "source1": 63,
+            "exact_h1": 1,
+            "rebuilt_h1": 1,
+            "g0": 1,
+            "compare": 0
+          }
+        }
+      }
+    },
+    {
+      "bits": 7,
+      "comparison_width": 3,
+      "policies": {
+        "source_seed": {
+          "cases": 65536,
+          "wrong_h1": 2048,
+          "wrong_window": 16384,
+          "wrong_joint_phase": 3936,
+          "first_error": {
+            "target": 0,
+            "source0": 0,
+            "source1": 127,
+            "exact_h1": 0,
+            "rebuilt_h1": 1,
+            "g0": 0,
+            "compare": 0
+          }
+        },
+        "zero_seed": {
+          "cases": 65536,
+          "wrong_h1": 3584,
+          "wrong_window": 28672,
+          "wrong_joint_phase": 7424,
+          "first_error": {
+            "target": 99,
+            "source0": 127,
+            "source1": 127,
+            "exact_h1": 1,
+            "rebuilt_h1": 1,
+            "g0": 1,
+            "compare": 0
+          }
+        },
+        "zero_seed_extra_bit": {
+          "cases": 65536,
+          "wrong_h1": 1536,
+          "wrong_window": 12288,
+          "wrong_joint_phase": 5376,
+          "first_error": {
+            "target": 107,
+            "source0": 127,
+            "source1": 127,
+            "exact_h1": 1,
+            "rebuilt_h1": 1,
+            "g0": 1,
+            "compare": 0
+          }
+        }
+      }
+    },
+    {
+      "bits": 8,
+      "comparison_width": 4,
+      "policies": {
+        "source_seed": {
+          "cases": 262144,
+          "wrong_h1": 4096,
+          "wrong_window": 65536,
+          "wrong_joint_phase": 7872,
+          "first_error": {
+            "target": 0,
+            "source0": 0,
+            "source1": 255,
+            "exact_h1": 0,
+            "rebuilt_h1": 1,
+            "g0": 0,
+            "compare": 0
+          }
+        },
+        "zero_seed": {
+          "cases": 262144,
+          "wrong_h1": 7168,
+          "wrong_window": 114688,
+          "wrong_joint_phase": 14848,
+          "first_error": {
+            "target": 227,
+            "source0": 255,
+            "source1": 255,
+            "exact_h1": 1,
+            "rebuilt_h1": 1,
+            "g0": 1,
+            "compare": 0
+          }
+        },
+        "zero_seed_extra_bit": {
+          "cases": 262144,
+          "wrong_h1": 3072,
+          "wrong_window": 49152,
+          "wrong_joint_phase": 10752,
+          "first_error": {
+            "target": 235,
+            "source0": 255,
+            "source1": 255,
+            "exact_h1": 1,
+            "rebuilt_h1": 1,
+            "g0": 1,
+            "compare": 0
+          }
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "No fold or rail effects.",
+    "Seedless comparison itself remains truncated.",
+    "No quantum phase proof or measured resource cost.",
+    "Counts concern these exhaustive small domains, not production failure rates."
+  ]
+}

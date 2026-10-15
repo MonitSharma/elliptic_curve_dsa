@@ -1,0 +1,107 @@
+[
+  {
+    "file": "b3.jsonl",
+    "batches": 4096,
+    "shots": 262144,
+    "value_shots": 455,
+    "phase_shots": 297,
+    "dirty_shots": 0,
+    "any_failure_shots": 544,
+    "failed_batches": 515,
+    "phase_batches": 294,
+    "value_rate": 0.001735687255859375,
+    "value_rate_ci95": [
+      0.0015799678669318317,
+      0.001902582754480464
+    ],
+    "phase_shot_rate": 0.001132965087890625,
+    "phase_shot_rate_ci95": [
+      0.0010078259516116653,
+      0.001269334731845595
+    ],
+    "batch_failure_rate": 0.125732421875,
+    "batch_failure_rate_ci95": [
+      0.11572649252734571,
+      0.1362754729514573
+    ],
+    "expected_failed_batches_per_packet": 17.728271484375,
+    "p_pass_fresh_packet": 5.913663372090298e-09,
+    "p_pass_fresh_packet_ci95": [
+      1.0688347948533594e-09,
+      2.9424734957193203e-08
+    ],
+    "diagnostic_mean_executed_toffoli": 761151.0187988281,
+    "diagnostic_mean_toffoli_se": 1.1480943993190615,
+    "score": null
+  },
+  {
+    "file": "control.jsonl",
+    "batches": 4096,
+    "shots": 262144,
+    "value_shots": 213,
+    "phase_shots": 199,
+    "dirty_shots": 0,
+    "any_failure_shots": 302,
+    "failed_batches": 292,
+    "phase_batches": 194,
+    "value_rate": 0.000812530517578125,
+    "value_rate_ci95": [
+      0.0007071048514754052,
+      0.0009292322839453138
+    ],
+    "phase_shot_rate": 0.000759124755859375,
+    "phase_shot_rate_ci95": [
+      0.0006573438201835438,
+      0.0008721916462033907
+    ],
+    "batch_failure_rate": 0.0712890625,
+    "batch_failure_rate_ci95": [
+      0.06359505775632085,
+      0.07960106456621246
+    ],
+    "expected_failed_batches_per_packet": 10.0517578125,
+    "p_pass_fresh_packet": 2.9590956391753715e-05,
+    "p_pass_fresh_packet_ci95": [
+      8.329734947814388e-06,
+      9.47068307601676e-05
+    ],
+    "diagnostic_mean_executed_toffoli": 770689.0443191528,
+    "diagnostic_mean_toffoli_se": 1.0842797774569692,
+    "score": null
+  },
+  {
+    "file": "wide.jsonl",
+    "batches": 4096,
+    "shots": 262144,
+    "value_shots": 186,
+    "phase_shots": 117,
+    "dirty_shots": 0,
+    "any_failure_shots": 203,
+    "failed_batches": 197,
+    "phase_batches": 116,
+    "value_rate": 0.00070953369140625,
+    "value_rate_ci95": [
+      0.0006112541517006508,
+      0.0008191091900144332
+    ],
+    "phase_shot_rate": 0.000446319580078125,
+    "phase_shot_rate_ci95": [
+      0.00036913199900900256,
+      0.0005348786091374236
+    ],
+    "batch_failure_rate": 0.048095703125,
+    "batch_failure_rate_ci95": [
+      0.04174538206136677,
+      0.055100058596974144
+    ],
+    "expected_failed_batches_per_packet": 6.781494140625,
+    "p_pass_fresh_packet": 0.0009586354787852393,
+    "p_pass_fresh_packet_ci95": [
+      0.00033837705792591266,
+      0.0024479911269288195
+    ],
+    "diagnostic_mean_executed_toffoli": 753725.0123252869,
+    "diagnostic_mean_toffoli_se": 0.7072207161135763,
+    "score": null
+  }
+]

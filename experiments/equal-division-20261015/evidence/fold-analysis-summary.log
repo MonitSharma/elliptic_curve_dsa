@@ -1,0 +1,63 @@
+{
+  "results": [
+    {
+      "case": "equal",
+      "input_x": "0x238cf0d6ea5553feef21463b70e36e06d696732ae22bfc153ad1bebd73c2efe1",
+      "input_y": "0x238cf0d6ea5553feef21463b70e36e06d696732ae22bfc153ad1bebd73c2efe1",
+      "output_x": "0x238cf0d6ea5553feef21463b70e36e06d696732ae22bfc153ad1bebd73c2efe1",
+      "output_y": "0x7ffffffffffffffffffffffffffffffffffffffffffffffffffa71c69c71c541",
+      "expected_y": "0x1",
+      "x_restored": true,
+      "correct_mod_p": false,
+      "phase": "0x0"
+    },
+    {
+      "case": "zero",
+      "input_x": "0x238cf0d6ea5553feef21463b70e36e06d696732ae22bfc153ad1bebd73c2efe1",
+      "input_y": "0x0",
+      "output_x": "0x238cf0d6ea5553feef21463b70e36e06d696732ae22bfc153ad1bebd73c2efe1",
+      "output_y": "0x0",
+      "expected_y": "0x0",
+      "x_restored": true,
+      "correct_mod_p": true,
+      "phase": "0x0"
+    },
+    {
+      "case": "one",
+      "input_x": "0x238cf0d6ea5553feef21463b70e36e06d696732ae22bfc153ad1bebd73c2efe1",
+      "input_y": "0x1",
+      "output_x": "0x238cf0d6ea5553feef21463b70e36e06d696732ae22bfc153ad1bebd73c2efe1",
+      "output_y": "0x79d0edc7b20c1a5ceb5b9baca900feb050e3de7cd0ccde02ea3febfdb746d7f4",
+      "expected_y": "0xe9f05b2e277ef847ccd63a5c23a43fdfc79229cc038385e3a7a54404092ee433",
+      "x_restored": true,
+      "correct_mod_p": false,
+      "phase": "0x0"
+    },
+    {
+      "case": "pminus1",
+      "input_x": "0x238cf0d6ea5553feef21463b70e36e06d696732ae22bfc153ad1bebd73c2efe1",
+      "input_y": "0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffc2e",
+      "output_x": "0x238cf0d6ea5553feef21463b70e36e06d696732ae22bfc153ad1bebd73c2efe1",
+      "output_y": "0x38f61b05bfe498d60bc1e793785874d87745da0ccb2a09a50232ac684e751860",
+      "expected_y": "0x160fa4d1d88107b83329c5a3dc5bc020386dd633fc7c7a1c585abbfaf6d117fc",
+      "x_restored": true,
+      "correct_mod_p": false,
+      "phase": "0x0"
+    }
+  ],
+  "ticks_checked": 131,
+  "first_divergence": {
+    "tick": 120,
+    "before_op": 3459931,
+    "after_op": 3482125,
+    "coefficient": -5,
+    "shift": 3,
+    "before_target": "0xe5",
+    "source": "0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffd08",
+    "actual_target": "0x3fffffffffff95",
+    "expected_target": "0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffbc4",
+    "correct": false,
+    "source_unchanged": true,
+    "delta_mod_p": "0x40000000000000"
+  }
+}

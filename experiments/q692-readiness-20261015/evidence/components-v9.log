@@ -1,0 +1,1382 @@
+Cloning into '/home/hclau/ecdsa_research/q692_readiness_20261015/candidate-repair-v9'...
+done.
+Note: switching to 'c95b9325913abacca9c86bdebad10a20633cd04e'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+   Compiling libc v0.2.185
+   Compiling version_check v0.9.5
+   Compiling typenum v1.19.0
+   Compiling find-msvc-tools v0.1.9
+   Compiling proc-macro2 v1.0.106
+   Compiling shlex v1.3.0
+   Compiling generic-array v0.14.9
+   Compiling unicode-ident v1.0.24
+   Compiling quote v1.0.45
+   Compiling pkg-config v0.3.33
+   Compiling jobserver v0.1.34
+   Compiling cc v1.2.60
+   Compiling unicode-segmentation v1.13.2
+   Compiling syn v2.0.117
+   Compiling crypto-common v0.1.6
+   Compiling convert_case v0.10.0
+   Compiling block-buffer v0.10.4
+   Compiling zstd-safe v7.2.4
+   Compiling unicode-xid v0.2.6
+   Compiling paste v1.0.15
+   Compiling digest v0.10.7
+   Compiling cfg-if v1.0.4
+   Compiling ruint-macro v1.2.1
+   Compiling foldhash v0.2.0
+   Compiling keccak v0.1.6
+   Compiling cpufeatures v0.2.17
+   Compiling ruint v1.17.2
+   Compiling const-hex v1.18.1
+   Compiling zstd-sys v2.0.16+zstd.1.5.7
+   Compiling sha3 v0.10.8
+   Compiling hashbrown v0.16.1
+   Compiling rustc-hash v2.1.2
+   Compiling bytes v1.11.1
+   Compiling itoa v1.0.18
+   Compiling derive_more-impl v2.1.1
+   Compiling derive_more v2.1.1
+   Compiling alloy-primitives v1.5.7
+   Compiling zstd v0.13.3
+   Compiling quantum_ecc v0.1.0 (/home/hclau/ecdsa_research/q692_readiness_20261015/candidate-repair-v9)
+warning: unexpected `cfg` condition name: `nonce_openssl`
+ --> src/bin/../point_add/tests_frogdrop.rs:6:32
+  |
+6 | #[cfg(all(target_os = "linux", nonce_openssl))]
+  |                                ^^^^^^^^^^^^^
+  |
+  = help: expected names are: `docsrs`, `feature`, and `test` and 31 more
+  = help: consider using a Cargo feature instead
+  = help: or consider adding in `Cargo.toml` the `check-cfg` lint config for the lint:
+           [lints.rust]
+           unexpected_cfgs = { level = "warn", check-cfg = ['cfg(nonce_openssl)'] }
+  = help: or consider adding `println!("cargo::rustc-check-cfg=cfg(nonce_openssl)");` to the top of the `build.rs`
+  = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+  = note: `#[warn(unexpected_cfgs)]` on by default
+
+warning: unexpected `cfg` condition name: `nonce_openssl`
+    --> src/bin/../point_add/tests_frogdrop.rs:2848:36
+     |
+2848 |     #[cfg(all(target_os = "linux", nonce_openssl))]
+     |                                    ^^^^^^^^^^^^^
+     |
+     = help: consider using a Cargo feature instead
+     = help: or consider adding in `Cargo.toml` the `check-cfg` lint config for the lint:
+              [lints.rust]
+              unexpected_cfgs = { level = "warn", check-cfg = ['cfg(nonce_openssl)'] }
+     = help: or consider adding `println!("cargo::rustc-check-cfg=cfg(nonce_openssl)");` to the top of the `build.rs`
+     = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition name: `nonce_openssl`
+    --> src/bin/../point_add/tests_frogdrop.rs:2953:44
+     |
+2953 |             #[cfg(all(target_os = "linux", nonce_openssl))]
+     |                                            ^^^^^^^^^^^^^
+     |
+     = help: consider using a Cargo feature instead
+     = help: or consider adding in `Cargo.toml` the `check-cfg` lint config for the lint:
+              [lints.rust]
+              unexpected_cfgs = { level = "warn", check-cfg = ['cfg(nonce_openssl)'] }
+     = help: or consider adding `println!("cargo::rustc-check-cfg=cfg(nonce_openssl)");` to the top of the `build.rs`
+     = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition name: `nonce_openssl`
+    --> src/bin/../point_add/tests_frogdrop.rs:2955:48
+     |
+2955 |             #[cfg(not(all(target_os = "linux", nonce_openssl)))]
+     |                                                ^^^^^^^^^^^^^
+     |
+     = help: consider using a Cargo feature instead
+     = help: or consider adding in `Cargo.toml` the `check-cfg` lint config for the lint:
+              [lints.rust]
+              unexpected_cfgs = { level = "warn", check-cfg = ['cfg(nonce_openssl)'] }
+     = help: or consider adding `println!("cargo::rustc-check-cfg=cfg(nonce_openssl)");` to the top of the `build.rs`
+     = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition name: `nonce_openssl`
+    --> src/bin/../point_add/tests_frogdrop.rs:2965:44
+     |
+2965 |             #[cfg(all(target_os = "linux", nonce_openssl))]
+     |                                            ^^^^^^^^^^^^^
+     |
+     = help: consider using a Cargo feature instead
+     = help: or consider adding in `Cargo.toml` the `check-cfg` lint config for the lint:
+              [lints.rust]
+              unexpected_cfgs = { level = "warn", check-cfg = ['cfg(nonce_openssl)'] }
+     = help: or consider adding `println!("cargo::rustc-check-cfg=cfg(nonce_openssl)");` to the top of the `build.rs`
+     = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unused import: `ttk_add`
+ --> src/bin/../point_add/canonical_short_clean.rs:4:20
+  |
+4 | use super::arith::{ttk_add,ttk_carry};
+  |                    ^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `column_pl`
+    --> src/bin/../point_add/tests_midg_k24.rs:1426:41
+     |
+1426 |     use super::frogdrop_col::{Fd,ColScr,column_pl};
+     |                                         ^^^^^^^^^
+
+warning: unused import: `OperationType`
+ --> src/bin/../point_add/tests_f1.rs:6:26
+  |
+6 | use crate::circuit::{Op, OperationType, QubitId};
+  |                          ^^^^^^^^^^^^^
+
+warning: variable does not need to be mutable
+    --> src/bin/../point_add/frogdrop.rs:1272:9
+     |
+1272 |     let mut tail_from = |b: &mut B, m: &[bool], j: usize| -> (Vec<G>, Vec<QubitId>, Vec<QubitId>) {
+     |         ----^^^^^^^^^
+     |         |
+     |         help: remove this `mut`
+     |
+     = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `h`
+   --> src/bin/../point_add/frogdrop_col.rs:547:9
+    |
+547 |     let h = cp.h as isize;
+    |         ^ help: if this is intentional, prefix it with an underscore: `_h`
+    |
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: value assigned to `f1_last` is never read
+    --> src/bin/../point_add/frogdrop_col.rs:539:9
+     |
+ 539 |         f1_last = b.tof;
+     |         ^^^^^^^^^^^^^^^
+...
+1188 |     stage!(); // 11
+     |     -------- in this macro invocation
+     |
+     = help: maybe it is overwritten before being read?
+     = note: `#[warn(unused_assignments)]` (part of `#[warn(unused)]`) on by default
+     = note: this warning originates in the macro `stage` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: value assigned to `f1_last` is never read
+    --> src/bin/../point_add/frogdrop_col.rs:539:9
+     |
+ 539 |         f1_last = b.tof;
+     |         ^^^^^^^^^^^^^^^
+...
+1118 |         stage!();
+     |         -------- in this macro invocation
+     |
+     = help: maybe it is overwritten before being read?
+     = note: this warning originates in the macro `stage` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: value assigned to `last` is never read
+    --> src/bin/../point_add/frogdrop_col.rs:542:43
+     |
+ 542 |             prof_v.push((stn, v - last)); last = v;
+     |                                           ^^^^^^^^
+...
+1188 |     stage!(); // 11
+     |     -------- in this macro invocation
+     |
+     = help: maybe it is overwritten before being read?
+     = note: this warning originates in the macro `stage` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: value assigned to `last` is never read
+    --> src/bin/../point_add/frogdrop_col.rs:542:43
+     |
+ 542 |             prof_v.push((stn, v - last)); last = v;
+     |                                           ^^^^^^^^
+...
+1118 |         stage!();
+     |         -------- in this macro invocation
+     |
+     = help: maybe it is overwritten before being read?
+     = note: this warning originates in the macro `stage` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: variable does not need to be mutable
+    --> src/bin/../point_add/frogdrop_col.rs:1338:17
+     |
+1338 |             let mut mk_q = |b: &mut B, neg: bool| rec(b, |b| probe_gated(b, q, 0, cp.m, &fd.sy, &[(sc.cmpc, neg)],
+     |                 ----^^^^
+     |                 |
+     |                 help: remove this `mut`
+
+warning: variable does not need to be mutable
+    --> src/bin/../point_add/frogdrop_col.rs:1342:17
+     |
+1342 |             let mut mk_r = |b: &mut B, neg: bool| rec(b, |b| super::frogdrop::msb_probe_cut_range_x(b, &rev, &mx,
+     |                 ----^^^^
+     |                 |
+     |                 help: remove this `mut`
+
+warning: unused variable: `mt`
+    --> src/bin/../point_add/payload.rs:1260:9
+     |
+1260 |     let mt = (n - (cp.sz.0 + cp.h) + 1).min(nq.max(cp.xw) + 1);
+     |         ^^ help: if this is intentional, prefix it with an underscore: `_mt`
+
+warning: unused variable: `srange`
+    --> src/bin/../point_add/payload.rs:1264:9
+     |
+1264 |     let srange = (szlo + sylo, (szhi + syhi).min(257));
+     |         ^^^^^^ help: if this is intentional, prefix it with an underscore: `_srange`
+
+warning: unused variable: `kp`
+   --> src/bin/../point_add/midg.rs:557:13
+    |
+557 |     let (k, kp, tot) = (cp.k, cp.kp, cp.tot);
+    |             ^^
+    |
+help: you might have meant to pattern match on the similarly named constant `KP`
+    |
+557 -     let (k, kp, tot) = (cp.k, cp.kp, cp.tot);
+557 +     let (k, point_add::pointadd_frogdrop::KP, tot) = (cp.k, cp.kp, cp.tot);
+    |
+help: if this is intentional, prefix it with an underscore
+    |
+557 |     let (k, _kp, tot) = (cp.k, cp.kp, cp.tot);
+    |             +
+
+warning: unused variable: `ring`
+    --> src/bin/../point_add/tests_midg_k24.rs:1331:33
+     |
+1331 | ...   let mut b=builder();let ring=b.alloc_n(275);let q=b.alloc_n(128);let sy=b.alloc_n(8);let sx=b.alloc_n(8);let ph=b.alloc();let pool=...
+     |                               ^^^^ help: if this is intentional, prefix it with an underscore: `_ring`
+
+warning: unused variable: `q`
+    --> src/bin/../point_add/tests_midg_k24.rs:1400:54
+     |
+1400 |     let mut b=builder(); let ring=b.alloc_n(275);let q=b.alloc_n(128);let sy=b.alloc_n(8);let sx=b.alloc_n(8);let ph=b.alloc();let pool=b...
+     |                                                      ^ help: if this is intentional, prefix it with an underscore: `_q`
+
+warning: `quantum_ecc` (bin "build_circuit" test) generated 21 warnings (run `cargo fix --bin "build_circuit" -p quantum_ecc --tests` to apply 12 suggestions)
+    Finished `release` profile [optimized] target(s) in 1m 10s
+     Running unittests src/bin/build_circuit.rs (candidate-target-v9/release/deps/build_circuit-0c12d1b03f2fe721)
+
+running 7 tests
+test point_add::tests_midg_k24::ht25_fixed2379_and_quotient_boundaries_native ... HT25_MIXEDHR23_PUBLIC_SOURCE_ADMISSION_PASS dx=2e790bb7768274fe45c4126ceeb2caaf7e77837f48e87b4a0b3c21ce3b842205 quotient=5000211 complete_envelopes=true public_predictor=true
+HT25_FULL_COLUMN_CASE_PASS label=fixed2379_div2 column=86 width=692 lanes=64 payload=false measurement_coefficients=UNASSESSED
+HT25_FULL_COLUMN_CASE_PASS label=structured_mixedHR_q5000211_Dl column=65 width=692 lanes=64 payload=false measurement_coefficients=UNASSESSED
+HT25_FULL_COLUMN_CASE_PASS label=structured_mixedHR_q5000211_Dq column=66 width=692 lanes=64 payload=false measurement_coefficients=UNASSESSED
+HT25_FULL_COLUMN_CASE_PASS label=q16777215 column=86 width=692 lanes=64 payload=false measurement_coefficients=UNASSESSED
+HT25_FULL_COLUMN_CASE_PASS label=q16777216 column=86 width=692 lanes=64 payload=false measurement_coefficients=UNASSESSED
+HT25_FULL_COLUMN_CASE_PASS label=q33554431 column=86 width=692 lanes=64 payload=false measurement_coefficients=UNASSESSED
+HT25_ABOVE_CAPACITY_EXPECTED_NEGATIVE quotient=33554432
+HT25_FULL_COLUMN_SUITE_PASS columns=7 lanes=448 measurement_coefficients=UNASSESSED scope=full_columns_no_payload
+ok
+test point_add::tests_midg_k24::ht25_fixed2379_exact_payload_native ... HT25_PAYLOAD_CASE_PASS seed=0 lanes=64 dy=0,1,p-1,varied exact_pre_and_offset_oracle=true all_wires_inverse=true native_phase=0 measurement_coefficients=UNASSESSED
+HT25_PAYLOAD_CASE_PASS seed=1 lanes=64 dy=0,1,p-1,varied exact_pre_and_offset_oracle=true all_wires_inverse=true native_phase=0 measurement_coefficients=UNASSESSED
+HT25_PAYLOAD_CASE_PASS seed=2 lanes=64 dy=0,1,p-1,varied exact_pre_and_offset_oracle=true all_wires_inverse=true native_phase=0 measurement_coefficients=UNASSESSED
+HT25_PAYLOAD_CASE_PASS seed=3 lanes=64 dy=0,1,p-1,varied exact_pre_and_offset_oracle=true all_wires_inverse=true native_phase=0 measurement_coefficients=UNASSESSED
+HT25_PAYLOAD_COMPONENT_PASS width=692 column=86 euclid_step=86 first_HT_refill=false quotient=22815568 reserve=9 cases=256 scope=one_full_column_with_admitted_payload
+ok
+test point_add::tests_midg_k24::ht25_masked_add_full_sy_dirty_owner_inverse_phase ... HT25_MASKED_ADD_PASS cases=6144 full_SY_words=256 q22_q23_q24_patterns=8 inactive_dirty=true all_wires_inverse=true phase=0
+ok
+test point_add::tests_midg_k24::ht25_preposition_reflection_and_q17_all_sy_inverse_phase ... HT25_REFLECTION_OWNER_PASS cases=8192 modes=A,B q17_overlap=99,100,101 full_SY_words=256 inactive_dirty=true all_wires_inverse=true phase=0
+ok
+test point_add::tests_midg_k24::ht25_reserve_bank_partition_dirty_inactive_inverse_phase ... HT25_BANK_PARTITION_PASS full_SY_words=256 active=96..128 inactive_high_aliases=true boundaries=95,96,103,104,128 all_wires=true inverse=true phase=0 independent_measurement_coefficients=0 scope=V_partition_only
+ok
+test point_add::tests_midg_k24::ht25_stage_trace_fixed2379_diagnostic ... HT25_MIXEDHR23_PUBLIC_SOURCE_ADMISSION_PASS dx=2e790bb7768274fe45c4126ceeb2caaf7e77837f48e87b4a0b3c21ce3b842205 quotient=5000211 complete_envelopes=true public_predictor=true
+HT25_STAGE upto=0 ring=7357d0143320ae1ad48b39d9580000000000e26559806c2ecb566f7962aa261d471ea top=2bc715c322aa34f7b3569ba1b00cd532380000000000d4dce6895ac3a82661405f567 q=12179a6af1f59b73310f9f0522e49d09 sy=64 sx=0 pool=84 ph=ffffffffffffffff native_phase=0
+HT25_STAGE_INVERSE upto=0 all_wire_restore=true phase=0
+HT25_FULL_COLUMN_CASE_PASS label=fixed2379_div2 column=86 width=692 lanes=64 payload=false measurement_coefficients=UNASSESSED
+HT25_FULL_COLUMN_SUITE_PASS columns=1 lanes=64 measurement_coefficients=UNASSESSED scope=full_columns_no_payload
+HT25_STAGE upto=1 ring=485c93a2507cf846676cd7c7ab2cf4240000e26559806c2ecb566f7962aa261d471ea top=2bc715c322aa34f7b3569ba1b00cd5323800012179a6af1f59b73310f9f0522e49d09 q=d4dce6895ac3a82661405f567 sy=64 sx=0 pool=84 ph=ffffffffffffffff native_phase=0
+HT25_STAGE_INVERSE upto=1 all_wire_restore=true phase=0
+HT25_FULL_COLUMN_CASE_PASS label=fixed2379_div2 column=86 width=692 lanes=64 payload=false measurement_coefficients=UNASSESSED
+HT25_FULL_COLUMN_SUITE_PASS columns=1 lanes=64 measurement_coefficients=UNASSESSED scope=full_columns_no_payload
+HT25_STAGE upto=2 ring=485c93a2507cf846676cd7c7ab2cf4240000e26559806c2ecb566f7962aa261d471ea top=2bc715c322aa34f7b3569ba1b00cd5323800012179a6af1f59b73310f9f0522e49d09 q=d4dce6895ac3a82661405f567 sy=64 sx=0 pool=84 ph=ffffffffffffffff native_phase=0
+HT25_STAGE_INVERSE upto=2 all_wire_restore=true phase=0
+HT25_FULL_COLUMN_CASE_PASS label=fixed2379_div2 column=86 width=692 lanes=64 payload=false measurement_coefficients=UNASSESSED
+HT25_FULL_COLUMN_SUITE_PASS columns=1 lanes=64 measurement_coefficients=UNASSESSED scope=full_columns_no_payload
+HT25_STAGE upto=3 ring=485c93a2507cf846676cd7c7ab2cf4240000e26559806c2ecb566f7962aa261d471ea top=2bc715c322aa34f7b3569ba1b00cd5323800012179a6af1f59b73310f9f0522e49d09 q=d4dce6895ac3a82661405f567 sy=64 sx=0 pool=84 ph=ffffffffffffffff native_phase=0
+HT25_STAGE_INVERSE upto=3 all_wire_restore=true phase=0
+HT25_FULL_COLUMN_CASE_PASS label=fixed2379_div2 column=86 width=692 lanes=64 payload=false measurement_coefficients=UNASSESSED
+HT25_FULL_COLUMN_SUITE_PASS columns=1 lanes=64 measurement_coefficients=UNASSESSED scope=full_columns_no_payload
+HT25_STAGE upto=4 ring=4df5b70f0926fa1c0cb526de480000002350e26559806c2ecb566f7962aa261d471ea top=2bc715c322aa34f7b3569ba1b00cd53238562000000093db256981c2fb2487876d7d9 q=50000d4dce6895ac3a82661405f567 sy=64 sx=1c pool=84 ph=ffffffffffffffff native_phase=0
+HT25_STAGE_INVERSE upto=4 all_wire_restore=true phase=0
+HT25_FULL_COLUMN_CASE_PASS label=fixed2379_div2 column=86 width=692 lanes=64 payload=false measurement_coefficients=UNASSESSED
+HT25_FULL_COLUMN_SUITE_PASS columns=1 lanes=64 measurement_coefficients=UNASSESSED scope=full_columns_no_payload
+HT25_STAGE upto=5 ring=4df5b70f0926fa1c0cb526de480000000000e26559806c2ecb566f7962aa261d471ea top=2bc715c322aa34f7b3569ba1b00cd53238000000000093db256981c2fb2487876d7d9 q=d4dce6895ac3a82661405f567 sy=64 sx=0 pool=84 ph=ffffffffffffffff native_phase=0
+HT25_STAGE_INVERSE upto=5 all_wire_restore=true phase=0
+HT25_FULL_COLUMN_CASE_PASS label=fixed2379_div2 column=86 width=692 lanes=64 payload=false measurement_coefficients=UNASSESSED
+HT25_FULL_COLUMN_SUITE_PASS columns=1 lanes=64 measurement_coefficients=UNASSESSED scope=full_columns_no_payload
+HT25_STAGE upto=6 ring=4df5b70f0926fa1c0cb526de480000000000e26559806c2ecb566f7962aa261d471ea top=2bc715c322aa34f7b3569ba1b00cd53238000000000093db256981c2fb2487876d7d9 q=d4dce6895ac3a82661405f567 sy=64 sx=0 pool=84 ph=ffffffffffffffff native_phase=0
+HT25_STAGE_INVERSE upto=6 all_wire_restore=true phase=0
+HT25_FULL_COLUMN_CASE_PASS label=fixed2379_div2 column=86 width=692 lanes=64 payload=false measurement_coefficients=UNASSESSED
+HT25_FULL_COLUMN_SUITE_PASS columns=1 lanes=64 measurement_coefficients=UNASSESSED scope=full_columns_no_payload
+HT25_STAGE upto=7 ring=7357d0143320ae1ad48b39d9580000000000e26559806c2ecb566f7962aa261d471ea top=2bc715c322aa34f7b3569ba1b00cd532380000000000d4dce6895ac3a82661405f567 q=93db256981c2fb2487876d7d9 sy=64 sx=0 pool=0 ph=ffffffffffffffff native_phase=0
+HT25_STAGE_INVERSE upto=7 all_wire_restore=true phase=0
+HT25_FULL_COLUMN_CASE_PASS label=fixed2379_div2 column=86 width=692 lanes=64 payload=false measurement_coefficients=UNASSESSED
+HT25_FULL_COLUMN_SUITE_PASS columns=1 lanes=64 measurement_coefficients=UNASSESSED scope=full_columns_no_payload
+HT25_STAGE upto=8 ring=4df5b70f0926fa1c0cb526de48000133e1010d4755452a8ff53761ab2a4559c7a0063 top=63002f1cd512a6ac37657f8aa515571584043e64000093db256981c2fb2487876d7d9 q=d4dce6895ac3a82661405f567 sy=0 sx=64 pool=0 ph=ffffffffffffffff native_phase=0
+HT25_STAGE_INVERSE upto=8 all_wire_restore=true phase=0
+HT25_FULL_COLUMN_CASE_PASS label=fixed2379_div2 column=86 width=692 lanes=64 payload=false measurement_coefficients=UNASSESSED
+HT25_FULL_COLUMN_SUITE_PASS columns=1 lanes=64 measurement_coefficients=UNASSESSED scope=full_columns_no_payload
+HT25_STAGE upto=9 ring=4df5b70f0926fa1c0cb526de48000133e1010d4755452a8ff53761ab2a4559c7a0063 top=63002f1cd512a6ac37657f8aa515571584043e64000093db256981c2fb2487876d7d9 q=d4dce6895ac3a82661405f567 sy=0 sx=64 pool=0 ph=ffffffffffffffff native_phase=0
+HT25_STAGE_INVERSE upto=9 all_wire_restore=true phase=0
+HT25_FULL_COLUMN_CASE_PASS label=fixed2379_div2 column=86 width=692 lanes=64 payload=false measurement_coefficients=UNASSESSED
+HT25_FULL_COLUMN_SUITE_PASS columns=1 lanes=64 measurement_coefficients=UNASSESSED scope=full_columns_no_payload
+ok
+test point_add::tests_midg_k24::ht25_transfer_bank32_full_sy_dirty_quotient_inverse_phase ... HT25_BANK_TRANSFER_PASS cases=4096 fullSY_words=256 medium=96..103 active_highbank_dirty=true inactive_arbitrary=true bothbanks_restored=true flag_returned=true all_wire_inverse=true native_phase=0
+ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 138 filtered out; finished in 23.50s
+
+	Command being timed: "cargo +1.93.0 test --release --locked --offline --manifest-path candidate-repair-v9/Cargo.toml --bin build_circuit ht25_ -- --nocapture --test-threads=1"
+	User time (seconds): 131.41
+	System time (seconds): 11.35
+	Percent of CPU this job got: 151%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:34.20
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 637656
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 66
+	Minor (reclaiming a frame) page faults: 3330296
+	Voluntary context switches: 11508
+	Involuntary context switches: 416
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 312240
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+warning: unexpected `cfg` condition name: `nonce_openssl`
+ --> src/bin/../point_add/tests_frogdrop.rs:6:32
+  |
+6 | #[cfg(all(target_os = "linux", nonce_openssl))]
+  |                                ^^^^^^^^^^^^^
+  |
+  = help: expected names are: `docsrs`, `feature`, and `test` and 31 more
+  = help: consider using a Cargo feature instead
+  = help: or consider adding in `Cargo.toml` the `check-cfg` lint config for the lint:
+           [lints.rust]
+           unexpected_cfgs = { level = "warn", check-cfg = ['cfg(nonce_openssl)'] }
+  = help: or consider adding `println!("cargo::rustc-check-cfg=cfg(nonce_openssl)");` to the top of the `build.rs`
+  = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+  = note: `#[warn(unexpected_cfgs)]` on by default
+
+warning: unexpected `cfg` condition name: `nonce_openssl`
+    --> src/bin/../point_add/tests_frogdrop.rs:2848:36
+     |
+2848 |     #[cfg(all(target_os = "linux", nonce_openssl))]
+     |                                    ^^^^^^^^^^^^^
+     |
+     = help: consider using a Cargo feature instead
+     = help: or consider adding in `Cargo.toml` the `check-cfg` lint config for the lint:
+              [lints.rust]
+              unexpected_cfgs = { level = "warn", check-cfg = ['cfg(nonce_openssl)'] }
+     = help: or consider adding `println!("cargo::rustc-check-cfg=cfg(nonce_openssl)");` to the top of the `build.rs`
+     = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition name: `nonce_openssl`
+    --> src/bin/../point_add/tests_frogdrop.rs:2953:44
+     |
+2953 |             #[cfg(all(target_os = "linux", nonce_openssl))]
+     |                                            ^^^^^^^^^^^^^
+     |
+     = help: consider using a Cargo feature instead
+     = help: or consider adding in `Cargo.toml` the `check-cfg` lint config for the lint:
+              [lints.rust]
+              unexpected_cfgs = { level = "warn", check-cfg = ['cfg(nonce_openssl)'] }
+     = help: or consider adding `println!("cargo::rustc-check-cfg=cfg(nonce_openssl)");` to the top of the `build.rs`
+     = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition name: `nonce_openssl`
+    --> src/bin/../point_add/tests_frogdrop.rs:2955:48
+     |
+2955 |             #[cfg(not(all(target_os = "linux", nonce_openssl)))]
+     |                                                ^^^^^^^^^^^^^
+     |
+     = help: consider using a Cargo feature instead
+     = help: or consider adding in `Cargo.toml` the `check-cfg` lint config for the lint:
+              [lints.rust]
+              unexpected_cfgs = { level = "warn", check-cfg = ['cfg(nonce_openssl)'] }
+     = help: or consider adding `println!("cargo::rustc-check-cfg=cfg(nonce_openssl)");` to the top of the `build.rs`
+     = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition name: `nonce_openssl`
+    --> src/bin/../point_add/tests_frogdrop.rs:2965:44
+     |
+2965 |             #[cfg(all(target_os = "linux", nonce_openssl))]
+     |                                            ^^^^^^^^^^^^^
+     |
+     = help: consider using a Cargo feature instead
+     = help: or consider adding in `Cargo.toml` the `check-cfg` lint config for the lint:
+              [lints.rust]
+              unexpected_cfgs = { level = "warn", check-cfg = ['cfg(nonce_openssl)'] }
+     = help: or consider adding `println!("cargo::rustc-check-cfg=cfg(nonce_openssl)");` to the top of the `build.rs`
+     = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unused import: `ttk_add`
+ --> src/bin/../point_add/canonical_short_clean.rs:4:20
+  |
+4 | use super::arith::{ttk_add,ttk_carry};
+  |                    ^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `column_pl`
+    --> src/bin/../point_add/tests_midg_k24.rs:1426:41
+     |
+1426 |     use super::frogdrop_col::{Fd,ColScr,column_pl};
+     |                                         ^^^^^^^^^
+
+warning: unused import: `OperationType`
+ --> src/bin/../point_add/tests_f1.rs:6:26
+  |
+6 | use crate::circuit::{Op, OperationType, QubitId};
+  |                          ^^^^^^^^^^^^^
+
+warning: variable does not need to be mutable
+    --> src/bin/../point_add/frogdrop.rs:1272:9
+     |
+1272 |     let mut tail_from = |b: &mut B, m: &[bool], j: usize| -> (Vec<G>, Vec<QubitId>, Vec<QubitId>) {
+     |         ----^^^^^^^^^
+     |         |
+     |         help: remove this `mut`
+     |
+     = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `h`
+   --> src/bin/../point_add/frogdrop_col.rs:547:9
+    |
+547 |     let h = cp.h as isize;
+    |         ^ help: if this is intentional, prefix it with an underscore: `_h`
+    |
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: value assigned to `f1_last` is never read
+    --> src/bin/../point_add/frogdrop_col.rs:539:9
+     |
+ 539 |         f1_last = b.tof;
+     |         ^^^^^^^^^^^^^^^
+...
+1188 |     stage!(); // 11
+     |     -------- in this macro invocation
+     |
+     = help: maybe it is overwritten before being read?
+     = note: `#[warn(unused_assignments)]` (part of `#[warn(unused)]`) on by default
+     = note: this warning originates in the macro `stage` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: value assigned to `f1_last` is never read
+    --> src/bin/../point_add/frogdrop_col.rs:539:9
+     |
+ 539 |         f1_last = b.tof;
+     |         ^^^^^^^^^^^^^^^
+...
+1118 |         stage!();
+     |         -------- in this macro invocation
+     |
+     = help: maybe it is overwritten before being read?
+     = note: this warning originates in the macro `stage` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: value assigned to `last` is never read
+    --> src/bin/../point_add/frogdrop_col.rs:542:43
+     |
+ 542 |             prof_v.push((stn, v - last)); last = v;
+     |                                           ^^^^^^^^
+...
+1188 |     stage!(); // 11
+     |     -------- in this macro invocation
+     |
+     = help: maybe it is overwritten before being read?
+     = note: this warning originates in the macro `stage` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: value assigned to `last` is never read
+    --> src/bin/../point_add/frogdrop_col.rs:542:43
+     |
+ 542 |             prof_v.push((stn, v - last)); last = v;
+     |                                           ^^^^^^^^
+...
+1118 |         stage!();
+     |         -------- in this macro invocation
+     |
+     = help: maybe it is overwritten before being read?
+     = note: this warning originates in the macro `stage` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: variable does not need to be mutable
+    --> src/bin/../point_add/frogdrop_col.rs:1338:17
+     |
+1338 |             let mut mk_q = |b: &mut B, neg: bool| rec(b, |b| probe_gated(b, q, 0, cp.m, &fd.sy, &[(sc.cmpc, neg)],
+     |                 ----^^^^
+     |                 |
+     |                 help: remove this `mut`
+
+warning: variable does not need to be mutable
+    --> src/bin/../point_add/frogdrop_col.rs:1342:17
+     |
+1342 |             let mut mk_r = |b: &mut B, neg: bool| rec(b, |b| super::frogdrop::msb_probe_cut_range_x(b, &rev, &mx,
+     |                 ----^^^^
+     |                 |
+     |                 help: remove this `mut`
+
+warning: unused variable: `mt`
+    --> src/bin/../point_add/payload.rs:1260:9
+     |
+1260 |     let mt = (n - (cp.sz.0 + cp.h) + 1).min(nq.max(cp.xw) + 1);
+     |         ^^ help: if this is intentional, prefix it with an underscore: `_mt`
+
+warning: unused variable: `srange`
+    --> src/bin/../point_add/payload.rs:1264:9
+     |
+1264 |     let srange = (szlo + sylo, (szhi + syhi).min(257));
+     |         ^^^^^^ help: if this is intentional, prefix it with an underscore: `_srange`
+
+warning: unused variable: `kp`
+   --> src/bin/../point_add/midg.rs:557:13
+    |
+557 |     let (k, kp, tot) = (cp.k, cp.kp, cp.tot);
+    |             ^^
+    |
+help: you might have meant to pattern match on the similarly named constant `KP`
+    |
+557 -     let (k, kp, tot) = (cp.k, cp.kp, cp.tot);
+557 +     let (k, point_add::pointadd_frogdrop::KP, tot) = (cp.k, cp.kp, cp.tot);
+    |
+help: if this is intentional, prefix it with an underscore
+    |
+557 |     let (k, _kp, tot) = (cp.k, cp.kp, cp.tot);
+    |             +
+
+warning: unused variable: `ring`
+    --> src/bin/../point_add/tests_midg_k24.rs:1331:33
+     |
+1331 | ...   let mut b=builder();let ring=b.alloc_n(275);let q=b.alloc_n(128);let sy=b.alloc_n(8);let sx=b.alloc_n(8);let ph=b.alloc();let pool=...
+     |                               ^^^^ help: if this is intentional, prefix it with an underscore: `_ring`
+
+warning: unused variable: `q`
+    --> src/bin/../point_add/tests_midg_k24.rs:1400:54
+     |
+1400 |     let mut b=builder(); let ring=b.alloc_n(275);let q=b.alloc_n(128);let sy=b.alloc_n(8);let sx=b.alloc_n(8);let ph=b.alloc();let pool=b...
+     |                                                      ^ help: if this is intentional, prefix it with an underscore: `_q`
+
+warning: `quantum_ecc` (bin "build_circuit" test) generated 21 warnings (run `cargo fix --bin "build_circuit" -p quantum_ecc --tests` to apply 12 suggestions)
+    Finished `release` profile [optimized] target(s) in 8.96s
+     Running unittests src/bin/build_circuit.rs (candidate-target-v9/release/deps/build_circuit-0c12d1b03f2fe721)
+
+running 5 tests
+test point_add::tests_frogdrop::n275_b0_three_lane_extension_controlled_replay ... D3_B0_MAP_PASS shots=64 width=692 forward_ops=371225
+ok
+test point_add::tests_frogdrop::n275_ordinary_three_lane_map_exact ... D2_MAP_EXTENSION_PASS shots=64 width=692 forward_ops=392230
+ok
+test point_add::tests_midg_k24::n275_k32_k24_partition_all_sy_words ... K32_PARTITION_PASS full_SY_words=256 active=1..128 inactive_high_aliases=true boundaries=96,97,128 all_wires=true inverse=true phase=0 independent_measurement_coefficients=0 scope=V_partition_only
+ok
+test point_add::tests_midg_k24::n275_sz_donor_boundaries_inverse_phase ... SZ_DONOR_COMPONENT_PASS cases=512 SY_boundaries=96,97,128 SZ_boundaries=101,127,128,161 inactive_aliases=true arbitrary_parked_highbits=true all_wire_inverse=true phase=0 independent_measurement_coefficients=0 scope=normalization_and_care_only
+ok
+test point_add::tests_midg_k24::n275_v2_full_column_new_boundaries_native ... N275_NEW_BOUNDARY_CASE_PASS label=HR_SY96 column=64 width=692 lanes=64 payload=false measurement_coefficients=UNASSESSED
+N275_NEW_BOUNDARY_CASE_PASS label=HR_SY97 column=65 width=692 lanes=64 payload=false measurement_coefficients=UNASSESSED
+N275_NEW_BOUNDARY_CASE_PASS label=HT_SY96 column=108 width=692 lanes=64 payload=false measurement_coefficients=UNASSESSED
+N275_NEW_BOUNDARY_CASE_PASS label=HT_SY97 column=96 width=692 lanes=64 payload=false measurement_coefficients=UNASSESSED
+N275_NEW_BOUNDARY_CASE_PASS label=wide_first_column column=0 width=692 lanes=64 payload=false measurement_coefficients=UNASSESSED
+N275_NEW_BOUNDARY_SUITE_PASS columns=5 lanes=320 measurement_coefficients=UNASSESSED scope=full_columns_no_payload
+ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 140 filtered out; finished in 7.30s
+
+	Command being timed: "cargo +1.93.0 test --release --locked --offline --manifest-path candidate-repair-v9/Cargo.toml --bin build_circuit n275_ -- --nocapture --test-threads=1"
+	User time (seconds): 6.37
+	System time (seconds): 1.32
+	Percent of CPU this job got: 46%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:16.43
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 401764
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 544705
+	Voluntary context switches: 856
+	Involuntary context switches: 14
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 40
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+warning: unexpected `cfg` condition name: `nonce_openssl`
+ --> src/bin/../point_add/tests_frogdrop.rs:6:32
+  |
+6 | #[cfg(all(target_os = "linux", nonce_openssl))]
+  |                                ^^^^^^^^^^^^^
+  |
+  = help: expected names are: `docsrs`, `feature`, and `test` and 31 more
+  = help: consider using a Cargo feature instead
+  = help: or consider adding in `Cargo.toml` the `check-cfg` lint config for the lint:
+           [lints.rust]
+           unexpected_cfgs = { level = "warn", check-cfg = ['cfg(nonce_openssl)'] }
+  = help: or consider adding `println!("cargo::rustc-check-cfg=cfg(nonce_openssl)");` to the top of the `build.rs`
+  = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+  = note: `#[warn(unexpected_cfgs)]` on by default
+
+warning: unexpected `cfg` condition name: `nonce_openssl`
+    --> src/bin/../point_add/tests_frogdrop.rs:2848:36
+     |
+2848 |     #[cfg(all(target_os = "linux", nonce_openssl))]
+     |                                    ^^^^^^^^^^^^^
+     |
+     = help: consider using a Cargo feature instead
+     = help: or consider adding in `Cargo.toml` the `check-cfg` lint config for the lint:
+              [lints.rust]
+              unexpected_cfgs = { level = "warn", check-cfg = ['cfg(nonce_openssl)'] }
+     = help: or consider adding `println!("cargo::rustc-check-cfg=cfg(nonce_openssl)");` to the top of the `build.rs`
+     = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition name: `nonce_openssl`
+    --> src/bin/../point_add/tests_frogdrop.rs:2953:44
+     |
+2953 |             #[cfg(all(target_os = "linux", nonce_openssl))]
+     |                                            ^^^^^^^^^^^^^
+     |
+     = help: consider using a Cargo feature instead
+     = help: or consider adding in `Cargo.toml` the `check-cfg` lint config for the lint:
+              [lints.rust]
+              unexpected_cfgs = { level = "warn", check-cfg = ['cfg(nonce_openssl)'] }
+     = help: or consider adding `println!("cargo::rustc-check-cfg=cfg(nonce_openssl)");` to the top of the `build.rs`
+     = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition name: `nonce_openssl`
+    --> src/bin/../point_add/tests_frogdrop.rs:2955:48
+     |
+2955 |             #[cfg(not(all(target_os = "linux", nonce_openssl)))]
+     |                                                ^^^^^^^^^^^^^
+     |
+     = help: consider using a Cargo feature instead
+     = help: or consider adding in `Cargo.toml` the `check-cfg` lint config for the lint:
+              [lints.rust]
+              unexpected_cfgs = { level = "warn", check-cfg = ['cfg(nonce_openssl)'] }
+     = help: or consider adding `println!("cargo::rustc-check-cfg=cfg(nonce_openssl)");` to the top of the `build.rs`
+     = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition name: `nonce_openssl`
+    --> src/bin/../point_add/tests_frogdrop.rs:2965:44
+     |
+2965 |             #[cfg(all(target_os = "linux", nonce_openssl))]
+     |                                            ^^^^^^^^^^^^^
+     |
+     = help: consider using a Cargo feature instead
+     = help: or consider adding in `Cargo.toml` the `check-cfg` lint config for the lint:
+              [lints.rust]
+              unexpected_cfgs = { level = "warn", check-cfg = ['cfg(nonce_openssl)'] }
+     = help: or consider adding `println!("cargo::rustc-check-cfg=cfg(nonce_openssl)");` to the top of the `build.rs`
+     = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unused import: `ttk_add`
+ --> src/bin/../point_add/canonical_short_clean.rs:4:20
+  |
+4 | use super::arith::{ttk_add,ttk_carry};
+  |                    ^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `column_pl`
+    --> src/bin/../point_add/tests_midg_k24.rs:1426:41
+     |
+1426 |     use super::frogdrop_col::{Fd,ColScr,column_pl};
+     |                                         ^^^^^^^^^
+
+warning: unused import: `OperationType`
+ --> src/bin/../point_add/tests_f1.rs:6:26
+  |
+6 | use crate::circuit::{Op, OperationType, QubitId};
+  |                          ^^^^^^^^^^^^^
+
+warning: variable does not need to be mutable
+    --> src/bin/../point_add/frogdrop.rs:1272:9
+     |
+1272 |     let mut tail_from = |b: &mut B, m: &[bool], j: usize| -> (Vec<G>, Vec<QubitId>, Vec<QubitId>) {
+     |         ----^^^^^^^^^
+     |         |
+     |         help: remove this `mut`
+     |
+     = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `h`
+   --> src/bin/../point_add/frogdrop_col.rs:547:9
+    |
+547 |     let h = cp.h as isize;
+    |         ^ help: if this is intentional, prefix it with an underscore: `_h`
+    |
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: value assigned to `f1_last` is never read
+    --> src/bin/../point_add/frogdrop_col.rs:539:9
+     |
+ 539 |         f1_last = b.tof;
+     |         ^^^^^^^^^^^^^^^
+...
+1188 |     stage!(); // 11
+     |     -------- in this macro invocation
+     |
+     = help: maybe it is overwritten before being read?
+     = note: `#[warn(unused_assignments)]` (part of `#[warn(unused)]`) on by default
+     = note: this warning originates in the macro `stage` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: value assigned to `f1_last` is never read
+    --> src/bin/../point_add/frogdrop_col.rs:539:9
+     |
+ 539 |         f1_last = b.tof;
+     |         ^^^^^^^^^^^^^^^
+...
+1118 |         stage!();
+     |         -------- in this macro invocation
+     |
+     = help: maybe it is overwritten before being read?
+     = note: this warning originates in the macro `stage` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: value assigned to `last` is never read
+    --> src/bin/../point_add/frogdrop_col.rs:542:43
+     |
+ 542 |             prof_v.push((stn, v - last)); last = v;
+     |                                           ^^^^^^^^
+...
+1188 |     stage!(); // 11
+     |     -------- in this macro invocation
+     |
+     = help: maybe it is overwritten before being read?
+     = note: this warning originates in the macro `stage` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: value assigned to `last` is never read
+    --> src/bin/../point_add/frogdrop_col.rs:542:43
+     |
+ 542 |             prof_v.push((stn, v - last)); last = v;
+     |                                           ^^^^^^^^
+...
+1118 |         stage!();
+     |         -------- in this macro invocation
+     |
+     = help: maybe it is overwritten before being read?
+     = note: this warning originates in the macro `stage` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: variable does not need to be mutable
+    --> src/bin/../point_add/frogdrop_col.rs:1338:17
+     |
+1338 |             let mut mk_q = |b: &mut B, neg: bool| rec(b, |b| probe_gated(b, q, 0, cp.m, &fd.sy, &[(sc.cmpc, neg)],
+     |                 ----^^^^
+     |                 |
+     |                 help: remove this `mut`
+
+warning: variable does not need to be mutable
+    --> src/bin/../point_add/frogdrop_col.rs:1342:17
+     |
+1342 |             let mut mk_r = |b: &mut B, neg: bool| rec(b, |b| super::frogdrop::msb_probe_cut_range_x(b, &rev, &mx,
+     |                 ----^^^^
+     |                 |
+     |                 help: remove this `mut`
+
+warning: unused variable: `mt`
+    --> src/bin/../point_add/payload.rs:1260:9
+     |
+1260 |     let mt = (n - (cp.sz.0 + cp.h) + 1).min(nq.max(cp.xw) + 1);
+     |         ^^ help: if this is intentional, prefix it with an underscore: `_mt`
+
+warning: unused variable: `srange`
+    --> src/bin/../point_add/payload.rs:1264:9
+     |
+1264 |     let srange = (szlo + sylo, (szhi + syhi).min(257));
+     |         ^^^^^^ help: if this is intentional, prefix it with an underscore: `_srange`
+
+warning: unused variable: `kp`
+   --> src/bin/../point_add/midg.rs:557:13
+    |
+557 |     let (k, kp, tot) = (cp.k, cp.kp, cp.tot);
+    |             ^^
+    |
+help: you might have meant to pattern match on the similarly named constant `KP`
+    |
+557 -     let (k, kp, tot) = (cp.k, cp.kp, cp.tot);
+557 +     let (k, point_add::pointadd_frogdrop::KP, tot) = (cp.k, cp.kp, cp.tot);
+    |
+help: if this is intentional, prefix it with an underscore
+    |
+557 |     let (k, _kp, tot) = (cp.k, cp.kp, cp.tot);
+    |             +
+
+warning: unused variable: `ring`
+    --> src/bin/../point_add/tests_midg_k24.rs:1331:33
+     |
+1331 | ...   let mut b=builder();let ring=b.alloc_n(275);let q=b.alloc_n(128);let sy=b.alloc_n(8);let sx=b.alloc_n(8);let ph=b.alloc();let pool=...
+     |                               ^^^^ help: if this is intentional, prefix it with an underscore: `_ring`
+
+warning: unused variable: `q`
+    --> src/bin/../point_add/tests_midg_k24.rs:1400:54
+     |
+1400 |     let mut b=builder(); let ring=b.alloc_n(275);let q=b.alloc_n(128);let sy=b.alloc_n(8);let sx=b.alloc_n(8);let ph=b.alloc();let pool=b...
+     |                                                      ^ help: if this is intentional, prefix it with an underscore: `_q`
+
+warning: `quantum_ecc` (bin "build_circuit" test) generated 21 warnings (run `cargo fix --bin "build_circuit" -p quantum_ecc --tests` to apply 12 suggestions)
+    Finished `release` profile [optimized] target(s) in 4.07s
+     Running unittests src/bin/build_circuit.rs (candidate-target-v9/release/deps/build_circuit-0c12d1b03f2fe721)
+
+running 2 tests
+test point_add::tests_midg_k24::ph_owner_structured_q22_one_column_payload_native ... PH_OWNER_PAYLOAD_CASE_PASS seed=0 lanes=64 exact_oracle=true inverse=true native_phase=0 measurement_coefficients=UNASSESSED
+PH_OWNER_PAYLOAD_CASE_PASS seed=1 lanes=64 exact_oracle=true inverse=true native_phase=0 measurement_coefficients=UNASSESSED
+PH_OWNER_PAYLOAD_CASE_PASS seed=2 lanes=64 exact_oracle=true inverse=true native_phase=0 measurement_coefficients=UNASSESSED
+PH_OWNER_PAYLOAD_CASE_PASS seed=3 lanes=64 exact_oracle=true inverse=true native_phase=0 measurement_coefficients=UNASSESSED
+PH_OWNER_STRUCTURED_COMPONENT_PASS width=692 column=24 euclid_step=25 quotient=6000000 max_payload_digit=6000000 cases=256 q22_owner=PH q23_owner=sw wide_firstcolumn_excluded=true scope=one_column_with_payload
+ok
+test point_add::tests_midg_k24::ph_owner_two_qbits_preposition_inverse_dirty_phase ... PH_TWO_OWNER_COMPONENT_PASS cases=256 q22_owner=PH q23_owner=sw owners_return=true dirty_passengers=259 inverse=true phase=0 measurement_coefficients=0 scope=preposition_only
+ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 143 filtered out; finished in 0.93s
+
+	Command being timed: "cargo +1.93.0 test --release --locked --offline --manifest-path candidate-repair-v9/Cargo.toml --bin build_circuit ph_owner_ -- --nocapture --test-threads=1"
+	User time (seconds): 0.93
+	System time (seconds): 0.27
+	Percent of CPU this job got: 23%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:05.09
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 269268
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 79081
+	Voluntary context switches: 403
+	Involuntary context switches: 2
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 208
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+warning: unexpected `cfg` condition name: `nonce_openssl`
+ --> src/bin/../point_add/tests_frogdrop.rs:6:32
+  |
+6 | #[cfg(all(target_os = "linux", nonce_openssl))]
+  |                                ^^^^^^^^^^^^^
+  |
+  = help: expected names are: `docsrs`, `feature`, and `test` and 31 more
+  = help: consider using a Cargo feature instead
+  = help: or consider adding in `Cargo.toml` the `check-cfg` lint config for the lint:
+           [lints.rust]
+           unexpected_cfgs = { level = "warn", check-cfg = ['cfg(nonce_openssl)'] }
+  = help: or consider adding `println!("cargo::rustc-check-cfg=cfg(nonce_openssl)");` to the top of the `build.rs`
+  = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+  = note: `#[warn(unexpected_cfgs)]` on by default
+
+warning: unexpected `cfg` condition name: `nonce_openssl`
+    --> src/bin/../point_add/tests_frogdrop.rs:2848:36
+     |
+2848 |     #[cfg(all(target_os = "linux", nonce_openssl))]
+     |                                    ^^^^^^^^^^^^^
+     |
+     = help: consider using a Cargo feature instead
+     = help: or consider adding in `Cargo.toml` the `check-cfg` lint config for the lint:
+              [lints.rust]
+              unexpected_cfgs = { level = "warn", check-cfg = ['cfg(nonce_openssl)'] }
+     = help: or consider adding `println!("cargo::rustc-check-cfg=cfg(nonce_openssl)");` to the top of the `build.rs`
+     = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition name: `nonce_openssl`
+    --> src/bin/../point_add/tests_frogdrop.rs:2953:44
+     |
+2953 |             #[cfg(all(target_os = "linux", nonce_openssl))]
+     |                                            ^^^^^^^^^^^^^
+     |
+     = help: consider using a Cargo feature instead
+     = help: or consider adding in `Cargo.toml` the `check-cfg` lint config for the lint:
+              [lints.rust]
+              unexpected_cfgs = { level = "warn", check-cfg = ['cfg(nonce_openssl)'] }
+     = help: or consider adding `println!("cargo::rustc-check-cfg=cfg(nonce_openssl)");` to the top of the `build.rs`
+     = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition name: `nonce_openssl`
+    --> src/bin/../point_add/tests_frogdrop.rs:2955:48
+     |
+2955 |             #[cfg(not(all(target_os = "linux", nonce_openssl)))]
+     |                                                ^^^^^^^^^^^^^
+     |
+     = help: consider using a Cargo feature instead
+     = help: or consider adding in `Cargo.toml` the `check-cfg` lint config for the lint:
+              [lints.rust]
+              unexpected_cfgs = { level = "warn", check-cfg = ['cfg(nonce_openssl)'] }
+     = help: or consider adding `println!("cargo::rustc-check-cfg=cfg(nonce_openssl)");` to the top of the `build.rs`
+     = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition name: `nonce_openssl`
+    --> src/bin/../point_add/tests_frogdrop.rs:2965:44
+     |
+2965 |             #[cfg(all(target_os = "linux", nonce_openssl))]
+     |                                            ^^^^^^^^^^^^^
+     |
+     = help: consider using a Cargo feature instead
+     = help: or consider adding in `Cargo.toml` the `check-cfg` lint config for the lint:
+              [lints.rust]
+              unexpected_cfgs = { level = "warn", check-cfg = ['cfg(nonce_openssl)'] }
+     = help: or consider adding `println!("cargo::rustc-check-cfg=cfg(nonce_openssl)");` to the top of the `build.rs`
+     = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unused import: `ttk_add`
+ --> src/bin/../point_add/canonical_short_clean.rs:4:20
+  |
+4 | use super::arith::{ttk_add,ttk_carry};
+  |                    ^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `column_pl`
+    --> src/bin/../point_add/tests_midg_k24.rs:1426:41
+     |
+1426 |     use super::frogdrop_col::{Fd,ColScr,column_pl};
+     |                                         ^^^^^^^^^
+
+warning: unused import: `OperationType`
+ --> src/bin/../point_add/tests_f1.rs:6:26
+  |
+6 | use crate::circuit::{Op, OperationType, QubitId};
+  |                          ^^^^^^^^^^^^^
+
+warning: variable does not need to be mutable
+    --> src/bin/../point_add/frogdrop.rs:1272:9
+     |
+1272 |     let mut tail_from = |b: &mut B, m: &[bool], j: usize| -> (Vec<G>, Vec<QubitId>, Vec<QubitId>) {
+     |         ----^^^^^^^^^
+     |         |
+     |         help: remove this `mut`
+     |
+     = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `h`
+   --> src/bin/../point_add/frogdrop_col.rs:547:9
+    |
+547 |     let h = cp.h as isize;
+    |         ^ help: if this is intentional, prefix it with an underscore: `_h`
+    |
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: value assigned to `f1_last` is never read
+    --> src/bin/../point_add/frogdrop_col.rs:539:9
+     |
+ 539 |         f1_last = b.tof;
+     |         ^^^^^^^^^^^^^^^
+...
+1188 |     stage!(); // 11
+     |     -------- in this macro invocation
+     |
+     = help: maybe it is overwritten before being read?
+     = note: `#[warn(unused_assignments)]` (part of `#[warn(unused)]`) on by default
+     = note: this warning originates in the macro `stage` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: value assigned to `f1_last` is never read
+    --> src/bin/../point_add/frogdrop_col.rs:539:9
+     |
+ 539 |         f1_last = b.tof;
+     |         ^^^^^^^^^^^^^^^
+...
+1118 |         stage!();
+     |         -------- in this macro invocation
+     |
+     = help: maybe it is overwritten before being read?
+     = note: this warning originates in the macro `stage` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: value assigned to `last` is never read
+    --> src/bin/../point_add/frogdrop_col.rs:542:43
+     |
+ 542 |             prof_v.push((stn, v - last)); last = v;
+     |                                           ^^^^^^^^
+...
+1188 |     stage!(); // 11
+     |     -------- in this macro invocation
+     |
+     = help: maybe it is overwritten before being read?
+     = note: this warning originates in the macro `stage` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: value assigned to `last` is never read
+    --> src/bin/../point_add/frogdrop_col.rs:542:43
+     |
+ 542 |             prof_v.push((stn, v - last)); last = v;
+     |                                           ^^^^^^^^
+...
+1118 |         stage!();
+     |         -------- in this macro invocation
+     |
+     = help: maybe it is overwritten before being read?
+     = note: this warning originates in the macro `stage` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: variable does not need to be mutable
+    --> src/bin/../point_add/frogdrop_col.rs:1338:17
+     |
+1338 |             let mut mk_q = |b: &mut B, neg: bool| rec(b, |b| probe_gated(b, q, 0, cp.m, &fd.sy, &[(sc.cmpc, neg)],
+     |                 ----^^^^
+     |                 |
+     |                 help: remove this `mut`
+
+warning: variable does not need to be mutable
+    --> src/bin/../point_add/frogdrop_col.rs:1342:17
+     |
+1342 |             let mut mk_r = |b: &mut B, neg: bool| rec(b, |b| super::frogdrop::msb_probe_cut_range_x(b, &rev, &mx,
+     |                 ----^^^^
+     |                 |
+     |                 help: remove this `mut`
+
+warning: unused variable: `mt`
+    --> src/bin/../point_add/payload.rs:1260:9
+     |
+1260 |     let mt = (n - (cp.sz.0 + cp.h) + 1).min(nq.max(cp.xw) + 1);
+     |         ^^ help: if this is intentional, prefix it with an underscore: `_mt`
+
+warning: unused variable: `srange`
+    --> src/bin/../point_add/payload.rs:1264:9
+     |
+1264 |     let srange = (szlo + sylo, (szhi + syhi).min(257));
+     |         ^^^^^^ help: if this is intentional, prefix it with an underscore: `_srange`
+
+warning: unused variable: `kp`
+   --> src/bin/../point_add/midg.rs:557:13
+    |
+557 |     let (k, kp, tot) = (cp.k, cp.kp, cp.tot);
+    |             ^^
+    |
+help: you might have meant to pattern match on the similarly named constant `KP`
+    |
+557 -     let (k, kp, tot) = (cp.k, cp.kp, cp.tot);
+557 +     let (k, point_add::pointadd_frogdrop::KP, tot) = (cp.k, cp.kp, cp.tot);
+    |
+help: if this is intentional, prefix it with an underscore
+    |
+557 |     let (k, _kp, tot) = (cp.k, cp.kp, cp.tot);
+    |             +
+
+warning: unused variable: `ring`
+    --> src/bin/../point_add/tests_midg_k24.rs:1331:33
+     |
+1331 | ...   let mut b=builder();let ring=b.alloc_n(275);let q=b.alloc_n(128);let sy=b.alloc_n(8);let sx=b.alloc_n(8);let ph=b.alloc();let pool=...
+     |                               ^^^^ help: if this is intentional, prefix it with an underscore: `_ring`
+
+warning: unused variable: `q`
+    --> src/bin/../point_add/tests_midg_k24.rs:1400:54
+     |
+1400 |     let mut b=builder(); let ring=b.alloc_n(275);let q=b.alloc_n(128);let sy=b.alloc_n(8);let sx=b.alloc_n(8);let ph=b.alloc();let pool=b...
+     |                                                      ^ help: if this is intentional, prefix it with an underscore: `_q`
+
+warning: `quantum_ecc` (bin "build_circuit" test) generated 21 warnings (run `cargo fix --bin "build_circuit" -p quantum_ecc --tests` to apply 12 suggestions)
+    Finished `release` profile [optimized] target(s) in 0.10s
+     Running unittests src/bin/build_circuit.rs (candidate-target-v9/release/deps/build_circuit-0c12d1b03f2fe721)
+
+running 1 test
+test point_add::tests_midg_k24::cap24_counterexample8048_exact_column_payload_native ... CAP24_PAYLOAD_CASE_PASS seed=0 lanes=64 exact_oracle=true inverse=true native_phase=0 measurement_coefficients=UNASSESSED
+CAP24_PAYLOAD_CASE_PASS seed=1 lanes=64 exact_oracle=true inverse=true native_phase=0 measurement_coefficients=UNASSESSED
+CAP24_PAYLOAD_CASE_PASS seed=2 lanes=64 exact_oracle=true inverse=true native_phase=0 measurement_coefficients=UNASSESSED
+CAP24_PAYLOAD_CASE_PASS seed=3 lanes=64 exact_oracle=true inverse=true native_phase=0 measurement_coefficients=UNASSESSED
+CAP24_EXACT8048_COMPONENT_PASS width=692 column=24 euclid_step=25 quotient=8505374 max_payload_digit=8505374 cases=256 q23_owner=sw wide_firstcolumn_excluded=true scope=one_column_with_payload
+ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 144 filtered out; finished in 0.92s
+
+	Command being timed: "cargo +1.93.0 test --release --locked --offline --manifest-path candidate-repair-v9/Cargo.toml --bin build_circuit cap24_counterexample8048 -- --nocapture --test-threads=1"
+	User time (seconds): 0.84
+	System time (seconds): 0.21
+	Percent of CPU this job got: 100%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:01.06
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 270420
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 79065
+	Voluntary context switches: 41
+	Involuntary context switches: 4
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 16
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+warning: unexpected `cfg` condition name: `nonce_openssl`
+ --> src/bin/../point_add/tests_frogdrop.rs:6:32
+  |
+6 | #[cfg(all(target_os = "linux", nonce_openssl))]
+  |                                ^^^^^^^^^^^^^
+  |
+  = help: expected names are: `docsrs`, `feature`, and `test` and 31 more
+  = help: consider using a Cargo feature instead
+  = help: or consider adding in `Cargo.toml` the `check-cfg` lint config for the lint:
+           [lints.rust]
+           unexpected_cfgs = { level = "warn", check-cfg = ['cfg(nonce_openssl)'] }
+  = help: or consider adding `println!("cargo::rustc-check-cfg=cfg(nonce_openssl)");` to the top of the `build.rs`
+  = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+  = note: `#[warn(unexpected_cfgs)]` on by default
+
+warning: unexpected `cfg` condition name: `nonce_openssl`
+    --> src/bin/../point_add/tests_frogdrop.rs:2848:36
+     |
+2848 |     #[cfg(all(target_os = "linux", nonce_openssl))]
+     |                                    ^^^^^^^^^^^^^
+     |
+     = help: consider using a Cargo feature instead
+     = help: or consider adding in `Cargo.toml` the `check-cfg` lint config for the lint:
+              [lints.rust]
+              unexpected_cfgs = { level = "warn", check-cfg = ['cfg(nonce_openssl)'] }
+     = help: or consider adding `println!("cargo::rustc-check-cfg=cfg(nonce_openssl)");` to the top of the `build.rs`
+     = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition name: `nonce_openssl`
+    --> src/bin/../point_add/tests_frogdrop.rs:2953:44
+     |
+2953 |             #[cfg(all(target_os = "linux", nonce_openssl))]
+     |                                            ^^^^^^^^^^^^^
+     |
+     = help: consider using a Cargo feature instead
+     = help: or consider adding in `Cargo.toml` the `check-cfg` lint config for the lint:
+              [lints.rust]
+              unexpected_cfgs = { level = "warn", check-cfg = ['cfg(nonce_openssl)'] }
+     = help: or consider adding `println!("cargo::rustc-check-cfg=cfg(nonce_openssl)");` to the top of the `build.rs`
+     = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition name: `nonce_openssl`
+    --> src/bin/../point_add/tests_frogdrop.rs:2955:48
+     |
+2955 |             #[cfg(not(all(target_os = "linux", nonce_openssl)))]
+     |                                                ^^^^^^^^^^^^^
+     |
+     = help: consider using a Cargo feature instead
+     = help: or consider adding in `Cargo.toml` the `check-cfg` lint config for the lint:
+              [lints.rust]
+              unexpected_cfgs = { level = "warn", check-cfg = ['cfg(nonce_openssl)'] }
+     = help: or consider adding `println!("cargo::rustc-check-cfg=cfg(nonce_openssl)");` to the top of the `build.rs`
+     = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unexpected `cfg` condition name: `nonce_openssl`
+    --> src/bin/../point_add/tests_frogdrop.rs:2965:44
+     |
+2965 |             #[cfg(all(target_os = "linux", nonce_openssl))]
+     |                                            ^^^^^^^^^^^^^
+     |
+     = help: consider using a Cargo feature instead
+     = help: or consider adding in `Cargo.toml` the `check-cfg` lint config for the lint:
+              [lints.rust]
+              unexpected_cfgs = { level = "warn", check-cfg = ['cfg(nonce_openssl)'] }
+     = help: or consider adding `println!("cargo::rustc-check-cfg=cfg(nonce_openssl)");` to the top of the `build.rs`
+     = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+
+warning: unused import: `ttk_add`
+ --> src/bin/../point_add/canonical_short_clean.rs:4:20
+  |
+4 | use super::arith::{ttk_add,ttk_carry};
+  |                    ^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `column_pl`
+    --> src/bin/../point_add/tests_midg_k24.rs:1426:41
+     |
+1426 |     use super::frogdrop_col::{Fd,ColScr,column_pl};
+     |                                         ^^^^^^^^^
+
+warning: unused import: `OperationType`
+ --> src/bin/../point_add/tests_f1.rs:6:26
+  |
+6 | use crate::circuit::{Op, OperationType, QubitId};
+  |                          ^^^^^^^^^^^^^
+
+warning: variable does not need to be mutable
+    --> src/bin/../point_add/frogdrop.rs:1272:9
+     |
+1272 |     let mut tail_from = |b: &mut B, m: &[bool], j: usize| -> (Vec<G>, Vec<QubitId>, Vec<QubitId>) {
+     |         ----^^^^^^^^^
+     |         |
+     |         help: remove this `mut`
+     |
+     = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `h`
+   --> src/bin/../point_add/frogdrop_col.rs:547:9
+    |
+547 |     let h = cp.h as isize;
+    |         ^ help: if this is intentional, prefix it with an underscore: `_h`
+    |
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: value assigned to `f1_last` is never read
+    --> src/bin/../point_add/frogdrop_col.rs:539:9
+     |
+ 539 |         f1_last = b.tof;
+     |         ^^^^^^^^^^^^^^^
+...
+1188 |     stage!(); // 11
+     |     -------- in this macro invocation
+     |
+     = help: maybe it is overwritten before being read?
+     = note: `#[warn(unused_assignments)]` (part of `#[warn(unused)]`) on by default
+     = note: this warning originates in the macro `stage` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: value assigned to `f1_last` is never read
+    --> src/bin/../point_add/frogdrop_col.rs:539:9
+     |
+ 539 |         f1_last = b.tof;
+     |         ^^^^^^^^^^^^^^^
+...
+1118 |         stage!();
+     |         -------- in this macro invocation
+     |
+     = help: maybe it is overwritten before being read?
+     = note: this warning originates in the macro `stage` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: value assigned to `last` is never read
+    --> src/bin/../point_add/frogdrop_col.rs:542:43
+     |
+ 542 |             prof_v.push((stn, v - last)); last = v;
+     |                                           ^^^^^^^^
+...
+1188 |     stage!(); // 11
+     |     -------- in this macro invocation
+     |
+     = help: maybe it is overwritten before being read?
+     = note: this warning originates in the macro `stage` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: value assigned to `last` is never read
+    --> src/bin/../point_add/frogdrop_col.rs:542:43
+     |
+ 542 |             prof_v.push((stn, v - last)); last = v;
+     |                                           ^^^^^^^^
+...
+1118 |         stage!();
+     |         -------- in this macro invocation
+     |
+     = help: maybe it is overwritten before being read?
+     = note: this warning originates in the macro `stage` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: variable does not need to be mutable
+    --> src/bin/../point_add/frogdrop_col.rs:1338:17
+     |
+1338 |             let mut mk_q = |b: &mut B, neg: bool| rec(b, |b| probe_gated(b, q, 0, cp.m, &fd.sy, &[(sc.cmpc, neg)],
+     |                 ----^^^^
+     |                 |
+     |                 help: remove this `mut`
+
+warning: variable does not need to be mutable
+    --> src/bin/../point_add/frogdrop_col.rs:1342:17
+     |
+1342 |             let mut mk_r = |b: &mut B, neg: bool| rec(b, |b| super::frogdrop::msb_probe_cut_range_x(b, &rev, &mx,
+     |                 ----^^^^
+     |                 |
+     |                 help: remove this `mut`
+
+warning: unused variable: `mt`
+    --> src/bin/../point_add/payload.rs:1260:9
+     |
+1260 |     let mt = (n - (cp.sz.0 + cp.h) + 1).min(nq.max(cp.xw) + 1);
+     |         ^^ help: if this is intentional, prefix it with an underscore: `_mt`
+
+warning: unused variable: `srange`
+    --> src/bin/../point_add/payload.rs:1264:9
+     |
+1264 |     let srange = (szlo + sylo, (szhi + syhi).min(257));
+     |         ^^^^^^ help: if this is intentional, prefix it with an underscore: `_srange`
+
+warning: unused variable: `kp`
+   --> src/bin/../point_add/midg.rs:557:13
+    |
+557 |     let (k, kp, tot) = (cp.k, cp.kp, cp.tot);
+    |             ^^
+    |
+help: you might have meant to pattern match on the similarly named constant `KP`
+    |
+557 -     let (k, kp, tot) = (cp.k, cp.kp, cp.tot);
+557 +     let (k, point_add::pointadd_frogdrop::KP, tot) = (cp.k, cp.kp, cp.tot);
+    |
+help: if this is intentional, prefix it with an underscore
+    |
+557 |     let (k, _kp, tot) = (cp.k, cp.kp, cp.tot);
+    |             +
+
+warning: unused variable: `ring`
+    --> src/bin/../point_add/tests_midg_k24.rs:1331:33
+     |
+1331 | ...   let mut b=builder();let ring=b.alloc_n(275);let q=b.alloc_n(128);let sy=b.alloc_n(8);let sx=b.alloc_n(8);let ph=b.alloc();let pool=...
+     |                               ^^^^ help: if this is intentional, prefix it with an underscore: `_ring`
+
+warning: unused variable: `q`
+    --> src/bin/../point_add/tests_midg_k24.rs:1400:54
+     |
+1400 |     let mut b=builder(); let ring=b.alloc_n(275);let q=b.alloc_n(128);let sy=b.alloc_n(8);let sx=b.alloc_n(8);let ph=b.alloc();let pool=b...
+     |                                                      ^ help: if this is intentional, prefix it with an underscore: `_q`
+
+warning: `quantum_ecc` (bin "build_circuit" test) generated 21 warnings (run `cargo fix --bin "build_circuit" -p quantum_ecc --tests` to apply 12 suggestions)
+    Finished `release` profile [optimized] target(s) in 0.10s
+     Running unittests src/bin/build_circuit.rs (candidate-target-v9/release/deps/build_circuit-0c12d1b03f2fe721)
+
+running 2 tests
+test point_add::tests_midg_k24::reserve9_columns_crossing_3713_positive_native ... RESERVE9_COLUMN_CASE_PASS label=shot3713_firstHT column=60 width=692 lanes=64 payload=false measurement_coefficients=UNASSESSED
+RESERVE9_COLUMN_CASE_PASS label=Dl column=71 width=692 lanes=64 payload=false measurement_coefficients=UNASSESSED
+RESERVE9_COLUMN_CASE_PASS label=Dq column=72 width=692 lanes=64 payload=false measurement_coefficients=UNASSESSED
+RESERVE9_COLUMN_CASE_PASS label=HR_SY128 column=67 width=692 lanes=64 payload=false measurement_coefficients=UNASSESSED
+RESERVE9_COLUMN_CASE_PASS label=HR_SY98 column=50 width=692 lanes=64 payload=false measurement_coefficients=UNASSESSED
+RESERVE9_COLUMN_CASE_PASS label=HR_SY99 column=38 width=692 lanes=64 payload=false measurement_coefficients=UNASSESSED
+RESERVE9_COLUMN_CASE_PASS label=HT_SY128 column=88 width=692 lanes=64 payload=false measurement_coefficients=UNASSESSED
+RESERVE9_COLUMN_CASE_PASS label=HT_SY98 column=75 width=692 lanes=64 payload=false measurement_coefficients=UNASSESSED
+RESERVE9_COLUMN_CASE_PASS label=HT_SY99 column=94 width=692 lanes=64 payload=false measurement_coefficients=UNASSESSED
+RESERVE9_COLUMN_CASE_PASS label=Sw column=85 width=692 lanes=64 payload=false measurement_coefficients=UNASSESSED
+RESERVE9_COLUMN_CASE_PASS label=firstHT column=86 width=692 lanes=64 payload=false measurement_coefficients=UNASSESSED
+RESERVE9_COLUMN_CASE_PASS label=shot1937_HR column=9 width=692 lanes=64 payload=false measurement_coefficients=UNASSESSED
+RESERVE9_COLUMN_CASE_PASS label=shot4131_HT column=100 width=692 lanes=64 payload=false measurement_coefficients=UNASSESSED
+RESERVE9_NATIVE_SUITE_PASS columns=13 lanes=832 measurement_coefficients=UNASSESSED scope=full_columns_no_payload
+ok
+test point_add::tests_midg_k24::reserve9_crossing_payload_3713_exact_shadow_native ... RESERVE9_PAYLOAD_CASE_PASS seed=0 lanes=64 dy=0,1,p-1,varied exact_pre_and_offset_oracle=true all_wires_inverse=true native_phase=0 measurement_coefficients=UNASSESSED
+RESERVE9_PAYLOAD_CASE_PASS seed=1 lanes=64 dy=0,1,p-1,varied exact_pre_and_offset_oracle=true all_wires_inverse=true native_phase=0 measurement_coefficients=UNASSESSED
+RESERVE9_PAYLOAD_CASE_PASS seed=2 lanes=64 dy=0,1,p-1,varied exact_pre_and_offset_oracle=true all_wires_inverse=true native_phase=0 measurement_coefficients=UNASSESSED
+RESERVE9_PAYLOAD_CASE_PASS seed=3 lanes=64 dy=0,1,p-1,varied exact_pre_and_offset_oracle=true all_wires_inverse=true native_phase=0 measurement_coefficients=UNASSESSED
+RESERVE9_PAYLOAD_COMPONENT_PASS width=692 column=60 euclid_step=60 first_HT_refill=true quotient=375614 reserve=9 cases=256 scope=one_full_column_with_admitted_payload
+ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 143 filtered out; finished in 22.08s
+
+	Command being timed: "cargo +1.93.0 test --release --locked --offline --manifest-path candidate-repair-v9/Cargo.toml --bin build_circuit reserve9_ -- --nocapture --test-threads=1"
+	User time (seconds): 19.12
+	System time (seconds): 3.09
+	Percent of CPU this job got: 100%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:22.22
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 509012
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 1534724
+	Voluntary context switches: 37
+	Involuntary context switches: 35
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 56
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+     Locking 193 packages to latest compatible versions
+     Locking 193 packages to latest compatible versions
+Thu Oct 15 02:00:34 AM UTC 2026

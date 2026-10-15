@@ -1,0 +1,60 @@
+=== quantum_ecc: build_circuit (untrusted stage) ===
+
+-- building circuit --
+F1_PROFILE column.map calls=812 emitted_t=68944486
+F1_PROFILE column.midg_finish calls=812 emitted_t=0
+F1_PROFILE column.midg_hr_correction calls=812 emitted_t=15639348
+F1_PROFILE column.midg_hr_search calls=812 emitted_t=52638406
+F1_PROFILE column.midg_ht_correction calls=812 emitted_t=72862630
+F1_PROFILE column.midg_ht_division calls=812 emitted_t=30806256
+F1_PROFILE column.probe_switch calls=812 emitted_t=3144134
+F1_PROFILE column.swap_digit calls=812 emitted_t=21492228
+F1_PROFILE column.swap_unprobe calls=812 emitted_t=3194609
+F1_PROFILE column.switch_done calls=812 emitted_t=996296
+F1_PROFILE digit.complement calls=560 emitted_t=78769
+F1_PROFILE digit.divide calls=560 emitted_t=8021403
+F1_PROFILE digit.erase_sign calls=560 emitted_t=61049
+F1_PROFILE digit.inverse calls=560 emitted_t=9744482
+F1_PROFILE digit.inverse_fused calls=14000 emitted_t=6549373
+F1_PROFILE digit.sign_relocate calls=560 emitted_t=429194
+F1_PROFILE digit.widen calls=560 emitted_t=440433
+F1_PROFILE midg.decide calls=54200 emitted_t=9492370
+F1_PROFILE midg.fetch calls=81300 emitted_t=6886276
+F1_PROFILE midg.gate_off calls=43700 emitted_t=4069156
+F1_PROFILE midg.gate_on calls=43700 emitted_t=2499440
+F1_PROFILE midg.ring_add calls=125000 emitted_t=56280210
+F1_PROFILE midg.vform calls=2232 emitted_t=55581240
+F1_PROFILE payload.read_lane calls=54736 emitted_t=3040505
+F1_PROFILE payload.ripple calls=85352 emitted_t=13789634
+F1_PROFILE payload.transition_masked calls=8352 emitted_t=3670837
+F1_PROFILE payload.transition_plain calls=10500 emitted_t=2835410
+F1_PROFILE traversal.inverse_column calls=406 emitted_t=273385821
+frogdrop: ops 0 peak qubits 692 width 692 emitted Toffoli 544889652
+LOWQ_EXACT_STREAM Q=692 T=544889652 N=1619702564 width=692
+  emitted ops : 0
+  wrote       : ops.bin (25 bytes on disk, 16 uncompressed, 0.6x)
+
+=== build_circuit OK ===
+	Command being timed: "/home/hclau/ecdsa_research/q692_readiness_20261015/package-target-v9/release/build_circuit"
+	User time (seconds): 842.31
+	System time (seconds): 24.79
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 14:27.30
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 980816
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 10227365
+	Voluntary context switches: 12
+	Involuntary context switches: 1768
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 8630976
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

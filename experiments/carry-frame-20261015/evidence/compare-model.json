@@ -1,0 +1,262 @@
+{
+  "score": null,
+  "scope": "Uniform independent n-bit target and source; exact predicate target<source; source-bit predictor directly below a k-bit window. No fold, no production-distribution claim.",
+  "result": "One additional unseeded bit has fewer predicate errors in this model and fixes all equality cases. Neither truncated policy is generally exact.",
+  "seeded_error_probability": "2^(-k-2)",
+  "widened_unseeded_error_probability": "2^(-k-2)-2^(-n-1)",
+  "rows": [
+    {
+      "width": 2,
+      "old_window": 1,
+      "pairs": 16,
+      "seeded_errors": 2,
+      "widened_unseeded_errors": 0,
+      "equal_operand_seeded_errors": 2,
+      "equal_operand_unseeded_errors": 0
+    },
+    {
+      "width": 3,
+      "old_window": 1,
+      "pairs": 64,
+      "seeded_errors": 8,
+      "widened_unseeded_errors": 4,
+      "equal_operand_seeded_errors": 4,
+      "equal_operand_unseeded_errors": 0
+    },
+    {
+      "width": 3,
+      "old_window": 2,
+      "pairs": 64,
+      "seeded_errors": 4,
+      "widened_unseeded_errors": 0,
+      "equal_operand_seeded_errors": 4,
+      "equal_operand_unseeded_errors": 0
+    },
+    {
+      "width": 4,
+      "old_window": 1,
+      "pairs": 256,
+      "seeded_errors": 32,
+      "widened_unseeded_errors": 24,
+      "equal_operand_seeded_errors": 8,
+      "equal_operand_unseeded_errors": 0
+    },
+    {
+      "width": 4,
+      "old_window": 2,
+      "pairs": 256,
+      "seeded_errors": 16,
+      "widened_unseeded_errors": 8,
+      "equal_operand_seeded_errors": 8,
+      "equal_operand_unseeded_errors": 0
+    },
+    {
+      "width": 4,
+      "old_window": 3,
+      "pairs": 256,
+      "seeded_errors": 8,
+      "widened_unseeded_errors": 0,
+      "equal_operand_seeded_errors": 8,
+      "equal_operand_unseeded_errors": 0
+    },
+    {
+      "width": 5,
+      "old_window": 1,
+      "pairs": 1024,
+      "seeded_errors": 128,
+      "widened_unseeded_errors": 112,
+      "equal_operand_seeded_errors": 16,
+      "equal_operand_unseeded_errors": 0
+    },
+    {
+      "width": 5,
+      "old_window": 2,
+      "pairs": 1024,
+      "seeded_errors": 64,
+      "widened_unseeded_errors": 48,
+      "equal_operand_seeded_errors": 16,
+      "equal_operand_unseeded_errors": 0
+    },
+    {
+      "width": 5,
+      "old_window": 3,
+      "pairs": 1024,
+      "seeded_errors": 32,
+      "widened_unseeded_errors": 16,
+      "equal_operand_seeded_errors": 16,
+      "equal_operand_unseeded_errors": 0
+    },
+    {
+      "width": 5,
+      "old_window": 4,
+      "pairs": 1024,
+      "seeded_errors": 16,
+      "widened_unseeded_errors": 0,
+      "equal_operand_seeded_errors": 16,
+      "equal_operand_unseeded_errors": 0
+    },
+    {
+      "width": 6,
+      "old_window": 1,
+      "pairs": 4096,
+      "seeded_errors": 512,
+      "widened_unseeded_errors": 480,
+      "equal_operand_seeded_errors": 32,
+      "equal_operand_unseeded_errors": 0
+    },
+    {
+      "width": 6,
+      "old_window": 2,
+      "pairs": 4096,
+      "seeded_errors": 256,
+      "widened_unseeded_errors": 224,
+      "equal_operand_seeded_errors": 32,
+      "equal_operand_unseeded_errors": 0
+    },
+    {
+      "width": 6,
+      "old_window": 3,
+      "pairs": 4096,
+      "seeded_errors": 128,
+      "widened_unseeded_errors": 96,
+      "equal_operand_seeded_errors": 32,
+      "equal_operand_unseeded_errors": 0
+    },
+    {
+      "width": 6,
+      "old_window": 4,
+      "pairs": 4096,
+      "seeded_errors": 64,
+      "widened_unseeded_errors": 32,
+      "equal_operand_seeded_errors": 32,
+      "equal_operand_unseeded_errors": 0
+    },
+    {
+      "width": 6,
+      "old_window": 5,
+      "pairs": 4096,
+      "seeded_errors": 32,
+      "widened_unseeded_errors": 0,
+      "equal_operand_seeded_errors": 32,
+      "equal_operand_unseeded_errors": 0
+    },
+    {
+      "width": 7,
+      "old_window": 1,
+      "pairs": 16384,
+      "seeded_errors": 2048,
+      "widened_unseeded_errors": 1984,
+      "equal_operand_seeded_errors": 64,
+      "equal_operand_unseeded_errors": 0
+    },
+    {
+      "width": 7,
+      "old_window": 2,
+      "pairs": 16384,
+      "seeded_errors": 1024,
+      "widened_unseeded_errors": 960,
+      "equal_operand_seeded_errors": 64,
+      "equal_operand_unseeded_errors": 0
+    },
+    {
+      "width": 7,
+      "old_window": 3,
+      "pairs": 16384,
+      "seeded_errors": 512,
+      "widened_unseeded_errors": 448,
+      "equal_operand_seeded_errors": 64,
+      "equal_operand_unseeded_errors": 0
+    },
+    {
+      "width": 7,
+      "old_window": 4,
+      "pairs": 16384,
+      "seeded_errors": 256,
+      "widened_unseeded_errors": 192,
+      "equal_operand_seeded_errors": 64,
+      "equal_operand_unseeded_errors": 0
+    },
+    {
+      "width": 7,
+      "old_window": 5,
+      "pairs": 16384,
+      "seeded_errors": 128,
+      "widened_unseeded_errors": 64,
+      "equal_operand_seeded_errors": 64,
+      "equal_operand_unseeded_errors": 0
+    },
+    {
+      "width": 7,
+      "old_window": 6,
+      "pairs": 16384,
+      "seeded_errors": 64,
+      "widened_unseeded_errors": 0,
+      "equal_operand_seeded_errors": 64,
+      "equal_operand_unseeded_errors": 0
+    },
+    {
+      "width": 8,
+      "old_window": 1,
+      "pairs": 65536,
+      "seeded_errors": 8192,
+      "widened_unseeded_errors": 8064,
+      "equal_operand_seeded_errors": 128,
+      "equal_operand_unseeded_errors": 0
+    },
+    {
+      "width": 8,
+      "old_window": 2,
+      "pairs": 65536,
+      "seeded_errors": 4096,
+      "widened_unseeded_errors": 3968,
+      "equal_operand_seeded_errors": 128,
+      "equal_operand_unseeded_errors": 0
+    },
+    {
+      "width": 8,
+      "old_window": 3,
+      "pairs": 65536,
+      "seeded_errors": 2048,
+      "widened_unseeded_errors": 1920,
+      "equal_operand_seeded_errors": 128,
+      "equal_operand_unseeded_errors": 0
+    },
+    {
+      "width": 8,
+      "old_window": 4,
+      "pairs": 65536,
+      "seeded_errors": 1024,
+      "widened_unseeded_errors": 896,
+      "equal_operand_seeded_errors": 128,
+      "equal_operand_unseeded_errors": 0
+    },
+    {
+      "width": 8,
+      "old_window": 5,
+      "pairs": 65536,
+      "seeded_errors": 512,
+      "widened_unseeded_errors": 384,
+      "equal_operand_seeded_errors": 128,
+      "equal_operand_unseeded_errors": 0
+    },
+    {
+      "width": 8,
+      "old_window": 6,
+      "pairs": 65536,
+      "seeded_errors": 256,
+      "widened_unseeded_errors": 128,
+      "equal_operand_seeded_errors": 128,
+      "equal_operand_unseeded_errors": 0
+    },
+    {
+      "width": 8,
+      "old_window": 7,
+      "pairs": 65536,
+      "seeded_errors": 128,
+      "widened_unseeded_errors": 0,
+      "equal_operand_seeded_errors": 128,
+      "equal_operand_unseeded_errors": 0
+    }
+  ],
+  "pairs_exhausted": 582544
+}

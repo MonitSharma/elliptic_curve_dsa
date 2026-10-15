@@ -1,0 +1,99 @@
+{
+  "status": "finite algebraic design only",
+  "score": null,
+  "cases": 42576,
+  "rows": [
+    {
+      "prime": 5,
+      "operation": "divide",
+      "cases": 24,
+      "permutations": 4
+    },
+    {
+      "prime": 5,
+      "operation": "multiply",
+      "cases": 24,
+      "permutations": 4
+    },
+    {
+      "prime": 7,
+      "operation": "divide",
+      "cases": 48,
+      "permutations": 6
+    },
+    {
+      "prime": 7,
+      "operation": "multiply",
+      "cases": 48,
+      "permutations": 6
+    },
+    {
+      "prime": 11,
+      "operation": "divide",
+      "cases": 120,
+      "permutations": 10
+    },
+    {
+      "prime": 11,
+      "operation": "multiply",
+      "cases": 120,
+      "permutations": 10
+    },
+    {
+      "prime": 17,
+      "operation": "divide",
+      "cases": 288,
+      "permutations": 16
+    },
+    {
+      "prime": 17,
+      "operation": "multiply",
+      "cases": 288,
+      "permutations": 16
+    },
+    {
+      "prime": 31,
+      "operation": "divide",
+      "cases": 960,
+      "permutations": 30
+    },
+    {
+      "prime": 31,
+      "operation": "multiply",
+      "cases": 960,
+      "permutations": 30
+    },
+    {
+      "prime": 61,
+      "operation": "divide",
+      "cases": 3720,
+      "permutations": 60
+    },
+    {
+      "prime": 61,
+      "operation": "multiply",
+      "cases": 3720,
+      "permutations": 60
+    },
+    {
+      "prime": 127,
+      "operation": "divide",
+      "cases": 16128,
+      "permutations": 126
+    },
+    {
+      "prime": 127,
+      "operation": "multiply",
+      "cases": 16128,
+      "permutations": 126
+    }
+  ],
+  "division_rule": "Map zero payload to denominator x, apply nonzero division, XOR 1 on flagged branch, restore physical p if needed, uncompute zero flags.",
+  "multiplication_rule": "Map zero payload to 1, apply nonzero multiplication, XOR x on flagged branch, restore physical p if needed, uncompute zero flags.",
+  "limitations": [
+    "Assumes nonzero x and a phase-correct oracle with canonical nonzero output.",
+    "No quantum implementation, resource count or production phase proof.",
+    "Actual seam and seed-fusion contracts require verification; disabling them has a cost.",
+    "Does not solve zero x in multiplication; that case requires point-level handling or another reversible contract."
+  ]
+}

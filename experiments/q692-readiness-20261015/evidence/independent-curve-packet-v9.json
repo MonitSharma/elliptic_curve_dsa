@@ -1,0 +1,60 @@
+{
+  "scope": "All three independent policy failures converted to valid secp256k1 curve pairs; no nonce or official packet alteration",
+  "audit_sha256": "5d762836e37100130aca1aaada48c63c2a1a13b37989f9dddc7721e95bf35d4a",
+  "packets": [
+    {
+      "shot": 0,
+      "independent_index": 3020,
+      "arithmetic_dx": "2827561ad2ebf6aedb6bfdb43927e1c10f4ca9fc074c99fb24eeb20feb0d5282",
+      "target": [
+        "2827561ad2ebf6aedb6bfdb43927e1c10f4ca9fc074c99fb24eeb20feb0d5284",
+        "10b88c12240224e79b60dd34e9eb9aaf0a321aedba8525fe5a518def396ceacd"
+      ],
+      "offset": [
+        "0000000000000000000000000000000000000000000000000000000000000002",
+        "66fbe727b2ba09e09f5a98d70a5efce8424c5fa425bbda1c511f860657b8535e"
+      ],
+      "expected": [
+        "fc310a3ca72c8e3dbff4cf1489afc15eec674f22adb9321938ca1f947604fed3",
+        "4f4af0df8a8b0a913d087af5d1360ae21e66cdc9934bd6055ba378fd09cc1ec8"
+      ],
+      "scope": "valid curve pair constructed from an already retained independent arithmetic failure; not an official validation packet"
+    },
+    {
+      "shot": 1,
+      "independent_index": 23698,
+      "arithmetic_dx": "5b16940eff0ecb3282a8fa4d212fdd9e0ae137294e8b100dbd7ba0a47afcaa91",
+      "target": [
+        "5b16940eff0ecb3282a8fa4d212fdd9e0ae137294e8b100dbd7ba0a47afcaa92",
+        "37e62ee4ee4fca1315f55312078d2b87f67a7150138224c25d14694a92840168"
+      ],
+      "offset": [
+        "0000000000000000000000000000000000000000000000000000000000000001",
+        "4218f20ae6c646b363db68605822fb14264ca8d2587fdd6fbc750d587e76a7ee"
+      ],
+      "expected": [
+        "89bcf39cfac5fd0c02c9f041c18eca123f4e312fa4bdb6f3092fb69581b6dffd",
+        "c696f6284db839c65bf4638a9c5441192afd87092ba86893e2799dc5e0452451"
+      ],
+      "scope": "valid curve pair constructed from an already retained independent arithmetic failure; not an official validation packet"
+    },
+    {
+      "shot": 2,
+      "independent_index": 43312,
+      "arithmetic_dx": "1536e8b1e8c51c140eb5c1a68385f52acfadb5f453e9ee1af9c9a4fe0001d479",
+      "target": [
+        "1536e8b1e8c51c140eb5c1a68385f52acfadb5f453e9ee1af9c9a4fe0001d47a",
+        "7d032351e2b54dc9cccefa419bbe66d71bd853aa7a1c8940526e31abb058defc"
+      ],
+      "offset": [
+        "0000000000000000000000000000000000000000000000000000000000000001",
+        "4218f20ae6c646b363db68605822fb14264ca8d2587fdd6fbc750d587e76a7ee"
+      ],
+      "expected": [
+        "f8719104c5a44ed0282dc58618111595aafbbd906c404528c4b1361125331627",
+        "0cc20355dd9d61c6346e7014d733b7a7150b9da5a2eea19a7b2598df7ecbe5ac"
+      ],
+      "scope": "valid curve pair constructed from an already retained independent arithmetic failure; not an official validation packet"
+    }
+  ]
+}

@@ -4,6 +4,12 @@ The objective is to improve three separate ECDSA.fail resource records: peak
 logical qubits, rounded mean executed Toffolis, and their product. Refresh public
 records before comparing. Read README.md and docs/research-plan.md first.
 
+Current user priority (15 October 2026): focus research on lower executed
+Toffolis and lower Q × T. Defer width-only optimization and Q692 submission
+engineering; preserve existing width evidence. Treat qubits as a tradeoff:
+extra width is acceptable for a Toffoli improvement, while a product improvement
+must reduce the complete measured Q × T. Keep these two objectives independent.
+
 - Candidate submissions may change only `src/point_add/` inside a track. Preserve
   the harness, scorer, simulator, curve reference, Cargo files, toolchain and
   historical results. Research documentation/scripts stay outside submissions.

@@ -1,0 +1,3049 @@
+{
+  "collected_utc": "2026-10-15T02:20:46.962402+00:00",
+  "scope": "Research diagnostics/proofs; no changed candidate full benchmark has qualified",
+  "jobs": {
+    "components-v1": {
+      "pid": "2899099",
+      "exit": "0"
+    },
+    "phase-v1": {
+      "pid": "2902603",
+      "exit": "0"
+    },
+    "counter-v1": {
+      "pid": "2902602",
+      "exit": "0"
+    },
+    "components-v2": {
+      "pid": "2905954",
+      "exit": "0"
+    },
+    "differential-v2": {
+      "pid": "2909773",
+      "exit": "101"
+    },
+    "differential-v2-repair": {
+      "pid": "2914688",
+      "exit": "0"
+    },
+    "components-v3": {
+      "pid": "2915870",
+      "exit": "0"
+    },
+    "primitive-v3": {
+      "pid": "2920888",
+      "exit": "0"
+    },
+    "generate-v3": {
+      "pid": "2925970",
+      "exit": "1"
+    },
+    "generate-v3-r2": {
+      "pid": "2926436",
+      "exit": null
+    },
+    "cache-v4": {
+      "pid": "2928320",
+      "exit": "0"
+    },
+    "components-v5": {
+      "pid": "2933764",
+      "exit": "0"
+    },
+    "components-v6": {
+      "pid": "2944372",
+      "exit": "0"
+    },
+    "rotation-v6": {
+      "pid": "2946111",
+      "exit": "0"
+    },
+    "generate-v6": {
+      "pid": "2952107",
+      "exit": "0"
+    },
+    "normal-benchmark-v6": {
+      "pid": "2958016",
+      "exit": "1"
+    },
+    "components-v7": {
+      "pid": "2975664",
+      "exit": "0"
+    },
+    "reflection-v7": {
+      "pid": "2980959",
+      "exit": "0"
+    },
+    "failed-packet-v6": {
+      "pid": "2984829",
+      "exit": "143"
+    },
+    "failed-packet-v6-r2": {
+      "pid": "2987749",
+      "exit": "0"
+    },
+    "fixed-input-replay-v6": {
+      "pid": "3005632",
+      "exit": "0"
+    },
+    "policy-census-v8": {
+      "pid": "3003896",
+      "exit": "0"
+    },
+    "components-v8": {
+      "pid": "3009992",
+      "exit": "101"
+    },
+    "large25-v8": {
+      "pid": "3011887",
+      "exit": "0"
+    },
+    "components-v9": {
+      "pid": "3013600",
+      "exit": "0"
+    },
+    "fixed-column-v9": {
+      "pid": "3017170",
+      "exit": "101"
+    },
+    "fixed-column-v9-r2": {
+      "pid": "3020832",
+      "exit": "101"
+    },
+    "fixed-column-v9-r4": {
+      "pid": "3023182",
+      "exit": "101"
+    },
+    "fixed-column-v9-r5": {
+      "pid": "3029010",
+      "exit": "0"
+    },
+    "map-limit-v9": {
+      "pid": "3026509",
+      "exit": "0"
+    },
+    "independent-policy-v9": {
+      "pid": "3035095",
+      "exit": "0"
+    },
+    "generate-v9": {
+      "pid": "3030002",
+      "exit": "0"
+    },
+    "fixed-replay-v9": {
+      "pid": "3042999",
+      "exit": "0"
+    },
+    "independent-curves-v9": {
+      "pid": "3045765",
+      "exit": "1"
+    },
+    "fixed-packet-v9": {
+      "pid": "3045760",
+      "exit": "1"
+    },
+    "validate-v9-sequence": {
+      "pid": "3033235",
+      "exit": "1"
+    }
+  },
+  "variants": {
+    "frozen": {
+      "component_profiles": [
+        {
+          "bank": false,
+          "forward_ccx": 16536,
+          "forward_ops": 19405,
+          "head": 24,
+          "inverse_ccx": 16536,
+          "inverse_ops": 19405,
+          "qubits": 692,
+          "source": "/home/hclau/ecdsa_research/overnight-20261014/qubits/candidate-ht25-bankswap-v2",
+          "sz": [
+            65,
+            256
+          ]
+        },
+        {
+          "bank": true,
+          "forward_ccx": 155856,
+          "forward_ops": 160955,
+          "head": 32,
+          "inverse_ccx": 155856,
+          "inverse_ops": 160955,
+          "qubits": 692,
+          "source": "/home/hclau/ecdsa_research/overnight-20261014/qubits/candidate-ht25-bankswap-v2",
+          "sz": [
+            65,
+            256
+          ]
+        },
+        {
+          "bank": false,
+          "forward_ccx": 16536,
+          "forward_ops": 19405,
+          "head": 24,
+          "inverse_ccx": 16536,
+          "inverse_ops": 19405,
+          "qubits": 692,
+          "source": "/home/hclau/ecdsa_research/overnight-20261014/qubits/candidate-ht25-bankswap-v2",
+          "sz": [
+            101,
+            160
+          ]
+        },
+        {
+          "bank": true,
+          "forward_ccx": 19136,
+          "forward_ops": 23155,
+          "head": 32,
+          "inverse_ccx": 19136,
+          "inverse_ops": 23155,
+          "qubits": 692,
+          "source": "/home/hclau/ecdsa_research/overnight-20261014/qubits/candidate-ht25-bankswap-v2",
+          "sz": [
+            101,
+            160
+          ]
+        },
+        {
+          "bank": false,
+          "forward_ccx": 16536,
+          "forward_ops": 19405,
+          "head": 24,
+          "inverse_ccx": 16536,
+          "inverse_ops": 19405,
+          "qubits": 692,
+          "source": "/home/hclau/ecdsa_research/overnight-20261014/qubits/candidate-ht25-bankswap-v2",
+          "sz": [
+            101,
+            230
+          ]
+        },
+        {
+          "bank": true,
+          "forward_ccx": 19136,
+          "forward_ops": 23155,
+          "head": 32,
+          "inverse_ccx": 19136,
+          "inverse_ops": 23155,
+          "qubits": 692,
+          "source": "/home/hclau/ecdsa_research/overnight-20261014/qubits/candidate-ht25-bankswap-v2",
+          "sz": [
+            101,
+            230
+          ]
+        },
+        {
+          "bank": false,
+          "forward_ccx": 16536,
+          "forward_ops": 19405,
+          "head": 24,
+          "inverse_ccx": 16536,
+          "inverse_ops": 19405,
+          "qubits": 692,
+          "source": "/home/hclau/ecdsa_research/overnight-20261014/qubits/candidate-ht25-bankswap-v2",
+          "sz": [
+            231,
+            256
+          ]
+        },
+        {
+          "bank": true,
+          "forward_ccx": 155856,
+          "forward_ops": 160955,
+          "head": 32,
+          "inverse_ccx": 155856,
+          "inverse_ops": 160955,
+          "qubits": 692,
+          "source": "/home/hclau/ecdsa_research/overnight-20261014/qubits/candidate-ht25-bankswap-v2",
+          "sz": [
+            231,
+            256
+          ]
+        }
+      ],
+      "whole_count": {
+        "kinds": [
+          0,
+          4,
+          1024,
+          0,
+          0,
+          0,
+          239370348,
+          2132216,
+          590808822,
+          48896048,
+          57007918,
+          0,
+          46251476,
+          1483109996,
+          0,
+          2388394,
+          2388394,
+          0
+        ],
+        "physical_ops": 2472354640
+      },
+      "top": [
+        692,
+        1483109996,
+        2472354640,
+        692
+      ],
+      "profile": {
+        "column.map": {
+          "calls": 812,
+          "emitted_t": 64610076
+        },
+        "column.midg_finish": {
+          "calls": 812,
+          "emitted_t": 0
+        },
+        "column.midg_hr_correction": {
+          "calls": 812,
+          "emitted_t": 15639348
+        },
+        "column.midg_hr_search": {
+          "calls": 812,
+          "emitted_t": 219305046
+        },
+        "column.midg_ht_correction": {
+          "calls": 812,
+          "emitted_t": 337461242
+        },
+        "column.midg_ht_division": {
+          "calls": 812,
+          "emitted_t": 73047996
+        },
+        "column.probe_switch": {
+          "calls": 812,
+          "emitted_t": 3144134
+        },
+        "column.swap_digit": {
+          "calls": 812,
+          "emitted_t": 21492228
+        },
+        "column.swap_unprobe": {
+          "calls": 812,
+          "emitted_t": 3194609
+        },
+        "column.switch_done": {
+          "calls": 812,
+          "emitted_t": 996296
+        },
+        "digit.complement": {
+          "calls": 560,
+          "emitted_t": 78769
+        },
+        "digit.divide": {
+          "calls": 560,
+          "emitted_t": 8021403
+        },
+        "digit.erase_sign": {
+          "calls": 560,
+          "emitted_t": 61049
+        },
+        "digit.inverse": {
+          "calls": 560,
+          "emitted_t": 9744482
+        },
+        "digit.inverse_fused": {
+          "calls": 14000,
+          "emitted_t": 6549373
+        },
+        "digit.sign_relocate": {
+          "calls": 560,
+          "emitted_t": 429194
+        },
+        "digit.widen": {
+          "calls": 560,
+          "emitted_t": 440433
+        },
+        "midg.decide": {
+          "calls": 54200,
+          "emitted_t": 9492370
+        },
+        "midg.fetch": {
+          "calls": 81300,
+          "emitted_t": 6886276
+        },
+        "midg.gate_off": {
+          "calls": 43700,
+          "emitted_t": 4069156
+        },
+        "midg.gate_on": {
+          "calls": 43700,
+          "emitted_t": 2499440
+        },
+        "midg.ring_add": {
+          "calls": 125000,
+          "emitted_t": 56280210
+        },
+        "midg.vform": {
+          "calls": 2232,
+          "emitted_t": 344805924
+        },
+        "payload.read_lane": {
+          "calls": 54736,
+          "emitted_t": 3040505
+        },
+        "payload.ripple": {
+          "calls": 85352,
+          "emitted_t": 13789634
+        },
+        "payload.transition_masked": {
+          "calls": 8352,
+          "emitted_t": 3670837
+        },
+        "payload.transition_plain": {
+          "calls": 10500,
+          "emitted_t": 2835410
+        },
+        "traversal.inverse_column": {
+          "calls": 406,
+          "emitted_t": 742440479
+        }
+      }
+    },
+    "control-fold-v1": {
+      "component_profiles": [
+        {
+          "bank": false,
+          "forward_ccx": 6070,
+          "forward_ops": 13165,
+          "head": 24,
+          "inverse_ccx": 6070,
+          "inverse_ops": 13165,
+          "qubits": 692,
+          "source": "/home/hclau/ecdsa_research/q692_readiness_20261015/candidate-control-fold-v1",
+          "sz": [
+            65,
+            256
+          ]
+        },
+        {
+          "bank": true,
+          "forward_ccx": 155962,
+          "forward_ops": 161062,
+          "head": 32,
+          "inverse_ccx": 155962,
+          "inverse_ops": 161062,
+          "qubits": 692,
+          "source": "/home/hclau/ecdsa_research/q692_readiness_20261015/candidate-control-fold-v1",
+          "sz": [
+            65,
+            256
+          ]
+        },
+        {
+          "bank": false,
+          "forward_ccx": 6070,
+          "forward_ops": 13165,
+          "head": 24,
+          "inverse_ccx": 6070,
+          "inverse_ops": 13165,
+          "qubits": 692,
+          "source": "/home/hclau/ecdsa_research/q692_readiness_20261015/candidate-control-fold-v1",
+          "sz": [
+            101,
+            160
+          ]
+        },
+        {
+          "bank": true,
+          "forward_ccx": 10642,
+          "forward_ops": 18887,
+          "head": 32,
+          "inverse_ccx": 10642,
+          "inverse_ops": 18887,
+          "qubits": 692,
+          "source": "/home/hclau/ecdsa_research/q692_readiness_20261015/candidate-control-fold-v1",
+          "sz": [
+            101,
+            160
+          ]
+        },
+        {
+          "bank": false,
+          "forward_ccx": 6070,
+          "forward_ops": 13165,
+          "head": 24,
+          "inverse_ccx": 6070,
+          "inverse_ops": 13165,
+          "qubits": 692,
+          "source": "/home/hclau/ecdsa_research/q692_readiness_20261015/candidate-control-fold-v1",
+          "sz": [
+            101,
+            230
+          ]
+        },
+        {
+          "bank": true,
+          "forward_ccx": 10642,
+          "forward_ops": 18887,
+          "head": 32,
+          "inverse_ccx": 10642,
+          "inverse_ops": 18887,
+          "qubits": 692,
+          "source": "/home/hclau/ecdsa_research/q692_readiness_20261015/candidate-control-fold-v1",
+          "sz": [
+            101,
+            230
+          ]
+        },
+        {
+          "bank": false,
+          "forward_ccx": 6070,
+          "forward_ops": 13165,
+          "head": 24,
+          "inverse_ccx": 6070,
+          "inverse_ops": 13165,
+          "qubits": 692,
+          "source": "/home/hclau/ecdsa_research/q692_readiness_20261015/candidate-control-fold-v1",
+          "sz": [
+            231,
+            256
+          ]
+        },
+        {
+          "bank": true,
+          "forward_ccx": 155962,
+          "forward_ops": 161062,
+          "head": 32,
+          "inverse_ccx": 155962,
+          "inverse_ops": 161062,
+          "qubits": 692,
+          "source": "/home/hclau/ecdsa_research/q692_readiness_20261015/candidate-control-fold-v1",
+          "sz": [
+            231,
+            256
+          ]
+        }
+      ],
+      "whole_count": {
+        "kinds": [
+          0,
+          4,
+          1024,
+          0,
+          0,
+          0,
+          242219860,
+          2132216,
+          599662430,
+          49081704,
+          57007918,
+          0,
+          46437132,
+          1452070716,
+          0,
+          2388394,
+          2388394,
+          0
+        ],
+        "physical_ops": 2453389792
+      },
+      "top": [
+        692,
+        1452070716,
+        2453389792,
+        692
+      ],
+      "profile": {
+        "column.map": {
+          "calls": 812,
+          "emitted_t": 64610076
+        },
+        "column.midg_finish": {
+          "calls": 812,
+          "emitted_t": 0
+        },
+        "column.midg_hr_correction": {
+          "calls": 812,
+          "emitted_t": 15639348
+        },
+        "column.midg_hr_search": {
+          "calls": 812,
+          "emitted_t": 212582682
+        },
+        "column.midg_ht_correction": {
+          "calls": 812,
+          "emitted_t": 328663966
+        },
+        "column.midg_ht_division": {
+          "calls": 812,
+          "emitted_t": 73047996
+        },
+        "column.probe_switch": {
+          "calls": 812,
+          "emitted_t": 3144134
+        },
+        "column.swap_digit": {
+          "calls": 812,
+          "emitted_t": 21492228
+        },
+        "column.swap_unprobe": {
+          "calls": 812,
+          "emitted_t": 3194609
+        },
+        "column.switch_done": {
+          "calls": 812,
+          "emitted_t": 996296
+        },
+        "digit.complement": {
+          "calls": 560,
+          "emitted_t": 78769
+        },
+        "digit.divide": {
+          "calls": 560,
+          "emitted_t": 8021403
+        },
+        "digit.erase_sign": {
+          "calls": 560,
+          "emitted_t": 61049
+        },
+        "digit.inverse": {
+          "calls": 560,
+          "emitted_t": 9744482
+        },
+        "digit.inverse_fused": {
+          "calls": 14000,
+          "emitted_t": 6549373
+        },
+        "digit.sign_relocate": {
+          "calls": 560,
+          "emitted_t": 429194
+        },
+        "digit.widen": {
+          "calls": 560,
+          "emitted_t": 440433
+        },
+        "midg.decide": {
+          "calls": 54200,
+          "emitted_t": 9492370
+        },
+        "midg.fetch": {
+          "calls": 81300,
+          "emitted_t": 6886276
+        },
+        "midg.gate_off": {
+          "calls": 43700,
+          "emitted_t": 4069156
+        },
+        "midg.gate_on": {
+          "calls": 43700,
+          "emitted_t": 2499440
+        },
+        "midg.ring_add": {
+          "calls": 125000,
+          "emitted_t": 56280210
+        },
+        "midg.vform": {
+          "calls": 2232,
+          "emitted_t": 329286284
+        },
+        "payload.read_lane": {
+          "calls": 54736,
+          "emitted_t": 3040505
+        },
+        "payload.ripple": {
+          "calls": 85352,
+          "emitted_t": 13789634
+        },
+        "payload.transition_masked": {
+          "calls": 8352,
+          "emitted_t": 3670837
+        },
+        "payload.transition_plain": {
+          "calls": 10500,
+          "emitted_t": 2835410
+        },
+        "traversal.inverse_column": {
+          "calls": 406,
+          "emitted_t": 726920839
+        }
+      },
+      "native_tests": [
+        "7",
+        "5",
+        "2",
+        "1",
+        "2"
+      ],
+      "phase_tests": [
+        "16"
+      ],
+      "fixed_input_all_measurement_audits": 700,
+      "differential_pass": []
+    },
+    "control-fold-v2": {
+      "component_profiles": [
+        {
+          "bank": false,
+          "forward_ccx": 6070,
+          "forward_ops": 13165,
+          "head": 24,
+          "inverse_ccx": 6070,
+          "inverse_ops": 13165,
+          "qubits": 692,
+          "source": "/home/hclau/ecdsa_research/q692_readiness_20261015/candidate-control-fold-v2",
+          "sz": [
+            65,
+            256
+          ]
+        },
+        {
+          "bank": true,
+          "forward_ccx": 75778,
+          "forward_ops": 87781,
+          "head": 32,
+          "inverse_ccx": 75778,
+          "inverse_ops": 87781,
+          "qubits": 692,
+          "source": "/home/hclau/ecdsa_research/q692_readiness_20261015/candidate-control-fold-v2",
+          "sz": [
+            65,
+            256
+          ]
+        },
+        {
+          "bank": false,
+          "forward_ccx": 6070,
+          "forward_ops": 13165,
+          "head": 24,
+          "inverse_ccx": 6070,
+          "inverse_ops": 13165,
+          "qubits": 692,
+          "source": "/home/hclau/ecdsa_research/q692_readiness_20261015/candidate-control-fold-v2",
+          "sz": [
+            101,
+            160
+          ]
+        },
+        {
+          "bank": true,
+          "forward_ccx": 10642,
+          "forward_ops": 18887,
+          "head": 32,
+          "inverse_ccx": 10642,
+          "inverse_ops": 18887,
+          "qubits": 692,
+          "source": "/home/hclau/ecdsa_research/q692_readiness_20261015/candidate-control-fold-v2",
+          "sz": [
+            101,
+            160
+          ]
+        },
+        {
+          "bank": false,
+          "forward_ccx": 6070,
+          "forward_ops": 13165,
+          "head": 24,
+          "inverse_ccx": 6070,
+          "inverse_ops": 13165,
+          "qubits": 692,
+          "source": "/home/hclau/ecdsa_research/q692_readiness_20261015/candidate-control-fold-v2",
+          "sz": [
+            101,
+            230
+          ]
+        },
+        {
+          "bank": true,
+          "forward_ccx": 10642,
+          "forward_ops": 18887,
+          "head": 32,
+          "inverse_ccx": 10642,
+          "inverse_ops": 18887,
+          "qubits": 692,
+          "source": "/home/hclau/ecdsa_research/q692_readiness_20261015/candidate-control-fold-v2",
+          "sz": [
+            101,
+            230
+          ]
+        },
+        {
+          "bank": false,
+          "forward_ccx": 6070,
+          "forward_ops": 13165,
+          "head": 24,
+          "inverse_ccx": 6070,
+          "inverse_ops": 13165,
+          "qubits": 692,
+          "source": "/home/hclau/ecdsa_research/q692_readiness_20261015/candidate-control-fold-v2",
+          "sz": [
+            231,
+            256
+          ]
+        },
+        {
+          "bank": true,
+          "forward_ccx": 75778,
+          "forward_ops": 87781,
+          "head": 32,
+          "inverse_ccx": 75778,
+          "inverse_ops": 87781,
+          "qubits": 692,
+          "source": "/home/hclau/ecdsa_research/q692_readiness_20261015/candidate-control-fold-v2",
+          "sz": [
+            231,
+            256
+          ]
+        }
+      ],
+      "whole_count": {
+        "kinds": [
+          0,
+          4,
+          1024,
+          0,
+          0,
+          0,
+          246240588,
+          2132216,
+          602112614,
+          48902240,
+          57007918,
+          0,
+          46257668,
+          1341141708,
+          0,
+          2388394,
+          2388394,
+          0
+        ],
+        "physical_ops": 2348572768
+      },
+      "top": [
+        692,
+        1341141708,
+        2348572768,
+        692
+      ],
+      "profile": {
+        "column.map": {
+          "calls": 812,
+          "emitted_t": 64610076
+        },
+        "column.midg_finish": {
+          "calls": 812,
+          "emitted_t": 0
+        },
+        "column.midg_hr_correction": {
+          "calls": 812,
+          "emitted_t": 15639348
+        },
+        "column.midg_hr_search": {
+          "calls": 812,
+          "emitted_t": 194398694
+        },
+        "column.midg_ht_correction": {
+          "calls": 812,
+          "emitted_t": 291383450
+        },
+        "column.midg_ht_division": {
+          "calls": 812,
+          "emitted_t": 73047996
+        },
+        "column.probe_switch": {
+          "calls": 812,
+          "emitted_t": 3144134
+        },
+        "column.swap_digit": {
+          "calls": 812,
+          "emitted_t": 21492228
+        },
+        "column.swap_unprobe": {
+          "calls": 812,
+          "emitted_t": 3194609
+        },
+        "column.switch_done": {
+          "calls": 812,
+          "emitted_t": 996296
+        },
+        "digit.complement": {
+          "calls": 560,
+          "emitted_t": 78769
+        },
+        "digit.divide": {
+          "calls": 560,
+          "emitted_t": 8021403
+        },
+        "digit.erase_sign": {
+          "calls": 560,
+          "emitted_t": 61049
+        },
+        "digit.inverse": {
+          "calls": 560,
+          "emitted_t": 9744482
+        },
+        "digit.inverse_fused": {
+          "calls": 14000,
+          "emitted_t": 6549373
+        },
+        "digit.sign_relocate": {
+          "calls": 560,
+          "emitted_t": 429194
+        },
+        "digit.widen": {
+          "calls": 560,
+          "emitted_t": 440433
+        },
+        "midg.decide": {
+          "calls": 54200,
+          "emitted_t": 9492370
+        },
+        "midg.fetch": {
+          "calls": 81300,
+          "emitted_t": 6886276
+        },
+        "midg.gate_off": {
+          "calls": 43700,
+          "emitted_t": 4069156
+        },
+        "midg.gate_on": {
+          "calls": 43700,
+          "emitted_t": 2499440
+        },
+        "midg.ring_add": {
+          "calls": 125000,
+          "emitted_t": 56280210
+        },
+        "midg.vform": {
+          "calls": 2232,
+          "emitted_t": 273821780
+        },
+        "payload.read_lane": {
+          "calls": 54736,
+          "emitted_t": 3040505
+        },
+        "payload.ripple": {
+          "calls": 85352,
+          "emitted_t": 13789634
+        },
+        "payload.transition_masked": {
+          "calls": 8352,
+          "emitted_t": 3670837
+        },
+        "payload.transition_plain": {
+          "calls": 10500,
+          "emitted_t": 2835410
+        },
+        "traversal.inverse_column": {
+          "calls": 406,
+          "emitted_t": 671456335
+        }
+      },
+      "native_tests": [
+        "7",
+        "5",
+        "2",
+        "1",
+        "2"
+      ],
+      "phase_tests": [
+        "16"
+      ],
+      "fixed_input_all_measurement_audits": 700,
+      "differential_pass": [
+        "524288"
+      ]
+    },
+    "control-fold-v3": {
+      "component_profiles": [
+        {
+          "bank": false,
+          "forward_ccx": 6070,
+          "forward_ops": 13165,
+          "head": 24,
+          "inverse_ccx": 6070,
+          "inverse_ops": 13165,
+          "qubits": 692,
+          "source": "/home/hclau/ecdsa_research/q692_readiness_20261015/candidate-control-fold-v3",
+          "sz": [
+            65,
+            256
+          ]
+        },
+        {
+          "bank": true,
+          "forward_ccx": 25866,
+          "forward_ops": 85820,
+          "head": 32,
+          "inverse_ccx": 25866,
+          "inverse_ops": 85820,
+          "qubits": 692,
+          "source": "/home/hclau/ecdsa_research/q692_readiness_20261015/candidate-control-fold-v3",
+          "sz": [
+            65,
+            256
+          ]
+        },
+        {
+          "bank": false,
+          "forward_ccx": 6070,
+          "forward_ops": 13165,
+          "head": 24,
+          "inverse_ccx": 6070,
+          "inverse_ops": 13165,
+          "qubits": 692,
+          "source": "/home/hclau/ecdsa_research/q692_readiness_20261015/candidate-control-fold-v3",
+          "sz": [
+            101,
+            160
+          ]
+        },
+        {
+          "bank": true,
+          "forward_ccx": 10642,
+          "forward_ops": 18887,
+          "head": 32,
+          "inverse_ccx": 10642,
+          "inverse_ops": 18887,
+          "qubits": 692,
+          "source": "/home/hclau/ecdsa_research/q692_readiness_20261015/candidate-control-fold-v3",
+          "sz": [
+            101,
+            160
+          ]
+        },
+        {
+          "bank": false,
+          "forward_ccx": 6070,
+          "forward_ops": 13165,
+          "head": 24,
+          "inverse_ccx": 6070,
+          "inverse_ops": 13165,
+          "qubits": 692,
+          "source": "/home/hclau/ecdsa_research/q692_readiness_20261015/candidate-control-fold-v3",
+          "sz": [
+            101,
+            230
+          ]
+        },
+        {
+          "bank": true,
+          "forward_ccx": 10642,
+          "forward_ops": 18887,
+          "head": 32,
+          "inverse_ccx": 10642,
+          "inverse_ops": 18887,
+          "qubits": 692,
+          "source": "/home/hclau/ecdsa_research/q692_readiness_20261015/candidate-control-fold-v3",
+          "sz": [
+            101,
+            230
+          ]
+        },
+        {
+          "bank": false,
+          "forward_ccx": 6070,
+          "forward_ops": 13165,
+          "head": 24,
+          "inverse_ccx": 6070,
+          "inverse_ops": 13165,
+          "qubits": 692,
+          "source": "/home/hclau/ecdsa_research/q692_readiness_20261015/candidate-control-fold-v3",
+          "sz": [
+            231,
+            256
+          ]
+        },
+        {
+          "bank": true,
+          "forward_ccx": 25866,
+          "forward_ops": 85820,
+          "head": 32,
+          "inverse_ccx": 25866,
+          "inverse_ops": 85820,
+          "qubits": 692,
+          "source": "/home/hclau/ecdsa_research/q692_readiness_20261015/candidate-control-fold-v3",
+          "sz": [
+            231,
+            256
+          ]
+        }
+      ],
+      "whole_count": {
+        "kinds": [
+          0,
+          4,
+          1024,
+          0,
+          0,
+          0,
+          252893108,
+          2132216,
+          659710478,
+          49081704,
+          57007918,
+          0,
+          46437132,
+          1279861628,
+          0,
+          2388394,
+          2388394,
+          0
+        ],
+        "physical_ops": 2351902000
+      },
+      "top": [
+        692,
+        1279861628,
+        2351902000,
+        692
+      ],
+      "profile": {
+        "column.map": {
+          "calls": 812,
+          "emitted_t": 64610076
+        },
+        "column.midg_finish": {
+          "calls": 812,
+          "emitted_t": 0
+        },
+        "column.midg_hr_correction": {
+          "calls": 812,
+          "emitted_t": 15639348
+        },
+        "column.midg_hr_search": {
+          "calls": 812,
+          "emitted_t": 186055450
+        },
+        "column.midg_ht_correction": {
+          "calls": 812,
+          "emitted_t": 269086654
+        },
+        "column.midg_ht_division": {
+          "calls": 812,
+          "emitted_t": 73047996
+        },
+        "column.probe_switch": {
+          "calls": 812,
+          "emitted_t": 3144134
+        },
+        "column.swap_digit": {
+          "calls": 812,
+          "emitted_t": 21492228
+        },
+        "column.swap_unprobe": {
+          "calls": 812,
+          "emitted_t": 3194609
+        },
+        "column.switch_done": {
+          "calls": 812,
+          "emitted_t": 996296
+        },
+        "digit.complement": {
+          "calls": 560,
+          "emitted_t": 78769
+        },
+        "digit.divide": {
+          "calls": 560,
+          "emitted_t": 8021403
+        },
+        "digit.erase_sign": {
+          "calls": 560,
+          "emitted_t": 61049
+        },
+        "digit.inverse": {
+          "calls": 560,
+          "emitted_t": 9744482
+        },
+        "digit.inverse_fused": {
+          "calls": 14000,
+          "emitted_t": 6549373
+        },
+        "digit.sign_relocate": {
+          "calls": 560,
+          "emitted_t": 429194
+        },
+        "digit.widen": {
+          "calls": 560,
+          "emitted_t": 440433
+        },
+        "midg.decide": {
+          "calls": 54200,
+          "emitted_t": 9492370
+        },
+        "midg.fetch": {
+          "calls": 81300,
+          "emitted_t": 6886276
+        },
+        "midg.gate_off": {
+          "calls": 43700,
+          "emitted_t": 4069156
+        },
+        "midg.gate_on": {
+          "calls": 43700,
+          "emitted_t": 2499440
+        },
+        "midg.ring_add": {
+          "calls": 125000,
+          "emitted_t": 56280210
+        },
+        "midg.vform": {
+          "calls": 2232,
+          "emitted_t": 243181740
+        },
+        "payload.read_lane": {
+          "calls": 54736,
+          "emitted_t": 3040505
+        },
+        "payload.ripple": {
+          "calls": 85352,
+          "emitted_t": 13789634
+        },
+        "payload.transition_masked": {
+          "calls": 8352,
+          "emitted_t": 3670837
+        },
+        "payload.transition_plain": {
+          "calls": 10500,
+          "emitted_t": 2835410
+        },
+        "traversal.inverse_column": {
+          "calls": 406,
+          "emitted_t": 640816295
+        }
+      },
+      "native_tests": [
+        "7",
+        "5",
+        "2",
+        "1",
+        "2"
+      ],
+      "phase_tests": [
+        "16"
+      ],
+      "fixed_input_all_measurement_audits": 700,
+      "differential_pass": [
+        "524288"
+      ]
+    },
+    "control-fold-v4": {
+      "component_profiles": [],
+      "whole_count": {
+        "kinds": [
+          0,
+          4,
+          1024,
+          0,
+          0,
+          0,
+          252893108,
+          2132216,
+          659710478,
+          49081704,
+          57007918,
+          0,
+          46437132,
+          1279861628,
+          0,
+          2388394,
+          2388394,
+          0
+        ],
+        "physical_ops": 2351902000
+      },
+      "top": [
+        692,
+        1279861628,
+        2351902000,
+        692
+      ],
+      "profile": {
+        "column.map": {
+          "calls": 812,
+          "emitted_t": 64610076
+        },
+        "column.midg_finish": {
+          "calls": 812,
+          "emitted_t": 0
+        },
+        "column.midg_hr_correction": {
+          "calls": 812,
+          "emitted_t": 15639348
+        },
+        "column.midg_hr_search": {
+          "calls": 812,
+          "emitted_t": 186055450
+        },
+        "column.midg_ht_correction": {
+          "calls": 812,
+          "emitted_t": 269086654
+        },
+        "column.midg_ht_division": {
+          "calls": 812,
+          "emitted_t": 73047996
+        },
+        "column.probe_switch": {
+          "calls": 812,
+          "emitted_t": 3144134
+        },
+        "column.swap_digit": {
+          "calls": 812,
+          "emitted_t": 21492228
+        },
+        "column.swap_unprobe": {
+          "calls": 812,
+          "emitted_t": 3194609
+        },
+        "column.switch_done": {
+          "calls": 812,
+          "emitted_t": 996296
+        },
+        "digit.complement": {
+          "calls": 560,
+          "emitted_t": 78769
+        },
+        "digit.divide": {
+          "calls": 560,
+          "emitted_t": 8021403
+        },
+        "digit.erase_sign": {
+          "calls": 560,
+          "emitted_t": 61049
+        },
+        "digit.inverse": {
+          "calls": 560,
+          "emitted_t": 9744482
+        },
+        "digit.inverse_fused": {
+          "calls": 14000,
+          "emitted_t": 6549373
+        },
+        "digit.sign_relocate": {
+          "calls": 560,
+          "emitted_t": 429194
+        },
+        "digit.widen": {
+          "calls": 560,
+          "emitted_t": 440433
+        },
+        "midg.decide": {
+          "calls": 54200,
+          "emitted_t": 9492370
+        },
+        "midg.fetch": {
+          "calls": 81300,
+          "emitted_t": 6886276
+        },
+        "midg.gate_off": {
+          "calls": 43700,
+          "emitted_t": 4069156
+        },
+        "midg.gate_on": {
+          "calls": 43700,
+          "emitted_t": 2499440
+        },
+        "midg.ring_add": {
+          "calls": 125000,
+          "emitted_t": 56280210
+        },
+        "midg.vform": {
+          "calls": 2232,
+          "emitted_t": 243181740
+        },
+        "payload.read_lane": {
+          "calls": 54736,
+          "emitted_t": 3040505
+        },
+        "payload.ripple": {
+          "calls": 85352,
+          "emitted_t": 13789634
+        },
+        "payload.transition_masked": {
+          "calls": 8352,
+          "emitted_t": 3670837
+        },
+        "payload.transition_plain": {
+          "calls": 10500,
+          "emitted_t": 2835410
+        },
+        "traversal.inverse_column": {
+          "calls": 406,
+          "emitted_t": 640816295
+        }
+      },
+      "native_tests": [],
+      "phase_tests": [],
+      "fixed_input_all_measurement_audits": 0,
+      "differential_pass": []
+    },
+    "control-fold-v5": {
+      "component_profiles": [
+        {
+          "bank": false,
+          "forward_ccx": 6070,
+          "forward_ops": 13165,
+          "head": 24,
+          "inverse_ccx": 6070,
+          "inverse_ops": 13165,
+          "qubits": 692,
+          "source": "/home/hclau/ecdsa_research/q692_readiness_20261015/candidate-control-fold-v5",
+          "sz": [
+            65,
+            256
+          ]
+        },
+        {
+          "bank": true,
+          "forward_ccx": 13134,
+          "forward_ops": 22010,
+          "head": 32,
+          "inverse_ccx": 13134,
+          "inverse_ops": 22010,
+          "qubits": 692,
+          "source": "/home/hclau/ecdsa_research/q692_readiness_20261015/candidate-control-fold-v5",
+          "sz": [
+            65,
+            256
+          ]
+        },
+        {
+          "bank": false,
+          "forward_ccx": 6070,
+          "forward_ops": 13165,
+          "head": 24,
+          "inverse_ccx": 6070,
+          "inverse_ops": 13165,
+          "qubits": 692,
+          "source": "/home/hclau/ecdsa_research/q692_readiness_20261015/candidate-control-fold-v5",
+          "sz": [
+            101,
+            160
+          ]
+        },
+        {
+          "bank": true,
+          "forward_ccx": 10642,
+          "forward_ops": 18887,
+          "head": 32,
+          "inverse_ccx": 10642,
+          "inverse_ops": 18887,
+          "qubits": 692,
+          "source": "/home/hclau/ecdsa_research/q692_readiness_20261015/candidate-control-fold-v5",
+          "sz": [
+            101,
+            160
+          ]
+        },
+        {
+          "bank": false,
+          "forward_ccx": 6070,
+          "forward_ops": 13165,
+          "head": 24,
+          "inverse_ccx": 6070,
+          "inverse_ops": 13165,
+          "qubits": 692,
+          "source": "/home/hclau/ecdsa_research/q692_readiness_20261015/candidate-control-fold-v5",
+          "sz": [
+            101,
+            230
+          ]
+        },
+        {
+          "bank": true,
+          "forward_ccx": 10642,
+          "forward_ops": 18887,
+          "head": 32,
+          "inverse_ccx": 10642,
+          "inverse_ops": 18887,
+          "qubits": 692,
+          "source": "/home/hclau/ecdsa_research/q692_readiness_20261015/candidate-control-fold-v5",
+          "sz": [
+            101,
+            230
+          ]
+        },
+        {
+          "bank": false,
+          "forward_ccx": 6070,
+          "forward_ops": 13165,
+          "head": 24,
+          "inverse_ccx": 6070,
+          "inverse_ops": 13165,
+          "qubits": 692,
+          "source": "/home/hclau/ecdsa_research/q692_readiness_20261015/candidate-control-fold-v5",
+          "sz": [
+            231,
+            256
+          ]
+        },
+        {
+          "bank": true,
+          "forward_ccx": 13134,
+          "forward_ops": 22010,
+          "head": 32,
+          "inverse_ccx": 13134,
+          "inverse_ops": 22010,
+          "qubits": 692,
+          "source": "/home/hclau/ecdsa_research/q692_readiness_20261015/candidate-control-fold-v5",
+          "sz": [
+            231,
+            256
+          ]
+        }
+      ],
+      "whole_count": {
+        "kinds": [
+          0,
+          4,
+          1024,
+          0,
+          0,
+          0,
+          243221556,
+          2132216,
+          604542782,
+          49081704,
+          57007918,
+          0,
+          46437132,
+          1263685276,
+          0,
+          2388394,
+          2388394,
+          0
+        ],
+        "physical_ops": 2270886400
+      },
+      "top": [
+        692,
+        1263685276,
+        2270886400,
+        692
+      ],
+      "profile": {
+        "column.map": {
+          "calls": 812,
+          "emitted_t": 64610076
+        },
+        "column.midg_finish": {
+          "calls": 812,
+          "emitted_t": 0
+        },
+        "column.midg_hr_correction": {
+          "calls": 812,
+          "emitted_t": 15639348
+        },
+        "column.midg_hr_search": {
+          "calls": 812,
+          "emitted_t": 183683186
+        },
+        "column.midg_ht_correction": {
+          "calls": 812,
+          "emitted_t": 263370742
+        },
+        "column.midg_ht_division": {
+          "calls": 812,
+          "emitted_t": 73047996
+        },
+        "column.probe_switch": {
+          "calls": 812,
+          "emitted_t": 3144134
+        },
+        "column.swap_digit": {
+          "calls": 812,
+          "emitted_t": 21492228
+        },
+        "column.swap_unprobe": {
+          "calls": 812,
+          "emitted_t": 3194609
+        },
+        "column.switch_done": {
+          "calls": 812,
+          "emitted_t": 996296
+        },
+        "digit.complement": {
+          "calls": 560,
+          "emitted_t": 78769
+        },
+        "digit.divide": {
+          "calls": 560,
+          "emitted_t": 8021403
+        },
+        "digit.erase_sign": {
+          "calls": 560,
+          "emitted_t": 61049
+        },
+        "digit.inverse": {
+          "calls": 560,
+          "emitted_t": 9744482
+        },
+        "digit.inverse_fused": {
+          "calls": 14000,
+          "emitted_t": 6549373
+        },
+        "digit.sign_relocate": {
+          "calls": 560,
+          "emitted_t": 429194
+        },
+        "digit.widen": {
+          "calls": 560,
+          "emitted_t": 440433
+        },
+        "midg.decide": {
+          "calls": 54200,
+          "emitted_t": 9492370
+        },
+        "midg.fetch": {
+          "calls": 81300,
+          "emitted_t": 6886276
+        },
+        "midg.gate_off": {
+          "calls": 43700,
+          "emitted_t": 4069156
+        },
+        "midg.gate_on": {
+          "calls": 43700,
+          "emitted_t": 2499440
+        },
+        "midg.ring_add": {
+          "calls": 125000,
+          "emitted_t": 56280210
+        },
+        "midg.vform": {
+          "calls": 2232,
+          "emitted_t": 235093564
+        },
+        "payload.read_lane": {
+          "calls": 54736,
+          "emitted_t": 3040505
+        },
+        "payload.ripple": {
+          "calls": 85352,
+          "emitted_t": 13789634
+        },
+        "payload.transition_masked": {
+          "calls": 8352,
+          "emitted_t": 3670837
+        },
+        "payload.transition_plain": {
+          "calls": 10500,
+          "emitted_t": 2835410
+        },
+        "traversal.inverse_column": {
+          "calls": 406,
+          "emitted_t": 632728119
+        }
+      },
+      "native_tests": [
+        "7",
+        "5",
+        "2",
+        "1",
+        "2"
+      ],
+      "phase_tests": [
+        "16"
+      ],
+      "fixed_input_all_measurement_audits": 700,
+      "differential_pass": [
+        "524288"
+      ]
+    },
+    "control-fold-v6": {
+      "component_profiles": [],
+      "whole_count": {
+        "kinds": [
+          0,
+          4,
+          1024,
+          0,
+          0,
+          0,
+          170877512,
+          2132216,
+          603583454,
+          49081704,
+          57007918,
+          0,
+          46437132,
+          479915092,
+          0,
+          2388394,
+          2388394,
+          0
+        ],
+        "physical_ops": 1413812844
+      },
+      "top": [
+        692,
+        479915092,
+        1413812844,
+        692
+      ],
+      "profile": {
+        "column.map": {
+          "calls": 812,
+          "emitted_t": 64610076
+        },
+        "column.midg_finish": {
+          "calls": 812,
+          "emitted_t": 0
+        },
+        "column.midg_hr_correction": {
+          "calls": 812,
+          "emitted_t": 15639348
+        },
+        "column.midg_hr_search": {
+          "calls": 812,
+          "emitted_t": 42202506
+        },
+        "column.midg_ht_correction": {
+          "calls": 812,
+          "emitted_t": 55208070
+        },
+        "column.midg_ht_division": {
+          "calls": 812,
+          "emitted_t": 30806256
+        },
+        "column.probe_switch": {
+          "calls": 812,
+          "emitted_t": 3144134
+        },
+        "column.swap_digit": {
+          "calls": 812,
+          "emitted_t": 21492228
+        },
+        "column.swap_unprobe": {
+          "calls": 812,
+          "emitted_t": 3194609
+        },
+        "column.switch_done": {
+          "calls": 812,
+          "emitted_t": 996296
+        },
+        "digit.complement": {
+          "calls": 560,
+          "emitted_t": 78769
+        },
+        "digit.divide": {
+          "calls": 560,
+          "emitted_t": 8021403
+        },
+        "digit.erase_sign": {
+          "calls": 560,
+          "emitted_t": 61049
+        },
+        "digit.inverse": {
+          "calls": 560,
+          "emitted_t": 9744482
+        },
+        "digit.inverse_fused": {
+          "calls": 14000,
+          "emitted_t": 6549373
+        },
+        "digit.sign_relocate": {
+          "calls": 560,
+          "emitted_t": 429194
+        },
+        "digit.widen": {
+          "calls": 560,
+          "emitted_t": 440433
+        },
+        "midg.decide": {
+          "calls": 54200,
+          "emitted_t": 9492370
+        },
+        "midg.fetch": {
+          "calls": 81300,
+          "emitted_t": 6886276
+        },
+        "midg.gate_off": {
+          "calls": 43700,
+          "emitted_t": 4069156
+        },
+        "midg.gate_on": {
+          "calls": 43700,
+          "emitted_t": 2499440
+        },
+        "midg.ring_add": {
+          "calls": 125000,
+          "emitted_t": 56280210
+        },
+        "midg.vform": {
+          "calls": 2232,
+          "emitted_t": 27491896
+        },
+        "payload.read_lane": {
+          "calls": 54736,
+          "emitted_t": 3040505
+        },
+        "payload.ripple": {
+          "calls": 85352,
+          "emitted_t": 13789634
+        },
+        "payload.transition_masked": {
+          "calls": 8352,
+          "emitted_t": 3670837
+        },
+        "payload.transition_plain": {
+          "calls": 10500,
+          "emitted_t": 2835410
+        },
+        "traversal.inverse_column": {
+          "calls": 406,
+          "emitted_t": 240843027
+        }
+      },
+      "native_tests": [
+        "7",
+        "5",
+        "2",
+        "1",
+        "2"
+      ],
+      "phase_tests": [
+        "16"
+      ],
+      "fixed_input_all_measurement_audits": 700,
+      "differential_pass": []
+    },
+    "control-fold-v7": {
+      "component_profiles": [],
+      "whole_count": {
+        "kinds": [
+          0,
+          4,
+          1024,
+          0,
+          0,
+          0,
+          173457528,
+          2132216,
+          603583454,
+          49385448,
+          57007918,
+          0,
+          46740876,
+          463955908,
+          0,
+          2388394,
+          2388394,
+          0
+        ],
+        "physical_ops": 1401041164
+      },
+      "top": [
+        692,
+        463955908,
+        1401041164,
+        692
+      ],
+      "profile": {
+        "column.map": {
+          "calls": 812,
+          "emitted_t": 64610076
+        },
+        "column.midg_finish": {
+          "calls": 812,
+          "emitted_t": 0
+        },
+        "column.midg_hr_correction": {
+          "calls": 812,
+          "emitted_t": 15639348
+        },
+        "column.midg_hr_search": {
+          "calls": 812,
+          "emitted_t": 40231782
+        },
+        "column.midg_ht_correction": {
+          "calls": 812,
+          "emitted_t": 51447838
+        },
+        "column.midg_ht_division": {
+          "calls": 812,
+          "emitted_t": 28557620
+        },
+        "column.probe_switch": {
+          "calls": 812,
+          "emitted_t": 3144134
+        },
+        "column.swap_digit": {
+          "calls": 812,
+          "emitted_t": 21492228
+        },
+        "column.swap_unprobe": {
+          "calls": 812,
+          "emitted_t": 3194609
+        },
+        "column.switch_done": {
+          "calls": 812,
+          "emitted_t": 996296
+        },
+        "digit.complement": {
+          "calls": 560,
+          "emitted_t": 78769
+        },
+        "digit.divide": {
+          "calls": 560,
+          "emitted_t": 8021403
+        },
+        "digit.erase_sign": {
+          "calls": 560,
+          "emitted_t": 61049
+        },
+        "digit.inverse": {
+          "calls": 560,
+          "emitted_t": 9744482
+        },
+        "digit.inverse_fused": {
+          "calls": 14000,
+          "emitted_t": 6549373
+        },
+        "digit.sign_relocate": {
+          "calls": 560,
+          "emitted_t": 429194
+        },
+        "digit.widen": {
+          "calls": 560,
+          "emitted_t": 440433
+        },
+        "midg.decide": {
+          "calls": 54200,
+          "emitted_t": 9492370
+        },
+        "midg.fetch": {
+          "calls": 81300,
+          "emitted_t": 6886276
+        },
+        "midg.gate_off": {
+          "calls": 43700,
+          "emitted_t": 4069156
+        },
+        "midg.gate_on": {
+          "calls": 43700,
+          "emitted_t": 2499440
+        },
+        "midg.ring_add": {
+          "calls": 125000,
+          "emitted_t": 56280210
+        },
+        "midg.vform": {
+          "calls": 2232,
+          "emitted_t": 27491896
+        },
+        "payload.read_lane": {
+          "calls": 54736,
+          "emitted_t": 3040505
+        },
+        "payload.ripple": {
+          "calls": 85352,
+          "emitted_t": 13789634
+        },
+        "payload.transition_masked": {
+          "calls": 8352,
+          "emitted_t": 3670837
+        },
+        "payload.transition_plain": {
+          "calls": 10500,
+          "emitted_t": 2835410
+        },
+        "traversal.inverse_column": {
+          "calls": 406,
+          "emitted_t": 232863435
+        }
+      },
+      "native_tests": [
+        "7",
+        "5",
+        "2",
+        "1",
+        "2"
+      ],
+      "phase_tests": [
+        "16"
+      ],
+      "fixed_input_all_measurement_audits": 700,
+      "differential_pass": []
+    },
+    "control-fold-v9": {
+      "component_profiles": [],
+      "whole_count": {
+        "kinds": [
+          0,
+          4,
+          1024,
+          0,
+          0,
+          0,
+          197114940,
+          2145212,
+          711131238,
+          52625800,
+          57023682,
+          0,
+          49936640,
+          544889652,
+          0,
+          2417186,
+          2417186,
+          0
+        ],
+        "physical_ops": 1619702564
+      },
+      "top": [
+        692,
+        544889652,
+        1619702564,
+        692
+      ],
+      "profile": {
+        "column.map": {
+          "calls": 812,
+          "emitted_t": 68944486
+        },
+        "column.midg_finish": {
+          "calls": 812,
+          "emitted_t": 0
+        },
+        "column.midg_hr_correction": {
+          "calls": 812,
+          "emitted_t": 15639348
+        },
+        "column.midg_hr_search": {
+          "calls": 812,
+          "emitted_t": 52638406
+        },
+        "column.midg_ht_correction": {
+          "calls": 812,
+          "emitted_t": 72862630
+        },
+        "column.midg_ht_division": {
+          "calls": 812,
+          "emitted_t": 30806256
+        },
+        "column.probe_switch": {
+          "calls": 812,
+          "emitted_t": 3144134
+        },
+        "column.swap_digit": {
+          "calls": 812,
+          "emitted_t": 21492228
+        },
+        "column.swap_unprobe": {
+          "calls": 812,
+          "emitted_t": 3194609
+        },
+        "column.switch_done": {
+          "calls": 812,
+          "emitted_t": 996296
+        },
+        "digit.complement": {
+          "calls": 560,
+          "emitted_t": 78769
+        },
+        "digit.divide": {
+          "calls": 560,
+          "emitted_t": 8021403
+        },
+        "digit.erase_sign": {
+          "calls": 560,
+          "emitted_t": 61049
+        },
+        "digit.inverse": {
+          "calls": 560,
+          "emitted_t": 9744482
+        },
+        "digit.inverse_fused": {
+          "calls": 14000,
+          "emitted_t": 6549373
+        },
+        "digit.sign_relocate": {
+          "calls": 560,
+          "emitted_t": 429194
+        },
+        "digit.widen": {
+          "calls": 560,
+          "emitted_t": 440433
+        },
+        "midg.decide": {
+          "calls": 54200,
+          "emitted_t": 9492370
+        },
+        "midg.fetch": {
+          "calls": 81300,
+          "emitted_t": 6886276
+        },
+        "midg.gate_off": {
+          "calls": 43700,
+          "emitted_t": 4069156
+        },
+        "midg.gate_on": {
+          "calls": 43700,
+          "emitted_t": 2499440
+        },
+        "midg.ring_add": {
+          "calls": 125000,
+          "emitted_t": 56280210
+        },
+        "midg.vform": {
+          "calls": 2232,
+          "emitted_t": 55581240
+        },
+        "payload.read_lane": {
+          "calls": 54736,
+          "emitted_t": 3040505
+        },
+        "payload.ripple": {
+          "calls": 85352,
+          "emitted_t": 13789634
+        },
+        "payload.transition_masked": {
+          "calls": 8352,
+          "emitted_t": 3670837
+        },
+        "payload.transition_plain": {
+          "calls": 10500,
+          "emitted_t": 2835410
+        },
+        "traversal.inverse_column": {
+          "calls": 406,
+          "emitted_t": 273385821
+        }
+      },
+      "native_tests": [
+        "7",
+        "5",
+        "2",
+        "1",
+        "2"
+      ],
+      "phase_tests": [
+        "16"
+      ],
+      "fixed_input_all_measurement_audits": 700,
+      "differential_pass": []
+    }
+  },
+  "primitive_v3": [
+    "582930"
+  ],
+  "rotation_v6": {
+    "pass_cases": [
+      "524288"
+    ],
+    "profiles": [
+      "protected=false old_ops=72691 new_ops=3181 old_ccx=65249 new_ccx=1633 width=692",
+      "protected=true old_ops=105841 new_ops=4405 old_ccx=94931 new_ccx=2041 width=692"
+    ]
+  },
+  "reflection_v7": {
+    "pass_cases": [
+      "131072"
+    ],
+    "profiles": [
+      "style=0 old_ops=10312 new_ops=5779 old_ccx=9408 new_ccx=3745 width=692",
+      "style=1 old_ops=11658 new_ops=6241 old_ccx=10752 new_ccx=3979 width=692"
+    ]
+  },
+  "normal_v6": {
+    "status": "FAILED",
+    "shots": [
+      "9024"
+    ],
+    "value_failures": [
+      "3"
+    ],
+    "phase_batches": [
+      "2"
+    ],
+    "ancilla_batches": [
+      "3"
+    ],
+    "first_reason": [
+      "CLASSICAL MISMATCH shot 2726: got (0xf81d8e54e20d13fbcb5987aa15cf1be35c7951ba1f626582789980ee091ee905,0x5d18f112c48b9213434f1d02a296a26527c68f20911c9c6bca2fa7a89faf4792) exp (0xe87f60efa328b508f346f3caca1e81bf7930083db5504a11440b9b96c5bd8737,0x3985a15c478dfcc9caf1b9ad55f095320c2f3253a8f5474bea89477792b89cae)"
+    ],
+    "elapsed": [
+      "mm:ss or m:ss): 47:58.34"
+    ],
+    "max_rss_kib": [
+      "78185676"
+    ],
+    "canonical_score_exists": false,
+    "scope": "complete unchanged normal benchmark; failed, unscored"
+  },
+  "stream_v6": {
+    "metadata": [
+      [
+        "692",
+        "479915092",
+        "1413812844",
+        "692"
+      ]
+    ],
+    "sha256": "c45935170e604c5fe4b191a856a8017e1123e62223bb05ca8585046dd797c8d0  /home/hclau/ecdsa_research/q692_readiness_20261015/stream-v6.bin"
+  },
+  "stream_v3": {
+    "metadata": [
+      [
+        "692",
+        "1279861628",
+        "2351902000",
+        "692"
+      ]
+    ],
+    "sha256": "5e772ed8a7e05ebcf40807b6b1afaa7b82e280c73b2927501a43a3e623ef8c8a  /home/hclau/ecdsa_research/q692_readiness_20261015/stream-v3.bin"
+  },
+  "stream_v9": {
+    "metadata": [
+      [
+        "692",
+        "544889652",
+        "1619702564",
+        "692"
+      ]
+    ],
+    "sha256": "b87f979142da9dd550139511eff15e55ed17d5967b05fa9fc43a80f787e3ea51  /home/hclau/ecdsa_research/q692_readiness_20261015/stream-v9.bin"
+  },
+  "fixed_original": {
+    "scope": "fixed failing v6 inputs, independent measurement seed, unchanged protected simulator; diagnostic only, not a score",
+    "physical_ops": 2472354640,
+    "fixed_failed_shots": [
+      2726,
+      2913,
+      3532
+    ],
+    "lanes": 64,
+    "value_mismatch_lanes": 64,
+    "phase_word": "bc0dda056c846731",
+    "ancilla_garbage": [
+      {
+        "qubit": 514,
+        "word": "4924924924924924"
+      },
+      {
+        "qubit": 517,
+        "word": "b6db6db6db6db6db"
+      },
+      {
+        "qubit": 519,
+        "word": "b6db6db6db6db6db"
+      },
+      {
+        "qubit": 521,
+        "word": "2492492492492492"
+      },
+      {
+        "qubit": 522,
+        "word": "6db6db6db6db6db6"
+      },
+      {
+        "qubit": 523,
+        "word": "2492492492492492"
+      },
+      {
+        "qubit": 524,
+        "word": "6db6db6db6db6db6"
+      },
+      {
+        "qubit": 527,
+        "word": "2492492492492492"
+      },
+      {
+        "qubit": 528,
+        "word": "2492492492492492"
+      },
+      {
+        "qubit": 531,
+        "word": "4924924924924924"
+      },
+      {
+        "qubit": 532,
+        "word": "4924924924924924"
+      },
+      {
+        "qubit": 533,
+        "word": "ffffffffffffffff"
+      },
+      {
+        "qubit": 534,
+        "word": "4924924924924924"
+      },
+      {
+        "qubit": 535,
+        "word": "9249249249249249"
+      },
+      {
+        "qubit": 536,
+        "word": "6db6db6db6db6db6"
+      },
+      {
+        "qubit": 542,
+        "word": "9249249249249249"
+      },
+      {
+        "qubit": 543,
+        "word": "9249249249249249"
+      },
+      {
+        "qubit": 544,
+        "word": "9249249249249249"
+      },
+      {
+        "qubit": 547,
+        "word": "2492492492492492"
+      },
+      {
+        "qubit": 548,
+        "word": "b6db6db6db6db6db"
+      },
+      {
+        "qubit": 550,
+        "word": "db6db6db6db6db6d"
+      },
+      {
+        "qubit": 551,
+        "word": "2492492492492492"
+      },
+      {
+        "qubit": 552,
+        "word": "2492492492492492"
+      },
+      {
+        "qubit": 553,
+        "word": "db6db6db6db6db6d"
+      },
+      {
+        "qubit": 555,
+        "word": "9249249249249249"
+      },
+      {
+        "qubit": 556,
+        "word": "9249249249249249"
+      },
+      {
+        "qubit": 557,
+        "word": "4924924924924924"
+      },
+      {
+        "qubit": 558,
+        "word": "ffffffffffffffff"
+      },
+      {
+        "qubit": 559,
+        "word": "ffffffffffffffff"
+      },
+      {
+        "qubit": 560,
+        "word": "ffffffffffffffff"
+      },
+      {
+        "qubit": 561,
+        "word": "b6db6db6db6db6db"
+      },
+      {
+        "qubit": 563,
+        "word": "2492492492492492"
+      },
+      {
+        "qubit": 564,
+        "word": "4924924924924924"
+      },
+      {
+        "qubit": 565,
+        "word": "9249249249249249"
+      },
+      {
+        "qubit": 566,
+        "word": "db6db6db6db6db6d"
+      },
+      {
+        "qubit": 567,
+        "word": "9249249249249249"
+      },
+      {
+        "qubit": 568,
+        "word": "9249249249249249"
+      },
+      {
+        "qubit": 569,
+        "word": "ffffffffffffffff"
+      },
+      {
+        "qubit": 570,
+        "word": "9249249249249249"
+      },
+      {
+        "qubit": 571,
+        "word": "db6db6db6db6db6d"
+      },
+      {
+        "qubit": 572,
+        "word": "ffffffffffffffff"
+      },
+      {
+        "qubit": 662,
+        "word": "db6db6db6db6db6d"
+      },
+      {
+        "qubit": 663,
+        "word": "2492492492492492"
+      },
+      {
+        "qubit": 664,
+        "word": "2492492492492492"
+      },
+      {
+        "qubit": 665,
+        "word": "2492492492492492"
+      },
+      {
+        "qubit": 666,
+        "word": "2492492492492492"
+      },
+      {
+        "qubit": 667,
+        "word": "4924924924924924"
+      },
+      {
+        "qubit": 678,
+        "word": "ffffffffffffffff"
+      },
+      {
+        "qubit": 679,
+        "word": "6db6db6db6db6db6"
+      },
+      {
+        "qubit": 680,
+        "word": "9249249249249249"
+      },
+      {
+        "qubit": 682,
+        "word": "6db6db6db6db6db6"
+      },
+      {
+        "qubit": 687,
+        "word": "9249249249249249"
+      },
+      {
+        "qubit": 690,
+        "word": "9249249249249249"
+      }
+    ]
+  },
+  "fixed_v6": {
+    "scope": "fixed failing v6 inputs, independent measurement seed, unchanged protected simulator; diagnostic only, not a score",
+    "physical_ops": 1413812844,
+    "fixed_failed_shots": [
+      2726,
+      2913,
+      3532
+    ],
+    "lanes": 64,
+    "value_mismatch_lanes": 64,
+    "phase_word": "69dc8c6ca3fb3030",
+    "ancilla_garbage": [
+      {
+        "qubit": 512,
+        "word": "db6db6db6db6db6d"
+      },
+      {
+        "qubit": 513,
+        "word": "4924924924924924"
+      },
+      {
+        "qubit": 515,
+        "word": "4924924924924924"
+      },
+      {
+        "qubit": 516,
+        "word": "2492492492492492"
+      },
+      {
+        "qubit": 517,
+        "word": "4924924924924924"
+      },
+      {
+        "qubit": 518,
+        "word": "2492492492492492"
+      },
+      {
+        "qubit": 519,
+        "word": "4924924924924924"
+      },
+      {
+        "qubit": 521,
+        "word": "4924924924924924"
+      },
+      {
+        "qubit": 522,
+        "word": "6db6db6db6db6db6"
+      },
+      {
+        "qubit": 523,
+        "word": "6db6db6db6db6db6"
+      },
+      {
+        "qubit": 524,
+        "word": "2492492492492492"
+      },
+      {
+        "qubit": 525,
+        "word": "db6db6db6db6db6d"
+      },
+      {
+        "qubit": 526,
+        "word": "2492492492492492"
+      },
+      {
+        "qubit": 527,
+        "word": "4924924924924924"
+      },
+      {
+        "qubit": 528,
+        "word": "6db6db6db6db6db6"
+      },
+      {
+        "qubit": 529,
+        "word": "b6db6db6db6db6db"
+      },
+      {
+        "qubit": 531,
+        "word": "4924924924924924"
+      },
+      {
+        "qubit": 532,
+        "word": "9249249249249249"
+      },
+      {
+        "qubit": 533,
+        "word": "6db6db6db6db6db6"
+      },
+      {
+        "qubit": 535,
+        "word": "4924924924924924"
+      },
+      {
+        "qubit": 536,
+        "word": "4924924924924924"
+      },
+      {
+        "qubit": 538,
+        "word": "9249249249249249"
+      },
+      {
+        "qubit": 539,
+        "word": "9249249249249249"
+      },
+      {
+        "qubit": 540,
+        "word": "db6db6db6db6db6d"
+      },
+      {
+        "qubit": 541,
+        "word": "9249249249249249"
+      },
+      {
+        "qubit": 542,
+        "word": "db6db6db6db6db6d"
+      },
+      {
+        "qubit": 543,
+        "word": "9249249249249249"
+      },
+      {
+        "qubit": 544,
+        "word": "4924924924924924"
+      },
+      {
+        "qubit": 545,
+        "word": "9249249249249249"
+      },
+      {
+        "qubit": 546,
+        "word": "9249249249249249"
+      },
+      {
+        "qubit": 547,
+        "word": "9249249249249249"
+      },
+      {
+        "qubit": 548,
+        "word": "4924924924924924"
+      },
+      {
+        "qubit": 549,
+        "word": "9249249249249249"
+      },
+      {
+        "qubit": 550,
+        "word": "db6db6db6db6db6d"
+      },
+      {
+        "qubit": 552,
+        "word": "4924924924924924"
+      },
+      {
+        "qubit": 553,
+        "word": "4924924924924924"
+      },
+      {
+        "qubit": 554,
+        "word": "9249249249249249"
+      },
+      {
+        "qubit": 555,
+        "word": "4924924924924924"
+      },
+      {
+        "qubit": 558,
+        "word": "4924924924924924"
+      },
+      {
+        "qubit": 559,
+        "word": "9249249249249249"
+      },
+      {
+        "qubit": 560,
+        "word": "db6db6db6db6db6d"
+      },
+      {
+        "qubit": 561,
+        "word": "db6db6db6db6db6d"
+      },
+      {
+        "qubit": 562,
+        "word": "b6db6db6db6db6db"
+      },
+      {
+        "qubit": 563,
+        "word": "db6db6db6db6db6d"
+      },
+      {
+        "qubit": 564,
+        "word": "6db6db6db6db6db6"
+      },
+      {
+        "qubit": 565,
+        "word": "ffffffffffffffff"
+      },
+      {
+        "qubit": 566,
+        "word": "ffffffffffffffff"
+      },
+      {
+        "qubit": 567,
+        "word": "6db6db6db6db6db6"
+      },
+      {
+        "qubit": 569,
+        "word": "4924924924924924"
+      },
+      {
+        "qubit": 570,
+        "word": "4924924924924924"
+      },
+      {
+        "qubit": 571,
+        "word": "2492492492492492"
+      },
+      {
+        "qubit": 572,
+        "word": "6db6db6db6db6db6"
+      },
+      {
+        "qubit": 662,
+        "word": "4924924924924924"
+      },
+      {
+        "qubit": 667,
+        "word": "4924924924924924"
+      },
+      {
+        "qubit": 678,
+        "word": "ffffffffffffffff"
+      },
+      {
+        "qubit": 679,
+        "word": "ffffffffffffffff"
+      },
+      {
+        "qubit": 682,
+        "word": "db6db6db6db6db6d"
+      },
+      {
+        "qubit": 687,
+        "word": "b6db6db6db6db6db"
+      },
+      {
+        "qubit": 690,
+        "word": "b6db6db6db6db6db"
+      }
+    ]
+  },
+  "fixed_v9": {
+    "scope": "fixed failing v6 inputs, independent measurement seed, unchanged protected simulator; diagnostic only, not a score",
+    "physical_ops": 1619702564,
+    "fixed_failed_shots": [
+      2726,
+      2913,
+      3532
+    ],
+    "lanes": 64,
+    "value_mismatch_lanes": 0,
+    "phase_word": "0000000000000000",
+    "ancilla_garbage": []
+  },
+  "independent_curves_v9": {
+    "scope": "independent valid curve counterexamples from the fixed 50000-input audit, protected curve reference checked, independent measurement seed, unchanged protected simulator; diagnostic only, not a score",
+    "physical_ops": 1619702564,
+    "fixed_failed_shots": [
+      0,
+      1,
+      2
+    ],
+    "lanes": 64,
+    "value_mismatch_lanes": 64,
+    "phase_word": "179ed5df4b4dc51c",
+    "ancilla_garbage": [
+      {
+        "qubit": 512,
+        "word": "6db6db6db6db6db6"
+      },
+      {
+        "qubit": 513,
+        "word": "4924924924924924"
+      },
+      {
+        "qubit": 514,
+        "word": "6db6db6db6db6db6"
+      },
+      {
+        "qubit": 532,
+        "word": "4924924924924924"
+      },
+      {
+        "qubit": 533,
+        "word": "ffffffffffffffff"
+      },
+      {
+        "qubit": 556,
+        "word": "2492492492492492"
+      },
+      {
+        "qubit": 559,
+        "word": "2492492492492492"
+      },
+      {
+        "qubit": 562,
+        "word": "2492492492492492"
+      },
+      {
+        "qubit": 565,
+        "word": "db6db6db6db6db6d"
+      },
+      {
+        "qubit": 566,
+        "word": "9249249249249249"
+      },
+      {
+        "qubit": 567,
+        "word": "b6db6db6db6db6db"
+      },
+      {
+        "qubit": 568,
+        "word": "db6db6db6db6db6d"
+      },
+      {
+        "qubit": 569,
+        "word": "9249249249249249"
+      },
+      {
+        "qubit": 570,
+        "word": "6db6db6db6db6db6"
+      },
+      {
+        "qubit": 571,
+        "word": "6db6db6db6db6db6"
+      },
+      {
+        "qubit": 572,
+        "word": "6db6db6db6db6db6"
+      },
+      {
+        "qubit": 662,
+        "word": "b6db6db6db6db6db"
+      },
+      {
+        "qubit": 664,
+        "word": "2492492492492492"
+      },
+      {
+        "qubit": 665,
+        "word": "2492492492492492"
+      },
+      {
+        "qubit": 666,
+        "word": "2492492492492492"
+      },
+      {
+        "qubit": 667,
+        "word": "db6db6db6db6db6d"
+      },
+      {
+        "qubit": 678,
+        "word": "ffffffffffffffff"
+      },
+      {
+        "qubit": 679,
+        "word": "ffffffffffffffff"
+      }
+    ]
+  },
+  "independent_policy_v9": {
+    "conservative_v2_failure_inputs": 0,
+    "envelope_failure_inputs": 0,
+    "inputs": 50000,
+    "policy_failure_inputs": 3,
+    "scope": "fixed 50000 independent arithmetic inputs; classical policy diagnosis only; TC27/K25-large/K32-small/EMAX23; not curve-point execution or a score; every flagged input retained"
+  },
+  "fixed_column_v9": [
+    "1024"
+  ],
+  "map_limit_v9": [
+    "step=87 v2_x=22 v2_y=0 emax=23 width=692 all_measurements=true exact_integer_oracle=true",
+    "step=88 v2_x=0 v2_y=22 emax=23 width=692 all_measurements=true exact_integer_oracle=true"
+  ],
+  "file_sha256": {
+    "cache-v4-preflight.json": "a6040ebe2847b9090065ef2a7eed522f1dcb26606ca593cac4a81b19220b7957",
+    "cache-v4.log": "0eeffc36776b5a75c8cd1b0344c0fc106abccc4ff8e77910de26d88c06875d02",
+    "cache-v4.sh": "b2f1f490176dd0898f485549a3761740831a118b29f470c508f584fbb4afd904",
+    "candidate-control-fold-v1-manifest.json": "f3a1edfe29357d2aa0675f8949cb606a3059bccc93cee665fe6b70ad42c41876",
+    "candidate-control-fold-v1.patch": "febd83d5c4b6c716ff2ac697fd7ca0fb89f407b6b1a1d94982a61501fc977c83",
+    "candidate-control-fold-v2-manifest.json": "85082d007d7a5022a580b8a6a76eaa21d2874ab6f4af5e87669e7e770342d8a7",
+    "candidate-control-fold-v2.patch": "a2eb92a7de7eee2b3863d61315e4dc0f2f3ec76f5226e3aad70874e5e1f4b604",
+    "candidate-control-fold-v3-manifest.json": "5a5960b0450631005101e9fdb55834d89f4eb6f1c4976f165097095ecfbc14df",
+    "candidate-control-fold-v3.patch": "c559fd678947e7e48ae73ce19bf87594373c7bb3dc888d8c7b34bf01c6f8fe3c",
+    "candidate-control-fold-v4-manifest.json": "ba435b62e52a099a37674b9d9b6212bb317aa18aaa157bd5802f18fafd4e33bb",
+    "candidate-control-fold-v4.patch": "f8e6617bfdb39b2232cc7e9e1dc0e9d8f59b25736b6a4ac70482ef280240680b",
+    "candidate-control-fold-v5-manifest.json": "0fb31397758be5db2abd1f6d5dc666a4a40ca03843e5ed04be1f0b0b8f6d33cf",
+    "candidate-control-fold-v5.patch": "16aca6ccae17e4ed66437081db24194bad075ebaadfb845c022be9e06dd74dbe",
+    "candidate-control-fold-v6-manifest.json": "a65904a0a8717cc9caeecd54a1437310ec8399f604ac89d0fc2a8654db5ea52f",
+    "candidate-control-fold-v6.patch": "c0d445a1b1921fb9e863660ac8e4e96bdaf4251a609e2d43310aa2d5a3c64202",
+    "candidate-control-fold-v7-manifest.json": "f23ab3f535943f5025168b896baccffd6e06cd8dab7604da505247c40d9135f0",
+    "candidate-control-fold-v7.patch": "11ba836dcf24c82666921dea243c1045ac890d1d95b7ea717d17794d5beeba47",
+    "candidate-repair-v8-manifest.json": "a6b1f7bd176a2a8c343a1f9939282aadb4f12273c23a861a89304951bc82f0fa",
+    "candidate-repair-v8.patch": "b3b21dfe035f48427e06e257c563b441b6d81ec427f280565898182c94a28980",
+    "candidate-repair-v9-manifest.json": "2d4dd71ed96edf0d0a7058f8f4114b5f35010ba3b38fbd75a22d5b3c1c14f6ae",
+    "candidate-repair-v9.patch": "15faf00345062e11faff1f73aab3cfb23e2a250c1c7c31c4daad19752c9e4b78",
+    "collect.py": "bf0117f2b78ad20125b068a4ccae55276657dd82bc1d4b6bd8ba30a5202471cb",
+    "components-v1-preflight.json": "d338ee6365c8243032c7da2c51b18b26c8dbd96f8fe59271eedd717ecdabf7e9",
+    "components-v1.log": "f01bd995c76e19cb7bc471deeb55e8487a3e0a23be8ab0c6c56f8c6f7f143038",
+    "components-v1.sh": "c11f36df148681632731fd1ddb5f5ce0880499cd252b29a0c7f95cdc1a5ae077",
+    "components-v2-preflight.json": "79af9b2008910ae3134e794ed535e4b3178c3f33070eb17b28f82ce8f767c253",
+    "components-v2.log": "97d51a1cdf37b1f5bf70d3ccde5ec4f3b50aead2ff3039311d443ae0a02ad1f2",
+    "components-v2.sh": "44a76a81773251954d6205ab5a2cff418e2d9bb47299d73be0ddf9fc572d6a6b",
+    "components-v3-preflight.json": "ca3268d2c7059443695219d2c8d868943616190344b0d9ffb0fe9a4a6e6c9d9e",
+    "components-v3.log": "e282772cb59555db1f5956f08507514f7dcbc9945f4fed7d0bef4a1dd5f283e9",
+    "components-v3.sh": "b0c17d0a4e0fd442910e151836f5aa7236561846ae964dcb15ae639edcb049fa",
+    "components-v5-preflight.json": "702b28ee917f08c834b9d59c70a8c296fd3989a2e86e7d94939ca6d07a84ed2f",
+    "components-v5.log": "271c7817045c7e58a021ba7a12706891a542e95c762cb182ffbd088dc9825268",
+    "components-v5.sh": "14b519c42a5984b0e08d0889592e3a5659d57d0226228c4637c19f7fb4816704",
+    "components-v6-preflight.json": "fba5458d8f0f87667edf059168f7e6656166ca4a9ba12ef3876fa61e910460ee",
+    "components-v6.log": "d08b66569a7b25f5adcc745b5208c4ff5e4c4bc0dcf4fa2c13f4ca1e6f809530",
+    "components-v6.sh": "fcb62d8615ea3475c4f2468484d1592f3ad898046495dfa4c933567c762eeac8",
+    "components-v7-preflight.json": "c0d35e92444d3744553192a8b86fde06407eb64efe6cb8c95aa1dfc370d59ca0",
+    "components-v7.log": "51f8cccd608ce935f1d24cb0ad4ec32359a2d8c1a71b7fdc755b9139e0882ab6",
+    "components-v7.sh": "f1a8097ce060d4ec5e1b69c8bc6ecfb8f69c3a941fc00c6cf3727c80b6c87a27",
+    "components-v8-preflight.json": "c0859c51a5ffde7e3b32b556f29d6acbbe260067c3cc1ad27c67080524f861b9",
+    "components-v8.log": "2e3d8f78f5766e8fc2eb98406c212bc29416b5ca55b11288446e11525fdf8abc",
+    "components-v8.sh": "062b543c387cf69f9902d50e4ee9948d18a366cce2d71d5d416ddf6475628aaa",
+    "components-v9-preflight.json": "1b3e85e7e2a1be12c683fedf3375ddb86fb96b4ac837e96ed1108efc91540e63",
+    "components-v9.log": "00833232656e19b6415e5ee592a785829a9d1ec7b18a1b3ed245ee9fa8b5305b",
+    "components-v9.sh": "ba3cfaae33bdf237c433c1aa21d411391d5a6f7a3d4d2d100aad402b6e0920d0",
+    "counter-control-fold-v1.log": "71e8a05b28822168347831d111b11043bcf23723b99e93d2adff33e4dda6f550",
+    "counter-control-fold-v2.log": "92105fb91e1246ccf5e097ef263567498ebcf37e836a80545e1136694ab16411",
+    "counter-control-fold-v3.log": "2e90f1b8badb346b6e7d105f8294889b3f136b4a8b52fde793a7346ee14ce548",
+    "counter-control-fold-v4.log": "d619147a5cb8128b9428324634a5e1ffa9fc4562d5626cf821bc6dec980140cb",
+    "counter-control-fold-v5.log": "868b1a16125852a09baf410d077e0273ae4a5c1bb3dcd9ba5590d0b62e7f7ac2",
+    "counter-control-fold-v6.log": "0df3b9d4d236c39e9e7dfd9f210ba349ab24113c6193902c665f21d0a54a4a1a",
+    "counter-control-fold-v7.log": "fbb599bbf78e1cbcab610566e420f86f65f7195abace2edfc1a1fb2cc002716f",
+    "counter-control-fold-v9.log": "9056b1bc2f86c6cb218073e4ef85197c2998cbf50a636afd9712a696b38d86c2",
+    "counter-frozen.log": "9865dde0d8cdcfed588f33e3d1c73690256e38d357691458bcdf8f97e92d787a",
+    "counter-v1-preflight.json": "a59fa276e5221b9720f608828a0564dc69079f19dce6443fb1d1b0abac11b2b0",
+    "counter-v1.log": "1b0a8716a3aaaacca35362de4b0eb1eac66847d3d1f1d4703fbd3d4d74a07925",
+    "counter-v1.sh": "cb71f95e669cd6761070b76fc57ae9a1096bb73ea937b62485bb922ca563f818",
+    "differential-v2-preflight.json": "1906f078e5fc6f4836c37d5c8c0d4b2e9f178922bf42eb830a11941e531483f8",
+    "differential-v2-proof.log": "630d3da80fb263620a721bb1c2f26be5933323c6dd359b81a64e495ecaf53917",
+    "differential-v2-repair-preflight.json": "d721201baea3043e03d3030b67b54be6b5fcf9089f7fa62bd80124c70e9289b9",
+    "differential-v2-repair-proof.log": "e7db7b00fead7142bb617a662049135107102bb9b8b309288644d9a600580da8",
+    "differential-v2-repair.log": "979e87c47f81f5f8a97e0ebc3a59fa19a56adf7254ddb235ee0d81b8b7dbcc67",
+    "differential-v2-repair.sh": "cfce34ff7cff3b8c0abeb2b043fc4fb11b2ce257cf2b9589021f88c5f7777f3b",
+    "differential-v2.log": "0263544bbce12eef7c08dcd087d12cd8c379bf3742b11bbf9d3160a2918bc187",
+    "differential-v2.sh": "7be096fb73f2166c1eb7f902efbf1d77892a36873b4c1168c6aa632809bb959e",
+    "differential-v3-proof.log": "ca68cc6849e5cd8727290446f5cbfad6d708247a21d41e52323e9b42a2966b13",
+    "differential-v5-proof.log": "7f506f39684df2479e18ec57848fd1f876f7405ff92424fbc3c689d156c00fea",
+    "export-binary-patches.py": "a37fffb0ec0a8a8e71af98f4d8de4718bb77085ee9d1cf05d0a75bf522eca70a",
+    "failed-packet-v6-preflight.json": "4b7f01875c61b0284581b6c28d326de1113f530a7c9d7d0dbdc197f7fab3f452",
+    "failed-packet-v6-r2-preflight.json": "689e49bafcd3067d3dd5aa5d9c8cded736c88f47355f78b7a9ebf7ebf07c569b",
+    "failed-packet-v6-r2-reconstruction.log": "d04a10f54a3988c2785e76ab352167a4e9702e2433dc6d1fb895c97cd35bb217",
+    "failed-packet-v6-r2.log": "010a2f590b6c1d6effe77f6a2996cb20d0a8c1b6e486451ffdbc804355feef92",
+    "failed-packet-v6-r2.sh": "7eef5a435e4d83b1cdbe07f6e63871d3fe356fe8d88760985ec02d1903bae659",
+    "failed-packet-v6-reconstruction.log": "4107da93a92d5faab06977fffbd3e606b0e723d8cf86f0d3b34840f6825df220",
+    "failed-packet-v6.log": "0263544bbce12eef7c08dcd087d12cd8c379bf3742b11bbf9d3160a2918bc187",
+    "failed-packet-v6.sh": "06e26960b8dc833ed37b6adc9f5b1a7c970abfb0ded84997d2e8b51005bd8c5e",
+    "failed-v6-packet-r2.json": "b503cd73418f42c77d2b40da81781b992299341936162c3b28c2091b44d078a8",
+    "failed-v6-packet-r2.json.flagged.json": "950bf649459eb53420fe191898236ed4d0db5edfa3a21e34a5a1703075697b63",
+    "fixed-column-v9-preflight.json": "2993ed6d26d66a51aad0b32a6a3adc257f848d9269ca707ad66a55ebd937d92d",
+    "fixed-column-v9-proof.log": "bae9cc08e5ec8bf0cfc459310ff71756d53e69f1d2e099ea5e8b54972a73439d",
+    "fixed-column-v9-r2-preflight.json": "fee5510f0ea0fbb6fc85158fbae85fa419dca3a03d648d563f45e1535b7671c6",
+    "fixed-column-v9-r2-proof.log": "40a86f5d7d7650c4615b75b7d96840003ada32082313c8fe996cfb9518242f5d",
+    "fixed-column-v9-r2.log": "0263544bbce12eef7c08dcd087d12cd8c379bf3742b11bbf9d3160a2918bc187",
+    "fixed-column-v9-r2.sh": "ebb93c5ec87b6f962117e28a20ebbb13e3004f2f3c5b08d3b60645d68b99ba2e",
+    "fixed-column-v9-r3.log": "8443b8c318bc58d6ce616c4c5c4a181a55388429f7ba2ce27a40e7923c0a21e6",
+    "fixed-column-v9-r4-preflight.json": "b81d6b951ebe52be1b7cfdddab034e56727ed30e40ec37d558d32142d53689e4",
+    "fixed-column-v9-r4-proof.log": "29448c64638703461228264ce530be05cbcf77efc5c08f1134d68e6c6367ba48",
+    "fixed-column-v9-r4.log": "0263544bbce12eef7c08dcd087d12cd8c379bf3742b11bbf9d3160a2918bc187",
+    "fixed-column-v9-r4.sh": "0a7bfaec518cb30909ca76e0df787392a3e2d64be578bb8fcf6bdb37fae77eb0",
+    "fixed-column-v9-r5-preflight.json": "ba66c2583a034e827b7a8d446b5f1ce896f8daa8672f0bb8e3d3b5a0f03d472d",
+    "fixed-column-v9-r5-proof.log": "f36f51aff8ddcdcedb0f1e810be49adfd17814bc5bdffcee420b2e929f06d42d",
+    "fixed-column-v9-r5.log": "0263544bbce12eef7c08dcd087d12cd8c379bf3742b11bbf9d3160a2918bc187",
+    "fixed-column-v9-r5.sh": "9051e8a422973a4178cae761b8b60a64f2c5bbd472497fd0d04c1f0e4294c7e7",
+    "fixed-column-v9.log": "0263544bbce12eef7c08dcd087d12cd8c379bf3742b11bbf9d3160a2918bc187",
+    "fixed-column-v9.sh": "9fec892eb55c1e0930ed6cff7d4f248dfb6663beab35dfc7c0141551b44ac935",
+    "fixed-input-original-replay.log": "b57a59ea031659d5369b3172c2a0a04b0ecfda04f01de26619a86690407e0873",
+    "fixed-input-original-vs-v6.json": "c4c57115d3d94c858127647717d953acb4008fe9ed3539cae8c0fc3023e7b862",
+    "fixed-input-replay-v6-preflight.json": "dfdeb0fd48b233ed64d3f9fdccc87ba800096539ddf05444239eb5b8ad06522a",
+    "fixed-input-replay-v6.log": "a27b1cc403eedee8f67a25ca02e6f990f023722153fe3917e7bbb5d5f1c93d7a",
+    "fixed-input-replay-v6.sh": "21146fd4e6c615948326365019231d2a051e4c82f2eaab74b0f99b96451decfb",
+    "fixed-input-v6-replay.json": "058370e4cf4cd3286f59342b17c392e407f1cc2c1d977b99a54a1df49538d71d",
+    "fixed-input-v6-replay.log": "7c18088932cd8bf96bd8fdbff049bb4eb5196f00bb7234c18eaf4054c29858b5",
+    "fixed-input-v9-replay.json": "eb685779a238aef0f8c6a26952547a81635efc931e78a489bbf8226cf0844745",
+    "fixed-input-v9-replay.log": "a8a943bd88762d54be578e5a2ddc0cc64a954288db3bbcec13f30ca234946148",
+    "fixed-packet-v9-preflight.json": "b5a2c8e904a1723a753a751ed006b58e5a938c903006838135ca85b4dd83d019",
+    "fixed-packet-v9.sh": "8151525b4ea7cea40c7275e34e121ac16154abe5bcb4ef3faddc7604016ccbed",
+    "fixed-replay-v9-preflight.json": "804660e7a16e184a9427a31af3a6245cebe10605159392642950db815adc2565",
+    "fixed-replay-v9.sh": "f4b93969b6156edf4943c7aa320c322dfd6a280d4f2ad73004ebda71e95756c8",
+    "generate-v3-preflight.json": "02528744a764dd484ac55401d3716f8ddd74e20700d1d159bff99eee4d49f40a",
+    "generate-v3-r2-preflight.json": "740ef4a0bccce40bca39fda5f0232ab61adce3a2b4198eb27334894d7e1e122e",
+    "generate-v3-r2.log": "f62a808a12a3a066b2e98f420c43b7c346ac30db8653f2afb644a148cdfd44d7",
+    "generate-v3-r2.sh": "9403c318686e97a9772be711ed55ba2329de226bc396b9521cf6f99379e0df22",
+    "generate-v3.log": "ac3472b437a0b96af1053069a3b4c7dadce1695afb651c6fe2348ebdc9d0537c",
+    "generate-v3.sh": "7e3b688069ec17d6e14b15d32146d8fbfc514ec9ee0d49348428de896f17009a",
+    "generate-v6-preflight.json": "57d611b2d9aa53d4fb7a9be1e28430bccdcaf5650e10dd191c2b0500b7d1609b",
+    "generate-v6.log": "2e075b1a08791792492c9e3033bf817b7a2b6b37e4771bb72d84e6bf022f85e8",
+    "generate-v6.sh": "c53fd26d192cb06e31406ed3ab16ce03753fc309dc7af62310fd29c28cda3cb5",
+    "generate-v9-preflight.json": "5b580678578c39a8ee26df4e88e7e3003f17fa98febedc29408aa2acea7b8523",
+    "generate-v9.log": "d9acaf28444ad311805940ddbb85808eb3604e9d78c91ea6928ba5cdb5138804",
+    "generate-v9.sh": "fd9f8b8f3e5b2ec2de10dc22b55932a7dc421c4e260227aee7d47a285c6b3f10",
+    "independent-curve-packet-v9.json": "ad95dc0871fefeb7992eedcb3ad72c6a551adb031e9ada9fd868cac5061775b1",
+    "independent-curves-v9-preflight.json": "897248dc58130147d1e80b07f2294d37df6cdfe846791431707e39c36dc9b9e3",
+    "independent-curves-v9-proof.log": "597c229761f76168a424a2590dd8b6b9f61bfbab8d2d87c9a6d2dced46b8a6ba",
+    "independent-curves-v9-result.json": "6ccdfda9ad9bd89ab9d81ef758475dad60386d924bf44acdd14f5dc7bc8b0b82",
+    "independent-curves-v9.sh": "8a22caa9cc723ad15e153931e1446b6356bd1b45d708997125d4e0c9b3a49700",
+    "independent-policy-v9-preflight.json": "b7080165ab29ea851414a09973ff18bcdb38fccb3ea82cb5d433910322def1df",
+    "independent-policy-v9-proof.log": "62b731798137629b4aa0bec71dd247c22805afc2d4dc48ba29ababa34d658b1f",
+    "independent-policy-v9.json": "5d762836e37100130aca1aaada48c63c2a1a13b37989f9dddc7721e95bf35d4a",
+    "independent-policy-v9.log": "0263544bbce12eef7c08dcd087d12cd8c379bf3742b11bbf9d3160a2918bc187",
+    "independent-policy-v9.sh": "21832b2233e9f5f6082a30aefc6d0c4fd4155c8b26f40177a86bfdf59c8b14d9",
+    "large25-v8-preflight.json": "8d87eb994acef32514bf71d9d83cf5b2fc467dfe9ffc0f64ba63b31d21cd8e76",
+    "large25-v8-proof.log": "0d0df513d5b5ccab72e224d625ecf7712a699920bd4f8be7135feb6f98f06fda",
+    "large25-v8.log": "0263544bbce12eef7c08dcd087d12cd8c379bf3742b11bbf9d3160a2918bc187",
+    "large25-v8.sh": "0ea2fe17418c40bdcfb6a27263486c171e2836cd93aabc20ef538b71228af515",
+    "map-limit-v9-preflight.json": "02e46e43c4ce6b9bd40aa6a4c37990fb86a4566cfa4edeb2d9240cfce026d97e",
+    "map-limit-v9-proof.log": "f304a9a3da2169d414b3e4e0723738cb00ade0fc0288ed775f02b6f8f361a8f3",
+    "map-limit-v9.log": "0263544bbce12eef7c08dcd087d12cd8c379bf3742b11bbf9d3160a2918bc187",
+    "map-limit-v9.sh": "4c0a35280e5bc5f89acebc855fb9a37b538605aae5c90c4649d439e3c9116f55",
+    "normal-benchmark-v6-launch.json": "76fa552b1e076f8439359bfeab98561c11d45e88aa349e2f772d11eb965ee4e3",
+    "normal-benchmark-v6-official.log": "11706a77e20565ac6c78e287fd2505a314c4df7b70c8a258d349e3b5080b7d25",
+    "normal-benchmark-v6-preflight.json": "07d2934602d708e3b848bd23aae2f4c97d3efbda8d7f8873236f7a59152d2ee8",
+    "normal-benchmark-v6.log": "76fa552b1e076f8439359bfeab98561c11d45e88aa349e2f772d11eb965ee4e3",
+    "normal-benchmark-v6.sh": "61cd7f06399d300bb4054d450badc2ef455524e2e0a385626f211f186dd802a5",
+    "package-v3-build.log": "466a61937a66590e3fe95031a318030e7a958c5c72981b8336356a29c28a0267",
+    "package-v6-build.log": "b9913c1709866a6bc5ff98d0afe7cac56086d790353631666890154d08babe72",
+    "package-v9-build.log": "4880b27a6b4942c456d31a8e10963884bec119fec8b9aa56e9479a5b15076d21",
+    "phase-v1-preflight.json": "1548a7ddbcbe1e437d66856358d08bb64ede9f27191e5f8e329b658379c1fd34",
+    "phase-v1-proof.log": "7b71f0302737258082c5ee5e71b028a2efbf07e424b713fb4053d5ac4d06eb57",
+    "phase-v1-source.json": "7f3d1311dd0f71662bb5b7e92aaf18c4db6fc90bb92855d747d0a85aaa7e81ec",
+    "phase-v1.log": "c3e1a700f18123253e4d49a1ed265327823e7af2be328af650860e355c321bb6",
+    "phase-v1.sh": "96d6544c3ad16fd8a2586ee8333b7273ca265c22316bbf86d4c844a297c96792",
+    "phase-v2-proof.log": "63176033309725697dd849d46105e66386db1d46b6f3cefcd1ccd11f8ef70618",
+    "phase-v2-source.json": "d97d8d2439c37a6678d56761412946c8dd5b280aa8248280a66c896f90b52850",
+    "phase-v3-proof.log": "2b47c0c7cc0772af2940b1775003b6730e5c1792ca99ce32fe82b6b6d4abff44",
+    "phase-v3-source.json": "c8e390a1f23d33982230e7cb94610c3acdc4f52de872dc1fd4738ecaade77e4a",
+    "phase-v5-proof.log": "e6fb8fd038398c3f98355220a56a765a6ef3133e7fdb210d669a93724476345c",
+    "phase-v5-source.json": "b6d089c132bc7fe0d3e0457410f09c2587a97c45134577f30e2c2b1677c2f9ab",
+    "phase-v6-proof.log": "4c8b1319af27baa414a1ac1680c34c8b01811da326986269d22578335e904560",
+    "phase-v6-source.json": "183bfb182aa4cb6b3aa441f6af63bd9d326ca45204ca6ab491fba06ee7083178",
+    "phase-v7-proof.log": "75bc4178c147f419f026d68b1b9211129fcb96350d849581c371c0de0da947ec",
+    "phase-v7-source.json": "4504254d429b9f8ac676bd39fe9fab9341da2831c70b5b9ad6250127cbd397bc",
+    "phase-v9-proof.log": "2bdcadc4af47dca47e3bb2dd3ecc3db2efb708ec674f86591f3e1fa7732348fd",
+    "phase-v9-source.json": "05d33073ff941d65319d72bcc40f87a2b34a37e0c13fba75fd884a3ce1b55fb2",
+    "policy-census-v8-diagnostics.log": "a6e0155a8ebc2adec600efb079b498a11c7b9ef14db7d38fe27687fb5e7ea175",
+    "policy-census-v8-preflight.json": "757ed99714dc4a3a0fe2d21700cbb315330a13daf8cb6a872faf6e87724127b1",
+    "policy-census-v8.json": "a1e4abfe5e5ee5736e030d0780f8ce7534945a4f9c96b6a38d88e7e2fd16f44e",
+    "policy-census-v8.log": "71c1f05c18fdb18d64d9369c420fa68b44dd3ada76f388ab6c7f36b05537bbea",
+    "policy-census-v8.sh": "f37399e8e69fb81a4b85fd4bdb0380f5b098578b7cf2132cf887990ecd2f0638",
+    "prepare-cache-v4.log": "ba435b62e52a099a37674b9d9b6212bb317aa18aaa157bd5802f18fafd4e33bb",
+    "prepare-cache-v4.py": "c0e983302cdbe4dacd1b0fb4e90d548c027f6d2a28eaf1c5fef4de47ad6edfe6",
+    "prepare-component-profile.py": "6b48c23a908be0516dc987fda653b82cbc52743b94bf15fd2ab9b02a7a6bf00a",
+    "prepare-cost-v1.py": "0f4d1d905ca7cddda1482b190a954d07a0b25e3c3214c5b7dc27f32c461f8686",
+    "prepare-cost-v2.log": "85082d007d7a5022a580b8a6a76eaa21d2874ab6f4af5e87669e7e770342d8a7",
+    "prepare-cost-v2.py": "7121170761b4c16dfb15f5431ba2e0fcde87a8350cd33e140bb9b29a9eb384fd",
+    "prepare-cost-v3.log": "5a5960b0450631005101e9fdb55834d89f4eb6f1c4976f165097095ecfbc14df",
+    "prepare-cost-v3.py": "1670534d43d941096f160ab97f6447f199237c1aea4972895e035fe7d1581cc8",
+    "prepare-cost-v5.log": "0fb31397758be5db2abd1f6d5dc666a4a40ca03843e5ed04be1f0b0b8f6d33cf",
+    "prepare-cost-v5.py": "a764f82a05ebe46ecacb92ad0b13e2d9ca4a6a69a7e5bd8799793ff7ad5c138a",
+    "prepare-cost-v6.log": "a65904a0a8717cc9caeecd54a1437310ec8399f604ac89d0fc2a8654db5ea52f",
+    "prepare-cost-v6.py": "a368200c24127e6d207fd1dc30697ce0e03ac505a21930584390d3f3ff071eea",
+    "prepare-cost-v7.log": "f23ab3f535943f5025168b896baccffd6e06cd8dab7604da505247c40d9135f0",
+    "prepare-cost-v7.py": "6ec969ac77321441c5ac1df8475ebaa0cf0c20d0883f52123161d9005e567b1f",
+    "prepare-cost-v8.log": "a6b1f7bd176a2a8c343a1f9939282aadb4f12273c23a861a89304951bc82f0fa",
+    "prepare-cost-v9.log": "2d4dd71ed96edf0d0a7058f8f4114b5f35010ba3b38fbd75a22d5b3c1c14f6ae",
+    "prepare-counter-profile.py": "234124833b9644ebdd57ec23221a3023e496cbe7de9caba31d50d6758dc1de55",
+    "prepare-current-base-package.py": "9e43204200ceb73e81689bcf7fdcd4a52cc602ffcc50d61b903606b622b5c019",
+    "prepare-differential.py": "b2bb81a056912deb90686e37e99e41207423c152701e0177d5d453569ce0f25e",
+    "prepare-failed-packet-index-failed-v1.py": "8de4f1e29bc0adf4f61b1a983aa86d0de4906a1acc2f2b02a5fbfb64709c5a63",
+    "prepare-failed-packet.py": "86a8601c836389590ce9f1846bc15819e0f9264d20b19a7686d6f8f5618d796c",
+    "prepare-fixed-column-proof-input-failed-v1.py": "9322a4b3516755c5b2a3f2fd11f26539eae1c9ae80e0bb90e8dbee4bcd1c7167",
+    "prepare-fixed-column-proof-input-failed-v2.py": "5b491b94537b10c6611a41771d07921541555b64de7da7d2129a08508de7fc86",
+    "prepare-fixed-column-proof-input-failed-v4.py": "19ec6af2ffb2b92207ba262a04bd4d7b2273c6d7c79bc2576ade89b70a748825",
+    "prepare-fixed-column-proof.py": "5fbd65656a476b23d7bc13faa728c5ccae6fd62b5c2770ac6cd21265773ae13d",
+    "prepare-fixed-input-replay.py": "fc89178c9e750ac747eb51bdc69da49c9e27932fd202726a2dd80355c63d632c",
+    "prepare-fixed-packet-replay.py": "bf81ab0149c07b6ec00a59490d30c84d6b4eeb37f2f75f958b2498c02e49c9b3",
+    "prepare-fixed-replay-v9.py": "75ab8ebdcd4911c5ec862221316be106ac61f0b7f5a141efeec76fc1178a0f7f",
+    "prepare-independent-curve-replay.py": "981f85aac7f76c97e7d58374f57a590a8544faa013a70e584bc1310468e904e7",
+    "prepare-independent-curves.py": "cfe3a32f7cbd9945c258625808bfbcef48b78f9b58961b21d1aaf07a47f13aa2",
+    "prepare-independent-policy.py": "e30ffa32fd2b799abeabd104f76d3e7030b8c5505ff768a7e5c6605deb243d52",
+    "prepare-large25-proof.py": "2b862cca8e5055999d996f884fea0c7b3410fed1d03de9f2e2ae6aa16159cae0",
+    "prepare-map-limit-proof.py": "5b05e59a54878d12788eac245a1c2bcbf4cf742e66e132d000112d9d9cd7d9da",
+    "prepare-policy-census.py": "7d38d29fefbcbfe921d30de01c8ccbc2854f9a00b8b61f46cf01836e719fee73",
+    "prepare-primitive-proof.py": "f83e90b1cb7c651f67d97a2d62b347bc9a0da671b2db6979c705796568b9ff29",
+    "prepare-reflection-proof.py": "f1c786b2bc4bd744edc4b7eecfcc2c3b49018947fc5121427d8ef21f43adc9b3",
+    "prepare-repair-v8.py": "32153e4fc11c860b7fc5312282bfc599f4e8e0cd8fec22265950b8c3d1cc50e4",
+    "prepare-repair-v9.py": "d4f3e5a3a977b017fd5e283512f4ce88e94fd7b1ffcdf05cb3a898baaf4c8c6d",
+    "prepare-rotation-proof.py": "ea42134d6a339b8c8ba396b68d7e465608e2ea856be10ed7de3b4cbeaa49f661",
+    "primitive-v3-preflight.json": "c80f83d8aea45b866d407b018207e58c5250cf28a8933e8b6957268f29167fd6",
+    "primitive-v3-proof.log": "bc59d8aee0341283b573eb56a81ca5518a4d5a490a0816ec2a72a65876a5311f",
+    "primitive-v3.log": "86cc1ad807d0720946848a43318c9ac5d3507ea3ceb947a864b1d2a8dfe4ddf6",
+    "primitive-v3.sh": "01018c24662ce7668d2bc15e2de35860440728ec2f538f90c862631568ba1276",
+    "profile-control-fold-v1.log": "3a78dd90fe00f04d716ebfca169a51992c70ec9dc631ea9129aff129290f0343",
+    "profile-control-fold-v2.log": "6597ecae195cfabef67cd5c8341342d1e85de066e7470c6f78290176c818ec4c",
+    "profile-control-fold-v3.log": "44ecdc2e508997b3589afc1e50d8c1fdaffe94a292b6d548e90931a4f4b8e3f8",
+    "profile-control-fold-v5.log": "a260189de7bb7d6dc4477a6906abf4c630780eace337827c779b16bbf4600c27",
+    "profile-frozen.log": "542fbe1ef56605f1c1810e0696b9af124f8e731e9e7b1b4422429e9ada1f1cd5",
+    "progress-receipt.json": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "reflection-v7-preflight.json": "a9bf7ff16c558339cecc20cdec554d2c2186f60f7515600f01323af6ef83bf42",
+    "reflection-v7-proof.log": "73e4716541cf99fcc38539e688958338eb102dd570a514bfb6b530cfcede7798",
+    "reflection-v7.log": "ccffc829af61edcf8344ff82bb261efee0cd7307ecb4f703c39341b4f604612b",
+    "reflection-v7.sh": "f71dec123ca9b62a52d43a4934243ca4c288283d0ca18f149bf061836904258e",
+    "repair-package-export.py": "6a6ccff67b7825834d0923fdab383d8166b3bd429d85e9ce16dfb1de70d9deef",
+    "rotation-v6-preflight.json": "f902683501723839d10a959e452079babeb82e35147a490e4d4542b3de0403a3",
+    "rotation-v6-proof.log": "414d013ced8d3d38a4b4c4cdf9a60b25e18c4735595548f5124189a3646522d2",
+    "rotation-v6.log": "9270482177f0f196c86487fd82242405c3172b8c4cc131bd16772ee2ca317a21",
+    "rotation-v6.sh": "e03273dbaf9cbfea531d2197f23d3b22dada8791cdec082a1d191beb282cfd29",
+    "stream-v3-generation.log": "40facf6f039936eb2c3011f5bbfb5f45794133356e549c48f42d2e6a56c50cc1",
+    "stream-v6-generation.log": "739041d528620daf8290cde8a848d49076671e54d97d62a4a12ad0c412d5bb73",
+    "stream-v9-generation.log": "b0577b3954a2193368faced2bcb502e3372499318500ddf8aa5971d509c26fda",
+    "validate-v9-sequence.log": "b23750d82fe95a0d893bd3db9049e08f42191078e9d1134d6ce284237f3fd66b",
+    "validate-v9-sequence.sh": "9b70ce437267d753196134d853fc440cc3036f3de9294274180b410b1c566d3f",
+    "verify-package-replay.py": "3f332d8affd01cf31e7919eddb17801a55e9b9b5657896a4703584ab1a222827"
+  }
+}

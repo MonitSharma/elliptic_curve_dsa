@@ -1,0 +1,11 @@
+diff --git a/src/point_add/mod.rs b/src/point_add/mod.rs
+index 292237d7..853db443 100755
+--- a/src/point_add/mod.rs
++++ b/src/point_add/mod.rs
+@@ -662,3 +662,6 @@ pub mod constant_templates;
+ mod native_sfuse_b;
+ 
+ mod phase_cubic;
++
++#[cfg(test)] mod frame_kernel;
++#[cfg(test)] mod tests_terminal_frame;

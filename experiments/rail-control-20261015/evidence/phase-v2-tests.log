@@ -1,0 +1,59 @@
+   Compiling product_paired_diagnostic v0.1.0 (/home/hclau/ecdsa_research/rail-control-20261015/phase-audit-v2)
+warning: unused import: `QubitOrBit`
+ --> src/main.rs:4:53
+  |
+4 |     analyze_ops, BitId, Op, OperationType, QubitId, QubitOrBit, RegisterId,
+  |                                                     ^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `Write`
+  --> src/main.rs:13:32
+   |
+13 | use std::io::{BufReader, Read, Write};
+   |                                ^^^^^
+
+warning: unused import: `sim`
+   --> src/main.rs:185:27
+    |
+185 | use quantum_ecc::{circuit,sim};
+    |                           ^^^
+
+warning: constant `LIBRARY_SOURCE` is never used
+ --> src/main.rs:1:7
+  |
+1 | const LIBRARY_SOURCE:&str="/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline";
+  |       ^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: constant `NUM_TESTS` is never used
+  --> src/main.rs:29:7
+   |
+29 | const NUM_TESTS: usize = 9024;
+   |       ^^^^^^^^^
+
+warning: function `secp256k1` is never used
+   --> src/main.rs:135:4
+    |
+135 | fn secp256k1() -> WeierstrassEllipticCurve {
+    |    ^^^^^^^^^
+
+warning: function `fiat_shamir_seed` is never used
+   --> src/main.rs:167:4
+    |
+167 | fn fiat_shamir_seed(ops: &[Op]) -> sha3::Shake256Reader {
+    |    ^^^^^^^^^^^^^^^^
+
+warning: `product_paired_diagnostic` (bin "product_paired_diagnostic" test) generated 7 warnings (run `cargo fix --bin "product_paired_diagnostic" -p product_paired_diagnostic --tests` to apply 3 suggestions)
+    Finished `release` profile [optimized] target(s) in 5.13s
+     Running unittests src/main.rs (/home/hclau/ecdsa_research/rail-control-20261015/phase-target/release/deps/product_paired_diagnostic-6d7d9d457807584c)
+
+running 4 tests
+test phase_kernel::tests::conditional_hmr_boolean_idempotence_and_value_restoration ... ok
+test phase_kernel::tests::discarded_phase_only_block_is_detected ... ok
+test phase_kernel::tests::snapshot_mutation_nested_push_and_phase_fault ... ok
+test phase_kernel::tests::support_limit_is_inconclusive ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+

@@ -1,0 +1,725 @@
+   Compiling libc v0.2.185
+   Compiling typenum v1.19.0
+   Compiling version_check v0.9.5
+   Compiling shlex v1.3.0
+   Compiling proc-macro2 v1.0.106
+   Compiling find-msvc-tools v0.1.9
+   Compiling generic-array v0.14.9
+   Compiling quote v1.0.45
+   Compiling unicode-ident v1.0.24
+   Compiling pkg-config v0.3.33
+   Compiling jobserver v0.1.34
+   Compiling cc v1.2.60
+   Compiling unicode-segmentation v1.13.2
+   Compiling crypto-common v0.1.6
+   Compiling syn v2.0.117
+   Compiling block-buffer v0.10.4
+   Compiling convert_case v0.10.0
+   Compiling unicode-xid v0.2.6
+   Compiling zstd-safe v7.2.4
+   Compiling paste v1.0.15
+   Compiling digest v0.10.7
+   Compiling foldhash v0.2.0
+   Compiling keccak v0.1.6
+   Compiling cpufeatures v0.2.17
+   Compiling ruint-macro v1.2.1
+   Compiling cfg-if v1.0.4
+   Compiling const-hex v1.18.1
+   Compiling ruint v1.17.2
+   Compiling sha3 v0.10.8
+   Compiling zstd-sys v2.0.16+zstd.1.5.7
+   Compiling hashbrown v0.16.1
+   Compiling rustc-hash v2.1.2
+   Compiling bytes v1.11.1
+   Compiling itoa v1.0.18
+   Compiling derive_more-impl v2.1.1
+   Compiling derive_more v2.1.1
+   Compiling alloy-primitives v1.5.7
+   Compiling zstd v0.13.3
+   Compiling quantum_ecc v0.1.0 (/home/hclau/ecdsa_research/rail-control-20261015/square-room-b3)
+warning: unused doc comment
+   --> src/bin/../point_add/pingpong.rs:116:1
+    |
+116 | /// K3b pricing instrument: `K3B_EXTRA_ROOM=k` as a CELL pin raises the cap by k inside that cell only.
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ rustdoc does not generate documentation for macro invocations
+    |
+    = help: to document an item produced by a macro, the macro must produce the documentation as part of its expansion
+    = note: `#[warn(unused_doc_comments)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused doc comment
+    --> src/bin/../point_add/pingpong.rs:3996:1
+     |
+3996 | / /// y15-core: a carry-in for the next [`chunked_add`]'s first chunk, as (low, wire): the caller has already added
+3997 | | /// positions [0, low) (sums written, carries kept) and the first chunk's ripple runs on [low, hi) with this carry-in.
+3998 | | /// The chunk plan and the boundary compares are those of the plain add. Unset (the default) changes nothing.
+     | |_------------------------------------------------------------------------------------------------------------^
+     |   |
+     |   rustdoc does not generate documentation for macro invocations
+     |
+     = help: to document an item produced by a macro, the macro must produce the documentation as part of its expansion
+
+warning: unused import: `f_slice`
+  --> src/bin/../point_add/pingpong.rs:56:22
+   |
+56 |     add_f_window, f, f_slice, ripple_add, ripple_add_lent,
+   |                      ^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `fold_guard`
+  --> src/bin/../point_add/pingpong.rs:59:32
+   |
+59 | use super::{env_flag, env_raw, fold_guard, pinned_env, required_env, Builder, N, SECP256K1_P};
+   |                                ^^^^^^^^^^
+
+warning: unused doc comment
+   --> src/bin/../point_add/heo.rs:99:1
+    |
+ 99 | / /// `HEO_PIN_<name>` overrides a pinned head setting. None when the overlay is off.
+100 | | /// K3b: per-cell pin overrides (set by `heo_carry` around one payload cell). Consulted before `HEO_PIN_*`.
+    | |_----------------------------------------------------------------------------------------------------------^
+    |   |
+    |   rustdoc does not generate documentation for macro invocations
+    |
+    = help: to document an item produced by a macro, the macro must produce the documentation as part of its expansion
+
+warning: unused doc comment
+   --> src/bin/../point_add/heo_carry.rs:313:1
+    |
+313 | /// Run `body`, booking its Toffoli under `comp` and its window peak under `(label, t)`.
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ rustdoc does not generate documentation for macro invocations
+    |
+    = help: to document an item produced by a macro, the macro must produce the documentation as part of its expansion
+
+warning: unused import: `AtomicUsize`
+    --> src/bin/../point_add/heo_carry.rs:1879:29
+     |
+1879 |     use std::sync::atomic::{AtomicUsize, Ordering};
+     |                             ^^^^^^^^^^^
+
+warning: unused doc comment
+   --> src/bin/../point_add/square.rs:637:1
+    |
+637 | / /// Recursion policy: a sum half of at least this many bits is split again
+638 | | /// instead of squared triangularly. `B(m) = m(m-1)/2 + 4m - 3` for the base
+639 | | /// case against `K(m) = B(a) + B(b) + B(b+1) + a + 7b + 1` for one split puts
+640 | | /// the break-even near 60 bits; the tree-wide peak, not the count, is what
+641 | | /// bounds how deep this may go, so it is a pinned knob rather than a constant.
+    | |_------------------------------------------------------------------------------^
+    |   |
+    |   rustdoc does not generate documentation for macro invocations
+    |
+    = help: to document an item produced by a macro, the macro must produce the documentation as part of its expansion
+
+warning: unused doc comment
+   --> src/bin/../point_add/square.rs:643:1
+    |
+643 | / /// Same policy for the low half `a`, whose split leaves `a` itself modified
+644 | | /// until the inverse -- so `a` must be consumed (into `t = a + b`) before its
+645 | | /// split is built. Disabled by pinning it above any half width (>= 129).
+    | |_------------------------------------------------------------------------^
+    |   |
+    |   rustdoc does not generate documentation for macro invocations
+    |
+    = help: to document an item produced by a macro, the macro must produce the documentation as part of its expansion
+
+warning: unused import: `f_slice`
+  --> src/bin/../point_add/j_fuse.rs:24:39
+   |
+24 | use super::modular::{add_f_window, f, f_slice, ripple_add};
+   |                                       ^^^^^^^
+
+warning: unused variable: `room`
+  --> src/bin/../point_add/joint_lowfold.rs:24:9
+   |
+24 |     let room=walk_max_qubits().saturating_sub(circ.active_qubits()as usize);
+   |         ^^^^ help: if this is intentional, prefix it with an underscore: `_room`
+   |
+   = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `loans`
+  --> src/bin/../point_add/joint_lowfold.rs:25:9
+   |
+25 |     let loans=REPLAY_SIGN_LOANS.with(|s|s.get());
+   |         ^^^^^ help: if this is intentional, prefix it with an underscore: `_loans`
+
+warning: unused variable: `loans`
+  --> src/bin/../point_add/retained_prebias.rs:12:6
+   |
+12 |  let loans=REPLAY_SIGN_LOANS.with(|s|s.get());
+   |      ^^^^^ help: if this is intentional, prefix it with an underscore: `_loans`
+
+warning: variable does not need to be mutable
+    --> src/bin/../point_add/leapfrog.rs:7359:25
+     |
+7359 |                     let mut pick = |mode: u64, r64: &mut dyn FnMut() -> u64| -> U256 {
+     |                         ----^^^^
+     |                         |
+     |                         help: remove this `mut`
+     |
+     = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable does not need to be mutable
+    --> src/bin/../point_add/leapfrog.rs:7476:17
+     |
+7476 |             let mut run = |ops: &[crate::circuit::Op], xof_tag: &[u8]| -> (Vec<bool>, Vec<bool>, u64) {
+     |                 ----^^^
+     |                 |
+     |                 help: remove this `mut`
+
+warning: unused variable: `p`
+   --> src/bin/../point_add/heo_carry.rs:244:104
+    |
+244 |             cell_windows: std::env::var("HEO_CELL_WINDOWS").ok().filter(|p| !p.trim().is_empty()).map(|p| {
+    |                                                                                                        ^ help: if this is intentional, prefix it with an underscore: `_p`
+
+warning: unused variable: `p`
+   --> src/bin/../point_add/heo_carry.rs:236:103
+    |
+236 |             proxy_esw: std::env::var("HEO_PROXY_ENVELOPE").ok().filter(|p| !p.trim().is_empty()).map(|p| {
+    |                                                                                                       ^ help: if this is intentional, prefix it with an underscore: `_p`
+
+warning: unused variable: `p`
+    --> src/bin/../point_add/heo_carry.rs:1890:74
+     |
+1890 |     let ovr = OVR.get_or_init(|| std::env::var("K3B_CELL_OVR").ok().map(|p| {
+     |                                                                          ^ help: if this is intentional, prefix it with an underscore: `_p`
+
+warning: unused variable: `path`
+   --> src/bin/../point_add/heo.rs:195:13
+    |
+195 |         let path = std::env::var("HEO_ENVELOPE").expect("HEO_WALK needs HEO_ENVELOPE=<path to `esw ead` lines>");
+    |             ^^^^ help: if this is intentional, prefix it with an underscore: `_path`
+
+warning: unused variable: `path`
+   --> src/bin/../point_add/heo.rs:230:16
+    |
+230 |             Ok(path) => {
+    |                ^^^^ help: if this is intentional, prefix it with an underscore: `_path`
+
+warning: `quantum_ecc` (bin "build_circuit" test) generated 20 warnings (run `cargo fix --bin "build_circuit" -p quantum_ecc --tests` to apply 14 suggestions)
+    Finished `release` profile [optimized] target(s) in 1m 24s
+     Running unittests src/bin/build_circuit.rs (/home/hclau/ecdsa_research/rail-control-20261015/square-target/release/deps/build_circuit-0c12d1b03f2fe721)
+
+running 3 tests
+test point_add::square::research_positive_bias::production_sized::uniform_positive_large_all_measurement_outcomes ... HEO_OVERLAY env GO_B3_A=0
+HEO_OVERLAY pin SQ_SPARSE_CORRECTION=1
+DIRTY_DIRECT_PLAN	6611	63	642	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	6611	7471	642	642	62
+HEO_OVERLAY env GO_B1=1
+DIRTY_DIRECT_PLAN	14890	63	644	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	14890	15750	644	644	62
+DIRTY_DIRECT_PLAN	23294	65	710	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	23294	24182	710	710	64
+HEO_OVERLAY pin SQ_LEND_RETAINED_ANDS=4
+HEO_OVERLAY env GO_B2=1
+POSITIVE_EXACT_ALL_MR m=64 policy=SQ_A_POLICY cap=1267 fixed_inputs=512 dirty_ABI_patterns=2 exact_ALL_MR=PASS
+HEO_OVERLAY env GO_B3_B=0
+DIRTY_DIRECT_PLAN	6611	63	642	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	6611	7471	642	642	62
+DIRTY_DIRECT_PLAN	14890	63	644	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	14890	15750	644	644	62
+DIRTY_DIRECT_PLAN	23294	65	710	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	23294	24182	710	710	64
+POSITIVE_EXACT_ALL_MR m=64 policy=SQ_B_POLICY cap=1267 fixed_inputs=512 dirty_ABI_patterns=2 exact_ALL_MR=PASS
+DIRTY_DIRECT_PLAN	6611	63	642	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	6611	7471	642	642	62
+DIRTY_DIRECT_PLAN	14890	63	644	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	14890	15750	644	644	62
+DIRTY_DIRECT_PLAN	23294	65	710	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	23294	24182	710	710	64
+POSITIVE_EXACT_ALL_MR m=64 policy=SQ_C_POLICY cap=1267 fixed_inputs=512 dirty_ABI_patterns=2 exact_ALL_MR=PASS
+DIRTY_DIRECT_PLAN	7048	65	644	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	7048	7936	644	644	64
+DIRTY_DIRECT_PLAN	15377	63	646	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	15377	16237	646	646	62
+DIRTY_DIRECT_PLAN	24232	67	714	0	0	65	[67]
+DIRTY_FRAGMENT	direct_add_phase_transport	67	24232	25148	714	714	66
+POSITIVE_EXACT_ALL_MR m=65 policy=SQ_A_POLICY cap=1267 fixed_inputs=512 dirty_ABI_patterns=2 exact_ALL_MR=PASS
+DIRTY_DIRECT_PLAN	7048	65	644	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	7048	7936	644	644	64
+DIRTY_DIRECT_PLAN	15377	63	646	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	15377	16237	646	646	62
+DIRTY_DIRECT_PLAN	24232	67	714	0	0	65	[67]
+DIRTY_FRAGMENT	direct_add_phase_transport	67	24232	25148	714	714	66
+POSITIVE_EXACT_ALL_MR m=65 policy=SQ_B_POLICY cap=1267 fixed_inputs=512 dirty_ABI_patterns=2 exact_ALL_MR=PASS
+DIRTY_DIRECT_PLAN	7048	65	644	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	7048	7936	644	644	64
+DIRTY_DIRECT_PLAN	15377	63	646	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	15377	16237	646	646	62
+DIRTY_DIRECT_PLAN	24232	67	714	0	0	65	[67]
+DIRTY_FRAGMENT	direct_add_phase_transport	67	24232	25148	714	714	66
+POSITIVE_EXACT_ALL_MR m=65 policy=SQ_C_POLICY cap=1267 fixed_inputs=512 dirty_ABI_patterns=2 exact_ALL_MR=PASS
+DIRTY_DIRECT_PLAN	7048	65	646	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	7048	7936	646	646	64
+DIRTY_DIRECT_PLAN	15818	65	648	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	15818	16706	648	648	64
+DIRTY_DIRECT_PLAN	24717	67	716	0	0	65	[67]
+DIRTY_FRAGMENT	direct_add_phase_transport	67	24717	25633	716	716	66
+POSITIVE_EXACT_ALL_MR m=66 policy=SQ_A_POLICY cap=1267 fixed_inputs=512 dirty_ABI_patterns=2 exact_ALL_MR=PASS
+DIRTY_DIRECT_PLAN	7048	65	646	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	7048	7936	646	646	64
+DIRTY_DIRECT_PLAN	15818	65	648	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	15818	16706	648	648	64
+DIRTY_DIRECT_PLAN	24717	67	716	0	0	65	[67]
+DIRTY_FRAGMENT	direct_add_phase_transport	67	24717	25633	716	716	66
+POSITIVE_EXACT_ALL_MR m=66 policy=SQ_B_POLICY cap=1267 fixed_inputs=512 dirty_ABI_patterns=2 exact_ALL_MR=PASS
+DIRTY_DIRECT_PLAN	7048	65	646	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	7048	7936	646	646	64
+DIRTY_DIRECT_PLAN	15818	65	648	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	15818	16706	648	648	64
+DIRTY_DIRECT_PLAN	24717	67	716	0	0	65	[67]
+DIRTY_FRAGMENT	direct_add_phase_transport	67	24717	25633	716	716	66
+POSITIVE_EXACT_ALL_MR m=66 policy=SQ_C_POLICY cap=1267 fixed_inputs=512 dirty_ABI_patterns=2 exact_ALL_MR=PASS
+DIRTY_DIRECT_PLAN	6611	63	770	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	6611	7471	770	770	62
+HEO_OVERLAY env GO_KEEP_SUM=1
+DIRTY_DIRECT_PLAN	14766	63	802	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	14766	15626	802	802	62
+DIRTY_DIRECT_PLAN	23170	65	868	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	23170	24058	868	868	64
+FLAT_BANK	producer_end	64	26909	866	[773, 774, 775, 776, 777, 778, 779, 780, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 801, 802, 803]
+HIGH_EARLY	producer_end	64	26909	866	809	810	320	321	352	353	772	[]
+HEO_OVERLAY env SQ_HIGH_EARLY_LOAN=3
+FLAT_BANK	erased	64	26918	864	[773, 774, 775, 776, 777, 778, 779, 780, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 801, 802, 803]
+HIGH_EARLY	erased	64	26918	864	809	810	320	321	352	353	772	[]
+FLAT_BANK	source_restored	64	27231	833	[]
+HIGH_EARLY	source_restored	64	27231	833	809	810	320	321	352	353	772	[]
+DIRTY_DIRECT_PLAN	34474	63	836	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	34474	35334	836	836	62
+DIRTY_DIRECT_PLAN	42753	63	838	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	42753	43613	838	838	62
+DIRTY_DIRECT_PLAN	51157	65	904	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	51157	52045	904	904	64
+DIRTY_DIRECT_PLAN	61945	65	1033	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	61945	62833	1033	1033	64
+DIRTY_DIRECT_PLAN	70274	63	1035	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	70274	71134	1035	1035	62
+DIRTY_DIRECT_PLAN	79129	67	1103	0	0	65	[67]
+DIRTY_FRAGMENT	direct_add_phase_transport	67	79129	80045	1103	1103	66
+FLAT_BANK	inverse_sum_ready	64	159489	866	[793, 791, 790, 789, 885, 886, 887, 888, 889, 890, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 775, 774, 777, 776, 901, 902, 781, 780, 783, 782, 903]
+HIGH_EARLY	inverse_sum_ready	64	159489	866	809	810	320	321	352	353	772	[]
+FLAT_BANK	repaid	64	159495	866	[793, 791, 790, 789, 885, 886, 887, 888, 889, 890, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 775, 774, 777, 776, 901, 902, 781, 780, 783, 782, 903]
+HIGH_EARLY	repaid	64	159495	866	809	810	320	321	352	353	772	[]
+FLAT_BANK	inverse_cross_ready	64	159495	866	[793, 791, 790, 789, 885, 886, 887, 888, 889, 890, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 775, 774, 777, 776, 901, 902, 781, 780, 783, 782, 903]
+HIGH_EARLY	inverse_cross_ready	64	159495	866	809	810	320	321	352	353	772	[]
+POSITIVE_EXACT_ALL_MR m=128 policy=SQ_A_POLICY cap=1267 fixed_inputs=512 dirty_ABI_patterns=2 exact_ALL_MR=PASS
+DIRTY_DIRECT_PLAN	6611	63	770	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	6611	7471	770	770	62
+DIRTY_DIRECT_PLAN	14766	63	802	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	14766	15626	802	802	62
+DIRTY_DIRECT_PLAN	23170	65	868	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	23170	24058	868	868	64
+FLAT_BANK	producer_end	64	26909	866	[773, 774, 775, 776, 777, 778, 779, 780, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 801, 802, 803]
+HIGH_EARLY	producer_end	64	26909	866	809	810	320	321	352	353	772	[]
+FLAT_BANK	erased	64	26918	864	[773, 774, 775, 776, 777, 778, 779, 780, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 801, 802, 803]
+HIGH_EARLY	erased	64	26918	864	809	810	320	321	352	353	772	[]
+FLAT_BANK	source_restored	64	27231	833	[]
+HIGH_EARLY	source_restored	64	27231	833	809	810	320	321	352	353	772	[]
+DIRTY_DIRECT_PLAN	34474	63	836	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	34474	35334	836	836	62
+DIRTY_DIRECT_PLAN	42753	63	838	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	42753	43613	838	838	62
+DIRTY_DIRECT_PLAN	51157	65	904	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	51157	52045	904	904	64
+DIRTY_DIRECT_PLAN	61945	65	1033	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	61945	62833	1033	1033	64
+DIRTY_DIRECT_PLAN	70274	63	1035	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	70274	71134	1035	1035	62
+DIRTY_DIRECT_PLAN	79129	67	1103	0	0	65	[67]
+DIRTY_FRAGMENT	direct_add_phase_transport	67	79129	80045	1103	1103	66
+FLAT_BANK	inverse_sum_ready	64	159489	866	[793, 791, 790, 789, 885, 886, 887, 888, 889, 890, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 775, 774, 777, 776, 901, 902, 781, 780, 783, 782, 903]
+HIGH_EARLY	inverse_sum_ready	64	159489	866	809	810	320	321	352	353	772	[]
+FLAT_BANK	repaid	64	159495	866	[793, 791, 790, 789, 885, 886, 887, 888, 889, 890, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 775, 774, 777, 776, 901, 902, 781, 780, 783, 782, 903]
+HIGH_EARLY	repaid	64	159495	866	809	810	320	321	352	353	772	[]
+FLAT_BANK	inverse_cross_ready	64	159495	866	[793, 791, 790, 789, 885, 886, 887, 888, 889, 890, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 775, 774, 777, 776, 901, 902, 781, 780, 783, 782, 903]
+HIGH_EARLY	inverse_cross_ready	64	159495	866	809	810	320	321	352	353	772	[]
+POSITIVE_EXACT_ALL_MR m=128 policy=SQ_B_POLICY cap=1267 fixed_inputs=512 dirty_ABI_patterns=2 exact_ALL_MR=PASS
+DIRTY_DIRECT_PLAN	6611	63	770	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	6611	7471	770	770	62
+DIRTY_DIRECT_PLAN	14766	63	802	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	14766	15626	802	802	62
+DIRTY_DIRECT_PLAN	23170	65	868	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	23170	24058	868	868	64
+FLAT_BANK	producer_end	64	26909	866	[773, 774, 775, 776, 777, 778, 779, 780, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 801, 802, 803]
+HIGH_EARLY	producer_end	64	26909	866	809	810	320	321	352	353	772	[]
+FLAT_BANK	erased	64	26918	864	[773, 774, 775, 776, 777, 778, 779, 780, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 801, 802, 803]
+HIGH_EARLY	erased	64	26918	864	809	810	320	321	352	353	772	[]
+FLAT_BANK	source_restored	64	27231	833	[]
+HIGH_EARLY	source_restored	64	27231	833	809	810	320	321	352	353	772	[]
+DIRTY_DIRECT_PLAN	34474	63	836	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	34474	35334	836	836	62
+DIRTY_DIRECT_PLAN	42753	63	838	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	42753	43613	838	838	62
+DIRTY_DIRECT_PLAN	51157	65	904	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	51157	52045	904	904	64
+DIRTY_DIRECT_PLAN	61945	65	1033	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	61945	62833	1033	1033	64
+DIRTY_DIRECT_PLAN	70274	63	1035	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	70274	71134	1035	1035	62
+DIRTY_DIRECT_PLAN	79129	67	1103	0	0	65	[67]
+DIRTY_FRAGMENT	direct_add_phase_transport	67	79129	80045	1103	1103	66
+FLAT_BANK	inverse_sum_ready	64	159522	866	[793, 791, 790, 789, 885, 886, 887, 888, 889, 890, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 775, 774, 777, 776, 901, 902, 781, 780, 783, 782, 903]
+HIGH_EARLY	inverse_sum_ready	64	159522	866	809	810	320	321	352	353	772	[]
+FLAT_BANK	repaid	64	159528	866	[793, 791, 790, 789, 885, 886, 887, 888, 889, 890, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 775, 774, 777, 776, 901, 902, 781, 780, 783, 782, 903]
+HIGH_EARLY	repaid	64	159528	866	809	810	320	321	352	353	772	[]
+FLAT_BANK	inverse_cross_ready	64	159528	866	[793, 791, 790, 789, 885, 886, 887, 888, 889, 890, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 775, 774, 777, 776, 901, 902, 781, 780, 783, 782, 903]
+HIGH_EARLY	inverse_cross_ready	64	159528	866	809	810	320	321	352	353	772	[]
+POSITIVE_EXACT_ALL_MR m=128 policy=SQ_C_POLICY cap=1267 fixed_inputs=512 dirty_ABI_patterns=2 exact_ALL_MR=PASS
+DIRTY_DIRECT_PLAN	7048	65	774	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	7048	7936	774	774	64
+DIRTY_DIRECT_PLAN	15249	63	807	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	15249	16109	807	807	62
+DIRTY_DIRECT_PLAN	24104	67	875	0	0	65	[67]
+DIRTY_FRAGMENT	direct_add_phase_transport	67	24104	25020	875	875	66
+FLAT_BANK	producer_end	65	27948	873	[777, 778, 779, 780, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 801, 802, 803, 804, 805, 806, 807, 808]
+HIGH_EARLY	producer_end	65	27948	873	814	815	320	321	352	353	776	[]
+FLAT_BANK	erased	65	27957	871	[777, 778, 779, 780, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 801, 802, 803, 804, 805, 806, 807, 808]
+HIGH_EARLY	erased	65	27957	871	814	815	320	321	352	353	776	[]
+FLAT_BANK	source_restored	65	28274	839	[]
+HIGH_EARLY	source_restored	65	28274	839	814	815	320	321	352	353	776	[]
+DIRTY_DIRECT_PLAN	35523	63	842	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	35523	36383	842	842	62
+DIRTY_DIRECT_PLAN	43802	63	844	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	43802	44662	844	844	62
+DIRTY_DIRECT_PLAN	52206	65	910	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	52206	53094	910	910	64
+DIRTY_DIRECT_PLAN	62994	65	1041	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	62994	63882	1041	1041	64
+DIRTY_DIRECT_PLAN	71764	65	1043	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	71764	72652	1043	1043	64
+DIRTY_DIRECT_PLAN	80663	67	1111	0	0	65	[67]
+DIRTY_FRAGMENT	direct_add_phase_transport	67	80663	81579	1111	1111	66
+FLAT_BANK	inverse_sum_ready	65	161717	873	[797, 795, 794, 793, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 901, 902, 903, 904, 905, 906, 779, 778, 781, 780, 907, 908, 785, 784, 787, 786, 909, 798]
+HIGH_EARLY	inverse_sum_ready	65	161717	873	814	815	320	321	352	353	776	[]
+FLAT_BANK	repaid	65	161723	873	[797, 795, 794, 793, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 901, 902, 903, 904, 905, 906, 779, 778, 781, 780, 907, 908, 785, 784, 787, 786, 909, 798]
+HIGH_EARLY	repaid	65	161723	873	814	815	320	321	352	353	776	[]
+FLAT_BANK	inverse_cross_ready	65	161723	873	[797, 795, 794, 793, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 901, 902, 903, 904, 905, 906, 779, 778, 781, 780, 907, 908, 785, 784, 787, 786, 909, 798]
+HIGH_EARLY	inverse_cross_ready	65	161723	873	814	815	320	321	352	353	776	[]
+POSITIVE_EXACT_ALL_MR m=129 policy=SQ_A_POLICY cap=1267 fixed_inputs=512 dirty_ABI_patterns=2 exact_ALL_MR=PASS
+DIRTY_DIRECT_PLAN	7048	65	774	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	7048	7936	774	774	64
+DIRTY_DIRECT_PLAN	15249	63	807	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	15249	16109	807	807	62
+DIRTY_DIRECT_PLAN	24104	67	875	0	0	65	[67]
+DIRTY_FRAGMENT	direct_add_phase_transport	67	24104	25020	875	875	66
+FLAT_BANK	producer_end	65	27948	873	[777, 778, 779, 780, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 801, 802, 803, 804, 805, 806, 807, 808]
+HIGH_EARLY	producer_end	65	27948	873	814	815	320	321	352	353	776	[]
+FLAT_BANK	erased	65	27957	871	[777, 778, 779, 780, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 801, 802, 803, 804, 805, 806, 807, 808]
+HIGH_EARLY	erased	65	27957	871	814	815	320	321	352	353	776	[]
+FLAT_BANK	source_restored	65	28274	839	[]
+HIGH_EARLY	source_restored	65	28274	839	814	815	320	321	352	353	776	[]
+DIRTY_DIRECT_PLAN	35523	63	842	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	35523	36383	842	842	62
+DIRTY_DIRECT_PLAN	43802	63	844	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	43802	44662	844	844	62
+DIRTY_DIRECT_PLAN	52206	65	910	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	52206	53094	910	910	64
+DIRTY_DIRECT_PLAN	62994	65	1041	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	62994	63882	1041	1041	64
+DIRTY_DIRECT_PLAN	71764	65	1043	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	71764	72652	1043	1043	64
+DIRTY_DIRECT_PLAN	80663	67	1111	0	0	65	[67]
+DIRTY_FRAGMENT	direct_add_phase_transport	67	80663	81579	1111	1111	66
+FLAT_BANK	inverse_sum_ready	65	161717	873	[797, 795, 794, 793, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 901, 902, 903, 904, 905, 906, 779, 778, 781, 780, 907, 908, 785, 784, 787, 786, 909, 798]
+HIGH_EARLY	inverse_sum_ready	65	161717	873	814	815	320	321	352	353	776	[]
+FLAT_BANK	repaid	65	161723	873	[797, 795, 794, 793, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 901, 902, 903, 904, 905, 906, 779, 778, 781, 780, 907, 908, 785, 784, 787, 786, 909, 798]
+HIGH_EARLY	repaid	65	161723	873	814	815	320	321	352	353	776	[]
+FLAT_BANK	inverse_cross_ready	65	161723	873	[797, 795, 794, 793, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 901, 902, 903, 904, 905, 906, 779, 778, 781, 780, 907, 908, 785, 784, 787, 786, 909, 798]
+HIGH_EARLY	inverse_cross_ready	65	161723	873	814	815	320	321	352	353	776	[]
+POSITIVE_EXACT_ALL_MR m=129 policy=SQ_B_POLICY cap=1267 fixed_inputs=512 dirty_ABI_patterns=2 exact_ALL_MR=PASS
+DIRTY_DIRECT_PLAN	7048	65	774	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	7048	7936	774	774	64
+DIRTY_DIRECT_PLAN	15249	63	807	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	15249	16109	807	807	62
+DIRTY_DIRECT_PLAN	24104	67	875	0	0	65	[67]
+DIRTY_FRAGMENT	direct_add_phase_transport	67	24104	25020	875	875	66
+FLAT_BANK	producer_end	65	27948	873	[777, 778, 779, 780, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 801, 802, 803, 804, 805, 806, 807, 808]
+HIGH_EARLY	producer_end	65	27948	873	814	815	320	321	352	353	776	[]
+FLAT_BANK	erased	65	27957	871	[777, 778, 779, 780, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 801, 802, 803, 804, 805, 806, 807, 808]
+HIGH_EARLY	erased	65	27957	871	814	815	320	321	352	353	776	[]
+FLAT_BANK	source_restored	65	28274	839	[]
+HIGH_EARLY	source_restored	65	28274	839	814	815	320	321	352	353	776	[]
+DIRTY_DIRECT_PLAN	35523	63	842	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	35523	36383	842	842	62
+DIRTY_DIRECT_PLAN	43802	63	844	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	43802	44662	844	844	62
+DIRTY_DIRECT_PLAN	52206	65	910	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	52206	53094	910	910	64
+DIRTY_DIRECT_PLAN	62994	65	1041	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	62994	63882	1041	1041	64
+DIRTY_DIRECT_PLAN	71764	65	1043	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	71764	72652	1043	1043	64
+DIRTY_DIRECT_PLAN	80663	67	1111	0	0	65	[67]
+DIRTY_FRAGMENT	direct_add_phase_transport	67	80663	81579	1111	1111	66
+FLAT_BANK	inverse_sum_ready	65	161750	873	[797, 795, 794, 793, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 901, 902, 903, 904, 905, 906, 779, 778, 781, 780, 907, 908, 785, 784, 787, 786, 909, 798]
+HIGH_EARLY	inverse_sum_ready	65	161750	873	814	815	320	321	352	353	776	[]
+FLAT_BANK	repaid	65	161756	873	[797, 795, 794, 793, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 901, 902, 903, 904, 905, 906, 779, 778, 781, 780, 907, 908, 785, 784, 787, 786, 909, 798]
+HIGH_EARLY	repaid	65	161756	873	814	815	320	321	352	353	776	[]
+FLAT_BANK	inverse_cross_ready	65	161756	873	[797, 795, 794, 793, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 901, 902, 903, 904, 905, 906, 779, 778, 781, 780, 907, 908, 785, 784, 787, 786, 909, 798]
+HIGH_EARLY	inverse_cross_ready	65	161756	873	814	815	320	321	352	353	776	[]
+POSITIVE_EXACT_ALL_MR m=129 policy=SQ_C_POLICY cap=1267 fixed_inputs=512 dirty_ABI_patterns=2 exact_ALL_MR=PASS
+POSITIVE_EXACT_ALL_MR_SUITE proved_fixed_input_layout_cases=15360 inconclusive_fixtures=0 global_input_proof=false score=NONE
+ok
+test point_add::square::research_positive_bias::production_sized::uniform_positive_large_dirty_loan_phase_fault ... DIRTY_DIRECT_PLAN	6611	63	642	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	6611	7471	642	642	62
+DIRTY_DIRECT_PLAN	14890	63	644	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	14890	15750	644	644	62
+DIRTY_DIRECT_PLAN	23294	65	710	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	23294	24182	710	710	64
+POSITIVE_LARGE_FAULT clean_values_and_zero_MR_native_pass_but_ALL_MR_phase_rejects=true
+ok
+test point_add::square::research_positive_bias::production_sized::uniform_positive_large_native_contracts ... DIRTY_DIRECT_PLAN	6611	63	642	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	6611	7471	642	642	62
+DIRTY_DIRECT_PLAN	14890	63	644	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	14890	15750	644	644	62
+DIRTY_DIRECT_PLAN	23294	65	710	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	23294	24182	710	710	64
+POSITIVE_LARGE_NATIVE m=64 policy=SQ_A_POLICY cap=1267 samples=512 MR_patterns=32 borrowed_wires=95 ops=60485 touched_q=805 all_q_and_classical_ABI_and_phase=PASS scored=false
+DIRTY_DIRECT_PLAN	6611	63	642	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	6611	7471	642	642	62
+DIRTY_DIRECT_PLAN	14890	63	644	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	14890	15750	644	644	62
+DIRTY_DIRECT_PLAN	23294	65	710	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	23294	24182	710	710	64
+POSITIVE_LARGE_NATIVE m=64 policy=SQ_B_POLICY cap=1267 samples=512 MR_patterns=32 borrowed_wires=95 ops=60485 touched_q=805 all_q_and_classical_ABI_and_phase=PASS scored=false
+DIRTY_DIRECT_PLAN	6611	63	642	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	6611	7471	642	642	62
+DIRTY_DIRECT_PLAN	14890	63	644	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	14890	15750	644	644	62
+DIRTY_DIRECT_PLAN	23294	65	710	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	23294	24182	710	710	64
+POSITIVE_LARGE_NATIVE m=64 policy=SQ_C_POLICY cap=1267 samples=512 MR_patterns=32 borrowed_wires=96 ops=60496 touched_q=805 all_q_and_classical_ABI_and_phase=PASS scored=false
+DIRTY_DIRECT_PLAN	7048	65	644	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	7048	7936	644	644	64
+DIRTY_DIRECT_PLAN	15377	63	646	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	15377	16237	646	646	62
+DIRTY_DIRECT_PLAN	24232	67	714	0	0	65	[67]
+DIRTY_FRAGMENT	direct_add_phase_transport	67	24232	25148	714	714	66
+POSITIVE_LARGE_NATIVE m=65 policy=SQ_A_POLICY cap=1267 samples=512 MR_patterns=32 borrowed_wires=98 ops=62751 touched_q=812 all_q_and_classical_ABI_and_phase=PASS scored=false
+DIRTY_DIRECT_PLAN	7048	65	644	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	7048	7936	644	644	64
+DIRTY_DIRECT_PLAN	15377	63	646	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	15377	16237	646	646	62
+DIRTY_DIRECT_PLAN	24232	67	714	0	0	65	[67]
+DIRTY_FRAGMENT	direct_add_phase_transport	67	24232	25148	714	714	66
+POSITIVE_LARGE_NATIVE m=65 policy=SQ_B_POLICY cap=1267 samples=512 MR_patterns=32 borrowed_wires=98 ops=62751 touched_q=812 all_q_and_classical_ABI_and_phase=PASS scored=false
+DIRTY_DIRECT_PLAN	7048	65	644	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	7048	7936	644	644	64
+DIRTY_DIRECT_PLAN	15377	63	646	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	15377	16237	646	646	62
+DIRTY_DIRECT_PLAN	24232	67	714	0	0	65	[67]
+DIRTY_FRAGMENT	direct_add_phase_transport	67	24232	25148	714	714	66
+POSITIVE_LARGE_NATIVE m=65 policy=SQ_C_POLICY cap=1267 samples=512 MR_patterns=32 borrowed_wires=99 ops=62762 touched_q=812 all_q_and_classical_ABI_and_phase=PASS scored=false
+DIRTY_DIRECT_PLAN	7048	65	646	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	7048	7936	646	646	64
+DIRTY_DIRECT_PLAN	15818	65	648	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	15818	16706	648	648	64
+DIRTY_DIRECT_PLAN	24717	67	716	0	0	65	[67]
+DIRTY_FRAGMENT	direct_add_phase_transport	67	24717	25633	716	716	66
+POSITIVE_LARGE_NATIVE m=66 policy=SQ_A_POLICY cap=1267 samples=512 MR_patterns=32 borrowed_wires=98 ops=63836 touched_q=814 all_q_and_classical_ABI_and_phase=PASS scored=false
+DIRTY_DIRECT_PLAN	7048	65	646	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	7048	7936	646	646	64
+DIRTY_DIRECT_PLAN	15818	65	648	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	15818	16706	648	648	64
+DIRTY_DIRECT_PLAN	24717	67	716	0	0	65	[67]
+DIRTY_FRAGMENT	direct_add_phase_transport	67	24717	25633	716	716	66
+POSITIVE_LARGE_NATIVE m=66 policy=SQ_B_POLICY cap=1267 samples=512 MR_patterns=32 borrowed_wires=98 ops=63836 touched_q=814 all_q_and_classical_ABI_and_phase=PASS scored=false
+DIRTY_DIRECT_PLAN	7048	65	646	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	7048	7936	646	646	64
+DIRTY_DIRECT_PLAN	15818	65	648	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	15818	16706	648	648	64
+DIRTY_DIRECT_PLAN	24717	67	716	0	0	65	[67]
+DIRTY_FRAGMENT	direct_add_phase_transport	67	24717	25633	716	716	66
+POSITIVE_LARGE_NATIVE m=66 policy=SQ_C_POLICY cap=1267 samples=512 MR_patterns=32 borrowed_wires=99 ops=63847 touched_q=814 all_q_and_classical_ABI_and_phase=PASS scored=false
+DIRTY_DIRECT_PLAN	6611	63	770	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	6611	7471	770	770	62
+DIRTY_DIRECT_PLAN	14766	63	802	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	14766	15626	802	802	62
+DIRTY_DIRECT_PLAN	23170	65	868	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	23170	24058	868	868	64
+FLAT_BANK	producer_end	64	26909	866	[773, 774, 775, 776, 777, 778, 779, 780, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 801, 802, 803]
+HIGH_EARLY	producer_end	64	26909	866	809	810	320	321	352	353	772	[]
+FLAT_BANK	erased	64	26918	864	[773, 774, 775, 776, 777, 778, 779, 780, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 801, 802, 803]
+HIGH_EARLY	erased	64	26918	864	809	810	320	321	352	353	772	[]
+FLAT_BANK	source_restored	64	27231	833	[]
+HIGH_EARLY	source_restored	64	27231	833	809	810	320	321	352	353	772	[]
+DIRTY_DIRECT_PLAN	34474	63	836	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	34474	35334	836	836	62
+DIRTY_DIRECT_PLAN	42753	63	838	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	42753	43613	838	838	62
+DIRTY_DIRECT_PLAN	51157	65	904	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	51157	52045	904	904	64
+DIRTY_DIRECT_PLAN	61945	65	1033	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	61945	62833	1033	1033	64
+DIRTY_DIRECT_PLAN	70274	63	1035	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	70274	71134	1035	1035	62
+DIRTY_DIRECT_PLAN	79129	67	1103	0	0	65	[67]
+DIRTY_FRAGMENT	direct_add_phase_transport	67	79129	80045	1103	1103	66
+FLAT_BANK	inverse_sum_ready	64	159489	866	[793, 791, 790, 789, 885, 886, 887, 888, 889, 890, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 775, 774, 777, 776, 901, 902, 781, 780, 783, 782, 903]
+HIGH_EARLY	inverse_sum_ready	64	159489	866	809	810	320	321	352	353	772	[]
+FLAT_BANK	repaid	64	159495	866	[793, 791, 790, 789, 885, 886, 887, 888, 889, 890, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 775, 774, 777, 776, 901, 902, 781, 780, 783, 782, 903]
+HIGH_EARLY	repaid	64	159495	866	809	810	320	321	352	353	772	[]
+FLAT_BANK	inverse_cross_ready	64	159495	866	[793, 791, 790, 789, 885, 886, 887, 888, 889, 890, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 775, 774, 777, 776, 901, 902, 781, 780, 783, 782, 903]
+HIGH_EARLY	inverse_cross_ready	64	159495	866	809	810	320	321	352	353	772	[]
+POSITIVE_LARGE_NATIVE m=128 policy=SQ_A_POLICY cap=1267 samples=512 MR_patterns=32 borrowed_wires=177 ops=192623 touched_q=1267 all_q_and_classical_ABI_and_phase=PASS scored=false
+DIRTY_DIRECT_PLAN	6611	63	770	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	6611	7471	770	770	62
+DIRTY_DIRECT_PLAN	14766	63	802	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	14766	15626	802	802	62
+DIRTY_DIRECT_PLAN	23170	65	868	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	23170	24058	868	868	64
+FLAT_BANK	producer_end	64	26909	866	[773, 774, 775, 776, 777, 778, 779, 780, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 801, 802, 803]
+HIGH_EARLY	producer_end	64	26909	866	809	810	320	321	352	353	772	[]
+FLAT_BANK	erased	64	26918	864	[773, 774, 775, 776, 777, 778, 779, 780, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 801, 802, 803]
+HIGH_EARLY	erased	64	26918	864	809	810	320	321	352	353	772	[]
+FLAT_BANK	source_restored	64	27231	833	[]
+HIGH_EARLY	source_restored	64	27231	833	809	810	320	321	352	353	772	[]
+DIRTY_DIRECT_PLAN	34474	63	836	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	34474	35334	836	836	62
+DIRTY_DIRECT_PLAN	42753	63	838	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	42753	43613	838	838	62
+DIRTY_DIRECT_PLAN	51157	65	904	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	51157	52045	904	904	64
+DIRTY_DIRECT_PLAN	61945	65	1033	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	61945	62833	1033	1033	64
+DIRTY_DIRECT_PLAN	70274	63	1035	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	70274	71134	1035	1035	62
+DIRTY_DIRECT_PLAN	79129	67	1103	0	0	65	[67]
+DIRTY_FRAGMENT	direct_add_phase_transport	67	79129	80045	1103	1103	66
+FLAT_BANK	inverse_sum_ready	64	159489	866	[793, 791, 790, 789, 885, 886, 887, 888, 889, 890, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 775, 774, 777, 776, 901, 902, 781, 780, 783, 782, 903]
+HIGH_EARLY	inverse_sum_ready	64	159489	866	809	810	320	321	352	353	772	[]
+FLAT_BANK	repaid	64	159495	866	[793, 791, 790, 789, 885, 886, 887, 888, 889, 890, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 775, 774, 777, 776, 901, 902, 781, 780, 783, 782, 903]
+HIGH_EARLY	repaid	64	159495	866	809	810	320	321	352	353	772	[]
+FLAT_BANK	inverse_cross_ready	64	159495	866	[793, 791, 790, 789, 885, 886, 887, 888, 889, 890, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 775, 774, 777, 776, 901, 902, 781, 780, 783, 782, 903]
+HIGH_EARLY	inverse_cross_ready	64	159495	866	809	810	320	321	352	353	772	[]
+POSITIVE_LARGE_NATIVE m=128 policy=SQ_B_POLICY cap=1267 samples=512 MR_patterns=32 borrowed_wires=177 ops=192623 touched_q=1267 all_q_and_classical_ABI_and_phase=PASS scored=false
+DIRTY_DIRECT_PLAN	6611	63	770	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	6611	7471	770	770	62
+DIRTY_DIRECT_PLAN	14766	63	802	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	14766	15626	802	802	62
+DIRTY_DIRECT_PLAN	23170	65	868	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	23170	24058	868	868	64
+FLAT_BANK	producer_end	64	26909	866	[773, 774, 775, 776, 777, 778, 779, 780, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 801, 802, 803]
+HIGH_EARLY	producer_end	64	26909	866	809	810	320	321	352	353	772	[]
+FLAT_BANK	erased	64	26918	864	[773, 774, 775, 776, 777, 778, 779, 780, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 801, 802, 803]
+HIGH_EARLY	erased	64	26918	864	809	810	320	321	352	353	772	[]
+FLAT_BANK	source_restored	64	27231	833	[]
+HIGH_EARLY	source_restored	64	27231	833	809	810	320	321	352	353	772	[]
+DIRTY_DIRECT_PLAN	34474	63	836	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	34474	35334	836	836	62
+DIRTY_DIRECT_PLAN	42753	63	838	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	42753	43613	838	838	62
+DIRTY_DIRECT_PLAN	51157	65	904	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	51157	52045	904	904	64
+DIRTY_DIRECT_PLAN	61945	65	1033	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	61945	62833	1033	1033	64
+DIRTY_DIRECT_PLAN	70274	63	1035	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	70274	71134	1035	1035	62
+DIRTY_DIRECT_PLAN	79129	67	1103	0	0	65	[67]
+DIRTY_FRAGMENT	direct_add_phase_transport	67	79129	80045	1103	1103	66
+FLAT_BANK	inverse_sum_ready	64	159522	866	[793, 791, 790, 789, 885, 886, 887, 888, 889, 890, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 775, 774, 777, 776, 901, 902, 781, 780, 783, 782, 903]
+HIGH_EARLY	inverse_sum_ready	64	159522	866	809	810	320	321	352	353	772	[]
+FLAT_BANK	repaid	64	159528	866	[793, 791, 790, 789, 885, 886, 887, 888, 889, 890, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 775, 774, 777, 776, 901, 902, 781, 780, 783, 782, 903]
+HIGH_EARLY	repaid	64	159528	866	809	810	320	321	352	353	772	[]
+FLAT_BANK	inverse_cross_ready	64	159528	866	[793, 791, 790, 789, 885, 886, 887, 888, 889, 890, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 775, 774, 777, 776, 901, 902, 781, 780, 783, 782, 903]
+HIGH_EARLY	inverse_cross_ready	64	159528	866	809	810	320	321	352	353	772	[]
+POSITIVE_LARGE_NATIVE m=128 policy=SQ_C_POLICY cap=1267 samples=512 MR_patterns=32 borrowed_wires=180 ops=192656 touched_q=1267 all_q_and_classical_ABI_and_phase=PASS scored=false
+DIRTY_DIRECT_PLAN	7048	65	774	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	7048	7936	774	774	64
+DIRTY_DIRECT_PLAN	15249	63	807	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	15249	16109	807	807	62
+DIRTY_DIRECT_PLAN	24104	67	875	0	0	65	[67]
+DIRTY_FRAGMENT	direct_add_phase_transport	67	24104	25020	875	875	66
+FLAT_BANK	producer_end	65	27948	873	[777, 778, 779, 780, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 801, 802, 803, 804, 805, 806, 807, 808]
+HIGH_EARLY	producer_end	65	27948	873	814	815	320	321	352	353	776	[]
+FLAT_BANK	erased	65	27957	871	[777, 778, 779, 780, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 801, 802, 803, 804, 805, 806, 807, 808]
+HIGH_EARLY	erased	65	27957	871	814	815	320	321	352	353	776	[]
+FLAT_BANK	source_restored	65	28274	839	[]
+HIGH_EARLY	source_restored	65	28274	839	814	815	320	321	352	353	776	[]
+DIRTY_DIRECT_PLAN	35523	63	842	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	35523	36383	842	842	62
+DIRTY_DIRECT_PLAN	43802	63	844	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	43802	44662	844	844	62
+DIRTY_DIRECT_PLAN	52206	65	910	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	52206	53094	910	910	64
+DIRTY_DIRECT_PLAN	62994	65	1041	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	62994	63882	1041	1041	64
+DIRTY_DIRECT_PLAN	71764	65	1043	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	71764	72652	1043	1043	64
+DIRTY_DIRECT_PLAN	80663	67	1111	0	0	65	[67]
+DIRTY_FRAGMENT	direct_add_phase_transport	67	80663	81579	1111	1111	66
+FLAT_BANK	inverse_sum_ready	65	161717	873	[797, 795, 794, 793, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 901, 902, 903, 904, 905, 906, 779, 778, 781, 780, 907, 908, 785, 784, 787, 786, 909, 798]
+HIGH_EARLY	inverse_sum_ready	65	161717	873	814	815	320	321	352	353	776	[]
+FLAT_BANK	repaid	65	161723	873	[797, 795, 794, 793, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 901, 902, 903, 904, 905, 906, 779, 778, 781, 780, 907, 908, 785, 784, 787, 786, 909, 798]
+HIGH_EARLY	repaid	65	161723	873	814	815	320	321	352	353	776	[]
+FLAT_BANK	inverse_cross_ready	65	161723	873	[797, 795, 794, 793, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 901, 902, 903, 904, 905, 906, 779, 778, 781, 780, 907, 908, 785, 784, 787, 786, 909, 798]
+HIGH_EARLY	inverse_cross_ready	65	161723	873	814	815	320	321	352	353	776	[]
+POSITIVE_LARGE_NATIVE m=129 policy=SQ_A_POLICY cap=1267 samples=512 MR_patterns=32 borrowed_wires=170 ops=196056 touched_q=1267 all_q_and_classical_ABI_and_phase=PASS scored=false
+DIRTY_DIRECT_PLAN	7048	65	774	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	7048	7936	774	774	64
+DIRTY_DIRECT_PLAN	15249	63	807	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	15249	16109	807	807	62
+DIRTY_DIRECT_PLAN	24104	67	875	0	0	65	[67]
+DIRTY_FRAGMENT	direct_add_phase_transport	67	24104	25020	875	875	66
+FLAT_BANK	producer_end	65	27948	873	[777, 778, 779, 780, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 801, 802, 803, 804, 805, 806, 807, 808]
+HIGH_EARLY	producer_end	65	27948	873	814	815	320	321	352	353	776	[]
+FLAT_BANK	erased	65	27957	871	[777, 778, 779, 780, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 801, 802, 803, 804, 805, 806, 807, 808]
+HIGH_EARLY	erased	65	27957	871	814	815	320	321	352	353	776	[]
+FLAT_BANK	source_restored	65	28274	839	[]
+HIGH_EARLY	source_restored	65	28274	839	814	815	320	321	352	353	776	[]
+DIRTY_DIRECT_PLAN	35523	63	842	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	35523	36383	842	842	62
+DIRTY_DIRECT_PLAN	43802	63	844	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	43802	44662	844	844	62
+DIRTY_DIRECT_PLAN	52206	65	910	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	52206	53094	910	910	64
+DIRTY_DIRECT_PLAN	62994	65	1041	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	62994	63882	1041	1041	64
+DIRTY_DIRECT_PLAN	71764	65	1043	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	71764	72652	1043	1043	64
+DIRTY_DIRECT_PLAN	80663	67	1111	0	0	65	[67]
+DIRTY_FRAGMENT	direct_add_phase_transport	67	80663	81579	1111	1111	66
+FLAT_BANK	inverse_sum_ready	65	161717	873	[797, 795, 794, 793, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 901, 902, 903, 904, 905, 906, 779, 778, 781, 780, 907, 908, 785, 784, 787, 786, 909, 798]
+HIGH_EARLY	inverse_sum_ready	65	161717	873	814	815	320	321	352	353	776	[]
+FLAT_BANK	repaid	65	161723	873	[797, 795, 794, 793, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 901, 902, 903, 904, 905, 906, 779, 778, 781, 780, 907, 908, 785, 784, 787, 786, 909, 798]
+HIGH_EARLY	repaid	65	161723	873	814	815	320	321	352	353	776	[]
+FLAT_BANK	inverse_cross_ready	65	161723	873	[797, 795, 794, 793, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 901, 902, 903, 904, 905, 906, 779, 778, 781, 780, 907, 908, 785, 784, 787, 786, 909, 798]
+HIGH_EARLY	inverse_cross_ready	65	161723	873	814	815	320	321	352	353	776	[]
+POSITIVE_LARGE_NATIVE m=129 policy=SQ_B_POLICY cap=1267 samples=512 MR_patterns=32 borrowed_wires=170 ops=196056 touched_q=1267 all_q_and_classical_ABI_and_phase=PASS scored=false
+DIRTY_DIRECT_PLAN	7048	65	774	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	7048	7936	774	774	64
+DIRTY_DIRECT_PLAN	15249	63	807	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	15249	16109	807	807	62
+DIRTY_DIRECT_PLAN	24104	67	875	0	0	65	[67]
+DIRTY_FRAGMENT	direct_add_phase_transport	67	24104	25020	875	875	66
+FLAT_BANK	producer_end	65	27948	873	[777, 778, 779, 780, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 801, 802, 803, 804, 805, 806, 807, 808]
+HIGH_EARLY	producer_end	65	27948	873	814	815	320	321	352	353	776	[]
+FLAT_BANK	erased	65	27957	871	[777, 778, 779, 780, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 801, 802, 803, 804, 805, 806, 807, 808]
+HIGH_EARLY	erased	65	27957	871	814	815	320	321	352	353	776	[]
+FLAT_BANK	source_restored	65	28274	839	[]
+HIGH_EARLY	source_restored	65	28274	839	814	815	320	321	352	353	776	[]
+DIRTY_DIRECT_PLAN	35523	63	842	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	35523	36383	842	842	62
+DIRTY_DIRECT_PLAN	43802	63	844	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	43802	44662	844	844	62
+DIRTY_DIRECT_PLAN	52206	65	910	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	52206	53094	910	910	64
+DIRTY_DIRECT_PLAN	62994	65	1041	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	62994	63882	1041	1041	64
+DIRTY_DIRECT_PLAN	71764	65	1043	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	71764	72652	1043	1043	64
+DIRTY_DIRECT_PLAN	80663	67	1111	0	0	65	[67]
+DIRTY_FRAGMENT	direct_add_phase_transport	67	80663	81579	1111	1111	66
+FLAT_BANK	inverse_sum_ready	65	161750	873	[797, 795, 794, 793, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 901, 902, 903, 904, 905, 906, 779, 778, 781, 780, 907, 908, 785, 784, 787, 786, 909, 798]
+HIGH_EARLY	inverse_sum_ready	65	161750	873	814	815	320	321	352	353	776	[]
+FLAT_BANK	repaid	65	161756	873	[797, 795, 794, 793, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 901, 902, 903, 904, 905, 906, 779, 778, 781, 780, 907, 908, 785, 784, 787, 786, 909, 798]
+HIGH_EARLY	repaid	65	161756	873	814	815	320	321	352	353	776	[]
+FLAT_BANK	inverse_cross_ready	65	161756	873	[797, 795, 794, 793, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 901, 902, 903, 904, 905, 906, 779, 778, 781, 780, 907, 908, 785, 784, 787, 786, 909, 798]
+HIGH_EARLY	inverse_cross_ready	65	161756	873	814	815	320	321	352	353	776	[]
+POSITIVE_LARGE_NATIVE m=129 policy=SQ_C_POLICY cap=1267 samples=512 MR_patterns=32 borrowed_wires=173 ops=196089 touched_q=1267 all_q_and_classical_ABI_and_phase=PASS scored=false
+POSITIVE_LARGE_SUITE native_cases=245760 score=NONE
+ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 23 filtered out; finished in 7.64s
+

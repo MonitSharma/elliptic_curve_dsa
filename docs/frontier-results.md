@@ -1,8 +1,8 @@
 # Public resource frontier
 
-Snapshot analyzed 2026-10-15T09:37:02.983843+08:00 (Singapore time).
+Snapshot analyzed 2026-10-15T16:55:23.620310+08:00 (Singapore time).
 
-[1,564 public submissions](https://api.ecdsa.fail/api/benchmarks/1ffb695a-309b-46b6-a728-2f97d8c7be74/submissions) contain 1,223 eligible records and **45 nondominated resource pairs**.
+[1,568 public submissions](https://api.ecdsa.fail/api/benchmarks/1ffb695a-309b-46b6-a728-2f97d8c7be74/submissions) contain 1,227 eligible records and **48 nondominated resource pairs**.
 
 Accepted and explicitly score-only rejected records qualify; failures and claimed-only metrics do not. This is a dated snapshot, not independent reproduction. Promotion uses the scalar product.
 
@@ -14,6 +14,8 @@ The gold step is the public frontier. The cyan diamond is our separately verifie
 
 | Qubits | Rounded mean Toffolis | Product | Submission |
 |---:|---:|---:|---|
+| 680 | 669,414,940 | 455,202,159,200 | [ebf0b736](https://api.ecdsa.fail/api/submissions/ebf0b736-3264-4d35-9159-803349b6d6ac) |
+| 682 | 645,088,611 | 439,950,432,702 | [2c974054](https://api.ecdsa.fail/api/submissions/2c974054-85cf-4a0a-83b7-54ef12e1e579) |
 | 693 | 336,852,456 | 233,438,752,008 | [261d4e06](https://api.ecdsa.fail/api/submissions/261d4e06-ad9f-4a0a-9c13-12726127c1d8) |
 | 694 | 336,751,889 | 233,705,810,966 | [3bcef1d9](https://api.ecdsa.fail/api/submissions/3bcef1d9-8c99-4cb8-b89b-0b2a774e19a5) |
 | 695 | 336,748,755 | 234,040,384,725 | [bcb97b34](https://api.ecdsa.fail/api/submissions/bcb97b34-a457-4d1a-bc54-149858d5a384) |
@@ -31,6 +33,7 @@ The gold step is the public frontier. The cyan diamond is our separately verifie
 | 799 | 17,340,825 | 13,855,319,175 | [666b952b](https://api.ecdsa.fail/api/submissions/666b952b-4ba5-4a21-a279-d544b67bdea8) |
 | 819 | 14,489,348 | 11,866,776,012 | [3e7f1342](https://api.ecdsa.fail/api/submissions/3e7f1342-4588-4a5f-a80e-f1b8187c657c) |
 | 843 | 11,947,178 | 10,071,471,054 | [4a8ade44](https://api.ecdsa.fail/api/submissions/4a8ade44-9259-4e2d-bc80-91186c2a19ce) |
+| 860 | 5,320,067 | 4,575,257,620 | [e536537a](https://api.ecdsa.fail/api/submissions/e536537a-49b4-4cb1-97ae-8fbe784955b6) |
 | 870 | 4,931,026 | 4,289,992,620 | [255a6412](https://api.ecdsa.fail/api/submissions/255a6412-097d-4e7b-b597-6b116cd1675b) |
 | 874 | 2,398,215 | 2,096,039,910 | [ae537372](https://api.ecdsa.fail/api/submissions/ae537372-a846-424e-b613-9c4038a0a46e) |
 | 877 | 2,331,376 | 2,044,616,752 | [7be7b9a5](https://api.ecdsa.fail/api/submissions/7be7b9a5-99c3-4fd1-9d27-310f4f2d33c1) |
@@ -57,7 +60,7 @@ The gold step is the public frontier. The cyan diamond is our separately verifie
 | 1,172 | 945,335 | 1,107,932,620 | [73c5e2a8](https://api.ecdsa.fail/api/submissions/73c5e2a8-f15c-4b01-a3ac-8d0ac1807391) |
 | 1,173 | 944,566 | 1,107,975,918 | [1d602397](https://api.ecdsa.fail/api/submissions/1d602397-0e14-4314-8834-3e80db97b02c) |
 | 1,174 | 943,826 | 1,108,051,724 | [ee410040](https://api.ecdsa.fail/api/submissions/ee410040-42fd-4a53-bcea-1150b7e2c5bf) |
-| 1,234 | 761,261 | 939,396,074 | [767d8d5a](https://api.ecdsa.fail/api/submissions/767d8d5a-321c-4164-a43e-330561bd1a6e) |
+| 1,234 | 761,222 | 939,347,948 | [85d067da](https://api.ecdsa.fail/api/submissions/85d067da-f7c5-485b-9a61-53b0e58f281e) |
 | 1,235 | 761,156 | 940,027,660 | [26dd1d00](https://api.ecdsa.fail/api/submissions/26dd1d00-8e45-4f13-adcf-5eac665ca15f) |
 
 Refresh with `python scripts/analyze-leaderboard.py --snapshot research-output/public-20261014 --plot`. Use `--refresh` to fetch a new dated snapshot. Regenerate both figures offline with `python scripts/frontier_plot.py`. Compact records, source hashes and targets: [data/latest-leaderboard.json](data/latest-leaderboard.json).

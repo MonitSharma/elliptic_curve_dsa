@@ -1,0 +1,31 @@
+{
+  "status": "verified raw-state diagnosis; no qualified score",
+  "forward_tick": 124,
+  "raw_operation": 3609779,
+  "raw_random_read_including_resets": 278924,
+  "optimized_measurement": 278924,
+  "input_family": "first preserved zero-slope input; 64 identical lanes",
+  "input_target": "0",
+  "input_source": "secp256k1 p",
+  "sign_bits": [0, 0, 0],
+  "exact_g0": 0,
+  "exact_h1": 1,
+  "measured_m0": 1,
+  "active_reconstructed_h1": 1,
+  "comparison_window_bits": 18,
+  "target_window": "0x3ffff",
+  "source_window": "0x3ffff",
+  "borrow_predictor": 1,
+  "actual_compare_phase": 1,
+  "required_compare_phase": 0,
+  "native_observer_full_state_equal": true,
+  "zero_outcomes_phase": "0x0",
+  "selected_flip_phase": "0xffffffffffffffff",
+  "both_assignments_correct_point_values": true,
+  "limitations": [
+    "Only one fixed production input and two measurement assignments are observed.",
+    "The carry reconstruction works for this case; the finite model independently shows it can fail elsewhere.",
+    "Removing a statistical seed is not a universal exactness proof.",
+    "State3's attempted flip omitted random reads by R and is invalidated as a measurement counterexample."
+  ]
+}

@@ -2,6 +2,199 @@
 
 ## Current work separation — 15 October 2026
 
+**Equal-division cycle is terminal:**
+`/home/hclau/ecdsa_research/equal-division-20261015/` has observer-b3 and fold-b3.
+PIDs3199075/3201429 exited0;64 artifacts and two patches are locally verified.
+Without wrapper flags, y=x reproduces the same non-unit division result. First
+ordinary tick divergence is120; uniform forward fold57 doubles its error.
+Exact integer analysis gives a negative fold representative−856, consistent
+with both window-wrap outputs. Next instrument internal fold quotient/borrow
+and derive an exact boundary repair. Payload1 andp−1 failures are also preserved.
+No jobs remain here; keep unrelated census/sweep workloads untouched.
+[Evidence](../experiments/equal-division-20261015/STATUS.md).
+
+**Parallel Claude agent: walk-widening variants are terminal; next run staged.**
+`/home/hclau/ecdsa_research/widen-walk-20261015/` holds five private wide-b3
+copies, each with only the leapfrog steps table changed. All built, generated
+and censused with exit 0. The first park-row attempt is archived in
+`superseded-park/`, and the mis-fed `trace-mid2-smooth` is moved to `superseded/`
+by `run-next.sh`. `run-next.sh` (smooth-only variant, then a trace of its own
+failures with the fixed `prepare.py`) is uploaded locally but **not yet
+launched**: the server was unreachable at 15 October ~17:00 Singapore.
+[Widening](../experiments/widen-walk-20261015/STATUS.md).
+
+**Parallel Claude agent: value-failure trace is terminal.**
+`/home/hclau/ecdsa_research/trace-value-20261015/observer-b3` is a private
+gate-inert observer copy of wide-b3. PID 3203337 exited 0, and its final stream
+is byte-identical to `95e771ba`. It attributes 155 of 186 value failures to the
+leapfrog walk rails, whose envelope was fitted with a 0.00077-per-walk drop
+budget. [Trace](../experiments/trace-value-20261015/STATUS.md).
+
+**Parallel Claude agent: census and guard sweep are terminal.**
+`/home/hclau/ecdsa_research/failure-census-20261015/` holds the census and
+replay tools (`target/release/failure_census`, `failure_replay`), plus results
+for 29 streams. `/home/hclau/ecdsa_research/guard-sweep-20261015/` holds a
+private copy of wide-b3 with a research-only `GUARD_SWEEP_OVR` hook, and 11
+variants. PIDs 3156126, 3161513, 3163097 and 3192716 have all exited.
+Neither directory touches other experiments' checkouts.
+
+To gate a stream (about one minute):
+`failure_census OPS LABEL 0 4096 16 out.jsonl`, then
+`python3 analyze.py out.jsonl`. To replay failing scalars under 32 seeds, use
+`failure_replay OPS inputs.tsv 32 16 out.jsonl`.
+[Census](../experiments/failure-census-20261015/STATUS.md) ·
+[sweep](../experiments/guard-sweep-20261015/STATUS.md).
+
+**Zero-payload cycle is terminal:**
+`/home/hclau/ecdsa_research/zero-payload-20261015/` holds control-b3, wrapped-b3
+and observer-b3. PIDs3179293/3179294/3188447 exited0/101/0. Wrapped generation
+and all fixed replays completed; its phase-witness runner aborted on wrong
+point values. Helper phase proofs pass, but the integrated oracle returns a
+non-unit value for y=x. The raw interface observer matches the protected
+simulator and records a nonzero flag before release. All81 artifacts verified.
+Next use a no-held-flag equal-input control, then locate first divergence.
+No job remains here. Preserve the separate census and guard-sweep workflows.
+[Evidence](../experiments/zero-payload-20261015/STATUS.md).
+
+**Y15 carry-source cycle is terminal:**
+`/home/hclau/ecdsa_research/y15-carry-source-20261015/` contains origin-b3 and
+state-b3. PIDs3165882/3169457 exited0. The origin stream is byte-identical to
+Y15-unseeded wide; the raw observer uses all Hmr/R random reads to disambiguate
+reused wire IDs and validates the selected bit. Reverse tick1 needs borrow1,
+opposite the forward witness. All57 artifacts are locally verified. No jobs
+remain here. Next inspect actual arithmetic/seam contracts for the exact
+zero-payload divide/multiply wrapper model; zero multiplier and rails remain
+separate. Preserve all parents and the unrelated failure census.
+[Evidence and design](../experiments/y15-carry-source-20261015/STATUS.md).
+
+**Y15-unseeded cycle is terminal:**
+`/home/hclau/ecdsa_research/y15-unseeded-20261015/` holds narrow-b3 and wide-b3.
+PIDs3158520/3158521 exited0. Both preserve all earlier value-failure sets and
+retain phase counterexamples; no resource score qualifies. All57 artifacts
+and both patches are locally verified. Next source target: wide Hmr qubit135 /
+bit1555 at operation9553940, measurement780824. Keep parent sources intact.
+The separate `failure-census-20261015` process was active at preflight; inspect
+its live status before resource allocation and do not alter its work.
+[Evidence](../experiments/y15-unseeded-20261015/STATUS.md).
+
+**Joint-carry cycle is terminal:**
+`/home/hclau/ecdsa_research/joint-carry-20261015/` holds four isolated attempts.
+PIDs3147702/3148110 exited1/101 during preparation/build;3150016 exited0 but its
+intended measurement flip was misaligned and is explicitly invalidated.
+Corrected PID3152831 exited0, verifies the selected measurement and agrees
+with the protected simulator. Both generated raw streams are byte-identical.
+Tick124's reconstructed carry is correct, while its comparison seed causes
+the verified phase error. All83 artifacts are locally verified; no jobs in
+this cycle remain active. Next test the uniform Y15 comparison-policy change.
+[Evidence](../experiments/joint-carry-20261015/STATUS.md).
+
+**Wide-phase observer is terminal:**
+`/home/hclau/ecdsa_research/wide-phase-20261015/origin-b3` reproduces the wide
+dynamic-pool stream byte for byte. PID3142012 exited0. The first launcher failed
+on CRLF before workload execution and is preserved. All 35 evidence artifacts
+are locally verified. The witness traces to division's Y21 top-cut carry cleanup;
+next capture exact carry/compare operands. No jobs in these two newest cycles
+remain active.
+[Attribution and evidence](../experiments/wide-phase-20261015/STATUS.md).
+
+**Dynamic-pool cycle is terminal:**
+`/home/hclau/ecdsa_research/dynamic-pool-20261015/` contains control-b3 and
+wide-b3. PIDs3135762/3135763 exited0. The repair retains ownership checks,
+passes six tests and leaves the narrow stream byte-identical. The wide stream
+builds and reduces diagnostic T, but fails values and phase; no score qualifies.
+All55 artifacts and both source patches are locally verified. The next source
+observer belongs in `wide-phase-20261015`; check its PID/status before relaunch.
+[Evidence](../experiments/dynamic-pool-20261015/STATUS.md).
+
+**Latest carry-frame cycle is terminal:**
+`/home/hclau/ecdsa_research/carry-frame-20261015/` holds four isolated checkouts.
+Origin3122971, state observer3126032 and unseeded candidate3128221 exited0.
+The cap1536 control3130991 exited101 at `y42_alloc_set`'s free-wire-set invariant,
+with no stream. All91 artifacts are locally verified. No job in this cycle
+remains active. Preserve the failed allocator state; next distinguish fresh
+returned qubits from a true leak before allowing the larger-width control.
+[Terminal evidence](../experiments/carry-frame-20261015/STATUS.md).
+
+**Latest phase-origin cycle is terminal:**
+`/home/hclau/ecdsa_research/phase-origin-20261015/` holds origin-b3, terminal-b3
+and frame-proof-b3. Source3114272, combined phase3116092, candidate3117084 and
+proof3118818 all exited0. The origin stream matches its parent byte for byte.
+The candidate enables exact terminal overflow cleanup at derived cap1283 but
+retains a new phase witness, five rail errors and128 zero-multiplicand errors.
+The primitive passes174760 finite cases and2732 all-measurement proofs. All71
+artifacts are verified locally; no jobs from this cycle remain active.
+[Evidence and next boundary repair](../experiments/phase-origin-20261015/STATUS.md).
+
+**Latest integration cycle is terminal:**
+`/home/hclau/ecdsa_research/repair-integration-20261015/` contains combined and
+raw-observer checkouts. Integration3102572, corrected observer3107247,
+fresh BDD3108109 and witness3110384 exited0. Observer3102573/3106434 exited101;
+their sources and logs remain preserved. The first shared-target BDD invocation
+reused the wrong binary and is invalidated; fresh isolated builds confirm a
+single-measurement phase counterexample on the prior square-room stream.
+Combined source passes independent256, with five old-packet rail errors and
+128 zero-multiplicand failures. All 122 artifacts are locally verified. No job
+from this cycle remains active; inspect resources before further launches.
+[Evidence and next repair](../experiments/repair-integration-20261015/STATUS.md).
+
+**Latest control/repair cycle is terminal:**
+`/home/hclau/ecdsa_research/rail-control-20261015/` contains five isolated
+checkouts. +3 interior margin and two extra rounds leave five old-packet
+failures; square integration separately fixes all zero-slope values. All
+independent256 checks pass; structured and phase failures block qualification.
+Control 3086738, observer 3086739, square 3090482, expansion 3093742 and phase
+audits 3098264/3100124 exited 0. The first phase runner 3096286 exited 101 at
+compilation. Both successful phase-audit processes were mathematically
+inconclusive (XOR term cap), not proofs. All 143 artifacts and source patches
+are verified locally. No job in this directory remains active.
+[Results and next actions](../experiments/rail-control-20261015/STATUS.md).
+
+**Latest continuation is terminal:** rail-headroom diagnosis in
+`/home/hclau/ecdsa_research/rail-margin-20261015/` finished. PID 3081279,
+`run-room.sh`, exited 0. At diagnostic Q1267, the variant passes independent
+256 and leaves 10 wrong values on the preserved 9024-input packet (previously
+16); known15 leaves 11 and structured256 leaves 189. No score qualifies.
+The first uniform variant, PID 3079263, exited 101: insufficient scratch at
+forward tick 128; it produced no stream. All 38 artifacts and both patches are
+verified locally. No job from these four latest experiment directories remains
+active. Check process identities before any future workload action.
+[Results and next control](../experiments/rail-margin-20261015/STATUS.md).
+
+Complemented-cache and idle-cache continuations are terminal, both exit 0.
+Complemented controls add no measured savings; larger expression retention on
+idle wires regresses from 4.015625 to 3.0625 saved Toffolis per shot. Preserve
+the simpler wider 101.109375-saving construction and the old narrow one.
+[Complemented-cache evidence](../experiments/cache-polarity-20261015/STATUS.md) ·
+[Idle-cache evidence](../experiments/cache-idle-20261015/STATUS.md).
+
+The preceding symbolic-retention experiment is terminal, both exits 0.
+At diagnostic Q1240 it saves 101.109375 executed Toffolis per shot in each
+fixed packet, while preserving inherited failures. Its 39 archived artifacts
+are verified locally; there is no scored result.
+[Completed evidence](../experiments/cache-retention-20261015/STATUS.md).
+
+**Latest user priority:** direct new work toward lower executed Toffolis and
+lower Q × T. Defer width-only searches and Q692 submission engineering;
+preserve existing evidence. This priority update does not establish live job
+status or authorize stopping another chat's jobs. Historical width diagnostics
+below are reference material for a later resumption.
+
+The latest rail cycle in `/home/hclau/ecdsa_research/rail-repair-20261015/`
+is terminal. Eight isolated source checkouts, seven launch outcomes, native
+primitive proofs and complete fixed replays are preserved. The widened tick
+109 passes its local arithmetic but exposes a tick-110 overflow; full source
+remains incorrect. Use the supported dynamic-allocation baseline for broader
+repair research, not the failed candidate as a qualified result.
+[Rail report and terminal receipt](../experiments/rail-repair-20261015/REPORT.md).
+
+The earlier Toffoli/product repair cycle in
+`/home/hclau/ecdsa_research/arithmetic-repair-20261015/` is terminal. Its checked
+scratch-order adapter integrates the finite B3 tick-104 borrow repair. The
+ordinary unbound variant builds and passes 256 independent fixed inputs;
+known packet/structured failures remain and there is no qualified score.
+All source patches, failed builds, fixed-input comparisons and the local phase
+proof are archived in [the repair report](../experiments/arithmetic-repair-20261015/REPORT.md).
+
 The original Q692 local pass remains frozen. The separate submission-preparation
 chat owns `/home/hclau/ecdsa_research/q692_readiness_20261015/`. Its normal v6
 benchmark failed with 3 value, 2 phase-batch and 3 ancilla-batch failures;
@@ -10,7 +203,7 @@ chat's checkout or stop its jobs.
 
 The product and Toffoli cycles in `product-focus-20261015/` and
 `toffoli-readiness-20261015/` have finished. Their paired gate savings do not
-qualify as records; there is no background search from this chat. Read
+qualify as records; their original jobs are terminal. Read
 [the current result summary](results-status.md) before using older job-status
 notes below. Always inspect live process identities before acting on saved PIDs.
 

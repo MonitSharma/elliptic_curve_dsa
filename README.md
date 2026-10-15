@@ -3,12 +3,16 @@
 **Smaller quantum circuits for secp256k1 point addition. Three independent goals:
 fewer logical qubits, fewer Toffolis, and a lower qubit × Toffoli product.**
 
+**Current priority — 15 October 2026:** focus on lower executed Toffolis and
+lower Q × T. Defer width-only optimization and Q692 submission engineering.
+Preserve the width result; spend extra qubits when the gate savings justify it.
+
 ## Where we stand
 
 **15 October 2026 — one new complete local benchmark result: 692 logical qubits.**
 The original bank-swap v2 circuit passed all **9,024 shots**, with zero value,
-phase or ancilla failures. Its width is one qubit below the public minimum of
-693. It is **not an official submission**, and we do not yet have a
+phase or ancilla failures. The refreshed public minimum is now **680 qubits**;
+our preserved local result is no longer below it. It is **not an official submission**, and we do not yet have a
 submission-ready circuit or a qualified new Toffoli/product record.
 
 The newer Q692 version that fits the normal build is a **different circuit**:
@@ -30,23 +34,24 @@ excluded from these performance figures.
 
 | Objective | Public record | Our result | Next strict target |
 |---|---:|---|---:|
-| **Minimum logical qubits** | 693 | **692 — complete local pass**, not submitted | Qualify that width for submission |
+| **Minimum logical qubits** | 680 | **692 — complete local pass**, not submitted | Width work deferred |
 | **Minimum executed Toffolis** | 761,156 at Q1235 | No new qualified record | T ≤ 761,155 |
-| **Minimum Q × T** | 939,396,074 at Q1234/T761,261 | No new qualified record | Q × T ≤ 939,396,073 |
+| **Minimum Q × T** | 939,347,948 at Q1234/T761,222 | No new qualified record | Q × T ≤ 939,347,947 |
 
-An improvement in **any one** of these objectives matters. The challenge
+These remain three distinct records, but **Toffoli count and product now take
+priority in our research**. The challenge
 promotes the scalar product, while its Pareto view also recognizes the low-qubit
 and low-Toffoli extremes. A Toffoli record can use more qubits and have a worse
 product. These are separate achievements.
 
 ![Why the low-Toffoli record and best product are different](docs/figures/record-tradeoffs.png)
 
-At Q1235, **T761,155** would improve the Toffoli record, while **T760,644** or
+At Q1235, **T761,155** would improve the Toffoli record, while **T760,605** or
 less is needed to beat the product. At Q1234, the product threshold is
-**T761,260**. These thresholds use the refreshed public score, not emitted gates.
+**T761,221**. These thresholds use the refreshed public score, not emitted gates.
 
-Snapshot: **1,564 public submissions · 1,223 eligible scored records ·
-45 public Pareto points**, refreshed 15 October 2026.
+Snapshot: **1,568 public submissions · 1,227 eligible scored records ·
+48 public Pareto points**, analyzed 15 October 2026 at 16:55 Singapore.
 [Full frontier and provenance](docs/frontier-results.md) ·
 [Machine-readable records](docs/data/latest-leaderboard.json) ·
 [Public API](https://api.ecdsa.fail/api/benchmarks/1ffb695a-309b-46b6-a728-2f97d8c7be74/submissions)
@@ -67,8 +72,45 @@ inputs also expose inherited arithmetic and phase failures in those baselines.
 A finite passing benchmark is not a proof for every valid input.
 [Counterexamples](experiments/overnight-20261014/product/b3-paired-results.md)
 
+## Why the low-Toffoli records do not pass fresh tests
+
+The benchmark derives its 9,024 test inputs from a hash of the circuit, so any
+change gets a fresh test set. On **262,144 independent inputs**, the public B3
+Toffoli record circuit has only about a **2–6×10⁻⁹ chance of passing a fresh test set**
+(two independent censuses),
+and the C5 product baseline about 1.5×10⁻⁸. B3's source pins a ground
+`TAIL_NONCE`; its walk-width table states a deliberate drop budget of
+0.00077 per walk; its recipe comments budget about 19 expected failed batches
+per test set. These records pass because a lucky test set was searched for.
+**We keep the no-nonce rule**, so our circuits must actually be correct.
+
+![Fresh-input failure rate vs diagnostic Toffolis](experiments/failure-census-20261015/figures/honest-pass.png)
+
+This is a diagnostic figure, **not scored results**. Each point is one
+candidate stream, censused on fresh inputs with the unchanged protected
+simulator. The benchmark requires zero failed batches. Every candidate built
+so far, ours and the public baselines alike, sits two orders of magnitude above
+the honest-pass zone. Our widest circuit is about 7.4K diagnostic Toffolis below
+the record, and that margin is the budget for making it genuinely correct.
+[Census](experiments/failure-census-20261015/STATUS.md) ·
+[root-cause trace](experiments/trace-value-20261015/STATUS.md) ·
+[walk widening](experiments/widen-walk-20261015/STATUS.md)
+
 ## What the recent experiments established
 
+- **Honest correctness (new):** a one-minute failure census now gates every
+  candidate. Exact, gate-inert tracing places 84% of the wide circuit's wrong
+  outputs in the leapfrog GCD walk rails. Of those 155, 98 have a target rail
+  off by exactly ±2^k, and 55 keep a correct target but corrupt the source rail
+  (an independent audit corrected our first count). 31 failures show no
+  walk-rail event and are not yet localized. Smoothing the walk's tail-width
+  cliff cuts failures by about a third for about 40 Toffolis. Widening mid-walk
+  rails costs about 2.3K Toffolis per bit and does not help, so the mid-walk
+  mechanism is still being traced.
+  [Census](experiments/failure-census-20261015/STATUS.md) ·
+  [trace](experiments/trace-value-20261015/STATUS.md) ·
+  [widening](experiments/widen-walk-20261015/STATUS.md) ·
+  [guard sweep](experiments/guard-sweep-20261015/STATUS.md).
 - **Width:** the original Q692 pass is preserved with its exact patch,
   stream hash, evaluator hash and score. Ordinary submission generation and
   arithmetic limits remain unresolved for that original version.
@@ -77,8 +119,18 @@ A finite passing benchmark is not a proof for every valid input.
   two phase-failure batches and three ancilla-failure batches. Diagnosis is
   continuing on the same failed inputs.
 - **Toffoli reduction:** exact caching rewrites reduce executed gates in paired
-  tests, including a wider design that trades extra qubits for a larger saving.
-  They retain inherited correctness failures and have no qualified score.
+  tests. Larger symbolic expressions increase the wider design's saving to
+  101.109375 executed Toffolis per shot on both fixed 256-shot packets at
+  diagnostic Q1240. They retain inherited correctness failures and have no
+  qualified score. [Latest cache evidence](experiments/cache-retention-20261015/STATUS.md).
+- **Arithmetic repair:** the tick-104 borrow repair now integrates on B3 and
+  fixes the known independent input's value and phase. Its native prototype
+  passes 256 fixed independent inputs; other packet and structured failures
+  remain. [Repair, local proof and limits](experiments/arithmetic-repair-20261015/REPORT.md).
+- **Rail diagnosis:** fourteen of sixteen packet failures now have exact
+  forward-rail counterexamples. A widened primitive passes 43,680 exhaustive
+  signed cases, but repairing tick 109 exposes another overflow at tick 110;
+  the complete candidate remains incorrect. [New evidence](experiments/rail-repair-20261015/REPORT.md).
 - **Product:** the completed product-focused cycle produced no qualified
   improvement. Exact savings and unsuccessful width searches are preserved.
 
@@ -105,15 +157,20 @@ It is not the number of Toffolis written into the generated stream.
 
 ## Next work
 
-1. Preserve the original Q692 result while repairing and qualifying the
-   submission-oriented version. Keep their evidence separate.
-2. Repair the lower-Toffoli baseline's demonstrated arithmetic/phase failures.
-   Retain the exact caching savings, then measure the complete repaired design.
-   A higher width is acceptable for a new Toffoli record.
-3. Continue product work independently. Include the full cost of scratch,
+1. Make the wide lower-Toffoli circuit genuinely correct within its ~7.4K
+   Toffoli margin. Keep the nearly free tail smoothing, trace and fix the
+   mid-walk rail errors, then localize and repair the 31 failures with no walk-rail event. Gate
+   each step with the census; the target is under 0.1 expected failed batches
+   per fresh test set. Then retain the exact caching savings and measure the
+   complete repaired design. A higher width is acceptable for a new Toffoli
+   record.
+2. Continue product work independently. Include the full cost of scratch,
    cleanup, phase correction and correctness repairs.
-4. Evaluate final source with the unchanged benchmark, retain independent
+3. Evaluate final source with the unchanged benchmark, retain independent
    checks, verify ordinary packaging and compare with fresh public records.
+4. Preserve existing Q692 evidence and failed experiments. Defer width-only
+   searches and Q692 submission engineering while the two active objectives
+   take priority.
 
 Only `src/point_add/` may change in a contestant submission. We preserve the
 harness, scorer, simulator, curve reference, dependencies and toolchain. We do

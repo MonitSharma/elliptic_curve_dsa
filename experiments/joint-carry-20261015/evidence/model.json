@@ -1,0 +1,132 @@
+{
+  "status": "finite arithmetic model only",
+  "score": null,
+  "rows": [
+    {
+      "bits": 4,
+      "window": 2,
+      "cases": 1024,
+      "joint_wrong": 112,
+      "reconstructed_h1_wrong": 64,
+      "reconstructed_window_wrong": 256,
+      "comparison_wrong_with_exact_chain": 64,
+      "exact_boundary_wrong": 0,
+      "first_counterexample": {
+        "a": 0,
+        "s0": 0,
+        "s1": 15,
+        "x0": 0,
+        "x1": 14,
+        "g0": 0,
+        "h1": 0,
+        "rebuilt_h1": 1,
+        "window": 3,
+        "exact_window": 0,
+        "seed": 0,
+        "cmp": 0
+      }
+    },
+    {
+      "bits": 5,
+      "window": 2,
+      "cases": 4096,
+      "joint_wrong": 368,
+      "reconstructed_h1_wrong": 256,
+      "reconstructed_window_wrong": 1024,
+      "comparison_wrong_with_exact_chain": 256,
+      "exact_boundary_wrong": 0,
+      "first_counterexample": {
+        "a": 0,
+        "s0": 0,
+        "s1": 31,
+        "x0": 0,
+        "x1": 30,
+        "g0": 0,
+        "h1": 0,
+        "rebuilt_h1": 1,
+        "window": 3,
+        "exact_window": 0,
+        "seed": 0,
+        "cmp": 0
+      }
+    },
+    {
+      "bits": 6,
+      "window": 3,
+      "cases": 16384,
+      "joint_wrong": 736,
+      "reconstructed_h1_wrong": 512,
+      "reconstructed_window_wrong": 4096,
+      "comparison_wrong_with_exact_chain": 512,
+      "exact_boundary_wrong": 0,
+      "first_counterexample": {
+        "a": 0,
+        "s0": 0,
+        "s1": 63,
+        "x0": 0,
+        "x1": 62,
+        "g0": 0,
+        "h1": 0,
+        "rebuilt_h1": 1,
+        "window": 7,
+        "exact_window": 0,
+        "seed": 0,
+        "cmp": 0
+      }
+    },
+    {
+      "bits": 7,
+      "window": 3,
+      "cases": 65536,
+      "joint_wrong": 2784,
+      "reconstructed_h1_wrong": 2048,
+      "reconstructed_window_wrong": 16384,
+      "comparison_wrong_with_exact_chain": 2048,
+      "exact_boundary_wrong": 0,
+      "first_counterexample": {
+        "a": 0,
+        "s0": 0,
+        "s1": 127,
+        "x0": 0,
+        "x1": 126,
+        "g0": 0,
+        "h1": 0,
+        "rebuilt_h1": 1,
+        "window": 7,
+        "exact_window": 0,
+        "seed": 0,
+        "cmp": 0
+      }
+    },
+    {
+      "bits": 8,
+      "window": 4,
+      "cases": 262144,
+      "joint_wrong": 5568,
+      "reconstructed_h1_wrong": 4096,
+      "reconstructed_window_wrong": 65536,
+      "comparison_wrong_with_exact_chain": 4096,
+      "exact_boundary_wrong": 0,
+      "first_counterexample": {
+        "a": 0,
+        "s0": 0,
+        "s1": 255,
+        "x0": 0,
+        "x1": 254,
+        "g0": 0,
+        "h1": 0,
+        "rebuilt_h1": 1,
+        "window": 15,
+        "exact_window": 0,
+        "seed": 0,
+        "cmp": 0
+      }
+    }
+  ],
+  "limitations": [
+    "No fold or rail effects.",
+    "No quantum phase proof or measured gate cost.",
+    "Inputs exhaust n-bit a,b and independent complement choices, not production reachable-state distributions.",
+    "Exact comparison uses the true lower-word borrow; retaining or computing it has not been implemented."
+  ]
+}
