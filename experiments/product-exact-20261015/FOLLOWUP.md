@@ -248,3 +248,112 @@ classical slots. `product25-census-summary.json` references the complete
 `product25-frozen-census-v3-20261016` raw files, source hashes and unchanged
 predeclared label/batch sample. The coordinator owns any subsequent nonce
 qualification and unchanged official benchmark; no scored product claim is made.
+
+## Predetermined continuation checkpoints: terminal
+
+Product53 completed the four predeclared seven-stage cycles after25. Anchored
+checkpoint savings were67.47265625,78.47265625,85.47265625 and88.47265625 T at
+32/39/46/53 stages. Final Q1234,51878 classical slots; all512 complete state and
+phase comparisons agree, retaining the same inherited failures. The final53
+count was fixed before measurements. Its fixed fresh32768-batch census now
+saves88.72992658615112 +/-0.44192670577573 T, but the strict failure gate fails:
+candidate4133 vs original4120 failed batches (17.784210205078125 vs
+17.728271484375/packet). Both rates are below18. Every row0..32767 is kept;
+no rate-selected sample extension or nonce search follows this failed gate.
+Native source port remains separate. The coordinator's source-bound static25 loader has
+already passed four admission tests and byte identity; it can port53 quickly.
+
+Wide43 completed four predeclared seven-stage cycles after15. Checkpoints22,
+29,36,43 all save51.94921875 T on both fixed packets, with full state/phase
+agreement. Final Q1468,3865 classical slots. This plateau is preserved; no
+shorter stage count was selected from a benchmark packet. Its native source
+and fresh census remain pending. Full stream and prefix hashes are frozen.
+
+Weighted guard probability ranking and lexical-scope lease cleanup both
+completed six predeclared cases. They produce the same anchored gains:
+original product10.47265625/8.47265625/9.47265625 T at128/512/1024 atoms, and
+wide15 total47.94921875/46.94921875/41.94921875 T. The ranking probabilities
+are heuristics; exact algebra, native proof cases and whole-stream comparison
+establish rewrite validity. Scoped leases add no measured gain over weighted
+ranking in these cases. Raising monomial arity256/512/1024 likewise produces
+identical product10.47265625 T and original-wide14.4609375 T gains across all
+three settings. These are component diagnostics, with all negative evidence
+retained. A separate factored Boolean normal form now tests AND associativity
+through large XOR functions; it does not distribute products into ANF and
+does not replace any frozen source.
+
+## Universal cache-chain transfer audit
+
+The previous anchored replay reconstructs every row and compares512 sampled
+states. It does not itself certify universal donor/function facts. A separate
+`cache_certificate.rs` verifier now treats each logged lease as an untrusted
+proposal. It rederives support from all symbolic ABI inputs and fresh symbols
+for every original MR, verifies equal immutable product functions at every
+use, donor zero at start, no original quantum/phase access to the donor except
+zero resets, unchanged final controls until cleanup, top-level flag resets,
+fresh private classical slots with disjoint reuse, the exact HMR/CZ phase twin,
+and every output operation. It never calls the allocator or proposal ranking.
+Eight native tests cover valid cases across all three kernels and reject
+changed functions, unknown donors, cleanup writes, flag aliases, phase faults,
+illegal scope boundaries and original phase access to a borrowed donor.
+
+The explicitly trusted base comprises the conservative immutable Boolean
+Support kernels and the following standard gadget identity. A clean donor is
+computed to product f at the first active use. Every subsequent active use
+has the same f, so replacing its CCX by CX from the donor preserves its value.
+The final controls still compute f. HMR erases the donor and contributes phase
+(-1)^(m*f); the matching CZ controlled by that measurement contributes the
+same phase and cancels it. With no active use, the valid flag is zero and
+the whole cleanup is skipped. Private flags are cleared outside all pushed
+scopes before reuse. Thus original outputs and phase agree for every original
+input and MR assignment, independently of every added cache measurement.
+The checker is an executable symbolic certificate audit with an explicit
+trusted kernel; it is not a proof-assistant verification.
+
+Once every source-bound stage audit passes, an all-input original4b theorem
+that coordinates are independent of every original MR transfers to product25:
+compose the exact cache gadgets, then substitute any original MR assignment,
+including all zeros. The zero-MR original value function can then evaluate
+candidate25 Fiat inputs. The candidate source/stream must match the certified
+pre-tail bytes; a changed nonce is covered only by separately checking all48
+adjacent XX identity pairs in the96-op tail. This transfer concerns coordinate
+values. Phase failures still require the unchanged full benchmark/simulator.
+Pending audit prefixes cannot establish this theorem; require all25 PASS
+entries and a terminal successful receipt tied to the complete stream hashes.
+
+The first combined symbolic audit was conservative but incomplete. Querying
+products can allocate immutable nodes and clear bounded caches, losing zero
+identities that the step-only donor proof retains. Its stage23 zero-proof
+failure and6GiB worker memory failures are preserved. A resource-only retry
+refused to bypass that assertion. Verifier v2 retains every obligation and
+uses two independent exact symbolic passes, never comparing IDs across them:
+a step-only zero-donor pass and a query-aware product equality pass. Native8
+fault tests pass. The complete25-stage v2 receipt is now terminal PASS, covering
+95,801 leases and219,473 replaced uses. The consolidator rechecks all stream,
+lease-log/audit hashes, native25 stream identity, full verifier/decoder/tool
+sources and protected dependency files. Certificate SHA256 is
+4857f8255c6aa85f0c6cb84720c6d5690aaca060f2758a8c517bd43fc5e2f04e;
+receipt SHA256d11388b1b357f6c6003b63cc80d7a4941bd52c31ad7367677e2958d47987fb2e.
+The old partial sequential computation was retired only after complete v2 PASS;
+its shell EXITtrap happened to report0, which is not a complete proof marker.
+Its PAUSE_RESOLVED provenance is retained. Old partial proofs cannot stand in
+for the complete25-stage receipt and consolidated certificate. The independent
+original4b coordinate MR-independence premise remains outside this audit.
+
+## Width allowance after wide43: terminal four-case study
+
+Each of the four fixed retained-ANF passes offered16 new quantum slots on
+frozen wide43, with pair256 and atom128/512/1024/2048. Complete512 anchored
+value/phase/scratch comparisons pass in every case. Total savings are
+53.94921875T/Q1471,53.94921875T/Q1472,52.94921875T/Q1473 and52.94921875T/Q1471
+respectively. Only3–5 offered slots were actually used. This gives1–2T over
+the frozen wide43 diagnostic, not the earlier anticipated large width gain.
+No native benchmark or eligibility claim is made for these component cases.
+
+A further Toffoli-only study fixes exactly24 stages after wide43 (four cycles
+of retained128,512,1024,128,512,1024, pair256,16 offered fresh slots at each
+stage), ending67. All49/55/61/67 checkpoints require both anchored256-shot
+proof families; the final67 count is fixed before measurements. The run waits
+for universal certificate work and has one thread/24GiB address-space cap.
+This continuation tests whether adding scratch at each new layer exposes
+further cache work; it does not alter any frozen candidate under qualification.

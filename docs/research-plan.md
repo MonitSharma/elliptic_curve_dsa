@@ -1,5 +1,36 @@
 # Research state and next experiments
 
+## Four-hour checkpoint:16 October2026,02:55 Singapore
+
+The complete queued results remain T753721/Q1468 and T753745/Q1464; no external
+submission. Public refresh02:35 is unchanged. Product25 retains its58.15368T
+fresh saving and passing failure gate. New product53 native reproduction saves
+88.72993T diagnostically but fails its fixed fresh gate4133vs4120; wide43 saves
+52.13428T but fails1393vs1391. Neither enters nonce search. Complete binary
+sources and failed evidence are preserved in
+[frozen-next](../experiments/frozen-next-20261016/STATUS.md).
+
+The exact full-RNG reduced-value screen passes full-state/positive/partial checks,
+but median7.139731s is slower than6.331904s original on fixed1024nonces/16workers.
+[Negative speed result](../experiments/exact-value-screen-20261016/STATUS.md).
+Packed suspect-input benchmarking amortizes fixed-zero value simulation over512
+different nonces; streamed inputs measure1.124898s/1024/16workers. These are
+disabled research timings: no universal MR-independence certificate has been
+accepted, and no nonce is selected. The promising proof route now exports
+input-conditioned per-bit MR-dependency masks. Only wrong scored bits with a
+provedzero dependency mask can reject. The separate AVX512 mask evaluator's
+100random DAGs,512exhaustive assignments and invalid-ABI controls pass; actual
+source-bound export/integration remains pending. The universal25-stage cache
+equivalence audit now passes95801leases/219473uses with exact stream reconstruction.
+A separate per-input/per-bit transfer theorem permits sound original known-bit
+masks to filter the improved source, with candidate-own Fiat inputs and full
+simulation for survivors. Neither theorem substitutes for actual mask validation.
+
+Uniform late-forward+1bit repairs remain under structural interface admission.
+The all37-fold family fails allocator/table-overlap gates; the separately declared
+31structural family has29 isolated native blocks and two capacity rejections.
+No donor, boundary or phase assumption is silently relaxed. Product remains first.
+
 ## Complete local Toffoli improvements:16 October2026,01:50 Singapore
 
 **T753721/Q1468 is queued**,50 below the public T record. The unchanged official

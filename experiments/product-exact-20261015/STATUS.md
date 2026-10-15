@@ -13,9 +13,53 @@ See `PRODUCT25_FREEZE.json` and `product25-census-summary.json`; the authoritati
 fixed sample is `product25-frozen-census-v3-20261016` and the stream SHA256 is
 `180af069679ffa33b099b200d3337d6fc6c20a451a72508a40dea6617150dc64`.
 
-The later 32/39/46/53-stage measurements remain diagnostic while their native
-source validation and separately declared census are pending. The coordinator
-owns nonce qualification and unchanged official benchmarks.
+The predeclared 53-stage product continuation is now frozen with full anchored
+value, phase and scratch equality on both 256-shot families: **88.47265625 T**
+saved on each fixed packet at Q1234, with 51,878 classical slots. Its stream
+SHA256 is `f26fe86f2d4b59f8d8cc2c860039814807d6b74f5ab29d78b3af6db9cb7f15a1`.
+Its fixed fresh 32,768-batch census is complete: **88.72992659 ± 0.44192671 T**
+saved, candidate mean761134.9035372734. The strict measured failure gate
+**fails**: candidate4133 bad batches (17.7842102051/packet), versus original4120
+(17.7282714844/packet). Both are below18, but the paired gate is required.
+Every declared row is retained; no nonce search or resampling follows this
+failed gate. The coordinator's static native source reproduction now passes
+full byte identity. Its complete source/patch is preserved in the coordinator's
+`frozen-next-20261016` archive; its owned source tree was subsequently removed.
+This result does
+not replace the complete gate-passing twenty-five-stage source above.
+
+The twenty-five-stage universal cache-equivalence audit is **terminal PASS**:
+95,801 leases and219,473 replaced uses, all stream/log/function/guard/donor/
+cleanup checks verified. This uses no sampled inputs. See
+`cache-certificate-v2-20261016/CACHE_EQUIVALENCE_CERTIFICATE.json` in the evidence
+archive (SHA2564857f8255c6aa85f0c6cb84720c6d5690aaca060f2758a8c517bd43fc5e2f04e).
+The trusted base is the conservative immutable Boolean kernels and the lazy
+HMR/CZ cleanup theorem, stated explicitly; this is not a proof-assistant proof.
+It transfers an independently proved original4b coordinate MR-independence
+theorem to the candidate. It does not establish that missing premise itself.
+Separately frozen `PER_INPUT_MASK_TRANSFER.json` and `.md` also establish the
+per-input, per-bit conditional-mask route: if an original bit is independently
+proved constant over all MR assignments for this input, the candidate bit
+equals its original zero-MR value for every candidate MR assignment. No global
+independence premise is required for that route. The sound mask/evaluator and
+candidate-own Fiat input premises remain explicit in those companions.
+
+The predeclared 43-stage wide continuation is likewise frozen and passes both
+anchored families at Q1468, with **51.94921875 T** saved on each fixed packet.
+Its later cycles plateaued; all 43 predetermined stages remain in the final
+stream. Its coordinator static native source and byte identity pass, but the
+coordinator's fixed32,768-batch fresh gate **fails**: candidate1393 vs
+original1391 failed batches (5.9940490723 vs5.9854431152 per packet). No nonce
+qualification follows. Complete source/patch/census evidence is preserved in
+`frozen-next-20261016`; its owned source tree was removed after archiving.
+See `PRODUCT53_FREEZE.json` and `WIDE43_FREEZE.json`. The coordinator's
+separate completed wide15 benchmark is T753721/Q1468 (nonce644, 731 screened),
+preserved in `wide15-record-20261016` for the submission queue.
+
+The historical32/39/46/53 checkpoints remain fixed-packet diagnostic counts.
+Final53 source validation and its full fixed census are complete, as disclosed
+above; the failed gate prevents qualification. The coordinator owns nonce
+qualification and unchanged official benchmarks for eligible frozen sources.
 
 ## Historical eleven-stage evidence
 
@@ -206,15 +250,16 @@ files remain there. Only research files have been written locally; the
 public source and all protected harness files are unchanged. No commits,
 pushes or submissions were made.
 
-## Frozen compact continuations and independent qualification
+## Historical compact continuation checkpoints and final qualification
 
 The compact eleven-stage source passes 62 native tests and normal generation
 matches its external stream byte for byte (SHA256
 `2a7429e1f5655820c461279b4d2479449450ce819ddbc784c5de481d31691e97`).
 It keeps Q1234 and 46,508 classical slots. Its anchored 512-shot diagnostic
-saving is 33.47265625 T. A newly declared 32,768-batch paired fresh census
-uses every batch under `product-compact11-frozen-20261016`; qualification is
-pending and no partial rates will be used for selection.
+saving is 33.47265625 T. The full32,768-batch paired fresh census under
+`product-compact11-frozen-20261016` subsequently completed and passed its
+measured gate, with33.64314651 +/-0.44141266 T saved; see the opening historical
+eleven-stage summary. No partial rates were used for selection.
 
 The fixed 25-stage continuation completes both full anchored reconstructions
 with 58.47265625 T diagnostic saving, Q1234 and 47,921 classical slots.
@@ -222,25 +267,29 @@ Its stream hash is
 `180af069679ffa33b099b200d3337d6fc6c20a451a72508a40dea6617150dc64`.
 The native port reuses five pure helper configurations across 25 calls;
 `PRODUCT25_FREEZE.json` records every stage and its source patch. Generation,
-full byte comparison and native tests precede its separate predeclared fresh
-32,768-batch paired census. It never replaces or edits the eleven-stage source.
+full byte comparison,27 native tests and its separate predeclared fresh
+32,768-batch paired census all completed, with the terminal result at the top
+of this report. It never replaces or edits the eleven-stage source.
 
 A further four seven-stage cycles, ending at stage 53, were declared before
 measuring them. The fixed checkpoints are 32, 39, 46 and 53. This separate
 experiment uses the same anchored original-event RNG protocol, compact donor
-flags, a single analysis thread and a 40-GiB virtual-memory limit. It is
-component research until a final frozen source, native proof and fresh gate.
+flags, a single analysis thread and a40-GiB virtual-memory limit. All fixed
+checkpoints completed. Final53 native reproduction and census are now complete;
+its strict failure gate fails, as disclosed above.
 
 The fifteen-stage wide source is separately frozen at Q1468 and 41.94921875 T
 anchored saving. It has four extra quantum slots. Native full-stream identity,
-its stage tests and a fixed 4,096-batch paired fresh census remain required.
-The original queued wide four-stage result is unchanged.
+48 stage tests and a fixed4,096-batch paired fresh census completed, followed
+by the coordinator's unchanged benchmarkT753721/Q1468 and final fixed16,384-batch
+qualification. The original queued wide four-stage result remains preserved.
 
 A source-only feasibility probe restores every inherited census deletion row
 as a whole structural family, after all original neighborhood anchors have
 validated. All reduction rows and upstream tables remain unchanged. The fixed
-choice is recorded in `CATEGORY_RESTORE_DECLARATION.json`; this initially
-measures construction and cost only, without a census or nonce search.
+choice is recorded in `CATEGORY_RESTORE_DECLARATION.json`. This began as a
+construction-only probe; the subsequent full fixed component censuses below
+completed. No nonce search or record qualification followed.
 
 ## New complete wide census and negative correction studies
 
@@ -277,12 +326,16 @@ failure is preserved. A bounded version represents complex classical functions
 by immutable opaque atoms, preserves small Boolean guard correlations, and uses
 uniform input/opaque probabilities only as ranking heuristics. The exact ANF
 cache rewrite, compact flags and full original-to-final state/phase proof
-requirements remain unchanged. Native tests pass; component replay is pending.
+requirements remain unchanged. Native tests and all six predeclared complete
+512-input component replays pass; their detailed diagnostic counts are in
+FOLLOWUP.md. No scored result is claimed.
 
-Fixed stage32 product replay saves67.47265625 T atQ1234 and48,695 classical
-slots; stage39 saves78.47265625 T. Both retain every inherited original failure.
-Wide stage22 saves51.94921875 T; stage29 has the same measured saving. The
-predetermined final53/43 stage counts remain unchanged.
+Fixed stage32/39/46/53 product replays save67.47265625/78.47265625/85.47265625/
+88.47265625 T respectively, atQ1234, retaining the same inherited failures.
+Wide stage22/29/36/43 replays all save51.94921875 T atQ1468. All512-state proofs
+and final freezes completed at the predetermined final53/43 stage counts.
+These remain fixed-packet measurements, not universal exact means; final
+native/census results and both failed gates are stated at the top.
 
 The product25 census watcher was switched before ANY rows from the old runner
 to frozen SIMDv1 and then SIMDv2, retaining its label, all32768 batch IDs,6workers

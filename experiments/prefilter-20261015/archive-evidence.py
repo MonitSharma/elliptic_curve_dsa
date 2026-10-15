@@ -2,7 +2,7 @@ from pathlib import Path
 import tarfile,hashlib,json,sys
 r=Path(__file__).parent
 terminal='--terminal-only' in sys.argv
-active=lambda p:'hybrid' in p.name or p.name in ['input_bdd.rs','input_anf_bdd_dag.rs']
+active=lambda p:('hybrid' in p.name or p.name in ['input_bdd.rs','input_anf_bdd_dag.rs','shadow_apply_region.rs','global_rng_anf_shadow.rs','global_rng_anf_shadow_body.rs','run-global-anf-shadow.sh'] or p.name.startswith('global-anf-shadow'))
 selected=[];skipped=[];incomplete=[]
 for directory in ['evidence','packets','model-source','tool/src']:
  for p in (r/directory).rglob('*'):

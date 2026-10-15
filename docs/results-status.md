@@ -4,9 +4,16 @@
 and unchanged. User priority is product, then Toffolis, then qubits;
 submission mode is **queue**. Four isolated experiments are in progress,
 with two complete local passes queued below. Public refresh at
-16 October 01:46: Q678, T753771/Q1464 and product939347948 unchanged
+16 October 02:35: Q678, T753771/Q1464 and product939347948 unchanged
 (1571 submissions,1230 eligible).
 [Run log](../experiments/autorun-20261015-2239/LOG.md).
+
+**02:55 research qualification update:** native product53 and wide43 reproduce
+their frozen streams, but fail their fixed32768-batch fresh failure gates
+(4133candidate vs4120parent;1393vs1391). No nonce search or resource result follows.
+Product25 remains the qualified58.15T/Q1234 fallback. Packed/streamed zero-MR
+benchmarks and input-conditioned mask tooling remain proof-gated research.
+[Full rejected evidence](../experiments/frozen-next-20261016/STATUS.md).
 
 **New lowest local T,16October01:45:** unchanged benchmark passes9024shots,
 allchannels0, **T753721/Q1468**. Nonce644 lowest from1;731 screened. Final

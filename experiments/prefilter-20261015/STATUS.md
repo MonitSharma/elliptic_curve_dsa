@@ -24,7 +24,7 @@ nonce still receives the verbatim protected `run_tests` recheck.
 
 Against the previous exact screener, nonces 1 through 128 produce identical
 pass/fail decisions, first failing batches and failure kinds: **1,034 batches**,
-84.17 versus 284.85 thread-seconds, **3.3842×**. Both used eight workers.
+84.17 versus 284.85 thread-seconds, **3.3842Ã—**. Both used eight workers.
 No nonce passed. See `evidence/nonce-differential.json`, paired logs and
 `run-validate.sh`. This is an accelerator validation, not a resource result.
 
@@ -32,7 +32,7 @@ No nonce passed. See `evidence/nonce-differential.json`, paired logs and
 secp256k1 batch library from `../scalar-fast-20261015/`. It agrees with all
 128 prior nonce decisions and 1,034 first-failing batches, using 67.38 versus
 84.17 thread-seconds for the Rust accelerator. Against the original 284.85
-thread-seconds, the combined measured speedup is **4.227×**. The C backend
+thread-seconds, the combined measured speedup is **4.227Ã—**. The C backend
 produces both points and their expected sum in approximately 9.39 microseconds
 per shot on fresh inputs; initialization costs 5.66 seconds and its shared
 20-bit table uses about 800 MiB. See `fast-screen-c-differential.json` and
@@ -200,7 +200,7 @@ batch. Explicit no-hit fallback, nonmultiple-of-eight packets, concurrent lowest
 The lookahead scheduler preserves independent transcripts while regrouping
 nonces with similar selected batch offsets. Every source context is retained
 for full fallback. A 64-byte routing self-check verifies each combined lane.
-On predetermined labels 1�1,024, all exact screen variants agree: 1,024
+On predetermined labels 1–1,024, all exact screen variants agree: 1,024
 rejections, 1,173 exact batches and nine full fallbacks. On the same two-worker
 machine, unbucketed wall time was 66.242 seconds; 128-label bucketing took
 50.417 seconds. Replacing only the advisory calculation with the independently
@@ -210,7 +210,7 @@ with 16 workers. These are measured screening results, never scored resources.
 
 The frozen product candidate's census implies an expected 190,311,598 nonces
 before a passing 141-batch packet. Even the improved pipeline projects roughly
-63�84 hours at 64 threads under ideal scaling. This fails the current cost
+63–84 hours at 64 threads under ideal scaling. This fails the current cost
 gate, so no long product search has begun.
 
 The original compact ABI now rejects dimensions or operands colliding with
@@ -295,10 +295,75 @@ streams and zero-MR give identical coordinates for both frozen streams.
 The expected-value columns are explicit zero placeholders and are not used to
 claim correctness. This remains empirical sensitivity evidence only.
 
-The next bounded hybrid experiment canonicalizes pure classical A-input
-functions with exact ROBDDs, retaining quantum-input functions separately.
-It preserves caps conservatively and is under active validation; its active
-source/logs are excluded from the terminal checkpoint archive. The archive's
+The bounded pure-A ROBDD hybrid was stopped after its exact PID and argv
+were verified. It did not improve the first proof obstruction and remains
+an incomplete diagnostic. No certificate is claimed from it. The archive's
 manifest records every included file's size and SHA256, plus exclusions and
 the hash of the full coordinate TSV retained on the server. No unproved model
 or RNG-free skip is enabled in any screen.
+
+
+## Universal local value rewrites (16 October 2026)
+
+The first classical abstraction cap belongs to a phase-helper macro. A new
+local proof initializes every involved quantum and classical entry bit as an
+arbitrary symbolic parameter, including dirty scratch, and compares its actual
+quantum action with only its conditional R/HMR resets. It retains every original
+MR draw, conditional classical write and Push snapshot. Caps and resource limits
+return UNKNOWN. This certificate concerns all quantum/classical values; it does
+not preserve phases or intermediate R dirty flags.
+
+Universal proofs cover 250 complete top1 clauses and 547 source-bound comparator
+regions, plus thousands of smaller scopes. The first export, certified-reduced-tip,
+contains 4,034 disjoint certified regions and removes 1,517,553 quantum value
+operations. Its compact16 SHA256 is
+`a4d01570c76b589ed5d2d59b79ac12ccb4a7a155f1f70d415e3c5da2e5935927`.
+Every quantum and classical wire matches the protected original on 5,132 shots,
+including all 541 preserved failing inputs, 256 structured cases, 1,385 arbitrary
+coordinate tuples and 768 deliberately dirty auxiliary controls, under multiple
+MR streams. Phase differences are expected and separately recorded.
+
+The corrected retained-mask global analysis completes in 200.50 seconds and
+passes four protected full-state containment runs, but all 512 scored output
+bits remain unresolved. Its first quantum MR dependency is at original op
+3332030, crossing a scope boundary in a carry cleanup. A source-bound expansion
+certifies 42 of 62 complete carry helper intervals, selecting 21 disjoint ones.
+Combining those with all closed scopes gives 4,161 disjoint certified regions,
+removing 1,526,376 value operations. The separately named carry export retains
+906,156 original MR events and has 10,103,312 compact16 operations. Its compact
+SHA256 is `f85d62e988b131cf8269564ee02f8d5b7c6614f2b8cda5fb10495f2fe394722e`.
+The original Fiat transcript must always come from stream
+`2a522394cdf3e6a0df7784ad4db761030933c1f7ccd0ff8e641d68ec7a4dab3e`;
+never derive benchmark inputs or measurement words from a rewritten research IR.
+
+The first residual quantum MR dependency moves to original op 3930461. A stronger
+local contract permits either exact zero-internal-MR arithmetic or the actual-guard
+reset projection for each quantum output. Eighteen primitive/algebra tests pass,
+but it certifies the same 42 carry intervals. The remaining tick126 interval has
+one unresolved quantum output, q573. This is preserved as UNKNOWN, with no clean
+entry assumptions. Further source boundary mapping is in progress.
+
+These research IRs permit exact value-only rejection with the ORIGINAL random
+measurement stream, followed by original phase/garbage validation on survivors.
+The coordinator is integrating that path separately. Zero-MR rejection remains
+disabled: empirical sensitivity tests and local rewrites do not establish global
+measurement independence.
+
+
+The carry-union global pass completed its symbolic work in 220.56 seconds,
+with 412,074 caps; all 512 outputs remain unresolved. Four protected full-state
+containment runs pass. Its process exit and before/after source hashes are zero
+and equal. The carry-aware exported value IR also passes the complete 5,132-shot
+protected differential with all quantum/classical words equal.
+
+The stronger zero-internal-MR-or-reset theorem certifies 307 of 548 newly bound
+complete helper intervals with arbitrary entry values. Its transition engine
+passes 192 protected 64-lane primitive cases spanning all dirty entry assignments
+and three MR words, alongside the algebra tests (27 tests total). A new global
+contract replay is active and excluded from the terminal checkpoint. It accepts
+explicit zero-entry preconditions only when its current symbolic prefix proves
+those exact wire values zero; it also forbids contracts that partially overlap
+a previously replaced region, since intermediate-state identity is not implied.
+At tick126 the prefix proves q573, q583 and q1217 zero; even only q573=0 suffices
+for the local theorem. These are proved constraints, never borrowed-cleanliness
+assumptions. No global RNG-free output certificate has yet been obtained.

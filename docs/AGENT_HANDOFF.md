@@ -1,9 +1,29 @@
 # Agent handoff: start here
 
-Last updated 16 October 2026, 01:50 Singapore. This page is for an AI agent (or
+Last updated 16 October 2026, 02:55 Singapore. This page is for an AI agent (or
 person) continuing the work. It holds the current state, the rules, the tools
 and the next steps in order. Details live in the linked reports. Do not copy
 numbers from older reports without checking the date.
+
+**02:55 checkpoint:** public refresh02:35 remains Q678, T753771 and product939347948.
+The two queued complete Toffoli passes below remain the only new resource results.
+Fixed product53 and wide43 native static ports reproduce their frozen streams,
+but both32768-batch fresh failure gates fail (4133vs4120 and1393vs1391).
+No nonce search follows; full sources/patches/logs archived and owned trees removed.
+[Rejected qualifications](../experiments/frozen-next-20261016/STATUS.md).
+
+Product25 remains the gate-passing58.15T/Q1234 fallback. Its independent universal
+cache-equivalence audit now passes all25 stages,95801leases/219473uses, with exact
+stream reconstruction. The separately stated per-input/per-bit transfer theorem
+still requires a sound source-bound known-bit mask; sampled replay is insufficient.
+Full-RNG reduced-value screening passes correctness but is slower in a fixed
+comparison. Packed512-input and streamed-input zero-MR benchmarks are faster,
+but rejection remains disabled. The next proof route is source-bound input-conditioned
+dependency masks: only scored bits proved MR-free for that input may reject.
+The AVX512 mask evaluator passes154.94million independent node/lane comparisons;
+actual circuit export/integration is pending. Global proof, candidate transfer,
+and runtime validation are separate gates. A uniform late-forward precision family
+is also under structural/native admission, with failed families preserved.
 
 **Active run, started 22:39 Singapore:** user priority is **product, Toffolis,
 qubits**, in that order; submission mode **queue**. See
@@ -11,7 +31,7 @@ qubits**, in that order; submission mode **queue**. See
 before starting overlapping jobs. Four isolated workstreams cover the
 prefilter, exact product savings, unexplained failure localization, and the
 wide cache pass. **Two complete local results are queued: T753721/Q1468 and
-T753745/Q1464.** Public refresh at01:46 leaves records unchanged: Q678,
+T753745/Q1464.** Public refresh at02:35 leaves records unchanged: Q678,
 T753771, product939347948. Wide15 passes the unchanged benchmark9024shots,
 allchannels0; nonce644 lowest from1,731 screened. Final16384 paired census
 passes670candidate versus674parent failed batches, dirty0; independent audit

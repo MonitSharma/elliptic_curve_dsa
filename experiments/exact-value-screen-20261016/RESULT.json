@@ -1,0 +1,70 @@
+{
+  "status": "EXACT_VALUE_PREFILTER_DIFFERENTIAL_PASS_FIXED_TIMING_COMPLETE",
+  "source": "2a522394cdf3e6a0df7784ad4db761030933c1f7ccd0ff8e641d68ec7a4dab3e",
+  "predetermined_nonces": 1024,
+  "all_rejected": true,
+  "truth_and_witness_equal_to_original": true,
+  "positive_control": {
+    "nonce": 1046072871510,
+    "batches": 141,
+    "protected_replay_shots": 9024,
+    "all_channels_zero": true
+  },
+  "partial_range": [
+    17,
+    27
+  ],
+  "full_word_shadow": "all q/b words on128 nonces, every positive-control batch and partial range; original measurement RNG retained",
+  "runs": {
+    "compare-1-original": {
+      "wall_seconds": 6.352973,
+      "preparation_seconds": 0.981947,
+      "confirmation_seconds": 5.369339,
+      "mean_selected_rng_group_seconds": 0.2845138553984375,
+      "mean_selected_exact_group_seconds": 0.0413604744765625
+    },
+    "compare-1-value": {
+      "wall_seconds": 9.457177,
+      "preparation_seconds": 1.300223,
+      "confirmation_seconds": 8.152681,
+      "mean_selected_rng_group_seconds": 0.3494914517890625,
+      "mean_selected_exact_group_seconds": 0.064162170703125
+    },
+    "compare-2-original": {
+      "wall_seconds": 6.260466,
+      "preparation_seconds": 0.992676,
+      "confirmation_seconds": 5.262373,
+      "mean_selected_rng_group_seconds": 0.285982046984375,
+      "mean_selected_exact_group_seconds": 0.041162557703125
+    },
+    "compare-2-value": {
+      "wall_seconds": 7.139731,
+      "preparation_seconds": 1.001441,
+      "confirmation_seconds": 6.138045,
+      "mean_selected_rng_group_seconds": 0.287941530921875,
+      "mean_selected_exact_group_seconds": 0.041274100171875
+    },
+    "compare-3-original": {
+      "wall_seconds": 6.331904,
+      "preparation_seconds": 1.006233,
+      "confirmation_seconds": 5.320406,
+      "mean_selected_rng_group_seconds": 0.2856012432265625,
+      "mean_selected_exact_group_seconds": 0.0419271890390625
+    },
+    "compare-3-value": {
+      "wall_seconds": 6.891022,
+      "preparation_seconds": 0.890846,
+      "confirmation_seconds": 5.999911,
+      "mean_selected_rng_group_seconds": 0.28452698021875,
+      "mean_selected_exact_group_seconds": 0.0372721314296875
+    }
+  },
+  "median_wall_seconds": {
+    "original": 6.331904,
+    "value": 7.139731
+  },
+  "relative_speedup": 0.8868547008283645,
+  "global_rng_independence_assumed": false,
+  "nonce_search_performed": false,
+  "resource_record": false
+}

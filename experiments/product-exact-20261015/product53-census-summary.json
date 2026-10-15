@@ -1,0 +1,43 @@
+{
+  "parent": {
+    "batches": 32768,
+    "shots": 2097152,
+    "failed_batches": 4120,
+    "failures_per_packet": 17.728271484375,
+    "mean_t": 761223.6334638596,
+    "census_sha256": "cfcf3f5349ef16a0e50182b8b02b21421c84422b40f0929afb1c9c81a759a947",
+    "failure_per_packet_se": 0.25824978714338964
+  },
+  "candidate": {
+    "batches": 32768,
+    "shots": 2097152,
+    "failed_batches": 4133,
+    "failures_per_packet": 17.784210205078125,
+    "mean_t": 761134.9035372734,
+    "census_sha256": "9aeb4474bdcee867a5e43f1edae8dbbf56aba04491c77cf8da54ed10b149043b",
+    "failure_per_packet_se": 0.25859820534643846
+  },
+  "paired_saving_t": 88.72992658615112,
+  "paired_se_t": 0.44192670577572996,
+  "label": "product53-frozen-20261016",
+  "nonce_search_performed": false,
+  "score": null,
+  "measured_failure_gate_pass": false,
+  "declaration": {
+    "label": "product53-frozen-20261016",
+    "batches_per_source": 32768,
+    "shots_per_source": 2097152,
+    "threads_per_source": 8,
+    "baseline": "tip/ops.bin",
+    "candidate": "product-to53-20261016/product-53-retained-1024.bin",
+    "source_ops_sha256": {
+      "tip/ops.bin": "2a522394cdf3e6a0df7784ad4db761030933c1f7ccd0ff8e641d68ec7a4dab3e",
+      "product-to53-20261016/product-53-retained-1024.bin": "f26fe86f2d4b59f8d8cc2c860039814807d6b74f5ab29d78b3af6db9cb7f15a1"
+    },
+    "source_freeze": "PRODUCT53_FREEZE.json",
+    "native_port": "pending independently; must reproduce exact frozen stream before eligibility",
+    "selection": "Fixed before any rows: include every batch0..32767, no interim selection/stopping, stage/nonce tuning",
+    "nonce_search_performed": false,
+    "score": null
+  }
+}

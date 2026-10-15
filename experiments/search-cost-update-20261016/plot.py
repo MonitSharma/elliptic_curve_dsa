@@ -8,7 +8,7 @@ import numpy as np
 root=Path(__file__).resolve().parent
 threads=64
 costs={'protected':284.85/128,'simd_low':38.37*2/1024,'simd_high':6.538*16/1024}
-rates={'four_stage':17.83154296875,'compact11':17.680938720703125}
+rates={'four_stage':17.83154296875,'compact11':17.680938720703125,'compact25':17.827239990234375}
 def expected(rate):return math.exp(-141*math.log1p(-rate/141))
 data={'status':'research_search_cost_projection_not_a_resource_record','workers_projected':threads,'cost_units':'measured thread-seconds per screened nonce','costs':costs,'assumptions':['Independent fresh packet success probability p=(1-lambda/141)^141.','Measured early-rejection cost treated as constant when varying failure rate.','Ideal scaling to64 threads; actual64-thread throughput is not measured.','Timing measured on original public product source; candidate timing is not established.','No product nonce search or benchmark pass follows from this projection.'],'measurements':{'protected':{'nonces':128,'thread_seconds':284.85},'simd_two_workers':{'nonces':1024,'workers':2,'wall_seconds':38.37},'simd_sixteen_workers':{'nonces':1024,'workers':16,'wall_seconds':6.538}},'census_rates':rates,'projected':{},'prefilter_terminal_archive_sha256':'d3007fe2a24e8c01c8428f3aa7b9de3a17bf37920c0fd22f6b2d92219f678c06'}
 for name,rate in rates.items():
@@ -22,9 +22,9 @@ ax.fill_between(x,n*costs['simd_low']*factor,n*costs['simd_high']*factor,color='
 ax.plot(x,n*costs['simd_high']*factor,color='#2866a5',lw=2)
 for h,label in [(1,'1 hour'),(12,'12 hours'),(24,'1 day')]:
  ax.axhline(h,color='#b8bdc7',lw=.9,ls='--');ax.text(8.15,h*1.12,label,color='#666d7b',fontsize=9)
-rate=rates['compact11'];row=data['projected']['compact11'];low,high=row['hours_simd_low'],row['hours_simd_high']
+rate=rates['compact25'];row=data['projected']['compact25'];low,high=row['hours_simd_low'],row['hours_simd_high']
 ax.plot([rate,rate],[low,high],color='#cb6b32',lw=3,zorder=4);ax.scatter([rate],[math.sqrt(low*high)],color='#cb6b32',s=48,zorder=5)
-ax.annotate(f'Compact11 fresh census: lambda={rate:.3f}\nProjected {low:.0f}–{high:.0f} hours\nCandidate throughput still unmeasured',xy=(rate,math.sqrt(low*high)),xytext=(10.5,600),arrowprops={'arrowstyle':'-','color':'#cb6b32'},color='#9d491d',fontsize=10)
+ax.annotate(f'Gate-passing compact25 census: lambda={rate:.3f}\nProjected {low:.0f}–{high:.0f} hours\nCandidate throughput still unmeasured',xy=(rate,math.sqrt(low*high)),xytext=(10.5,600),arrowprops={'arrowstyle':'-','color':'#cb6b32'},color='#9d491d',fontsize=10)
 ax.set_yscale('log');ax.set_xlim(8,20);ax.set_ylim(1e-4,2e5)
 ax.set_xlabel('Expected failed batches per 9,024-shot packet (lambda)')
 ax.set_ylabel('Expected search time at 64 threads (hours; ideal scaling)')
