@@ -1,5 +1,53 @@
 # Research state and next experiments
 
+## Cheap exact repair and measured filter cost:16 October2026,07:43Singapore
+
+Keep original product25 ascending search unchanged. Latest verified07:44:22
+snapshot:38,182,912 distinct completed nonces, lowerprefix37,810,176, no pass.
+Plain67 remains102.13839T/Q1234 diagnostic; repaired67 is49.55103T/Q1234.
+Neither has a selected nonce or complete benchmark. Public full refresh07:06
+confirms Q677/T753721/product939347948;12 publication/data checks pass.
+
+Repaired67 conditional filter is now completely qualified while DISABLED:
+85-artifact raw runtime and79-artifact optional fused runtime independently
+reviewed; all six4096row comparisons/full9024q/b/phase/MR and forced fallback
+controls agree. Public G's representation is universally identical, with
+1,130,985 instructions/1656 slots versus1,831,784 raw nodes. Guard-only speedup
+does not establish whole-search speedup. Actual4process/8thread fixed timing
+completes65536 identical rows but FAILS its declared cost gate. Restart-inclusive
+mean forecasts232.28h raw/238.95h fused repeat startup each4096nonces;
+program-timer-only proxies110.14..120.74h exclude startup and are not a measured
+persistent-worker forecast. No64thread measurement or new search authority.
+Leave the source proposal hard-disabled and profile startup and preparation.
+
+Frozen ALL4 C130 square-carry repair terminalPASS on32768batches/source:
+4175->4173 failed batches, exactly2value repairs/zero channel regressions,
+phase2619 unchanged, dirty0. It costs exactly16T/Q0/MR0 and is not a resource
+record. All736 archive members/168 complete source files/raw cohorts verified.
+No cache composition or fresh-sample adaptation.
+
+New ALL-mod_halve_pm dropped-control repair restores one inherited CX to its
+original CCX, +1T/Q0/MR0. Exact BDD proves finite53bit value, clean48scratch
+restoration and phase0 for arbitrary256bit target/all96MR; a hash-pinned whole
+original prefix proves required48zeros. Inherited error predicate is
+D=(A odd) AND ((A mod2^32)<977), with value perturbation before halving
+D*2^32 and phase D*MR[20]. Native fullstream changes exactly one Op and
+preserves every original MR/classical/ABI/tail position. Its sole predeclared
+32768/source census is active, parent then candidate on four workers.
+Fresh whole-circuit benefit remains unmeasured. No old-mask transfer.
+
+Actual431/413-context per-phase replay explains34fold+14N2+3square cases among
+the55 advisory-unexplained witnesses, leaving4 in that addendum. New seed
+diagnosis isolates one additional source fault, not yet a final failure-rate
+claim. All-N2 retained-rail source audit needs+8Q and fails preserved native
+table binding; direct stable affine/one-product dirty-RHS fixes are negative.
+Signed64 advisory tail passes exact flags/signed controls with noisy component
+timings; no production replacement. Quadratic factoring and Gaussian captured
+guard cofactors find zero new sites on best official wide15 source.
+
+Continue frozen seed census, bounded failure attribution and preparation
+profile. Queue only; preserve the separate chat's README/submission edits.
+
 ## Conditional filter and source-family repair:16 October2026,06:54Singapore
 
 Keep the product25 ascending search unchanged;06:45:59 checkpoint has28.56m

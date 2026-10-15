@@ -1,0 +1,137 @@
+{
+  "status": "COMPONENT_ONLY_FUSED_GUARD_EXACT_REFERENCE_PARTIAL_POLARITY_AND_NEGATIVE_CONTROLS_PASS",
+  "original_G_sha256": "355f9951eda21a7204a96fd391b3208e8d6e000dce6a14feb40d8f19b637f2b3",
+  "wrapper_sha256": "5477d190d11716b0769d0d1c681b49368549345e095a71c85fae871e48e14375",
+  "plan_sha256": "e889e0a6f123a7ae34a9d81339a209ba93aad5246b224057107de3360a9c578a",
+  "kernel_sha256": "dc8219ae84c21e244ec0e1b92a14e9d0705faf7ebced04a2663499a75a6af1a0",
+  "instructions": 1130985,
+  "peak_slots": 1656,
+  "full512_workspace_bytes_raw": 117234176,
+  "full512_workspace_bytes_fused": 105984,
+  "compared_root_words": 40960,
+  "cases": [
+    {
+      "case": "fixed445-prefix-1",
+      "inputs": 1,
+      "width": 1,
+      "raw_seconds": 0.023886182345449924,
+      "fused_seconds": 0.005666719749569893
+    },
+    {
+      "case": "fixed445-prefix-11",
+      "inputs": 11,
+      "width": 1,
+      "raw_seconds": 0.024305551312863827,
+      "fused_seconds": 0.006475499831140041
+    },
+    {
+      "case": "fixed445-prefix-32",
+      "inputs": 32,
+      "width": 1,
+      "raw_seconds": 0.024340459145605564,
+      "fused_seconds": 0.006439071148633957
+    },
+    {
+      "case": "fixed445-prefix-63",
+      "inputs": 63,
+      "width": 1,
+      "raw_seconds": 0.024418572895228863,
+      "fused_seconds": 0.006430886685848236
+    },
+    {
+      "case": "fixed445-prefix-64",
+      "inputs": 64,
+      "width": 1,
+      "raw_seconds": 0.024324734695255756,
+      "fused_seconds": 0.006473948247730732
+    },
+    {
+      "case": "fixed445-prefix-65",
+      "inputs": 65,
+      "width": 2,
+      "raw_seconds": 0.02430400252342224,
+      "fused_seconds": 0.0071856239810585976
+    },
+    {
+      "case": "fixed445-prefix-128",
+      "inputs": 128,
+      "width": 2,
+      "raw_seconds": 0.024323168210685253,
+      "fused_seconds": 0.007246800698339939
+    },
+    {
+      "case": "fixed445-prefix-445",
+      "inputs": 445,
+      "width": 7,
+      "raw_seconds": 0.024413343518972397,
+      "fused_seconds": 0.009454615414142609
+    },
+    {
+      "case": "original32audit",
+      "inputs": 32,
+      "width": 1,
+      "raw_seconds": 0.02434620726853609,
+      "fused_seconds": 0.006419380195438862
+    },
+    {
+      "case": "fixed445-full8",
+      "inputs": 445,
+      "width": 8,
+      "raw_seconds": 0.024337670765817165,
+      "fused_seconds": 0.008077098056674004
+    }
+  ],
+  "runtime_negative_controls": 5,
+  "polarity_controls": {
+    "raw_G1": 17,
+    "safe_notG": 428,
+    "all14repaired_excluded": true,
+    "inverted_polarity_changes": 445
+  },
+  "component_timings": {
+    "conditions": "Single core, existing445 fixed points, nine alternating repetitions, allocations/packing excluded; no new inputs or end-to-end/8thread/search forecast.",
+    "all_seconds": {
+      "raw_full512": [
+        0.02434514369815588,
+        0.02453816868364811,
+        0.02435490395873785,
+        0.024395992048084736,
+        0.024344547651708126,
+        0.024209500290453434,
+        0.02427271381020546,
+        0.024417714215815067,
+        0.024435846135020256
+      ],
+      "fused_full512": [
+        0.008084758184850216,
+        0.00802967045456171,
+        0.00811540987342596,
+        0.008081887848675251,
+        0.008091144263744354,
+        0.008033458143472672,
+        0.008068018592894077,
+        0.008035813458263874,
+        0.008132301270961761
+      ],
+      "fused_width7": [
+        0.00953933596611023,
+        0.009438307955861092,
+        0.009426318109035492,
+        0.009416165761649609,
+        0.009453371167182922,
+        0.009429280646145344,
+        0.009436541236937046,
+        0.009438126347959042,
+        0.009470250457525253
+      ]
+    },
+    "median_seconds": {
+      "raw_full512": 0.02435490395873785,
+      "fused_full512": 0.008081887848675251,
+      "fused_width7": 0.009438126347959042
+    }
+  },
+  "new_sampling": false,
+  "runtime_operational_edits": false,
+  "new_authority": false
+}

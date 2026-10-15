@@ -1,0 +1,69 @@
+{
+  "status": "ALL_SCANNER_CONTROLS_AND_EXACT_IDENTITY_PASS",
+  "cases": [
+    {
+      "case": "positive",
+      "expected_pairs": 1,
+      "actual_pairs": 1
+    },
+    {
+      "case": "control_read_allowed",
+      "expected_pairs": 1,
+      "actual_pairs": 1
+    },
+    {
+      "case": "target_phase_read",
+      "expected_pairs": 0,
+      "actual_pairs": 0
+    },
+    {
+      "case": "old_control_write",
+      "expected_pairs": 0,
+      "actual_pairs": 0
+    },
+    {
+      "case": "new_control_write",
+      "expected_pairs": 0,
+      "actual_pairs": 0
+    },
+    {
+      "case": "identical_products",
+      "expected_pairs": 0,
+      "actual_pairs": 0
+    },
+    {
+      "case": "changed_direct_guard",
+      "expected_pairs": 0,
+      "actual_pairs": 0
+    },
+    {
+      "case": "captured_guard_survives_current_bit_change",
+      "expected_pairs": 1,
+      "actual_pairs": 1
+    },
+    {
+      "case": "scope_fence",
+      "expected_pairs": 0,
+      "actual_pairs": 0
+    },
+    {
+      "case": "at_distance64",
+      "expected_pairs": 1,
+      "actual_pairs": 1
+    },
+    {
+      "case": "beyond_distance64",
+      "expected_pairs": 0,
+      "actual_pairs": 0
+    },
+    {
+      "case": "measurement_read",
+      "expected_pairs": 0,
+      "actual_pairs": 0
+    }
+  ],
+  "dirty_target_basis_and_guard_cases": 32,
+  "same_scanner_sha256": "fc048001fed1d601057e07e7a117bb6883ac67a07b987280725ab52ef2ded292",
+  "candidate_generated": false,
+  "sampling": false
+}

@@ -1,0 +1,91 @@
+{
+  "status": "INDEPENDENT_SEED_HELPER_VALUE_PHASE_SCRATCH_AND_PINNED_PREFIX_SOURCE_REVIEW_PASS",
+  "source_stream_sha256": "2a522394cdf3e6a0df7784ad4db761030933c1f7ccd0ff8e641d68ec7a4dab3e",
+  "actual_span": [
+    618858,
+    619791
+  ],
+  "restored_region_sha256": "8202e96085091cca0e69a0f350737b3c6da3061c8bd8696f9f7eb0d54035759b",
+  "old_region_sha256": "dd61757ffd3489883807da77cabb133abf946bfe775f7755b8c97f189d6146b5",
+  "source_files": [
+    {
+      "path": "source/actual-seed-markers.json",
+      "sha256": "f5920f8cd60fd32a70130a0cc81d2b4860e0cfaafd77f9628e20f71be6512c4f"
+    },
+    {
+      "path": "source/PREDECLARATION.json",
+      "sha256": "98ccedaa3eaed8efa99458d2daa84aa7968d3e19ee765855aa47d606c30115c6"
+    },
+    {
+      "path": "source/predicted.json",
+      "sha256": "20cec650fa978a387aedf792e6957bfe879a229b03c0b6abe4014da976a8b377"
+    },
+    {
+      "path": "source/prove-seed-bdd.py",
+      "sha256": "24024e6074b105460ee5ae796ff82c407bc19952acbdbe587b99a940dcc97ad1"
+    },
+    {
+      "path": "source/run-seed-prefix-pinned.py",
+      "sha256": "b2a3eb1c089728dd1cd2d9632d156d5a696a20daaa7a9358aa69b617451ebce1"
+    },
+    {
+      "path": "source/seed-bdd-contract.json",
+      "sha256": "451878859f3febd4d39a077d2a4f7a9c9f0bfe0554722e83bce75d04996a676c"
+    },
+    {
+      "path": "source/seed-prefix-source.json",
+      "sha256": "d58bae45a8cdd005b3dd6863256bf8c3f3cf03eb99362736b81855df89c1229b"
+    },
+    {
+      "path": "source/seed-prefix-zeros.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "source/seed-prefix-zeros.log",
+      "sha256": "86d5da16ff7f4d4fdb564036a22fa6813bb954db9d0992a4507d7a0d51ca206d"
+    },
+    {
+      "path": "source/seed_prefix_zeros.rs",
+      "sha256": "afe3b2a859026fe68f01391c1f20a7cb0d5f1c412af2ad385d62c6741c813ceb"
+    },
+    {
+      "path": "source/seed_support.rs",
+      "sha256": "acec4d6ec37bbb114126934757717dfe9f2abb645d5a4bb4b82825e6882cf9d2"
+    },
+    {
+      "path": "source/source-files.json",
+      "sha256": "7b234b734e9b31f33b92ff95f54bbf9fb7bae48d32b28a7af12a8129e11fbcad"
+    },
+    {
+      "path": "source/source.patch",
+      "sha256": "349f7a06e36712ea5f52037b5eec5489b4d4505fb86f8d1ea79a90d5f99083a5"
+    }
+  ],
+  "prefix_binding_receipt_sha256": "794032ad2d6f39f55898ab26f7f3e2ec1bac10f24f60823754a65fd2c449efd8",
+  "review": [
+    "BDD XOR/AND Shannon recurrences, canonical node interning and fresh variable ordering are sound;1million-node cap asserts/UNKNOWN and cannot silently accept.",
+    "All256 target entry bits are arbitrary. All48 distinct required scratch wires are explicitly initialized0; they are disjoint from target. No arbitrary-dirty scratch correctness is claimed.",
+    "Independent borrow recurrence proves the exact finite low53-bit subtraction of(2^32+977)*parity, then parity-loaded right rotation; it is not ideal modular halving for every input.",
+    "No quantum value update reads a classical/MR guard; every phase guard must be an earlier HMR result. Thus q coefficients are input-only and phase is a sum of96 independent fresh MR variables times exact BDD coefficients. All coefficients0 proves phase0 for all measurement choices.",
+    "R and HMR each contribute their own fresh MR phase and reset target0. Classical HMR results record the same MR ordinal. No unconditional phase or unsupported opcode is silently ignored.",
+    "The restored/current helpers differ only at one unconditional CX/CCX quantum update; all classical events, R/HMR positions/targets and phase/classical operations are identical. Their classical transducers are therefore exactly equal under identical MR tapes, independent of quantum entry.",
+    "Whole-prefix Support initializes declared quantum/classical ABI values symbolically, aux0; propagates actual operations, captured Push snapshots, conditional classical stores and fresh HMR muxes. Fresh immutable caps/cache eviction lose identities, never invent zero. Ignored rewrite return does not change propagated actual q state.",
+    "Separate new before/after-hash-pinned replay binds actual2a, exact markers, proof/driver/Support/binary/Cargo/build log. It proves precisely the same48 scratch wires0 at actual entry618858 and reproduces the preserved old query.",
+    "All source mod_halve_pm calls are observed by a wrapper of the unique function definition, gate-inert rawstream tied toff5163. Two markers mean one complete933-op helper. Exact full raw/final region diff is one census row11 CCX(881,1106->1134) reduced toCX; source family restores all matching seed dropped-control edits(size1).",
+    "Candidate transform binds the entire frozen posttable input digest, locates one complete933-op body, restores only relative142, rejects conditional/wrong-control/ambiguous cases, checks depth0 and exact ABI preservation. Prefix before the edit is unchanged, discharging clean entry for this candidate.",
+    "Existing protected structured/mixed captured-guard tests supplement the universal argument; their empirical success does not replace the local BDD or global clean-prefix proof."
+  ],
+  "historical_finding": {
+    "detail": "Original prefix driver/wrapper lacked explicit stream/markers before-after hashes.",
+    "resolution": "Separate pinned replay receipt preserved old evidence and bound all inputs, source and binary; reviewed and verified.",
+    "resolved": true
+  },
+  "remaining": [
+    "Full native candidate stream/source-byte verification still required.",
+    "Fresh predeclared32768 full point-addition census, unchanged benchmark and record comparison remain separate.",
+    "No transfer of original4b mask or existing conditionalA29 mask is established by this review.",
+    "No complete point-addition correctness, final failure-rate improvement, record or submission authority is claimed."
+  ],
+  "workloads_launched_by_reviewer": false,
+  "original_files_modified": false
+}

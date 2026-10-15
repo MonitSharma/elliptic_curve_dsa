@@ -1,0 +1,16 @@
+{
+  "status":"PREDECLARED_SOURCE_ONLY_FEASIBILITY_CENSUS",
+  "official_source":"b5adb653d5ac6e344b27fc4fb9ed274718720e96",
+  "stream":"/home/hclau/ecdsa_research/wide15-record-20261016/evidence/final-ops.bin",
+  "stream_sha256":"1d8c05eeee7b43dd694506b5efe963c771461b7e690bc62f409947b2306b7d77",
+  "family":"Two distinct CCX products on the same physical target, sharing exactly one quantum control; target neither read nor written between; all three controls unchanged; identical current classical-condition value epoch and unchanged static captured guard stack; at most64 intervening original operations; no crossing Push/Pop/register/debug boundaries.",
+  "identity":"t XOR=ab XOR ac equals t XOR=a(b XOR c), with b temporarily CX-conjugated and immediately restored",
+  "complete_cost":{"old_CCX":2,"new_CCX":1,"additional_CX":2,"additional_qubits":0,"additional_MR":0,"additional_classical_bits":0},
+  "resources":{"cores":1,"virtual_memory_GiB":16,"timeout_seconds":300},
+  "discovery":"One scan of the exact entire stream; strict physical write epochs, all phase reads of target are fences; classical writes always advance value epochs even conditionally. No input values, RNG words, packet scores or failure outcomes are read.",
+  "proposal_selection":"First eligible prior CCX per target, fixed64 distance; report all structurally eligible pairs and a nonoverlapping interval greedy subset in ascending ending-op order. Structural guard-weight proxy only, no expected executed gain claim.",
+  "rewrites":false,
+  "circuit_sampling":false,
+  "nonce_search":false,
+  "candidate_generation":false
+}

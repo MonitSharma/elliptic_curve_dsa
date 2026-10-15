@@ -1,6 +1,44 @@
 # Agent handoff: start here
 
-Last updated 16 October 2026, 06:54 Singapore. This page is for an AI agent (or
+## Current checkpoint:16 October2026,07:43Singapore
+
+Read [research-plan.md](research-plan.md)'s newest section for exact evidence
+and next steps. Public07:06 remains Q677/T753721/Q*T939347948. This run is
+QUEUE only. The separate submission chat owns README upload edits and its
+submission directory; exclude them from path-limited root commits.
+
+Product25 unchanged48thread search:07:44:22 immutable65-file snapshot320deb1b
+verifies38,182,912 distinct completed nonces/lowerprefix37,810,176/no pass.
+Plain67 saves102.13839T/Q1234; repaired67 saves49.55103T/Q1234. Neither has
+a selected nonce or full benchmark. Complete raw85/fused79 filter runtime
+checks PASS, but measured4process8thread cost FAILS. Hard-disabled proposal
+stays disabled; no inferred search authority from source proofs/component3x.
+Timing archive65f6dc1f has87members/65536 matching rows; restart-inclusive
+232..239h forecasts must not be confused with program-only110..121h proxies
+or actual64thread/persistent-worker measurements. Prepare fine-grained profile.
+
+Square4 exact+16T/Q0/MR0 source passes sole32768fresh gate:4175->4173 batches,
+2value repairs/no new channel failures; independent736member/168source/fullrow
+review PASS. Standalone is not a resource record, no cache composite authorized
+from this evidence alone. New exact seed restoration adds1T/Q0/MR0 and changes
+one inherited CX back to originalCCX; all other11630715Ops/MR/classical/ABI/tail
+are identical. BDD arbitrarytarget/96MR+actual-prefix48clean proof independently
+reviewed. Fullnative/protected qualification PASS; fixed32768parent/candidate
+census active4workers/PID427621. Do not claim population failure improvement yet.
+
+Per-phase attribution addendum57f220bd corrects old latch limitation:34fold,
+14N2,3square,4unresolved among55 current advisory-unexplained witnesses. Seed
+diagnosis3ae03610 isolates one additional inherited control fault and its exact
+entry predicate; not a sampled rate improvement. Independent29member review
+4f05ba79 includes all source generators. All-N2 retention+8Q/native-table failure
+and complete3903-artifact dirty-RHS negative are preserved. Signed64 advisory
+tail component passes; timings noisy, no production adoption. Wide15 quadratic
+and affine guard-cofactor source-only censuses both negative.
+
+Latest remotely verified backup092b536a. Current checkpoint work is not yet
+pushed. No chemistry changes, external submissions or active-search restarts.
+
+Last updated 16 October 2026, 07:43 Singapore. This page is for an AI agent (or
 person) continuing the work. It holds the current state, the rules, the tools
 and the next steps in order. Details live in the linked reports. Do not copy
 numbers from older reports without checking the date.

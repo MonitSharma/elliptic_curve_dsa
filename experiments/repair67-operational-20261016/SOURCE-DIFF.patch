@@ -1,0 +1,214 @@
+--- active25/prepare.py
++++ repair67-proposal/prepare.py
+@@ -1,13 +1,18 @@
+ from pathlib import Path
+ import shutil
+-root=Path(__file__).resolve().parent;old=root.parent/'product-early-filter-20261016';tool=root/'tool'
+-shutil.copytree(old/'tool/src',tool/'src',dirs_exist_ok=True)
++root=Path(__file__).resolve().parent;old=root.parent/'repair67-conditional-filter-20261016';tool=root/'tool'
++assert not tool.exists(),'never overwrite a proposal/qualification tree'
++import hashlib,json
++expected=json.loads((root/'PRECURSOR_SOURCE_PINS.json').read_text())
++for name,digest in expected.items():
++    assert hashlib.sha256((old/name).read_bytes()).hexdigest()==digest,name
++shutil.copytree(old/'tool/src',tool/'src')
+ for name in ['Cargo.toml','Cargo.lock']:shutil.copyfile(old/'tool'/name,tool/name)
+ shutil.copyfile(root/'search.rs',tool/'src/search.rs')
+ source=(tool/'src/packed_body.rs').read_text();source='include!("search.rs");\n'+source
+-source=source.replace('const PROOF_ACCEPTED:bool=false;','const PROOF_ACCEPTED:bool=true;')
+-source=source.replace('assert!(!PROOF_ACCEPTED,"benchmark gate must remain disabled until separately reviewed certificate");','assert!(PROOF_ACCEPTED);bind_operational();')
+-source=source.replace('count<=65536','count<=134217728').replace('threads<=32','threads<=14')
++assert 'const PROOF_ACCEPTED:bool=false;' in source # Deliberately disabled; root review must create a new source revision to enable.
++source=source.replace('assert!(!PROOF_ACCEPTED,"benchmark gate must remain disabled until separately reviewed certificate");','assert!(PROOF_ACCEPTED,"isolated proposal is disabled; separate reviewed source revision required");bind_operational();')
++source=source.replace('count<=65536','count<=134217728').replace('threads<=32','threads<=2')
+ needle='let lookahead=a[7].parse::<usize>().unwrap();assert!'
+ assert source.count(needle)==1;source=source.replace(needle,'let lookahead=a[7].parse::<usize>().unwrap();bind_operational_args(first,count,lookahead);assert!')
+ needle='for window in (0..count).step_by(lookahead){let stop='
+@@ -21,11 +26,16 @@
+ assert source.count(needle)==1;source=source.replace(needle,'pass=result.ok;protected_shots=result.n_shots;if pass{assert_eq!(protected_shots,9024);record_pass(packet.nonce);}')
+ needle='pending=updated.into_inner().unwrap();\n  }\n }'
+ assert source.count(needle)==1;source=source.replace(needle,'pending=updated.into_inner().unwrap();\n  }\n  screened+=stop-window;record_window(global_start,stop-window,screened);\n }')
+-source=source.replace('PROOF_ACCEPTED=false AUTHORITATIVE_REJECTIONS=0 NONCE_SELECTED=false','PROOF_ACCEPTED=true NONCE_POLICY=ASCENDING_LOWEST_PASS screened={screened}')
+-source=source.replace('// Benchmarks only. No universal RNG-independence certificate has been accepted.','// Frozen original-source per-input masks plus complete universal candidate transfer accepted separately.')
+-source=source.replace('// Every provisional witness is explicitly unauthoritative; no nonce is selected.','// Full protected confirmation required for every possible pass; coordinator proves lower-prefix completeness.')
++source=source.replace('PROOF_ACCEPTED=false AUTHORITATIVE_REJECTIONS=0 NONCE_SELECTED=false','PROOF_ACCEPTED={PROOF_ACCEPTED} NONCE_POLICY=ASCENDING_LOWEST_PASS screened={screened}')
++source=source.replace('// Benchmarks only. No universal RNG-independence certificate has been accepted.','// Proposed original-mask OR discrepancy-guard transfer, hard-disabled pending separate acceptance.')
++source=source.replace('// Every provisional witness is explicitly unauthoritative; no nonce is selected.','// Candidate-own Fiat/full protected confirmation and complete lower-prefix audit required.')
+ source=source.replace('"provisional_wrong_value"','"certified_wrong_value"')
+ (tool/'src/packed_body.rs').write_text(source)
+-mask=(tool/'src/masks.rs').read_text().replace('authoritative_gate=false','authoritative_gate=true');(tool/'src/masks.rs').write_text(mask)
++assert 'authoritative_gate=false' in (tool/'src/masks.rs').read_text()
+ curve=(tool/'src/fast_curve_c.rs').read_text();needle='let path=CString::new(path).unwrap();'
+ assert curve.count(needle)==1;curve=curve.replace(needle,'sha_check(&path,"3bb2304219fb336795ea88d4bf81174883cdd33702f5975819b812c3dffca30f");'+needle);(tool/'src/fast_curve_c.rs').write_text(curve)
++
++assert 'const PROOF_ACCEPTED:bool=false;' in (tool/'src/packed_body.rs').read_text()
++assert 'guard_safe(&proposed)' in (tool/'src/packed_body.rs').read_text()
++assert 'Some(original.as_ref().unwrap().as_slice())' in (tool/'src/packed_body.rs').read_text()
++(root/'PREPARED_SOURCE.json').write_text(json.dumps({str(p.relative_to(root)):hashlib.sha256(p.read_bytes()).hexdigest() for p in tool.rglob('*') if p.is_file()},indent=2)+'\n')
+--- active25/search.rs
++++ repair67-proposal/search.rs
+@@ -1,8 +1,28 @@
+ fn search_lane()->(usize,usize){let lane=std::env::var("SEARCH_LANE").unwrap().parse::<usize>().unwrap();let lanes=std::env::var("SEARCH_LANES").unwrap().parse::<usize>().unwrap();assert_eq!(lanes,4);assert!(lane<lanes);(lane,lanes)}
+-fn bind_operational_args(first:u64,count:usize,lookahead:usize){assert_eq!(first,1);assert_eq!(lookahead,4096);assert_eq!(count,134217728);assert_eq!(count%lookahead,0);}
+-fn window_start(first:u64,window:usize,lookahead:usize)->u64{let(lane,lanes)=search_lane();first+(window*lanes+lane*lookahead)as u64}
++fn bind_operational_args(first:u64,count:usize,lookahead:usize){assert_eq!(first,1);assert_eq!(lookahead,4096);assert_eq!(count,134217728);assert_eq!(count%lookahead,0);assert!((1..(1u64<<48)).contains(&first));let end=first.checked_add((count as u64).checked_mul(4).unwrap()).unwrap();assert!(end<=1u64<<48);}
++fn window_start(first:u64,window:usize,lookahead:usize)->u64{let(lane,lanes)=search_lane();let offset=window.checked_mul(lanes).unwrap().checked_add(lane.checked_mul(lookahead).unwrap()).unwrap();let start=first.checked_add(offset as u64).unwrap();assert!((1..(1u64<<48)).contains(&start));assert!(start.checked_add(lookahead as u64).unwrap()<=1u64<<48);start}
+ fn stop_after()->Option<u64>{let p=std::env::var("SEARCH_STOP_FILE").unwrap();match std::fs::read_to_string(p){Ok(s)=>Some(s.trim().parse().unwrap()),Err(e)if e.kind()==std::io::ErrorKind::NotFound=>None,Err(e)=>panic!("stop marker unreadable: {e}")}}
+ fn record_window(start:u64,count:usize,total:usize){let p=std::env::var("SEARCH_PROGRESS_FILE").unwrap();let tmp=format!("{p}.tmp");let row=serde_json::json!({"status":"COMPLETE_WINDOW_ALL_ROWS_RECORDED","first":start,"last":start+count as u64-1,"count":count,"cumulative_worker_rows":total,"lane":search_lane().0});std::fs::write(&tmp,format!("{row}\n")).unwrap();std::fs::rename(tmp,p).unwrap();}
+-fn record_pass(nonce:u64){let dir=std::env::var("SEARCH_PASS_DIR").unwrap();let path=std::path::Path::new(&dir).join(format!("pass-{nonce}.json"));let tmp=path.with_extension("tmp");let row=serde_json::json!({"nonce":nonce,"full_protected9024_pass":true,"selection":"lowest passing nonce after all lower intervals complete; no Toffoli selection"});std::fs::write(&tmp,format!("{row}\n")).unwrap();std::fs::rename(tmp,path).unwrap();}
+-fn bind_operational(){let path=std::env::var("ACCEPTANCE_PATH").unwrap();let expected=std::env::var("ACCEPTANCE_SHA256").unwrap();sha_check(&path,&expected);let row:serde_json::Value=serde_json::from_str(&std::fs::read_to_string(path).unwrap()).unwrap();assert_eq!(row["status"],"SOURCE_BOUND_MASK_TRANSFER_AND_RUNTIME_ACCEPTED_FOR_ASCENDING_SEARCH");assert_eq!(row["candidate_stream_sha256"],"180af069679ffa33b099b200d3337d6fc6c20a451a72508a40dea6617150dc64");assert_eq!(row["mask_sha256"],"560c12d5044dd895a4ef32adc905cdde48a780a196b3b28a75951c7f27b4fe9d");assert_eq!(row["lowest_pass_from"],1);assert_eq!(row["submission_mode"],"queue");assert_eq!(row["cost_gate_pass"],true);assert_eq!(row["failure_gate_pass"],true);search_lane();}
++fn record_pass(nonce:u64){assert!((1..(1u64<<48)).contains(&nonce));let dir=std::env::var("SEARCH_PASS_DIR").unwrap();let path=std::path::Path::new(&dir).join(format!("pass-{nonce}.json"));let tmp=path.with_extension("tmp");let row=serde_json::json!({"nonce":nonce,"full_protected9024_pass":true,"selection":"lowest passing nonce after all lower intervals complete; no Toffoli selection"});std::fs::write(&tmp,format!("{row}\n")).unwrap();std::fs::rename(tmp,path).unwrap();}
++fn bind_operational(){
++ let path=std::env::var("ACCEPTANCE_PATH").unwrap();let expected=std::env::var("ACCEPTANCE_SHA256").unwrap();sha_check(&path,&expected);
++ let row:serde_json::Value=serde_json::from_str(&std::fs::read_to_string(path).unwrap()).unwrap();
++ assert_eq!(row["status"],"REPAIRED67_CONDITIONAL_FULL_SOURCE_PROOF_RUNTIME_COST_ACCEPTED_FOR_ASCENDING_SEARCH");
++ assert_eq!(row["candidate_stream_sha256"],"0beec42b117e5f623736c4171e156d8ffdfaeeb585285636f91bab2838e7c10b");
++ assert_eq!(row["mask_sha256"],"560c12d5044dd895a4ef32adc905cdde48a780a196b3b28a75951c7f27b4fe9d");
++ assert_eq!(row["guard_sha256"],"355f9951eda21a7204a96fd391b3208e8d6e000dce6a14feb40d8f19b637f2b3");
++ assert_eq!(row["conditional_theorem_sha256"],"b351ae4cbf4fab52a8248a83d517502c331a0a4291f73f0123370cad645a2c03");
++ assert_eq!(row["lowest_pass_from"],1);assert_eq!(row["submission_mode"],"queue");
++ assert_eq!(row["workers"],4);assert_eq!(row["threads_each"],2);assert_eq!(row["aggregate_threads_max"],8);
++ assert_eq!(row["aggregate_memory_GiB_max"],48);assert_eq!(row["wall_cap_hours"],24);
++ for key in["cost_gate_pass","failure_gate_pass","disabled_qualification_pass","independent_operational_review_pass","fresh_public_record_comparison_pass"]{assert_eq!(row[key],true);}
++ assert!(row["measured_expected_hours_8threads"].as_f64().unwrap()<=24.0);
++ let exe=std::env::current_exe().unwrap();sha_check(exe.to_str().unwrap(),row["operational_executable_sha256"].as_str().unwrap());
++ let required_path="/home/hclau/ecdsa_research/repair67-operational-20261016/REQUIRED_RUNTIME_ARTIFACTS.json";
++ sha_check(required_path,row["required_runtime_artifacts_manifest_sha256"].as_str().unwrap());
++ let required:serde_json::Value=serde_json::from_str(&std::fs::read_to_string(required_path).unwrap()).unwrap();
++ for need in required["artifacts"].as_array().unwrap(){let path=need["path"].as_str().unwrap();let digest=need["sha256"].as_str().unwrap();assert!(row["runtime_artifacts"].as_array().unwrap().iter().any(|item|item["path"].as_str()==Some(path)&&item["sha256"].as_str()==Some(digest)));}
++ for item in row["runtime_artifacts"].as_array().unwrap(){sha_check(item["path"].as_str().unwrap(),item["sha256"].as_str().unwrap());}
++ search_lane();
++}
+ #[cfg(test)]mod search_order_tests{#[test]fn interleaved_windows_partition_exact_ascending_prefix(){for lookahead in [1usize,9,4096]{let mut ranges=Vec::new();for window in 0..5{for lane in 0..4{let start=1+(window*4+lane)*lookahead;ranges.push((start,start+lookahead-1));}}ranges.sort();assert_eq!(ranges[0].0,1);for pair in ranges.windows(2){assert_eq!(pair[0].1+1,pair[1].0);}assert_eq!(ranges.last().unwrap().1,20*lookahead);}}}
+--- active25/coordinator.py
++++ repair67-proposal/coordinator.py
+@@ -1,33 +1,60 @@
+ from pathlib import Path
+ import datetime,hashlib,json,os,subprocess,time
++PROPOSAL_DISABLED=True
++assert not PROPOSAL_DISABLED,'source proposal only: no launch authority; separate reviewed revision required'
+ root=Path(__file__).resolve().parent;workers=4;lookahead=4096;count=134217728
+ acceptance=root/'ACCEPTANCE.json';receipt=json.loads(acceptance.read_text())
+-assert receipt['status']=='SOURCE_BOUND_MASK_TRANSFER_AND_RUNTIME_ACCEPTED_FOR_ASCENDING_SEARCH'
++assert receipt['status']=='REPAIRED67_CONDITIONAL_FULL_SOURCE_PROOF_RUNTIME_COST_ACCEPTED_FOR_ASCENDING_SEARCH'
+ assert receipt['cost_gate_pass'] and receipt['failure_gate_pass']
+ assert (root/'build.exit').read_text().strip()=='0'
+-threads=int(os.environ.get('SEARCH_THREADS_EACH','12'));assert 1<=threads<=14
++assert receipt['disabled_qualification_pass'] and receipt['independent_operational_review_pass']
++assert receipt['fresh_public_record_comparison_pass'] and receipt['measured_expected_hours_8threads']<=24
++assert receipt['workers']==4 and receipt['threads_each']==2 and receipt['aggregate_threads_max']==8
++assert receipt['aggregate_memory_GiB_max']==48 and receipt['wall_cap_hours']==24
++assert receipt['candidate_stream_sha256']=='0beec42b117e5f623736c4171e156d8ffdfaeeb585285636f91bab2838e7c10b'
++assert receipt['conditional_theorem_sha256']=='b351ae4cbf4fab52a8248a83d517502c331a0a4291f73f0123370cad645a2c03'
++assert receipt['guard_sha256']=='355f9951eda21a7204a96fd391b3208e8d6e000dce6a14feb40d8f19b637f2b3'
++assert 1+count*workers<=2**48
++threads=int(os.environ.get('SEARCH_THREADS_EACH','2'));assert threads==2 and workers*threads<=8
+ assert not (root/'run-record.json').exists(),'never silently restart/overwrite an existing search'
+ passdir=root/'passes';passdir.mkdir();stop=root/'stop-after-nonce.txt';assert not stop.exists()
+-binary=root/'tool/target/release/value_prefilter';ops=root.parent/'product-exact-20261015/candidate-product-final25/ops.bin'
++binary=root/'tool/target/release/value_prefilter';ops=root.parent/'product-exact-20261015/repair-to67-rank-20261016/repair-67-retained-1024-proxy.bin'
+ assert hashlib.sha256(ops.read_bytes()).hexdigest()==receipt['candidate_stream_sha256']
+-record={'status':'STARTED_ASCENDING_SOURCE_FROZEN_SEARCH','started_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'workers':workers,'threads_each':threads,'lookahead':lookahead,'count_cap_each':count,'wall_limit_hours':24,'candidate_sha256':receipt['candidate_stream_sha256'],'acceptance_sha256':hashlib.sha256(acceptance.read_bytes()).hexdigest(),'executable_sha256':hashlib.sha256(binary.read_bytes()).hexdigest(),'submission_mode':'queue','search_from':1,'preliminary_distinct_timing_nonces':262144,'preliminary_controls_are_repeated_from1':True}
++assert hashlib.sha256(binary.read_bytes()).hexdigest()==receipt['operational_executable_sha256']
++required_manifest=root/'REQUIRED_RUNTIME_ARTIFACTS.json'
++assert hashlib.sha256(required_manifest.read_bytes()).hexdigest()==receipt['required_runtime_artifacts_manifest_sha256']
++required=json.loads(required_manifest.read_text())['artifacts']
++accepted_artifacts={item['path']:item['sha256'] for item in receipt['runtime_artifacts']}
++assert len(accepted_artifacts)==len(receipt['runtime_artifacts']),'duplicate runtime artifact path'
++for item in required:assert accepted_artifacts.get(item['path'])==item['sha256'],item['path']
++for item in receipt['runtime_artifacts']:
++ assert hashlib.sha256(Path(item['path']).read_bytes()).hexdigest()==item['sha256'],item['path']
++record={'status':'STARTED_ASCENDING_SOURCE_FROZEN_SEARCH','started_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'workers':workers,'threads_each':threads,'lookahead':lookahead,'count_cap_each':count,'wall_limit_hours':24,'candidate_sha256':receipt['candidate_stream_sha256'],'acceptance_sha256':hashlib.sha256(acceptance.read_bytes()).hexdigest(),'executable_sha256':hashlib.sha256(binary.read_bytes()).hexdigest(),'submission_mode':'queue','search_from':1,'preliminary_distinct_timing_nonces':receipt['preliminary_distinct_timing_nonces'],'preliminary_controls_are_repeated_from1':True}
+ (root/'run-record.json').write_text(json.dumps(record,indent=2)+'\n')
++import resource
++def worker_limits():resource.setrlimit(resource.RLIMIT_AS,(12*1024**3,12*1024**3))
+ jobs=[];started=time.monotonic()
+ for lane in range(workers):
+- env=os.environ.copy();env.update(SEARCH_LANE=str(lane),SEARCH_LANES=str(workers),SEARCH_STOP_FILE=str(stop),SEARCH_PROGRESS_FILE=str(root/f'worker{lane}-progress.json'),SEARCH_PASS_DIR=str(passdir),ACCEPTANCE_PATH=str(acceptance),ACCEPTANCE_SHA256=record['acceptance_sha256'])
++ env=os.environ.copy()
++ for key in ['FAST_ZERO_DISPATCH','PACKED_ZERO_SHADOW','EARLY_FULLSTATE_SHADOW','FIXED_TRANSFER_SHADOW','FORCE_FULL_FALLBACK','CANDIDATE_SEED_SHADOW','SCALAR_FAST_LIB']:env.pop(key,None)
++ env.update(SEARCH_LANE=str(lane),SEARCH_LANES=str(workers),SEARCH_STOP_FILE=str(stop),SEARCH_PROGRESS_FILE=str(root/f'worker{lane}-progress.json'),SEARCH_PASS_DIR=str(passdir),ACCEPTANCE_PATH=str(acceptance),ACCEPTANCE_SHA256=record['acceptance_sha256'])
+  out=(root/f'worker{lane}.log').open('w');err=(root/f'worker{lane}.err').open('w')
+- job=subprocess.Popen([str(binary),str(ops),'1',str(count),str(threads),str(root/f'worker{lane}.jsonl'),str(root.parent/'prefilter-20261015/model-source'),str(lookahead)],env=env,stdout=out,stderr=err);jobs.append((lane,job,out,err));(root/f'worker{lane}.pid').write_text(str(job.pid)+'\n')
+-best=None;deadline_stop=False
++ job=subprocess.Popen([str(binary),str(ops),'1',str(count),str(threads),str(root/f'worker{lane}.jsonl'),str(root.parent/'prefilter-20261015/model-source'),str(lookahead)],env=env,stdout=out,stderr=err,preexec_fn=worker_limits);jobs.append((lane,job,out,err));(root/f'worker{lane}.pid').write_text(str(job.pid)+'\n')
++best=None;deadline_stop=False;hard_deadline_stop=False
+ while any(job.poll() is None for _,job,_,_ in jobs):
+  passes=[]
+  for p in passdir.glob('pass-*.json'):
+   row=json.loads(p.read_text());assert row['full_protected9024_pass'];passes.append(row['nonce'])
+  if passes:
+   current=min(passes)
+-  if best is None or current<best:
++  if (best is None or current<best) and not deadline_stop:
+    best=current;tmp=stop.with_suffix('.tmp');tmp.write_text(str(best)+'\n');os.replace(tmp,stop)
+- elif time.monotonic()-started>=24*3600 and not deadline_stop:
++ if time.monotonic()-started>=24*3600-300 and not deadline_stop:
+   deadline_stop=True;tmp=stop.with_suffix('.tmp');tmp.write_text('0\n');os.replace(tmp,stop)
++ if time.monotonic()-started>=24*3600:
++  hard_deadline_stop=True
++  for _,job,_,_ in jobs:
++   if job.poll() is None:job.kill() # Only child Popen objects launched by this coordinator.
+  for lane,job,_,_ in jobs:
+   if job.poll() not in [None,0]:
+    # A worker failure prevents lowest-pass certification. Stop cleanly at the
+@@ -47,5 +74,5 @@
+  prefix_complete=all((row['cumulative_worker_rows'] if row is not None else 0)>=n for row,n in zip(progress,required))
+  # A pass racing the wall deadline can remain unqualified if a lower worker
+  # already stopped. Retain it as evidence without certifying/selecting it.
+-summary={'status':'PASS_AWAITS_COMPLETE_LOG_AUDIT_AND_UNCHANGED_BENCHMARK' if prefix_complete else 'STOPPED_NO_CERTIFIED_PASS','best_full_protected_pass':best,'lowest_prefix_window_completion':prefix_complete,'requires_complete_jsonl_row_audit':True,'worker_exit_codes':codes,'progress':progress,'screened_unique_completed_rows':sum(r['cumulative_worker_rows'] for r in progress if r is not None),'wall_seconds':time.monotonic()-started,'deadline_stop':deadline_stop,'score':None,'submission_mode':'queue'}
++summary={'status':'PASS_AWAITS_COMPLETE_LOG_AUDIT_AND_UNCHANGED_BENCHMARK' if prefix_complete else 'STOPPED_NO_CERTIFIED_PASS','best_full_protected_pass':best,'lowest_prefix_window_completion':prefix_complete,'requires_complete_jsonl_row_audit':True,'worker_exit_codes':codes,'progress':progress,'screened_unique_completed_rows':sum(r['cumulative_worker_rows'] for r in progress if r is not None),'wall_seconds':time.monotonic()-started,'deadline_stop':deadline_stop,'hard_deadline_stop':hard_deadline_stop,'score':None,'submission_mode':'queue'}
+ (root/'RESULT.json').write_text(json.dumps(summary,indent=2)+'\n');print(json.dumps(summary,indent=2))
+--- active25/run-search.sh
++++ repair67-proposal/run-search.sh
+@@ -1,9 +1,7 @@
+ #!/bin/bash
+ set -euo pipefail
+-cd /home/hclau/ecdsa_research/product25-operational-20261016
+-echo $$ > search.pid
+-trap 'echo $? > search.exit' EXIT
+-python3 /home/hclau/ecdsa_research/server-preflight.py > search-preflight.json
+-export OMP_NUM_THREADS=1 RAYON_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 SEARCH_THREADS_EACH=12
+-ulimit -v 12582912
+-python3 coordinator.py > search.log 2>&1
++echo "DISABLED SOURCE PROPOSAL: no launch/build/search authority" >&2
++exit 2
++# After separate source review and acceptance, root must create a NEW reviewed
++# revision that deliberately removes both this gate and coordinator's gate.
++# Do not change or interrupt the existing product25 search.
+--- active25/audit-terminal.py
++++ repair67-proposal/audit-terminal.py
+@@ -2,8 +2,8 @@
+ from pathlib import Path
+ import collections, hashlib, json, sys
+ 
+-ACCEPTANCE='2c33d3e2b19cd77b8069e4c134f162e2ee0c9d8d7b97aa57ce4f56d388693682'
+-BINARY='8333ec419e6ff3915021db1175e2e282989b67313a48fea6b751d3b36849b131'
++ACCEPTANCE='UNSET_REQUIRES_INDEPENDENT_FINAL_REVIEW'
++BINARY='UNSET_REQUIRES_INDEPENDENT_FINAL_REVIEW'
+ 
+ def require(condition,message):
+     if not condition:raise ValueError(message)
+@@ -19,7 +19,7 @@
+     with path.open('rb') as stream:
+         for raw in stream:
+             require(raw.endswith(b'\n'),'truncated final JSONL row');digest.update(raw)
+-            r=json.loads(raw);nonce=integer(r.get('nonce'),1,2**63-1,'nonce')
++            r=json.loads(raw);nonce=integer(r.get('nonce'),1,2**48-1,'nonce')
+             group,offset=divmod(nonce-1,look)
+             require(group%workers==lane,'nonce in wrong lane')
+             local=(group//workers)*look+offset
+@@ -72,10 +72,10 @@
+     receipt=json.loads((root/'ACCEPTANCE.json').read_text());run=json.loads((root/'run-record.json').read_text())
+     require(run['acceptance_sha256']==ACCEPTANCE and run['executable_sha256']==BINARY,'changed launch binding')
+     require(run['workers']==4 and run['lookahead']==4096 and run['count_cap_each']==134217728,'changed partition')
+-    require(run['threads_each']==12 and run['search_from']==1 and run['submission_mode']=='queue','changed launch policy')
++    require(run['threads_each']==2 and run['search_from']==1 and run['submission_mode']=='queue','changed launch policy')
+     require(hash_file(root/'tool/target/release/value_prefilter')==BINARY,'changed executable')
+-    artifacts={path:hash_file(Path(path)) for path in receipt['runtime_artifacts']}
+-    require(artifacts==receipt['runtime_artifacts'],'changed runtime artifacts')
++    artifacts={item['path']:hash_file(Path(item['path'])) for item in receipt['runtime_artifacts']}
++    require(artifacts=={item['path']:item['sha256'] for item in receipt['runtime_artifacts']},'changed runtime artifacts')
+     extra={
+       '/home/hclau/ecdsa_research/zero-mr-slice-20261016/tip.compact16.bin':'812f706d2edd7e821ff6c5f72db5e7e65b3f9756f562d99c1d0e1fceb007daf0',
+       '/home/hclau/ecdsa_research/zero-mr-slice-20261016/libzero8_slice.so':'84b73bcdee01bb537d0320f9985a682758d1076860455ad382a2ae175690ea82',

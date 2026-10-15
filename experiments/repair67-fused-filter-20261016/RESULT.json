@@ -1,0 +1,131 @@
+{
+  "status": "DISABLED_OPTIONAL_FUSED_GUARD_REPAIRED67_FULL_ROWS_AND_PROTECTED_CONTROLS_PASS",
+  "candidate_stream_sha256": "0beec42b117e5f623736c4171e156d8ffdfaeeb585285636f91bab2838e7c10b",
+  "precursor_archive_sha256": "db095518788bfafb6cdf0ded3a1172a9e570a14988e48a502d13ab76d71d70f0",
+  "times_seconds": {
+    "raw": [
+      37.650274,
+      36.660255,
+      32.580623
+    ],
+    "fused": [
+      41.507317,
+      35.482217,
+      30.074758
+    ]
+  },
+  "median_seconds": {
+    "raw": 36.660255,
+    "fused": 35.482217
+  },
+  "trials": [
+    {
+      "name": "forced2-raw",
+      "fused_guard": false,
+      "benchmark_wall_seconds": 3.752898,
+      "subprocess_with_startup_seconds": 37.327587535604835,
+      "rows": 2,
+      "complete_rows_match_prior": true
+    },
+    {
+      "name": "forced2-fused",
+      "fused_guard": true,
+      "benchmark_wall_seconds": 6.930701,
+      "subprocess_with_startup_seconds": 48.939355610869825,
+      "rows": 2,
+      "complete_rows_match_prior": true
+    },
+    {
+      "name": "shadow128-raw",
+      "fused_guard": false,
+      "benchmark_wall_seconds": 3.785687,
+      "subprocess_with_startup_seconds": 94.15738654322922,
+      "rows": 128,
+      "complete_rows_match_prior": true
+    },
+    {
+      "name": "shadow128-fused",
+      "fused_guard": true,
+      "benchmark_wall_seconds": 3.061291,
+      "subprocess_with_startup_seconds": 81.37753858789802,
+      "rows": 128,
+      "complete_rows_match_prior": true
+    },
+    {
+      "name": "partial11-raw",
+      "fused_guard": false,
+      "benchmark_wall_seconds": 4.836089,
+      "subprocess_with_startup_seconds": 52.946257506497204,
+      "rows": 11,
+      "complete_rows_match_prior": true
+    },
+    {
+      "name": "partial11-fused",
+      "fused_guard": true,
+      "benchmark_wall_seconds": 3.547829,
+      "subprocess_with_startup_seconds": 41.973354537039995,
+      "rows": 11,
+      "complete_rows_match_prior": true
+    },
+    {
+      "name": "raw-0",
+      "fused_guard": false,
+      "benchmark_wall_seconds": 37.650274,
+      "subprocess_with_startup_seconds": 74.2131709298119,
+      "rows": 4096,
+      "complete_rows_match_prior": true
+    },
+    {
+      "name": "fused-0",
+      "fused_guard": true,
+      "benchmark_wall_seconds": 41.507317,
+      "subprocess_with_startup_seconds": 83.26930380892009,
+      "rows": 4096,
+      "complete_rows_match_prior": true
+    },
+    {
+      "name": "fused-1",
+      "fused_guard": true,
+      "benchmark_wall_seconds": 35.482217,
+      "subprocess_with_startup_seconds": 81.82241175882518,
+      "rows": 4096,
+      "complete_rows_match_prior": true
+    },
+    {
+      "name": "raw-1",
+      "fused_guard": false,
+      "benchmark_wall_seconds": 36.660255,
+      "subprocess_with_startup_seconds": 75.32374604884535,
+      "rows": 4096,
+      "complete_rows_match_prior": true
+    },
+    {
+      "name": "raw-2",
+      "fused_guard": false,
+      "benchmark_wall_seconds": 32.580623,
+      "subprocess_with_startup_seconds": 68.1537072090432,
+      "rows": 4096,
+      "complete_rows_match_prior": true
+    },
+    {
+      "name": "fused-2",
+      "fused_guard": true,
+      "benchmark_wall_seconds": 30.074758,
+      "subprocess_with_startup_seconds": 67.98769645672292,
+      "rows": 4096,
+      "complete_rows_match_prior": true
+    }
+  ],
+  "all4096rows_equal_prior_completed_rows": true,
+  "fixed445_audit32_partial_and_polarity_controls": true,
+  "full9024_q_b_phase_physical_MR_equality": true,
+  "forced_scheduler_nonce1_2_protected_kind_equality": true,
+  "generic_original_zeroIR_unchanged_both_modes": true,
+  "classical_ids_u32_workspace66245": true,
+  "resolved_scalar_library_sha256": "3bb2304219fb336795ea88d4bf81174883cdd33702f5975819b812c3dffca30f",
+  "proof_accepted": false,
+  "authoritative_rejection": false,
+  "nonce_selected": null,
+  "production_operational_changed": false,
+  "cost_scope": "Two-thread isolated qualification only; no fourprocess/eightthread throughput, expected search time or launch authority."
+}

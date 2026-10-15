@@ -1,0 +1,108 @@
+{
+  "status": "FROZEN BEFORE CANDIDATE GENERATION AND ANY SAMPLE",
+  "created_utc": "2026-10-15T22:10:30.237228+00:00",
+  "base_revision": "4b2ec52fc55da796aa8f5ef851290297e8706424",
+  "base_stream_sha256": "2a522394cdf3e6a0df7784ad4db761030933c1f7ccd0ff8e641d68ec7a4dab3e",
+  "family": "ALL four source wcin_windows calls with high.len()==130; every NAF term shift4/6/10/32",
+  "admission": "unique literal entire old window; next payload U absent from every old quantum read/write/phase; balanced top-level window; exact local dirty-donor primitive and restored donor",
+  "on_any_failure": "REJECT ALL FOUR; never omit or substitute any site",
+  "implementation": "four-CCX borrowed-dirty C3X(p,a,T;U), then unchanged original terminal CCX; donor=q0",
+  "higher_bits": "only bit U at the old window boundary changes; every higher bit is explicitly framed; exact width+1 truncated signed addition when old incoming carry represents its defined arithmetic value",
+  "dirty_entry": "local gate/whole-window relative theorem quantifies arbitrary incoming q/b/guard/MR and dirty donor, without assuming inherited arithmetic correct",
+  "expected_delta": {
+    "added_native_CCX": 16,
+    "added_expected_T": 16,
+    "added_Q": 0,
+    "added_B": 0,
+    "added_MR": 0,
+    "old_MR_ordinals": "identity"
+  },
+  "sites": [
+    {
+      "shift": 4,
+      "high_width": 130,
+      "inv": true,
+      "actual_window": [
+        5799438,
+        5801231
+      ],
+      "actual_terminal": 5800176,
+      "previous": 1188,
+      "penultimate": 152,
+      "top_bit": 153,
+      "next": 154,
+      "old_window_sha256": "37dd82cb2fd1d8198c339fd75622e12895de1514bad4a98affa038335e32fbbb"
+    },
+    {
+      "shift": 6,
+      "high_width": 130,
+      "inv": false,
+      "actual_window": [
+        5801231,
+        5802724
+      ],
+      "actual_terminal": 5801819,
+      "previous": 1188,
+      "penultimate": 154,
+      "top_bit": 155,
+      "next": 156,
+      "old_window_sha256": "a8f177681e6ecf215e02ca8d5fe39354bf3076951c3e55c5739fcccaf103ca75"
+    },
+    {
+      "shift": 10,
+      "high_width": 130,
+      "inv": true,
+      "actual_window": [
+        5802724,
+        5804517
+      ],
+      "actual_terminal": 5803462,
+      "previous": 1188,
+      "penultimate": 158,
+      "top_bit": 159,
+      "next": 160,
+      "old_window_sha256": "17459df340237fc5a5c7499a8ef94c6afc99b0341f27796d3871bdaa0ed847eb"
+    },
+    {
+      "shift": 32,
+      "high_width": 130,
+      "inv": true,
+      "actual_window": [
+        5804517,
+        5806310
+      ],
+      "actual_terminal": 5805255,
+      "previous": 1188,
+      "penultimate": 180,
+      "top_bit": 181,
+      "next": 182,
+      "old_window_sha256": "832586c518dc74ae12fc0574dd37c9371b7a54ae4561b1c723b0d9fc2daadc0c"
+    }
+  ],
+  "fresh_gate": {
+    "label": "public4b-all-C130-square-dirty-carry-independent-20261016-v1",
+    "start": 0,
+    "batches": 32768,
+    "lanes": 64,
+    "inputs_per_source": 2097152,
+    "source_order": [
+      "original4b",
+      "candidate"
+    ],
+    "workers_per_source": 4,
+    "simultaneous_sources": false,
+    "strict_pass": "candidate failed_batches <= original failed_batches AND candidate failed_batches/32768*141 <=18",
+    "resample": false,
+    "require_every_value_phase_dirty_change": true,
+    "nonce_search": false,
+    "official_packet": false
+  },
+  "proof_files": {
+    "prove-terminal.py": "52aa6931b36377912f10737f6c97bfe1051f7c5d9203072cd624b485ca2c8c7c",
+    "terminal-proof.json": "98cb43dc529072bc913ed04410d4779b00debb14972cb3741eb21eb6f7dc44bb",
+    "protected_terminal.rs": "f78bde4f94887ef9ab7225b43df18d20d1dafef2a67e5385866a1e941f71ce88",
+    "protected-dirty-square.json": "d15bdbfadc0a6d061180aec360be8c649a1c39710b740255d64eddf39975b8be",
+    "square-interfaces.json": "2eb118bea3a69fff194c48c213e8f60f15f3646b36a6d871950598ba2f30d310",
+    "square-observer-source.json": "e1dbef2fd2cddbb880909037d97ade92523683c3b4a7c4b83050b37644b8a413"
+  }
+}

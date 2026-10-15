@@ -1,0 +1,18 @@
+// Read only: existing product factors expressed through stable q/current c.
+impl Support{
+ pub(super) fn dirty_affine_factor_queries(&self,eligible:&[usize],targets:&[usize])->serde_json::Value{
+  let(nq,nb)=(self.qubits.len(),self.bits.len());let mut base=Basis::new();
+  // Classical-first quotient avoids spending a quantum host on a classical value.
+  for(b,v)in self.bits.iter().enumerate(){base.insert(v,(nq+b)as u64);}
+  for &q in eligible{base.insert(&self.qubits[q],q as u64);}
+  let wanted:HashSet<_>=targets.iter().flat_map(|q|self.qubits[*q].atoms.iter().copied()).collect();let mut nodes=vec![];let mut neither=0usize;let mut one=0usize;
+  for((a,b),&id)in &self.products{if !wanted.contains(&id){continue;}let aa=base.expression(&Affine{constant:false,atoms:a.clone()},nq,nb,&[]);let bb=base.expression(&Affine{constant:false,atoms:b.clone()},nq,nb,&[]);
+   match(aa,bb){(Some(aa),Some(bb))=>{let qa=aa["quantum_xor"].as_array().unwrap();let qb=bb["quantum_xor"].as_array().unwrap();let quantum_and_cost=usize::from(!qa.is_empty()&&!qb.is_empty()&&qa!=qb);nodes.push((quantum_and_cost,id,aa,bb));},(None,None)=>neither+=1,_=>one+=1}
+  }
+  nodes.sort_by_key(|(cost,id,_,_)|(*cost,*id));assert!(nodes.len()<=4096);let mut augmented=base.clone();for(i,(_,id,_,_))in nodes.iter().enumerate(){augmented.insert(&Affine{constant:false,atoms:vec![*id]},(nq+nb+i)as u64);}
+  let mut results=vec![];for &target in targets{let(v,c,labels)=augmented.reduce(&self.qubits[target]);let mut q=vec![];let mut b=vec![];let mut products=vec![];let mut ccx=0usize;if v.is_empty(){for id in labels{let id=id as usize;if id<nq{q.push(id);}else if id<nq+nb{b.push(id-nq);}else{let node=&nodes[id-nq-nb];ccx+=2*node.0;products.push(node.1);}}}
+   results.push(serde_json::json!({"target":target,"dirty_atom_count":self.qubits[target].atoms.len(),"expressible":v.is_empty(),"unresolved_atom_count":v.len(),"constant_if_expressible":c,"linear_quantum_xor_if_expressible":q,"linear_current_c_snapshot_if_expressible":b,"product_node_ids_if_expressible":products,"upper_bound_added_roundtrip_CCX_if_all_obligations_met":if v.is_empty(){Some(ccx)}else{None}}));}
+  let descriptions:Vec<_>=nodes.iter().map(|(cost,id,a,b)|serde_json::json!({"immutable_product_node":id,"factor_a":a,"factor_b":b,"quantum_factor_rank2":*cost==1,"upper_bound_roundtrip_CCX_if_valid":2*cost})).collect();
+  serde_json::json!({"eligible_full_window_untouched_q":eligible.len(),"classical_first_affine_basis_rank":base.rows.len(),"relevant_existing_product_nodes_neither_factor_spanned":neither,"relevant_existing_product_nodes_one_factor_spanned":one,"relevant_existing_product_nodes_both_factors_spanned":nodes.len(),"zero_T_mixed_or_rank1_product_nodes":nodes.iter().filter(|x|x.0==0).count(),"rank2_quantum_product_nodes":nodes.iter().filter(|x|x.0==1).count(),"factor_nodes":descriptions,"query_rows":results,"sampled_inputs":0,"no_rewrites":true,"scope":"Existing inverse nodes only, no pair search. Factors are exact conservative affine relations. Cost is a source algebra upper bound contingent on classical snapshots, invertible dirty-host Clifford conjugations, return-zero and complete repair phase/value proofs. No circuit generated; failure to express is not impossibility."})
+ }
+}

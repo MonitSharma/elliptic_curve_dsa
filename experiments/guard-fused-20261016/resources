@@ -1,0 +1,29 @@
+LHC-104-070
+               total        used        free      shared  buff/cache   available
+Mem:          515350      246705       93750          10      181630      268645
+Swap:           8191         144        8047
+    PID %CPU   RSS NLWP COMMAND
+3174330 1706 119430784 18 /home/hclau/tools/miniforge3/envs/qob-lattice/bin/python problems/01-marketsplit/classical/ms_sieve.py external/QOBLIB/01-marketsplit/instances/ms_14_200_002.dat --out problems/01-marketsplit/results/sieve/ms_14_200_002.sol --threads 18
+3207770 1683 103186340 18 /home/hclau/tools/miniforge3/envs/qob-lattice/bin/python problems/01-marketsplit/classical/ms_sieve.py external/QOBLIB/01-marketsplit/instances/ms_14_200_003.dat --out problems/01-marketsplit/results/sieve/ms_14_200_003.sol --threads 18
+3893465  996 2702872 13 /home/hclau/ecdsa_research/product25-operational-20261016/tool/target/release/value_prefilter /home/hclau/ecdsa_research/product-exact-20261015/candidate-product-final25/ops.bin 1 134217728 12 /home/hclau/ecdsa_research/product25-operational-20261016/worker0.jsonl /home/hclau/ecdsa_research/prefilter-20261015/model-source 4096
+3893469  993 2706428 13 /home/hclau/ecdsa_research/product25-operational-20261016/tool/target/release/value_prefilter /home/hclau/ecdsa_research/product-exact-20261015/candidate-product-final25/ops.bin 1 134217728 12 /home/hclau/ecdsa_research/product25-operational-20261016/worker3.jsonl /home/hclau/ecdsa_research/prefilter-20261015/model-source 4096
+3893468  993 2722056 13 /home/hclau/ecdsa_research/product25-operational-20261016/tool/target/release/value_prefilter /home/hclau/ecdsa_research/product-exact-20261015/candidate-product-final25/ops.bin 1 134217728 12 /home/hclau/ecdsa_research/product25-operational-20261016/worker2.jsonl /home/hclau/ecdsa_research/prefilter-20261015/model-source 4096
+3893466  992 2659140 13 /home/hclau/ecdsa_research/product25-operational-20261016/tool/target/release/value_prefilter /home/hclau/ecdsa_research/product-exact-20261015/candidate-product-final25/ops.bin 1 134217728 12 /home/hclau/ecdsa_research/product25-operational-20261016/worker1.jsonl /home/hclau/ecdsa_research/prefilter-20261015/model-source 4096
+ 338477  450  4840    1 ps -eo pid,pcpu,rss,nlwp,args --sort=-pcpu
+ 295788  397 643620   5 /home/hclau/ecdsa_research/failure-census-20261015/target/release/failure_census square4-candidate/ops.bin public4b-all-C130-square-dirty-carry-independent-20261016-v1 0 32768 4 square-fresh/candidate.jsonl
+ 332756 99.8 695328   1 target-tool/release/current_phase_payload
+ 218208 14.5 216608  67 /opt/ds_agent/ds_am -g ../diag -v 5 -d /var/opt/ds_agent/am -P 1 -R
+ 216089  5.3 508252  70 /opt/ds_agent/ds_agent -w /var/opt/ds_agent -b -i -e /opt/ds_agent/ext
+ 211341  4.8 57096   58 /opt/TrendMicro/EndpointBasecamp/bin/tmxbc service run
+ 338386  4.7 10660    1 sshd: hclau [priv]
+1702756  1.0 84196   55 /usr/bin/alloy run --storage.path=/var/lib/alloy/data /etc/alloy/config.alloy
+3777359  0.6 10080    1 .venv/bin/python tools/hpc/runner.py run tools/hpc/jobs/01_sieve.jsonl --max-cores 36
+1702753  0.1 27752   45 /usr/bin/containerd
+ 218092  0.0 53292   84 /opt/ds_agent/netagent/tm_netagent --metrics-file /var/opt/ds_agent/netagent/metrics.json --log-folder /var/opt/ds_agent/netagent/logs --ptn-folder /opt/ds_agent/netagent/pattern --jat-folder /opt/ds_agent/netagent/java/jattach --jex-folder /var/opt/ds_agent/netagentjava --log-console=false --log-level 1 --tmCfg WyJTc2xMaW51eEphdmFCdWlsZEVuYWJsZWQiLCJKYXZhQXR0YWNoIiwiRGlzYWJsZURvY2tlckJQRiIsIlNzbEluYm91bmQiLCJTc2xPdXRib3VuZCJd
+ 220953  0.0 53128    6 /usr/libexec/fwupd/fwupd
+     17  0.0     0    1 [rcu_preempt]
+ 204394  0.0 65500    1 /usr/lib/systemd/systemd-journald
+   2866  0.0 48936   48 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+ 211482  0.0  8272    4 /usr/lib/polkit-1/polkitd --no-debug
+ 211526  0.0 13204    4 /usr/sbin/ModemManager
+ 211449  0.0 13904    6 /usr/libexec/udisks2/udisksd

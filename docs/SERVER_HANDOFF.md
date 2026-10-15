@@ -1,5 +1,28 @@
 # CPU server: ECDSA research handoff
 
+## Active research:16 October2026,07:43Singapore
+
+Original product25 four48-thread workers/PIDs3893465,3893466,3893468,3893469
+remain unchanged. Verified07:44 snapshot has38,182,912 distinct rows, lower
+prefix37,810,176/no pass. Never treat active JSONL as terminal evidence.
+
+Both repaired67 disabled runtimes and the bounded8thread cost are TERMINAL.
+Cost PID409263 exited0, all65536rows match, strict declared cost gateFAILS;
+no second search. Eight timing cores released. Optional fused binaryab8cf13c
+is frozen; no production change. Next profile may use at mosttwo isolated
+cores, with its own source declaration/rows/startup and preparation timers.
+
+Square4 census terminalPASS4175->4173, +16T/Q0; no workers remain. New frozen
+seed-restore-20261016 census uses4workers sequential parent/candidate, label
+public4b-all-seed-dropped-control-restore-independent-20261016-v1; parent
+PID427621. Native/protected/hash-pinned prefix proofs PASS. Keep full32768
+cohort unchanged; no subset, resampling, caches or nonce search. Failure
+observer uses at mostone extra core on preserved431/413contexts.
+
+Latest launch had262.90GiB available; recheck before every new job. Keep
+research<=64threads and>=100GiB available, unrelated lattice jobs untouched.
+Root latest remotely verified backup092b536a; current checkpoint awaits push.
+
 ## Active research:16 October2026,06:54Singapore
 
 Current authoritative state is [AGENT_HANDOFF.md](AGENT_HANDOFF.md); the dated

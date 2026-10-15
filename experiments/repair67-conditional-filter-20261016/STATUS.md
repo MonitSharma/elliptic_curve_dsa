@@ -1,4 +1,4 @@
-# Repaired67 conditional filter: isolated validation in progress
+# Repaired67 conditional filter: disabled qualification passes
 
 Candidate0beec42b uses Q1234 and66,245 classical words. Its native18tests,
 fixed32,768/source fresh gate and complete67-stage universal cache proof pass.
@@ -19,7 +19,11 @@ fallback compares protected classifications: nonce1 phase at576shots and nonce2
 classical at448, identical for both dispatch modes. Full9,024-shot quantum,
 classical, phase and post-MR reader equality passes. Fixed445 containment checks
 4,367 known scored bits;418old witnesses retained,3old and14repair cases excluded.
-Independent generated-source reviews pass; row/timing comparisons remain active.
+Independent generated-source reviews pass. All six4,096-nonce complete row sets
+are identical, including the128-input and partial11 controls. The three paired
+two-thread medians are28.897710s generic and28.691970s direct; these cold small
+trials are not an eight-thread or48-thread search forecast. The v2 run exits0
+and prepared source/binary hashes remain unchanged.
 The actual mapped scalar library has the expected3bb230 hash and no override.
 
 No production source/library, active25 search, packet content or affinity changed.

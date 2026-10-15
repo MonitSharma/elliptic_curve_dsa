@@ -1,0 +1,54 @@
+{
+  "status": "NATIVE COMPLETE CIRCUIT PASS; NO CENSUS OR RECORD CLAIM",
+  "sha256": "f654628ae24afc839c6febbc282cb04b6861f52ea74d6ecc5853f58ef3228b8f",
+  "canonical_sha256": "0927b142daceb6d98c04a08932a32052bbfc4610af4c1592b43091a9444beb04",
+  "ops": 11630732,
+  "Q": 1234,
+  "B": 45701,
+  "original_stream_sha256": "2a522394cdf3e6a0df7784ad4db761030933c1f7ccd0ff8e641d68ec7a4dab3e",
+  "added_generated_CCX": 16,
+  "added_expected_T": 16,
+  "added_Q": 0,
+  "added_MR": 0,
+  "all_original906156_MR_instructions_and_ordinals_identical": true,
+  "removing_only16_inserted_CCX_recovers_every_original_op": true,
+  "all_original_classical_scope_ABI_ops_byte_identical": true,
+  "identity_tail_byte_identical": true,
+  "source_hashes_rechecked": true,
+  "only_point_add_changed": true,
+  "full_pre_tail_input_shake256_32": "436777636ce70a7cb62087d3df06148d541d17d0c6a8e35c34b4080812598f75",
+  "family_predeclaration_sha256": "11d3cd766320622216bcd99cb24bb759d666cc34ba3c413d0e5b9070f33d354c",
+  "records": [
+    {
+      "old_original_at": 5800176,
+      "new_original_at": 5800180,
+      "new_inserted_at": 5800176,
+      "extra_ops": 4,
+      "all_old_MR_ordinals_unchanged": true
+    },
+    {
+      "old_original_at": 5801819,
+      "new_original_at": 5801827,
+      "new_inserted_at": 5801823,
+      "extra_ops": 4,
+      "all_old_MR_ordinals_unchanged": true
+    },
+    {
+      "old_original_at": 5803462,
+      "new_original_at": 5803474,
+      "new_inserted_at": 5803470,
+      "extra_ops": 4,
+      "all_old_MR_ordinals_unchanged": true
+    },
+    {
+      "old_original_at": 5805255,
+      "new_original_at": 5805271,
+      "new_inserted_at": 5805267,
+      "extra_ops": 4,
+      "all_old_MR_ordinals_unchanged": true
+    }
+  ],
+  "arithmetic": "exact one-bit wider truncated signed addition per C130 window when incoming source carries have their defined arithmetic meaning; local frame/dirty-donor/value/phase theorem is unconditional",
+  "higher_payload_bits": "all bits above each new nextU are unchanged by that local replacement; later original windows still run and may intentionally read earlier corrected outputs",
+  "old_arithmetic_mask_transferred": false
+}

@@ -1,0 +1,99 @@
+{
+  "status": "TERMINAL_LANE_AUDIT_POSITIVE_AND_ADVERSARIAL_CONTROLS_PASS",
+  "checks": [
+    {
+      "case": "unordered complete exact lane",
+      "expected_accept": true
+    },
+    {
+      "case": "exact classical rejection",
+      "expected_accept": true
+    },
+    {
+      "case": "exact phase rejection",
+      "expected_accept": true
+    },
+    {
+      "case": "exact ancilla rejection",
+      "expected_accept": true
+    },
+    {
+      "case": "excluded raw pair partial final reject",
+      "expected_accept": true
+    },
+    {
+      "case": "full protected pass",
+      "expected_accept": true
+    },
+    {
+      "case": "full protected failure after early pass",
+      "expected_accept": true
+    },
+    {
+      "case": "missing row",
+      "expected_accept": false
+    },
+    {
+      "case": "duplicate row",
+      "expected_accept": false
+    },
+    {
+      "case": "wrong lane",
+      "expected_accept": false
+    },
+    {
+      "case": "outside complete prefix",
+      "expected_accept": false
+    },
+    {
+      "case": "boolean nonce",
+      "expected_accept": false
+    },
+    {
+      "case": "unauthoritative wrong bit",
+      "expected_accept": false
+    },
+    {
+      "case": "disabled proof gate",
+      "expected_accept": false
+    },
+    {
+      "case": "unknown disposition",
+      "expected_accept": false
+    },
+    {
+      "case": "invalid batch",
+      "expected_accept": false
+    },
+    {
+      "case": "invalid shot",
+      "expected_accept": false
+    },
+    {
+      "case": "no witness attempt",
+      "expected_accept": false
+    },
+    {
+      "case": "conflicting dispositions",
+      "expected_accept": false
+    },
+    {
+      "case": "missing protected pass",
+      "expected_accept": false
+    },
+    {
+      "case": "short protected pass",
+      "expected_accept": false
+    },
+    {
+      "case": "unknown exact rejection",
+      "expected_accept": false
+    },
+    {
+      "case": "truncated final JSONL",
+      "expected_accept": false
+    }
+  ],
+  "production_log_read": false,
+  "no_nonce_selected": true
+}

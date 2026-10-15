@@ -1,0 +1,114 @@
+{
+  "status": "SOLE FIXED FRESH GATE TERMINAL",
+  "parent": {
+    "shots": 2097152,
+    "batches": 32768,
+    "toffoli": 1596401354165,
+    "value_shots": 3595,
+    "phase_shots": 2619,
+    "dirty_shots": 0,
+    "failed_batches": 4175,
+    "failed_shots": 4460,
+    "mean_toffoli": 761223.4850716591,
+    "lambda_failed_batches_per9024": 17.964935302734375
+  },
+  "candidate": {
+    "shots": 2097152,
+    "batches": 32768,
+    "toffoli": 1596434908597,
+    "value_shots": 3593,
+    "phase_shots": 2619,
+    "dirty_shots": 0,
+    "failed_batches": 4173,
+    "failed_shots": 4458,
+    "mean_toffoli": 761239.4850716591,
+    "lambda_failed_batches_per9024": 17.956329345703125
+  },
+  "newly_passing_shots": 2,
+  "newly_failing_shots": 0,
+  "unchanged_failing_shots": 4458,
+  "newly_passing_batches": 2,
+  "newly_failing_batches": 0,
+  "repairs": {
+    "value": [
+      {
+        "batch": 18562,
+        "lane": 21,
+        "parent": {
+          "lane": 21,
+          "value": 1,
+          "phase": 0,
+          "dirty": 0,
+          "k1": "0x730e25230459b62e850e6a2814bf61425c6b1121677279e613a734bb8bfa16e0",
+          "k2": "0x4bc0189252c9186971c0014142fb66bf6806128bfb9fdbf07999965f88c96637"
+        },
+        "candidate": null
+      },
+      {
+        "batch": 22510,
+        "lane": 41,
+        "parent": {
+          "lane": 41,
+          "value": 1,
+          "phase": 0,
+          "dirty": 0,
+          "k1": "0xb25f86fffcb28095ef855d9dc5c1251c8bb8c1e9d074924f6388864ade62a5a8",
+          "k2": "0xa45e183938b4c2826db6923664764242deb6dda788c9d9687fdf776ef2105e3"
+        },
+        "candidate": null
+      }
+    ],
+    "phase": [],
+    "dirty": []
+  },
+  "regressions": {
+    "value": [],
+    "phase": [],
+    "dirty": []
+  },
+  "changes": [
+    {
+      "batch": 18562,
+      "lane": 21,
+      "parent": {
+        "lane": 21,
+        "value": 1,
+        "phase": 0,
+        "dirty": 0,
+        "k1": "0x730e25230459b62e850e6a2814bf61425c6b1121677279e613a734bb8bfa16e0",
+        "k2": "0x4bc0189252c9186971c0014142fb66bf6806128bfb9fdbf07999965f88c96637"
+      },
+      "candidate": null
+    },
+    {
+      "batch": 22510,
+      "lane": 41,
+      "parent": {
+        "lane": 41,
+        "value": 1,
+        "phase": 0,
+        "dirty": 0,
+        "k1": "0xb25f86fffcb28095ef855d9dc5c1251c8bb8c1e9d074924f6388864ade62a5a8",
+        "k2": "0xa45e183938b4c2826db6923664764242deb6dda788c9d9687fdf776ef2105e3"
+      },
+      "candidate": null
+    }
+  ],
+  "paired_mean_toffoli_delta": 16,
+  "paired_toffoli_delta_se": 0,
+  "strict_paired_failure_gate_passed": true,
+  "label": "public4b-all-C130-square-dirty-carry-independent-20261016-v1",
+  "domain": "ecdsa-research-failure-census-v1",
+  "source_stream_sha256": "f654628ae24afc839c6febbc282cb04b6861f52ea74d6ecc5853f58ef3228b8f",
+  "family_predeclaration_sha256": "11d3cd766320622216bcd99cb24bb759d666cc34ba3c413d0e5b9070f33d354c",
+  "Q": 1234,
+  "added_T": 16,
+  "added_MR": 0,
+  "old_MR_draw_ordinal_coupling": "identity; no added draws or classical/scope edits; common labelled input/RNG stream",
+  "no_resampling": true,
+  "nonce_search": false,
+  "official_packet": false,
+  "resource_score": false,
+  "old_arithmetic_mask_transferred": false,
+  "eligibility": "Standalone costs16T and cannot improve a resource record alone; cache composition requires independent exact lease/source/interface proof and a separately frozen whole-composite gate."
+}

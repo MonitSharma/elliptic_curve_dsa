@@ -1,0 +1,34 @@
+// Read-only exact dirty-RHS algebra. Source replay is never rewritten.
+use std::collections::{BTreeMap,BTreeSet,HashMap,HashSet};
+fn sx(a:&[u64],b:&[u64])->Vec<u64>{let(mut i,mut j)=(0,0);let mut out=Vec::new();while i<a.len()||j<b.len(){if j==b.len()||(i<a.len()&&a[i]<b[j]){out.push(a[i]);i+=1;}else if i==a.len()||b[j]<a[i]{out.push(b[j]);j+=1;}else{i+=1;j+=1;}}out}
+#[derive(Clone)]struct Basis{rows:HashMap<u64,(Vec<u64>,bool,Vec<u64>)>}
+impl Basis{
+ fn new()->Self{Self{rows:HashMap::new()}}
+ fn reduce(&self,v:&Affine)->(Vec<u64>,bool,Vec<u64>){let mut a=v.atoms.clone();let mut c=v.constant;let mut rhs=vec![];while let Some(&pivot)=a.last(){if let Some((r,k,labels))=self.rows.get(&pivot){a=sx(&a,r);c^=*k;rhs=sx(&rhs,labels);}else{break;}}(a,c,rhs)}
+ fn insert(&mut self,v:&Affine,label:u64){let(a,c,rhs)=self.reduce(v);if let Some(&pivot)=a.last(){self.rows.insert(pivot,(a,c,sx(&rhs,&[label])));}}
+ fn expression(&self,v:&Affine,nq:usize,nb:usize,pairs:&[(usize,usize,u64)])->Option<serde_json::Value>{let(a,c,rhs)=self.reduce(v);if !a.is_empty(){return None;}let mut q=vec![];let mut b=vec![];let mut p=vec![];for id in rhs{let id=id as usize;if id<nq{q.push(id);}else if id<nq+nb{b.push(id-nq);}else{let z=pairs[id-nq-nb];p.push([z.0,z.1]);}}Some(serde_json::json!({"constant":c,"quantum_xor":q,"classical_xor_snapshot_needed":b,"quantum_products":p,"products_count":p.len(),"roundtrip_added_CCX_if_valid":2*p.len()}))}
+}
+impl Support{
+ pub(super) fn dirty_rhs_queries(&self,eligible:&[usize],targets:&[usize])->serde_json::Value{
+  let(nq,nb)=(self.qubits.len(),self.bits.len());let mut byatoms:HashMap<Vec<u64>,Vec<usize>>=HashMap::new();let mut qbasis=Basis::new();
+  for &q in eligible{byatoms.entry(self.qubits[q].atoms.clone()).or_default().push(q);qbasis.insert(&self.qubits[q],q as u64);}
+  let mut cbasis=qbasis.clone();for(b,v)in self.bits.iter().enumerate(){cbasis.insert(v,(nq+b)as u64);}
+  let wanted:HashSet<_>=targets.iter().flat_map(|q|self.qubits[*q].atoms.iter().copied()).collect();
+  let mut inverse_relevant=0usize;let mut factor_pair_options=0usize;let mut candidates=BTreeSet::new();
+  // Inspect existing exact products only. Never enumerate quantum pairs.
+  for((left,right),&id)in &self.products{if !wanted.contains(&id){continue;}inverse_relevant+=1;if let(Some(aa),Some(bb))=(byatoms.get(left),byatoms.get(right)){factor_pair_options+=aa.len()*bb.len();for &a in aa.iter().take(8){for &b in bb.iter().take(8){if a!=b{candidates.insert((a.min(b),a.max(b),id));}}}}}
+  let truncated=candidates.len()>4096;let pairs:Vec<_>=candidates.into_iter().take(4096).collect();let mut augmented=cbasis.clone();
+  for(i,&(a,b,id))in pairs.iter().enumerate(){let va=&self.qubits[a];let vb=&self.qubits[b];let mut atoms=vec![id];if va.constant{atoms=sx(&atoms,&vb.atoms);}if vb.constant{atoms=sx(&atoms,&va.atoms);}let v=Affine{constant:va.constant&&vb.constant,atoms};augmented.insert(&v,(nq+nb+i)as u64);}
+  let mut rows=vec![];
+  for &target in targets{let v=&self.qubits[target];let singles=byatoms.get(&v.atoms).map(|qs|qs.iter().take(16).map(|q|serde_json::json!({"q":q,"invert":v.constant^self.qubits[*q].constant})).collect::<Vec<_>>()).unwrap_or_default();
+   let mut xor_two=vec![];let mut pair_count=0usize;for &a in eligible{let remainder=sx(&v.atoms,&self.qubits[a].atoms);if let Some(bs)=byatoms.get(&remainder){for &b in bs{if a<b{pair_count+=1;if xor_two.len()<16{xor_two.push(serde_json::json!({"q":[a,b],"invert":v.constant^self.qubits[a].constant^self.qubits[b].constant}));}}}}}
+   rows.push(serde_json::json!({"target":target,"atom_count":v.atoms.len(),"constant":v.constant,"direct_q_or_complement":singles,"direct_xor_two_q_count":pair_count,"direct_xor_two_q_first16":xor_two,"stable_q_affine":qbasis.expression(v,nq,nb,&[]),"stable_q_plus_current_c_affine":cbasis.expression(v,nq,nb,&[]),"existing_relevant_products_plus_affine":augmented.expression(v,nq,nb,&pairs)}));
+  }
+  serde_json::json!({"eligible_full_window_untouched_q":eligible.len(),"quantum_basis_rank":qbasis.rows.len(),"quantum_plus_classical_basis_rank":cbasis.rows.len(),"current_classical_slots":nb,"immutable_next_atom":self.next_atom,"retained_product_nodes":self.products.len(),"target_atom_ids_with_existing_inverse_product":inverse_relevant,"physical_factor_pair_options_before_bounds":factor_pair_options,"candidate_pair_variants_per_factor_form_max":8,"candidate_pairs":pairs.len(),"candidate_limit":4096,"candidate_limit_truncated":truncated,"pair_method":"existing product-node inverse index only; no Cartesian quantum-pair search","query_rows":rows,"scope":"Exact equalities in conservative immutable source support; absence is bounded proof failure, not impossibility. Classical terms require stable snapshots; return-zero and whole repair phase/value obligations remain. No rewrites or sampled inputs."})
+ }
+}
+#[cfg(test)]mod dirty_rhs_tests{
+ use super::*;
+ #[test]fn gaussian_dirty_rhs_and_product_labels(){let mut b=Basis::new();b.insert(&Affine{constant:false,atoms:vec![1,2]},2);b.insert(&Affine{constant:true,atoms:vec![2]},3);let x=b.expression(&Affine{constant:false,atoms:vec![1]},10,10,&[]).unwrap();assert_eq!(x["quantum_xor"],serde_json::json!([2,3]));assert_eq!(x["constant"],true);assert!(b.expression(&Affine{constant:false,atoms:vec![99]},10,10,&[]).is_none());}
+ #[test]fn exact_xor_sorted_parity(){assert_eq!(sx(&[1,3,5],&[2,3,4]),vec![1,2,4,5]);}
+}

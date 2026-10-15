@@ -1,0 +1,51 @@
+{
+  "status": "UNIVERSAL_NODE_IDENTITY_COMPILED_FUNCTION_EQUIVALENCE_PLUS_WRAPPER_LINEAGE_NO_AUTHORITY",
+  "original_guard_sha256": "355f9951eda21a7204a96fd391b3208e8d6e000dce6a14feb40d8f19b637f2b3",
+  "wrapper_sha256": "5477d190d11716b0769d0d1c681b49368549345e095a71c85fae871e48e14375",
+  "node_body_sha256": "aaa3f81c453595867a4d69875001ee1bccc07a61b273ad96ce52713b02bc514c",
+  "wrapper_equivalence_receipt_sha256": "9291f0a92b56976e96dbbdf59fb582868ff59296091b692c5c1f260d817a507a",
+  "compiler": {
+    "source_path": "/home/hclau/ecdsa_research/prefilter-20261015/compile-mask-fused.py",
+    "sha256": "3e7026326948afd2ebd3df7c924e09fe20ff6744e972f24d044f33f52774b505",
+    "private_copy_path": "/home/hclau/ecdsa_research/guard-fused-20261016/compile-mask-fused.py",
+    "byte_identical": true
+  },
+  "checker": {
+    "original_path": "/home/hclau/ecdsa_research/prefilter-20261015/verify-mask-fused.py",
+    "original_sha256": "a04f42de78d3306256bf968278496295e2c27430937a8ceb1dd916c0c0e046b0",
+    "private_path": "/home/hclau/ecdsa_research/guard-fused-20261016/verify-mask-fused.py",
+    "private_sha256": "4c26cccb620c0787ee57d2422a91891c8eb9a2b1468990b29a6f422bee233801",
+    "only_changes": "Three file-path literals, independently asserted by freeze-evidence.py; all proof/admission logic unchanged."
+  },
+  "plan": {
+    "path": "/home/hclau/ecdsa_research/guard-fused-20261016/guard-fused.bin",
+    "sha256": "e889e0a6f123a7ae34a9d81339a209ba93aad5246b224057107de3360a9c578a",
+    "embedded_source_sha256": "5477d190d11716b0769d0d1c681b49368549345e095a71c85fae871e48e14375",
+    "slots": 1656,
+    "instructions": 1130985,
+    "slot16_capacity_checked": true
+  },
+  "sidecar": {
+    "path": "/home/hclau/ecdsa_research/guard-fused-20261016/guard-fused.nodeids-u32le.bin",
+    "sha256": "60f66061b25cc6b1a4ef7fb4873e0bc77eb84c1017ce53bdb0068fed79d1a91b",
+    "schema": "Two u32LE per instruction: original source node ID, absorbed child ID or0xffffffff. Strictly increasing original IDs.",
+    "role": "Mandatory universal independent-verifier witness, not a runtime input. Reconstructs every retained/fused instruction and current slot contents against exact original nodes, then each final root; prevents accepting sample-equivalent but structurally different plans."
+  },
+  "universal_equivalence_argument": [
+    "Wrapper header n/np, every node byte and all input references are identical to rawG355f; all512 wrapper root IDs equal the original sole root. Thus every wrapper output equals rawG on every1024-bit assignment.",
+    "Whole-plan verifier symbolically labels each live slot with its exact original-node ID. Every ordinary instruction must reconstruct that original node from current child IDs; every fused instruction reconstructs an exact two-level original XOR/AND/OR expression with the correct third child. No sampled values establish this step.",
+    "Every final output slot must contain the original root ID. Slot reuse is sound only when the complete reconstruction succeeds. The resulting function equals all512 wrapper roots for every public input, hence rawG.",
+    "The already proven Ckernel dc8219 executes these primitive Boolean operations, with finite exhaustive truth-table controls in its pinned prior runtime receipt. This component adds structural proof for this plan, exact fixture/partial controls and source/kernel hash invariance."
+  ],
+  "kernel": {
+    "path": "/home/hclau/ecdsa_research/prefilter-20261015/libmask_fused.so",
+    "sha256": "dc8219ae84c21e244ec0e1b92a14e9d0705faf7ebced04a2663499a75a6af1a0",
+    "source_sha256": "681ad4bbf5e81a4cdcdb7f413c8582d18a7cc1a9500f9328ea8f6c50cacc1203",
+    "header_sha256": "5edf737cc6c90e124c35fb065fb39227f8e018c9580c113c06a336c2aa578963",
+    "prior_truth_table_and_runtime_receipt_sha256": "6e925a5f7cfa5086144818b8b47fd324ea1330cc338bb1384bd1eea001246293"
+  },
+  "polarity": "All512 raw outputs equal G, NOT knownness; caller safe=NOT G and G1 must never retain a witness.",
+  "component_only": true,
+  "runtime_operational_changes": false,
+  "new_search_authority": false
+}

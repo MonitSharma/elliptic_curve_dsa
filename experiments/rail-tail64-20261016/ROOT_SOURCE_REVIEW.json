@@ -1,0 +1,15 @@
+{
+  "status": "ARCHIVE_BOUND_SIGNED64_SUFFIX_SOURCE_AND_BOUNDS_REVIEW_PASS",
+  "archive_sha256": "c70b98d0087bf3a11ed1858020b82665bd59ef1f6e347cfd0fb5f16308158822",
+  "members": 37,
+  "source_sha256": "4222011eb6f2bda2ab3fe95352623709d1e9f324811348a21b0b5a4aad20c655",
+  "library_sha256": "d53b31adb2fe3a22da15a1fb21531951566f663d9452f165a01d403eb5edaa32",
+  "checks": {
+    "all_remaining_widths_bounded_before_transition": true,
+    "signed62bit_intermediates_fit64": true,
+    "window_early_zero_and_mask_shift_bounds": true,
+    "generic_prefix_and_error_wrapper_retained": true,
+    "unchanged_flags_corpus_and_signed_controls": true
+  },
+  "limits": "Arithmetic argument reviewed with existing AVX512 kernel semantics; no independent rerun on Windows and no integrated speed or authority claim."
+}

@@ -1,5 +1,17 @@
 # Results and submission status
 
+**07:43 checkpoint:** public07:06 confirms our official753721/Q1468,
+Q677/product939347948. Plain67 remains102.13839T/Q1234 diagnostic, repaired67
+49.55103T/Q1234; neither is a complete resource record. Repaired67's complete
+conditional/fused filter checks PASS, but actual4process/8thread cost gate
+FAILS; no additional search enabled. Original25 latest verified07:44 checkpoint
+has38,182,912 completed nonces/no pass. Square4 frozen fresh test removes2value
+failures/zero new for+16T/Q0. New exact one-control seed repair costs+1T/Q0,
+passes native fullstream/proof checks, and has one fixed fresh census active.
+[Measured cost](../experiments/repair67-cost-20261016/ROOT_TERMINAL_REVIEW.json) ·
+[Square repair](../experiments/value-carry-contracts-20261016/ROOT_TERMINAL_REVIEW.json) ·
+[Seed proof review](../experiments/current-value-attribution-20261016/ROOT_SEED_DIAGNOSIS_REVIEW.json).
+
 **06:54 checkpoint:** official full refresh06:08 confirms our753721/Q1468,
 Q677 and product939347948. Plain67 saves102.13839T atQ1234 with native/fresh/
 universal/disabled-runtime qualification, still no67nonce or complete benchmark.

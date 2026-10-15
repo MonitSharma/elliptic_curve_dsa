@@ -1,0 +1,15 @@
+{
+  "status": "PREDECLARED_ADVISORY_ONLY_COMPONENT_STUDY",
+  "baseline_library_sha256": "046dd5f1d11386550ec5234b955f6bc1974431e79a6b80499bda97da0ade3e90",
+  "baseline_source_sha256": "ee7adffc1c7f21a6721ede20d722a69d6e3ab8bc648db4a74c403f440b0d7ba3",
+  "change": "Retain the generic five-limb prefix. Dispatch once to a one-vector signed64 suffix only when all remaining table widths w,n0,n1,n2,nb are at most61, at tick>=1. All arithmetic, predictor decisions, sign extensions and overflow observations remain present.",
+  "proof_obligation": "Previous step ends with each rail sign-extended to current w; optional fused trim cannot increase its magnitude. Every suffix live rail is signed<=61 bits; negation fits61 and addition fits62. Every arithmetic shift and sign extension is implemented with AVX512 modulo/bitwise intrinsics. Anchors affect only bounded windows and trigger zero before any out-of-range64 shift. No signed C arithmetic overflow is used. Tables not satisfying suffix bounds fall back to unchanged generic code.",
+  "fixed_validation": "Compare all262144 original flags, all517 existing edge inputs, existing partial lengths1,3,7,8,9,517, changed valid tables, invalid-table/error controls, and direct arbitrary-sign suffix state comparisons. Use the frozen046dd library as baseline, plus original expected flags. Three fixed interleaved full-population timings; report median and all trials.",
+  "resources": {"cores":1,"virtual_memory_gib":16},
+  "production_replacement":false,
+  "circuit_changes":false,
+  "runtime_changes":false,
+  "search_changes":false,
+  "direct_rejection_authority":false,
+  "stop_condition":"Stop if no simple safe suffix exists or validation fails; preserve failures. No full138-step unrolling. No alternative circuit or nonce selection."
+}

@@ -1,0 +1,43 @@
+{
+  "status": "INDEPENDENT_ALL_65536_ROWS_AND_FIXED_COST_PROTOCOL_PASS",
+  "archive_sha256": "65f6dc1f99d22808038c73aa107e698c8e850d4c72ad4e40c102e42f1f2cd10a",
+  "artifacts": 87,
+  "unique_timing_nonces": 16384,
+  "semantic_rows_compared": 65536,
+  "complete_4process_8thread_scope": true,
+  "restart_inclusive_forecast_hours": {
+    "raw": 232.27950465962127,
+    "fused": 238.95494120686288
+  },
+  "program_timer_only_proxies": [
+    {
+      "trial": 0,
+      "mode": "raw",
+      "max_program_timer_seconds": 39.309081,
+      "program_timer_only_forecast_hours": 120.7386656805815
+    },
+    {
+      "trial": 1,
+      "mode": "fused",
+      "max_program_timer_seconds": 38.771908,
+      "program_timer_only_forecast_hours": 119.08872755916792
+    },
+    {
+      "trial": 2,
+      "mode": "fused",
+      "max_program_timer_seconds": 36.65038,
+      "program_timer_only_forecast_hours": 112.57240986850522
+    },
+    {
+      "trial": 3,
+      "mode": "raw",
+      "max_program_timer_seconds": 35.859971,
+      "program_timer_only_forecast_hours": 110.14465206867462
+    }
+  ],
+  "gate_pass": false,
+  "proposal_remains_disabled": true,
+  "limitation": "Restart-inclusive forecast repeats one-time source hashing/compilation/library startup per4096 rows. Program-timer proxies remove observed startup but do not measure persistent-worker warm throughput. Neither is a64-thread measurement; no extrapolated launch authority.",
+  "no_nonce_selected": true,
+  "no_new_census": true
+}

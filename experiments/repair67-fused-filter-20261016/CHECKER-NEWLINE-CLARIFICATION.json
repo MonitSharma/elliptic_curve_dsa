@@ -1,0 +1,10 @@
+{
+  "status": "IMMUTABLE_PRIOR_LINEAGE_NEWLINE_CLARIFICATION",
+  "prior_lineage_sha256": "8c7efbddc0bb2d46f3e6a696f53ff677025b066219b3726e84ba12d47e5e070b",
+  "original_checker_sha256": "a04f42de78d3306256bf968278496295e2c27430937a8ceb1dd916c0c0e046b0",
+  "private_checker_sha256": "4c26cccb620c0787ee57d2422a91891c8eb9a2b1468990b29a6f422bee233801",
+  "clarification": "The private checker changes three path literals AND normalizes CRLF to LF via Python read_text/write_bytes. Original and private proof logic agree after exact reverse path substitutions and newline normalization; the original byte hashes remain distinct and pinned. Prior immutable8c7 receipt is retained unchanged.",
+  "root_independent_complete_reconstruction_receipt_sha256": "c9bf67542e8885f830f127b75817ce4085ba07d489137612ee585a1aa95f7674",
+  "proof_logic_changes": false,
+  "authority_granted": false
+}

@@ -1,0 +1,43 @@
+{
+  "status": "TERMINAL SOURCE-ONLY RESOURCE AUDIT; NO NATIVE CANDIDATE OR SAMPLING",
+  "family": "ALL N2 rail loans disabled, all original rail bits retained",
+  "base_source_revision": "4b2ec52fc55da796aa8f5ef851290297e8706424",
+  "base_actual_stream_sha256": "2a522394cdf3e6a0df7784ad4db761030933c1f7ccd0ff8e641d68ec7a4dab3e",
+  "base_raw_stream_sha256": "ff5163962ff5337753235d79f4026893e35b0445ae7406bf03be76d8a3d27a69",
+  "at_original_Q": {
+    "cap": 1234,
+    "result": "FAIL source capacity at first forwardN2 bodyt131",
+    "exact_reason": "fold short28(room8,need36); m0erase short18(room13,need31); shed block14 +tops2 +fin4; no completed stream"
+  },
+  "scoped_extra8": {
+    "cap": 1242,
+    "peak_and_physical_Q": 1242,
+    "source_raw_ops": 11263243,
+    "original_raw_ops": 11263273,
+    "original_raw_expected_T": 762286.75,
+    "retained_raw_expected_T": 762286.75,
+    "raw_delta_expected_T": 0.0,
+    "source_expected_definition": "same Builder model: every CCX/CCZ weighted2^-PushDepth; source component only, not scored or fully optimized",
+    "components": [
+      {
+        "phase": "divide",
+        "original_raw_expected_T": 9102.5,
+        "retained_scoped8_raw_expected_T": 9102.5,
+        "delta_expected_T": 0.0
+      },
+      {
+        "phase": "multiply",
+        "original_raw_expected_T": 9748.0,
+        "retained_scoped8_raw_expected_T": 9748.0,
+        "delta_expected_T": 0.0
+      }
+    ],
+    "native_result": "FAIL preserved rebind y42_bound region489932Ops found0times; no bypass and no ops.bin/census",
+    "extra_capacity_scope": "entire source n2_div_batch and n2_mul_batch, including their rail preludes; no minimal-capacity claim"
+  },
+  "no_remaining_N2_clean_loan_assumptions": true,
+  "no_unconditional_reset_or_discard": true,
+  "no_global_arithmetic_correctness_claim": true,
+  "no_fresh_sampling": true,
+  "provenance_limit": "Scoped width changes source layout/physicalABI/stream before protected bound tables, so raw T comparisons cannot be promoted to a scored circuit. Candidate inputs/nonce packets never used."
+}

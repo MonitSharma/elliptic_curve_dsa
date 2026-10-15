@@ -1,0 +1,9 @@
+{
+  "status": "FROZEN_HARD_DISABLED_PROPOSAL_ARCHIVE_INTEGRITY_PASS",
+  "archive_sha256": "e07b1c261a9a4171d7f76863a8158acf664ee642cbb53973855b0fb348b822a7",
+  "members": 18,
+  "not_enabled": true,
+  "no_build_or_search": true,
+  "limits": "Runtime authority requires a separately reviewed enabled revision and passing complete measured cost gate; this receipt grants none.",
+  "verifier_correction": "Initial check incorrectly expected the false gate in the added search module; the gate is explicitly retained by prepare.py in packed_body.rs. Corrected check covers prepare.py and both exit2 wrappers."
+}

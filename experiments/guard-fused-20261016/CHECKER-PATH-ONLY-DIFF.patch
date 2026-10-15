@@ -1,0 +1,19 @@
+--- prefilter/verify-mask-fused.py
++++ guard-fused/verify-mask-fused.py
+@@ -1,8 +1,8 @@
+ from pathlib import Path
+ import mmap,struct,array,hashlib,json,time,sys
+-r=Path(__file__).parent;prefix=r/'evidence/mr-mask-tip-v3-fused'
++r=Path(__file__).parent;prefix=r/'guard-fused'
+ t=time.monotonic()
+-source=(r/'evidence/mr-mask-tip-v3.bin').read_bytes()
++source=(r/'guard512.bin').read_bytes()
+ plan=prefix.with_suffix('.bin').read_bytes();ids=array.array('I');ids.frombytes(prefix.with_suffix('.nodeids-u32le.bin').read_bytes());assert sys.byteorder=='little'
+ def verify(plan,ids):
+  assert source[:8]==b'MRMASK01' and plan[:8]==b'MRSLOT02'
+@@ -48,4 +48,4 @@
+ except AssertionError:negative+=1
+ else:raise AssertionError('invalid root accepted')
+ report=dict(status='ALL_FUSED_INSTRUCTIONS_RECONSTRUCT_EXACT_ORIGINAL_DAG_AND_ROOTS',source_sha256=hashlib.sha256(source).hexdigest(),plan_sha256=hashlib.sha256(plan).hexdigest(),nodeids_sha256=hashlib.sha256(ids.tobytes()).hexdigest(),negative_controls=negative,seconds=time.monotonic()-t,**positive)
+-(r/'evidence/mask-fused-verification.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report))
++(r/'whole-plan-verification.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report))

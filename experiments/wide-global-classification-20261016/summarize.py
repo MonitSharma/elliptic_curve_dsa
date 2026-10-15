@@ -1,0 +1,6 @@
+from pathlib import Path
+import json,collections,fractions
+root=Path(__file__).resolve().parent;rows=[json.loads(s)for s in(root/'sites.jsonl').read_text().splitlines()];assert len(rows)==43 and len({r['op']for r in rows})==43
+counts=collections.Counter(r['reason']for r in rows);guards=collections.Counter(r['guard_status']for r in rows);saving_rows=[r for r in rows if r['guard_status']!='identically_zero'];weight=sum((fractions.Fraction(1,1<<r['syntactic_weight_exponent'])for r in saving_rows),fractions.Fraction());lower=sum(r['guard_status']=='identically_one'for r in saving_rows)
+result={'status':'ALL43_EXISTING_GLOBAL_SITES_CLASSIFIED_SOURCE_ONLY','sites':len(rows),'reasons':dict(counts),'guard_status':dict(guards),'unreachable_zero_executed_benefit':len(rows)-len(saving_rows),'potential_nonfalse_guard_simplifications':len(saving_rows),'universal_executed_T_saving_bounds_per_shot':[lower,len(saving_rows)],'syntactic_depth_proxy_exact':str(weight),'syntactic_depth_proxy_is_expected_T':False,'native_candidate':False,'sampled_inputs':0,'prior_affine_cofactor_zero_novel_unchanged':True}
+(root/'SUMMARY.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result,indent=2))
