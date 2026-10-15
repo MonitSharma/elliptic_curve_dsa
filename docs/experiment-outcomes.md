@@ -12,7 +12,13 @@ smooth Leapfrog submission `3f32acd2` is officially scored at **Q1464/T753,771**
 product **1,103,520,744**. It is the current public Toffoli minimum, 7,385 below
 the former B3 minimum. Its rejection is solely for not improving the product.
 [Official result and complete disclosure](../experiments/nonce-screen-20261015/STATUS.md).
-The public width and product minima remain Q680 and 939,347,948 respectively.
+The public width and product minima are now Q679 (refreshed 22:07) and
+939,347,948 respectively.
+
+**Product-tip feasibility, 15 October 2026, night:** measured on `4b2ec52f`.
+Fresh failure rate 17.69, fresh mean 761,221.70 T, width-free cache saving
+2.2 ± 1.2 T, and a 58-day exact nonce screen on 64 threads. Stopped before any
+search; no candidate. [Report](../experiments/product-tip-20261015/STATUS.md).
 
 The separate [product cycle](../experiments/product-focus-20261015/REPORT.md)
 found an exact three-Toffoli paired saving but no qualifying record. The

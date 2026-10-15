@@ -7,7 +7,7 @@ The separate Q692 width pass remains local and unsubmitted.
 
 | Objective | Current public record | Our status |
 |---|---:|---|
-| Minimum peak qubits | 680 | Q692 complete local pass; width work deferred |
+| Minimum peak qubits | 679 (refreshed 22:07) | Q692 complete local pass; width work deferred |
 | Minimum rounded mean executed Toffolis | **753,771 at Q1464** | **Ours: official metrics**, `3f32acd2` |
 | Minimum Q × T | 939,347,948 at Q1234/T761,222 | Our product 1,103,520,744 is 17.48% worse |
 
@@ -18,6 +18,13 @@ qubits. Next strict targets are T753,770 or product 939,347,947.
 [Official result](https://api.ecdsa.fail/api/submissions/3f32acd2-71bf-4cc7-bae6-7407be97fe3b) ·
 [source-bound report and evidence](../experiments/nonce-screen-20261015/STATUS.md) ·
 [refreshed frontier](frontier-results.md).
+
+**Product record, 22:07 Singapore: blocked by search cost.** On the public
+tip `4b2ec52f`, the record circuit fails 17.69 batches per packet on fresh
+inputs, and its fresh mean (761,221.70 T) already sits at the strict threshold.
+A lowest-pass screen would need about 1.6×10⁸ nonces, about 58 days on 64
+threads. The width-free cache saves only 2.2 ± 1.2 T there. No candidate was
+built. [Measurements, search-cost figure and unblock plan](../experiments/product-tip-20261015/STATUS.md).
 
 **Current research priority:** lower executed Toffolis and lower Q × T.
 Width-only optimization and Q692 submission engineering are deferred; existing
@@ -191,7 +198,7 @@ Our original bank-swap v2 circuit passed all 9,024 shots at Q692,
 rounded mean T1,481,382,858 and product 1,025,116,937,736. All value, phase and
 ancilla failure channels were zero. Independent review rechecked its source,
 stream, protected evaluator and score; it did not rerun the entire evaluation.
-The latest public refresh reports a minimum of 680 qubits, below
+An earlier public refresh reported a minimum of 680 qubits (679 at 22:07), below
 our preserved local result. Our pass is not an official leaderboard entry or
 an all-input correctness proof. The later Toffoli submission is a different circuit.
 

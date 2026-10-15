@@ -2,6 +2,16 @@
 
 ## Current work separation — 15 October 2026
 
+**Start with [AGENT_HANDOFF.md](AGENT_HANDOFF.md)** for state, tools and next steps.
+
+**Product-tip feasibility is terminal (22:00 Singapore):**
+`/home/hclau/ecdsa_research/product-tip-20261015/` holds `tip/`, a detached
+worktree of the public product record `4b2ec52f` (built; stream `2a522394…`),
+the tip census (17.69 failed batches), a 256-nonce screener timing and the
+width-free cache rewrite (`cache/32-200000.bin`, 2.2 ± 1.2 T saving). Launcher
+`run-tip.sh` exited; no jobs remain. No search was started.
+[Report](../experiments/product-tip-20261015/STATUS.md).
+
 **Official submission complete, 19:19 Singapore:** the clean candidate at
 `/home/hclau/ecdsa_research/nonce-screen-20261015/candidate`, branch
 `research/toffoli-smooth-n375`, commit `7ff2ba53`, was uploaded as `3f32acd2`.

@@ -2,6 +2,21 @@
 
 ## Current priorities: 15 October 2026 user direction
 
+**Start here (handoff):** [docs/AGENT_HANDOFF.md](AGENT_HANDOFF.md) has the
+current state, tools, server paths and the ordered next steps.
+
+**Product record on the tip: blocked by search cost (15 October, night).**
+The public 753,771 T submission is now the official low-Toffoli record. On the
+product tip `4b2ec52f`, our replica reproduces 761,221.981. Fresh inputs give
+17.69 failed batches per packet and a mean of 761,221.70 T (packet SD 6.2). A
+lowest-pass nonce search would need about 1.6×10⁸ nonces at 2.1 thread-s each
+(exact binomial pass probability), about 58 days on 64 threads. The width-free
+cache saves only 2.2 ± 1.2 T there and leaves the failure rate unchanged. With
+the exact screener a search is practical only at about 14 failed batches or
+fewer (1 day on 64 threads), or 10 or fewer (1 hour on 32 threads). The next
+step is a classical value-failure prefilter plus new exact zero-width savings.
+[Measurements and search-cost figure](../experiments/product-tip-20261015/STATUS.md).
+
 **Officially scored Toffoli minimum (15 October, 19:19 Singapore).** The
 user replaced the no-nonce rule with a disclosed-failure-rate standard: a nonce
 may be screened only on a frozen circuit whose fresh-input failure rate is at
@@ -13,7 +28,7 @@ benchmark at nonce 375, the lowest passing nonce from 1 (593 screened):
 Submission `3f32acd2` has matching official metrics, source `5a7c3902`, and
 status `rejected` solely because its product did not improve the scalar best.
 It is the current publicly scored Toffoli minimum; Q × T remains 17.48% worse
-than the product leader. Current public records: Q680, T753,771, product
+than the product leader. Current public records (refreshed 22:07): Q679, T753,771, product
 939,347,948 at Q1234/T761,222. Next strict targets: T753,770 and product
 939,347,947; at Q1464 the latter needs T641,631 or less.
 [Screen, census and benchmark](../experiments/nonce-screen-20261015/STATUS.md).
