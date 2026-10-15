@@ -1,8 +1,9 @@
-import gzip, hashlib, json, shutil, subprocess, tarfile
+import datetime, gzip, hashlib, json, shutil, subprocess, tarfile
 from pathlib import Path
 root=Path(__file__).resolve().parent
-dest=root/'collected'
-dest.mkdir(exist_ok=True)
+stamp=datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')
+dest=root/('collected-'+stamp)
+dest.mkdir(exist_ok=False)
 for p in root.iterdir():
     if not p.is_file() or p.suffix in {'.bin','.gz'}:
         continue
@@ -14,7 +15,7 @@ for p in root.iterdir():
         else: shutil.copy2(p,out)
 shutil.copytree(root/'analyzer',dest/'analyzer',ignore=shutil.ignore_patterns('target'),dirs_exist_ok=True)
 if (root/'exact-replay').exists():shutil.copytree(root/'exact-replay',dest/'exact-replay',ignore=shutil.ignore_patterns('target'),dirs_exist_ok=True)
-for name in ['follow-chain-20261016','scratch-20261016','scratch-v2-20261016','unfold-20261016','pair-expansion-20261016','flags-chain-20261016','flags-four-20261016','flags-extended-20261016','wide-compound-20261016','anchored-replay-20261016','anchored-new-20261016']:
+for name in ['follow-chain-20261016','scratch-20261016','scratch-v2-20261016','unfold-20261016','pair-expansion-20261016','flags-chain-20261016','flags-four-20261016','flags-extended-20261016','wide-compound-20261016','anchored-replay-20261016','anchored-new-20261016','product-continuation-20261016','product-to53-20261016','wide-to43-20261016','compact11-frozen-census-20261016','product25-frozen-census-20261016','product25-frozen-census-v2-20261016','wide-compound-frozen-20261016','product-smoothing-20261016','tail-precision-20261016','cached-witness-20261016','category-restore-20261016','category-restore-census-20261016','category-restore-census-v2-20261016']:
     source=root/name
     if not source.exists():continue
     for p in source.rglob('*'):
@@ -26,7 +27,7 @@ for name in ['follow-chain-20261016','scratch-20261016','scratch-v2-20261016','u
         else:shutil.copy2(p,out)
 for name in ['scratch-tool','unfold-tool','flags-tool','flags-four-tool','flags-replay','anchored-replay']:
     if (root/name).exists():shutil.copytree(root/name,dest/name,ignore=shutil.ignore_patterns('target'),dirs_exist_ok=True)
-manifest={'source_revision':subprocess.check_output(['git','-C',str(root/'tip'),'rev-parse','HEAD'],text=True).strip(),'source_status':subprocess.check_output(['git','-C',str(root/'tip'),'status','--short'],text=True),'diagnostic_only':True,'candidate_score':None,'files':{}}
+manifest={'collected_at_utc':stamp,'snapshot_directory':dest.name,'pending_evidence_warning':'Jobs without a terminal successful exit marker are incomplete. Live logs/censuses may be prefixes; require the matching frozen source and declared fixed sample before any eligibility claim.','source_revision':subprocess.check_output(['git','-C',str(root/'tip'),'rev-parse','HEAD'],text=True).strip(),'source_status':subprocess.check_output(['git','-C',str(root/'tip'),'status','--short'],text=True),'diagnostic_only':True,'candidate_score':None,'files':{}}
 protected={}
 tracked=subprocess.check_output(['git','-C',str(root/'tip'),'ls-files'],text=True).splitlines()
 for name in tracked:
@@ -44,7 +45,7 @@ if candidate.exists():
     assert all(p.startswith('src/point_add/') for p in manifest['candidate_diff_paths'])
     manifest['candidate_protected_mismatches']=[name for name,value in protected.items() if (candidate/name).is_file() and hashlib.sha256((candidate/name).read_bytes()).hexdigest()!=value]
 manifest['all_candidates']={}
-for name in ['candidate-split128','candidate-anf512','candidate-final','wide-candidate-final','candidate-product-extendedflags']:
+for name in ['candidate-split128','candidate-anf512','candidate-final','wide-candidate-final','candidate-product-extendedflags','candidate-product-final25','candidate-wide-compound','candidate-product-tail-smooth','candidate-product-tail-one','candidate-product-tail-two','candidate-product-restore-deletions']:
     tree=root/name
     if not tree.exists():continue
     paths=subprocess.check_output(['git','-C',str(tree),'diff','--name-only'],text=True).splitlines()
@@ -55,7 +56,15 @@ for name in ['candidate-split128','candidate-anf512','candidate-final','wide-can
         original=subprocess.run(['git','-C',str(tree),'show','HEAD:'+path],stdout=subprocess.PIPE,stderr=subprocess.DEVNULL)
         if original.returncode==0 and hashlib.sha256(original.stdout).hexdigest()!=hashlib.sha256((tree/path).read_bytes()).hexdigest():mismatches.append(path)
     row={'base_revision':subprocess.check_output(['git','-C',str(tree),'rev-parse','HEAD'],text=True).strip(),'diff_paths':paths,'protected_mismatches':mismatches}
-    if (tree/'ops.bin').exists():row['stream_sha256']=hashlib.sha256((tree/'ops.bin').read_bytes()).hexdigest()
+    for path in paths:
+        source=tree/path
+        if source.is_file():
+            target=dest/'candidate_sources'/name/path
+            target.parent.mkdir(parents=True,exist_ok=True)
+            shutil.copy2(source,target)
+    if name=='candidate-wide-compound':
+        row['ownership_notice']='Coordinator owns live nonce-only qualification here. Original pre-nonce frozen source/stream is bound by WIDE_COMPOUND_FREEZE.json and WIDE_COMPOUND_SOURCE_FREEZE.json; use the coordinator wide15-record-20261016 archive for final source/stream/score.'
+    elif (tree/'ops.bin').exists():row['stream_sha256']=hashlib.sha256((tree/'ops.bin').read_bytes()).hexdigest()
     manifest['all_candidates'][name]=row
 for p in sorted(dest.rglob('*')):
     if p.is_file():manifest['files'][str(p.relative_to(dest))]=hashlib.sha256(p.read_bytes()).hexdigest()

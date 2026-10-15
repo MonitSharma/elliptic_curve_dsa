@@ -1,0 +1,147 @@
+{
+  "base_revision": "4b2ec52fc55da796aa8f5ef851290297e8706424",
+  "candidate": "candidate-product-extendedflags",
+  "stages": [
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor, disjoint top-level leases"
+    },
+    {
+      "family": "affine",
+      "atom_cap": 128,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor, disjoint top-level leases"
+    },
+    {
+      "family": "anf",
+      "atom_cap": 512,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor, disjoint top-level leases"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor, disjoint top-level leases"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor, disjoint top-level leases"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor, disjoint top-level leases"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor, disjoint top-level leases"
+    },
+    {
+      "family": "anf",
+      "atom_cap": 512,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor, disjoint top-level leases"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor, disjoint top-level leases"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor, disjoint top-level leases"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor, disjoint top-level leases"
+    }
+  ],
+  "scope": "exact width-free rewrites; inherited failures retained",
+  "external_stream": "flags-extended-20261016/product-11-retained-1024.bin",
+  "external_stream_sha256": "2a7429e1f5655820c461279b4d2479449450ce819ddbc784c5de481d31691e97",
+  "packets": {
+    "independent": {
+      "shots": "256",
+      "unequal_batches": "0",
+      "left_bad": "1",
+      "right_bad": "1",
+      "left_phase_batches": "0",
+      "right_phase_batches": "0",
+      "left_dirty_batches": "0",
+      "right_dirty_batches": "0",
+      "paired_gate_saving_total": "8571",
+      "paired_gate_saving_mean": "33.48046875",
+      "score": "NONE"
+    },
+    "structured": {
+      "shots": "256",
+      "unequal_batches": "0",
+      "left_bad": "189",
+      "right_bad": "189",
+      "left_phase_batches": "4",
+      "right_phase_batches": "4",
+      "left_dirty_batches": "0",
+      "right_dirty_batches": "0",
+      "paired_gate_saving_total": "8571",
+      "paired_gate_saving_mean": "33.48046875",
+      "score": "NONE"
+    }
+  },
+  "resources": {
+    "path": "flags-extended-20261016/product-11-retained-1024.bin",
+    "ops": 12743782,
+    "qubits": 1234,
+    "classical_bits": 46508,
+    "registers": 4,
+    "u16_physical_ids_supported": true
+  },
+  "nonce_search_performed": false,
+  "source_patch_sha256": "077ee696c5e30ce9ded22bc41d499004b3b264479113307978a8c616d8cc095c",
+  "diagnostic_rng_protocol": "Historical within-pair original-event alignment; original random words vary between variants. Cross-variant ranking requires separate anchored replay."
+}

@@ -1,0 +1,2 @@
+use std::process::Command;
+fn main(){let out=std::env::var("OUT_DIR").unwrap();assert!(Command::new("cc").args(["-O3","-march=skylake-avx512","-c","simd8count.c","-o"]).arg(format!("{out}/simd8count.o")).status().unwrap().success());assert!(Command::new("ar").args(["crus"]).arg(format!("{out}/libsimd8count.a")).arg(format!("{out}/simd8count.o")).status().unwrap().success());println!("cargo:rustc-link-search=native={out}");println!("cargo:rustc-link-lib=static=simd8count");println!("cargo:rerun-if-changed=simd8count.c");}

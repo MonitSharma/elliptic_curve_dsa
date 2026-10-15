@@ -1,0 +1,54 @@
+{
+  "status": "research_search_cost_projection_not_a_resource_record",
+  "workers_projected": 64,
+  "cost_units": "measured thread-seconds per screened nonce",
+  "costs": {
+    "protected": 2.225390625,
+    "simd_low": 0.07494140625,
+    "simd_high": 0.10215625
+  },
+  "assumptions": [
+    "Independent fresh packet success probability p=(1-lambda/141)^141.",
+    "Measured early-rejection cost treated as constant when varying failure rate.",
+    "Ideal scaling to64 threads; actual64-thread throughput is not measured.",
+    "Timing measured on original public product source; candidate timing is not established.",
+    "No product nonce search or benchmark pass follows from this projection."
+  ],
+  "measurements": {
+    "protected": {
+      "nonces": 128,
+      "thread_seconds": 284.85
+    },
+    "simd_two_workers": {
+      "nonces": 1024,
+      "workers": 2,
+      "wall_seconds": 38.37
+    },
+    "simd_sixteen_workers": {
+      "nonces": 1024,
+      "workers": 16,
+      "wall_seconds": 6.538
+    }
+  },
+  "census_rates": {
+    "four_stage": 17.83154296875,
+    "compact11": 17.680938720703125
+  },
+  "projected": {
+    "four_stage": {
+      "expected_nonces": 190311597.5169102,
+      "failure_rate": 17.83154296875,
+      "hours_simd_low": 61.901991074658234,
+      "hours_simd_high": 84.38159346283358,
+      "hours_protected": 1838.1842228424707
+    },
+    "compact11": {
+      "expected_nonces": 160189944.78764522,
+      "failure_rate": 17.680938720703125,
+      "hours_simd_low": 52.10442590927079,
+      "hours_simd_high": 71.0260592326948,
+      "hours_protected": 1547.2447975247105
+    }
+  },
+  "prefilter_terminal_archive_sha256": "d3007fe2a24e8c01c8428f3aa7b9de3a17bf37920c0fd22f6b2d92219f678c06"
+}

@@ -192,7 +192,113 @@ first, passes the entire accelerated packet and a protected official replay:
 9,024 shots, zero value, phase or scratch failures. A constructed acceptance
 test passes zero/order/infinity, equal-x and opposite-point skips, preserves
 accepted-input order, refills a full 64-shot batch and a partial six-shot
-batch. Explicit no-hit fallback and concurrent lowest-nonce controls are
-running separately; the evidence is validation only, not a new search or
-resource record. Next: group packets with similar advisory batch indices to
-reduce SHAKE8 padding, while preserving exact per-nonce randomness.
+batch. Explicit no-hit fallback, nonmultiple-of-eight packets, concurrent lowest-nonce controls and full official positive replay all pass. This is validation only, not a new search or resource record.
+
+
+## Completed packet bucketing and capacity checks (16 October)
+
+The lookahead scheduler preserves independent transcripts while regrouping
+nonces with similar selected batch offsets. Every source context is retained
+for full fallback. A 64-byte routing self-check verifies each combined lane.
+On predetermined labels 1–1,024, all exact screen variants agree: 1,024
+rejections, 1,173 exact batches and nine full fallbacks. On the same two-worker
+machine, unbucketed wall time was 66.242 seconds; 128-label bucketing took
+50.417 seconds. Replacing only the advisory calculation with the independently
+validated SIMD rail implementation reduced this to 42.443 seconds. A full
+1,024-label lookahead measured 38.372 seconds with two workers and 6.538 seconds
+with 16 workers. These are measured screening results, never scored resources.
+
+The frozen product candidate's census implies an expected 190,311,598 nonces
+before a passing 141-batch packet. Even the improved pipeline projects roughly
+63–84 hours at 64 threads under ideal scaling. This fails the current cost
+gate, so no long product search has begun.
+
+The original compact ABI now rejects dimensions or operands colliding with
+its 16-bit sentinel. A separate 16-byte ABI widens classical IDs to 32 bits;
+this supports the frozen product stream's 91,691 classical bits. Every quantum
+wire, classical bit, phase bit and RNG draw agrees with eight separate
+protected simulators on 512 actual Fiat-transcript shots for both the public
+tip and the frozen product candidate. A high-ID conditional/snapshot fixture
+and old-ABI rejection tests pass. The widened screen also passes the known
+public-tip packet and its complete protected official replay.
+
+## Arithmetic-model correction and remaining proof gaps
+
+The four full-population false positives were traced to the public product
+source's 57-bit forward fold prefix through tick 99; the inherited wide-parent
+model incorrectly used tick 55. The old model is preserved, and only this
+source-bound constant was corrected. The independent corrected population
+check reports 243 true positives, zero false positives, seven misses and 181
+unknowns across 262,144 shots. This remains diagnostic only. Separate protected
+primitive probes expose finite 53-bit seed-halving and special tick-zero
+three-add semantics not represented by the idealized summaries; historical
+cut guards also require proof. Zero empirical false positives do not establish
+a sufficient rejection certificate.
+
+## RNG-independence certificates: successes and negative results
+
+A concrete-input Boolean polynomial interpreter uses 64-bit input masks as
+coefficients and fresh independent measurement symbols. Conditional resets,
+all inactive measurement events and capped unknown dependencies are retained.
+Interning normalized capped expressions, with constants outside immutable
+keys, proves all 16,384 output bits on the 32 audit inputs independent of every
+measurement symbol in 7.176 seconds. It certifies the 24 known wrong outputs
+and all eight passing controls; four protected full-state containment runs
+pass. This is a finite-input universal-MR proof, not an all-input certificate,
+and its present runtime is too slow for production screening.
+
+Global variants keep every input bit symbolic and input-only coefficients
+separate from MR polynomials. Binary-coefficient V2 completed in 1,354.51
+seconds with 199,075,679 coefficient nodes and left every output unresolved.
+An associative coefficient variant exceeded its 32-GiB address-space limit;
+the bounded variant completed in 184.20 seconds with 30,802,974 nodes and also
+left all 512 bits unresolved. Both completed variants pass four protected
+full-state containment seeds and preserve matching before/after source and
+stream hashes. The earlier stopped and memory-limited attempts remain clearly
+marked incomplete. None enables rejection or output masks.
+
+A distinct square-free input coefficient layer is under bounded validation.
+It retains exact input-only opaque function definitions and distributes small
+Boolean products to recover cancellation without expanding all quantum input
+functions. Its report preserves a per-output RNG-free mask even if the full
+output proof fails. Only a positive sound, stream-bound proof could authorize
+using the independently validated zero-MR evaluator as a rejection witness.
+
+An empirical MR-sensitivity check separately tests all 541 failing-census
+inputs (431 value failures, 297 phase failures, with overlap) and 256 unique
+structured boundary inputs. Each input is repeated across eight independent
+MR streams and compared against zero-MR values. No output-coordinate variation
+was observed for either the public tip or the frozen product stream. This is
+useful negative diagnostic evidence, not a proof of MR independence; all skip
+paths remain disabled. See `rng-sensitivity-*.json` and the empty witness files.
+
+
+## Terminal certificate diagnostics and checkpoint
+
+The square-free cap16 method completed in 423.62 seconds with 34,283,438
+input-only coefficient nodes. All 512 output bits remain unresolved, including
+206 represented by a single capped RNG term. Four protected full-state
+containment runs pass. First abstract precision loss is original operation
+688826: HMR q1106 into reused classical bit b1565. This is a limitation of the
+representation, not proof that any output actually depends on MR.
+
+A separate 8-GiB retained-key cache run completed with zero cache evictions in
+148.68 seconds, retaining 1,694,699 exact opaque keys. All 512 outputs still
+remain unresolved. Thus cache eviction alone does not explain the missing
+certificate. The larger cap128 input-ANF variant was explicitly stopped only
+after its exact PID/argv were verified; it was superseded by the faster cap16
+variant and remains incomplete, with no certificate claimed.
+
+The arbitrary-coordinate MR diagnostic covers 1,385 tuples: 1,024 independently
+sampled coordinate words and 361 invalid boundary combinations. Eight MR
+streams and zero-MR give identical coordinates for both frozen streams.
+The expected-value columns are explicit zero placeholders and are not used to
+claim correctness. This remains empirical sensitivity evidence only.
+
+The next bounded hybrid experiment canonicalizes pure classical A-input
+functions with exact ROBDDs, retaining quantum-input functions separately.
+It preserves caps conservatively and is under active validation; its active
+source/logs are excluded from the terminal checkpoint archive. The archive's
+manifest records every included file's size and SHA256, plus exclusions and
+the hash of the full coordinate TSV retained on the server. No unproved model
+or RNG-free skip is enabled in any screen.

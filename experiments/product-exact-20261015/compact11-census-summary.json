@@ -1,0 +1,42 @@
+{
+  "parent": {
+    "batches": 32768,
+    "shots": 2097152,
+    "failed_batches": 4126,
+    "failures_per_packet": 17.75408935546875,
+    "mean_t": 761223.3796834946,
+    "census_sha256": "490593ada26e3e7aa4af61c360eea10aed527ef0f03c317dd78d392c15e1c2ff",
+    "failure_per_packet_se": 0.25841069983890574
+  },
+  "candidate": {
+    "batches": 32768,
+    "shots": 2097152,
+    "failed_batches": 4109,
+    "failures_per_packet": 17.680938720703125,
+    "mean_t": 761189.7365369797,
+    "census_sha256": "a5e712479c415ec9c15033fd47cbd3c9811ae52c55715d51ca1d2089cb76d84e",
+    "failure_per_packet_se": 0.25795431501895494
+  },
+  "paired_saving_t": 33.64314651489258,
+  "paired_se_t": 0.4414126630804604,
+  "label": "product-compact11-frozen-20261016",
+  "nonce_search_performed": false,
+  "score": null,
+  "measured_failure_gate_pass": true,
+  "declaration": {
+    "label": "product-compact11-frozen-20261016",
+    "batches_per_source": 32768,
+    "shots_per_source": 2097152,
+    "threads_per_source": 8,
+    "baseline": "tip/ops.bin",
+    "candidate": "candidate-product-extendedflags/ops.bin",
+    "source_ops_sha256": {
+      "tip/ops.bin": "2a522394cdf3e6a0df7784ad4db761030933c1f7ccd0ff8e641d68ec7a4dab3e",
+      "candidate-product-extendedflags/ops.bin": "2a7429e1f5655820c461279b4d2479449450ce819ddbc784c5de481d31691e97"
+    },
+    "source_freeze": "EXTENDED_FLAGS_FREEZE.json",
+    "selection": "Include every batch0..32767; no interim rate selection, circuit changes or nonce search",
+    "nonce_search_performed": false,
+    "score": null
+  }
+}

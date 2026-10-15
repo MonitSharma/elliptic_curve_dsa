@@ -1,5 +1,22 @@
 # Exact product savings, 15 October 2026
 
+**Latest complete result: 33.64314651 ± 0.44141266 executed Toffolis saved per
+shot at unchanged Q1234**, measured on the frozen compact eleven-stage source.
+Normal native generation is byte-identical to the frozen external stream;
+all 62 new native stage tests pass. Its full, predeclared fresh census includes
+32,768 batches / 2,097,152 shots per source. The candidate has 4,109 failed
+batches (**17.68093872 per packet**), versus the paired original's 4,126
+(**17.75408936**). It meets the measured failure gate. Mean T is
+761,189.7365369797 versus 761,223.3796834946. No nonce search, complete official
+benchmark pass or scored product record is claimed by this experiment.
+See `EXTENDED_FLAGS_FREEZE.json` and `compact11-census-summary.json`.
+
+The later 25/32-stage measurements remain diagnostic while their native
+source validation and separately declared census are pending. The coordinator
+owns nonce qualification and unchanged official benchmarks.
+
+## Historical four-stage evidence
+
 **Exact rewrites meet the requested 12–15 T target in fresh census measurement:
 14.55993557 ± 0.44253237 executed Toffolis saved per shot at unchanged Q1234.** No record,
 full benchmark pass or submission is claimed. The frozen four-stage circuit
@@ -177,3 +194,39 @@ PID/exit files, preflights, source, stream hashes, generation logs and census
 files remain there. Only research files have been written locally; the
 public source and all protected harness files are unchanged. No commits,
 pushes or submissions were made.
+
+## Frozen compact continuations and independent qualification
+
+The compact eleven-stage source passes 62 native tests and normal generation
+matches its external stream byte for byte (SHA256
+`2a7429e1f5655820c461279b4d2479449450ce819ddbc784c5de481d31691e97`).
+It keeps Q1234 and 46,508 classical slots. Its anchored 512-shot diagnostic
+saving is 33.47265625 T. A newly declared 32,768-batch paired fresh census
+uses every batch under `product-compact11-frozen-20261016`; qualification is
+pending and no partial rates will be used for selection.
+
+The fixed 25-stage continuation completes both full anchored reconstructions
+with 58.47265625 T diagnostic saving, Q1234 and 47,921 classical slots.
+Its stream hash is
+`180af069679ffa33b099b200d3337d6fc6c20a451a72508a40dea6617150dc64`.
+The native port reuses five pure helper configurations across 25 calls;
+`PRODUCT25_FREEZE.json` records every stage and its source patch. Generation,
+full byte comparison and native tests precede its separate predeclared fresh
+32,768-batch paired census. It never replaces or edits the eleven-stage source.
+
+A further four seven-stage cycles, ending at stage 53, were declared before
+measuring them. The fixed checkpoints are 32, 39, 46 and 53. This separate
+experiment uses the same anchored original-event RNG protocol, compact donor
+flags, a single analysis thread and a 40-GiB virtual-memory limit. It is
+component research until a final frozen source, native proof and fresh gate.
+
+The fifteen-stage wide source is separately frozen at Q1468 and 41.94921875 T
+anchored saving. It has four extra quantum slots. Native full-stream identity,
+its stage tests and a fixed 4,096-batch paired fresh census remain required.
+The original queued wide four-stage result is unchanged.
+
+A source-only feasibility probe restores every inherited census deletion row
+as a whole structural family, after all original neighborhood anchors have
+validated. All reduction rows and upstream tables remain unchanged. The fixed
+choice is recorded in `CATEGORY_RESTORE_DECLARATION.json`; this initially
+measures construction and cost only, without a census or nonce search.

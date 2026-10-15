@@ -4,7 +4,7 @@
 and unchanged. User priority is product, then Toffolis, then qubits;
 submission mode is **queue**. Four isolated experiments are in progress,
 with one newly qualified complete local pass queued below. Public refresh at
-16October00:19: Q678 (new), T753771/Q1464 and product939347948 unchanged
+16 October 01:12: Q678, T753771/Q1464 and product939347948 unchanged
 (1571 submissions,1230 eligible).
 [Run log](../experiments/autorun-20261015-2239/LOG.md).
 
@@ -16,21 +16,22 @@ failed batches,5.8004 versus5.8348 per packet, zero dirty. **Queued, not
 submitted.** [Benchmark evidence](../experiments/wide-record-20261015/STATUS.md) ·
 [Queue](../experiments/autorun-20261015-2239/READY.md).
 
-**Frozen product candidate, not yet benchmarked:** the product chain saves
-14.48828125 T at unchanged Q1234 in aligned whole-stream replay and its native
-point-add implementation generates the identical stream and passes 21 tests.
-Its initial fresh census exceeds the 18-batch cap; the predeclared larger
-census includes that complete sample and passes: 32768 batches/2097152shots
-per source,17.83154 failed batches/packet versus paired parent's17.88318,
-paired saving14.55994 +/-0.44253T, zero dirty shots. These are diagnostic
-product savings, not completed benchmark scores. Search cost remains gated.
+**Frozen product candidates, not yet benchmarked:** the compact11 source
+passes 62 native tests and frozen-stream comparison at unchanged Q1234. Its
+complete fresh census includes32768 batches/2097152shots per source:
+17.68094 failed batches per packet versus17.75409 parent, paired saving
+33.64315 +/-0.44141 T, zero dirty shots. The older four-stage candidate also
+passes its fixed failure gate. A separate stage25 continuation saves58.472656 T
+in both anchored replay packets; native generation is pending. These are
+diagnostic savings, not completed benchmark scores. Search cost remains gated.
 [Candidate evidence](../experiments/product-exact-20261015/STATUS.md).
 
 **Search tools:** curve preparation now measures 9.39 microseconds per fresh
 shot and agrees with the protected reference. The integrated scalar screen
-is 4.23x faster on an identical test. An eight-lane simulator kernel matches
-full protected state and RNG and is about 10x faster for simulation alone;
-eight-lane SHAKE integration and complete-screen validation are underway.
+is 4.23x faster on an identical test. The integrated SIMD/SHAKE exact bucket
+screen passes protected replay controls but still projects63–84hours on64threads
+at the old product failure rate. Zero-MR output slicing is faster but disabled
+for rejection while the global RNG-independence proof remains unresolved.
 The arithmetic model remains advisory; only exact simulation can reject a
 nonce. [Curve evidence](../experiments/scalar-fast-20261015/STATUS.md) ·
 [SHAKE evidence](../experiments/shake8-20261015/STATUS.md).

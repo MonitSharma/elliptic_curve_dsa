@@ -12,7 +12,7 @@ removing the detached worktree. No external submission in queue mode.
 [Result](../experiments/wide-record-20261015/STATUS.md) ·
 [Queue](../experiments/autorun-20261015-2239/READY.md).
 
-Public refresh: Q678 (new source33fe7f32), T753771/Q1464 (ours), product939347948
+Public refresh at 16 October 01:12: Q678 (source33fe7f32), T753771/Q1464 (ours), product939347948
 atQ1234/T761222. Product four-stage frozen census passes17.83154 failures
 per packet versus17.88318 parent, but the exact fast screen still projects
 63–84hours on64threads, so no unaffordable search launched. New exact product
@@ -20,6 +20,45 @@ chains, compact flag reuse, tail smoothing and RNG-independence certificates
 are in progress. Ternary output/cut certificates have no useful coverage;
 the bounded concrete RNG-ANF has useful coverage, global proof pending.
 All such component counts stay outside README result plots.
+
+**01:15 checkpoint:** compact11 native source passes 62 tests and frozen-stream
+comparison. Its complete 32768-batch paired census measures 33.64315 +/-0.44141 T
+saved at Q1234, 17.68094 failed batches per packet versus 17.75409 parent, zero
+dirty shots. The fixed stage25 continuation saves 58.472656 T in both anchored
+packets; native generation is pending. Wide15 passes native generation and
+48 tests; its fixed fresh census is running. Product searches remain cost-gated.
+Further fixed continuations are independent of these frozen candidates.
+
+The formerly unexplained fold mechanism is now checked on the current product
+source: 68,943,872 actual internal fold observations agree with protected state.
+Its 34 dropped-carry cases occur at 34 different ticks, limiting a single-tick
+repair's coverage. A +1-bit component costs one Toffoli, but upstream generation
+rejects the unchanged table anchor. A conservative complete-region replacement
+after the table is under investigation. [Source contracts and census scope](../experiments/payload-model-20261016/STATUS.md).
+
+Raising the wide walk cap to1792/2048 generates the identical original stream;
+the negative is archived. Zero-MR output slicing passes protected coordinate
+checks and improves the value kernel, but full-source backward liveness still
+finds 23093 live measurement definitions. Global algebraic proof remains needed;
+empirical MR insensitivity alone cannot authorize rejection.
+[Updated search-cost figure and assumptions](../experiments/search-cost-update-20261016/STATUS.md)
+preserve the historical plot: original-source measured costs project52–71hours
+at the compact11 observed failure rate under ideal64-thread scaling; candidate
+throughput itself remains unmeasured.
+
+**01:31 checkpoint:** wide15 passes its fixed4096 fresh gate (178 candidate,
+186 parent failed batches). Lowest nonce644,731 screened, passes protected
+replay at753721.48 T/Q1468; unchanged benchmark and final fixed16384 paired
+census remain pending. No complete result is claimed yet. The exact census v2
+reproduces all4096 v1 rows and full protected state/count/MR checks, reducing
+the four-worker4096 run from40.41 to11.54seconds. [Frozen runner](../experiments/simd-census-v2-20261016/STATUS.md).
+
+The +1-bit single-fold repair on the current product source passes conservative
+complete-region source admission, but its fresh sample has no value improvement
+and a higher observed batch-failure rate than its parent. It is ineligible for
+nonce search. Remaining failure work now targets a local value-identity proof
+for the measurement-controlled macro that first defeats the global prefilter
+certificate. Empirical MR insensitivity is not a substitute for that proof.
 
 ## Active parallel run: 15 October 2026, 22:39 Singapore
 

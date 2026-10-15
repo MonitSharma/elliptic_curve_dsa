@@ -1,0 +1,38 @@
+{
+  "status": "validated_research_census_not_a_scored_evaluator",
+  "binary": "/home/hclau/ecdsa_research/simd-census-20261016/bin/simd_census_v1",
+  "binary_sha256": "49d99d2bf380b628550c3ed979b5bf2adfc1a962fb6fd00a5df267cde853f554",
+  "arguments": "OPS LABEL FIRST COUNT WORKERS OUT VERIFY_FIRST_BATCHES",
+  "files": {
+    "main.rs": "66bdf4c06d57b35d6f80ec0c515edf47fbb28429ef4db465e9a4933d33b0bf02",
+    "prepare.py": "5c2f3a2bad247d5215661ed7b40d06a731e5b89a9cf55cbc9758acc3cb6164ce",
+    "build.rs": "8270f454afa040b45bbf67781decc15ea433cd3c7a34df4b775dc12dfe50e8cf",
+    "run.sh": "fc30c238b8cd63e972e80e085fb71cfa1f216120d7bc76093f6fef039daaac12",
+    "bench.sh": "7b01907f86f3162790f6da5438b9af745ff17285bebfc9700ea4eaf727718b6b",
+    "tool/src/main.rs": "66bdf4c06d57b35d6f80ec0c515edf47fbb28429ef4db465e9a4933d33b0bf02",
+    "tool/src/prefix.rs": "6fc243448227c9a324e13a825b3c72429024df439f3aed936146b8f7b933474f",
+    "tool/src/fast_sim_wide.rs": "0082e2cf935fbe02bc61277342d1625d0f676a8628c05c5a7b63f10d41b89674",
+    "tool/src/fast_curve_c.rs": "a20dfc90601d6d90d6695f1e8b1b6026fb6e4b8602dc73eb853d3bcbf8f2b56e",
+    "tool/simd8count.c": "06e05f56306d71cb2f07f4590a828cde2d1814d41bc63b8b1a8335dc34876387",
+    "tool/simd8wide.h": "7bb0db0d1b106c59279e11b4dca92249144ff41f21283094ec7f3bafb014834e",
+    "tool/Cargo.toml": "e120cdfedbc38a9eba2a86f51a44170f914c48247996905e5c1d721cc79788ac",
+    "tool/Cargo.lock": "c0ef722135cb1a56eb8d1ffb72e3245b8773d8e56ea3e7b2ac82299bbd8250a0"
+  },
+  "external_files": {
+    "/home/hclau/ecdsa_research/scalar-fast-20261015/libscalar_fast_batch.so": "3bb2304219fb336795ea88d4bf81174883cdd33702f5975819b812c3dffca30f",
+    "/home/hclau/ecdsa_research/product-exact-20261015/tip/ops.bin": "2a522394cdf3e6a0df7784ad4db761030933c1f7ccd0ff8e641d68ec7a4dab3e",
+    "/home/hclau/ecdsa_research/product-exact-20261015/candidate-final/ops.bin": "34a09e843bb182d0379fac82487ed26364711799c4126fbd7a4c1af7820ff5e6"
+  },
+  "validation": {
+    "status": "exact_research_census_validation_only_not_a_score",
+    "batches": 4096,
+    "shots": 262144,
+    "same_first128_reference_rows": true,
+    "all_full_state_and_T_verified_batches_across_sources": 128,
+    "partial_first17_count11_workers3_reference_match": true,
+    "failed_batches": 534,
+    "dirty_shots": 0,
+    "mean_executed_Toffoli": 761223.5795707703
+  },
+  "nonce_screening": false
+}

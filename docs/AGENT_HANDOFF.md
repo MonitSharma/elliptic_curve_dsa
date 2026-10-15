@@ -1,6 +1,6 @@
 # Agent handoff: start here
 
-Last updated 16 October 2026, 00:19 Singapore. This page is for an AI agent (or
+Last updated 16 October 2026, 01:31 Singapore. This page is for an AI agent (or
 person) continuing the work. It holds the current state, the rules, the tools
 and the next steps in order. Details live in the linked reports. Do not copy
 numbers from older reports without checking the date.
@@ -11,15 +11,30 @@ qubits**, in that order; submission mode **queue**. See
 before starting overlapping jobs. Four isolated workstreams cover the
 prefilter, exact product savings, unexplained failure localization, and the
 wide cache pass. **One new complete local result is queued: T753745/Q1464.**
-Public refresh at 00:19 leaves T/product unchanged; width advances to Q678.
-Product native chain has measured replay
-saving 14.48828125 T/Q1234, byte-identical native generation and 21 passing
-tests, but initial census exceeds the cap; fixed 32768-batch paired extension
-is running. Wide chain saves 23.03515625 T/Q1464 in replay. See
+Public refresh at 01:12 leaves T/product unchanged; width remains Q678.
+The compact 11-stage product source passes 62 native tests and reproduces its
+frozen stream. Its complete 32768-batch paired census saves 33.64315 +/-0.44141 T
+at Q1234, with 17.68094 failed batches per packet versus 17.75409 for its parent,
+zero dirty shots. The 25-stage continuation saves 58.472656 T in both anchored
+replay packets; native generation is pending. Wide15 native generation and
+48 tests pass. Its 4096-batch fresh census passes178 versus186 failed batches;
+lowest nonce644 (731 screened) passes protected replay at753721.48 T/Q1468.
+The unchanged benchmark is regenerating; no new complete pass yet. See
 [candidate status](../experiments/product-exact-20261015/STATUS.md).
 Search acceleration combines validated C curve preparation, exact SIMD8
-simulation and SHAKE8; full integration is pending. Arithmetic predictions
-may prioritize an exact check but must never directly skip a nonce.
+simulation and SHAKE8. The integrated exact screen still projects 63–84 hours
+on 64 threads at the old product failure rate, so no product search has started.
+Zero-MR output slicing is faster but remains disabled for rejection: the global
+RNG-independence proof is unresolved. Arithmetic predictions may prioritize an
+exact check but must never directly skip a nonce.
+
+The frozen exact census v2 at `simd-census-v2-20261016/bin/simd_census_v2`
+reproduces all4096 v1 rows, protected full-state/T checks and every MR word;
+4096 batches take11.54s/4workers. SHA790e9226...; full hash/ABI in its
+`FREEZE.json`. Existing live jobs retain their declared runner/sample.
+The first current-product +1-bit fold repair passes source admission but its
+fresh failure gate fails; no nonce search. Failure work now helps local macro
+RNG-independence proofs for the product prefilter.
 
 **16 October, 00:19:** wide native21tests and unchanged benchmark pass:
 **753745T/Q1464**, nonce92 lowest from1,164screened. Final paired16384-batch

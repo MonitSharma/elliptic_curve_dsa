@@ -4,9 +4,13 @@ root=Path(__file__).resolve().parent
 frozen=json.loads((root/'WIDE_COMPOUND_FREEZE.json').read_text())
 tree=root/frozen['candidate'];assert not tree.exists()
 subprocess.run(['git','-C',str(root.parent/'toffoli'),'worktree','add','--detach',str(tree),frozen['base_revision']],check=True)
-dest=tree/'src/point_add';new=[];calls=[];mods=[]
+dest=tree/'src/point_add';new=[];calls=[];mods=[];modules={};stage_modules=[]
 for i,stage in enumerate(frozen['stages'],1):
     family=stage['family'];cap=stage['atom_cap'];pairs=stage['pair_cap'];extra=stage['extra_zero_slots_offered']
+    key=(family,cap,pairs,extra)
+    if key in modules:
+        first=modules[key];calls.append(f'    ops = exact_wide_stage{first}_cache::optimize(ops);');stage_modules.append(first);continue
+    modules[key]=i;stage_modules.append(i)
     if family in ['retained','scratch','unfold']:
         support_file='interned_anf_retained.rs';cache_file='lazy_cache_retained.rs';old='interned_anf_retained'
         tool={'retained':'analyzer','scratch':'scratch-tool','unfold':'unfold-tool'}[family]
@@ -30,5 +34,6 @@ path=dest/'mod.rs';text=path.read_text();needle='    let nonce: u64 = required_e
 path.write_text(text.replace(needle,'\n'.join(calls)+'\n'+needle)+'\n'+'\n'.join(mods)+'\n')
 subprocess.run(['git','-C',str(tree),'add','--intent-to-add',*new],check=True)
 patch=subprocess.check_output(['git','-C',str(tree),'diff','--','src/point_add']);(root/'candidate-wide-compound.patch').write_bytes(patch)
-frozen['source_patch_sha256']=hashlib.sha256(patch).hexdigest();(root/'WIDE_COMPOUND_SOURCE_FREEZE.json').write_text(json.dumps(frozen,indent=2)+'\n')
+frozen['source_patch_sha256']=hashlib.sha256(patch).hexdigest();frozen['stage_module_first_occurrences']=stage_modules
+(root/'WIDE_COMPOUND_SOURCE_FREEZE.json').write_text(json.dumps(frozen,indent=2)+'\n')
 print(subprocess.check_output(['git','-C',str(tree),'diff','--stat'],text=True))
