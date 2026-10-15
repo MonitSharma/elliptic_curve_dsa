@@ -20,6 +20,13 @@ PASS90 = -__import__("math").log(0.9)  # expected failed batches for a 90% pass 
 rows = json.loads((HERE / "evidence/all/table.json").read_text())
 widen = HERE.parent / "widen-walk-20261015/evidence/table.json"
 widen_rows = json.loads(widen.read_text()) if widen.exists() else []
+# Pool replicate censuses of byte-identical streams (e.g. non-binding cap variants) into one point.
+_pool = {}
+for r in widen_rows:
+    _pool.setdefault(r["stream_sha256"], []).append(r)
+widen_rows = [dict(g[0], failed_batches_per_packet=sum(x["failed_batches_per_packet"] for x in g) / len(g),
+                   p_pass=__import__("math").exp(-sum(x["failed_batches_per_packet"] for x in g) / len(g)))
+              for g in _pool.values()]
 
 # Fixed categorical order (reference palette slots 1-4), plus marker shapes as secondary encoding.
 GROUPS = [
@@ -57,9 +64,9 @@ ax.text(750_200, PASS90 * 0.62, "Honest-pass zone: ≥90% chance to pass a fresh
 b3 = next(r for r in rows if r["stream"].endswith("b3-body-boundaries__run"))
 ax.annotate("Public B3 record circuit\nP(pass fresh) ≈ 2–6×10⁻⁹", (b3["mean_t"], b3["failed_batches_per_packet"]),
             xytext=(763_500, 30), color=INK, fontsize=10, arrowprops=dict(arrowstyle="-", color=MUTED))
-best = min(widen_rows or rows, key=lambda r: r["failed_batches_per_packet"])
-ax.annotate(f"Best so far: {best['failed_batches_per_packet']:.1f} failed batches\nP(pass) ≈ {best['p_pass']:.0e}",
-            (best["mean_t"], best["failed_batches_per_packet"]), xytext=(764_500, 1.4), color=INK, fontsize=10,
+best = min([r for r in (widen_rows or rows) if r["mean_t"] < RECORD_T and not r["stream"].startswith("parent")], key=lambda r: r["failed_batches_per_packet"])
+ax.annotate(f"Best under the record: {best['failed_batches_per_packet']:.1f} failed batches\nP(pass) ≈ {best['p_pass']:.0e}",
+            (best["mean_t"], best["failed_batches_per_packet"]), xytext=(751_000, 1.4), color=INK, fontsize=10,
             arrowprops=dict(arrowstyle="-", color=MUTED))
 
 ax.set_yscale("log")

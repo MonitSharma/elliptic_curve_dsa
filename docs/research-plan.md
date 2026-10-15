@@ -71,13 +71,20 @@ packet; diagnostic only):
 
 | Variant | T | Failed batches |
 |---|---:|---:|
-| +2 mid bits | 758,411 | 7.30 |
-| +2 mid bits, smoothed tick-137/138 cliff | 758,449 | 4.85 |
-| smoothed, plus 2 park ticks (Q1474) | 759,157 | 5.30 |
+| smoothed tick-137/138 cliff only | 753,764 | 5.77 (3 replicates) |
+| +2 rail bits and +2 YP8 anchors, smoothed | 758,446 | 4.18 (3 replicates) |
+| +4 / +6 bits and anchors, smoothed | 763,076 / 767,661 | 4.78 / 5.37 |
+| +2 rail bits without anchors | 758,411 | 7.30 |
 
-Smoothing is nearly free; mid-walk widening does not help, so the 98
-target-delta cases are probably not plain envelope overflow. The audit's
-prepared rail-delta observer is the right next test.
+A margin observer (needed bits minus rail width, per tick, on 8,192 random
+walks) shows that most first rail violations are genuine 1-bit overflows by
+rare slow walks. +2 bits with anchors fixes 4 of 5 paired walk failures but
+plateaus beyond that.
+
+**For the other agent:** every variant keeps about 32 failures per 262K shots
+(~1.1 batches per packet) with **no walk-rail event**. That floor is untouched
+by walk widening and is plausibly your payload-fold boundary target. Fixing it
+is necessary for any honest pass.
 [Widening](../experiments/widen-walk-20261015/STATUS.md).
 
 The census takes about one minute per stream; gate candidates on it.

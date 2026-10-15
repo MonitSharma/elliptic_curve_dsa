@@ -23,11 +23,13 @@ drop budget.
 | Walk widening (diagnostic only) | Q | Diag. T | Failed batches/packet |
 |---|---:|---:|---:|
 | Wide parent | 1464 | 753,727 | 7.16 |
-| +2 mid bits | 1464 | 758,411 | 7.30 |
-| +2 mid bits, smoothed tail | 1464 | 758,449 | 4.85 |
-| +2 mid bits, smoothed tail, 2 park ticks | 1474 | 763,841 | 4.68 |
+| +2 rail bits only | 1464 | 758,411 | 7.30 |
+| Smoothed tail only | 1464 | 753,764 | 5.77 (3 replicates) |
+| +2 rail bits and anchors, smoothed tail | 1464 | 758,446 | 4.18 (3 replicates) |
+| +4 / +6 rail bits and anchors, smoothed tail | 1468 / 1472 | 763,076 / 767,661 | 4.78 / 5.37 |
 
-Smoothing the tail is nearly free; mid-walk widening is not the right lever.
+Tail smoothing is free; rails must widen with their YP8 anchors; more than
++2 bits stops helping. A constant ~1.1 batches of non-walk failures remains.
 None of these is close to the < 0.1 expected failed batches needed.
 [Census and figure](../experiments/failure-census-20261015/STATUS.md) ·
 [trace](../experiments/trace-value-20261015/STATUS.md) ·

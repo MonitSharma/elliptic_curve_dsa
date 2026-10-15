@@ -1,0 +1,54 @@
+diff -ruN -x target -x ops.bin -x .git /home/hclau/ecdsa_research/dynamic-pool-20261015/wide-b3/src/point_add/leapfrog_data/pack_t0hat_tail0_138_steps_k770_lw2.txt /home/hclau/ecdsa_research/widen-walk-20261015/smooth-win2/src-b3/src/point_add/leapfrog_data/pack_t0hat_tail0_138_steps_k770_lw2.txt
+--- /home/hclau/ecdsa_research/dynamic-pool-20261015/wide-b3/src/point_add/leapfrog_data/pack_t0hat_tail0_138_steps_k770_lw2.txt	2026-10-15 12:28:40.254732113 +0800
++++ /home/hclau/ecdsa_research/widen-walk-20261015/smooth-win2/src-b3/src/point_add/leapfrog_data/pack_t0hat_tail0_138_steps_k770_lw2.txt	2026-10-15 17:11:16.094124654 +0800
+@@ -136,6 +136,6 @@
+ 16 16 15 14 12
+ 13 13 12 11 10
+ 11 11 10 9 8
+-6 6 6 6 5
+-6 6 6 6 5
++9 9 8 7 6
++7 7 6 6 5
+ 6 6 6 6 5
+diff -ruN -x target -x ops.bin -x .git /home/hclau/ecdsa_research/dynamic-pool-20261015/wide-b3/src/point_add/leapfrog.rs /home/hclau/ecdsa_research/widen-walk-20261015/smooth-win2/src-b3/src/point_add/leapfrog.rs
+--- /home/hclau/ecdsa_research/dynamic-pool-20261015/wide-b3/src/point_add/leapfrog.rs	2026-10-15 12:28:40.367730109 +0800
++++ /home/hclau/ecdsa_research/widen-walk-20261015/smooth-win2/src-b3/src/point_add/leapfrog.rs	2026-10-15 17:11:16.135124504 +0800
+@@ -307,10 +307,10 @@
+         // [|T| > 2|B|] and by what the second forced step did (added, subtracted, or subtracted with a sign flip);
+         // computed inside that step's rail add, while its carries are on wires. It has its own 138-tick width table
+         // and window anchors (see `steps`, `w1_anchor`)
+-        ("LF_YP8", "21"),
++        ("LF_YP8", "23"),
+         // ... with a shorter window on the late ticks: 19 bits from tick 90, 17 from 100, 15 from 112, 13 from 118,
+         // 11 from 124
+-        ("LF_YP8_LATE", "90:19,100:17,112:15,118:13,124:11"),
++        ("LF_YP8_LATE", "90:21,100:19,112:17,118:15,124:13"),
+         // tick 0's letter is not held on the tape while a walk sits at the cap: it is measured away after its last
+         // read and derived again from the source rail at the walk's end, where the measurement's phase is fixed
+         ("LF_T0_FREE", "1"),
+@@ -413,14 +413,14 @@
+         // taken (G7 keeps 56). Plus the boundary compare widened from tick 100 instead of 120 (λ buy, +200 T).
+         // G10 totals: Q 1236, T 785,519.7 (192-nonce eval mean), score ~970.90M (#1 971.66M); λ paired vs glam_base
+         // fails -0.740 +- 0.259 (proj 18.91, proj + 2se 19.43 <= 19.5), vs G7 +0.245 +- 0.244.
+-        ("LF_YP8", "22"),
++        ("LF_YP8", "24"),
+         // G12: port of the new board #1 (krishparadox, upstream 76e2661 / submission e9cacd1d, 774,510 x 1,236; on
+         // top of leech1996's d6a54d3 early-tick windows "1:13,6:17,11:22" taken here, and jackylee0424's 3405791 I35
+         // cells already in the G10 profile): the y15 one-fold payload tick (y15_onefold.rs, unchanged: three unfolded
+         // adds and one fold per payload tick, payload-only ticks fwd 0.. / rev 1.., fused ticks fwd <99 / rev <92),
+         // LF_REORDER_DIV/MUL 76. G12 totals: Q 1236, T model 773,793.75, 512-nonce eval mean 773,696.1, score
+         // ~956.29M (#1 957.29M); λ paired vs glam_base 512 nonces fails -0.773 +- 0.160, proj 18.88, proj+2se 19.20.
+-        ("LF_YP8_LATE", "1:13,6:17,11:22,90:20,100:18,112:16,118:14,124:12"),
++        ("LF_YP8_LATE", "1:15,6:19,11:24,90:22,100:20,112:18,118:16,124:14"),
+         ("LF_G10_TABLE", "770"),
+         // y33-c35b: the same profile with the picks of [`C35B_BR_F132`], [`C35B_BR_R129`], [`C35B_BR_R136`]
+         ("HEO_PIN_I35_PROFILE", c35b_prof.as_str()),
+@@ -446,7 +446,7 @@
+         // vs the combined point +0.188 +- 0.102 (mism +0.170 +- 0.039).
+         ("LF_T6_SEEDFUSE", "1"),
+         ("LF_MERGED_WIN", "54"),
+-        ("LF_YP8_LATE", "1:13,6:17,11:22,90:19,100:17,112:15,118:13,124:11"),
++        ("LF_YP8_LATE", "1:15,6:19,11:24,90:21,100:19,112:17,118:15,124:13"),
+     ] {
+         std::env::set_var(k, v);
+     }

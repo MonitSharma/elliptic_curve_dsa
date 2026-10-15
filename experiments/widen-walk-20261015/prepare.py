@@ -1,6 +1,6 @@
 """Private copy of the wide (cap1536) B3 circuit with a widened leapfrog walk.
 
-Spec: name mid_delta tail_mode(keep|smooth) extra_park_rows [anch_delta [win_delta]].
+Spec: name mid_delta tail_mode(keep|smooth) extra_park_rows [anch_delta [win_delta [cap]]].
 - mid_delta widens rows 2..136 of the steps table
   (src/point_add/leapfrog_data/pack_t0hat_tail0_138_steps_k770_lw2.txt).
 - tail_mode=smooth replaces rows 137/138 to remove the 3-bit cliff after tick 136.
@@ -9,6 +9,7 @@ Spec: name mid_delta tail_mode(keep|smooth) extra_park_rows [anch_delta [win_del
 - anch_delta shifts the YP8 choice-window anchors (leapfrog_data/yp8_L22_138_anch.txt)
   for ticks 2..136, so the window follows a widened register top.
 - win_delta lengthens every LF_YP8 / LF_YP8_LATE window in leapfrog.rs's recipe.
+- cap replaces the recipe's HEO_PIN_PP_WALK_MAX_QUBITS (1536 in the wide parent).
 Defaults 0 reproduce the earlier variants byte for byte. Diagnostic only; score=NONE.
 """
 from pathlib import Path
@@ -19,6 +20,7 @@ src = Path("/home/hclau/ecdsa_research/dynamic-pool-20261015/wide-b3")
 name, mid, tail_mode, extra = sys.argv[1], int(sys.argv[2]), sys.argv[3], int(sys.argv[4])
 anch = int(sys.argv[5]) if len(sys.argv) > 5 else 0
 win = int(sys.argv[6]) if len(sys.argv) > 6 else 0
+cap = int(sys.argv[7]) if len(sys.argv) > 7 else 0
 assert tail_mode in ("keep", "smooth")
 assert extra % 2 == 0, "append rows in pairs to keep the final target parity"
 dest = root / name / "src-b3"
@@ -67,11 +69,20 @@ if win:
     (dest / lrel).write_text(s)
     changed.append(lrel)
 
+if cap:
+    lrel = "src/point_add/leapfrog.rs"
+    s = (dest / lrel).read_text()
+    old = '("HEO_PIN_PP_WALK_MAX_QUBITS", "1536")'
+    assert s.count(old) == 1, s.count(old)
+    (dest / lrel).write_text(s.replace(old, f'("HEO_PIN_PP_WALK_MAX_QUBITS", "{cap}")'))
+    if lrel not in changed:
+        changed.append(lrel)
+
 diff = subprocess.run(["diff", "-ruN", "-x", "target", "-x", "ops.bin", "-x", ".git", str(src / "src"), str(dest / "src")],
                       capture_output=True).stdout
 (root / name / "table.patch").write_bytes(diff)
 (root / name / "manifest.json").write_text(json.dumps({
     "name": name, "mid_delta": mid, "tail_mode": tail_mode, "extra_park_rows": extra,
-    "anch_delta": anch, "win_delta": win, "rows": row + extra, "source": str(src), "changed": changed,
+    "anch_delta": anch, "win_delta": win, "cap": cap or 1536, "rows": row + extra, "source": str(src), "changed": changed,
     "patch_sha256": hashlib.sha256(diff).hexdigest(), "score": None}, indent=2) + "\n")
 print("prepared", name, row + extra, changed)

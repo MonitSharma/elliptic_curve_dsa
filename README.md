@@ -103,10 +103,16 @@ the record, and that margin is the budget for making it genuinely correct.
   outputs in the leapfrog GCD walk rails. Of those 155, 98 have a target rail
   off by exactly ±2^k, and 55 keep a correct target but corrupt the source rail
   (an independent audit corrected our first count). 31 failures show no
-  walk-rail event and are not yet localized. Smoothing the walk's tail-width
-  cliff cuts failures by about a third for about 40 Toffolis. Widening mid-walk
-  rails costs about 2.3K Toffolis per bit and does not help, so the mid-walk
-  mechanism is still being traced.
+  walk-rail event and are not yet localized. Walk-only repairs have
+  plateaued:
+  - smoothing the tail-width cliff gives 7.2 → 5.8 expected failed batches per
+    test set, for +37 Toffolis;
+  - widening the rails *together with* their choice-window anchors by 2 bits
+    gives 4.2, for +4.7K Toffolis;
+  - +4 and +6 bits do no better.
+
+  A constant ~1.1 batches of non-walk failures remains in every variant. The
+  benchmark needs under 0.1.
   [Census](experiments/failure-census-20261015/STATUS.md) ·
   [trace](experiments/trace-value-20261015/STATUS.md) ·
   [widening](experiments/widen-walk-20261015/STATUS.md) ·
