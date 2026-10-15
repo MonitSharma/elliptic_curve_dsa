@@ -10,25 +10,29 @@ independent, and existing evidence, including the Q692 width result, is preserve
 
 ## Where we stand
 
-**16 October 2026, 05:09 Singapore — product search is active.** The frozen
+**16 October 2026, 06:09 Singapore — product search is active.** The frozen
 candidate passed its fresh failure-rate, proof and runtime gates. The new
 prefilter clears the measured search-cost gate; nonce screening starts at1,
 selects the lowest pass and remains in queue mode. This is ongoing research,
-with no new product benchmark result yet.
+with no new product benchmark result yet. The 06:09 checkpoint records 22.5 million
+distinct screened nonces without a pass.
 [Search status and provenance](experiments/product25-operational-20261016/STATUS.md).
 
-**16 October 2026, 01:45 Singapore — new complete local pass: 753,721
-Toffolis at Q1468**, 50 below our public Toffoli record. The unchanged
+**16 October 2026, 06:08 Singapore — official Toffoli record: 753,721
+Toffolis at Q1468**, 50 below our previous public Toffoli record. The unchanged
 benchmark passes all 9,024 shots with zero value, phase or ancilla failures.
 Nonce 644 is the lowest pass from 1 (731 screened). The final paired census
 passes at 5.77 failing batches per packet versus the parent's 5.80, across
-1,048,576 fresh shots each. It is **queued, not officially submitted**, and
-does not improve the product record.
+1,048,576 fresh shots each. Official evaluation confirms these metrics as
+[`03be8e19`](https://api.ecdsa.fail/api/submissions/03be8e19-ab3b-45c7-9c62-9d78970c4d95),
+source `b5adb653`. It is rejected solely because its product does not improve
+the product record; it is the independent public Toffoli minimum.
 [Benchmark and source evidence](experiments/wide15-record-20261016/STATUS.md).
-The earlier753,745/Q1464 complete pass remains a lower-width queued alternative.
+The earlier753,745/Q1464 complete pass is preserved as a lower-width alternative;
+it no longer improves the current independent Toffoli minimum.
 
-**15 October 2026, 19:19 Singapore — our submission now has the lowest publicly
-scored Toffoli count: 753,771 at 1,464 qubits.** The official evaluation of
+**Historical result, 15 October 2026, 19:19 Singapore — our previous publicly
+scored Toffoli minimum: 753,771 at 1,464 qubits.** The official evaluation of
 [`3f32acd2`](https://api.ecdsa.fail/api/submissions/3f32acd2-71bf-4cc7-bae6-7407be97fe3b)
 matches our complete local benchmark and is 7,385 Toffolis below the previous
 minimum of 761,156 (−0.97%). The service marks it **rejected solely because
@@ -70,7 +74,7 @@ excluded from these performance figures.
 | Objective | Public record | Our result | Next strict target |
 |---|---:|---|---:|
 | **Minimum logical qubits** | 677 | **692 — complete local pass**, not submitted | Q ≤ 676 |
-| **Minimum executed Toffolis** | **753,771 at Q1464 — ours** | **753,721/Q1468 complete local pass**, queued | T ≤ 753,770 |
+| **Minimum executed Toffolis** | **753,721 at Q1468 — ours** | **Officially scored**; score-only product rejection | T ≤ 753,720 |
 | **Minimum Q × T** | 939,347,948 at Q1234/T761,222 | No new qualified record | Q × T ≤ 939,347,947 |
 
 These remain three distinct records, with **product first, Toffolis second,
@@ -81,15 +85,14 @@ product. These are separate achievements.
 
 ![Why the low-Toffoli record and best product are different](docs/figures/record-tradeoffs.png)
 
-The next Toffoli target is **T ≤ 753,770**, at any allowed width. At our Q1464,
-the strict product threshold is **T ≤ 641,631**. At Q1235 it is **T ≤ 760,605**;
+The next Toffoli target is **T ≤ 753,720**, at any allowed width. At our Q1468,
+the strict product threshold is **T ≤ 639,882**. At Q1235 it is **T ≤ 760,605**;
 at Q1234 it is **T ≤ 761,221**. These are independent objectives, using rounded
 mean executed Toffolis rather than emitted gates.
 
-Snapshot: **1,572 public submissions · 1,231 eligible scored records ·
-51 public Pareto points**, analyzed 16 October 2026 at 05:06 Singapore.
-The new width minimum, Q677 (jackylee0424, `18912d63`), arrived after our
-Toffoli submission.
+Snapshot: **1,573 public submissions · 1,232 eligible scored records ·
+52 public Pareto points**, analyzed 16 October 2026 at 06:08 Singapore.
+The current width minimum is Q677 (jackylee0424, `18912d63`).
 [Full frontier and provenance](docs/frontier-results.md) ·
 [Machine-readable records](docs/data/latest-leaderboard.json) ·
 [Public API](https://api.ecdsa.fail/api/benchmarks/1ffb695a-309b-46b6-a728-2f97d8c7be74/submissions)
@@ -100,8 +103,8 @@ Only complete passing circuit evaluations appear in this table.
 
 | Circuit | Peak Q | Rounded mean executed T | Q × T | Provenance |
 |---|---:|---:|---:|---|
-| **Our fifteen-stage cache, nonce644** | **1,468** | **753,721** | **1,106,462,428** | [Unchanged9,024-shot benchmark](experiments/wide15-record-20261016/STATUS.md); local queued, stream`1d8c05ee`; final fresh census5.766 failures/packet |
-| **Our four-stage cache, nonce92** | **1,464** | **753,745** | **1,103,482,680** | [Unchanged9,024-shot benchmark](experiments/wide-record-20261015/STATUS.md); local queued, stream`ba9bd284`; final fresh census5.800 failures/packet |
+| **Our fifteen-stage cache, nonce644** | **1,468** | **753,721** | **1,106,462,428** | [Unchanged9,024-shot benchmark](experiments/wide15-record-20261016/STATUS.md); officially scored as`03be8e19`, source `b5adb653`, stream`1d8c05ee`; final fresh census5.766 failures/packet |
+| **Our four-stage cache, nonce92** | **1,464** | **753,745** | **1,103,482,680** | [Unchanged9,024-shot benchmark](experiments/wide-record-20261015/STATUS.md); complete local alternative, stream`ba9bd284`; final fresh census5.800 failures/packet |
 | **Our wide smooth Leapfrog, nonce 375** | **1,464** | **753,771** | **1,103,520,744** | [Official evaluation `3f32acd2`](https://api.ecdsa.fail/api/submissions/3f32acd2-71bf-4cc7-bae6-7407be97fe3b), source `5a7c3902`; also complete local pass, stream `01aad987`; census 5.47 failed batches/packet |
 | **Our original bank-swap v2** | **692** | **1,481,382,858** | **1,025,116,937,736** | [9,024-shot local pass](experiments/followup-20261015/bankswap-terminal/RESULT.md); streamed generation, unchanged protected evaluator |
 | Public C5 reproduction | 1,234 | 761,658 | 939,885,972 | [Complete passing reproduction](docs/data/server-verification.json), source `c5bb1ec8` |
@@ -162,9 +165,10 @@ the scored performance figures above.
   memory budget, but its complete benchmark reports three value failures,
   two phase-failure batches and three ancilla-failure batches. Diagnosis is
   continuing on the same failed inputs.
-- **Toffoli reduction:** the two complete local passes above are queued.
-  Exact product-cache sources also pass native checks and fresh censuses, but
-  still need an affordable certified search and complete benchmark. Their
+- **Toffoli reduction:** the 753,721/Q1468 complete pass is now officially scored;
+  the 753,745/Q1464 alternative is preserved. Product25 has an affordable
+  certified search running; product67 has native, fresh, universal and disabled
+  runtime qualification. Neither has a complete product benchmark result. Their
   diagnostic savings stay in the [current research report](experiments/product-exact-20261015/STATUS.md);
   the [older cache study](experiments/cache-retention-20261015/STATUS.md) uses a
   different baseline and does not establish the saving on our public source.
@@ -176,14 +180,17 @@ the scored performance figures above.
   forward-rail counterexamples. A widened primitive passes 43,680 exhaustive
   signed cases, but repairing tick 109 exposes another overflow at tick 110;
   the complete candidate remains incorrect. [New evidence](experiments/rail-repair-20261015/REPORT.md).
-- **Product record, measured on the public tip `4b2ec52f` (new):** the
+- **Historical exact-only search cost on public tip `4b2ec52f`:** the
   record circuit fails **17.69 batches per packet** on fresh inputs, and its
   fresh mean is 761,221.70 T, against a strict threshold below 761,221.5.
   Packet means vary by about 6 T. With our exact screener, a lowest-pass nonce
   search needs about 1.6×10⁸ nonces, about **58 days on 64 threads**. The
   width-free cache saves only **2.2 ± 1.2 T** on the tip. The product record
-  is therefore blocked until the failure rate drops to about 14 batches or
-  fewer, or a fast classical prefilter exists.
+  was blocked under that exact-only cost model. The new certified prefilter
+  gives a measured 19.609-hour mean projection at 48 threads on product25; this
+  is an expectation, not a completion guarantee. The search is now active.
+  [Current measured search](experiments/product25-operational-20261016/STATUS.md) ·
+  [New mask-cost figure and assumptions](experiments/search-cost-mask-20261016/STATUS.md).
   [Measurements and search-cost figure](experiments/product-tip-20261015/STATUS.md).
 - **Earlier product cycle:** no qualified improvement. Exact savings and
   unsuccessful width searches are preserved.
@@ -211,24 +218,25 @@ It is not the number of Toffolis written into the generated stream.
 
 ## Next work
 
-1. **Improve on the officially scored T753,771 result** (`3f32acd2`, Q1464).
-   Preserve its disclosure note and B3 dependency. Then stack the exact caching
-   savings (about −101 T; its roughly 5 extra cache qubits are acceptable for
-   the Toffoli objective), win back more failure rate on the wide circuit, and
-   reuse the screener (`experiments/nonce-screen-20261015/screen`).
-2. **Product record (blocked; see the
-   [measurements](experiments/product-tip-20261015/STATUS.md)):** the tip needs a
-   58-day search on 64 threads and has no T budget for failure-rate repairs.
-   Unblock it with a classical value-failure prefilter (leapfrog-walk replay
-   plus fast secp256k1 scalar multiplication), plus new exact width-free savings
-   of at least 12–15 T. Only then port to `4b2ec52f`.
-3. Gate every candidate with the fresh-input census. Screen nonces only on
-   frozen circuits at or below the beaten record's failure rate. Publish the
-   nonce, the census and the number screened.
-4. **Width record:** start from the public Q679 (`586a7673`) and Q680
-   (`eec4ffc8`) designs, not our Q692 bank-swap line. These streams are
-   about 1–2 billion ops, so stream them rather than loading them whole.
-   Preserve existing Q692 evidence and failed experiments.
+1. **Finish a product record first.** The frozen product25 search is active.
+   Preserve its source, ascending nonce ledger and disclosed fresh census;
+   any pass must reproduce the unchanged full benchmark. Product67 is the
+   stronger qualified alternative, with diagnostic savings documented in the
+   [research report](experiments/product-exact-20261015/STATUS.md).
+2. **Improve the official T753,721 record** (`03be8e19`, Q1468), aiming toward
+   roughly 753,670. Extra qubits are acceptable for this independent objective.
+   Keep failed fresh gates separate; do not resample them or count source
+   proxies as complete results.
+3. **Reduce failures cheaply on the current product source.** Attribute the
+   remaining current 4b failures, qualify complete source-defined precision
+   repairs, and prove fresh arithmetic-specific filters before combining them
+   with exact caches. Earlier B3 witnesses are historical evidence.
+4. Gate every frozen candidate with its predeclared fresh census and rate cap.
+   Publish nonce, census and number screened. This run remains queue; separate
+   user-authorized submissions are recorded explicitly.
+5. **Width record:** the public minimum is Q677 (`d9d5e991`); the next target
+   is Q676. Preserve the Q692 evidence and all failed experiments. Width is the
+   third research priority, independent of the product and Toffoli records.
 
 Only `src/point_add/` may change in a contestant submission. We preserve the
 harness, scorer, simulator, curve reference, dependencies and toolchain. We
