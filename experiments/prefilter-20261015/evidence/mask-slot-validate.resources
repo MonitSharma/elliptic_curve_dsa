@@ -1,0 +1,33 @@
+               total        used        free      shared  buff/cache   available
+Mem:          515350      259989      100066           9      162028      255360
+Swap:           8191         335        7856
+    PID %CPU   RSS COMMAND
+3174330 1739 119430784 /home/hclau/tools/miniforge3/envs/qob-lattice/bin/python problems/01-marketsplit/classical/ms_sieve.py external/QOBLIB/01-marketsplit/instances/ms_14_200_002.dat --out problems/01-marketsplit/results/sieve/ms_14_200_002.sol --threads 18
+3207770 1738 103186340 /home/hclau/tools/miniforge3/envs/qob-lattice/bin/python problems/01-marketsplit/classical/ms_sieve.py external/QOBLIB/01-marketsplit/instances/ms_14_200_003.dat --out problems/01-marketsplit/results/sieve/ms_14_200_003.sol --threads 18
+3845193  100 4951304 /home/hclau/ecdsa_research/product-exact-20261015/target-flags/release/product_paired_diagnostic /home/hclau/ecdsa_research/product-exact-20261015/repair-cache53-20261016/repair-14-retained-1024.bin /home/hclau/ecdsa_research/product-exact-20261015/repair-cache53-20261016/repair-15-anf-512.bin
+3845127  100 1717512 ./target-recursive-unfold-fast/release/product_paired_diagnostic product-to53-20261016/product-53-retained-1024.bin recursive-unfold-fast-20261016/product53-128.bin
+3843386  100 4052424 ./target-flags/release/product_paired_diagnostic product-to67-rank-20261016/product-63-retained-1024-start.bin product-to67-rank-20261016/product-64-anf-512-proxy.bin
+3841524  100 13783268 tool/target/release/global_rng_anf_mask_partial /home/hclau/ecdsa_research/product-exact-20261015/tip/ops.bin packets/audit.tsv 32 evidence/reset-projection-tip.summary.json evidence/reset-projection-symbols-tip.summary.json evidence/reset-projection-comparators.summary.json evidence/reset-projection-top1-complete.summary.json evidence/reset-projection-all-scopes-tip.summary.json evidence/reset-projection-carry.summary.json
+3846158  6.9 10600 sshd: hclau [priv]
+3958097  4.2 64052 /opt/TrendMicro/EndpointBasecamp/bin/tmxbc service run
+1705398  3.8 699880 /opt/ds_agent/ds_agent -w /var/opt/ds_agent -b -i -e /opt/ds_agent/ext
+1706320  2.8 222128 /opt/ds_agent/ds_am -g ../diag -v 5 -d /var/opt/ds_agent/am -P 1 -R
+1702756  1.0 84284 /usr/bin/alloy run --storage.path=/var/lib/alloy/data /etc/alloy/config.alloy
+3777359  0.6 10080 .venv/bin/python tools/hpc/runner.py run tools/hpc/jobs/01_sieve.jsonl --max-cores 36
+3824740  0.5 25448 python3 run_repair_cache53.py
+1702753  0.1 27316 /usr/bin/containerd
+1706202  0.1 47796 /opt/ds_agent/netagent/tm_netagent --metrics-file /var/opt/ds_agent/netagent/metrics.json --log-folder /var/opt/ds_agent/netagent/logs --ptn-folder /opt/ds_agent/netagent/pattern --jat-folder /opt/ds_agent/netagent/java/jattach --jex-folder /var/opt/ds_agent/netagentjava --log-console=false --log-level 1 --tmCfg WyJTc2xMaW51eEphdmFCdWlsZEVuYWJsZWQiLCJKYXZhQXR0YWNoIiwiRGlzYWJsZURvY2tlckJQRiIsIlNzbEluYm91bmQiLCJTc2xPdXRib3VuZCJd
+     17  0.0     0 [rcu_preempt]
+   2866  0.0 49052 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+3835523  0.0     0 [kworker/u292:2-events_power_efficient]
+3787514  0.0     0 [kworker/u291:3-writeback]
+1706111  0.0 17056 /opt/ds_agent/netagent/tm_netagent --metrics-file /var/opt/ds_agent/netagent/metrics.json --log-folder /var/opt/ds_agent/netagent/logs --ptn-folder /opt/ds_agent/netagent/pattern --jat-folder /opt/ds_agent/netagent/java/jattach --jex-folder /var/opt/ds_agent/netagentjava --log-console=false --log-level 1 --tmCfg WyJTc2xMaW51eEphdmFCdWlsZEVuYWJsZWQiLCJKYXZhQXR0YWNoIiwiRGlzYWJsZURvY2tlckJQRiIsIlNzbEluYm91bmQiLCJTc2xPdXRib3VuZCJd
+3772248  0.0     0 [kworker/u288:0-be_wq]
+3025376  0.0 112672 /home/hclau/.local/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/bin/codex -c features.code_mode_host=true app-server --listen unix://
+3684500  0.0     0 [kworker/u288:3-poll_megasas0_status]
+1706641  0.0 10620 /opt/ds_agent/dsa-connect main
+     16  0.0     0 [ksoftirqd/0]
+3809518  0.0     0 [kworker/u292:1-events_power_efficient]
+3828838  0.0     0 [kworker/u291:0-flush-252:0]
+4160417  0.0     0 [kworker/0:3-kacpi_notify]
+1706650  0.0 27936 /opt/ds_agent/dsa-connect hub

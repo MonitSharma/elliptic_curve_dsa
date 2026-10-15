@@ -22,11 +22,11 @@ files={str(p.relative_to(r)):dict(bytes=p.stat().st_size,sha256=sha_file(p)) for
 manifest=r/'evidence/local-archive-manifest.json'
 manifest.write_text(json.dumps(dict(included=len(selected),files=files,excluded_large_files=skipped,excluded_active_files=incomplete,terminal_checkpoint=terminal),indent=2)+'\n')
 selected.append(manifest)
-p=r/'evidence-local.tar.gz'
+p=r/('evidence-accelerator-supplement.tar.gz' if '--accelerator-supplement' in sys.argv else 'evidence-local.tar.gz')
 with tarfile.open(p,'w:gz',compresslevel=6) as tar:
  for src in selected:tar.add(src,arcname=str(src.relative_to(r)),recursive=False)
 sha=sha_file(p)
-(r/'evidence-local.tar.gz.sha256').write_text(sha+'  evidence-local.tar.gz\n')
+(r/(p.name+'.sha256')).write_text(sha+'  '+p.name+'\n')
 print(json.dumps(dict(archive=p.name,bytes=p.stat().st_size,sha256=sha,terminal_checkpoint=terminal,files=len(files),excluded_active=len(incomplete),excluded=skipped)))
 
-(r/'evidence/archive-mask-v3.exit').write_text('0\n')
+(r/('evidence/archive-accelerator-supplement.exit' if '--accelerator-supplement' in sys.argv else 'evidence/archive-mask-v3.exit')).write_text('0\n')

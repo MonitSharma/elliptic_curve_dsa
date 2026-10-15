@@ -1,0 +1,28 @@
+{
+  "status": "SEARCH_COST_PROJECTION_NOT_A_RESOURCE_RECORD",
+  "census_rate": 17.827239990234375,
+  "expected_nonces": 189376456.16378915,
+  "new_measured_threads": 48,
+  "mean_hours48": 19.609037984407045,
+  "conservative_startup_hours48": 23.14842982112143,
+  "ideal64_hours": {
+    "steady": 14.706778488305284,
+    "startup": 17.361322365841072
+  },
+  "median_hours48": 13.591949392384615,
+  "ninety_percent_hours48": 45.151478550849674,
+  "previous_original_exact_ideal64_hours": {
+    "expected_nonces": 189376456.16378915,
+    "failure_rate": 17.827239990234375,
+    "hours_simd_low": 61.59782090084999,
+    "hours_simd_high": 83.96696440964448,
+    "hours_protected": 1829.1518669384545
+  },
+  "source": "product25-operational-20261016/ACCEPTANCE.json",
+  "assumptions": [
+    "Fresh packet independence approximation",
+    "Constant observed early rejection cost across lambda",
+    "New48thread throughput actually measured; previous64thread scaling ideal",
+    "No resource record implied by search or diagnostic counts"
+  ]
+}

@@ -1,5 +1,13 @@
 # Product prefilter: exact screener faster; arithmetic rejection still disabled
 
+**16 October03:50 update:** the coordinator has accepted the separately proved
+input-conditioned v3 mask and complete universal candidate25 transfer, and
+started an operational ascending search. This replaces the earlier proof-gated
+status for certified known-bit witnesses. The heuristic arithmetic predictor
+still cannot reject on its own. Source/runtime acceptance, timing and active
+search provenance are in
+[the operational report](../product25-operational-20261016/STATUS.md).
+
 15 October 2026. **Research tooling only. No candidate, benchmark score or
 submission.** The exact full-channel screener is **3.38 times faster** in a
 paired 128-nonce comparison. With the separately validated C point backend,
@@ -436,3 +444,72 @@ and controls any source-transfer and screening gate. Full source/ABI/runtime
 binding is required for that gate. Large immutable binaries remain server-only
 with archive-manifest hashes; source, proof receipts, test logs, audit vectors,
 metadata, validators and negative experiments are archived locally.
+
+
+## Terminal accelerator supplement (16 October 2026)
+
+The separate partial-per-wire v4 proof passes 38 tests and four protected
+full-state containment runs. It retains actual symbolic output for every
+unresolved wire, rejects incomplete resource/scope traces, and checks zero-entry
+preconditions within application. Its exported Boolean mask is BYTE-IDENTICAL
+to frozen v3, so it adds no coverage. This is a useful negative improvement result;
+v3 remains the frozen source certificate.
+
+A separate protected transfer validator compares candidate25 physical MR streams
+with ORIGINAL zero-MR coordinates on v3-certified-known bits. All 2,214 inputs
+and eight independent candidate streams pass; 421 of 431 saved value failures
+remain certified. It checks candidate SHA256
+`180af069679ffa33b099b200d3337d6fc6c20a451a72508a40dea6617150dc64`,
+original stream SHA2a522394..., and frozen mask SHA560c12d5.... This finite replay
+supplements the coordinator's universal cache-equivalence transfer certificate;
+it does not establish transfer on its own. Its 16 native tests pass, exit is zero,
+and before/after hashes match.
+
+The frozen MRMASK01 program's backward compiled-node liveness removes only one
+node. Last-use slot scheduling reduces workspace from 506,558,784 to 339,456 bytes
+for 512 inputs, retaining 7,914,980 instructions and 5,304 live slots. Every plan
+instruction and final root is independently checked against its exact original
+node ID. Audit and 11 randomized 512-input trials across widths1..8 match every
+reference output word (393,216 words), with five corruption and five runtime
+negative controls. Its MRSLOT01 plan and evaluator remain separately frozen.
+
+Exact two-node fusion then reduces dispatch to 4,842,602 instructions using
+5,323 slots. MRSLOT02 keeps a16-byte instruction by packing third operand and
+destination in16-bit halves; the slot bound is explicit. Fused kinds reconstruct
+parent(child(a,b),c) for XOR, AND and OR. All operations and roots reconstruct the
+original v3 DAG under an independent checker. Exhaustive ternary truth tables,
+audit and randomized comparisons pass all widths, including 393,216 reference
+output words and 1,327,104 truth-case/root/width combinations. Five plan-corruption
+and five runtime controls reject. Caps and theorem coverage are unchanged.
+
+The fused plan SHA256 is
+`1ccbbfc4a45b8d359be9ce21eb4640c72bb9bfe9bffb35f5630c0d13da3f2f8a`;
+its evaluator library SHA256 is
+`dc8219ae84c21e244ec0e1b92a14e9d0705faf7ebced04a2663499a75a6af1a0`.
+Full512 workspace is 340,672 bytes; width64 workspace is 42,584 bytes. In one
+same-process comparison, full512 median is25.80ms versus60.42ms for the original
+DAG interpreter; width64 median is18.12ms. These are evaluator timings; integrated
+throughput and concurrent-worker performance are the coordinator's separate gate.
+Header mask_fused.h documents the complete ABI and inactive-word handling.
+No nonce search or submission was launched by this agent.
+
+
+## Bounded nary runtime alternatives: terminal performance negatives
+
+Fanout-one XOR expansion with cap8 leaves reduces the Boolean plan further to
+3,014,234 instructions and 5,295 slots when single-use AND leaves are absorbed
+as bounded sums of products. MRSLOT03 plan SHA256 is
+`65de4a60334f7484197735ab30d524b6d6d06e7cad101e192e19ee9b0e9c7326`.
+Every instruction/root reconstructs the original frozen v3 DAG; seven corrupt
+plan/source-map controls reject. Both looped and unrolled/branchless kernels pass
+all 508 bounded linear/product layouts over 2,015,532 exhaustive assignments,
+the earlier ternary truth tests, and all 393,216 audit/random reference words
+across widths1..8. The branchless variant's constant-one slot0 precondition is
+explicitly enforced and has two additional rejection controls.
+
+A controlled, randomized interleaved comparison on 16 fresh 512-input trials
+matches all 262,144 compared words. MRSLOT02 fused remains fastest: median17.71ms
+at64inputs and25.02ms at512inputs. Looped nary costs23.76/26.64ms; unrolled nary
+costs25.61/27.96ms. They are semantic passes and performance negatives, preserved
+without replacing the selected MRSLOT02 library or frozen v3 certificate. All
+owned research jobs are terminal; no live nonce search was launched by this agent.

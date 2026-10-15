@@ -1,0 +1,101 @@
+{
+  "status": "INDEPENDENT_READ_ONLY_REVIEW_FINDINGS_PENDING_OWNER_FIXES",
+  "created_utc": "2026-10-15T19:42:39.822276+00:00",
+  "files": {
+    "experiments\\product25-operational-20261016\\prepare.py": "c51fc4a6c7050c2d809847cd29e657a1c91bdb246ba20c1b42ce559fee44313c",
+    "experiments\\product25-operational-20261016\\search.rs": "d03f6ace486800cb11f4bffce289401a4003f13603f82547b250c4e4449152c3",
+    "experiments\\product25-operational-20261016\\coordinator.py": "baf999d8247f876ad98bf9cfde544d4af92fb46d5261adfe6c0c3098330fa43a",
+    "experiments\\product25-operational-20261016\\run-search.sh": "e25e759bc8d1440d6ba6215391c8db4e567f76e3f8ea20a9968cfa6bb9870a2e",
+    "experiments\\product-early-filter-20261016\\prepare.py": "fe79e3ed857b1bfd57729bf90aee55ea2036aced48769b3d61b720dae437716c",
+    "experiments\\product-early-filter-20261016\\early.rs": "e7151df4b3ea32d02b47334ba6618c5034d9e992df32d925256c8ff822262daa",
+    "experiments\\product-fused-filter-20261016\\masks.rs": "5c9eb4c0a6c8da2a9cc4cdfb2ea7f3462a88ec853c90d58765f5a6922664a06b",
+    "experiments\\prefilter-20261015\\review\\product25-snapshot\\baseline_body.rs": "2eaba78cab2b37dc964ec04bce7da751e91a33b066a82e53367dab3fd65777ab",
+    "experiments\\prefilter-20261015\\review\\product25-snapshot\\fast_curve_c.rs": "a20dfc90601d6d90d6695f1e8b1b6026fb6e4b8602dc73eb853d3bcbf8f2b56e",
+    "experiments\\prefilter-20261015\\review\\product25-snapshot\\fast_sim_wide.rs": "0082e2cf935fbe02bc61277342d1625d0f676a8628c05c5a7b63f10d41b89674",
+    "experiments\\prefilter-20261015\\review\\product25-snapshot\\main.rs": "ed5172301706d2147bdbf5792d84c018427be316c8bfcea2a5ab63be2d58f00a",
+    "experiments\\prefilter-20261015\\review\\product25-snapshot\\official.rs": "7401f33071d78932db1ad323922d7a058fbb455c4f0635c204d677b2af21521e",
+    "experiments\\prefilter-20261015\\review\\product25-snapshot\\packed_body.rs": "a197e260f9521ca03c85344b875a40d315318d1e290412aba55f9e6b6745a362",
+    "experiments\\prefilter-20261015\\review\\product25-snapshot\\simd_screen_ffi_wide.rs": "e821e59d994d1496aecabb1353ca1838b3b00ab5fc5d0b14d299fbf6151afca2"
+  },
+  "positive_checks": [
+    "fixed-four-lane full-window partition exact",
+    "796 prefix-requirement formula cases exact",
+    "declared1024/scored512 coordinate-bit mapping matches v3 metadata",
+    "per-point known mask uses P.x,P.y,A.x,A.y in LSB order",
+    "original zeroMR coordinate comparison uses pinned program/library",
+    "candidate own Fiat hashes header/fullprefix/nonce tail",
+    "lazy key skips compact accepted inputs identically to protected evaluator",
+    "physical MR consumed only after all9024 raw scalarpairs",
+    "early fallback clears state and checks value/phase/finalaux on all active shots",
+    "every possible pass receives full candidate protected9024 replay",
+    "source/plan/zeroMR library hashes pinned"
+  ],
+  "findings": [
+    {
+      "priority": "P1",
+      "location": "fast_curve_c.rs::FastCurveC::new / bind_operational",
+      "issue": "Resolved SCALAR_FAST_LIB/default scalar shared library is not hashed before use; accepted receipt does not currently bind backend or executable.",
+      "impact": "Incorrect or stale curve backend can produce wrong expected coordinates and authoritative false rejections.",
+      "action": "Pin resolved scalar path/hash to reviewed acceptance; check before dlopen and record executable binding."
+    },
+    {
+      "priority": "P2",
+      "location": "search.rs::bind_operational and CLI contract",
+      "issue": "Receipt lowest_pass_from1 is not compared with CLI first; equal worker lookahead/count and full-window count not enforced by child.",
+      "counterexample": {
+        "first": 1,
+        "count_each": 5,
+        "lookahead": 3,
+        "gaps_below_last": [
+          15,
+          18,
+          21
+        ]
+      },
+      "action": "Bind/assert operational first1,lookahead4096,count divisible4096 and matching four-worker layout."
+    },
+    {
+      "priority": "P2",
+      "location": "coordinator.py after worker wait",
+      "issue": "No final pass-directory rescan; smaller pass during last sleep may be omitted once all workers exit.",
+      "counterexample": {
+        "last_poll_best": 4097,
+        "final_pass_files": [
+          4097,
+          17
+        ],
+        "actual_lowest": 17
+      },
+      "action": "After wait re-read all atomic pass files and use minimum before prefix certification."
+    },
+    {
+      "priority": "P2",
+      "location": "coordinator.py prefix-complete condition",
+      "issue": "All progress files required even when a correctly stopped lane needs zero windows.",
+      "counterexample": {
+        "best": 1,
+        "required_rows": [
+          4096,
+          0,
+          0,
+          0
+        ],
+        "progress": [
+          4096,
+          null,
+          null,
+          null
+        ],
+        "exit_codes": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "action": "Missing progress counts as zero only for required0/exit0; positive requirement missing fails closed."
+    }
+  ],
+  "operational_root_files_modified": false,
+  "production_search_launched": false
+}

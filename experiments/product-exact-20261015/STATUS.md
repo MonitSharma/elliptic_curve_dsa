@@ -1,7 +1,19 @@
 # Exact product savings, 15 October 2026
 
-**Latest complete result: 58.15367794 ± 0.44249333 executed Toffolis saved per
-shot at unchanged Q1234**, measured on the frozen compact twenty-five-stage source.
+**Latest complete native/fresh-census result: 102.13839293 ± 0.44366693
+executed Toffolis saved per shot at unchanged Q1234**, on frozen67 stages.
+The coordinator's4 source-binding tests, normal generation and complete byte
+identity pass. Its full predeclared32,768-batch /2,097,152-shot census per source
+has candidate4162 failed batches (17.90899658 per packet), versus original4168
+(17.93481445), with0 dirty shots. The measured failure gate passes.
+See `PRODUCT67_FREEZE.json`, `product67-census-summary.json` and the coordinator's
+`product67-native-20261016` source/rows. A universal source-equivalence extension
+is running separately; the completed25 certificate alone does not certify67.
+No nonce search, complete official product benchmark or scored record is
+claimed here. The stream SHA256 is
+`268aefe234ede5eaab723e34e214b91f0bd8cac9b0f95d9ee90e3bf3ae8c951d`.
+
+The earlier complete25-stage result saves58.15367794 ± 0.44249333 T at Q1234.
 Normal native generation is byte-identical to the frozen external stream;
 all 27 new native stage tests pass. Its full, predeclared fresh census includes
 32,768 batches / 2,097,152 shots per source. The candidate has 4,143 failed
@@ -27,6 +39,16 @@ full byte identity. Its complete source/patch is preserved in the coordinator's
 `frozen-next-20261016` archive; its owned source tree was subsequently removed.
 This result does
 not replace the complete gate-passing twenty-five-stage source above.
+
+The separately predeclared67-stage continuation is now terminal with all512
+anchored state/phase/scratch comparisons passing. Both fixed256-shot families
+save102.47265625 T, at unchanged Q1234 (54,995 classical slots). These fixed
+proof-packet values remain diagnostic; the complete native source and separate
+fresh fixed32768-batch result are stated at the top. The frozen stream is
+`product-to67-rank-20261016/product-67-retained-1024-proxy.bin`, SHA256
+`268aefe234ede5eaab723e34e214b91f0bd8cac9b0f95d9ee90e3bf3ae8c951d`.
+See `PRODUCT67_FREEZE.json`; all67 stage configurations and the predetermined
+endpoint are retained. The failed53 gate remains unchanged and fully disclosed.
 
 The twenty-five-stage universal cache-equivalence audit is **terminal PASS**:
 95,801 leases and219,473 replaced uses, all stream/log/function/guard/donor/
@@ -343,3 +365,57 @@ per source, source hashes and fixed sample size. Retired waiting scripts, actual
 shell exit markers and explicit zero-row provenance are retained. Only the v3
 folder's complete fixed row count can establish completion; an idle shell's
 EXIT trap reporting0 after SIGTERM does not establish a completed census.
+
+The separate uniform precision-family source (coordinator/failure agent,
+`precision-family-20261016`) preserves the original source-window checks and
+repairs29 complete late forward folds. Its fixed4096-batch comparison has
+3 value repairs and0 value regressions, dirty0, but phase-failing batches rise
+334 to350. Total failed batches decrease528 to525; the resulting18.07251 per
+packet still exceeds18 (parent18.17578), so the standalone cap gate fails.
+Measured cost is43.5604 +/-1.4608 T. This does not remove the roughly1.1 failures
+cheaply. The source is frozen at SHA256
+`1cd3457b44bd21d65921ce0d5b8352573a9c6f2bb2706430d367f68e5a7e5522`.
+Our independently predeclared repair-plus53 cache recipe recomputes every
+lease from that corrected source, with checkpoint25/final53; no old leases
+are reused. It remains pending. Its separate final32768-batch gate compares
+against original4b, not only against the repair source. No nonce work follows
+from the repair-alone result or from checkpoint diagnostics.
+
+The repaired-source checkpoint25 now passes all512 anchored full state/phase/
+scratch comparisons, saving58.5390625 T versus the repair parent on both fixed
+packets. It retains Q1234, with59,303 classical slots. Its source is frozen in
+`REPAIR25_FREEZE.json` (stream SHA256
+`88ca09bf109e5b60f658415f108fb21c28cadfa27bbbe676bd8530a594eb4001`).
+The final53 recipe continues unchanged. The coordinator's current exact
+SIMD census uses32-bit classical IDs and the protected harness uses64-bit IDs;
+an obsolete16-bit classical limit must not reject a valid source. Actual
+tool-specific limits remain checked and no IDs are truncated.
+
+The bounded recursive inverse-XOR study retains its original slow resource
+history. A separate sorted-vector implementation gives exactly the same
+descending-ID normalization,64 expansion limit and4x live-term budget;5120
+direct ordered-set oracle comparisons and all6 support/5 cache phase tests
+pass. The old group was retired only after those tests, before any stream
+was emitted. The same four fixed cases continue under
+`recursive-unfold-fast-20261016`; this is a speed replacement, not a changed
+candidate-selection rule. Its diagnostic results are pending.
+
+The fixed wide67 scratch continuation is terminal with all512 anchored state,
+classical, phase and scratch comparisons passing. Both proof packets save
+60.94921875 T against original5a. Actual final resources are Q1556 and5,185
+classical slots (Q1490 belonged to checkpoint49). Density-based later cycles
+added width without further measured T savings on these packets. The frozen
+final67 stream SHA256 is
+`813d2863eebbba814c8d0b64eec28cdc6e47965a6d1839e3d0bb082dadaa80dd`;
+see `WIDE67_FREEZE.json`. No native source, fresh failure gate or score is
+claimed for that stream yet. A separately predeclared four ranked7-stage
+cycles67→95 now runs on the existing scratch, using compact classical flags,
+with no further quantum slots offered. It leaves frozen67 untouched.
+
+The product67 universal append audit runs the same frozen v2 verifier on all
+42 stages26..67, composing with the immutable complete25 certificate. Its
+two workers have12GiB address caps each. Product67's native source and complete
+fresh census pass independently; universal67 remains pending until every
+symbolic stage and source/hash obligation completes. The separately frozen
+product67→95 declaration waits for that audit before launch. All current
+analysis/address caps sum to80GiB and no unrelated workloads are changed.

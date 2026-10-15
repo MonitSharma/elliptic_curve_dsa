@@ -1,0 +1,32 @@
+{
+  "status": "FOCUSED_REVIEW_V2_FOUR_FINDINGS_RESOLVED_NO_ADDITIONAL_SEMANTIC_BLOCKER",
+  "created_utc": "2026-10-15T19:44:02.710615+00:00",
+  "reviewed_files": {
+    "experiments\\product25-operational-20261016\\prepare.py": "c51fc4a6c7050c2d809847cd29e657a1c91bdb246ba20c1b42ce559fee44313c",
+    "experiments\\product25-operational-20261016\\search.rs": "d03f6ace486800cb11f4bffce289401a4003f13603f82547b250c4e4449152c3",
+    "experiments\\product25-operational-20261016\\coordinator.py": "baf999d8247f876ad98bf9cfde544d4af92fb46d5261adfe6c0c3098330fa43a",
+    "experiments\\product25-operational-20261016\\build-v2.sh": "02f791531384d27934120c45695c2053c94a8a5c396934363c596a96606e9f1c",
+    "experiments\\product25-operational-20261016\\run-search.sh": "e25e759bc8d1440d6ba6215391c8db4e567f76e3f8ea20a9968cfa6bb9870a2e"
+  },
+  "resolved_findings": [
+    "resolved scalar backend pinned before dlopen to archived validated3bb230 hash",
+    "operational CLI first1/lookahead4096/count134217728/divisible asserted",
+    "terminal passfiles rescanned and minimum used before prefix test",
+    "missing progress interpreted0 and accepted onlywhen required0/allworker exit0"
+  ],
+  "actual_ast_prefix_cases": 6,
+  "actual_ast_terminal_rescan_race_fixture": true,
+  "first_review_prefix_enumerations": 796,
+  "source_mask_mapping_inputs": 1024,
+  "scored_mask_mapping_outputs": 512,
+  "operational_code_modified_by_reviewer": false,
+  "production_search_launched_by_reviewer": false,
+  "remaining_owner_gates": [
+    "successful fresh generated operational build",
+    "terminal throughput cost gate and resource preflight",
+    "source/runtime acceptance receipt",
+    "complete JSONL audit of all lower nonces before lowestpass certification",
+    "unchanged official benchmark on selected fullsource"
+  ],
+  "scope": "Focused reviewed-source logic only; not a claim a production search has run or a new record is qualified"
+}

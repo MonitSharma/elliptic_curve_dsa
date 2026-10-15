@@ -1,0 +1,33 @@
+               total        used        free      shared  buff/cache   available
+Mem:          515350      253204      106353           9      162526      262145
+Swap:           8191         335        7856
+    PID %CPU   RSS COMMAND
+3174330 1740 119430784 /home/hclau/tools/miniforge3/envs/qob-lattice/bin/python problems/01-marketsplit/classical/ms_sieve.py external/QOBLIB/01-marketsplit/instances/ms_14_200_002.dat --out problems/01-marketsplit/results/sieve/ms_14_200_002.sol --threads 18
+3207770 1738 103186340 /home/hclau/tools/miniforge3/envs/qob-lattice/bin/python problems/01-marketsplit/classical/ms_sieve.py external/QOBLIB/01-marketsplit/instances/ms_14_200_003.dat --out problems/01-marketsplit/results/sieve/ms_14_200_003.sol --threads 18
+3849806  800  4992 ps -eo pid,pcpu,rss,args --sort=-pcpu
+3847753  110 594624 /home/hclau/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin/rustc --crate-name build_circuit --edition=2021 src/bin/build_circuit.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C opt-level=3 -C lto=thin -C codegen-units=1 --check-cfg cfg(docsrs,test) --check-cfg cfg(feature, values()) -C metadata=88e6b12a78569622 -C extra-filename=-6bc27964ed3d512e --out-dir /home/hclau/ecdsa_research/precision-repair-20261016/observer-tip/target/release/deps -C strip=debuginfo -L dependency=/home/hclau/ecdsa_research/precision-repair-20261016/observer-tip/target/release/deps --extern alloy_primitives=/home/hclau/ecdsa_research/precision-repair-20261016/observer-tip/target/release/deps/liballoy_primitives-f0bfeaf4c0c9c25e.rlib --extern quantum_ecc=/home/hclau/ecdsa_research/precision-repair-20261016/observer-tip/target/release/deps/libquantum_ecc-19e0ebd6b95f656b.rlib --extern ruint=/home/hclau/ecdsa_research/precision-repair-20261016/observer-tip/target/release/deps/libruint-5c7f18d9c42c3638.rlib --extern sha3=/home/hclau/ecdsa_research/precision-repair-20261016/observer-tip/target/release/deps/libsha3-79175648d97fd57d.rlib --extern zstd=/home/hclau/ecdsa_research/precision-repair-20261016/observer-tip/target/release/deps/libzstd-c6f232725fb5037d.rlib -L native=/home/hclau/ecdsa_research/precision-repair-20261016/observer-tip/target/release/build/zstd-sys-1237589b9b4b0c85/out
+3849602  102 1448752 ./target-flags/release/product_paired_diagnostic product-to67-rank-20261016/product-65-retained-128-proxy.bin product-to67-rank-20261016/product-66-retained-512-start.bin
+3848658  100 2611908 /home/hclau/ecdsa_research/product-exact-20261015/target-flags/release/product_paired_diagnostic /home/hclau/ecdsa_research/product-exact-20261015/repair-cache53-20261016/repair-15-anf-512.bin /home/hclau/ecdsa_research/product-exact-20261015/repair-cache53-20261016/repair-16-retained-128.bin
+3846216  100 9209492 ./target-scratch/release/product_paired_diagnostic wide-to67-scratch-20261016/wide-57-retained-512.bin wide-to67-scratch-20261016/wide-58-retained-1024.bin
+3845127  100 2000436 ./target-recursive-unfold-fast/release/product_paired_diagnostic product-to53-20261016/product-53-retained-1024.bin recursive-unfold-fast-20261016/product53-128.bin
+3849125 99.3 1261320 /home/hclau/ecdsa_research/product-mask-filter-20261016/tool/target/release/value_prefilter /home/hclau/ecdsa_research/product-exact-20261015/candidate-product-final25/ops.bin 1 128 2 /home/hclau/ecdsa_research/product-mask-filter-20261016/shadow128.jsonl /home/hclau/ecdsa_research/prefilter-20261015/model-source 128
+3849752  5.4 10684 sshd: hclau [priv]
+3849604  5.2 45504 /home/hclau/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin/cargo build --release --locked --offline --manifest-path source-observer/Cargo.toml --bin build_circuit
+3958097  4.2 63576 /opt/TrendMicro/EndpointBasecamp/bin/tmxbc service run
+1705398  3.8 634896 /opt/ds_agent/ds_agent -w /var/opt/ds_agent -b -i -e /opt/ds_agent/ext
+1706320  2.8 222516 /opt/ds_agent/ds_am -g ../diag -v 5 -d /var/opt/ds_agent/am -P 1 -R
+3849124  1.8 16704 python3 run.py
+1702756  1.0 84284 /usr/bin/alloy run --storage.path=/var/lib/alloy/data /etc/alloy/config.alloy
+3846290  0.8 46404 /home/hclau/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin/cargo build --release --locked --offline --manifest-path source-observer/Cargo.toml --bin build_circuit
+3777359  0.6 10080 .venv/bin/python tools/hpc/runner.py run tools/hpc/jobs/01_sieve.jsonl --max-cores 36
+3849540  0.5 10668 sshd: hclau [priv]
+3824740  0.5 25448 python3 run_repair_cache53.py
+3849595  0.2  3828 bash run-source-map.sh
+1702753  0.1 27316 /usr/bin/containerd
+1706202  0.1 48164 /opt/ds_agent/netagent/tm_netagent --metrics-file /var/opt/ds_agent/netagent/metrics.json --log-folder /var/opt/ds_agent/netagent/logs --ptn-folder /opt/ds_agent/netagent/pattern --jat-folder /opt/ds_agent/netagent/java/jattach --jex-folder /var/opt/ds_agent/netagentjava --log-console=false --log-level 1 --tmCfg WyJTc2xMaW51eEphdmFCdWlsZEVuYWJsZWQiLCJKYXZhQXR0YWNoIiwiRGlzYWJsZURvY2tlckJQRiIsIlNzbEluYm91bmQiLCJTc2xPdXRib3VuZCJd
+     17  0.0     0 [rcu_preempt]
+3835523  0.0     0 [kworker/u292:2-writeback]
+3847313  0.0 10656 sshd: hclau [priv]
+   2866  0.0 49052 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+3844797  0.0     0 [kworker/u291:2-flush-252:0]
+3787514  0.0     0 [kworker/u291:3-flush-252:0]

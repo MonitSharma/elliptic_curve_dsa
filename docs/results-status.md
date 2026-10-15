@@ -1,6 +1,17 @@
 # Results and submission status
 
-**03:20 prefilter checkpoint:** frozen input-conditioned v3 masks pass symbolic
+**03:50 operational checkpoint:** product25 ascending search started03:47 on
+48threads after complete source-bound mask/transfer/runtime/census/cost gates.
+No pass or product record is claimed. New measured mean cost19.6hours at48threads
+(23.1hours including repeated startup) clears the about-one-day gate.
+[Accepted search](../experiments/product25-operational-20261016/STATUS.md) ·
+[Updated search-cost figure](../experiments/search-cost-mask-20261016/STATUS.md).
+Product67 now passes native byte identity and its sole32768-batch fresh gate:
+102.13839±0.44367T saved atQ1234,4162vs4168 failed batches, dirty0. Universal67
+certification is running; it is not a benchmark record. Wide67Q1556 native
+qualification is running. The best complete queued T remains753721/Q1468.
+
+**03:17 prefilter checkpoint:** frozen input-conditioned v3 masks pass symbolic
 source binding,33native tests,2,214inputs under8MR streams and independent C audit.
 The bounded original-source integration passes protected128/partial cases and
 the known positive9024-shot control;1,024nonces/16workers take1.853312seconds.

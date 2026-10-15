@@ -1,11 +1,41 @@
 # Agent handoff: start here
 
-Last updated 16 October 2026, 03:20 Singapore. This page is for an AI agent (or
+Last updated 16 October 2026, 03:50 Singapore. This page is for an AI agent (or
 person) continuing the work. It holds the current state, the rules, the tools
 and the next steps in order. Details live in the linked reports. Do not copy
 numbers from older reports without checking the date.
 
-**03:20 checkpoint:** complete queued T753721/Q1468 remains best. Frozen v3
+**03:50 active search:** root started frozen product25 at03:47:11,4processes×12
+threads, source180af069... from nonce1, lowestpass only, queue mode. All gates
+are accepted in receipt2c33d3e2...; independent reviewa53ced52... closes four
+bookkeeping/backend findings. Selected mask560c12d5..., fusedplan1ccbbfc4...,
+libdc8219ae..., originalscalar3bb230... are immutable. Exact early fallback
+matches every q/b/phase and physicalMR position on a full9024packet; every
+potential pass still gets protected full confirmation. Four-worker262144 timing
+takes115.355s with startup, mean projection19.609h at48threads, conservative23.148h.
+First checkpoint03:48:41 records188416complete rows/lowerprefix180224; no pass.
+Monitor `/home/hclau/ecdsa_research/product25-operational-20261016/{passes,worker*-progress.json,search.log,search.exit}`.
+Do not overwrite/restart this directory or modify selected runtime/source.
+Before claiming lowestpass audit every lower JSONL disposition, then unchanged
+native benchmark/final predeclared census/pre-tail identity audit. Source and
+live atomic progress are preserved in checkpoint-evidence.tar.gz; full active
+logs remain server-only. Keep≥100GiB available and total research≤64threads.
+
+Product67 native/static reproduction and fixed32768 fresh gate PASS:
+source268aefe2...,Q1234,102.13839±0.44367T saving,4162vs4168failed,lambda17.909
+vs17.935,dirty0. Full sources/patch/census35-artifact archive verified. Active
+native tree product67-native-20261016/product67/candidate retained. Agent's
+universal67 append audit2×12GiB is running before maskreuse; no67nonce search.
+Originalmask runtime workspace must cover max original/candidate metadata and
+physical ABI must match on any futurevariant. Wide67 finalQ1556 (not earlier
+checkpoint1490),60.9492T diagnostic; rootnative qualification uses2workers/source.
+Wide95 ranked cycles are active; product95 waits until universal67 completes.
+Repair53 recomputation and exact recursive follow-ups continue. Failure agent
+has a source-defined zeroT/zeroQ frontseam extra-borrow-bit repair under proof;
+both inherited lowfold cuts are preserved, no packet-selected repairs.
+Public03:16 refresh remains Q678,T753771,product939347948. Best queuedcompleteT753721.
+
+**03:17 checkpoint:** complete queued T753721/Q1468 remains best. Frozen v3
 input-conditioned mask SHA560c12d5... is terminal:7,914,981nodes,33tests,
 2,214inputs×8MR streams, expanded-definition audit and independent C audit pass.
 The1,034-file prefilter archive2787c305... is root-verified. Original-source

@@ -1,0 +1,181 @@
+   Compiling value_prefilter v0.1.0 (/home/hclau/ecdsa_research/prefilter-20261015/tool)
+warning: unused imports: `Arc`, `AtomicUsize`, `Mutex`, and `Ordering`
+  --> src/bin/mask_validate_transfer.rs:14:17
+   |
+14 | use std::sync::{Arc, Mutex, atomic::{AtomicUsize, Ordering}};
+   |                 ^^^  ^^^^^           ^^^^^^^^^^^  ^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: constant `NUM_TESTS` is never used
+  --> src/bin/mask_validate_transfer.rs:30:7
+   |
+30 | const NUM_TESTS: usize = 9024;
+   |       ^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `secp256k1` is never used
+   --> src/bin/mask_validate_transfer.rs:136:4
+    |
+136 | fn secp256k1() -> WeierstrassEllipticCurve {
+    |    ^^^^^^^^^
+
+warning: function `fiat_shamir_seed` is never used
+   --> src/bin/mask_validate_transfer.rs:168:4
+    |
+168 | fn fiat_shamir_seed(ops: &[Op]) -> sha3::Shake256Reader {
+    |    ^^^^^^^^^^^^^^^^
+
+warning: struct `Expr` is never constructed
+ --> src/bin/../input_anf_dag16.rs:5:29
+  |
+5 | #[derive(Clone,Copy)]struct Expr{kind:u8,a:u32,b:u32,random:bool}
+  |                             ^^^^
+
+warning: struct `InputPoly` is never constructed
+ --> src/bin/../input_anf_dag16.rs:6:42
+  |
+6 | #[derive(Clone,PartialEq,Eq,Hash)]struct InputPoly{constant:bool,atoms:Vec<u32>}
+  |                                          ^^^^^^^^^
+
+warning: struct `Dag` is never constructed
+ --> src/bin/../input_anf_dag16.rs:7:8
+  |
+7 | struct Dag{nodes:Vec<Expr>,polys:Vec<std::sync::Arc<InputPoly>>,monomials:Vec<std::sync::Arc<[u32]>>,mono_cache:std::collections::Has...
+  |        ^^^
+
+warning: multiple associated items are never used
+  --> src/bin/../input_anf_dag16.rs:9:5
+   |
+ 8 | impl Dag{
+   | -------- associated items in this implementation
+ 9 |  fn new()->Self{let p0=std::sync::Arc::new(InputPoly{constant:false,atoms:Vec::new()});let p1=std::sync::Arc::new(InputPoly{constant...
+   |     ^^^
+10 |  fn find(&self,mut id:u32)->u32{while self.parents[id as usize]!=id{id=self.parents[id as usize];}id}
+   |     ^^^^
+11 |  fn unite(&mut self,a:u32,b:u32){let a=self.find(a);let b=self.find(b);if a!=b{self.parents[a.max(b)as usize]=a.min(b);}}
+   |     ^^^^^
+12 |  fn mono(&mut self,key:Vec<u32>)->u32{if let Some(id)=self.mono_cache.get(key.as_slice()){return *id;}let id=self.monomials.len().tr...
+   |     ^^^^
+13 |  fn atomic(&mut self,kind:u8,a:u32,b:u32,random:bool)->u32{let id=self.nodes.len().try_into().unwrap();let mono=self.mono(vec![id]);...
+   |     ^^^^^^
+14 |  fn variable(&mut self,random:bool)->u32{self.atomic(2,0,0,random)}
+   |     ^^^^^^^^
+15 |  fn complementary(&self,a:u32,b:u32)->bool{let a=self.find(a);let b=self.find(b);self.polys[a as usize].constant!=self.polys[b as us...
+   |     ^^^^^^^^^^^^^
+16 |  fn has_and_factor(&self,expr:u32,factor:u32)->bool{let expr=self.find(expr);let factor=self.find(factor);let n=self.nodes[expr as u...
+   |     ^^^^^^^^^^^^^^
+17 |  fn merge_xor(a:&[u32],b:&[u32])->Vec<u32>{let mut out=Vec::with_capacity(a.len()+b.len());let(mut i,mut j)=(0,0);while i<a.len()||j...
+   |     ^^^^^^^^^
+18 |  fn unfold(&self,atoms:Vec<u32>)->Vec<u32>{if atoms.len()>16{return atoms;}let def=|id:u32|{let m=&self.monomials[id as usize];if m....
+   |     ^^^^^^
+19 |  fn reduce(&mut self,constant:bool,atoms:Vec<u32>,kind:u8,a:u32,b:u32)->u32{let atoms=self.unfold(atoms);if atoms.len()>16{let id=if...
+   |     ^^^^^^
+20 |  fn edge(&mut self,a:u32,b:u32,out:u32){let key=(a.min(b),a.max(b));if let Some(old)=self.xor_edges.get(&key){self.unite(*old,out);}...
+   |     ^^^^
+21 |  fn xor(&mut self,a:u32,b:u32)->u32{let a=self.find(a);let b=self.find(b);if a==b{return 0;}if a==0{return b;}if b==0{return a;}let ...
+   |     ^^^
+22 |  fn not(&mut self,a:u32)->u32{let a=self.find(a);if a==0{return 1;}if a==1{return 0;}let p=self.polys[a as usize].clone();let poly=s...
+   |     ^^^
+23 |  fn multiply_monomials(&mut self,a:u32,b:u32)->u32{let mut key=self.monomials[a as usize].to_vec();key.extend_from_slice(&self.monom...
+   |     ^^^^^^^^^^^^^^^^^^
+24 |  fn and(&mut self,a:u32,b:u32)->u32{let a=self.find(a);let b=self.find(b);if a==0||b==0||self.complementary(a,b){return 0;}if a==1{r...
+   |     ^^^
+
+warning: struct `GlobalPoly` is never constructed
+ --> src/bin/../global_rng_anf_retained_masks.rs:2:57
+  |
+2 | #[derive(Clone,PartialEq,Eq,PartialOrd,Ord,Hash)]struct GlobalPoly(Vec<(Vec<u32>,u32)>);
+  |                                                         ^^^^^^^^^^
+
+warning: enum `GlobalKey` is never used
+ --> src/bin/../global_rng_anf_retained_masks.rs:3:40
+  |
+3 | #[derive(Clone,PartialEq,Eq,Hash)]enum GlobalKey{Norm(GlobalPoly),And(GlobalPoly,GlobalPoly)}
+  |                                        ^^^^^^^^^
+
+warning: struct `GlobalAnf` is never constructed
+ --> src/bin/../global_rng_anf_retained_masks.rs:4:8
+  |
+4 | struct GlobalAnf{dag:Dag,next:u32,cap:usize,capped:usize,degree:usize,intern:std::collections::HashMap<GlobalKey,(u32,u32)>,intern_by...
+  |        ^^^^^^^^^
+
+warning: multiple associated items are never used
+  --> src/bin/../global_rng_anf_retained_masks.rs:6:5
+   |
+ 5 | impl GlobalAnf{
+   | -------------- associated items in this implementation
+ 6 |  fn new(cap:usize)->Self{Self{dag:Dag::new(),next:0,cap,capped:0,degree:16,intern:std::collections::HashMap::new(),intern_bytes:0,hi...
+   |     ^^^
+ 7 |  fn constant(x:u32)->GlobalPoly{if x==0{GlobalPoly(Vec::new())}else{GlobalPoly(vec![(Vec::new(),x)])}}
+   |     ^^^^^^^^
+ 8 |  fn fresh(&mut self)->GlobalPoly{let id=self.next;self.next=self.next.checked_add(1).unwrap();GlobalPoly(vec![(vec![id],1)])}
+   |     ^^^^^
+ 9 |  fn or(&mut self,a:u32,b:u32)->u32{let a=self.dag.find(a);let b=self.dag.find(b);if a==1||b==1{return 1;}if a==0{return b;}if b==0||...
+   |     ^^
+10 |  fn summary(&mut self,p:&GlobalPoly)->(u32,u32){let(mut c,mut d)=(0,0);for(k,v)in&p.0{if k.is_empty(){c=self.dag.xor(c,*v)}else{d=se...
+   |     ^^^^^^^
+11 |  fn key_bytes(k:&GlobalKey)->usize{let p=|p:&GlobalPoly|64+p.0.iter().map(|(k,_)|40+k.len()*4).sum::<usize>();match k{GlobalKey::Nor...
+   |     ^^^^^^^^^
+12 |  fn opaque(&mut self,c:u32,d:u32,key:GlobalKey)->GlobalPoly{self.capped+=1;if d==0{return Self::constant(c);}let(id,mask)=if let Som...
+   |     ^^^^^^
+13 | let mut p=Self::constant(c);p.0.push((vec![id],mask));p}
+14 |  fn capped_terms(&mut self,mut terms:std::collections::BTreeMap<Vec<u32>,u32>)->GlobalPoly{let c=terms.remove(&Vec::new()).unwrap_or...
+   |     ^^^^^^^^^^^^
+15 |  fn xor(&mut self,a:&GlobalPoly,b:&GlobalPoly)->GlobalPoly{if a==b{return Self::constant(0);}if a.0.is_empty(){return b.clone();}if ...
+   |     ^^^
+16 |  fn and(&mut self,a:&GlobalPoly,b:&GlobalPoly)->GlobalPoly{if a.0.is_empty()||b.0.is_empty(){return Self::constant(0);}if a==b{retur...
+   |     ^^^
+17 |  fn not(&mut self,a:&GlobalPoly)->GlobalPoly{self.xor(a,&Self::constant(1))}
+   |     ^^^
+
+warning: field `old_live` is never read
+ --> src/bin/../mask_program.rs:5:68
+  |
+5 | struct MaskProgram{nodes:Vec<MaskNode>,roots:Vec<u32>,inputs:usize,old_live:usize}
+  |        ----------- field in this struct                            ^^^^^^^^
+
+warning: struct `MaskBuilder` is never constructed
+ --> src/bin/../mask_program.rs:6:8
+  |
+6 | struct MaskBuilder{nodes:Vec<MaskNode>,cache:std::collections::HashMap<(u32,u32,u32),u32>,monos:std::collections::HashMap<u32,u32>}
+  |        ^^^^^^^^^^^
+
+warning: associated items `new`, `input`, `binary`, and `monomial` are never used
+  --> src/bin/../mask_program.rs:8:5
+   |
+ 7 | impl MaskBuilder{
+   | ---------------- associated items in this implementation
+ 8 |  fn new()->Self{Self{nodes:vec![MaskNode{kind:0,a:0,b:0,aux:0},MaskNode{kind:1,a:0,b:0,aux:0}],cache:std::collections::HashMap::new(...
+   |     ^^^
+ 9 |  fn input(&mut self,port:u32)->u32{let id=self.nodes.len()as u32;self.nodes.push(MaskNode{kind:2,a:port,b:0,aux:0});id}
+   |     ^^^^^
+10 |  fn binary(&mut self,kind:u32,mut a:u32,mut b:u32)->u32{assert!((3..=5).contains(&kind));if a>b{std::mem::swap(&mut a,&mut b);}match...
+   |     ^^^^^^
+11 |  fn monomial(&mut self,dag:&Dag,id:u32,map:&[u32])->u32{if let Some(out)=self.monos.get(&id){return *out;}let mut out=1;for old in d...
+   |     ^^^^^^^^
+
+warning: method `save` is never used
+  --> src/bin/../mask_program.rs:15:5
+   |
+13 | impl MaskProgram{
+   | ---------------- method in this implementation
+14 |  fn eval(&self,input:&[u64])->Vec<u64>{assert_eq!(input.len(),self.inputs);let mut v=vec![0u64;self.nodes.len()];for(i,n)in self.nod...
+15 |  fn save(&self,path:&str){let mut f=std::io::BufWriter::new(File::create(path).unwrap());f.write_all(b"MRMASK01").unwrap();for count...
+   |     ^^^^
+
+warning: function `compile_mask_program` is never used
+  --> src/bin/../mask_program.rs:17:4
+   |
+17 | fn compile_mask_program(alg:&GlobalAnf,polys:&[&GlobalPoly],input_ids:&[u32])->MaskProgram{
+   |    ^^^^^^^^^^^^^^^^^^^^
+
+warning: function `export_mask_program` is never used
+  --> src/bin/../mask_program.rs:28:4
+   |
+28 | fn export_mask_program(alg:&GlobalAnf,regs:&[Vec<QubitOrBit>],q:&[GlobalPoly],b:&[GlobalPoly],inputs:&[(u32,QubitOrBit)],prefix:&str...
+   |    ^^^^^^^^^^^^^^^^^^^
+
+warning: `value_prefilter` (bin "mask_validate_transfer") generated 18 warnings (run `cargo fix --bin "mask_validate_transfer" -p value_prefilter` to apply 1 suggestion)
+    Finished `release` profile [optimized] target(s) in 6.51s

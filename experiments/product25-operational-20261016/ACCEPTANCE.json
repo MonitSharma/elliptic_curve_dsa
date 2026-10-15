@@ -1,0 +1,83 @@
+{
+  "status": "SOURCE_BOUND_MASK_TRANSFER_AND_RUNTIME_ACCEPTED_FOR_ASCENDING_SEARCH",
+  "accepted_utc": "2026-10-15T19:46:51.522379+00:00",
+  "candidate_stream_sha256": "180af069679ffa33b099b200d3337d6fc6c20a451a72508a40dea6617150dc64",
+  "mask_sha256": "560c12d5044dd895a4ef32adc905cdde48a780a196b3b28a75951c7f27b4fe9d",
+  "lowest_pass_from": 1,
+  "submission_mode": "queue",
+  "failure_gate_pass": true,
+  "cost_gate_pass": true,
+  "census": {
+    "parent": {
+      "batches": 32768,
+      "shots": 2097152,
+      "failed_batches": 4147,
+      "failures_per_packet": 17.844451904296875,
+      "mean_t": 761222.9944109917,
+      "census_sha256": "3ee6ca1ed4b4b56fa12c5585680c33a5c4f933b09c3906b11e2cb2984eaa953f",
+      "failure_per_packet_se": 0.25897248834082864
+    },
+    "candidate": {
+      "batches": 32768,
+      "shots": 2097152,
+      "failed_batches": 4143,
+      "failures_per_packet": 17.827239990234375,
+      "mean_t": 761164.8407330513,
+      "census_sha256": "9aa7bcef5d7171fb741d95ba5bf0a631be8bfd13c8e46eb9856e9da32a7e3f54",
+      "failure_per_packet_se": 0.25886564921887356
+    },
+    "paired_saving_t": 58.15367794036865,
+    "paired_se_t": 0.4424933252282606,
+    "label": "product25-frozen-20261016",
+    "nonce_search_performed": false,
+    "score": null,
+    "measured_failure_gate_pass": true,
+    "declaration": {
+      "label": "product25-frozen-20261016",
+      "batches_per_source": 32768,
+      "shots_per_source": 2097152,
+      "threads_per_source": 6,
+      "baseline": "tip/ops.bin",
+      "candidate": "candidate-product-final25/ops.bin",
+      "source_ops_sha256": {
+        "tip/ops.bin": "2a522394cdf3e6a0df7784ad4db761030933c1f7ccd0ff8e641d68ec7a4dab3e",
+        "candidate-product-final25/ops.bin": "180af069679ffa33b099b200d3337d6fc6c20a451a72508a40dea6617150dc64"
+      },
+      "source_freeze": "PRODUCT25_FREEZE.json",
+      "selection": "Include every batch0..32767; no interim rate selection, circuit changes or nonce search",
+      "nonce_search_performed": false,
+      "score": null
+    }
+  },
+  "expected_nonces": 189376456.16378915,
+  "measured_expected_hours_48threads": {
+    "steady": 19.609037984407045,
+    "including_startup_per_timing_packet": 23.14842982112143
+  },
+  "ideal64thread_projection_hours": {
+    "steady": 14.706778488305284,
+    "startup": 17.361322365841072
+  },
+  "four_worker_wall_seconds": [
+    100.560031,
+    98.378177,
+    96.062264,
+    95.869868
+  ],
+  "root_semantic_review": "Universal source-bound input-conditioned dependency upper bounds; immutable input-only cap definitions; wrong originalzeroMR output bit only when known; completed universal25 cache equivalence/per-input transfer; candidateownFiat and exactfull fallback. Sampled replay supplements this argument. Trusted Boolean/decoder/HMR-CZ kernel, not a proof-assistant proof.",
+  "independent_operational_review_sha256": "a53ced524261db8de42913da30eb3dd2cccfe5f00a1d93e92f346e9cbee94312",
+  "universal_certificate_sha256": "4857f8255c6aa85f0c6cb84720c6d5690aaca060f2758a8c517bd43fc5e2f04e",
+  "runtime_artifacts": {
+    "/home/hclau/ecdsa_research/product-exact-20261015/candidate-product-final25/ops.bin": "180af069679ffa33b099b200d3337d6fc6c20a451a72508a40dea6617150dc64",
+    "/home/hclau/ecdsa_research/prefilter-20261015/evidence/mr-mask-tip-v3.bin": "560c12d5044dd895a4ef32adc905cdde48a780a196b3b28a75951c7f27b4fe9d",
+    "/home/hclau/ecdsa_research/prefilter-20261015/evidence/mr-mask-tip-v3-fused.bin": "1ccbbfc4a45b8d359be9ce21eb4640c72bb9bfe9bffb35f5630c0d13da3f2f8a",
+    "/home/hclau/ecdsa_research/prefilter-20261015/libmask_fused.so": "dc8219ae84c21e244ec0e1b92a14e9d0705faf7ebced04a2663499a75a6af1a0",
+    "/home/hclau/ecdsa_research/scalar-fast-20261015/libscalar_fast_batch.so": "3bb2304219fb336795ea88d4bf81174883cdd33702f5975819b812c3dffca30f"
+  },
+  "remaining_gates": [
+    "Every lower nonce disposition accounted before selecting lowestpass",
+    "Unchanged full native benchmark on selected final source",
+    "Final predeclared failure census and identity-tail prefix audit"
+  ],
+  "score": null
+}

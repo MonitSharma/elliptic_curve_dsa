@@ -1,0 +1,39 @@
+{
+  "name": "Per-input, per-scored-bit conditional-mask transfer",
+  "kind": "conditional theorem companion; completed certificate unchanged",
+  "frozen_equivalence_certificate": "CACHE_EQUIVALENCE_CERTIFICATE.json",
+  "frozen_equivalence_certificate_sha256": "4857f8255c6aa85f0c6cb84720c6d5690aaca060f2758a8c517bd43fc5e2f04e",
+  "frozen_receipt_sha256": "d11388b1b357f6c6003b63cc80d7a4941bd52c31ad7367677e2958d47987fb2e",
+  "original_stream_sha256": "2a522394cdf3e6a0df7784ad4db761030933c1f7ccd0ff8e641d68ec7a4dab3e",
+  "candidate_stream_sha256": "180af069679ffa33b099b200d3337d6fc6c20a451a72508a40dea6617150dc64",
+  "projection": "An original output bit covered by the audited equivalence. Value filtering uses original scored coordinate bits; added private flags are excluded.",
+  "notation": {
+    "x": "A fixed original ABI input; final candidate Fiat inputs must be computed from the final candidate source/stream.",
+    "b": "A bit in the audited original output projection.",
+    "r": "An arbitrary assignment to all original MR events.",
+    "s": "An arbitrary assignment to all candidate MR events, including added private cache MR.",
+    "pi": "The audited projection of candidate MR assignments onto preserved original MR events.",
+    "F_b": "The original frozen function's output bit.",
+    "G_b": "The audited candidate's corresponding output bit."
+  },
+  "certified_equivalence": "For every x and s, G_b(x,s) = F_b(x,pi(s)).",
+  "separate_per_input_premise": "For the fixed x and b, F_b(x,r) is constant for every original MR assignment r.",
+  "conclusion": "For the fixed x and b, for every candidate MR assignment s, G_b(x,s) = F_b(x,0).",
+  "proof": "Substitute r=pi(s) into the per-input constant-bit premise. The same constant equals F_b(x,0). The completed equivalence covers arbitrary added cache MR assignments.",
+  "global_original_MR_independence_required": false,
+  "premise_must_be_universal_over_original_MR_for_this_input_and_bit": true,
+  "particular_exported_mask_or_evaluator_certified_by_this_companion": false,
+  "safe_rejection_rule": "On final candidate Fiat inputs x, reject when an independently certified constant bit's original zero-MR value disagrees with the expected curve bit. Matching masked bits or an empty mask does not establish a pass; full simulation remains required for survivors.",
+  "new_nonce_requirements": {
+    "audited_pre_tail_ops": 14142533,
+    "audited_pre_tail_sha3_256": "24027e53f377f24195d290b5d343c519156cfa3ae45f64529def428a901f8480",
+    "tail_ops": 96,
+    "tail_identity": "Exactly48 adjacent XX identity pairs on the authorized qubits; no additional functional change.",
+    "Fiat_inputs": "Derive from the actual final nonce candidate source/stream; never reuse old source inputs or packets.",
+    "qualification": "Existing fresh failure-census, nonce disclosure and unchanged full benchmark rules still apply."
+  },
+  "trusted_base": "Exactly the frozen certificate's conservative immutable Boolean kernels and HMR/CZ gadget theorem, plus the separately established per-input mask and source-bound zero-MR evaluator premises. No sampled replay or heuristic mask substitutes for those premises.",
+  "phase_and_dirty_checks_required_for_survivors": true,
+  "score": null,
+  "nonce_search_performed_by_this_companion": false
+}

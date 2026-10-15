@@ -1,6 +1,6 @@
 from pathlib import Path,PurePosixPath
-import tarfile,hashlib,json,re,datetime
-r=Path(__file__).parent.resolve();p=r/'evidence-local.tar.gz';sha=hashlib.sha256(p.read_bytes()).hexdigest();assert sha==(r/'evidence-local.tar.gz.sha256').read_text().split()[0]
+import tarfile,hashlib,json,re,datetime,sys
+r=Path(__file__).parent.resolve();p=r/(sys.argv[1] if len(sys.argv)>1 else 'evidence-local.tar.gz');sha=hashlib.sha256(p.read_bytes()).hexdigest();assert sha==(r/(p.name+'.sha256')).read_text().split()[0]
 redirected=[]
 with tarfile.open(p) as t:
  manifest=json.loads(t.extractfile('evidence/local-archive-manifest.json').read())
@@ -17,4 +17,4 @@ with tarfile.open(p) as t:
   assert target.resolve().is_relative_to(r);target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(t.extractfile(member).read())
 (r/'evidence/nonportable-names.json').write_text(json.dumps(redirected,indent=2)+'\n')
 report=dict(archive_sha256=sha,verified_files=len(manifest['files']),all_archived_manifest_hashes_match=True,terminal_checkpoint=manifest['terminal_checkpoint'],excluded_active_files=manifest['excluded_active_files'],verified_utc=datetime.datetime.now(datetime.timezone.utc).isoformat())
-(r/'evidence/local-checkpoint-verification.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report))
+(r/('evidence/'+sys.argv[2] if len(sys.argv)>2 else 'evidence/accelerator-supplement-checkpoint-verification.json' if len(sys.argv)>1 else 'evidence/local-checkpoint-verification.json')).write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report))

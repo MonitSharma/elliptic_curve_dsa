@@ -10,6 +10,13 @@ independent, and existing evidence, including the Q692 width result, is preserve
 
 ## Where we stand
 
+**16 October 2026, 03:50 Singapore — product search is active.** The frozen
+candidate passed its fresh failure-rate, proof and runtime gates. The new
+prefilter clears the measured search-cost gate; nonce screening starts at1,
+selects the lowest pass and remains in queue mode. This is ongoing research,
+with no new product benchmark result yet.
+[Search status and provenance](experiments/product25-operational-20261016/STATUS.md).
+
 **16 October 2026, 01:45 Singapore — new complete local pass: 753,721
 Toffolis at Q1468**, 50 below our public Toffoli record. The unchanged
 benchmark passes all 9,024 shots with zero value, phase or ancilla failures.

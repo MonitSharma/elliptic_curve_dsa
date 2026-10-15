@@ -1,6 +1,30 @@
 # Research state and next experiments
 
-## Source-bound mask checkpoint:16October2026,03:20Singapore
+## Operational prefilter and product67 qualification:16October2026,03:50Singapore
+
+Frozen product25 is now searching from nonce1 on48threads in queue mode. The
+complete chain combines source-bound input-conditioned MR masks, universal25
+cache equivalence, candidate-own Fiat inputs, protected known-bit replays and
+full confirmation of any survivor. Independent review closed scalar-library
+binding, fixed partition arguments, terminal-pass races and zero-work progress.
+Exact early fallback matches full protected q/b/phase/MR on9024shots and cuts
+the rare fallback35.245→1.458seconds. Four-process262144 timing is115.355seconds
+including startup; mean search19.609hours at48threads (conservative23.148).
+The accepted operational receipt is2c33d3e2..., not a resource score.
+[Active search](../experiments/product25-operational-20261016/STATUS.md) ·
+[New search-cost figure](../experiments/search-cost-mask-20261016/STATUS.md).
+
+Product67's predetermined endpoint passes512 anchored comparisons, four native
+binding tests and exact normal generation. Its sole32768 paired fresh sample
+saves102.13839±0.44367T atQ1234 and passes4162candidate versus4168parent failures,
+lambda17.909vs17.935,zero dirty. Universal67 audit is underway; no nonce/score
+claim follows yet. Wide67Q1556 is in native/fresh qualification; rank-start/proxy
+cycles towide95 are separate fixed experiments. Nary mask fusion is semantically
+exact but slower than selected MRSLOT02, so remains a negative. Scalar windows
+18/20/21/22 are exact;20 remains selected. Cheap frontseam phase repair proof
+preserves both inherited lowfold cuts and all unrelated source operations.
+
+## Source-bound mask checkpoint:16October2026,03:17Singapore
 
 Frozen v3 has7,914,981exact input-only mask nodes, source2a522394..., no opaque
 terminals admitted as known inputs. The exporter re-proves selected contracts,
