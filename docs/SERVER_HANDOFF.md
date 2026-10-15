@@ -12,9 +12,14 @@ width-free cache rewrite (`cache/32-200000.bin`, 2.2 ± 1.2 T saving). Launcher
 `run-tip.sh` exited; no jobs remain. No search was started.
 [Report](../experiments/product-tip-20261015/STATUS.md).
 
-**Official submission complete, 19:19 Singapore:** the clean candidate at
-`/home/hclau/ecdsa_research/nonce-screen-20261015/candidate`, branch
-`research/toffoli-smooth-n375`, commit `7ff2ba53`, was uploaded as `3f32acd2`.
+**Official submission complete, 19:19 Singapore:** the clean candidate
+(commit `7ff2ba53`, formerly the `nonce-screen-20261015/candidate` worktree on
+branch `research/toffoli-smooth-n375`) was uploaded as `3f32acd2`. On
+15 October at night that worktree, its branch and `product-tip-20261015/tip`
+were removed at the user's request. The source survives as
+`nonce-screen-20261015/candidate-7ff2ba53.patch` (and in the repository
+evidence), and the scored copy is `5a7c3902` upstream. The server clone now has
+only `main`.
 Official metrics match the local pass: **Q1464/T753,771/product 1,103,520,744**.
 Official candidate source is `5a7c3902`. The rejection reason is only
 `score did not improve current best`; this is the lowest publicly scored T,

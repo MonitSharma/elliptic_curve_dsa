@@ -82,8 +82,8 @@ threads have been fine.
 | Official benchmark | `./benchmark.sh` in a candidate tree | Appends a row to `results.tsv`; revert that before committing. Template: `experiments/nonce-screen-20261015/run-benchmark.sh`. |
 | Stream cache rewriter (external) | `cache-idle-20261015/target/release/product_paired_diagnostic` | `CACHE_ATOM_CAP=32 CACHE_PRODUCT_CAP=200000 product_paired_diagnostic IN.bin OUT.bin`. For **measurement only**: a submission must generate the stream itself, so port the pass into `src/point_add`, as `experiments/toffoli-readiness-20261015/prepare.py` / `prepare-wide.py` do (`lazy_cache.rs` plus `ops = lazy_cache::optimize(ops);` before the nonce tail). |
 | Public challenge clone | `toffoli/` (origin = Layr-Labs/ecdsafail-challenge) | `git fetch origin <sha>`, then `git worktree add ../<exp>/tip <sha>`. |
-| Product tip worktree | `product-tip-20261015/tip` | `4b2ec52f`, built; stream `tip/ops.bin`. |
-| Official-entry source | `nonce-screen-20261015/candidate` | branch `research/toffoli-smooth-n375`, commit `7ff2ba53` (scored as `5a7c3902`). |
+| Product tip source | public commit `4b2ec52f` | Removed from the server on 15 Oct. Recreate: `git -C toffoli fetch origin 4b2ec52fc55da796aa8f5ef851290297e8706424 && git -C toffoli worktree add --detach ../<exp>/tip 4b2ec52f`, then `cargo build --release --locked --offline --bin build_circuit` and run `build_circuit` (about 2 min) to get `ops.bin` (SHA-256 `2a522394…`). |
+| Official-entry source | patch `experiments/nonce-screen-20261015/evidence/candidate-7ff2ba53.patch.gz` (also `nonce-screen-20261015/candidate-7ff2ba53.patch` on the server) | Worktree and branch removed on 15 Oct. Recreate: `git -C toffoli worktree add --detach ../<exp>/cand b3c9fdd6` and `git -C ../<exp>/cand am <patch>`. Rebuilt stream must hash to `01aad987…`. The scored copy is `5a7c3902` on the public challenge repo. |
 
 Locally, use `.venv-research/Scripts/python.exe` (there is no `python` on
 PATH). Run `scripts/test_leaderboard.py` and `scripts/test_frontier_plot.py`
@@ -92,7 +92,7 @@ after touching the data or plots.
 ## 6. Next steps, in priority order
 
 1. **Lower our own Toffoli record (cheap, a few hours).** Start from commit
-   `7ff2ba53`. Port the larger-expression cache (cache-retention 128/1,000,000,
+   `7ff2ba53` (recreate it from its patch; see the tools table). Port the larger-expression cache (cache-retention 128/1,000,000,
    about −101 T, about +5 qubits; width is free for this record) into
    `src/point_add` as a final pass before the nonce tail. Then do these in order:
    1. Paired-census it against the official stream (same label) to confirm T
@@ -121,6 +121,14 @@ after touching the data or plots.
    the lead.
 
 ## 7. Pitfalls already hit
+
+- **Git hygiene (user preference):** keep only the `main` branch, locally, on
+  GitHub and in the server clone. Use detached worktrees for experiments,
+  save each experiment's patch under `experiments/`, and remove the worktree
+  when the experiment ends. The three submodules are pinned (detached, no
+  branches) and fetch only upstream `main`. About 48 older detached
+  worktrees from 14–15 October remain in the server clone (`git -C toffoli
+  worktree list`); check for unsaved source edits before removing any.
 
 - **Windows shell:** the Bash tool runs Git Bash. Long heredocs inside
   `ssh '...'` can fail to parse; write files with an editor tool and `scp` them.
