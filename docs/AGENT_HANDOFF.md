@@ -19,6 +19,9 @@ numbers from older reports without checking the date.
 6. [`docs/SERVER_HANDOFF.md`](SERVER_HANDOFF.md) for server directories of
    older experiments.
 
+To run continuously, use the cycle and backlog in
+[`docs/AUTONOMOUS_PROMPT.md`](AUTONOMOUS_PROMPT.md) (paste it with `/loop`).
+
 ## 2. State of the three records
 
 Refresh first: `.venv-research/Scripts/python.exe scripts/analyze-leaderboard.py --refresh --plot`
