@@ -1,0 +1,78 @@
+   Compiling value_prefilter v0.1.0 (/home/hclau/ecdsa_research/prefilter-20261015/tool)
+warning: unused imports: `Arc`, `AtomicUsize`, `Mutex`, and `Ordering`
+  --> src/bin/mask_validate.rs:14:17
+   |
+14 | use std::sync::{Arc, Mutex, atomic::{AtomicUsize, Ordering}};
+   |                 ^^^  ^^^^^           ^^^^^^^^^^^  ^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: constant `NUM_TESTS` is never used
+  --> src/bin/mask_validate.rs:30:7
+   |
+30 | const NUM_TESTS: usize = 9024;
+   |       ^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `secp256k1` is never used
+   --> src/bin/mask_validate.rs:136:4
+    |
+136 | fn secp256k1() -> WeierstrassEllipticCurve {
+    |    ^^^^^^^^^
+
+warning: function `fiat_shamir_seed` is never used
+   --> src/bin/mask_validate.rs:168:4
+    |
+168 | fn fiat_shamir_seed(ops: &[Op]) -> sha3::Shake256Reader {
+    |    ^^^^^^^^^^^^^^^^
+
+warning: field `old_live` is never read
+ --> src/bin/../mask_program.rs:5:68
+  |
+5 | struct MaskProgram{nodes:Vec<MaskNode>,roots:Vec<u32>,inputs:usize,old_live:usize}
+  |        ----------- field in this struct                            ^^^^^^^^
+
+warning: method `save` is never used
+  --> src/bin/../mask_program.rs:15:5
+   |
+13 | impl MaskProgram{
+   | ---------------- method in this implementation
+14 |  fn eval(&self,input:&[u64])->Vec<u64>{assert_eq!(input.len(),self.inputs);let mut v=vec![0u64;self.nodes.len()];for(i,n)in self.nod...
+15 |  fn save(&self,path:&str){let mut f=std::io::BufWriter::new(File::create(path).unwrap());f.write_all(b"MRMASK01").unwrap();for count...
+   |     ^^^^
+
+warning: function `export_mask_program` is never used
+  --> src/bin/../mask_program.rs:28:4
+   |
+28 | fn export_mask_program(alg:&GlobalAnf,regs:&[Vec<QubitOrBit>],q:&[GlobalPoly],b:&[GlobalPoly],inputs:&[(u32,QubitOrBit)],prefix:&str...
+   |    ^^^^^^^^^^^^^^^^^^^
+
+warning: `value_prefilter` (bin "mask_validate" test) generated 7 warnings (run `cargo fix --bin "mask_validate" -p value_prefilter --tests` to apply 1 suggestion)
+    Finished `release` profile [optimized] target(s) in 11.42s
+     Running unittests src/bin/mask_validate.rs (tool/target/release/deps/mask_validate-36991b1675d3df4f)
+
+running 16 tests
+
+thread 'mask_program_tests::undeclared_input_or_opaque_terminal_is_rejected' (3812400) panicked at src/bin/../mask_program.rs:22:218:
+fresh undeclared opaque/input variable cannot be exported as known input
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test global_anf_tests::all_two_input_two_rng_assignments_exact ... ok
+test global_anf_tests::capped_constant_separation_and_nonrecycled_ids ... ok
+test global_anf_tests::capped_dependency_mask_is_sound_for_each_input ... ok
+test global_anf_tests::conditional_compute_reset_and_negative_rng_dependency ... ok
+test input_anf_tests::square_free_distribution_proves_conditional_cancellation ... ok
+test mask_program_tests::always_unknown_root_drops_unreachable_input_dag ... ok
+test input_product_cap_tests::retained_input_product_constants_cancel_exactly ... ok
+test mask_program_tests::capped_unknown_uses_input_coefficient_not_fresh_input_port ... ok
+test mask_program_tests::undeclared_input_or_opaque_terminal_is_rejected ... ok
+test retained_mask_tests::semantically_equal_recomputed_mask_reuses_exact_retained_function ... ok
+test retained_mask_tests::unrelated_opaque_keys_never_share_a_fresh_symbol ... ok
+test or_mask_tests::saturation_never_expands_a_large_dependency_mask ... ok
+test mask_program_tests::retained_large_xor_and_products_compile_exactly ... ok
+test input_anf_tests::monomial_overflow_atoms_keep_exact_semantics ... ok
+test global_anf_tests::input_dag_exact_boolean_rewrites_all_assignments ... ok
+test input_anf_tests::large_input_only_caps_keep_constants_and_semantics ... ok
+
+test result: ok. 16 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.07s
+

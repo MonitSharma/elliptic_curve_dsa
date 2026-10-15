@@ -1,0 +1,33 @@
+               total        used        free      shared  buff/cache   available
+Mem:          515350      236408      132250           9      153425      278941
+Swap:           8191         335        7856
+    PID %CPU   RSS COMMAND
+3174330 1739 103132748 /home/hclau/tools/miniforge3/envs/qob-lattice/bin/python problems/01-marketsplit/classical/ms_sieve.py external/QOBLIB/01-marketsplit/instances/ms_14_200_002.dat --out problems/01-marketsplit/results/sieve/ms_14_200_002.sol --threads 18
+3207770 1738 103186340 /home/hclau/tools/miniforge3/envs/qob-lattice/bin/python problems/01-marketsplit/classical/ms_sieve.py external/QOBLIB/01-marketsplit/instances/ms_14_200_003.dat --out problems/01-marketsplit/results/sieve/ms_14_200_003.sol --threads 18
+3766864  800  4988 ps -eo pid,pcpu,rss,args --sort=-pcpu
+3765830  174 2447988 ./tool/target/release/value_prefilter /home/hclau/ecdsa_research/product-exact-20261015/tip/ops.bin 1 1024 2 timing1024-t2.jsonl /home/hclau/ecdsa_research/prefilter-20261015/model-source 1024
+3766757  105 1066076 /usr/bin/python3 /home/hclau/ecdsa_research/frozen-next-20261016/product53/generated-prepare.py
+3766646  102 885164 ./target-factored-cache/release/product_paired_diagnostic tip/ops.bin factored-cache-20261016/product-128-witness-only-retained.bin
+3762283  100 11183508 tool/target/release/global_rng_anf_reset_masks /home/hclau/ecdsa_research/product-exact-20261015/tip/ops.bin packets/audit.tsv 32 evidence/reset-projection-tip.summary.json evidence/reset-projection-symbols-tip.summary.json evidence/reset-projection-comparators.summary.json evidence/reset-projection-top1-complete.summary.json evidence/reset-projection-all-scopes-tip.summary.json evidence/reset-projection-carry.summary.json
+3763843 99.7 1359356 tool/target/release/projection_export ../product-exact-20261015/tip/ops.bin evidence/certified-reduced-tip-carry 32 evidence/reset-projection-tip.summary.json evidence/reset-projection-symbols-tip.summary.json evidence/reset-projection-comparators.summary.json evidence/reset-projection-top1-complete.summary.json evidence/reset-projection-all-scopes-tip.summary.json evidence/reset-projection-carry.summary.json
+3958097  4.2 62572 /opt/TrendMicro/EndpointBasecamp/bin/tmxbc service run
+1705398  3.8 540804 /opt/ds_agent/ds_agent -w /var/opt/ds_agent -b -i -e /opt/ds_agent/ext
+3766756  3.2 17276 python3 prepare.py product53
+1706320  2.8 218208 /opt/ds_agent/ds_am -g ../diag -v 5 -d /var/opt/ds_agent/am -P 1 -R
+1702756  1.0 84152 /usr/bin/alloy run --storage.path=/var/lib/alloy/data /etc/alloy/config.alloy
+3777359  0.6 10080 .venv/bin/python tools/hpc/runner.py run tools/hpc/jobs/01_sieve.jsonl --max-cores 36
+1702753  0.1 27372 /usr/bin/containerd
+1706202  0.1 46192 /opt/ds_agent/netagent/tm_netagent --metrics-file /var/opt/ds_agent/netagent/metrics.json --log-folder /var/opt/ds_agent/netagent/logs --ptn-folder /opt/ds_agent/netagent/pattern --jat-folder /opt/ds_agent/netagent/java/jattach --jex-folder /var/opt/ds_agent/netagentjava --log-console=false --log-level 1 --tmCfg WyJTc2xMaW51eEphdmFCdWlsZEVuYWJsZWQiLCJKYXZhQXR0YWNoIiwiRGlzYWJsZURvY2tlckJQRiIsIlNzbEluYm91bmQiLCJTc2xPdXRib3VuZCJd
+     17  0.0     0 [rcu_preempt]
+   2866  0.0 49088 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+1706111  0.0 17152 /opt/ds_agent/netagent/tm_netagent --metrics-file /var/opt/ds_agent/netagent/metrics.json --log-folder /var/opt/ds_agent/netagent/logs --ptn-folder /opt/ds_agent/netagent/pattern --jat-folder /opt/ds_agent/netagent/java/jattach --jex-folder /var/opt/ds_agent/netagentjava --log-console=false --log-level 1 --tmCfg WyJTc2xMaW51eEphdmFCdWlsZEVuYWJsZWQiLCJKYXZhQXR0YWNoIiwiRGlzYWJsZURvY2tlckJQRiIsIlNzbEluYm91bmQiLCJTc2xPdXRib3VuZCJd
+3733920  0.0     0 [kworker/u288:1-be_wq]
+3756231  0.0     0 [kworker/u291:2-flush-252:0]
+3705855  0.0     0 [kworker/u291:1-flush-252:0]
+3025376  0.0 112900 /home/hclau/.local/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/bin/codex -c features.code_mode_host=true app-server --listen unix://
+3684500  0.0     0 [kworker/u288:3-ext4-rsv-conversion]
+3717901  0.0     0 [kworker/u291:0-events_unbound]
+1706641  0.0 10572 /opt/ds_agent/dsa-connect main
+     16  0.0     0 [ksoftirqd/0]
+4160417  0.0     0 [kworker/0:3-kacpi_notify]
+3729361  0.0     0 [kworker/u292:5-flush-8:0]

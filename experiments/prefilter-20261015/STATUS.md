@@ -367,3 +367,72 @@ a previously replaced region, since intermediate-state identity is not implied.
 At tick126 the prefix proves q573, q583 and q1217 zero; even only q573=0 suffices
 for the local theorem. These are proved constraints, never borrowed-cleanliness
 assumptions. No global RNG-free output certificate has yet been obtained.
+
+
+## Frozen input-conditioned MR certificate v3 (16 October 2026)
+
+This terminal checkpoint supersedes the earlier active-job notes. Every owned
+proof/export/validation job has completed, or was explicitly stopped with an
+incomplete negative receipt. The earlier global-all-output proof attempts remain
+negative: all 512 output expressions have unresolved symbolic MR support. The
+new positive result is conditional on the supplied input and individual output
+bit; it does not claim universal independence of all output bits.
+
+The exact outer square-free MR polynomial retains coefficient functions as an
+input-only Boolean DAG. OR of all nonconstant-term coefficients is a conservative
+MR-dependence upper bound. A zero upper bound proves that output bit independent
+of every physical measurement stream and every conservative capped unknown.
+Wrong zero-MR scored output AND the resulting known mask is therefore a sound
+value-failure witness. Unknown bits require the original exact fallback. Phase
+and garbage-only failures also require original validation.
+
+Frozen artifact: `evidence/mr-mask-tip-v3.bin`, SHA256
+`560c12d5044dd895a4ef32adc905cdde48a780a196b3b28a75951c7f27b4fe9d`.
+It contains 7,914,981 nodes and is 126,641,776 bytes. The MRMASK01 format and
+1024-port/512-output mapping are in MR-MASK-ABI.txt and its JSON manifest.
+Declared input registers are P.x, P.y, A.x, A.y, each LSB first. Output roots are
+MR-dependence upper bounds; known equals NOT root. Fresh MR/opaque symbols never
+become declared input ports. Every input-only cap has an exact retained
+immutable definition; missing definitions or undeclared terminals abort export.
+
+The certificate binds ORIGINAL source 4b2ec52fc55da796aa8f5ef851290297e8706424,
+stream SHA256
+`2a522394cdf3e6a0df7784ad4db761030933c1f7ccd0ff8e641d68ec7a4dab3e`.
+It initializes all 1024 declared input bits symbolically and all auxiliary wires
+zero. All physical MR events, including inactive ones, receive fresh symbols.
+Local contracts bind exact operation digests; any zero-entry predicates are
+checked against the current global symbolic prefix. Reuse on a changed source
+requires an independent universal coordinate-equivalence transfer certificate.
+No such transfer is claimed by this report.
+
+Compactness comes from `input_anf_dag_trace.rs`, which retains each capped
+input-only function's exact binary construction beside the independently retained
+expanded semantic definition. `mask_program_trace.rs` emits those immutable
+constructions, retaining kind8 monomial-product definitions, and rejects missing
+or undeclared terminals. `global_rng_anf_mask_trace_body.rs` re-proves the selected
+local contracts and checks the compiled masks against the full expanded
+coefficient DAG on the audit inputs. Expanded v1 and compact v3 produce identical
+audit masks. The expanded oracle has 128,173,614 nodes; no semantic definition was
+replaced by a fresh known input to obtain the 7,914,981-node compact representation.
+
+All 33 native exporter tests pass, including randomized binary-trace versus
+expanded-definition equality, algebraic/capped negative controls, undeclared
+terminal rejection, digest binding, dirty entries and mixed incoming base masks.
+Four full-state protected containment runs pass during export. Before/after
+source, program and dependency hashes match; exporter exits zero.
+Independent Python ABI evaluation matches all 512 audit mask words, including
+zero-padded lanes. Protected validation then compares eight independent physical
+MR streams with zero MR on 2,214 inputs (17,712 stream/input comparisons): 32 audit,
+541 saved failing census, 256 structured and 1,385 arbitrary coordinate tuples.
+Every certified-known bit agrees. The 541 saved failures include 431 value
+failures; 421 have a certified wrong coordinate, leaving ten value failures
+uncertified. The audit certifies all 24 failures and none of its eight passing
+controls. Structured expected targets are fixture-relative; arbitrary-coordinate
+expected fields are placeholders and support no failure-count claim.
+
+This agent has enabled no live search or submission. The coordinator independently
+validates the fast evaluator, integrates masks with zero-MR coordinate witnesses,
+and controls any source-transfer and screening gate. Full source/ABI/runtime
+binding is required for that gate. Large immutable binaries remain server-only
+with archive-manifest hashes; source, proof receipts, test logs, audit vectors,
+metadata, validators and negative experiments are archived locally.

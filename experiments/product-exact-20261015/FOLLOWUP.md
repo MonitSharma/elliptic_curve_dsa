@@ -357,3 +357,38 @@ proof families; the final67 count is fixed before measurements. The run waits
 for universal certificate work and has one thread/24GiB address-space cap.
 This continuation tests whether adding scratch at each new layer exposes
 further cache work; it does not alter any frozen candidate under qualification.
+
+## Per-input conditional masks and corrected-source recomputation
+
+The frozen cache-equivalence certificate is unchanged. Separately frozen
+`cache-certificate-v2-20261016/PER_INPUT_MASK_TRANSFER.json` and `.md` state the
+stronger immediate filter route. For any fixed input and audited output bit,
+if a separate sound proof certifies that original bit constant for every MR
+assignment, the candidate bit equals its original zero-MR value for every
+candidate MR assignment. This needs no global MR-independence theorem. The
+JSON companion SHA256 is722be8db61c0a29533f3297a31192e64f7558d4c828b210c1b1dc33ce272c8b3;
+the Markdown SHA256 isefc7c9583caf0d918fa555694a51aed9959b19c6b29fc198c2e82a8affc22317.
+They require source-bound sound masks/evaluators, the actual final candidate's
+Fiat inputs, and exact pre-tail+48 adjacent XX nonce identity checks. Certified
+masked-bit disagreements can safely reject; matching masks never waive phase,
+dirty-qubit or full benchmark checks.
+
+The coordinator's static native source reproductions for final product53 and
+wide43 both pass byte identity. Their fixed fresh32768-batch paired gates both
+fail: product53 has4133 vs4120 failing batches; wide43 has1393 vs1391. Complete
+sources, patches and censuses are preserved in the coordinator's52-file
+`frozen-next-20261016` archive, and its owned source trees were removed after
+preservation. No nonce follows either failed gate. Earlier eligible product25
+and queued wide15 remain unchanged.
+
+The new uniform29-fold precision repair is frozen at source stream
+1cd3457b44bd21d65921ce0d5b8352573a9c6f2bb2706430d367f68e5a7e5522, Q1234.
+The full original53-stage recipe is now being recomputed from this changed
+source, with every lease freshly derived and25/53 checkpoints fixed before
+measurements. The owned input copy and full repaired point_add source snapshot
+are in `repair-cache53-20261016`. Exact rewrite comparisons use the repaired
+parent, but final eligibility requires a native full-stream reproduction and
+the separately predeclared composite-versus-original4b32768-batch census in
+`REPAIR53_FRESH_CENSUS_PLAN.json`. This is a new correctness-improving source,
+not a resampling of the failed original53 gate. The original4b conditional-mask
+certificate alone does not certify the changed repair function.

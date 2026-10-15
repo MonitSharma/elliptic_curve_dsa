@@ -1,0 +1,88 @@
+warning: unused import: `quantum_ecc::sim::Simulator`
+ --> src/bin/projection_export.rs:6:5
+  |
+6 | use quantum_ecc::sim::Simulator;
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused imports: `Arc`, `AtomicUsize`, `Mutex`, and `Ordering`
+  --> src/bin/projection_export.rs:14:17
+   |
+14 | use std::sync::{Arc, Mutex, atomic::{AtomicUsize, Ordering}};
+   |                 ^^^  ^^^^^           ^^^^^^^^^^^  ^^^^^^^^
+
+warning: constant `NUM_TESTS` is never used
+  --> src/bin/projection_export.rs:30:7
+   |
+30 | const NUM_TESTS: usize = 9024;
+   |       ^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `secp256k1` is never used
+   --> src/bin/projection_export.rs:136:4
+    |
+136 | fn secp256k1() -> WeierstrassEllipticCurve {
+    |    ^^^^^^^^^
+
+warning: function `fiat_shamir_seed` is never used
+   --> src/bin/projection_export.rs:168:4
+    |
+168 | fn fiat_shamir_seed(ops: &[Op]) -> sha3::Shake256Reader {
+    |    ^^^^^^^^^^^^^^^^
+
+warning: struct `FastSimulator` is never constructed
+  --> src/bin/../fast_sim_wide.rs:26:8
+   |
+26 | struct FastSimulator<'a> {phase:u64,qubits:Vec<u64>,bits:Vec<u64>,xof:&'a mut sha3::Shake256Reader,words:Vec<u8>}
+   |        ^^^^^^^^^^^^^
+
+warning: multiple associated items are never used
+  --> src/bin/../fast_sim_wide.rs:28:5
+   |
+27 | impl<'a> FastSimulator<'a> {
+   | -------------------------- associated items in this implementation
+28 |  fn new(nq:usize,nb:usize,xof:&'a mut sha3::Shake256Reader)->Self{Self{phase:0,qubits:vec![0;nq],bits:vec![0;nb],xof,words:Vec::new()}}
+   |     ^^^
+29 |  fn clear_for_shot(&mut self){self.phase=0;self.qubits.fill(0);self.bits.fill(0);}
+   |     ^^^^^^^^^^^^^^
+30 |  fn qubit(&self,q:QubitId)->u64{self.qubits[q.0 as usize]}
+   |     ^^^^^
+31 |  fn qubit_mut(&mut self,q:QubitId)->&mut u64{&mut self.qubits[q.0 as usize]}
+   |     ^^^^^^^^^
+32 |  fn set_register(&mut self,r:&[QubitOrBit],v:U256,lane:usize){for(i,x)in r.iter().enumerate(){let p=match x{QubitOrBit::Qubit(q)=>&m...
+   |     ^^^^^^^^^^^^
+33 |  fn get_register(&self,r:&[QubitOrBit],lane:usize)->U256{let mut v=U256::ZERO;for(i,x)in r.iter().enumerate(){let p=match x{QubitOrB...
+   |     ^^^^^^^^^^^^
+34 |  fn apply(&mut self,p:&Compact){
+   |     ^^^^^
+
+warning: function `seeded` is never used
+ --> src/bin/../projection_export_body.rs:2:4
+  |
+2 | fn seeded(n:u64)->sha3::Shake256Reader{let mut h=Shake256::default();h.update(b"fixed-input-rng-anf-validation-v1");h.update(&n.to_le...
+  |    ^^^^^^
+
+warning: multiple fields are never read
+ --> src/bin/../reset_projection.rs:2:53
+  |
+2 | ...ct ResetCertificate{proved:bool,status:&'static str,quantum_wires:usize,classical_wires:usize,ops:usize,mr:usize,nodes:usize,caps:usize,unresolved:usize,seconds:f64}
+  |       ----------------             ^^^^^^              ^^^^^^^^^^^^^       ^^^^^^^^^^^^^^^       ^^^       ^^       ^^^^^       ^^^^       ^^^^^^^^^^       ^^^^^^^
+  |       |
+  |       fields in this struct
+  |
+  = note: `ResetCertificate` has a derived impl for the trait `Clone`, but this is intentionally ignored during dead code analysis
+
+warning: multiple fields are never read
+ --> src/bin/../reset_projection_symbols.rs:2:53
+  |
+2 | ...ct ResetCertificate{proved:bool,status:&'static str,quantum_wires:usize,classical_wires:usize,ops:usize,mr:usize,nodes:usize,caps:usize,unresolved:usize,seconds:f64}
+  |       ----------------             ^^^^^^              ^^^^^^^^^^^^^       ^^^^^^^^^^^^^^^       ^^^       ^^       ^^^^^       ^^^^       ^^^^^^^^^^       ^^^^^^^
+  |       |
+  |       fields in this struct
+  |
+  = note: `ResetCertificate` has a derived impl for the trait `Clone`, but this is intentionally ignored during dead code analysis
+
+warning: `value_prefilter` (bin "projection_export") generated 10 warnings (run `cargo fix --bin "projection_export" -p value_prefilter` to apply 2 suggestions)
+    Finished `release` profile [optimized] target(s) in 0.08s

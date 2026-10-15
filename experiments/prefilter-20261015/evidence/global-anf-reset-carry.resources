@@ -1,0 +1,43 @@
+               total        used        free      shared  buff/cache   available
+Mem:          515350      222187      146832           9      153064      293162
+Swap:           8191         335        7856
+    PID %CPU   RSS COMMAND
+3174330 1739 103132748 /home/hclau/tools/miniforge3/envs/qob-lattice/bin/python problems/01-marketsplit/classical/ms_sieve.py external/QOBLIB/01-marketsplit/instances/ms_14_200_002.dat --out problems/01-marketsplit/results/sieve/ms_14_200_002.sol --threads 18
+3207770 1738 103186340 /home/hclau/tools/miniforge3/envs/qob-lattice/bin/python problems/01-marketsplit/classical/ms_sieve.py external/QOBLIB/01-marketsplit/instances/ms_14_200_003.dat --out problems/01-marketsplit/results/sieve/ms_14_200_003.sol --threads 18
+3762222  800  5016 ps -eo pid,pcpu,rss,args --sort=-pcpu
+3762217  175 36992 /usr/libexec/gcc/x86_64-linux-gnu/13/cc1 -quiet -I zstd/lib/ -I zstd/lib/common -I zstd/lib/legacy -imultiarch x86_64-linux-gnu -D ZSTD_LIB_DEPRECATED=0 -D XXH_PRIVATE_API= -D ZSTDLIB_VISIBILITY= -D ZDICTLIB_VISIBILITY= -D ZSTDERRORLIB_VISIBILITY= -D ZSTD_LEGACY_SUPPORT=1 zstd/lib/dictBuilder/fastcover.c -D_FORTIFY_SOURCE=3 -quiet -dumpdir /home/hclau/ecdsa_research/exact-value-screen-20261016/tool/target/release/build/zstd-sys-1237589b9b4b0c85/out/ -dumpbase a6c81c75fc82913a-fastcover.c -dumpbase-ext .c -m64 -mtune=generic -march=x86-64 -O3 -w -fPIC -fvisibility=hidden -ffunction-sections -fdata-sections -fmerge-all-constants -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/cc3HZzgb.s
+3762216  162 26824 /usr/libexec/gcc/x86_64-linux-gnu/13/cc1 -quiet -I zstd/lib/ -I zstd/lib/common -I zstd/lib/legacy -imultiarch x86_64-linux-gnu -D ZSTD_LIB_DEPRECATED=0 -D XXH_PRIVATE_API= -D ZSTDLIB_VISIBILITY= -D ZDICTLIB_VISIBILITY= -D ZSTDERRORLIB_VISIBILITY= -D ZSTD_LEGACY_SUPPORT=1 zstd/lib/dictBuilder/divsufsort.c -D_FORTIFY_SOURCE=3 -quiet -dumpdir /home/hclau/ecdsa_research/exact-value-screen-20261016/tool/target/release/build/zstd-sys-1237589b9b4b0c85/out/ -dumpbase a6c81c75fc82913a-divsufsort.c -dumpbase-ext .c -m64 -mtune=generic -march=x86-64 -O3 -w -fPIC -fvisibility=hidden -ffunction-sections -fdata-sections -fmerge-all-constants -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccTil3q8.s
+3762094  101 148520 /usr/libexec/gcc/x86_64-linux-gnu/13/cc1 -quiet -I zstd/lib/ -I zstd/lib/common -I zstd/lib/legacy -imultiarch x86_64-linux-gnu -D ZSTD_LIB_DEPRECATED=0 -D XXH_PRIVATE_API= -D ZSTDLIB_VISIBILITY= -D ZDICTLIB_VISIBILITY= -D ZSTDERRORLIB_VISIBILITY= -D ZSTD_LEGACY_SUPPORT=1 zstd/lib/compress/zstd_lazy.c -D_FORTIFY_SOURCE=3 -quiet -dumpdir /home/hclau/ecdsa_research/exact-value-screen-20261016/tool/target/release/build/zstd-sys-1237589b9b4b0c85/out/ -dumpbase fb80479a5fb81f6a-zstd_lazy.c -dumpbase-ext .c -m64 -mtune=generic -march=x86-64 -O3 -w -fPIC -fvisibility=hidden -ffunction-sections -fdata-sections -fmerge-all-constants -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccgrUFMW.s
+3761928  100 1444856 ./target-factor-witness/release/product_paired_diagnostic /home/hclau/ecdsa_research/nonce-screen-20261015/final-census/ops.bin factor-witness-20261016/wide-512.bin
+3762161  5.8 10700 sshd: hclau [priv]
+3958097  4.2 62956 /opt/TrendMicro/EndpointBasecamp/bin/tmxbc service run
+1705398  3.8 584196 /opt/ds_agent/ds_agent -w /var/opt/ds_agent -b -i -e /opt/ds_agent/ext
+1706320  2.8 219192 /opt/ds_agent/ds_am -g ../diag -v 5 -d /var/opt/ds_agent/am -P 1 -R
+3760879  2.6 46448 /home/hclau/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin/cargo build --release
+1702756  1.0 84084 /usr/bin/alloy run --storage.path=/var/lib/alloy/data /etc/alloy/config.alloy
+3777359  0.6 10080 .venv/bin/python tools/hpc/runner.py run tools/hpc/jobs/01_sieve.jsonl --max-cores 36
+3761682  0.2  3404 /home/hclau/ecdsa_research/exact-value-screen-20261016/tool/target/release/build/zstd-sys-9e8a44cff2d5bc14/build-script-build
+1702753  0.1 27292 /usr/bin/containerd
+1706202  0.1 46380 /opt/ds_agent/netagent/tm_netagent --metrics-file /var/opt/ds_agent/netagent/metrics.json --log-folder /var/opt/ds_agent/netagent/logs --ptn-folder /opt/ds_agent/netagent/pattern --jat-folder /opt/ds_agent/netagent/java/jattach --jex-folder /var/opt/ds_agent/netagentjava --log-console=false --log-level 1 --tmCfg WyJTc2xMaW51eEphdmFCdWlsZEVuYWJsZWQiLCJKYXZhQXR0YWNoIiwiRGlzYWJsZURvY2tlckJQRiIsIlNzbEluYm91bmQiLCJTc2xPdXRib3VuZCJd
+     17  0.0     0 [rcu_preempt]
+   2866  0.0 49136 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+1706111  0.0 16992 /opt/ds_agent/netagent/tm_netagent --metrics-file /var/opt/ds_agent/netagent/metrics.json --log-folder /var/opt/ds_agent/netagent/logs --ptn-folder /opt/ds_agent/netagent/pattern --jat-folder /opt/ds_agent/netagent/java/jattach --jex-folder /var/opt/ds_agent/netagentjava --log-console=false --log-level 1 --tmCfg WyJTc2xMaW51eEphdmFCdWlsZEVuYWJsZWQiLCJKYXZhQXR0YWNoIiwiRGlzYWJsZURvY2tlckJQRiIsIlNzbEluYm91bmQiLCJTc2xPdXRib3VuZCJd
+3733920  0.0     0 [kworker/u288:1-be_wq]
+3705855  0.0     0 [kworker/u291:1-writeback]
+3025376  0.0 112900 /home/hclau/.local/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/bin/codex -c features.code_mode_host=true app-server --listen unix://
+3684500  0.0     0 [kworker/u288:3-be_wq]
+3717901  0.0     0 [kworker/u291:0-flush-252:0]
+1706641  0.0 10572 /opt/ds_agent/dsa-connect main
+     16  0.0     0 [ksoftirqd/0]
+4160417  0.0     0 [kworker/0:3-kacpi_notify]
+1706650  0.0 27236 /opt/ds_agent/dsa-connect hub
+3729361  0.0     0 [kworker/u292:5-flush-8:0]
+    903  0.0     0 [irq/9-acpi]
+3687264  0.0     0 [kworker/u292:3-flush-8:0]
+3711644  0.0     0 [kworker/u292:2-events_power_efficient]
+3756231  0.0     0 [kworker/u291:2-flush-252:0]
+3692580  0.0     0 [kworker/u292:4-flush-8:0]
+      1  0.0 10960 /usr/lib/systemd/systemd --system --deserialize=98
+3750222  0.0     0 [kworker/u292:0-events_unbound]
+2688241  0.0     0 [kworker/0:1-kacpi_notify]
+3746331  0.0     0 [kworker/u288:0-be_wq]

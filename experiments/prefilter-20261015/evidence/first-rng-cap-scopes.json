@@ -1,0 +1,43 @@
+{
+  "first_cap_index": 688826,
+  "active_scope_snapshots": [
+    {
+      "push_index": 688341,
+      "condition_bit": 1566,
+      "condition_value": -1,
+      "condition_structural_rng_taint": true,
+      "condition_previous_write": {
+        "index": 687330,
+        "kind": "BitInvert",
+        "value": -1,
+        "structural_rng_taint": true,
+        "condition_bit": null
+      }
+    },
+    {
+      "push_index": 688342,
+      "condition_bit": 1568,
+      "condition_value": -1,
+      "condition_structural_rng_taint": true,
+      "condition_previous_write": {
+        "index": 687604,
+        "kind": "Hmr",
+        "value": -1,
+        "structural_rng_taint": true,
+        "condition_bit": null
+      }
+    }
+  ],
+  "current_condition_value": -1,
+  "current_condition_structural_rng_taint": true,
+  "measurement_target_previous_value": -1,
+  "measurement_target_previous_rng_taint": true,
+  "measurement_target_previous_write": {
+    "index": 688330,
+    "kind": "Hmr",
+    "value": -1,
+    "structural_rng_taint": true,
+    "condition_bit": null
+  },
+  "status": "STRUCTURAL_TAINT_OVERAPPROXIMATION_ONLY"
+}

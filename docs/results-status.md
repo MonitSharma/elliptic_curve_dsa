@@ -1,5 +1,15 @@
 # Results and submission status
 
+**03:20 prefilter checkpoint:** frozen input-conditioned v3 masks pass symbolic
+source binding,33native tests,2,214inputs under8MR streams and independent C audit.
+The bounded original-source integration passes protected128/partial cases and
+the known positive9024-shot control;1,024nonces/16workers take1.853312seconds.
+Rejection remains disabled; candidate25 integration/search is pending.
+[Filter evidence](../experiments/masked-witness-20261016/STATUS.md).
+Precision family A29 repairs3value failures without regressions, but adds
+43.56T and its fixed fresh rate18.0725 exceeds18: no search. Phase-only diagnosis
+continues. These research results do not change the queued resource records.
+
 **Active run, 15 October 2026, 22:39 Singapore:** public records refreshed
 and unchanged. User priority is product, then Toffolis, then qubits;
 submission mode is **queue**. Four isolated experiments are in progress,

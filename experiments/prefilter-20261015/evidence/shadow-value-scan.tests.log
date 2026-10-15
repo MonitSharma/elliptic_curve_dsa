@@ -1,0 +1,79 @@
+   Compiling value_prefilter v0.1.0 (/home/hclau/ecdsa_research/prefilter-20261015/tool)
+warning: unused imports: `QubitOrBit` and `analyze_ops`
+ --> src/bin/shadow_value_scan.rs:4:5
+  |
+4 |     analyze_ops, BitId, Op, OperationType, QubitId, QubitOrBit, RegisterId,
+  |     ^^^^^^^^^^^                                     ^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `quantum_ecc::sim::Simulator`
+ --> src/bin/shadow_value_scan.rs:6:5
+  |
+6 | use quantum_ecc::sim::Simulator;
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `Write`
+  --> src/bin/shadow_value_scan.rs:13:32
+   |
+13 | use std::io::{BufReader, Read, Write};
+   |                                ^^^^^
+
+warning: unused imports: `Arc`, `AtomicUsize`, `Mutex`, and `Ordering`
+  --> src/bin/shadow_value_scan.rs:14:17
+   |
+14 | use std::sync::{Arc, Mutex, atomic::{AtomicUsize, Ordering}};
+   |                 ^^^  ^^^^^           ^^^^^^^^^^^  ^^^^^^^^
+
+warning: unused import: `XofReader`
+ --> src/bin/shadow_value_scan.rs:9:40
+  |
+9 |     digest::{ExtendableOutput, Update, XofReader},
+  |                                        ^^^^^^^^^
+
+warning: constant `NUM_TESTS` is never used
+  --> src/bin/shadow_value_scan.rs:30:7
+   |
+30 | const NUM_TESTS: usize = 9024;
+   |       ^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `secp256k1` is never used
+   --> src/bin/shadow_value_scan.rs:136:4
+    |
+136 | fn secp256k1() -> WeierstrassEllipticCurve {
+    |    ^^^^^^^^^
+
+warning: function `fiat_shamir_seed` is never used
+   --> src/bin/shadow_value_scan.rs:168:4
+    |
+168 | fn fiat_shamir_seed(ops: &[Op]) -> sha3::Shake256Reader {
+    |    ^^^^^^^^^^^^^^^^
+
+warning: `value_prefilter` (bin "shadow_value_scan" test) generated 8 warnings (run `cargo fix --bin "shadow_value_scan" -p value_prefilter --tests` to apply 4 suggestions)
+    Finished `release` profile [optimized] target(s) in 11.01s
+     Running unittests src/bin/shadow_value_scan.rs (tool/target/release/deps/shadow_value_scan-b8427ccf2b2a33aa)
+
+running 18 tests
+test global_anf_tests::all_two_input_two_rng_assignments_exact ... ok
+test global_anf_tests::capped_constant_separation_and_nonrecycled_ids ... ok
+test global_anf_tests::capped_dependency_mask_is_sound_for_each_input ... ok
+test global_anf_tests::conditional_compute_reset_and_negative_rng_dependency ... ok
+test input_anf_tests::square_free_distribution_proves_conditional_cancellation ... ok
+test input_product_cap_tests::retained_input_product_constants_cancel_exactly ... ok
+test retained_mask_tests::semantically_equal_recomputed_mask_reuses_exact_retained_function ... ok
+test retained_mask_tests::unrelated_opaque_keys_never_share_a_fresh_symbol ... ok
+test shadow_tests::arbitrary_dirty_conditional_reset_is_retained ... ok
+test shadow_tests::cap_and_scope_errors_are_never_certificates ... ok
+test or_mask_tests::saturation_never_expands_a_large_dependency_mask ... ok
+test shadow_tests::measurement_data_update_is_not_certified ... ok
+test shadow_tests::entry_classical_bit_remains_an_arbitrary_parameter ... ok
+test shadow_tests::real_deterministic_arithmetic_is_certified ... ok
+test shadow_tests::same_measurement_guard_twice_cancels_for_dirty_data ... ok
+test input_anf_tests::monomial_overflow_atoms_keep_exact_semantics ... ok
+test global_anf_tests::input_dag_exact_boolean_rewrites_all_assignments ... ok
+test input_anf_tests::large_input_only_caps_keep_constants_and_semantics ... ok
+
+test result: ok. 18 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.06s
+

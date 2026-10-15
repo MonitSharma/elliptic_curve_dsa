@@ -68,11 +68,11 @@ for name in ['candidate-split128','candidate-anf512','candidate-final','wide-can
         row['ownership_notice']='Coordinator owns live nonce-only qualification here. Original pre-nonce frozen source/stream is bound by WIDE_COMPOUND_FREEZE.json and WIDE_COMPOUND_SOURCE_FREEZE.json; use the coordinator wide15-record-20261016 archive for final source/stream/score.'
     elif (tree/'ops.bin').exists():row['stream_sha256']=hashlib.sha256((tree/'ops.bin').read_bytes()).hexdigest()
     manifest['all_candidates'][name]=row
-for name in ['product53-frozen-census-20261016','wide43-scratch-20261016','wide-to67-scratch-20261016','recursive-unfold-20261016','recursive-unfold-v2-20261016','cache-certificate-20261016','cache-certificate-parallel-20261016','cache-certificate-retry-20261016','cache-certificate-v2-20261016']:
+for name in ['product53-frozen-census-20261016','wide43-scratch-20261016','wide-to67-scratch-20261016','product-to67-rank-20261016','repair-cache53-20261016','recursive-unfold-20261016','recursive-unfold-v2-20261016','cache-certificate-20261016','cache-certificate-parallel-20261016','cache-certificate-retry-20261016','cache-certificate-v2-20261016']:
     source=root/name
     if not source.exists():continue
     for p in source.rglob('*'):
-        if not p.is_file() or p.suffix=='.bin':continue
+        if not p.is_file() or (p.suffix=='.bin' and 'repair-point-add-source' not in p.parts):continue
         out=dest/name/p.relative_to(source);out.parent.mkdir(parents=True,exist_ok=True)
         if p.stat().st_size>200_000:
             out=out.with_name(out.name+'.gz')

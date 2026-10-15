@@ -1,0 +1,29 @@
+   Compiling value_prefilter v0.1.0 (/home/hclau/ecdsa_research/prefilter-20261015/tool)
+warning: unused import: `Write`
+  --> src/bin/global_rng_anf_prefix_shadow.rs:13:32
+   |
+13 | use std::io::{BufReader, Read, Write};
+   |                                ^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused imports: `Arc`, `AtomicUsize`, `Mutex`, and `Ordering`
+  --> src/bin/global_rng_anf_prefix_shadow.rs:14:17
+   |
+14 | use std::sync::{Arc, Mutex, atomic::{AtomicUsize, Ordering}};
+   |                 ^^^  ^^^^^           ^^^^^^^^^^^  ^^^^^^^^
+
+error[E0282]: type annotations needed for `Vec<_>`
+  --> src/bin/../global_rng_anf_prefix_shadow_body.rs:10:91
+   |
+10 |  let mut shadow_resume=0;let mut shadow_receipts=Vec::new();let mut shadow_attempts=0;let mut first_unknown_contracts=Vec::new();
+   |                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^ ---------- type must be known at this point
+   |
+help: consider giving `first_unknown_contracts` an explicit type, where the type for type parameter `T` is specified
+   |
+10 |  let mut shadow_resume=0;let mut shadow_receipts=Vec::new();let mut shadow_attempts=0;let mut first_unknown_contracts: Vec<T>=Vec::new();
+   |                                                                                                                      ++++++++
+
+For more information about this error, try `rustc --explain E0282`.
+warning: `value_prefilter` (bin "global_rng_anf_prefix_shadow" test) generated 2 warnings
+error: could not compile `value_prefilter` (bin "global_rng_anf_prefix_shadow" test) due to 1 previous error; 2 warnings emitted

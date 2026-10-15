@@ -1,0 +1,244 @@
+{
+  "status": "FROZEN_SOURCE_BOUND_INPUT_CONDITIONED_MR_CERTIFICATE",
+  "created_utc": "2026-10-15T19:08:13.744791+00:00",
+  "source_commit": "4b2ec52fc55da796aa8f5ef851290297e8706424",
+  "stream_sha256": "2a522394cdf3e6a0df7784ad4db761030933c1f7ccd0ff8e641d68ec7a4dab3e",
+  "program": {
+    "path": "evidence/mr-mask-tip-v3.bin",
+    "bytes": 126641776,
+    "sha256": "560c12d5044dd895a4ef32adc905cdde48a780a196b3b28a75951c7f27b4fe9d"
+  },
+  "artifact_metadata": {
+    "path": "evidence/mr-mask-tip-v3.json",
+    "bytes": 142671,
+    "sha256": "7cef301c2a1af169a0f08af7bf9d577c2520374d24893410a3301402e80c1126"
+  },
+  "abi": {
+    "path": "MR-MASK-ABI.txt",
+    "bytes": 1963,
+    "sha256": "b8f88763117ac3e53c88f0484ef08d1a2ffce1e84e11f8bbfa3f3751cb090d01"
+  },
+  "audit_vectors": [
+    {
+      "path": "evidence/mr-mask-tip-v3.audit-input-u64le.bin",
+      "bytes": 8192,
+      "sha256": "b5a1e5c690727cd4ca6351152284f49090cca73c7b4be6a6bc3ab69a6b46897f"
+    },
+    {
+      "path": "evidence/mr-mask-tip-v3.audit-known-u64le.bin",
+      "bytes": 4096,
+      "sha256": "c3896255c35eb85126dfa88ab54aa6604a91d3940eae7d2088885f754d673adb"
+    }
+  ],
+  "schema": {
+    "magic": "MRMASK01",
+    "header_bytes": 32,
+    "node_bytes": 16,
+    "inputs": 1024,
+    "outputs": 512,
+    "meaning": "known = NOT dependency-root"
+  },
+  "theorem": "A zero dependence upper bound guarantees that scored output bit independent of every physical MR and conservative cap symbol for this input. A wrong zeroMR coordinate on a certified-known scored bit proves failure for every physicalMR.",
+  "caps": "FreshMR and opaque unknowns remain outer ANF variables; pure-input caps retain immutable exact definitions. Undeclared exported terminals abort. No opaque becomes a known input.",
+  "all_global_bits_rng_independent": false,
+  "auxiliary_initialization": "All undeclared q/b zero; declared1024 inputs arbitrary",
+  "local_contracts": "Exact operation digest bound; proved-zero prefix preconditions checked at application",
+  "exporter_native_tests": 33,
+  "exporter_protected_full_state_seeds": 4,
+  "validation_inputs": 2214,
+  "physical_mr_streams": 8,
+  "protected_stream_input_comparisons": 17712,
+  "saved_census_value_failures": 431,
+  "saved_census_certified_value_failures": 421,
+  "reports": {
+    "audit": {
+      "batches": 1,
+      "certified_wrong_value_shots": 24,
+      "fixture": "packets/audit.tsv",
+      "independent_physical_mr_streams": 8,
+      "input_count": 1024,
+      "known_scored_bits": 359,
+      "mask_program": "evidence/mr-mask-tip-v3.bin",
+      "mask_seconds": 0.066653779,
+      "mask_us_per_shot": 2082.93059375,
+      "output_count": 512,
+      "placeholder_expected_values_not_used_for_failure_claim": false,
+      "program_nodes": 7914981,
+      "protected_known_bit_containment_passed": true,
+      "seconds": 0.787280281,
+      "shots": 32,
+      "source_stream": "../product-exact-20261015/tip/ops.bin",
+      "status": "INPUT_CONDITIONED_MR_MASK_PROTECTED_VALIDATION_NOT_GLOBAL_INDEPENDENCE"
+    },
+    "all-failing-tip": {
+      "batches": 9,
+      "certified_wrong_value_shots": 421,
+      "fixture": "packets/all-failing-tip.tsv",
+      "independent_physical_mr_streams": 8,
+      "input_count": 1024,
+      "known_scored_bits": 5592,
+      "mask_program": "evidence/mr-mask-tip-v3.bin",
+      "mask_seconds": 0.6044791829999999,
+      "mask_us_per_shot": 1117.336752310536,
+      "output_count": 512,
+      "placeholder_expected_values_not_used_for_failure_claim": false,
+      "program_nodes": 7914981,
+      "protected_known_bit_containment_passed": true,
+      "seconds": 7.210588755,
+      "shots": 541,
+      "source_stream": "../product-exact-20261015/tip/ops.bin",
+      "status": "INPUT_CONDITIONED_MR_MASK_PROTECTED_VALIDATION_NOT_GLOBAL_INDEPENDENCE"
+    },
+    "sensitivity-structured": {
+      "batches": 4,
+      "certified_wrong_value_shots": 125,
+      "fixture": "packets/sensitivity-structured.tsv",
+      "independent_physical_mr_streams": 8,
+      "input_count": 1024,
+      "known_scored_bits": 2308,
+      "mask_program": "evidence/mr-mask-tip-v3.bin",
+      "mask_seconds": 0.269589773,
+      "mask_us_per_shot": 1053.08505078125,
+      "output_count": 512,
+      "placeholder_expected_values_not_used_for_failure_claim": false,
+      "program_nodes": 7914981,
+      "protected_known_bit_containment_passed": true,
+      "seconds": 3.198351778,
+      "shots": 256,
+      "source_stream": "../product-exact-20261015/tip/ops.bin",
+      "status": "INPUT_CONDITIONED_MR_MASK_PROTECTED_VALIDATION_NOT_GLOBAL_INDEPENDENCE"
+    },
+    "sensitivity-arbitrary": {
+      "batches": 22,
+      "certified_wrong_value_shots": null,
+      "fixture": "packets/sensitivity-arbitrary.tsv",
+      "independent_physical_mr_streams": 8,
+      "input_count": 1024,
+      "known_scored_bits": 19015,
+      "mask_program": "evidence/mr-mask-tip-v3.bin",
+      "mask_seconds": 1.4767777299999998,
+      "mask_us_per_shot": 1066.2655090252706,
+      "output_count": 512,
+      "placeholder_expected_values_not_used_for_failure_claim": true,
+      "program_nodes": 7914981,
+      "protected_known_bit_containment_passed": true,
+      "seconds": 17.797469395,
+      "shots": 1385,
+      "source_stream": "../product-exact-20261015/tip/ops.bin",
+      "status": "INPUT_CONDITIONED_MR_MASK_PROTECTED_VALIDATION_NOT_GLOBAL_INDEPENDENCE"
+    }
+  },
+  "independent_python": {
+    "program_sha256": "560c12d5044dd895a4ef32adc905cdde48a780a196b3b28a75951c7f27b4fe9d",
+    "input_sha256": "b5a1e5c690727cd4ca6351152284f49090cca73c7b4be6a6bc3ab69a6b46897f",
+    "known_sha256": "c3896255c35eb85126dfa88ab54aa6604a91d3940eae7d2088885f754d673adb",
+    "outputs": 512,
+    "known_bits": 1063,
+    "seconds": 3.0353125045076013,
+    "expected_match": true,
+    "status": "INDEPENDENT_SCALAR_ABI_DIFFERENTIAL_ONLY"
+  },
+  "source_files": [
+    {
+      "path": "tool/src/input_anf_dag_trace.rs",
+      "bytes": 10395,
+      "sha256": "41560814e64d5cd314c2485704cd4ff4b6280855bc666883b27fec29d0762282"
+    },
+    {
+      "path": "tool/src/mask_program_trace.rs",
+      "bytes": 9442,
+      "sha256": "33552d2dfb40e1dc566badbf2726df31efef52649f4f42c80fd5fed25b503c80"
+    },
+    {
+      "path": "tool/src/bin/global_rng_anf_mask_trace.rs",
+      "bytes": 7676,
+      "sha256": "4e8248f0b761ff9103e22366c3ad8e2bb5103f7b03b06b90e3bf252f4f704b03"
+    },
+    {
+      "path": "tool/src/global_rng_anf_mask_trace_body.rs",
+      "bytes": 14403,
+      "sha256": "56e05e0a5175a9f4dcebdf901d464d7ca99497f48a1ab86d4cf5ff7a85ac2fa7"
+    },
+    {
+      "path": "tool/src/global_rng_anf_retained_masks.rs",
+      "bytes": 11901,
+      "sha256": "961494a454458919d9f3b0975e8559b59bd5b33f983566b0bf121db854b994f0"
+    },
+    {
+      "path": "tool/src/shadow_value_contract_bound.rs",
+      "bytes": 7657,
+      "sha256": "e1a63c6fec351ca45ae6095720fe7499d5cbe0952be3de839328ef5c4750a2da"
+    },
+    {
+      "path": "tool/src/shadow_value_contract_zeros.rs",
+      "bytes": 7023,
+      "sha256": "e533b64a2e1e9866eab4ac4a108980dc76a589e6c29422a70d7c9494fbd6fb40"
+    },
+    {
+      "path": "tool/src/shadow_apply_region_bound.rs",
+      "bytes": 7215,
+      "sha256": "ba50acaacbc15448cfe1116bf4efac232a3089e388d2f9db4592e71656c69989"
+    },
+    {
+      "path": "tool/src/reset_projection.rs",
+      "bytes": 4548,
+      "sha256": "df92a050c855c173daef5ed901c1a6d2d0905543c67b45131d28e5169c17761e"
+    },
+    {
+      "path": "tool/src/reset_projection_symbols.rs",
+      "bytes": 4503,
+      "sha256": "8ad9ee8fe585875beaba92babda446aff076523b1ecf77a782f5822cd761c5ee"
+    },
+    {
+      "path": "tool/src/bin/mask_validate.rs",
+      "bytes": 7783,
+      "sha256": "796f81ae1aa9dac0008ecc357dc05bcb4927208fbe6c278d2bcd9f845758335a"
+    },
+    {
+      "path": "tool/src/mask_validate_body.rs",
+      "bytes": 4564,
+      "sha256": "e9433a062acbb01f6494e8559e0ca098c119ad9e88660b58beb11c9ec6586759"
+    }
+  ],
+  "proof_receipts": [
+    {
+      "path": "evidence/global-anf-mask-trace-tip32.json",
+      "bytes": 391385,
+      "sha256": "05f07967594f6b6eeb0ac8fa9913e7ff717d11eaf016d21aa47cbadfe48577d1"
+    },
+    {
+      "path": "evidence/global-anf-mask-trace.tests.log",
+      "bytes": 7093,
+      "sha256": "0ca8b979e107772f14db4e67e793f1c2695b72aed254cdadb8794b79dc708a0b"
+    },
+    {
+      "path": "evidence/global-anf-mask-trace-before.sha256",
+      "bytes": 1970,
+      "sha256": "cc1969520effb77eb7e8afbeec93b69af6942c9bb4534ae5d2bc5f1f0fa8de04"
+    },
+    {
+      "path": "evidence/global-anf-mask-trace-after.sha256",
+      "bytes": 1970,
+      "sha256": "cc1969520effb77eb7e8afbeec93b69af6942c9bb4534ae5d2bc5f1f0fa8de04"
+    },
+    {
+      "path": "evidence/mask-validate-v3-before.sha256",
+      "bytes": 665,
+      "sha256": "24f4bb7a5d415a9ba07e3badd58dfb7bea1932067ab1396b66c1b76e32344e1a"
+    },
+    {
+      "path": "evidence/mask-validate-v3-after.sha256",
+      "bytes": 665,
+      "sha256": "24f4bb7a5d415a9ba07e3badd58dfb7bea1932067ab1396b66c1b76e32344e1a"
+    }
+  ],
+  "not_claimed": [
+    "all512bits globallyMRindependent",
+    "phaseorGarbagecorrectness",
+    "structuredfixturecounts asofficialfailurecensus",
+    "arbitrarycoordinatescorrectness",
+    "transfer to any changed stream without universal equivalence",
+    "live search or submission by this agent"
+  ],
+  "coordinator_integration_gate": "requires independent runtime validator and exact source binding/transfer before live use"
+}

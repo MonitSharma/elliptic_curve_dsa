@@ -1,0 +1,18 @@
+CERTIFIED_RESET_REWRITE regions=4034 removed_value_ops=1517553 methods=[4005, 29]
+GLOBAL_RNG_PROGRESS ops=0 input_nodes=1026 caps=0 fresh_symbols=0 seconds=0.0
+GLOBAL_RNG_PROGRESS ops=500000 input_nodes=267579 caps=0 fresh_symbols=25309 seconds=1.8
+GLOBAL_RNG_PROGRESS ops=1000000 input_nodes=501421 caps=8 fresh_symbols=67259 seconds=3.6
+GLOBAL_RNG_PROGRESS ops=1500000 input_nodes=716380 caps=20 fresh_symbols=112847 seconds=5.2
+GLOBAL_RNG_PROGRESS ops=2000000 input_nodes=950018 caps=25 fresh_symbols=152184 seconds=7.0
+GLOBAL_RNG_PROGRESS ops=2500000 input_nodes=1180685 caps=42 fresh_symbols=193172 seconds=8.4
+GLOBAL_RNG_PROGRESS ops=3000000 input_nodes=1400506 caps=68 fresh_symbols=234730 seconds=10.1
+GLOBAL_RNG_PROGRESS ops=3500000 input_nodes=1628907 caps=124 fresh_symbols=276128 seconds=11.5
+GLOBAL_RNG_PROGRESS ops=4000000 input_nodes=1829692 caps=229 fresh_symbols=319517 seconds=12.7
+GLOBAL_RNG_PROGRESS ops=4500000 input_nodes=2068932 caps=292 fresh_symbols=353534 seconds=14.5
+GLOBAL_RNG_PROGRESS ops=5000000 input_nodes=2371199 caps=292 fresh_symbols=380486 seconds=16.0
+
+thread 'main' (3740291) panicked at src/bin/../global_rng_anf_inputanf16.rs:12:476:
+assertion `left == right` failed
+  left: 3805438
+ right: 3808441
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

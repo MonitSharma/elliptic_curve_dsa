@@ -1,0 +1,67 @@
+{
+  "source": "4b2ec52f",
+  "predetermined_nonces": 1024,
+  "truth_equal": true,
+  "all_rejected": true,
+  "runs": {
+    "advisory-1024": {
+      "wall_seconds": 66.241698,
+      "workers": 2,
+      "nominal_worker_seconds": 132.483396,
+      "exact_batches": 1173,
+      "nonces_with_fallback": 9,
+      "no_advisory_hit": 0,
+      "mean_selected_batch": 9.85546875
+    },
+    "bucket-1024": {
+      "wall_seconds": 50.41707,
+      "workers": 2,
+      "nominal_worker_seconds": 100.83414,
+      "exact_batches": 1173,
+      "nonces_with_fallback": 9,
+      "no_advisory_hit": 0,
+      "mean_selected_batch": 9.85546875
+    },
+    "bucket-fast-1024": {
+      "wall_seconds": 42.442901,
+      "workers": 2,
+      "nominal_worker_seconds": 84.885802,
+      "exact_batches": 1173,
+      "nonces_with_fallback": 9,
+      "no_advisory_hit": 0,
+      "mean_selected_batch": 9.85546875
+    }
+  },
+  "positive_controls": {
+    "advisory-positive": {
+      "protected_official_pass": true,
+      "rows": 1
+    },
+    "advisory-no-hit-positive": {
+      "protected_official_pass": true,
+      "rows": 1
+    },
+    "advisory-lowest-positive": {
+      "protected_official_pass": true,
+      "rows": 9
+    },
+    "bucket-positive9": {
+      "protected_official_pass": true,
+      "rows": 9
+    },
+    "bucket-fast-positive9": {
+      "protected_official_pass": true,
+      "rows": 9
+    }
+  },
+  "projection_only": {
+    "candidate_failed_batches": 4144,
+    "candidate_census_batches": 32768,
+    "assumed_independent_batches": 141,
+    "packet_pass_probability": 5.254540516960057e-09,
+    "expected_nonces": 190311597.51691028,
+    "latest_nominal_worker_seconds_per_nonce": 0.082896291015625,
+    "ideal64_worker_hours": 68.47276723702383
+  },
+  "status": "VALIDATION_AND_COST_PROJECTION_ONLY_NO_NEW_SEARCH"
+}

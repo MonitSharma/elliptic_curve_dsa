@@ -1,0 +1,499 @@
+   Compiling value_prefilter v0.1.0 (/home/hclau/ecdsa_research/prefilter-20261015/tool)
+error[E0408]: variable `CX` is not bound in all patterns
+ --> src/bin/../shadow_apply_region.rs:8:28
+  |
+8 |         if matches!(o.kind,X|CX|CCX|Swap|R|Hmr) {qs.insert(o.q_target.0);}
+  |                            ^ -- ^^^ ^^^^ ^ ^^^ pattern doesn't bind `CX`
+  |                            | |  |   |    |
+  |                            | |  |   |    pattern doesn't bind `CX`
+  |                            | |  |   pattern doesn't bind `CX`
+  |                            | |  pattern doesn't bind `CX`
+  |                            | variable not in all patterns
+  |                            pattern doesn't bind `CX`
+  |
+help: if you meant to match on a unit struct, unit variant or a `const` item, consider making the path in the pattern qualified: `path::to::ModOrType::CX`
+ --> src/bin/../shadow_apply_region.rs:8:30
+  |
+8 |         if matches!(o.kind,X|CX|CCX|Swap|R|Hmr) {qs.insert(o.q_target.0);}
+  |                              ^^
+
+error[E0408]: variable `CCX` is not bound in all patterns
+ --> src/bin/../shadow_apply_region.rs:8:28
+  |
+8 |         if matches!(o.kind,X|CX|CCX|Swap|R|Hmr) {qs.insert(o.q_target.0);}
+  |                            ^ ^^ --- ^^^^ ^ ^^^ pattern doesn't bind `CCX`
+  |                            | |  |   |    |
+  |                            | |  |   |    pattern doesn't bind `CCX`
+  |                            | |  |   pattern doesn't bind `CCX`
+  |                            | |  variable not in all patterns
+  |                            | pattern doesn't bind `CCX`
+  |                            pattern doesn't bind `CCX`
+  |
+help: if you meant to match on a unit struct, unit variant or a `const` item, consider making the path in the pattern qualified: `path::to::ModOrType::CCX`
+ --> src/bin/../shadow_apply_region.rs:8:33
+  |
+8 |         if matches!(o.kind,X|CX|CCX|Swap|R|Hmr) {qs.insert(o.q_target.0);}
+  |                                 ^^^
+
+error[E0408]: variable `Swap` is not bound in all patterns
+ --> src/bin/../shadow_apply_region.rs:8:28
+  |
+8 |         if matches!(o.kind,X|CX|CCX|Swap|R|Hmr) {qs.insert(o.q_target.0);}
+  |                            ^ ^^ ^^^ ---- ^ ^^^ pattern doesn't bind `Swap`
+  |                            | |  |   |    |
+  |                            | |  |   |    pattern doesn't bind `Swap`
+  |                            | |  |   variable not in all patterns
+  |                            | |  pattern doesn't bind `Swap`
+  |                            | pattern doesn't bind `Swap`
+  |                            pattern doesn't bind `Swap`
+  |
+help: if you meant to match on a unit struct, unit variant or a `const` item, consider making the path in the pattern qualified: `path::to::ModOrType::Swap`
+ --> src/bin/../shadow_apply_region.rs:8:37
+  |
+8 |         if matches!(o.kind,X|CX|CCX|Swap|R|Hmr) {qs.insert(o.q_target.0);}
+  |                                     ^^^^
+
+error[E0408]: variable `R` is not bound in all patterns
+ --> src/bin/../shadow_apply_region.rs:8:28
+  |
+8 |         if matches!(o.kind,X|CX|CCX|Swap|R|Hmr) {qs.insert(o.q_target.0);}
+  |                            ^ ^^ ^^^ ^^^^ - ^^^ pattern doesn't bind `R`
+  |                            | |  |   |    |
+  |                            | |  |   |    variable not in all patterns
+  |                            | |  |   pattern doesn't bind `R`
+  |                            | |  pattern doesn't bind `R`
+  |                            | pattern doesn't bind `R`
+  |                            pattern doesn't bind `R`
+  |
+help: if you meant to match on a unit struct, unit variant or a `const` item, consider making the path in the pattern qualified: `path::to::ModOrType::R`
+ --> src/bin/../shadow_apply_region.rs:8:42
+  |
+8 |         if matches!(o.kind,X|CX|CCX|Swap|R|Hmr) {qs.insert(o.q_target.0);}
+  |                                          ^
+
+error[E0408]: variable `Hmr` is not bound in all patterns
+ --> src/bin/../shadow_apply_region.rs:8:28
+  |
+8 |         if matches!(o.kind,X|CX|CCX|Swap|R|Hmr) {qs.insert(o.q_target.0);}
+  |                            ^ ^^ ^^^ ^^^^ ^ --- variable not in all patterns
+  |                            | |  |   |    |
+  |                            | |  |   |    pattern doesn't bind `Hmr`
+  |                            | |  |   pattern doesn't bind `Hmr`
+  |                            | |  pattern doesn't bind `Hmr`
+  |                            | pattern doesn't bind `Hmr`
+  |                            pattern doesn't bind `Hmr`
+  |
+help: if you meant to match on a unit struct, unit variant or a `const` item, consider making the path in the pattern qualified: `path::to::ModOrType::Hmr`
+ --> src/bin/../shadow_apply_region.rs:8:44
+  |
+8 |         if matches!(o.kind,X|CX|CCX|Swap|R|Hmr) {qs.insert(o.q_target.0);}
+  |                                            ^^^
+
+error[E0408]: variable `X` is not bound in all patterns
+ --> src/bin/../shadow_apply_region.rs:8:30
+  |
+8 |         if matches!(o.kind,X|CX|CCX|Swap|R|Hmr) {qs.insert(o.q_target.0);}
+  |                            - ^^ ^^^ ^^^^ ^ ^^^ pattern doesn't bind `X`
+  |                            | |  |   |    |
+  |                            | |  |   |    pattern doesn't bind `X`
+  |                            | |  |   pattern doesn't bind `X`
+  |                            | |  pattern doesn't bind `X`
+  |                            | pattern doesn't bind `X`
+  |                            variable not in all patterns
+  |
+help: if you meant to match on a unit struct, unit variant or a `const` item, consider making the path in the pattern qualified: `path::to::ModOrType::X`
+ --> src/bin/../shadow_apply_region.rs:8:28
+  |
+8 |         if matches!(o.kind,X|CX|CCX|Swap|R|Hmr) {qs.insert(o.q_target.0);}
+  |                            ^
+
+error[E0408]: variable `CCX` is not bound in all patterns
+ --> src/bin/../shadow_apply_region.rs:9:28
+  |
+9 |         if matches!(o.kind,CX|CCX|Swap) {qs.insert(o.q_control1.0);}
+  |                            ^^ --- ^^^^ pattern doesn't bind `CCX`
+  |                            |  |
+  |                            |  variable not in all patterns
+  |                            pattern doesn't bind `CCX`
+  |
+help: if you meant to match on a unit struct, unit variant or a `const` item, consider making the path in the pattern qualified: `path::to::ModOrType::CCX`
+ --> src/bin/../shadow_apply_region.rs:9:31
+  |
+9 |         if matches!(o.kind,CX|CCX|Swap) {qs.insert(o.q_control1.0);}
+  |                               ^^^
+
+error[E0408]: variable `Swap` is not bound in all patterns
+ --> src/bin/../shadow_apply_region.rs:9:28
+  |
+9 |         if matches!(o.kind,CX|CCX|Swap) {qs.insert(o.q_control1.0);}
+  |                            ^^ ^^^ ---- variable not in all patterns
+  |                            |  |
+  |                            |  pattern doesn't bind `Swap`
+  |                            pattern doesn't bind `Swap`
+  |
+help: if you meant to match on a unit struct, unit variant or a `const` item, consider making the path in the pattern qualified: `path::to::ModOrType::Swap`
+ --> src/bin/../shadow_apply_region.rs:9:35
+  |
+9 |         if matches!(o.kind,CX|CCX|Swap) {qs.insert(o.q_control1.0);}
+  |                                   ^^^^
+
+error[E0408]: variable `CX` is not bound in all patterns
+ --> src/bin/../shadow_apply_region.rs:9:31
+  |
+9 |         if matches!(o.kind,CX|CCX|Swap) {qs.insert(o.q_control1.0);}
+  |                            -- ^^^ ^^^^ pattern doesn't bind `CX`
+  |                            |  |
+  |                            |  pattern doesn't bind `CX`
+  |                            variable not in all patterns
+  |
+help: if you meant to match on a unit struct, unit variant or a `const` item, consider making the path in the pattern qualified: `path::to::ModOrType::CX`
+ --> src/bin/../shadow_apply_region.rs:9:28
+  |
+9 |         if matches!(o.kind,CX|CCX|Swap) {qs.insert(o.q_control1.0);}
+  |                            ^^
+
+error[E0408]: variable `BitStore0` is not bound in all patterns
+  --> src/bin/../shadow_apply_region.rs:12:28
+   |
+12 |         if matches!(o.kind,Hmr|BitStore0|BitStore1|BitInvert) {bs.insert(o.c_target.0);}
+   |                            ^^^ --------- ^^^^^^^^^ ^^^^^^^^^ pattern doesn't bind `BitStore0`
+   |                            |   |         |
+   |                            |   |         pattern doesn't bind `BitStore0`
+   |                            |   variable not in all patterns
+   |                            pattern doesn't bind `BitStore0`
+   |
+help: if you meant to match on a unit struct, unit variant or a `const` item, consider making the path in the pattern qualified: `path::to::ModOrType::BitStore0`
+  --> src/bin/../shadow_apply_region.rs:12:32
+   |
+12 |         if matches!(o.kind,Hmr|BitStore0|BitStore1|BitInvert) {bs.insert(o.c_target.0);}
+   |                                ^^^^^^^^^
+
+error[E0408]: variable `BitStore1` is not bound in all patterns
+  --> src/bin/../shadow_apply_region.rs:12:28
+   |
+12 |         if matches!(o.kind,Hmr|BitStore0|BitStore1|BitInvert) {bs.insert(o.c_target.0);}
+   |                            ^^^ ^^^^^^^^^ --------- ^^^^^^^^^ pattern doesn't bind `BitStore1`
+   |                            |   |         |
+   |                            |   |         variable not in all patterns
+   |                            |   pattern doesn't bind `BitStore1`
+   |                            pattern doesn't bind `BitStore1`
+   |
+help: if you meant to match on a unit struct, unit variant or a `const` item, consider making the path in the pattern qualified: `path::to::ModOrType::BitStore1`
+  --> src/bin/../shadow_apply_region.rs:12:42
+   |
+12 |         if matches!(o.kind,Hmr|BitStore0|BitStore1|BitInvert) {bs.insert(o.c_target.0);}
+   |                                          ^^^^^^^^^
+
+error[E0408]: variable `BitInvert` is not bound in all patterns
+  --> src/bin/../shadow_apply_region.rs:12:28
+   |
+12 |         if matches!(o.kind,Hmr|BitStore0|BitStore1|BitInvert) {bs.insert(o.c_target.0);}
+   |                            ^^^ ^^^^^^^^^ ^^^^^^^^^ --------- variable not in all patterns
+   |                            |   |         |
+   |                            |   |         pattern doesn't bind `BitInvert`
+   |                            |   pattern doesn't bind `BitInvert`
+   |                            pattern doesn't bind `BitInvert`
+   |
+help: if you meant to match on a unit struct, unit variant or a `const` item, consider making the path in the pattern qualified: `path::to::ModOrType::BitInvert`
+  --> src/bin/../shadow_apply_region.rs:12:52
+   |
+12 |         if matches!(o.kind,Hmr|BitStore0|BitStore1|BitInvert) {bs.insert(o.c_target.0);}
+   |                                                    ^^^^^^^^^
+
+error[E0408]: variable `Hmr` is not bound in all patterns
+  --> src/bin/../shadow_apply_region.rs:12:32
+   |
+12 |         if matches!(o.kind,Hmr|BitStore0|BitStore1|BitInvert) {bs.insert(o.c_target.0);}
+   |                            --- ^^^^^^^^^ ^^^^^^^^^ ^^^^^^^^^ pattern doesn't bind `Hmr`
+   |                            |   |         |
+   |                            |   |         pattern doesn't bind `Hmr`
+   |                            |   pattern doesn't bind `Hmr`
+   |                            variable not in all patterns
+   |
+help: if you meant to match on a unit struct, unit variant or a `const` item, consider making the path in the pattern qualified: `path::to::ModOrType::Hmr`
+  --> src/bin/../shadow_apply_region.rs:12:28
+   |
+12 |         if matches!(o.kind,Hmr|BitStore0|BitStore1|BitInvert) {bs.insert(o.c_target.0);}
+   |                            ^^^
+
+error[E0408]: variable `R` is not bound in all patterns
+  --> src/bin/../shadow_apply_region.rs:13:41
+   |
+13 |         mr+=usize::from(matches!(o.kind,Hmr|R));
+   |                                         ^^^ - variable not in all patterns
+   |                                         |
+   |                                         pattern doesn't bind `R`
+   |
+help: if you meant to match on a unit struct, unit variant or a `const` item, consider making the path in the pattern qualified: `path::to::ModOrType::R`
+  --> src/bin/../shadow_apply_region.rs:13:45
+   |
+13 |         mr+=usize::from(matches!(o.kind,Hmr|R));
+   |                                             ^
+
+error[E0408]: variable `Hmr` is not bound in all patterns
+  --> src/bin/../shadow_apply_region.rs:13:45
+   |
+13 |         mr+=usize::from(matches!(o.kind,Hmr|R));
+   |                                         --- ^ pattern doesn't bind `Hmr`
+   |                                         |
+   |                                         variable not in all patterns
+   |
+help: if you meant to match on a unit struct, unit variant or a `const` item, consider making the path in the pattern qualified: `path::to::ModOrType::Hmr`
+  --> src/bin/../shadow_apply_region.rs:13:41
+   |
+13 |         mr+=usize::from(matches!(o.kind,Hmr|R));
+   |                                         ^^^
+
+error[E0408]: variable `Z` is not bound in all patterns
+  --> src/bin/../shadow_apply_region.rs:24:28
+   |
+24 |         if matches!(o.kind,Neg|Z|CZ|CCZ|Register|AppendToRegister|DebugPrint) {continue;}
+   |                            ^^^ - ^^ ^^^ ^^^^^^^^ ^^^^^^^^^^^^^^^^ ^^^^^^^^^^ pattern doesn't bind `Z`
+   |                            |   | |  |   |        |
+   |                            |   | |  |   |        pattern doesn't bind `Z`
+   |                            |   | |  |   pattern doesn't bind `Z`
+   |                            |   | |  pattern doesn't bind `Z`
+   |                            |   | pattern doesn't bind `Z`
+   |                            |   variable not in all patterns
+   |                            pattern doesn't bind `Z`
+   |
+help: if you meant to match on a unit struct, unit variant or a `const` item, consider making the path in the pattern qualified: `path::to::ModOrType::Z`
+  --> src/bin/../shadow_apply_region.rs:24:32
+   |
+24 |         if matches!(o.kind,Neg|Z|CZ|CCZ|Register|AppendToRegister|DebugPrint) {continue;}
+   |                                ^
+
+error[E0408]: variable `CZ` is not bound in all patterns
+  --> src/bin/../shadow_apply_region.rs:24:28
+   |
+24 |         if matches!(o.kind,Neg|Z|CZ|CCZ|Register|AppendToRegister|DebugPrint) {continue;}
+   |                            ^^^ ^ -- ^^^ ^^^^^^^^ ^^^^^^^^^^^^^^^^ ^^^^^^^^^^ pattern doesn't bind `CZ`
+   |                            |   | |  |   |        |
+   |                            |   | |  |   |        pattern doesn't bind `CZ`
+   |                            |   | |  |   pattern doesn't bind `CZ`
+   |                            |   | |  pattern doesn't bind `CZ`
+   |                            |   | variable not in all patterns
+   |                            |   pattern doesn't bind `CZ`
+   |                            pattern doesn't bind `CZ`
+   |
+help: if you meant to match on a unit struct, unit variant or a `const` item, consider making the path in the pattern qualified: `path::to::ModOrType::CZ`
+  --> src/bin/../shadow_apply_region.rs:24:34
+   |
+24 |         if matches!(o.kind,Neg|Z|CZ|CCZ|Register|AppendToRegister|DebugPrint) {continue;}
+   |                                  ^^
+
+error[E0408]: variable `CCZ` is not bound in all patterns
+  --> src/bin/../shadow_apply_region.rs:24:28
+   |
+24 |         if matches!(o.kind,Neg|Z|CZ|CCZ|Register|AppendToRegister|DebugPrint) {continue;}
+   |                            ^^^ ^ ^^ --- ^^^^^^^^ ^^^^^^^^^^^^^^^^ ^^^^^^^^^^ pattern doesn't bind `CCZ`
+   |                            |   | |  |   |        |
+   |                            |   | |  |   |        pattern doesn't bind `CCZ`
+   |                            |   | |  |   pattern doesn't bind `CCZ`
+   |                            |   | |  variable not in all patterns
+   |                            |   | pattern doesn't bind `CCZ`
+   |                            |   pattern doesn't bind `CCZ`
+   |                            pattern doesn't bind `CCZ`
+   |
+help: if you meant to match on a unit struct, unit variant or a `const` item, consider making the path in the pattern qualified: `path::to::ModOrType::CCZ`
+  --> src/bin/../shadow_apply_region.rs:24:37
+   |
+24 |         if matches!(o.kind,Neg|Z|CZ|CCZ|Register|AppendToRegister|DebugPrint) {continue;}
+   |                                     ^^^
+
+error[E0408]: variable `Register` is not bound in all patterns
+  --> src/bin/../shadow_apply_region.rs:24:28
+   |
+24 |         if matches!(o.kind,Neg|Z|CZ|CCZ|Register|AppendToRegister|DebugPrint) {continue;}
+   |                            ^^^ ^ ^^ ^^^ -------- ^^^^^^^^^^^^^^^^ ^^^^^^^^^^ pattern doesn't bind `Register`
+   |                            |   | |  |   |        |
+   |                            |   | |  |   |        pattern doesn't bind `Register`
+   |                            |   | |  |   variable not in all patterns
+   |                            |   | |  pattern doesn't bind `Register`
+   |                            |   | pattern doesn't bind `Register`
+   |                            |   pattern doesn't bind `Register`
+   |                            pattern doesn't bind `Register`
+   |
+help: if you meant to match on a unit struct, unit variant or a `const` item, consider making the path in the pattern qualified: `path::to::ModOrType::Register`
+  --> src/bin/../shadow_apply_region.rs:24:41
+   |
+24 |         if matches!(o.kind,Neg|Z|CZ|CCZ|Register|AppendToRegister|DebugPrint) {continue;}
+   |                                         ^^^^^^^^
+
+error[E0408]: variable `AppendToRegister` is not bound in all patterns
+  --> src/bin/../shadow_apply_region.rs:24:28
+   |
+24 |         if matches!(o.kind,Neg|Z|CZ|CCZ|Register|AppendToRegister|DebugPrint) {continue;}
+   |                            ^^^ ^ ^^ ^^^ ^^^^^^^^ ---------------- ^^^^^^^^^^ pattern doesn't bind `AppendToRegister`
+   |                            |   | |  |   |        |
+   |                            |   | |  |   |        variable not in all patterns
+   |                            |   | |  |   pattern doesn't bind `AppendToRegister`
+   |                            |   | |  pattern doesn't bind `AppendToRegister`
+   |                            |   | pattern doesn't bind `AppendToRegister`
+   |                            |   pattern doesn't bind `AppendToRegister`
+   |                            pattern doesn't bind `AppendToRegister`
+   |
+help: if you meant to match on a unit struct, unit variant or a `const` item, consider making the path in the pattern qualified: `path::to::ModOrType::AppendToRegister`
+  --> src/bin/../shadow_apply_region.rs:24:50
+   |
+24 |         if matches!(o.kind,Neg|Z|CZ|CCZ|Register|AppendToRegister|DebugPrint) {continue;}
+   |                                                  ^^^^^^^^^^^^^^^^
+
+error[E0408]: variable `DebugPrint` is not bound in all patterns
+  --> src/bin/../shadow_apply_region.rs:24:28
+   |
+24 |         if matches!(o.kind,Neg|Z|CZ|CCZ|Register|AppendToRegister|DebugPrint) {continue;}
+   |                            ^^^ ^ ^^ ^^^ ^^^^^^^^ ^^^^^^^^^^^^^^^^ ---------- variable not in all patterns
+   |                            |   | |  |   |        |
+   |                            |   | |  |   |        pattern doesn't bind `DebugPrint`
+   |                            |   | |  |   pattern doesn't bind `DebugPrint`
+   |                            |   | |  pattern doesn't bind `DebugPrint`
+   |                            |   | pattern doesn't bind `DebugPrint`
+   |                            |   pattern doesn't bind `DebugPrint`
+   |                            pattern doesn't bind `DebugPrint`
+   |
+help: if you meant to match on a unit struct, unit variant or a `const` item, consider making the path in the pattern qualified: `path::to::ModOrType::DebugPrint`
+  --> src/bin/../shadow_apply_region.rs:24:67
+   |
+24 |         if matches!(o.kind,Neg|Z|CZ|CCZ|Register|AppendToRegister|DebugPrint) {continue;}
+   |                                                                   ^^^^^^^^^^
+
+error[E0408]: variable `Neg` is not bound in all patterns
+  --> src/bin/../shadow_apply_region.rs:24:32
+   |
+24 |         if matches!(o.kind,Neg|Z|CZ|CCZ|Register|AppendToRegister|DebugPrint) {continue;}
+   |                            --- ^ ^^ ^^^ ^^^^^^^^ ^^^^^^^^^^^^^^^^ ^^^^^^^^^^ pattern doesn't bind `Neg`
+   |                            |   | |  |   |        |
+   |                            |   | |  |   |        pattern doesn't bind `Neg`
+   |                            |   | |  |   pattern doesn't bind `Neg`
+   |                            |   | |  pattern doesn't bind `Neg`
+   |                            |   | pattern doesn't bind `Neg`
+   |                            |   pattern doesn't bind `Neg`
+   |                            variable not in all patterns
+   |
+help: if you meant to match on a unit struct, unit variant or a `const` item, consider making the path in the pattern qualified: `path::to::ModOrType::Neg`
+  --> src/bin/../shadow_apply_region.rs:24:28
+   |
+24 |         if matches!(o.kind,Neg|Z|CZ|CCZ|Register|AppendToRegister|DebugPrint) {continue;}
+   |                            ^^^
+
+error[E0408]: variable `R` is not bound in all patterns
+  --> src/bin/../shadow_apply_region.rs:31:39
+   |
+31 |         let random=if matches!(o.kind,Hmr|R){a.fresh()}else{GlobalAnf::constant(0)};
+   |                                       ^^^ - variable not in all patterns
+   |                                       |
+   |                                       pattern doesn't bind `R`
+   |
+help: if you meant to match on a unit struct, unit variant or a `const` item, consider making the path in the pattern qualified: `path::to::ModOrType::R`
+  --> src/bin/../shadow_apply_region.rs:31:43
+   |
+31 |         let random=if matches!(o.kind,Hmr|R){a.fresh()}else{GlobalAnf::constant(0)};
+   |                                           ^
+
+error[E0408]: variable `Hmr` is not bound in all patterns
+  --> src/bin/../shadow_apply_region.rs:31:43
+   |
+31 |         let random=if matches!(o.kind,Hmr|R){a.fresh()}else{GlobalAnf::constant(0)};
+   |                                       --- ^ pattern doesn't bind `Hmr`
+   |                                       |
+   |                                       variable not in all patterns
+   |
+help: if you meant to match on a unit struct, unit variant or a `const` item, consider making the path in the pattern qualified: `path::to::ModOrType::Hmr`
+  --> src/bin/../shadow_apply_region.rs:31:39
+   |
+31 |         let random=if matches!(o.kind,Hmr|R){a.fresh()}else{GlobalAnf::constant(0)};
+   |                                       ^^^
+
+error[E0408]: variable `R` is not bound in all patterns
+  --> src/bin/../shadow_apply_region.rs:32:28
+   |
+32 |         if matches!(o.kind,Hmr|R) {let t=qids[&o.q_target.0];let nc=a.not(&ca);reset[t]=a.and(&reset[t],&nc);}
+   |                            ^^^ - variable not in all patterns
+   |                            |
+   |                            pattern doesn't bind `R`
+   |
+help: if you meant to match on a unit struct, unit variant or a `const` item, consider making the path in the pattern qualified: `path::to::ModOrType::R`
+  --> src/bin/../shadow_apply_region.rs:32:32
+   |
+32 |         if matches!(o.kind,Hmr|R) {let t=qids[&o.q_target.0];let nc=a.not(&ca);reset[t]=a.and(&reset[t],&nc);}
+   |                                ^
+
+error[E0408]: variable `Hmr` is not bound in all patterns
+  --> src/bin/../shadow_apply_region.rs:32:32
+   |
+32 |         if matches!(o.kind,Hmr|R) {let t=qids[&o.q_target.0];let nc=a.not(&ca);reset[t]=a.and(&reset[t],&nc);}
+   |                            --- ^ pattern doesn't bind `Hmr`
+   |                            |
+   |                            variable not in all patterns
+   |
+help: if you meant to match on a unit struct, unit variant or a `const` item, consider making the path in the pattern qualified: `path::to::ModOrType::Hmr`
+  --> src/bin/../shadow_apply_region.rs:32:28
+   |
+32 |         if matches!(o.kind,Hmr|R) {let t=qids[&o.q_target.0];let nc=a.not(&ca);reset[t]=a.and(&reset[t],&nc);}
+   |                            ^^^
+
+error[E0408]: variable `R` is not bound in all patterns
+  --> src/bin/../shadow_apply_region.rs:39:17
+   |
+39 | ...   Hmr|R=>{let t=qids[&o.q_target.0];let nc=a.not(&c);s.q[t]=a.and(&s.q[t],&nc);if o.kind==Hmr{let bt=bids[&o.c_target.0];let old...
+   |       ^^^ - variable not in all patterns
+   |       |
+   |       pattern doesn't bind `R`
+   |
+help: if you meant to match on a unit struct, unit variant or a `const` item, consider making the path in the pattern qualified: `path::to::ModOrType::R`
+  --> src/bin/../shadow_apply_region.rs:39:21
+   |
+39 | ...   Hmr|R=>{let t=qids[&o.q_target.0];let nc=a.not(&c);s.q[t]=a.and(&s.q[t],&nc);if o.kind==Hmr{let bt=bids[&o.c_target.0];let old...
+   |           ^
+
+error[E0408]: variable `Hmr` is not bound in all patterns
+  --> src/bin/../shadow_apply_region.rs:39:21
+   |
+39 | ...   Hmr|R=>{let t=qids[&o.q_target.0];let nc=a.not(&c);s.q[t]=a.and(&s.q[t],&nc);if o.kind==Hmr{let bt=bids[&o.c_target.0];let old...
+   |       --- ^ pattern doesn't bind `Hmr`
+   |       |
+   |       variable not in all patterns
+   |
+help: if you meant to match on a unit struct, unit variant or a `const` item, consider making the path in the pattern qualified: `path::to::ModOrType::Hmr`
+  --> src/bin/../shadow_apply_region.rs:39:17
+   |
+39 | ...   Hmr|R=>{let t=qids[&o.q_target.0];let nc=a.not(&c);s.q[t]=a.and(&s.q[t],&nc);if o.kind==Hmr{let bt=bids[&o.c_target.0];let old...
+   |       ^^^
+
+error[E0425]: cannot find value `CCX` in this scope
+  --> src/bin/../shadow_apply_region.rs:10:20
+   |
+10 |         if o.kind==CCX {qs.insert(o.q_control2.0);}
+   |                    ^^^ not found in this scope
+
+error[E0425]: cannot find value `PopCondition` in this scope
+  --> src/bin/../shadow_apply_region.rs:25:20
+   |
+25 |         if o.kind==PopCondition {
+   |                    ^^^^^^^^^^^^ not found in this scope
+
+warning: unused import: `Write`
+  --> src/bin/global_rng_anf_shadow.rs:13:32
+   |
+13 | use std::io::{BufReader, Read, Write};
+   |                                ^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused imports: `Arc`, `AtomicUsize`, `Mutex`, and `Ordering`
+  --> src/bin/global_rng_anf_shadow.rs:14:17
+   |
+14 | use std::sync::{Arc, Mutex, atomic::{AtomicUsize, Ordering}};
+   |                 ^^^  ^^^^^           ^^^^^^^^^^^  ^^^^^^^^
+
+warning: unused import: `XofReader`
+ --> src/bin/global_rng_anf_shadow.rs:9:40
+  |
+9 |     digest::{ExtendableOutput, Update, XofReader},
+  |                                        ^^^^^^^^^
+
+Some errors have detailed explanations: E0408, E0425.
+For more information about an error, try `rustc --explain E0408`.
+warning: `value_prefilter` (bin "global_rng_anf_shadow" test) generated 3 warnings
+error: could not compile `value_prefilter` (bin "global_rng_anf_shadow" test) due to 30 previous errors; 3 warnings emitted

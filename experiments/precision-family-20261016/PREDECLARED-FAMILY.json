@@ -1,0 +1,13 @@
+{
+  "source_revision": "4b2ec52fc55da796aa8f5ef851290297e8706424",
+  "family": "one_extra_payload_fold_bit_at_every_late_forward_tick",
+  "predicate": "!reverse && tick >= 100",
+  "rationale": "The production source uses 57-bit forward precision through tick99, then its 56-bit base. Restore one bit uniformly throughout the remaining complete forward phase.",
+  "forward_ticks": [100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136],
+  "input_dependence": "none",
+  "packet_or_nonce_dependence": "none",
+  "status": "predeclared component diagnostics; whole-source admission and fresh paired census required",
+  "quantum_donor_policy": "Only existing wires proved zero for every input/MR at region entry, untouched by original region, and restored zero at replacement exit. Preserve all payload and external interfaces.",
+  "classical_policy": "Fresh IDs may replace only local definitions that have no incoming-version dependence and no live-out uses. Retain original incoming/live-out bit values and all balanced scope snapshots.",
+  "table_policy": "Never bypass inherited tables or anchors. Post-table region replacement requires full old-region identity and no inherited overlapping edit. If any family site lacks a safe whole-region interface, report rejection instead of silently dropping it."
+}

@@ -1,0 +1,43 @@
+               total        used        free      shared  buff/cache   available
+Mem:          515350      248787      113404           9      159893      266563
+Swap:           8191         335        7856
+    PID %CPU   RSS COMMAND
+3174330 1739 119430784 /home/hclau/tools/miniforge3/envs/qob-lattice/bin/python problems/01-marketsplit/classical/ms_sieve.py external/QOBLIB/01-marketsplit/instances/ms_14_200_002.dat --out problems/01-marketsplit/results/sieve/ms_14_200_002.sol --threads 18
+3207770 1738 103186340 /home/hclau/tools/miniforge3/envs/qob-lattice/bin/python problems/01-marketsplit/classical/ms_sieve.py external/QOBLIB/01-marketsplit/instances/ms_14_200_003.dat --out problems/01-marketsplit/results/sieve/ms_14_200_003.sol --threads 18
+3823641  400  4996 ps -eo pid,pcpu,rss,args --sort=-pcpu
+3820737  394 641280 /home/hclau/ecdsa_research/failure-census-20261015/target/release/failure_census ../product-exact-20261015/tip/ops.bin public4b-precision-familyA29-independent-20261016-v1 0 4096 4 fresh-paired/parent.jsonl
+3820738  394 641432 /home/hclau/ecdsa_research/failure-census-20261015/target/release/failure_census candidate/ops.bin public4b-precision-familyA29-independent-20261016-v1 0 4096 4 fresh-paired/candidate.jsonl
+3823428  100 2313320 ./target-anchored-replay/release/product_paired_diagnostic /home/hclau/ecdsa_research/nonce-screen-20261015/final-census/ops.bin wide-to67-scratch-20261016/wide-49-retained-1024.bin +wide-to67-scratch-20261016/stage-49.manifest independent wide-to67-scratch-20261016/stage-49-independent.tsv
+3820808  100 7053568 ./target-flags/release/product_paired_diagnostic product-to67-rank-20261016/product-55-retained-512-proxy.bin product-to67-rank-20261016/product-56-retained-1024-start.bin
+3811252  100 1956388 ./target-recursive-unfold/release/product_paired_diagnostic product-to53-20261016/product-53-retained-1024.bin recursive-unfold-v2-20261016/product53-128.bin
+3823637  5.5  3820 bash run-global-anf-mask-trace.sh
+3958097  4.2 63196 /opt/TrendMicro/EndpointBasecamp/bin/tmxbc service run
+1705398  3.8 608936 /opt/ds_agent/ds_agent -w /var/opt/ds_agent -b -i -e /opt/ds_agent/ext
+1706320  2.8 219832 /opt/ds_agent/ds_am -g ../diag -v 5 -d /var/opt/ds_agent/am -P 1 -R
+1702756  1.0 84276 /usr/bin/alloy run --storage.path=/var/lib/alloy/data /etc/alloy/config.alloy
+3777359  0.6 10080 .venv/bin/python tools/hpc/runner.py run tools/hpc/jobs/01_sieve.jsonl --max-cores 36
+3820533  0.3     0 [kworker/u288:1-be_wq]
+1702753  0.1 27412 /usr/bin/containerd
+1706202  0.1 47324 /opt/ds_agent/netagent/tm_netagent --metrics-file /var/opt/ds_agent/netagent/metrics.json --log-folder /var/opt/ds_agent/netagent/logs --ptn-folder /opt/ds_agent/netagent/pattern --jat-folder /opt/ds_agent/netagent/java/jattach --jex-folder /var/opt/ds_agent/netagentjava --log-console=false --log-level 1 --tmCfg WyJTc2xMaW51eEphdmFCdWlsZEVuYWJsZWQiLCJKYXZhQXR0YWNoIiwiRGlzYWJsZURvY2tlckJQRiIsIlNzbEluYm91bmQiLCJTc2xPdXRib3VuZCJd
+3812481  0.1     0 [kworker/u289:4-flush-252:0]
+     17  0.0     0 [rcu_preempt]
+   2866  0.0 48868 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+1706111  0.0 17024 /opt/ds_agent/netagent/tm_netagent --metrics-file /var/opt/ds_agent/netagent/metrics.json --log-folder /var/opt/ds_agent/netagent/logs --ptn-folder /opt/ds_agent/netagent/pattern --jat-folder /opt/ds_agent/netagent/java/jattach --jex-folder /var/opt/ds_agent/netagentjava --log-console=false --log-level 1 --tmCfg WyJTc2xMaW51eEphdmFCdWlsZEVuYWJsZWQiLCJKYXZhQXR0YWNoIiwiRGlzYWJsZURvY2tlckJQRiIsIlNzbEluYm91bmQiLCJTc2xPdXRib3VuZCJd
+3787514  0.0     0 [kworker/u291:3-flush-252:0]
+3750222  0.0     0 [kworker/u292:0-events_power_efficient]
+3756231  0.0     0 [kworker/u291:2-events_unbound]
+3772248  0.0     0 [kworker/u288:0-be_err_recover]
+3025376  0.0 111900 /home/hclau/.local/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/bin/codex -c features.code_mode_host=true app-server --listen unix://
+3684500  0.0     0 [kworker/u288:3-poll_megasas0_status]
+1706641  0.0 10620 /opt/ds_agent/dsa-connect main
+     16  0.0     0 [ksoftirqd/0]
+4160417  0.0     0 [kworker/0:3-kacpi_notify]
+3808026  0.0     0 [kworker/u291:1-flush-252:0]
+1706650  0.0 27452 /opt/ds_agent/dsa-connect hub
+3809518  0.0     0 [kworker/u292:1-flush-252:0]
+3729361  0.0     0 [kworker/u292:5-events_power_efficient]
+3816868  0.0 16652 python3 run.py
+    903  0.0     0 [irq/9-acpi]
+3687264  0.0     0 [kworker/u292:3-events_power_efficient]
+3799047  0.0     0 [kworker/u291:4-flush-252:0]
+      1  0.0 10924 /usr/lib/systemd/systemd --system --deserialize=98

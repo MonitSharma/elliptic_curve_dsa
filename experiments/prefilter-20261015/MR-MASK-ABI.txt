@@ -1,0 +1,31 @@
+MRMASK01 input-conditioned MR masks (version 1)
+
+The 32-byte header is eight literal bytes MRMASK01 followed by u64 little-endian
+node_count, input_count and output_count. It is followed by node_count 16-byte
+records {kind,a,b,aux}, each four u32 little-endian words, then output_count u32
+little-endian dependency-root IDs. Aux is always zero.
+
+Kinds: 0 constant zero; 1 constant one; 2 input port a; 3 XOR(a,b); 4 AND(a,b);
+5 OR(a,b). Operator children must have smaller IDs. Every input port denotes a
+supplied public input bit. Production has 1,024 ports: P.x[0..255], P.y, A.x,
+A.y, each least-significant bit first. Roots follow scored P.x then P.y bits.
+
+A dependency root is a conservative upper bound on dependence on ALL physical
+MR words and ALL capped symbolic unknowns. Root value zero proves that scored
+bit independent of those variables for the supplied public input. Thus
+known_mask = NOT dependency_root. A scored bit from the SOURCE-PINNED zero-MR
+evaluator differing from the expected curve value AND known_mask is a sound
+value-failure certificate. Other bits do not authorize rejection.
+
+The exporter ORs the input-only coefficient functions of every nonconstant
+outer polynomial term. Fresh MR symbols and conservative capped unknowns occur
+only in the outer keys. They are NEVER exported as known input ports. Pure-input
+capped atoms have exact immutable XOR/AND definitions and are flattened to this
+binary DAG. Undeclared terminals or missing definitions abort export. No fresh
+opaque input-only variable is silently evaluated from an arbitrary public bit.
+
+This proof is pinned to original product commit4b2ec52f and full ops SHA256
+2a522394cdf3e6a0df7784ad4db761030933c1f7ccd0ff8e641d68ec7a4dab3e.
+The ABI and bitmaps must not be transferred to another source without a universal
+value-equivalence certificate or independent re-generation and validation.
+The source stream, not this research IR, remains the Fiat input/MR seed source.

@@ -1,0 +1,59 @@
+   Compiling value_prefilter v0.1.0 (/home/hclau/ecdsa_research/prefilter-20261015/tool)
+warning: unused import: `QubitOrBit`
+ --> src/bin/macro_proof.rs:4:53
+  |
+4 |     analyze_ops, BitId, Op, OperationType, QubitId, QubitOrBit, RegisterId,
+  |                                                     ^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `Write`
+  --> src/bin/macro_proof.rs:13:32
+   |
+13 | use std::io::{BufReader, Read, Write};
+   |                                ^^^^^
+
+warning: unused imports: `Arc`, `AtomicUsize`, `Mutex`, and `Ordering`
+  --> src/bin/macro_proof.rs:14:17
+   |
+14 | use std::sync::{Arc, Mutex, atomic::{AtomicUsize, Ordering}};
+   |                 ^^^  ^^^^^           ^^^^^^^^^^^  ^^^^^^^^
+
+warning: constant `NUM_TESTS` is never used
+  --> src/bin/macro_proof.rs:30:7
+   |
+30 | const NUM_TESTS: usize = 9024;
+   |       ^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `secp256k1` is never used
+   --> src/bin/macro_proof.rs:136:4
+    |
+136 | fn secp256k1() -> WeierstrassEllipticCurve {
+    |    ^^^^^^^^^
+
+warning: function `fiat_shamir_seed` is never used
+   --> src/bin/macro_proof.rs:168:4
+    |
+168 | fn fiat_shamir_seed(ops: &[Op]) -> sha3::Shake256Reader {
+    |    ^^^^^^^^^^^^^^^^
+
+warning: `value_prefilter` (bin "macro_proof" test) generated 6 warnings (run `cargo fix --bin "macro_proof" -p value_prefilter --tests` to apply 3 suggestions)
+    Finished `release` profile [optimized] target(s) in 10.62s
+     Running unittests src/bin/macro_proof.rs (tool/target/release/deps/macro_proof-4158ea8e00cdeb8c)
+
+running 10 tests
+test global_anf_tests::all_two_input_two_rng_assignments_exact ... ok
+test global_anf_tests::capped_constant_separation_and_nonrecycled_ids ... ok
+test global_anf_tests::capped_dependency_mask_is_sound_for_each_input ... ok
+test global_anf_tests::conditional_compute_reset_and_negative_rng_dependency ... ok
+test input_anf_tests::square_free_distribution_proves_conditional_cancellation ... ok
+test input_product_cap_tests::retained_input_product_constants_cancel_exactly ... ok
+test or_mask_tests::saturation_never_expands_a_large_dependency_mask ... ok
+test input_anf_tests::monomial_overflow_atoms_keep_exact_semantics ... ok
+test global_anf_tests::input_dag_exact_boolean_rewrites_all_assignments ... ok
+test input_anf_tests::large_input_only_caps_keep_constants_and_semantics ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s
+

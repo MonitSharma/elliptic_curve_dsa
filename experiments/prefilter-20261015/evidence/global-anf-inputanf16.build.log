@@ -1,0 +1,43 @@
+   Compiling value_prefilter v0.1.0 (/home/hclau/ecdsa_research/prefilter-20261015/tool)
+warning: unused import: `Write`
+  --> src/bin/global_rng_anf_inputanf16.rs:13:32
+   |
+13 | use std::io::{BufReader, Read, Write};
+   |                                ^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused imports: `Arc`, `AtomicUsize`, `Mutex`, and `Ordering`
+  --> src/bin/global_rng_anf_inputanf16.rs:14:17
+   |
+14 | use std::sync::{Arc, Mutex, atomic::{AtomicUsize, Ordering}};
+   |                 ^^^  ^^^^^           ^^^^^^^^^^^  ^^^^^^^^
+
+warning: unused import: `XofReader`
+ --> src/bin/global_rng_anf_inputanf16.rs:9:40
+  |
+9 |     digest::{ExtendableOutput, Update, XofReader},
+  |                                        ^^^^^^^^^
+
+warning: constant `NUM_TESTS` is never used
+  --> src/bin/global_rng_anf_inputanf16.rs:30:7
+   |
+30 | const NUM_TESTS: usize = 9024;
+   |       ^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `secp256k1` is never used
+   --> src/bin/global_rng_anf_inputanf16.rs:136:4
+    |
+136 | fn secp256k1() -> WeierstrassEllipticCurve {
+    |    ^^^^^^^^^
+
+warning: function `fiat_shamir_seed` is never used
+   --> src/bin/global_rng_anf_inputanf16.rs:168:4
+    |
+168 | fn fiat_shamir_seed(ops: &[Op]) -> sha3::Shake256Reader {
+    |    ^^^^^^^^^^^^^^^^
+
+warning: `value_prefilter` (bin "global_rng_anf_inputanf16") generated 6 warnings (run `cargo fix --bin "global_rng_anf_inputanf16" -p value_prefilter` to apply 2 suggestions)
+    Finished `release` profile [optimized] target(s) in 8.88s

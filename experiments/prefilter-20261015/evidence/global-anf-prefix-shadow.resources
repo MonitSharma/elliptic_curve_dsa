@@ -1,0 +1,43 @@
+               total        used        free      shared  buff/cache   available
+Mem:          515350      235139      131824           9      155120      280211
+Swap:           8191         335        7856
+    PID %CPU   RSS COMMAND
+3174330 1740 103132748 /home/hclau/tools/miniforge3/envs/qob-lattice/bin/python problems/01-marketsplit/classical/ms_sieve.py external/QOBLIB/01-marketsplit/instances/ms_14_200_002.dat --out problems/01-marketsplit/results/sieve/ms_14_200_002.sol --threads 18
+3207770 1737 103186340 /home/hclau/tools/miniforge3/envs/qob-lattice/bin/python problems/01-marketsplit/classical/ms_sieve.py external/QOBLIB/01-marketsplit/instances/ms_14_200_003.dat --out problems/01-marketsplit/results/sieve/ms_14_200_003.sol --threads 18
+3795972  100 2430700 ./target-anchored-replay/release/product_paired_diagnostic tip/ops.bin factored-cache-20261016/product53-512-witness-only-retained.bin +factored-cache-20261016/product53-512-witness-only-retained.manifest independent factored-cache-20261016/product53-512-witness-only-retained-independent.tsv
+3795966  100 4796688 /home/hclau/ecdsa_research/product-exact-20261015/target-cache-certificate/release/product_paired_diagnostic /home/hclau/ecdsa_research/product-exact-20261015/product-continuation-20261016/product-23-retained-128.bin /home/hclau/ecdsa_research/product-exact-20261015/product-continuation-20261016/product-24-retained-512.bin /home/hclau/ecdsa_research/product-exact-20261015/product-continuation-20261016/product-24-retained-512-generate.log retained
+3792851  100 2304804 tool/target/release/global_rng_anf_shadow_bound /home/hclau/ecdsa_research/product-exact-20261015/tip/ops.bin packets/audit.tsv 32 evidence/reset-projection-tip.summary.json evidence/reset-projection-symbols-tip.summary.json evidence/reset-projection-comparators.summary.json evidence/reset-projection-top1-complete.summary.json evidence/reset-projection-all-scopes-tip.summary.json evidence/reset-projection-carry.summary.json
+3795732 66.3 5045156 /home/hclau/ecdsa_research/product-exact-20261015/target-cache-certificate/release/product_paired_diagnostic /home/hclau/ecdsa_research/product-exact-20261015/flags-extended-20261016/product-9-retained-128.bin /home/hclau/ecdsa_research/product-exact-20261015/flags-extended-20261016/product-10-retained-512.bin /home/hclau/ecdsa_research/product-exact-20261015/flags-extended-20261016/product-10-retained-512-generate.log retained
+3958097  4.2 62640 /opt/TrendMicro/EndpointBasecamp/bin/tmxbc service run
+1705398  3.8 581716 /opt/ds_agent/ds_agent -w /var/opt/ds_agent -b -i -e /opt/ds_agent/ext
+1706320  2.8 218608 /opt/ds_agent/ds_am -g ../diag -v 5 -d /var/opt/ds_agent/am -P 1 -R
+3791411  2.3 19128 python3 run_cache_certificate_parallel.py
+3787455  1.4 17656 python3 run_cache_certificate_chain.py
+1702756  1.0 84276 /usr/bin/alloy run --storage.path=/var/lib/alloy/data /etc/alloy/config.alloy
+3777359  0.6 10080 .venv/bin/python tools/hpc/runner.py run tools/hpc/jobs/01_sieve.jsonl --max-cores 36
+1702753  0.1 27264 /usr/bin/containerd
+1706202  0.1 48220 /opt/ds_agent/netagent/tm_netagent --metrics-file /var/opt/ds_agent/netagent/metrics.json --log-folder /var/opt/ds_agent/netagent/logs --ptn-folder /opt/ds_agent/netagent/pattern --jat-folder /opt/ds_agent/netagent/java/jattach --jex-folder /var/opt/ds_agent/netagentjava --log-console=false --log-level 1 --tmCfg WyJTc2xMaW51eEphdmFCdWlsZEVuYWJsZWQiLCJKYXZhQXR0YWNoIiwiRGlzYWJsZURvY2tlckJQRiIsIlNzbEluYm91bmQiLCJTc2xPdXRib3VuZCJd
+     17  0.0     0 [rcu_preempt]
+   2866  0.0 48800 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+3756231  0.0     0 [kworker/u291:2-flush-252:0]
+1706111  0.0 17568 /opt/ds_agent/netagent/tm_netagent --metrics-file /var/opt/ds_agent/netagent/metrics.json --log-folder /var/opt/ds_agent/netagent/logs --ptn-folder /opt/ds_agent/netagent/pattern --jat-folder /opt/ds_agent/netagent/java/jattach --jex-folder /var/opt/ds_agent/netagentjava --log-console=false --log-level 1 --tmCfg WyJTc2xMaW51eEphdmFCdWlsZEVuYWJsZWQiLCJKYXZhQXR0YWNoIiwiRGlzYWJsZURvY2tlckJQRiIsIlNzbEluYm91bmQiLCJTc2xPdXRib3VuZCJd
+3772248  0.0     0 [kworker/u288:0-ext4-rsv-conversion]
+3705855  0.0     0 [kworker/u291:1-events_unbound]
+3787514  0.0     0 [kworker/u291:3-writeback]
+3733920  0.0     0 [kworker/u288:1-be_wq]
+3025376  0.0 113092 /home/hclau/.local/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/bin/codex -c features.code_mode_host=true app-server --listen unix://
+3684500  0.0     0 [kworker/u288:3-be_wq]
+1706641  0.0 10556 /opt/ds_agent/dsa-connect main
+     16  0.0     0 [ksoftirqd/0]
+4160417  0.0     0 [kworker/0:3-kacpi_notify]
+1706650  0.0 27624 /opt/ds_agent/dsa-connect hub
+3729361  0.0     0 [kworker/u292:5-events_power_efficient]
+3687264  0.0     0 [kworker/u292:3-flush-8:0]
+    903  0.0     0 [irq/9-acpi]
+3692580  0.0     0 [kworker/u292:4-events_power_efficient]
+3750222  0.0     0 [kworker/u292:0-flush-252:0]
+3711644  0.0     0 [kworker/u292:2-events_power_efficient]
+      1  0.0 10960 /usr/lib/systemd/systemd --system --deserialize=98
+2688241  0.0     0 [kworker/0:1-events]
+3764954  0.0     0 [kworker/u289:2-flush-252:0]
+   1548  0.0     0 [jbd2/dm-0-8]

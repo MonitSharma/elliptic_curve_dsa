@@ -1,0 +1,24 @@
+ 23:48:33 up 93 days,  8:24,  7 users,  load average: 53.04, 47.20, 46.07
+               total        used        free      shared  buff/cache   available
+Mem:             503         194         178           0         137         309
+Swap:              7           0           7
+    PID COMMAND         %CPU %MEM COMMAND
+3207770 python          1751 16.9 /home/hclau/tools/miniforge3/envs/qob-lattice/bin/python problems/01-marketsplit/classical/ms_sieve.py external/QOBLIB/01-marketsplit/instances/ms_14_200_003.dat --out problems/01-marketsplit/results/sieve/ms_14_200_003.sol --threads 18
+3174330 python          1747 17.0 /home/hclau/tools/miniforge3/envs/qob-lattice/bin/python problems/01-marketsplit/classical/ms_sieve.py external/QOBLIB/01-marketsplit/instances/ms_14_200_002.dat --out problems/01-marketsplit/results/sieve/ms_14_200_002.sol --threads 18
+3578358 failure_census   969  0.1 /home/hclau/ecdsa_research/failure-census-20261015/target/release/failure_census tip/ops.bin product-frozen-four-stage-20261015 4096 28672 10 frozen-parent-continuation.jsonl
+3578361 failure_census   969  0.1 /home/hclau/ecdsa_research/failure-census-20261015/target/release/failure_census chain-retained.bin product-frozen-four-stage-20261015 4096 28672 10 frozen-candidate-continuation.jsonl
+3575002 build_circuit    100  1.0 ./target/release/build_circuit
+3579626 bash            33.3  0.0 bash run-recovered-population.sh
+3958097 tmxbc            4.2  0.0 /opt/TrendMicro/EndpointBasecamp/bin/tmxbc service run
+1705398 ds_agent         3.8  0.1 /opt/ds_agent/ds_agent -w /var/opt/ds_agent -b -i -e /opt/ds_agent/ext
+1706320 ds_am            2.8  0.0 /opt/ds_agent/ds_am -g ../diag -v 5 -d /var/opt/ds_agent/am -P 1 -R
+1702756 alloy            1.0  0.0 /usr/bin/alloy run --storage.path=/var/lib/alloy/data /etc/alloy/config.alloy
+3777359 python           0.6  0.0 .venv/bin/python tools/hpc/runner.py run tools/hpc/jobs/01_sieve.jsonl --max-cores 36
+1702753 containerd       0.1  0.0 /usr/bin/containerd
+1706202 tm_netagent      0.1  0.0 /opt/ds_agent/netagent/tm_netagent --metrics-file /var/opt/ds_agent/netagent/metrics.json --log-folder /var/opt/ds_agent/netagent/logs --ptn-folder /opt/ds_agent/netagent/pattern --jat-folder /opt/ds_agent/netagent/java/jattach --jex-folder /var/opt/ds_agent/netagentjava --log-console=false --log-level 1 --tmCfg WyJTc2xMaW51eEphdmFCdWlsZEVuYWJsZWQiLCJKYXZhQXR0YWNoIiwiRGlzYWJsZURvY2tlckJQRiIsIlNzbEluYm91bmQiLCJTc2xPdXRib3VuZCJd
+     17 rcu_preempt      0.0  0.0 [rcu_preempt]
+   2866 dockerd          0.0  0.0 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+3566717 kworker/u291:1-  0.0  0.0 [kworker/u291:1-events_unbound]
+1706111 tm_netagent      0.0  0.0 /opt/ds_agent/netagent/tm_netagent --metrics-file /var/opt/ds_agent/netagent/metrics.json --log-folder /var/opt/ds_agent/netagent/logs --ptn-folder /opt/ds_agent/netagent/pattern --jat-folder /opt/ds_agent/netagent/java/jattach --jex-folder /var/opt/ds_agent/netagentjava --log-console=false --log-level 1 --tmCfg WyJTc2xMaW51eEphdmFCdWlsZEVuYWJsZWQiLCJKYXZhQXR0YWNoIiwiRGlzYWJsZURvY2tlckJQRiIsIlNzbEluYm91bmQiLCJTc2xPdXRib3VuZCJd
+3549804 kworker/u291:2-  0.0  0.0 [kworker/u291:2-flush-252:0]
+3025376 codex            0.0  0.0 /home/hclau/.local/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/bin/codex -c features.code_mode_host=true app-server --listen unix://

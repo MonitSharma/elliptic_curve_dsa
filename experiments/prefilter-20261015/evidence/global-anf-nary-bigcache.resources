@@ -1,0 +1,53 @@
+               total        used        free      shared  buff/cache   available
+Mem:          515350      229674      144451           9      147959      285676
+Swap:           8191         335        7856
+    PID %CPU   RSS COMMAND
+3207770 1740 89710052 /home/hclau/tools/miniforge3/envs/qob-lattice/bin/python problems/01-marketsplit/classical/ms_sieve.py external/QOBLIB/01-marketsplit/instances/ms_14_200_003.dat --out problems/01-marketsplit/results/sieve/ms_14_200_003.sol --threads 18
+3174330 1738 103132748 /home/hclau/tools/miniforge3/envs/qob-lattice/bin/python problems/01-marketsplit/classical/ms_sieve.py external/QOBLIB/01-marketsplit/instances/ms_14_200_002.dat --out problems/01-marketsplit/results/sieve/ms_14_200_002.sol --threads 18
+3689302  800  4980 ps -eo pid,pcpu,rss,args --sort=-pcpu
+3688628  100 3692160 ./target-flags/release/product_paired_diagnostic product-to53-20261016/product-30-retained-128.bin product-to53-20261016/product-31-retained-512.bin
+3688284  100 879156 ./target/release/build_circuit
+3684256  100 9281944 tool/target/release/global_rng_anf_inputanf16 /home/hclau/ecdsa_research/product-exact-20261015/tip/ops.bin packets/audit.tsv 32
+3670255 99.9 8471528 ./target/release/build_circuit
+3687687 96.7 693216 /home/hclau/.rustup/toolchains/1.93.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name build_circuit --edition=2021 src/bin/build_circuit.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C opt-level=3 -C lto=thin -C codegen-units=1 --test --check-cfg cfg(docsrs,test) --check-cfg cfg(feature, values()) -C metadata=602769f290d964e5 -C extra-filename=-0c12d1b03f2fe721 --out-dir /home/hclau/ecdsa_research/product-exact-20261015/candidate-wide-compound/target/release/deps -C strip=debuginfo -L dependency=/home/hclau/ecdsa_research/product-exact-20261015/candidate-wide-compound/target/release/deps --extern alloy_primitives=/home/hclau/ecdsa_research/product-exact-20261015/candidate-wide-compound/target/release/deps/liballoy_primitives-a74215fe8d65be68.rlib --extern quantum_ecc=/home/hclau/ecdsa_research/product-exact-20261015/candidate-wide-compound/target/release/deps/libquantum_ecc-f7e4fa75897084ac.rlib --extern ruint=/home/hclau/ecdsa_research/product-exact-20261015/candidate-wide-compound/target/release/deps/libruint-0c2c523d8a4e03c1.rlib --extern sha3=/home/hclau/ecdsa_research/product-exact-20261015/candidate-wide-compound/target/release/deps/libsha3-119d26138428db84.rlib --extern zstd=/home/hclau/ecdsa_research/product-exact-20261015/candidate-wide-compound/target/release/deps/libzstd-faef3d9d70fbea38.rlib -L native=/home/hclau/ecdsa_research/product-exact-20261015/candidate-wide-compound/target/release/build/zstd-sys-6776a71af89eb68c/out
+3688890 63.6 20068 python3 collect.py
+3689248  7.5 10648 sshd: hclau [priv]
+3958097  4.2 63236 /opt/TrendMicro/EndpointBasecamp/bin/tmxbc service run
+1705398  3.8 566504 /opt/ds_agent/ds_agent -w /var/opt/ds_agent -b -i -e /opt/ds_agent/ext
+1706320  2.8 223176 /opt/ds_agent/ds_am -g ../diag -v 5 -d /var/opt/ds_agent/am -P 1 -R
+1702756  1.0 83988 /usr/bin/alloy run --storage.path=/var/lib/alloy/data /etc/alloy/config.alloy
+3777359  0.6 10080 .venv/bin/python tools/hpc/runner.py run tools/hpc/jobs/01_sieve.jsonl --max-cores 36
+3688711  0.4 10672 sshd: hclau [priv]
+3689087  0.3 10664 sshd: hclau [priv]
+3687603  0.3 51508 /home/hclau/.rustup/toolchains/1.93.0-x86_64-unknown-linux-gnu/bin/cargo test --release --locked --offline --bin build_circuit exact_wide_stage -- --test-threads=1
+1702753  0.1 27556 /usr/bin/containerd
+1706202  0.1 46316 /opt/ds_agent/netagent/tm_netagent --metrics-file /var/opt/ds_agent/netagent/metrics.json --log-folder /var/opt/ds_agent/netagent/logs --ptn-folder /opt/ds_agent/netagent/pattern --jat-folder /opt/ds_agent/netagent/java/jattach --jex-folder /var/opt/ds_agent/netagentjava --log-console=false --log-level 1 --tmCfg WyJTc2xMaW51eEphdmFCdWlsZEVuYWJsZWQiLCJKYXZhQXR0YWNoIiwiRGlzYWJsZURvY2tlckJQRiIsIlNzbEluYm91bmQiLCJTc2xPdXRib3VuZCJd
+3674584  0.0     0 [kworker/u292:2-flush-252:0]
+3684500  0.0     0 [kworker/u288:3-be_err_recover]
+     17  0.0     0 [rcu_preempt]
+3672695  0.0     0 [kworker/u288:1-poll_megasas0_status]
+   2866  0.0 49452 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+3635456  0.0     0 [kworker/u291:3-writeback]
+1706111  0.0 17016 /opt/ds_agent/netagent/tm_netagent --metrics-file /var/opt/ds_agent/netagent/metrics.json --log-folder /var/opt/ds_agent/netagent/logs --ptn-folder /opt/ds_agent/netagent/pattern --jat-folder /opt/ds_agent/netagent/java/jattach --jex-folder /var/opt/ds_agent/netagentjava --log-console=false --log-level 1 --tmCfg WyJTc2xMaW51eEphdmFCdWlsZEVuYWJsZWQiLCJKYXZhQXR0YWNoIiwiRGlzYWJsZURvY2tlckJQRiIsIlNzbEluYm91bmQiLCJTc2xPdXRib3VuZCJd
+3638215  0.0     0 [kworker/u291:4-flush-252:0]
+3025376  0.0 110272 /home/hclau/.local/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/bin/codex -c features.code_mode_host=true app-server --listen unix://
+1706641  0.0 10528 /opt/ds_agent/dsa-connect main
+     16  0.0     0 [ksoftirqd/0]
+4160417  0.0     0 [kworker/0:3-kacpi_notify]
+1706650  0.0 27696 /opt/ds_agent/dsa-connect hub
+3636940  0.0     0 [kworker/u288:2-be_wq]
+    903  0.0     0 [irq/9-acpi]
+      1  0.0 10960 /usr/lib/systemd/systemd --system --deserialize=98
+3666010  0.0     0 [kworker/u292:5-flush-8:0]
+3683796  0.0 10656 sshd: hclau [priv]
+3554490  0.0     0 [kworker/u292:1-events_power_efficient]
+3643608  0.0     0 [kworker/u292:0-flush-252:0]
+2688241  0.0     0 [kworker/0:1-kacpi_notify]
+3687264  0.0     0 [kworker/u292:3-writeback]
+3639706  0.0     0 [kworker/u289:0-writeback]
+   1548  0.0     0 [jbd2/dm-0-8]
+     24  0.0     0 [ksoftirqd/1]
+3681566  0.0     0 [kworker/u289:4-flush-252:0]
+3664215  0.0     0 [kworker/u291:0-events_unbound]
+ 417048  0.0 45820 /usr/libexec/fwupd/fwupd
+1702860  0.0 27328 /sbin/multipathd -d -s

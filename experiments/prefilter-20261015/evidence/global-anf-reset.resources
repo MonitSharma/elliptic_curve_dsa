@@ -1,0 +1,43 @@
+               total        used        free      shared  buff/cache   available
+Mem:          515350      240993      130170           9      150921      274357
+Swap:           8191         335        7856
+    PID %CPU   RSS COMMAND
+3174330 1738 103132748 /home/hclau/tools/miniforge3/envs/qob-lattice/bin/python problems/01-marketsplit/classical/ms_sieve.py external/QOBLIB/01-marketsplit/instances/ms_14_200_002.dat --out problems/01-marketsplit/results/sieve/ms_14_200_002.sol --threads 18
+3207770 1737 103186340 /home/hclau/tools/miniforge3/envs/qob-lattice/bin/python problems/01-marketsplit/classical/ms_sieve.py external/QOBLIB/01-marketsplit/instances/ms_14_200_003.dat --out problems/01-marketsplit/results/sieve/ms_14_200_003.sol --threads 18
+3730581  101 2318332 ./target-anchored-replay/release/product_paired_diagnostic /home/hclau/ecdsa_research/nonce-screen-20261015/final-census/ops.bin guard-cache-bounded-20261016/wide-512.bin +guard-cache-bounded-20261016/wide-512.manifest independent guard-cache-bounded-20261016/wide-512-independent.tsv
+3730200  100 569356 /home/hclau/.rustup/toolchains/1.93.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name build_circuit --edition=2021 src/bin/build_circuit.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C opt-level=3 -C lto=thin -C codegen-units=1 --test --check-cfg cfg(docsrs,test) --check-cfg cfg(feature, values()) -C metadata=602769f290d964e5 -C extra-filename=-0c12d1b03f2fe721 --out-dir /home/hclau/ecdsa_research/frozen-cache-table-20261016/candidate/target/release/deps -C strip=debuginfo -L dependency=/home/hclau/ecdsa_research/frozen-cache-table-20261016/candidate/target/release/deps --extern alloy_primitives=/home/hclau/ecdsa_research/frozen-cache-table-20261016/candidate/target/release/deps/liballoy_primitives-a74215fe8d65be68.rlib --extern quantum_ecc=/home/hclau/ecdsa_research/frozen-cache-table-20261016/candidate/target/release/deps/libquantum_ecc-f7e4fa75897084ac.rlib --extern ruint=/home/hclau/ecdsa_research/frozen-cache-table-20261016/candidate/target/release/deps/libruint-0c2c523d8a4e03c1.rlib --extern sha3=/home/hclau/ecdsa_research/frozen-cache-table-20261016/candidate/target/release/deps/libsha3-119d26138428db84.rlib --extern zstd=/home/hclau/ecdsa_research/frozen-cache-table-20261016/candidate/target/release/deps/libzstd-faef3d9d70fbea38.rlib -L native=/home/hclau/ecdsa_research/frozen-cache-table-20261016/candidate/target/release/build/zstd-sys-6776a71af89eb68c/out
+3730012  100 2324060 ./target-anchored-replay/release/product_paired_diagnostic /home/hclau/ecdsa_research/nonce-screen-20261015/final-census/ops.bin wide-to43-20261016/wide-36-retained-1024.bin +wide-to43-20261016/stage-36.manifest structured wide-to43-20261016/stage-36-structured.tsv
+3728532  100 5375164 ./target-flags/release/product_paired_diagnostic product-to53-20261016/product-44-retained-128.bin product-to53-20261016/product-45-retained-512.bin
+3712096  100 9388632 /home/hclau/ecdsa_research/product-exact-20261015/candidate-wide-compound/target/release/build_circuit
+3730639 86.0 29568 python3 stream_resources.py guard-cache-weighted-20261016/product-128.bin
+3730641 37.6  6864 zstd -dcq
+3730913  7.5 10620 sshd: hclau [priv]
+3958097  4.2 62964 /opt/TrendMicro/EndpointBasecamp/bin/tmxbc service run
+1705398  3.8 595104 /opt/ds_agent/ds_agent -w /var/opt/ds_agent -b -i -e /opt/ds_agent/ext
+1706320  2.8 219300 /opt/ds_agent/ds_am -g ../diag -v 5 -d /var/opt/ds_agent/am -P 1 -R
+1702756  1.0 84016 /usr/bin/alloy run --storage.path=/var/lib/alloy/data /etc/alloy/config.alloy
+3728925  0.9 52324 /home/hclau/.rustup/toolchains/1.93.0-x86_64-unknown-linux-gnu/bin/cargo test --release --locked --offline --bin build_circuit frozen_cache25::tests -- --test-threads=1
+3777359  0.6 10080 .venv/bin/python tools/hpc/runner.py run tools/hpc/jobs/01_sieve.jsonl --max-cores 36
+1702753  0.1 27412 /usr/bin/containerd
+1706202  0.1 46352 /opt/ds_agent/netagent/tm_netagent --metrics-file /var/opt/ds_agent/netagent/metrics.json --log-folder /var/opt/ds_agent/netagent/logs --ptn-folder /opt/ds_agent/netagent/pattern --jat-folder /opt/ds_agent/netagent/java/jattach --jex-folder /var/opt/ds_agent/netagentjava --log-console=false --log-level 1 --tmCfg WyJTc2xMaW51eEphdmFCdWlsZEVuYWJsZWQiLCJKYXZhQXR0YWNoIiwiRGlzYWJsZURvY2tlckJQRiIsIlNzbEluYm91bmQiLCJTc2xPdXRib3VuZCJd
+3729361  0.1     0 [kworker/u292:5-events_unbound]
+     17  0.0     0 [rcu_preempt]
+   2866  0.0 48852 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+3638215  0.0     0 [kworker/u291:4-events_unbound]
+1706111  0.0 17088 /opt/ds_agent/netagent/tm_netagent --metrics-file /var/opt/ds_agent/netagent/metrics.json --log-folder /var/opt/ds_agent/netagent/logs --ptn-folder /opt/ds_agent/netagent/pattern --jat-folder /opt/ds_agent/netagent/java/jattach --jex-folder /var/opt/ds_agent/netagentjava --log-console=false --log-level 1 --tmCfg WyJTc2xMaW51eEphdmFCdWlsZEVuYWJsZWQiLCJKYXZhQXR0YWNoIiwiRGlzYWJsZURvY2tlckJQRiIsIlNzbEluYm91bmQiLCJTc2xPdXRib3VuZCJd
+3672695  0.0     0 [kworker/u288:1-ext4-rsv-conversion]
+3684500  0.0     0 [kworker/u288:3-be_err_recover]
+3705855  0.0     0 [kworker/u291:1-events_power_efficient]
+3711644  0.0     0 [kworker/u292:2-events_power_efficient]
+3025376  0.0 112244 /home/hclau/.local/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/bin/codex -c features.code_mode_host=true app-server --listen unix://
+1706641  0.0 10668 /opt/ds_agent/dsa-connect main
+     16  0.0     0 [ksoftirqd/0]
+4160417  0.0     0 [kworker/0:3-kacpi_notify]
+3712942  0.0     0 [kworker/u288:0-poll_megasas0_status]
+1706650  0.0 27732 /opt/ds_agent/dsa-connect hub
+3692580  0.0     0 [kworker/u292:4-events_power_efficient]
+    903  0.0     0 [irq/9-acpi]
+3643608  0.0     0 [kworker/u292:0-events_power_efficient]
+      1  0.0 10960 /usr/lib/systemd/systemd --system --deserialize=98
+3717901  0.0     0 [kworker/u291:0-events_unbound]
+3687264  0.0     0 [kworker/u292:3-writeback]

@@ -1,5 +1,28 @@
 # Research state and next experiments
 
+## Source-bound mask checkpoint:16October2026,03:20Singapore
+
+Frozen v3 has7,914,981exact input-only mask nodes, source2a522394..., no opaque
+terminals admitted as known inputs. The exporter re-proves selected contracts,
+checks prefix-zero predicates, and retains immutable exact definitions for caps.
+All33tests, expanded-versus-compact audit masks,2,214inputs×8physicalMR streams,
+and independent C audit pass.421/431saved value failures are certified; unknowns
+retain full simulation. Original-source bounded integration passes128/partial
+protected checks and known positive9024shots.1,024nonces/16workers take1.853312s;
+rejection remains disabled. Active-width evaluation passes290.50million node/input
+comparisons and speeds sparse groups; end-to-end testing continues. Candidate25
+needs its own Fiat inputs and universal25-cache per-bit transfer plus protected
+candidate fallback before any actual search.
+
+The exact A29uniform precision repair native source passes and fixes3value
+failures with0value regressions in the fixed262,144-shot sample, but costs
+43.5604±1.4608T. Its failure rate18.0725 exceeds18, so it is ineligible alone.
+The fixed53cache recipe is being recomputed from this repaired input; no old
+lease or mask proof is transferred automatically. A separate phase observer
+matches all protected state/stats/MR draws for64phase-only witnesses×8streams;
+all252complete fold regions have zero net phase delta, directing work elsewhere.
+
+
 ## Four-hour checkpoint:16 October2026,02:55 Singapore
 
 The complete queued results remain T753721/Q1468 and T753745/Q1464; no external

@@ -1,9 +1,27 @@
 # Agent handoff: start here
 
-Last updated 16 October 2026, 02:55 Singapore. This page is for an AI agent (or
+Last updated 16 October 2026, 03:20 Singapore. This page is for an AI agent (or
 person) continuing the work. It holds the current state, the rules, the tools
 and the next steps in order. Details live in the linked reports. Do not copy
 numbers from older reports without checking the date.
+
+**03:20 checkpoint:** complete queued T753721/Q1468 remains best. Frozen v3
+input-conditioned mask SHA560c12d5... is terminal:7,914,981nodes,33tests,
+2,214inputs×8MR streams, expanded-definition audit and independent C audit pass.
+The1,034-file prefilter archive2787c305... is root-verified. Original-source
+disabled integration passes128/partial zero-MR comparisons and known positive
+1046072871510 full9024shots;1024/16workers takes1.853312s. No nonce selected.
+Only known output bits can reject; advisory flags never do. Candidate25 still
+requires own Fiat binding and separate per-input transfer/phase fallback checks.
+Width-adaptive C kernel120dc358... passes290.50million node/input comparisons,
+27ms sparse versus56–68ms512-input work; separate disabled integration running.
+Frozen v3 remains unchanged while agent investigates partial contracts in v4.
+A29precision source1cd3457b... is native/fresh tested but NOT eligible:3value
+repairs/0value regressions,+43.5604T,lambda18.0725>18. Full227-file archive verified.
+Product agent recomputes53stages from repaired input with a new composite census
+required. Phase-only boundary observer passes protected512replays and points
+away from complete fold bodies. Further fixedproduct67/wide67/recursive runs
+continue; preserve all declared endpoints and negative gates.
 
 **02:55 checkpoint:** public refresh02:35 remains Q678, T753771 and product939347948.
 The two queued complete Toffoli passes below remain the only new resource results.
