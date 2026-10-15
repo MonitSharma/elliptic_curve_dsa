@@ -1,8 +1,27 @@
 # Research state and next experiments
 
-## Complete local Toffoli improvement: 16 October 2026, 00:19 Singapore
+## Complete local Toffoli improvements:16 October2026,01:50 Singapore
 
-**T753745/Q1464 is queued**, 26 below our public Toffoli record. The unchanged
+**T753721/Q1468 is queued**,50 below the public T record. The unchanged official
+benchmark passes9024shots, allchannels0. Nonce644 lowest from1,731 screened;
+final fixed16384 paired census passes670candidate versus674parent failed batches,
+5.76599 versus5.80042/packet, dirty0. Only the96-op nonce tail changes from the
+frozen stream. Complete source/stream archived before owned-tree removal.
+[New result](../experiments/wide15-record-20261016/STATUS.md).
+
+Product25 native27tests and byteidentity now pass; full32768 paired census
+measures58.15368 +/-0.44249T saved/Q1234,17.82724 versus17.84445 failures/packet.
+Product search remains cost-gated. A source-bound frozen-table implementation
+reproduces the identical stream in2m58s and passes4 admission tests, avoiding
+repeated25-stage symbolic generation. No resource change or new score follows.
+[Source-generation evidence](../experiments/frozen-cache-table-20261016/STATUS.md).
+
+Local universal value proofs now cover250 complete phase-helper clauses and547
+comparators without clean-input assumptions. A certified reduced value program
+preserves every original MR event and ordinal. Global output RNG independence
+is still unresolved; no advisory or zero-MR rejection is enabled.
+
+**Earlier T753745/Q1464 remains queued**,26 below our public Toffoli record. The unchanged
 official benchmark passes all9024 shots with zero value/phase/ancilla failures.
 Nonce92 is lowest from1 (164 screened). Fixed final16384-batch paired census
 passes674candidate versus678parent failed batches:5.8004 versus5.8348 per

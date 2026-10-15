@@ -1,6 +1,6 @@
 # Agent handoff: start here
 
-Last updated 16 October 2026, 01:31 Singapore. This page is for an AI agent (or
+Last updated 16 October 2026, 01:50 Singapore. This page is for an AI agent (or
 person) continuing the work. It holds the current state, the rules, the tools
 and the next steps in order. Details live in the linked reports. Do not copy
 numbers from older reports without checking the date.
@@ -10,16 +10,20 @@ qubits**, in that order; submission mode **queue**. See
 [`experiments/autorun-20261015-2239/LOG.md`](../experiments/autorun-20261015-2239/LOG.md)
 before starting overlapping jobs. Four isolated workstreams cover the
 prefilter, exact product savings, unexplained failure localization, and the
-wide cache pass. **One new complete local result is queued: T753745/Q1464.**
-Public refresh at 01:12 leaves T/product unchanged; width remains Q678.
-The compact 11-stage product source passes 62 native tests and reproduces its
-frozen stream. Its complete 32768-batch paired census saves 33.64315 +/-0.44141 T
-at Q1234, with 17.68094 failed batches per packet versus 17.75409 for its parent,
-zero dirty shots. The 25-stage continuation saves 58.472656 T in both anchored
-replay packets; native generation is pending. Wide15 native generation and
-48 tests pass. Its 4096-batch fresh census passes178 versus186 failed batches;
-lowest nonce644 (731 screened) passes protected replay at753721.48 T/Q1468.
-The unchanged benchmark is regenerating; no new complete pass yet. See
+wide cache pass. **Two complete local results are queued: T753721/Q1468 and
+T753745/Q1464.** Public refresh at01:46 leaves records unchanged: Q678,
+T753771, product939347948. Wide15 passes the unchanged benchmark9024shots,
+allchannels0; nonce644 lowest from1,731 screened. Final16384 paired census
+passes670candidate versus674parent failed batches, dirty0; independent audit
+confirms only the96-op identity tail changed. Full source/stream archive verified,
+owned detached tree removed. [New complete result](../experiments/wide15-record-20261016/STATUS.md).
+
+Product25 native27tests and exact generation pass. Its full32768 paired census
+saves58.15368 +/-0.44249 T/Q1234;17.82724 failures per packet versus17.84445
+parent, dirty0. No product nonce search: certified affordable screening remains
+unresolved. A separate frozen-table source emits the identical product25 stream
+in2m58s, passes4 binding tests and all protected-file checks; no resource change.
+Its tree is `frozen-cache-table-20261016/candidate`. See
 [candidate status](../experiments/product-exact-20261015/STATUS.md).
 Search acceleration combines validated C curve preparation, exact SIMD8
 simulation and SHAKE8. The integrated exact screen still projects 63–84 hours
@@ -32,6 +36,12 @@ The frozen exact census v2 at `simd-census-v2-20261016/bin/simd_census_v2`
 reproduces all4096 v1 rows, protected full-state/T checks and every MR word;
 4096 batches take11.54s/4workers. SHA790e9226...; full hash/ABI in its
 `FREEZE.json`. Existing live jobs retain their declared runner/sample.
+The local value proof certifies250 complete phase-helper clauses and547
+comparators over arbitrary incoming quantum/classical/MR values, without a
+clean-scratch assumption. A certified reduced value IR preserves all906156
+original MR events; original transcript hash remains2a522394. Phase is excluded.
+Global RNG independence is still pending; never derive packet seeds from the
+reduced program or enable rejection from local proofs alone.
 The first current-product +1-bit fold repair passes source admission but its
 fresh failure gate fails; no nonce search. Failure work now helps local macro
 RNG-independence proofs for the product prefilter.
@@ -105,15 +115,15 @@ the upstream branches `submissions/80fe2050-…` and `submissions/ebf0b736-…`.
 |---|---|---|
 | Official packet | 141 batches × 64 shots; inputs and measurement randomness come from a SHAKE256 hash of the whole op stream | `src/bin/eval_circuit.rs` |
 | Pass probability on a fresh packet | (1 − f)^141, where f = census batch-failure fraction (**not** e^−λ when f is large) | census |
-| Exact screener speed | about 0.25 s per 64-shot batch per thread (wide 0.236, tip 0.249, B3 0.277) | screen logs |
-| Search practical with the exact screener | ≤ 10 failed batches: < 1 h on 32 threads; ≤ 13.85: < 1 day on 64 threads; 17.7: about 58 days on 64 threads | `experiments/product-tip-20261015/figures/search-cost.png` |
+| Exact screener speed | Integrated bucket screener: 1,024 nonces in 38.37 s at 2 threads or 6.538 s at 16 threads on the original product source | `experiments/prefilter-20261015/STATUS.md` |
+| Search cost with the integrated exact screener | Old four-stage candidate at λ17.83154: 61.9–84.4 h on an ideal 64 threads; compact eleven-stage at λ17.68094: 52.1–71.0 h. Candidate throughput and 64-thread scaling remain unmeasured | `experiments/search-cost-update-20261016/STATUS.md` |
 | Product tip `4b2ec52f` | failure rate 17.69, fresh mean 761,221.70 T, packet SD of mean T 6.2 | product-tip report |
 | Our official entry | failure rate 5.47 (B3: 17.73), fresh mean 753,763.5 T | nonce-screen report |
 | One qubit at Q1234 is worth | about 617 T of product | 761,222 / 1,234 |
-| Width-free exact cache saving | about 4 T on B3, **2.2 ± 1.2 T on the tip**; failure rate unchanged | cache-idle, product-tip |
-| Cache with about 5 extra qubits | about 101 T at diagnostic Q1240 | cache-retention |
+| Width-free exact cache saving | Frozen twenty-five-stage product candidate: **58.15368 ± 0.44249 T**, Q1234, 27 native tests pass; fresh census gate passes, official benchmark pending | `experiments/product-exact-20261015/STATUS.md` |
+| Wider Toffoli result | Complete unchanged benchmark: **753,721 T / Q1468**, nonce644, 731 screened; queued. Earlier Q1240 diagnostic 101 T saving did not transfer directly | `experiments/wide15-record-20261016/STATUS.md` |
 | Tail smoothing (walk rows 137/138) | +37 T for about −1.4 failed batches (wide circuit) | widen-walk |
-| Failure anatomy (wide circuit, traced) | about 84% of value failures in leapfrog walk rails; about 1.1 batches outside the walk, unlocalized | trace-value, widen-walk |
+| Failure anatomy | Historical wide residuals localized to forward/reverse folds and merged square windows. Current product census finds about 1.17 dropped-carry events per packet spread over 34 ticks; a one-bit repair did not improve the paired failure rate | `experiments/failure-floor-20261015/STATUS.md`, `experiments/precision-repair-20261016/STATUS.md` |
 
 ## 5. Tools (all on `smu_server` under `/home/hclau/ecdsa_research`)
 
@@ -172,9 +182,8 @@ after touching the data or plots.
    is a product attempt worth its search: the fresh mean is 761,221.70
    against a threshold below 761,221.5, with a packet SD of 6.2.
 4. **Win back failure rate cheaply** (each batch removed cuts the search
-   about e-fold). The non-walk floor of about 1.1 batches is unlocalized;
-   the payload-fold boundary work (`trace-audit-20261015/FOLD-BOUNDARY.md`) is
-   the lead. **23:15 update:** all 31 saved cases now have observed faulty
+   about e-fold). The historical non-walk floor of about 1.1 batches was
+   localized during this run. **23:15 update:** all 31 saved cases have observed faulty
    primitives: 17 forward Y15 folds, 12 reverse folds, two square merged
    windows. The existing addend supplies the fold correction's sign, but
    high-word propagation and clean phase repair remain unresolved. A uniform

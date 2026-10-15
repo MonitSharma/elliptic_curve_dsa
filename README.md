@@ -10,14 +10,15 @@ independent, and existing evidence, including the Q692 width result, is preserve
 
 ## Where we stand
 
-**16 October 2026, 00:09 Singapore — new complete local pass: 753,745
-Toffolis at Q1464**, 26 below our public Toffoli record. The unchanged
+**16 October 2026, 01:45 Singapore — new complete local pass: 753,721
+Toffolis at Q1468**, 50 below our public Toffoli record. The unchanged
 benchmark passes all 9,024 shots with zero value, phase or ancilla failures.
-Nonce 92 is the lowest pass from 1 (164 screened). The final paired census
-passes at 5.80 failing batches per packet versus the parent's 5.83, across
+Nonce 644 is the lowest pass from 1 (731 screened). The final paired census
+passes at 5.77 failing batches per packet versus the parent's 5.80, across
 1,048,576 fresh shots each. It is **queued, not officially submitted**, and
 does not improve the product record.
-[Benchmark and source evidence](experiments/wide-record-20261015/STATUS.md)
+[Benchmark and source evidence](experiments/wide15-record-20261016/STATUS.md).
+The earlier753,745/Q1464 complete pass remains a lower-width queued alternative.
 
 **15 October 2026, 19:19 Singapore — our submission now has the lowest publicly
 scored Toffoli count: 753,771 at 1,464 qubits.** The official evaluation of
@@ -62,11 +63,11 @@ excluded from these performance figures.
 | Objective | Public record | Our result | Next strict target |
 |---|---:|---|---:|
 | **Minimum logical qubits** | 678 | **692 — complete local pass**, not submitted | Q ≤ 677 |
-| **Minimum executed Toffolis** | **753,771 at Q1464 — ours** | **753,745/Q1464 complete local pass**, queued | T ≤ 753,770 |
+| **Minimum executed Toffolis** | **753,771 at Q1464 — ours** | **753,721/Q1468 complete local pass**, queued | T ≤ 753,770 |
 | **Minimum Q × T** | 939,347,948 at Q1234/T761,222 | No new qualified record | Q × T ≤ 939,347,947 |
 
-These remain three distinct records, but **Toffoli count and product now take
-priority in our research**. The challenge
+These remain three distinct records, with **product first, Toffolis second,
+qubits third** in our research. The challenge
 promotes the scalar product, while its Pareto view also recognizes the low-qubit
 and low-Toffoli extremes. A Toffoli record can use more qubits and have a worse
 product. These are separate achievements.
@@ -78,9 +79,9 @@ the strict product threshold is **T ≤ 641,631**. At Q1235 it is **T ≤ 760,60
 at Q1234 it is **T ≤ 761,221**. These are independent objectives, using rounded
 mean executed Toffolis rather than emitted gates.
 
-Snapshot: **1,570 public submissions · 1,229 eligible scored records ·
-50 public Pareto points**, analyzed 15 October 2026 at 22:07 Singapore.
-The new width minimum, Q679 (jackylee0424, `80fe2050`), arrived after our
+Snapshot: **1,571 public submissions · 1,230 eligible scored records ·
+50 public Pareto points**, analyzed 16 October 2026 at 01:46 Singapore.
+The new width minimum, Q678 (jackylee0424, `b83078b5`), arrived after our
 Toffoli submission.
 [Full frontier and provenance](docs/frontier-results.md) ·
 [Machine-readable records](docs/data/latest-leaderboard.json) ·
@@ -92,6 +93,8 @@ Only complete passing circuit evaluations appear in this table.
 
 | Circuit | Peak Q | Rounded mean executed T | Q × T | Provenance |
 |---|---:|---:|---:|---|
+| **Our fifteen-stage cache, nonce644** | **1,468** | **753,721** | **1,106,462,428** | [Unchanged9,024-shot benchmark](experiments/wide15-record-20261016/STATUS.md); local queued, stream`1d8c05ee`; final fresh census5.766 failures/packet |
+| **Our four-stage cache, nonce92** | **1,464** | **753,745** | **1,103,482,680** | [Unchanged9,024-shot benchmark](experiments/wide-record-20261015/STATUS.md); local queued, stream`ba9bd284`; final fresh census5.800 failures/packet |
 | **Our wide smooth Leapfrog, nonce 375** | **1,464** | **753,771** | **1,103,520,744** | [Official evaluation `3f32acd2`](https://api.ecdsa.fail/api/submissions/3f32acd2-71bf-4cc7-bae6-7407be97fe3b), source `5a7c3902`; also complete local pass, stream `01aad987`; census 5.47 failed batches/packet |
 | **Our original bank-swap v2** | **692** | **1,481,382,858** | **1,025,116,937,736** | [9,024-shot local pass](experiments/followup-20261015/bankswap-terminal/RESULT.md); streamed generation, unchanged protected evaluator |
 | Public C5 reproduction | 1,234 | 761,658 | 939,885,972 | [Complete passing reproduction](docs/data/server-verification.json), source `c5bb1ec8` |
@@ -132,29 +135,19 @@ the scored performance figures above.
 
 ## What the recent experiments established
 
-- **Honest correctness (new):** a one-minute failure census now gates every
-  candidate. Exact, gate-inert tracing places 84% of the wide circuit's wrong
-  outputs in the leapfrog GCD walk rails. Of those 155, 98 have a target rail
-  off by exactly ±2^k, and 55 keep a correct target but corrupt the source rail
-  (an independent audit corrected our first count). 31 failures show no
-  walk-rail event and are not yet localized. Walk-only repairs have
-  plateaued:
-  - smoothing the tail-width cliff gives 7.2 → 5.8 expected failed batches per
-    test set, for +37 Toffolis;
-  - widening the rails *together with* their choice-window anchors by 2 bits
-    gives 4.2, for +4.7K Toffolis;
-  - +4 and +6 bits do no better: they recreate the tail cliff, and other
-    stages degrade as rails widen;
-  - convergence-aware (late-weighted, tapered) envelopes and a rebuilt tail
-    descent remove the unconverged walks and halve walk failures. Non-walk
-    failures then rise, so the total stays at about 3.8.
-
-  A constant ~1.1 batches of non-walk failures remains in every variant. The
-  benchmark needs under 0.1.
+- **Correctness diagnosis:** exact, gate-inert tracing localizes the saved
+  failures outside the walk-rail events to payload-fold truncations and square
+  merged windows. The previously unexplained floor now has known sources.
+  Uniform precision widening is expensive; a selected one-bit product repair
+  fails its fresh paired failure gate and triggers no nonce search. Cheap
+  repair remains unresolved. Diagnostic counts and failed variants stay in
+  the research reports.
   [Census](experiments/failure-census-20261015/STATUS.md) ·
   [trace](experiments/trace-value-20261015/STATUS.md) ·
   [widening](experiments/widen-walk-20261015/STATUS.md) ·
-  [guard sweep](experiments/guard-sweep-20261015/STATUS.md).
+  [guard sweep](experiments/guard-sweep-20261015/STATUS.md) ·
+  [completed localization](experiments/failure-floor-20261015/STATUS.md) ·
+  [current-source repair](experiments/precision-repair-20261016/STATUS.md).
 - **Width:** the original Q692 pass is preserved with its exact patch,
   stream hash, evaluator hash and score. Ordinary submission generation and
   arithmetic limits remain unresolved for that original version.
@@ -162,12 +155,12 @@ the scored performance figures above.
   memory budget, but its complete benchmark reports three value failures,
   two phase-failure batches and three ancilla-failure batches. Diagnosis is
   continuing on the same failed inputs.
-- **Toffoli reduction:** exact caching rewrites reduce executed gates in paired
-  tests. Larger symbolic expressions increase the wider design's saving to
-  101.109375 executed Toffolis per shot on both fixed 256-shot packets at
-  diagnostic Q1240. That version needs about 5 extra cache qubits; the
-  width-free version saves only about 4 T on B3 and 2 T on the product tip. They retain inherited correctness failures and have no
-  qualified score. [Latest cache evidence](experiments/cache-retention-20261015/STATUS.md).
+- **Toffoli reduction:** the two complete local passes above are queued.
+  Exact product-cache sources also pass native checks and fresh censuses, but
+  still need an affordable certified search and complete benchmark. Their
+  diagnostic savings stay in the [current research report](experiments/product-exact-20261015/STATUS.md);
+  the [older cache study](experiments/cache-retention-20261015/STATUS.md) uses a
+  different baseline and does not establish the saving on our public source.
 - **Arithmetic repair:** the tick-104 borrow repair now integrates on B3 and
   fixes the known independent input's value and phase. Its native prototype
   passes 256 fixed independent inputs; other packet and structured failures

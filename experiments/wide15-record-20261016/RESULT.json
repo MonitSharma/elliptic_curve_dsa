@@ -1,0 +1,73 @@
+{
+  "status": "COMPLETE_LOCAL_PASS_QUEUE_ELIGIBLE",
+  "source_revision": "5a7c390233c72133df9b591c92e43422c5892142",
+  "shots": 9024,
+  "failures": {
+    "value": 0,
+    "phase_batches": 0,
+    "ancilla_batches": 0
+  },
+  "total_executed_toffoli": 6801582636,
+  "rounded_mean_executed_toffoli": 753721,
+  "mean_executed_toffoli": 753721.4800531915,
+  "qubits": 1468,
+  "product": 1106462428,
+  "nonce": 644,
+  "nonces_screened": 731,
+  "nonce_policy": "ascending_from_1_lowest_pass",
+  "submission_mode": "queue",
+  "submitted": false,
+  "stream_sha256": "1d8c05eeee7b43dd694506b5efe963c771461b7e690bc62f409947b2306b7d77",
+  "patch_sha256": "17975d79e80add6befa62a153e1d772fe502dea59f1e940fc47d1014ef431b7f",
+  "benchmark_log_sha256": "027697d1af3f40ded5df31a47356d9ba7b9e547bd4cf6625e348ed1c39837c8e",
+  "protected_file_manifest_sha256": "1cb434bf197309c0fac974f20846ecc23564e8b852496daad6375c1f021fc02e",
+  "final_census": {
+    "status": "diagnostic_final_fresh_census",
+    "label": "wide15-final-20261016",
+    "batches_each": 16384,
+    "shots_each": 1048576,
+    "streams": {
+      "parent": {
+        "failed_batches": 674,
+        "expected_failed_batches_per_packet": 5.8004150390625,
+        "value_shots": 606,
+        "phase_shots": 394,
+        "dirty_shots": 0,
+        "mean_executed_T": 753764.884054184,
+        "census_sha256": "77fa99ee19a9c6fce5347b3809f57780ebaa4058c88a077fd90555a5045bd682"
+      },
+      "candidate": {
+        "failed_batches": 670,
+        "expected_failed_batches_per_packet": 5.7659912109375,
+        "value_shots": 606,
+        "phase_shots": 383,
+        "dirty_shots": 0,
+        "mean_executed_T": 753722.9877157211,
+        "census_sha256": "6533ee1244785bc6dd9550f855adf298f37dd42fd676d3028eed6d6b86cea4c9"
+      }
+    },
+    "paired_mean_T_saving": 41.89633846282959,
+    "saving_standard_error": 0.3990287275801502,
+    "passes_final_failure_gate": true
+  },
+  "nonce_tail_prefix_audit": {
+    "status": "PASS_only_identity_tail_changed",
+    "nonce": 644,
+    "frozen": {
+      "ops": 10522755,
+      "prefix_ops": 10522659,
+      "prefix_sha3_256": "98414b12c1325bee9ffac8a0a4389c28ab80b7669be3c17d569934d37fa8dece",
+      "stream_sha256": "9fe47b0a547b2aad68ddeb682be4f9fcab5dd184459a94f96afdc63e0e3fded8",
+      "tail_sha256": "9c3d455e69d446e43bad341c31825371834f4f8a0ff811d47cb2dfdc6121c6b0"
+    },
+    "final": {
+      "ops": 10522755,
+      "prefix_ops": 10522659,
+      "prefix_sha3_256": "98414b12c1325bee9ffac8a0a4389c28ab80b7669be3c17d569934d37fa8dece",
+      "stream_sha256": "1d8c05eeee7b43dd694506b5efe963c771461b7e690bc62f409947b2306b7d77",
+      "tail_sha256": "aea4ed78500a9f63733982c94be7b91ac1eabb3d5456c5eac9ffbabfc4883315"
+    },
+    "raw_record_bytes": 56
+  },
+  "full_point_add_source_archive_sha256": "541ea5ee2026cd0a0cd01b8c73ef797dd1618c4b861fcd96bf7222dd4efac874"
+}

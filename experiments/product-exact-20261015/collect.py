@@ -15,7 +15,7 @@ for p in root.iterdir():
         else: shutil.copy2(p,out)
 shutil.copytree(root/'analyzer',dest/'analyzer',ignore=shutil.ignore_patterns('target'),dirs_exist_ok=True)
 if (root/'exact-replay').exists():shutil.copytree(root/'exact-replay',dest/'exact-replay',ignore=shutil.ignore_patterns('target'),dirs_exist_ok=True)
-for name in ['follow-chain-20261016','scratch-20261016','scratch-v2-20261016','unfold-20261016','pair-expansion-20261016','flags-chain-20261016','flags-four-20261016','flags-extended-20261016','wide-compound-20261016','anchored-replay-20261016','anchored-new-20261016','product-continuation-20261016','product-to53-20261016','wide-to43-20261016','compact11-frozen-census-20261016','product25-frozen-census-20261016','product25-frozen-census-v2-20261016','wide-compound-frozen-20261016','product-smoothing-20261016','tail-precision-20261016','cached-witness-20261016','category-restore-20261016','category-restore-census-20261016','category-restore-census-v2-20261016']:
+for name in ['follow-chain-20261016','scratch-20261016','scratch-v2-20261016','unfold-20261016','pair-expansion-20261016','flags-chain-20261016','flags-four-20261016','flags-extended-20261016','wide-compound-20261016','anchored-replay-20261016','anchored-new-20261016','product-continuation-20261016','product-to53-20261016','wide-to43-20261016','compact11-frozen-census-20261016','product25-frozen-census-20261016','product25-frozen-census-v2-20261016','product25-frozen-census-v3-20261016','wide-compound-frozen-20261016','product-smoothing-20261016','tail-precision-20261016','cached-witness-20261016','category-restore-20261016','category-restore-census-20261016','category-restore-census-v2-20261016','reduction-restore-20261016','guard-cache-20261016','guard-cache-bounded-20261016']:
     source=root/name
     if not source.exists():continue
     for p in source.rglob('*'):
@@ -25,7 +25,7 @@ for name in ['follow-chain-20261016','scratch-20261016','scratch-v2-20261016','u
             out=out.with_name(out.name+'.gz')
             with p.open('rb') as inp,gzip.open(out,'wb') as output:shutil.copyfileobj(inp,output)
         else:shutil.copy2(p,out)
-for name in ['scratch-tool','unfold-tool','flags-tool','flags-four-tool','flags-replay','anchored-replay']:
+for name in ['scratch-tool','unfold-tool','flags-tool','flags-four-tool','flags-replay','anchored-replay','guard-cache-tool','guard-cache-bounded-tool']:
     if (root/name).exists():shutil.copytree(root/name,dest/name,ignore=shutil.ignore_patterns('target'),dirs_exist_ok=True)
 manifest={'collected_at_utc':stamp,'snapshot_directory':dest.name,'pending_evidence_warning':'Jobs without a terminal successful exit marker are incomplete. Live logs/censuses may be prefixes; require the matching frozen source and declared fixed sample before any eligibility claim.','source_revision':subprocess.check_output(['git','-C',str(root/'tip'),'rev-parse','HEAD'],text=True).strip(),'source_status':subprocess.check_output(['git','-C',str(root/'tip'),'status','--short'],text=True),'diagnostic_only':True,'candidate_score':None,'files':{}}
 protected={}
@@ -45,7 +45,7 @@ if candidate.exists():
     assert all(p.startswith('src/point_add/') for p in manifest['candidate_diff_paths'])
     manifest['candidate_protected_mismatches']=[name for name,value in protected.items() if (candidate/name).is_file() and hashlib.sha256((candidate/name).read_bytes()).hexdigest()!=value]
 manifest['all_candidates']={}
-for name in ['candidate-split128','candidate-anf512','candidate-final','wide-candidate-final','candidate-product-extendedflags','candidate-product-final25','candidate-wide-compound','candidate-product-tail-smooth','candidate-product-tail-one','candidate-product-tail-two','candidate-product-restore-deletions']:
+for name in ['candidate-split128','candidate-anf512','candidate-final','wide-candidate-final','candidate-product-extendedflags','candidate-product-final25','candidate-wide-compound','candidate-product-tail-smooth','candidate-product-tail-one','candidate-product-tail-two','candidate-product-restore-deletions','candidate-product-restore-reductions']:
     tree=root/name
     if not tree.exists():continue
     paths=subprocess.check_output(['git','-C',str(tree),'diff','--name-only'],text=True).splitlines()

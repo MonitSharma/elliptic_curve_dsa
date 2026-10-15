@@ -1,0 +1,20 @@
+{
+  "candidate": "product-exact-20261015/candidate-wide-compound",
+  "frozen_stream_sha256": "9fe47b0a547b2aad68ddeb682be4f9fcab5dd184459a94f96afdc63e0e3fded8",
+  "qubits": 1468,
+  "submission_mode": "queue",
+  "nonce_policy": "ascending from1; lowest pass; never select by Toffolis",
+  "screen_limit": 20000,
+  "presearch_gate": "complete4096 paired frozen census; candidate failures <=parent and18; dirty0",
+  "final_census": {
+    "label": "wide15-final-20261016",
+    "batches_each": 16384,
+    "shots_each": 1048576,
+    "runner_sha256": "49d99d2bf380b628550c3ed979b5bf2adfc1a962fb6fd00a5df267cde853f554",
+    "workers_each": 8,
+    "all_rows_required": true
+  },
+  "official_benchmark": "unchanged benchmark.sh on final source; all9024 shots and allchannels0 required",
+  "public_t_record_at_refresh_20261016_0112": 753771,
+  "source_content_changes_after_freeze": "identity-tail nonce only"
+}

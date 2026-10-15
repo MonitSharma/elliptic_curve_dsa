@@ -185,3 +185,66 @@ as a whole structural family, after all original neighborhood anchors have
 validated. All reduction rows and upstream tables remain unchanged. The fixed
 choice is recorded in `CATEGORY_RESTORE_DECLARATION.json`; this initially
 measures construction and cost only, without a census or nonce search.
+
+## New complete wide census and negative correction studies
+
+The frozen fifteen-stage wide source passes 48 new native tests and normal
+byte identity. Its fixed fresh 4,096-batch paired census is complete: original
+186 failing batches (6.40283203125 per packet), candidate178 (6.12744140625).
+Mean T is753764.6756439209 versus753722.3272705078; paired saving is
+42.34837341308594 +/-0.7939350088472588 T atQ1468. The coordinator exclusively
+owns nonce qualification and the unchanged benchmark in `wide15-record-20261016`.
+Our external pre-nonce stream and complete earlier proof logs remain immutable.
+
+Whole-category correction studies preserved every source neighborhood anchor,
+every upstream arithmetic table andQ1234. Restoring all74 inherited deletion
+cuts costs66.50509644 +/-0.00441356 T; on its separately declared4,096 batches,
+failed batches decrease507 to505 (17.45288086 to17.38403320 per packet).
+Restoring all70 CX/CZ reductions costs62.99723816 +/-0.00431693 T; on its own
+fresh declared4,096 batches, failed batches decrease521 to519 (17.93481445 to
+17.86596680 per packet). Both improvements are only0.06884766 +/-0.04867670
+failed batches per packet, with2 parent-only and0 candidate-only failures.
+Neither whole family cheaply removes the roughly1.1 failures sought. These
+are component correction measurements, not exact rewrites or record candidates.
+
+The broad inherited unit suite reports11 passes and3 failures on BOTH the
+unchanged original4b and each correction tree. The profiler requires an unset
+LF_KINDS environment variable; divide and square defaults expose existing
+component arithmetic failures. Identical test names and component source hashes
+are preserved in the comparison logs. These failures are disclosed and never
+converted into a complete benchmark claim.
+
+The new allocator research changes only proposal ranking: the first exact
+classical guard BDD passes native snapshot/conditional-store/HMR tests but hits
+its explicit5-million-node cap before emitting any product stream. That resource
+failure is preserved. A bounded version represents complex classical functions
+by immutable opaque atoms, preserves small Boolean guard correlations, and uses
+uniform input/opaque probabilities only as ranking heuristics. The exact ANF
+cache rewrite, compact flags and full original-to-final state/phase proof
+requirements remain unchanged. Native tests pass; component replay is pending.
+
+Fixed stage32 product replay saves67.47265625 T atQ1234 and48,695 classical
+slots; stage39 saves78.47265625 T. Both retain every inherited original failure.
+Wide stage22 saves51.94921875 T; stage29 has the same measured saving. The
+predetermined final53/43 stage counts remain unchanged.
+
+The product25 census watcher was switched before ANY rows from the old runner
+to frozen SIMDv1 and then SIMDv2, retaining its label, all32768 batch IDs,6workers
+per source, source hashes and fixed sample size. Retired waiting scripts, actual
+shell exit markers and explicit zero-row provenance are retained. Only the v3
+folder's complete fixed row count can establish completion; an idle shell's
+EXIT trap reporting0 after SIGTERM does not establish a completed census.
+
+## Twenty-five-stage fixed census: terminal
+
+Normal source generation for `candidate-product-final25` matches the frozen
+external stream byte for byte, and all27 new native tests pass. The independent
+fixed32,768-batch census is complete on both sources, with no interim selection:
+original4147 failing batches (17.844451904296875/packet), candidate4143
+(17.827239990234375/packet). Mean T is761222.9944109917 versus761164.8407330513;
+paired saving58.15367794036865 +/-0.4424933252282606 T, unchangedQ1234.
+The candidate passes the disclosed measured failure gate, and has47,921
+classical slots. `product25-census-summary.json` references the complete
+`product25-frozen-census-v3-20261016` raw files, source hashes and unchanged
+predeclared label/batch sample. The coordinator owns any subsequent nonce
+qualification and unchanged official benchmark; no scored product claim is made.
