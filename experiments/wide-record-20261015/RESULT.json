@@ -1,0 +1,53 @@
+{
+  "status": "COMPLETE_LOCAL_PASS_QUEUE_ELIGIBLE",
+  "source_revision": "5a7c390233c72133df9b591c92e43422c5892142",
+  "shots": 9024,
+  "failures": {
+    "value": 0,
+    "phase_batches": 0,
+    "ancilla_batches": 0
+  },
+  "total_executed_toffoli": 6801794152,
+  "rounded_mean_executed_toffoli": 753745,
+  "mean_executed_toffoli": 753744.9193262411,
+  "qubits": 1464,
+  "product": 1103482680,
+  "nonce": 92,
+  "nonces_screened": 164,
+  "nonce_policy": "ascending_from_1_lowest_pass",
+  "submission_mode": "queue",
+  "submitted": false,
+  "stream_sha256": "ba9bd28402c5821e5dcb36795003f3ee5fe729bc2a071a9942567ce875ed02be",
+  "patch_sha256": "2586ec9d711e7d382490cae95e46cfcbfdf01446f0cd4d4cb03174b7a99d8d89",
+  "benchmark_log_sha256": "f118eb376c03626b0f4ce0cabafec198a230b6b5f57f62983df1cb2fb38a0653",
+  "protected_file_manifest_sha256": "1cb434bf197309c0fac974f20846ecc23564e8b852496daad6375c1f021fc02e",
+  "final_census": {
+    "status": "diagnostic_final_fresh_census",
+    "label": "wide-four-stage-final-20261015",
+    "batches_each": 16384,
+    "shots_each": 1048576,
+    "streams": {
+      "parent": {
+        "failed_batches": 678,
+        "expected_failed_batches_per_packet": 5.8348388671875,
+        "value_shots": 588,
+        "phase_shots": 380,
+        "dirty_shots": 0,
+        "mean_executed_T": 753764.5080728531,
+        "census_sha256": "d98e7b02d6dddb59b939f7c00b07179efa17be0f431cdba26a0477ec7cb2705f"
+      },
+      "candidate": {
+        "failed_batches": 674,
+        "expected_failed_batches_per_packet": 5.8004150390625,
+        "value_shots": 588,
+        "phase_shots": 366,
+        "dirty_shots": 0,
+        "mean_executed_T": 753741.4423885345,
+        "census_sha256": "4919da7ceb626c8158153e4e3f57ad59d0259ff2c743890bc1d7f883c904b961"
+      }
+    },
+    "paired_mean_T_saving": 23.06568431854248,
+    "saving_standard_error": 0.39808599754075696,
+    "passes_final_failure_gate": true
+  }
+}

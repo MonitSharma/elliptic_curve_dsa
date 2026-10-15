@@ -11,6 +11,21 @@ void *shake8_create(void) {
 }
 void shake8_free(void *p){free(p);}
 void *shake8_clone(const void *v){Shake8 *p=shake8_create();if(p)memcpy(p,v,sizeof(*p));return p;}
+void *shake8_combine(const void *contexts[8],const unsigned lanes[8]){
+    if(!contexts[0])return NULL;
+    const Shake8 *first=contexts[0];
+    for(unsigned i=0;i<8;i++){
+        const Shake8 *p=contexts[i];
+        if(!p||lanes[i]>=8||p->pos!=first->pos||p->finalized!=first->finalized)return NULL;
+    }
+    Shake8 *out=shake8_create();if(!out)return NULL;
+    out->pos=first->pos;out->finalized=first->finalized;
+    for(unsigned i=0;i<8;i++)for(unsigned word=0;word<25;word++){
+        const uint64_t *src=(const uint64_t*)&((const Shake8*)contexts[i])->s;
+        ((uint64_t*)&out->s)[word*8+i]=src[word*8+lanes[i]];
+    }
+    return out;
+}
 int shake8_absorb8(void *v,const unsigned char *data,size_t n,size_t stride){
     Shake8 *p=v;if(p->finalized)return -1;
     size_t off=0;

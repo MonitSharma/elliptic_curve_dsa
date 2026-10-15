@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+set -euo pipefail
+root=/home/hclau/ecdsa_research/product-exact-20261015
+cd "$root"
+echo $$ > retained.pid
+trap 'rc=$?; echo "$rc" > retained.exit' EXIT
+export RAYON_NUM_THREADS=1 OMP_NUM_THREADS=1
+ulimit -v 62914560
+for cap in 128 512; do
+  name=retained-$cap
+  python3 /home/hclau/ecdsa_research/server-preflight.py > "$name-preflight.json"
+  EXACT_MODE=cache-retained CACHE_SPLIT=1 CACHE_RANK=density CACHE_ATOM_CAP=$cap ANF_PAIR_CAP=64 CACHE_PRODUCT_CAP=1000000 /usr/bin/time -v ./target-retained/release/product_paired_diagnostic tip/ops.bin "$name.bin" > "$name-generate.log" 2>&1
+  for family in independent structured; do
+    /usr/bin/time -v ./target-replay/release/product_paired_diagnostic tip/ops.bin "$name.bin" "$name-generate.log" "$family" "$name-$family.tsv" > "$name-$family.log" 2>&1
+  done
+  sha256sum "$name.bin" > "$name.sha256"
+done

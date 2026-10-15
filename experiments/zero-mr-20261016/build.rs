@@ -1,0 +1,2 @@
+use std::process::Command;
+fn main(){let out=std::env::var("OUT_DIR").unwrap();assert!(Command::new("cc").args(["-O3","-march=skylake-avx512","-c","zero8.c","-o"]).arg(format!("{out}/zero8.o")).status().unwrap().success());assert!(Command::new("ar").args(["crus"]).arg(format!("{out}/libzero8.a")).arg(format!("{out}/zero8.o")).status().unwrap().success());println!("cargo:rustc-link-search=native={out}");println!("cargo:rustc-link-lib=static=zero8");println!("cargo:rerun-if-changed=zero8.c");}

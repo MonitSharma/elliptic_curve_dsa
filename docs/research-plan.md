@@ -1,5 +1,26 @@
 # Research state and next experiments
 
+## Complete local Toffoli improvement: 16 October 2026, 00:19 Singapore
+
+**T753745/Q1464 is queued**, 26 below our public Toffoli record. The unchanged
+official benchmark passes all9024 shots with zero value/phase/ancilla failures.
+Nonce92 is lowest from1 (164 screened). Fixed final16384-batch paired census
+passes674candidate versus678parent failed batches:5.8004 versus5.8348 per
+packet, zero dirty. Source changes only `src/point_add/`; protected files
+match the base; complete sources, patch, stream and logs archived before
+removing the detached worktree. No external submission in queue mode.
+[Result](../experiments/wide-record-20261015/STATUS.md) ·
+[Queue](../experiments/autorun-20261015-2239/READY.md).
+
+Public refresh: Q678 (new source33fe7f32), T753771/Q1464 (ours), product939347948
+atQ1234/T761222. Product four-stage frozen census passes17.83154 failures
+per packet versus17.88318 parent, but the exact fast screen still projects
+63–84hours on64threads, so no unaffordable search launched. New exact product
+chains, compact flag reuse, tail smoothing and RNG-independence certificates
+are in progress. Ternary output/cut certificates have no useful coverage;
+the bounded concrete RNG-ANF has useful coverage, global proof pending.
+All such component counts stay outside README result plots.
+
 ## Active parallel run: 15 October 2026, 22:39 Singapore
 
 User priority is **product, then Toffolis, then qubits**. Submission mode is

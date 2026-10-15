@@ -4,6 +4,7 @@
 #include <stdint.h>
 void *shake8_create(void);
 void *shake8_clone(const void *);
+void *shake8_combine(const void *[8],const unsigned [8]);
 void shake8_free(void *);
 int shake8_absorb_same(void *,const unsigned char *,size_t);
 int shake8_absorb8(void *,const unsigned char *,size_t,size_t);

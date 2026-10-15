@@ -1,6 +1,6 @@
 # Agent handoff: start here
 
-Last updated 15 October 2026, 22:10 Singapore. This page is for an AI agent (or
+Last updated 16 October 2026, 00:19 Singapore. This page is for an AI agent (or
 person) continuing the work. It holds the current state, the rules, the tools
 and the next steps in order. Details live in the linked reports. Do not copy
 numbers from older reports without checking the date.
@@ -10,8 +10,9 @@ qubits**, in that order; submission mode **queue**. See
 [`experiments/autorun-20261015-2239/LOG.md`](../experiments/autorun-20261015-2239/LOG.md)
 before starting overlapping jobs. Four isolated workstreams cover the
 prefilter, exact product savings, unexplained failure localization, and the
-wide cache pass. No new result is qualified yet. Public refresh at 23:53
-leaves all three records unchanged. Product native chain has exact replay
+wide cache pass. **One new complete local result is queued: T753745/Q1464.**
+Public refresh at 00:19 leaves T/product unchanged; width advances to Q678.
+Product native chain has measured replay
 saving 14.48828125 T/Q1234, byte-identical native generation and 21 passing
 tests, but initial census exceeds the cap; fixed 32768-batch paired extension
 is running. Wide chain saves 23.03515625 T/Q1464 in replay. See
@@ -19,6 +20,18 @@ is running. Wide chain saves 23.03515625 T/Q1464 in replay. See
 Search acceleration combines validated C curve preparation, exact SIMD8
 simulation and SHAKE8; full integration is pending. Arithmetic predictions
 may prioritize an exact check but must never directly skip a nonce.
+
+**16 October, 00:19:** wide native21tests and unchanged benchmark pass:
+**753745T/Q1464**, nonce92 lowest from1,164screened. Final paired16384-batch
+census passes674candidate versus678parent failed batches,5.8004 versus5.8348
+per packet, zero dirty. Candidate queued in
+[`READY.md`](../experiments/autorun-20261015-2239/READY.md); no external submission.
+The qualified detached tree was removed after full source/patch/stream archival.
+Product fixed deep census32768batches/source passes failure gate17.83154
+versus parent's17.88318, below18; exact saving14.55994 +/-0.44253T.
+Frozen product may be searched only after the affordable-search gate passes.
+SIMD advisory rails match262144 inputs at6.28us/shot; exact bucket scheduler
+is being measured. [Wide result](../experiments/wide-record-20261015/STATUS.md).
 
 ## 1. Read in this order
 
@@ -43,11 +56,11 @@ Refresh first: `.venv-research/Scripts/python.exe scripts/analyze-leaderboard.py
 (writes `docs/data/latest-leaderboard.json`, `docs/frontier-results.md` and
 `docs/figures/frontier.*`).
 
-| Record | Public best (22:07 refresh) | Ours | Strict next target |
+| Record | Public best (16 October 00:19 refresh) | Ours | Strict next target |
 |---|---|---|---|
 | Min executed Toffolis | **753,771 at Q1464 — ours** (`3f32acd2`, source `5a7c3902`) | Official | T ≤ 753,770 |
 | Min Q × T | 939,347,948 = 761,222 × 1,234 (jackylee0424, `85d067da`, source `4b2ec52f`) | None | T ≤ 761,221 at Q1234; T ≤ 760,605 at Q1235 |
-| Min qubits | 679 (jackylee0424, `80fe2050`) | Local Q692 pass only, unsubmitted | Q ≤ 678 |
+| Min qubits | 678 (jackylee0424, `b83078b5`, source `33fe7f32`) | Local Q692 pass only, unsubmitted | Q ≤ 677 |
 
 The user's priority (15 Oct, night): improve any of the three records, each
 judged independently, in long unattended runs

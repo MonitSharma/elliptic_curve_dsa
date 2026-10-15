@@ -1,0 +1,165 @@
+   Compiling value_prefilter v0.1.0 (/home/hclau/ecdsa_research/prefilter-20261015/tool)
+warning: unused imports: `QubitOrBit` and `analyze_ops`
+ --> src/bin/walk_model.rs:4:5
+  |
+4 |     analyze_ops, BitId, Op, OperationType, QubitId, QubitOrBit, RegisterId,
+  |     ^^^^^^^^^^^                                     ^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `quantum_ecc::sim::Simulator`
+ --> src/bin/walk_model.rs:6:5
+  |
+6 | use quantum_ecc::sim::Simulator;
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused imports: `Arc`, `AtomicUsize`, `Mutex`, and `Ordering`
+  --> src/bin/walk_model.rs:14:17
+   |
+14 | use std::sync::{Arc, Mutex, atomic::{AtomicUsize, Ordering}};
+   |                 ^^^  ^^^^^           ^^^^^^^^^^^  ^^^^^^^^
+
+warning: unused import: `alloy_primitives::U512`
+ --> src/bin/../walk_native.rs:3:5
+  |
+3 | use alloy_primitives::U512;
+  |     ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `XofReader`
+ --> src/bin/walk_model.rs:9:40
+  |
+9 |     digest::{ExtendableOutput, Update, XofReader},
+  |                                        ^^^^^^^^^
+
+warning: constant `MAGIC` is never used
+  --> src/bin/walk_model.rs:18:7
+   |
+18 | const MAGIC: &[u8; 8] = b"QECCOPSZ";
+   |       ^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: constant `ZSTD_WINDOW_LOG_MAX` is never used
+  --> src/bin/walk_model.rs:21:7
+   |
+21 | const ZSTD_WINDOW_LOG_MAX: u32 = 27;
+   |       ^^^^^^^^^^^^^^^^^^^
+
+warning: constant `FIELD_BYTES` is never used
+  --> src/bin/walk_model.rs:22:7
+   |
+22 | const FIELD_BYTES: usize = 8;
+   |       ^^^^^^^^^^^
+
+warning: constant `OP_FIELDS` is never used
+  --> src/bin/walk_model.rs:23:7
+   |
+23 | const OP_FIELDS: usize = 7;
+   |       ^^^^^^^^^
+
+warning: constant `OP_BYTES` is never used
+  --> src/bin/walk_model.rs:24:7
+   |
+24 | const OP_BYTES: usize = OP_FIELDS * FIELD_BYTES;
+   |       ^^^^^^^^
+
+warning: constant `MAX_OPS` is never used
+  --> src/bin/walk_model.rs:29:7
+   |
+29 | const MAX_OPS: u64 = 4_000_000_000;
+   |       ^^^^^^^
+
+warning: constant `NUM_TESTS` is never used
+  --> src/bin/walk_model.rs:30:7
+   |
+30 | const NUM_TESTS: usize = 9024;
+   |       ^^^^^^^^^
+
+warning: function `op_kind_from_u32` is never used
+  --> src/bin/walk_model.rs:32:4
+   |
+32 | fn op_kind_from_u32(v: u32) -> Option<OperationType> {
+   |    ^^^^^^^^^^^^^^^^
+
+warning: function `read_u64` is never used
+  --> src/bin/walk_model.rs:56:4
+   |
+56 | fn read_u64(bytes: &[u8], off: usize) -> u64 {
+   |    ^^^^^^^^
+
+warning: function `load_ops` is never used
+  --> src/bin/walk_model.rs:60:4
+   |
+60 | fn load_ops(path: &str) -> Result<Vec<Op>, String> {
+   |    ^^^^^^^^
+
+warning: function `fiat_shamir_seed` is never used
+   --> src/bin/walk_model.rs:168:4
+    |
+168 | fn fiat_shamir_seed(ops: &[Op]) -> sha3::Shake256Reader {
+    |    ^^^^^^^^^^^^^^^^
+
+warning: `value_prefilter` (bin "walk_model") generated 16 warnings (run `cargo fix --bin "walk_model" -p value_prefilter` to apply 4 suggestions)
+warning: unused variable: `tail`
+  --> src/bin/../fast_screen.rs:52:5
+   |
+52 |     tail: &[Op],
+   |     ^^^^ help: if this is intentional, prefix it with an underscore: `_tail`
+   |
+   = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `prefix`
+   --> src/bin/../fast_screen.rs:191:14
+    |
+191 |         let (prefix, regs, tail0, pre) = (prefix.clone(), regs.clone(), tail0.clone(), pre.clone());
+    |              ^^^^^^ help: if this is intentional, prefix it with an underscore: `_prefix`
+
+warning: function `fast_curve_test` is never used
+  --> src/bin/../fast_curve.rs:31:4
+   |
+31 | fn fast_curve_test(window:usize) {
+   |    ^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `value_prefilter` (bin "fast_screen") generated 3 warnings (run `cargo fix --bin "fast_screen" -p value_prefilter` to apply 2 suggestions)
+warning: unused imports: `Arc`, `AtomicUsize`, `Mutex`, and `Ordering`
+  --> src/main.rs:14:17
+   |
+14 | use std::sync::{Arc, Mutex, atomic::{AtomicUsize, Ordering}};
+   |                 ^^^  ^^^^^           ^^^^^^^^^^^  ^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `fast`
+  --> src/slice.rs:70:28
+   |
+70 |  let curve=secp256k1();let fast=FastCurve::new(10); let mut tcone=std::time::Duration::ZERO;let mut tfull=std::time::Duration::ZERO;
+   |                            ^^^^ help: if this is intentional, prefix it with an underscore: `_fast`
+   |
+   = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: constant `NUM_TESTS` is never used
+  --> src/main.rs:30:7
+   |
+30 | const NUM_TESTS: usize = 9024;
+   |       ^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `fiat_shamir_seed` is never used
+   --> src/main.rs:168:4
+    |
+168 | fn fiat_shamir_seed(ops: &[Op]) -> sha3::Shake256Reader {
+    |    ^^^^^^^^^^^^^^^^
+
+warning: fields `nq` and `nb` are never read
+ --> src/slice.rs:4:34
+  |
+4 | struct ValueCone { ops: Vec<Op>, nq: usize, nb: usize, random_dependencies: usize, rng_indices:Vec<usize>, rng_count:usize }
+  |        ---------                 ^^         ^^
+  |        |
+  |        fields in this struct
+
+warning: `value_prefilter` (bin "value_prefilter") generated 5 warnings (run `cargo fix --bin "value_prefilter" -p value_prefilter` to apply 2 suggestions)
+    Finished `release` profile [optimized] target(s) in 7.05s

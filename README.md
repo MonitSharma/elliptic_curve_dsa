@@ -10,6 +10,15 @@ independent, and existing evidence, including the Q692 width result, is preserve
 
 ## Where we stand
 
+**16 October 2026, 00:09 Singapore — new complete local pass: 753,745
+Toffolis at Q1464**, 26 below our public Toffoli record. The unchanged
+benchmark passes all 9,024 shots with zero value, phase or ancilla failures.
+Nonce 92 is the lowest pass from 1 (164 screened). The final paired census
+passes at 5.80 failing batches per packet versus the parent's 5.83, across
+1,048,576 fresh shots each. It is **queued, not officially submitted**, and
+does not improve the product record.
+[Benchmark and source evidence](experiments/wide-record-20261015/STATUS.md)
+
 **15 October 2026, 19:19 Singapore — our submission now has the lowest publicly
 scored Toffoli count: 753,771 at 1,464 qubits.** The official evaluation of
 [`3f32acd2`](https://api.ecdsa.fail/api/submissions/3f32acd2-71bf-4cc7-bae6-7407be97fe3b)
@@ -27,8 +36,9 @@ The complete scored packet passes; the circuit is not correct on every input.
 
 **Earlier on 15 October 2026 — one new complete local benchmark result: 692 logical qubits.**
 The original bank-swap v2 circuit passed all **9,024 shots**, with zero value,
-phase or ancilla failures. The refreshed public minimum is now **679 qubits**;
-our preserved local result is no longer below it. It is **not an official submission**.
+phase or ancilla failures. The refreshed public minimum is now **678 qubits**;
+our preserved local result is no longer below it.
+It is **not an official submission**.
 Its width submission work remains deferred; the newer Toffoli candidate above is separate.
 
 The newer Q692 version that fits the normal build is a **different circuit**:
@@ -51,8 +61,8 @@ excluded from these performance figures.
 
 | Objective | Public record | Our result | Next strict target |
 |---|---:|---|---:|
-| **Minimum logical qubits** | 679 | **692 — complete local pass**, not submitted | Q ≤ 678 |
-| **Minimum executed Toffolis** | **753,771 at Q1464 — ours** | **Officially scored**; product-only rejection | T ≤ 753,770 |
+| **Minimum logical qubits** | 678 | **692 — complete local pass**, not submitted | Q ≤ 677 |
+| **Minimum executed Toffolis** | **753,771 at Q1464 — ours** | **753,745/Q1464 complete local pass**, queued | T ≤ 753,770 |
 | **Minimum Q × T** | 939,347,948 at Q1234/T761,222 | No new qualified record | Q × T ≤ 939,347,947 |
 
 These remain three distinct records, but **Toffoli count and product now take

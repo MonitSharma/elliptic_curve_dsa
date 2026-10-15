@@ -1,29 +1,28 @@
 {
-  "analyzed_at": "2026-10-15T23:53:23.612904+08:00",
+  "analyzed_at": "2026-10-16T00:19:14.877172+08:00",
   "source": "https://api.ecdsa.fail/api/benchmarks/1ffb695a-309b-46b6-a728-2f97d8c7be74/submissions",
   "record_count": 1571,
   "status_counts": {
     "accepted": 631,
-    "rejected": 708,
+    "rejected": 709,
     "failed": 228,
-    "cancelled": 3,
-    "validating": 1
+    "cancelled": 3
   },
-  "eligible_count": 1229,
+  "eligible_count": 1230,
   "benchmark_mode": "scalar",
   "closes_at": "2026-12-31T23:59:59.000Z",
   "eligibility": "Accepted or score-only rejected; positive integer official metrics; score equals Q*T.",
   "leaders": {
     "qubits": {
-      "id": "80fe2050-51b0-46ee-b9bb-a7c131e4e1b7",
+      "id": "b83078b5-a62b-4c56-afe1-f982d55b76be",
       "status": "rejected",
-      "officialScore": 576070294261,
+      "officialScore": 556764030708,
       "officialMetrics": {
-        "qubits": 679,
-        "toffoli": 848409859
+        "qubits": 678,
+        "toffoli": 821185886
       },
-      "createdAt": "2026-10-15T11:31:26.767Z",
-      "submissionCommitSha": "586a76734a787f76cec2026b801e27ae162f0390",
+      "createdAt": "2026-10-15T15:37:10.557Z",
+      "submissionCommitSha": "33fe7f328b3c668c1537fcfcaf647e396b2bf563",
       "solverUsername": "jackylee0424",
       "rejectionReason": "score did not improve current best"
     },
@@ -55,11 +54,11 @@
     }
   },
   "targets": {
-    "maximum_qubits": 678,
+    "maximum_qubits": 677,
     "maximum_toffoli": 753770,
     "maximum_product": 939347947,
     "maximum_toffoli_for_product": {
-      "679": 1383428,
+      "678": 1385468,
       "692": 1357439,
       "693": 1355480,
       "877": 1071092,
@@ -73,15 +72,15 @@
   },
   "frontier": [
     {
-      "id": "80fe2050-51b0-46ee-b9bb-a7c131e4e1b7",
+      "id": "b83078b5-a62b-4c56-afe1-f982d55b76be",
       "status": "rejected",
-      "officialScore": 576070294261,
+      "officialScore": 556764030708,
       "officialMetrics": {
-        "qubits": 679,
-        "toffoli": 848409859
+        "qubits": 678,
+        "toffoli": 821185886
       },
-      "createdAt": "2026-10-15T11:31:26.767Z",
-      "submissionCommitSha": "586a76734a787f76cec2026b801e27ae162f0390",
+      "createdAt": "2026-10-15T15:37:10.557Z",
+      "submissionCommitSha": "33fe7f328b3c668c1537fcfcaf647e396b2bf563",
       "solverUsername": "jackylee0424",
       "rejectionReason": "score did not improve current best"
     },
@@ -724,7 +723,7 @@
     }
   ],
   "input_sha256": {
-    "submissions.json": "57f5d37bcd2f7179a18d7d89bef91062a45e169e95cc5202a77dfdf1b959a2ed",
+    "submissions.json": "25b8eb7c3a3cfa30a98bbd2db38c19aa575c843a0a81736fdce06d05e865dd25",
     "benchmark.json": "3f030dc0deb95fcf0a134f34cc3a8080fcdf15ea14cd39cdb7616ce861aa2ac0"
   }
 }

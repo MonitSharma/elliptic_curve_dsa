@@ -1,0 +1,28 @@
+SCREEN_START ops=11630716 qubits=1234 bits=45701 own_nonce=1046072871510 first=1 count=128 threads=8 policy=lowest_passing_nonce
+COMPACT ops=11629592 bytes=139555104 rng_words=906156
+SCREEN_PROGRESS screened=50 last=56 pass=false best=18446744073709551615 elapsed_s=4.6
+SCREEN_PROGRESS screened=100 last=105 pass=false best=18446744073709551615 elapsed_s=8.6
+SCREEN_DONE screened=128 best=18446744073709551615 elapsed_s=11.6
+	Command being timed: "tool/target/release/fast_screen /home/hclau/ecdsa_research/product-exact-20261015/tip/ops.bin 1 128 8 evidence/fast-screen-1-128.jsonl"
+	User time (seconds): 89.41
+	System time (seconds): 1.03
+	Percent of CPU this job got: 504%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:17.91
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 1411108
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 424264
+	Voluntary context switches: 89
+	Involuntary context switches: 125
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 72
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

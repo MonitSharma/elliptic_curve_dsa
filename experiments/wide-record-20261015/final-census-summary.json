@@ -1,0 +1,29 @@
+{
+  "status": "diagnostic_final_fresh_census",
+  "label": "wide-four-stage-final-20261015",
+  "batches_each": 16384,
+  "shots_each": 1048576,
+  "streams": {
+    "parent": {
+      "failed_batches": 678,
+      "expected_failed_batches_per_packet": 5.8348388671875,
+      "value_shots": 588,
+      "phase_shots": 380,
+      "dirty_shots": 0,
+      "mean_executed_T": 753764.5080728531,
+      "census_sha256": "d98e7b02d6dddb59b939f7c00b07179efa17be0f431cdba26a0477ec7cb2705f"
+    },
+    "candidate": {
+      "failed_batches": 674,
+      "expected_failed_batches_per_packet": 5.8004150390625,
+      "value_shots": 588,
+      "phase_shots": 366,
+      "dirty_shots": 0,
+      "mean_executed_T": 753741.4423885345,
+      "census_sha256": "4919da7ceb626c8158153e4e3f57ad59d0259ff2c743890bc1d7f883c904b961"
+    }
+  },
+  "paired_mean_T_saving": 23.06568431854248,
+  "saving_standard_error": 0.39808599754075696,
+  "passes_final_failure_gate": true
+}

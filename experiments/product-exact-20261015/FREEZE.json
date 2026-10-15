@@ -1,0 +1,45 @@
+{
+  "base_revision": "4b2ec52fc55da796aa8f5ef851290297e8706424",
+  "candidate": "candidate-final",
+  "stages": [
+    {
+      "support": "interned_anf_retained.rs",
+      "cap": 128,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "support": "interned_witness.rs",
+      "cap": 128,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "support": "interned_anf.rs",
+      "cap": 512,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "support": "interned_anf_retained.rs",
+      "cap": 512,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true
+    }
+  ],
+  "scope": "exact zero-width semantic rewrites; inherited failures retained",
+  "external_stream_sha256": "34a09e843bb182d0379fac82487ed26364711799c4126fbd7a4c1af7820ff5e6",
+  "fixed_paired_saving_t": 14.48828125,
+  "fixed_packets": 2,
+  "shots_per_fixed_packet": 256,
+  "nonce_search_performed": false,
+  "source_patch_sha256": "9470e2399178d2e7d999a59a5a9155f6b5305180193682e81fbe906a3e7f2ad1"
+}

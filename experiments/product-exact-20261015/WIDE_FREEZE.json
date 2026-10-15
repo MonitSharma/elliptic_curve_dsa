@@ -1,0 +1,46 @@
+{
+  "base_revision": "5a7c390233c72133df9b591c92e43422c5892142",
+  "candidate": "wide-candidate-final",
+  "stages": [
+    {
+      "support": "interned_anf_retained.rs",
+      "cap": 128,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "support": "interned_witness.rs",
+      "cap": 128,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "support": "interned_anf.rs",
+      "cap": 512,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "support": "interned_anf_retained.rs",
+      "cap": 512,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true
+    }
+  ],
+  "scope": "exact zero-width semantic rewrites; inherited failures retained",
+  "external_stream_sha256": "77b7fd4a760b0b639d36a7a28bac0c81af616aea205e1d7030f8bb29e97bbace",
+  "fixed_paired_saving_t": 23.03515625,
+  "fixed_packets": 2,
+  "shots_per_fixed_packet": 256,
+  "nonce_search_performed": false,
+  "source_patch_sha256": "2c78b729fe8ad840745e1e1d9a44583c29fc66c2622307510b5dfa0d20f5be3d",
+  "objective": "independent minimum executed Toffolis"
+}

@@ -6,7 +6,9 @@ for folder in sys.argv[1:]:
   names=archive.getnames();assert len(names)==len(set(names))
   assert all(not PurePosixPath(n).is_absolute() and '..' not in PurePosixPath(n).parts for n in names)
   manifest=json.load(archive.extractfile('manifest.json'))
-  for name,expected in manifest.items():
+  entries=manifest.get('files',manifest)
+  for name,expected in entries.items():
+   expected=expected['sha256'] if isinstance(expected,dict) else expected
    assert hashlib.sha256(archive.extractfile(name).read()).hexdigest()==expected,name
  (root/'verified-manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
- print(folder,': verified',len(manifest),'artifacts')
+ print(folder,': verified',len(entries),'artifacts')

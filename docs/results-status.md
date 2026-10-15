@@ -3,17 +3,27 @@
 **Active run, 15 October 2026, 22:39 Singapore:** public records refreshed
 and unchanged. User priority is product, then Toffolis, then qubits;
 submission mode is **queue**. Four isolated experiments are in progress,
-with no newly qualified score. Public refresh at 23:53 leaves all records
-unchanged (1,571 submissions, 1,229 eligible).
+with one newly qualified complete local pass queued below. Public refresh at
+16October00:19: Q678 (new), T753771/Q1464 and product939347948 unchanged
+(1571 submissions,1230 eligible).
 [Run log](../experiments/autorun-20261015-2239/LOG.md).
 
-**Frozen exact candidates, still unqualified:** the product chain saves
+**New complete local pass, 16 October 00:09 Singapore:** the wide four-stage
+candidate passes the unchanged benchmark: **T753745/Q1464**, all 9024 shots,
+zero value/phase/ancilla failures. Nonce92 is lowest from1;164 screened. The
+fixed final16384-batch paired census passes674candidate versus678parent
+failed batches,5.8004 versus5.8348 per packet, zero dirty. **Queued, not
+submitted.** [Benchmark evidence](../experiments/wide-record-20261015/STATUS.md) ·
+[Queue](../experiments/autorun-20261015-2239/READY.md).
+
+**Frozen product candidate, not yet benchmarked:** the product chain saves
 14.48828125 T at unchanged Q1234 in aligned whole-stream replay and its native
 point-add implementation generates the identical stream and passes 21 tests.
-Its initial fresh census exceeds the 18-batch cap; a predeclared larger
-census includes that complete sample. The wide chain saves 23.03515625 T at
-Q1464 in replay and is undergoing native reproduction and census. These are
-diagnostic savings, not completed benchmark scores.
+Its initial fresh census exceeds the 18-batch cap; the predeclared larger
+census includes that complete sample and passes: 32768 batches/2097152shots
+per source,17.83154 failed batches/packet versus paired parent's17.88318,
+paired saving14.55994 +/-0.44253T, zero dirty shots. These are diagnostic
+product savings, not completed benchmark scores. Search cost remains gated.
 [Candidate evidence](../experiments/product-exact-20261015/STATUS.md).
 
 **Search tools:** curve preparation now measures 9.39 microseconds per fresh
@@ -39,8 +49,8 @@ The separate Q692 width pass remains local and unsubmitted.
 
 | Objective | Current public record | Our status |
 |---|---:|---|
-| Minimum peak qubits | 679 (refreshed 22:07) | Q692 complete local pass; width work deferred |
-| Minimum rounded mean executed Toffolis | **753,771 at Q1464** | **Ours: official metrics**, `3f32acd2` |
+| Minimum peak qubits | 678 (refreshed16October00:19) | Q692 complete local pass; width work deferred |
+| Minimum rounded mean executed Toffolis | **753,771 at Q1464** | **753745/Q1464 local pass queued**; official753771, `3f32acd2` |
 | Minimum Q × T | 939,347,948 at Q1234/T761,222 | Our product 1,103,520,744 is 17.48% worse |
 
 Official source: `5a7c390233c72133df9b591c92e43422c5892142`, from our candidate
