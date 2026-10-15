@@ -1,13 +1,17 @@
-# Nonce screen of the wide `smooth` circuit — Toffoli-record candidate
+# Wide `smooth` circuit — officially scored public Toffoli minimum
 
 15 October 2026. **Complete local pass of the unchanged official benchmark:
 1,464 qubits × 753,771 executed Toffolis** (score field 1,103,520,744).
-The public Toffoli record is 761,156 (B3, Q1235). This candidate is 7,385 T
+The previous public Toffoli minimum was 761,156 (B3, Q1235). This entry is 7,385 T
 lower (−0.97%). It was **submitted at 19:13 Singapore on 15 October 2026** as
 [`3f32acd2`](https://api.ecdsa.fail/api/submissions/3f32acd2-71bf-4cc7-bae6-7407be97fe3b).
-Official validation is pending, so it is not yet an official record.
-Its Q × T is worse than the public product record (939,347,948); it is a
-Toffoli-record candidate only.
+**Official evaluation finished at 19:15:55 Singapore**, confirming **Q1464,
+T753,771, product 1,103,520,744**, exactly matching the local score.
+Its status is `rejected` with reason `score did not improve current best`.
+This is a score-only rejection: the 19:19 public refresh places it at the
+lowest Toffoli coordinate and on the public Pareto frontier. The product leader
+remains 939,347,948; this entry's product is 17.48% worse and was not promoted.
+Official source: `5a7c390233c72133df9b591c92e43422c5892142`.
 
 This is the first experiment under the **disclosed-failure-rate standard** the
 user adopted on 15 October 2026 (see `AGENTS.md`). That standard replaces the
@@ -17,11 +21,11 @@ beats. The nonce, the census and the number of nonces screened are published.
 
 ## Result
 
-| | Public B3 (record) | This candidate |
+| | Public B3 (previous low-T) | Our official entry |
 |---|---:|---:|
 | Peak qubits | 1,235 | 1,464 |
-| Official mean executed T | 761,155.566 | **753,770.963** |
-| Rounded T | 761,156 | **753,771** |
+| Local reproduced mean executed T | 761,155.566 | **753,770.963** |
+| Official rounded T | 761,156 | **753,771** |
 | Fresh-input failed batches per 9,024-shot packet | **17.73** | **5.47** |
 | P(pass a fresh packet) | 5.9×10⁻⁹ | 3.8×10⁻³ |
 | Identity-tail nonce | 1,013,008,676,774 (ground, count undisclosed) | **375** (lowest passing from 1; 593 screened) |
@@ -172,6 +176,14 @@ uploaded with the exact `SUBMISSION-NOTE.md`, `DEPENDENCIES.json`, model
 - B3 dependency declaration was recorded; attribution judgment is pending.
 - Receipt: `evidence/submission-response.json`.
 - Latest public status snapshot: `evidence/submission-status.json`.
+
+**Terminal result (checked 19:19 Singapore):** the service returned official
+metrics Q1464/T753,771 and score 1,103,520,744. The source commit created for
+this submission is `5a7c3902`. The sole rejection reason is not improving the
+scalar product. The initial response above remains preserved as an earlier
+receipt; `submission-status.json` now contains the completed result. No second
+submission was made. B3 dependency attribution is a separate judgment and is
+not inferred from the scoring status.
 
 The service evaluates the editable source against public base `4b2ec52f`.
 No local circuit edits, nonce changes or new research calculations were made.

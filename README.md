@@ -9,17 +9,20 @@ Preserve the width result; spend extra qubits when the gate savings justify it.
 
 ## Where we stand
 
-**15 October 2026 (evening) — Toffoli-record candidate: 753,771 executed
-Toffolis at 1,464 qubits**, 7,385 below the public record of 761,156 (−0.97%).
-The unchanged official benchmark passes all 9,024 shots, with 0 value, phase or
-ancilla failures. On fresh inputs it fails 5.47 batches per packet, against
-17.73 for the record it beats. It passes the scored packet with the disclosed
-nonce 375 (the lowest passing nonce from 1, 593 screened). This follows the new
-**disclosed-failure-rate standard**, which replaces our no-nonce rule. It is
-**submitted and awaiting official validation** as
-[`3f32acd2`](https://api.ecdsa.fail/api/submissions/3f32acd2-71bf-4cc7-bae6-7407be97fe3b).
-Its Q × T does not beat the product record.
-[Screen, census and benchmark](experiments/nonce-screen-20261015/STATUS.md)
+**15 October 2026, 19:19 Singapore — our submission now has the lowest publicly
+scored Toffoli count: 753,771 at 1,464 qubits.** The official evaluation of
+[`3f32acd2`](https://api.ecdsa.fail/api/submissions/3f32acd2-71bf-4cc7-bae6-7407be97fe3b)
+matches our complete local benchmark and is 7,385 Toffolis below the previous
+minimum of 761,156 (−0.97%). The service marks it **rejected solely because
+its product did not improve the current best**; this is an officially scored
+Toffoli minimum, with no product promotion. Official source: `5a7c3902`.
+
+Its Q × T is **1,103,520,744**, 17.48% worse than the product leader. Fresh-input
+tests still find **5.47 failed batches per 9,024-shot packet**, compared with
+17.73 for the prior B3 Toffoli leader. We disclose nonce **375** (the lowest
+passing nonce from 1; 593 screened) and retain the arithmetic limitations.
+The complete scored packet passes; the circuit is not correct on every input.
+[Official result, screen and census](experiments/nonce-screen-20261015/STATUS.md)
 
 **Earlier on 15 October 2026 — one new complete local benchmark result: 692 logical qubits.**
 The original bank-swap v2 circuit passed all **9,024 shots**, with zero value,
@@ -34,10 +37,11 @@ preserved original pass, and the original pass does not qualify the new version.
 [Original passing result](experiments/followup-20261015/bankswap-terminal/RESULT.md) ·
 [Independent verification](experiments/verification-20261015/independent-verification.json)
 
-![Public Pareto frontier and our locally verified 692-qubit circuit](docs/figures/frontier.png)
+![Public Pareto frontier with our official Toffoli minimum and local Q692 pass](docs/figures/frontier.png)
 
-The gold step is the **officially scored public frontier**. The cyan diamond is
-our **separate local Q692 pass**. Leftward means fewer qubits; downward means fewer
+The gold step is the **officially scored public frontier**, including our
+**cyan-star Toffoli entry**. The cyan diamond is our **separate local Q692 pass**.
+Leftward means fewer qubits; downward means fewer
 Toffolis. The vertical axis is logarithmic. The original Q692 circuit saves width
 at a substantial gate-cost increase. Failed and component-only experiments are
 excluded from these performance figures.
@@ -47,7 +51,7 @@ excluded from these performance figures.
 | Objective | Public record | Our result | Next strict target |
 |---|---:|---|---:|
 | **Minimum logical qubits** | 680 | **692 — complete local pass**, not submitted | Width work deferred |
-| **Minimum executed Toffolis** | 761,156 at Q1235 | **753,771 at Q1464 — complete local pass**, submitted; validation pending | T ≤ 761,155 |
+| **Minimum executed Toffolis** | **753,771 at Q1464 — ours** | **Officially scored**; product-only rejection | T ≤ 753,770 |
 | **Minimum Q × T** | 939,347,948 at Q1234/T761,222 | No new qualified record | Q × T ≤ 939,347,947 |
 
 These remain three distinct records, but **Toffoli count and product now take
@@ -58,12 +62,13 @@ product. These are separate achievements.
 
 ![Why the low-Toffoli record and best product are different](docs/figures/record-tradeoffs.png)
 
-At Q1235, **T761,155** would improve the Toffoli record, while **T760,605** or
-less is needed to beat the product. At Q1234, the product threshold is
-**T761,221**. These thresholds use the refreshed public score, not emitted gates.
+The next Toffoli target is **T ≤ 753,770**, at any allowed width. At our Q1464,
+the strict product threshold is **T ≤ 641,631**. At Q1235 it is **T ≤ 760,605**;
+at Q1234 it is **T ≤ 761,221**. These are independent objectives, using rounded
+mean executed Toffolis rather than emitted gates.
 
-Snapshot: **1,568 public submissions · 1,227 eligible scored records ·
-48 public Pareto points**, analyzed 15 October 2026 at 16:55 Singapore.
+Snapshot: **1,569 public submissions · 1,228 eligible scored records ·
+49 public Pareto points**, analyzed 15 October 2026 at 19:19 Singapore.
 [Full frontier and provenance](docs/frontier-results.md) ·
 [Machine-readable records](docs/data/latest-leaderboard.json) ·
 [Public API](https://api.ecdsa.fail/api/benchmarks/1ffb695a-309b-46b6-a728-2f97d8c7be74/submissions)
@@ -74,7 +79,7 @@ Only complete passing circuit evaluations appear in this table.
 
 | Circuit | Peak Q | Rounded mean executed T | Q × T | Provenance |
 |---|---:|---:|---:|---|
-| **Our wide smooth Leapfrog, nonce 375** | **1,464** | **753,771** | **1,103,520,744** | [Unchanged official benchmark](experiments/nonce-screen-20261015/STATUS.md), stream `01aad987`; disclosed nonce, census 5.47 failed batches/packet |
+| **Our wide smooth Leapfrog, nonce 375** | **1,464** | **753,771** | **1,103,520,744** | [Official evaluation `3f32acd2`](https://api.ecdsa.fail/api/submissions/3f32acd2-71bf-4cc7-bae6-7407be97fe3b), source `5a7c3902`; also complete local pass, stream `01aad987`; census 5.47 failed batches/packet |
 | **Our original bank-swap v2** | **692** | **1,481,382,858** | **1,025,116,937,736** | [9,024-shot local pass](experiments/followup-20261015/bankswap-terminal/RESULT.md); streamed generation, unchanged protected evaluator |
 | Public C5 reproduction | 1,234 | 761,658 | 939,885,972 | [Complete passing reproduction](docs/data/server-verification.json), source `c5bb1ec8` |
 | Public B3 reproduction | 1,235 | 761,156 | 940,027,660 | [Complete passing reproduction](experiments/overnight-20261014/coordinator/b3-reference-full-receipt.json), source `b3c9fdd6` |
@@ -88,14 +93,14 @@ A finite passing benchmark is not a proof for every valid input.
 ## Why the low-Toffoli records do not pass fresh tests
 
 The benchmark derives its 9,024 test inputs from a hash of the circuit, so any
-change gets a fresh test set. On **262,144 independent inputs**, the public B3
-Toffoli record circuit has only about a **2–6×10⁻⁹ chance of passing a fresh test set**
+change gets a fresh test set. On **262,144 independent inputs**, the former B3
+Toffoli leader has only about a **2–6×10⁻⁹ chance of passing a fresh test set**
 (two independent censuses),
 and the C5 product baseline about 1.5×10⁻⁸. B3's source pins a ground
 `TAIL_NONCE`; its walk-width table states a deliberate drop budget of
 0.00077 per walk; its recipe comments budget about 19 expected failed batches
-per test set. These records pass because a lucky test set was searched for. Every current
-public record does the same; the community caps the failure rate at 18 per
+per test set. These baselines use searched identity-tail nonces. The inherited
+PR 419 contract caps the failure rate at 18 batches per
 9,024 shots (the "PR 419" contract). **Since 15 October we follow a
 disclosed-failure-rate standard.** We screen nonces only on frozen circuits whose
 fresh-input failure rate is at or below that of the record they beat, and we
@@ -103,14 +108,11 @@ publish the nonce, the census and the number of nonces screened. Lowering the
 failure rate remains valuable, because it makes the search cheap and the result
 more honest.
 
-![Fresh-input failure rate vs diagnostic Toffolis](experiments/failure-census-20261015/figures/honest-pass.png)
-
-This is a diagnostic figure, **not scored results**. Each point is one
-candidate stream, censused on fresh inputs with the unchanged protected
-simulator. The benchmark requires zero failed batches. Every candidate built
-so far, ours and the public baselines alike, sits two orders of magnitude above
-the honest-pass zone. Our widest circuit is about 7.4K diagnostic Toffolis below
-the record, and that margin is the budget for making it genuinely correct.
+Our officially scored circuit's fresh-pass probability is about **0.4%**; the
+passing packet was selected under that disclosed policy. The independent census
+and structured counterexamples remain relevant after official scoring.
+Diagnostic count/failure plots stay in the experiment reports, separate from
+the scored performance figures above.
 [Census](experiments/failure-census-20261015/STATUS.md) ·
 [root-cause trace](experiments/trace-value-20261015/STATUS.md) ·
 [walk widening](experiments/widen-walk-20261015/STATUS.md)
@@ -186,9 +188,8 @@ It is not the number of Toffolis written into the generated stream.
 
 ## Next work
 
-1. **Collect official validation for submission `3f32acd2`** (753,771 T at
-   Q1464, nonce 375), submitted with its disclosure note and B3 dependency.
-   Then stack the exact caching
+1. **Improve on the officially scored T753,771 result** (`3f32acd2`, Q1464).
+   Preserve its disclosure note and B3 dependency. Then stack the exact caching
    savings (about −101 T) and win back more failure rate on the wide circuit.
 2. **Product record:** sync to the public best (`4b2ec52f`, 761,222 T at
    Q1234) and port exact Toffoli savings that leave the failure rate unchanged.

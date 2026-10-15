@@ -1,6 +1,12 @@
 # Ten-hour ECDSA research report
 
-**Later publication checkpoint, 15 October 2026:** the original Q692 local
+**Latest publication update, 15 October 2026, 19:19 Singapore:** submission
+`3f32acd2` is officially scored at Q1464/T753,771, the new public Toffoli minimum.
+Its product 1,103,520,744 loses to the product leader, so its status is a score-only
+rejection. [Current results and provenance](results-status.md).
+The ten-hour report and earlier checkpoints below remain historical evidence.
+
+**Earlier publication checkpoint, 15 October 2026:** the original Q692 local
 pass remains our only new complete passing resource improvement. A later
 normal-build Q692 version failed correctness; new product/Toffoli cache
 experiments also retain inherited failures. None is submission-ready.

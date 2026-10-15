@@ -3,7 +3,7 @@ import copy
 import json
 from pathlib import Path
 import unittest
-from frontier_plot import verified_width
+from frontier_plot import verified_width, frontier_limits
 
 ROOT=Path(__file__).resolve().parents[1]
 class PublicationAdmission(unittest.TestCase):
@@ -31,5 +31,12 @@ class PublicationAdmission(unittest.TestCase):
                      "experiments/toffoli-readiness-20261015/wide-evidence/terminal/receipt.json",
                      "experiments/product-focus-20261015/evidence/candidate/terminal/receipt.json"]:
             self.assertIsNone(verified_width(json.loads((ROOT/path).read_text())),path)
+
+    def test_wide_official_record_is_inside_plot(self):
+        summary = {"frontier": [{"officialMetrics": {"qubits": 680, "toffoli": 669414940}},
+                                {"officialMetrics": {"qubits": 1464, "toffoli": 753771}}]}
+        lo, hi = frontier_limits(summary, {"qubits": 692, "toffoli": 1481382858})
+        self.assertLess(lo, 680)
+        self.assertGreater(hi, 1464)
 
 if __name__=="__main__":unittest.main()

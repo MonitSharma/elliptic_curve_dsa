@@ -37,6 +37,15 @@ class LeaderboardTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             lb.analyze([], {})
 
+    def test_score_only_rejection_can_set_toffoli_record(self):
+        product = row(1234, 761222)
+        ours = row(1464, 753771, "rejected", "score did not improve current best")
+        summary = lb.analyze([product, ours], {"mode": "scalar"})
+        self.assertEqual(summary["leaders"]["toffoli"]["id"], ours["id"])
+        self.assertEqual(summary["leaders"]["product"]["id"], product["id"])
+        self.assertEqual(summary["targets"]["maximum_toffoli"], 753770)
+        self.assertEqual(summary["targets"]["maximum_toffoli_for_product"]["1464"], 641631)
+
     def test_local_plot_requires_complete_passing_evidence(self):
         import copy
         import json

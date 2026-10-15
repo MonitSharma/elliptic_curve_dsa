@@ -27,6 +27,11 @@ def verified_width(receipt):
             return None
     return {"qubits": q, "toffoli": t}
 
+def frontier_limits(summary, local):
+    metrics = [s["officialMetrics"] for s in summary["frontier"]] + [local]
+    return min(m["qubits"] for m in metrics) - 15, max(m["qubits"] for m in metrics) + 60
+
+
 def render(summary, points, baseline, local):
     os.environ.setdefault("MPLCONFIGDIR", str(ROOT / ".tools/matplotlib"))
     import matplotlib
@@ -39,111 +44,141 @@ def render(summary, points, baseline, local):
 
     bg, panel, white, muted = "#103b31", "#194c3f", "#f4f5e9", "#b3cdc0"
     gold, lilac, cyan = "#f2cc72", "#cbb6f4", "#80e2db"
-    plt.rcParams.update({"font.family":"DejaVu Sans", "font.size":12,
-        "text.color":white, "axes.labelcolor":muted, "xtick.color":muted,
-        "ytick.color":muted, "axes.edgecolor":"#4c7666", "svg.fonttype":"none",
-        "svg.hashsalt":"ecdsa-resource-frontier", "axes.spines.top":False,
-        "axes.spines.right":False})
-    out = ROOT / "docs/figures"; out.mkdir(parents=True, exist_ok=True)
+    plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 11,
+        "text.color": white, "axes.labelcolor": muted, "xtick.color": muted,
+        "ytick.color": muted, "axes.edgecolor": "#4c7666", "svg.fonttype": "none",
+        "svg.hashsalt": "ecdsa-resource-frontier", "axes.spines.top": False,
+        "axes.spines.right": False})
+    out = ROOT / "docs/figures"
+    out.mkdir(parents=True, exist_ok=True)
+
     def save(fig, name):
-        fig.savefig(out/(name+".png"), dpi=180, facecolor=bg)
-        fig.savefig(out/(name+".svg"), facecolor=bg, metadata={"Date":None})
-        svg=out/(name+".svg")
-        svg.write_text("\n".join(line.rstrip() for line in svg.read_text(encoding="utf-8").splitlines())+"\n",encoding="utf-8")
+        fig.savefig(out / (name + ".png"), dpi=180, facecolor=bg)
+        fig.savefig(out / (name + ".svg"), facecolor=bg, metadata={"Date": None})
+        svg = out / (name + ".svg")
+        svg.write_text("\n".join(line.rstrip() for line in svg.read_text(encoding="utf-8").splitlines()) + "\n", encoding="utf-8")
         plt.close(fig)
-    def base(title, subtitle, height=8.7):
-        fig=plt.figure(figsize=(13,height),facecolor=bg)
-        fig.text(.065,.947,"ECDSA  /  CIRCUIT RESEARCH",color=muted,fontsize=10,weight="bold")
-        fig.text(.065,.895,title,fontsize=26,weight="bold")
-        fig.text(.065,.855,subtitle,fontsize=12,color=muted)
+
+    def base(title, subtitle, height=9.2):
+        fig = plt.figure(figsize=(13, height), facecolor=bg)
+        fig.text(.065, .947, "ECDSA  /  CIRCUIT RESEARCH", color=muted, fontsize=10, weight="bold")
+        fig.text(.065, .895, title, fontsize=25, weight="bold")
+        fig.text(.065, .855, subtitle, fontsize=11, color=muted)
         return fig
+
     def setup(ax):
         ax.set_facecolor(panel)
-        ax.grid(color="#80a28e",alpha=.19,linestyle=(0,(2,4)))
-        ax.set_axisbelow(True);ax.tick_params(length=0,pad=9)
-    def point(ax, m, color, marker="o", size=85):
-        ax.scatter(m["qubits"],m["toffoli"],s=size,c=color,marker=marker,
-                   edgecolors=white,linewidths=1.4,zorder=6)
-    def note(ax,text,xy,xytext,color=white):
-        ax.annotate(text,xy,xytext=xytext,color=color,fontsize=11,
-            ha="left",va="center",linespacing=1.5,
-            arrowprops={"arrowstyle":"-","color":color,"lw":1},
-            bbox={"boxstyle":"round,pad=.55","fc":bg,"ec":"none","alpha":.95})
-    leaders=summary["leaders"];front=summary["frontier"]
-    q=[s["officialMetrics"]["qubits"] for s in front]
-    t=[s["officialMetrics"]["toffoli"] for s in front]
-    fig=base("One preserved local pass. Three independent goals.",
-             "Public Pareto frontier + our complete local pass  ·  "+summary["analyzed_at"][:10])
-    cards=[
-        ("OUR LOCAL WIDTH",str(local["qubits"])+" qubits","9,024-shot pass · not submitted"),
-        ("PUBLIC LOW TOFFOLI",f'{leaders["toffoli"]["officialMetrics"]["toffoli"]:,}',"No new local Toffoli record yet"),
-        ("PUBLIC BEST Q × T",f'{leaders["product"]["officialScore"]/1e6:,.3f}M',"No local product improvement yet")]
-    for i,(label,value,caption) in enumerate(cards):
-        x=.065+i*.302
-        fig.add_artist(FancyBboxPatch((x,.705),.285,.115,boxstyle="round,pad=.008,rounding_size=.015",
-                       transform=fig.transFigure,facecolor=panel,edgecolor="#3f705a",lw=.7))
-        fig.text(x+.015,.788,label,fontsize=9,color=muted,weight="bold")
-        fig.text(x+.015,.746,value,fontsize=23,weight="bold")
-        fig.text(x+.015,.718,caption,fontsize=9,color=muted)
-    ax=fig.add_axes([.09,.18,.85,.47]);setup(ax)
-    ax.scatter([s["officialMetrics"]["qubits"] for s in points],
-               [s["officialMetrics"]["toffoli"] for s in points],
-               color=muted,s=10,alpha=.12,rasterized=True,zorder=1)
-    ax.step(q+[1460],t+[t[-1]],where="post",color=gold,lw=2,zorder=3)
-    ax.scatter(q,t,color=lilac,s=23,edgecolors=white,linewidths=.45,zorder=4)
-    point(ax,leaders["product"]["officialMetrics"],gold,size=65)
-    point(ax,local,cyan,"D",100)
-    if baseline:ax.scatter(baseline["qubits"],baseline["toffoli"],marker="s",s=85,
-                          facecolors="none",edgecolors=cyan,linewidths=1.3,zorder=5)
-    ax.set(xlim=(665,1460),ylim=(5.5e5,2.7e9),yscale="log",
-           xlabel="Peak logical qubits  ·  fewer is better",ylabel="Rounded mean executed Toffolis")
-    ax.yaxis.set_major_locator(FixedLocator([1e6,1e7,1e8,1e9]))
-    ax.yaxis.set_major_formatter(FuncFormatter(lambda v,p:f"{v/1e9:g}B" if v>=1e9 else f"{v/1e6:g}M"))
-    ax.minorticks_off()
-    note(ax,"Our Q692 · local pass\n1.481B Toffolis; not an official entry",(local["qubits"],local["toffoli"]),(790,1.18e9),cyan)
-    mq=leaders["qubits"]["officialMetrics"]
-    note(ax,f'Public low width · Q{mq["qubits"]}\n{mq["toffoli"]/1e6:.3f}M Toffolis',(mq["qubits"],mq["toffoli"]),(790,2.7e8))
-    mp=leaders["product"]["officialMetrics"]; mt=leaders["toffoli"]["officialMetrics"]
-    note(ax,"Public low-T / best-product region\nExpanded in the second figure",(mp["qubits"],mp["toffoli"]),(1100,4.2e6),gold)
-    handles=[Line2D([],[],color=gold,lw=2,label="Public frontier"),
-             Line2D([],[],marker="o",ls="",color=lilac,label="Public Pareto points"),
-             Line2D([],[],marker="D",ls="",color=cyan,label="Our Q692 local pass"),
-             Line2D([],[],marker="s",ls="",markerfacecolor="none",color=cyan,label="Passing C5 reproduction")]
-    fig.legend(handles=handles,loc="lower left",bbox_to_anchor=(.066,.085),ncol=4,
-               frameon=False,fontsize=10,handlelength=1.5,columnspacing=1.7)
-    fig.text(.065,.06,f'Faint dots: eligible public records in view · {len(front)} public frontier points · logarithmic gate axis',
-             color=muted,fontsize=9)
-    fig.text(.065,.035,"Only official scores and complete local passes. A finite pass is not an all-input proof. Failed candidates are excluded.",
-             color=muted,fontsize=9)
-    save(fig,"frontier")
+        ax.grid(color="#80a28e", alpha=.19, linestyle=(0, (2, 4)))
+        ax.set_axisbelow(True)
+        ax.tick_params(length=0, pad=8)
 
-    fig=base("A Toffoli record does not have to win the product.",
-             "Close-up of the verified results  ·  public leaders and our passing reproductions",7.6)
-    ax=fig.add_axes([.105,.24,.82,.53]);setup(ax)
-    lo=min(mp["qubits"],mt["qubits"],baseline["qubits"] if baseline else mp["qubits"])
-    hi=max(mp["qubits"],mt["qubits"],baseline["qubits"] if baseline else mp["qubits"])
-    xs=np.linspace(lo-.4,hi+.5,200)
-    ax.plot(xs,leaders["product"]["officialScore"]/xs,color=gold,lw=1.8,ls="--")
-    ax.axhline(leaders["toffoli"]["officialMetrics"]["toffoli"],color=lilac,lw=1.4,ls=":")
-    point(ax,leaders["product"]["officialMetrics"],gold,size=110)
-    point(ax,leaders["toffoli"]["officialMetrics"],lilac,size=110)
-    if baseline:
-        ax.scatter(baseline["qubits"],baseline["toffoli"],marker="s",s=110,
-                   facecolors="none",edgecolors=cyan,linewidths=2,zorder=5)
-        note(ax,f'C5 public reproduction\nQ{baseline["qubits"]} · T{baseline["toffoli"]:,}',(baseline["qubits"],baseline["toffoli"]),(lo+.3,baseline["toffoli"]+32),cyan)
-    note(ax,f'Best public product\nQ{mp["qubits"]} · T{mp["toffoli"]:,}',(mp["qubits"],mp["toffoli"]),(lo-.34,mp["toffoli"]-321),gold)
-    note(ax,f'Lowest public Toffolis\nQ{mt["qubits"]} · T{mt["toffoli"]:,}',(mt["qubits"],mt["toffoli"]),(hi-.35,mt["toffoli"]+264),lilac)
-    top=max(mp["toffoli"],mt["toffoli"],baseline["toffoli"] if baseline else 0)
-    ax.set(xlim=(lo-.4,hi+.5),ylim=(min(mp["toffoli"],mt["toffoli"])-676,top+212),xlabel="Peak logical qubits",
-           ylabel="Rounded mean executed Toffolis")
-    ax.set_xticks(sorted({lo,hi,mp["qubits"],mt["qubits"]}));ax.yaxis.set_major_formatter(FuncFormatter(lambda v,p:f"{v:,.0f}"))
-    fig.text(.105,.155,f'At Q{mt["qubits"]}:  T ≤ {mt["toffoli"]-1:,} wins low-Toffoli;  T ≤ {(leaders["product"]["officialScore"]-1)//mt["qubits"]:,} wins the product.',
-             color=white,fontsize=12,weight="bold")
-    fig.text(.105,.108,"Gold dashed curve: equal to the best product. Purple dotted line: current low-Toffoli record.",
-             color=muted,fontsize=10)
-    fig.text(.105,.065,"Q692 remains a separate width result. No failed candidate or component-only saving is plotted.",
-             color=muted,fontsize=10)
-    save(fig,"record-tradeoffs")
+    def point(ax, m, color, marker="o", size=85):
+        ax.scatter(m["qubits"], m["toffoli"], s=size, c=color, marker=marker,
+                   edgecolors=white, linewidths=1.2, zorder=6)
+
+    def note(ax, text, xy, xytext, color=white, fontsize=10):
+        ax.annotate(text, xy, xytext=xytext, color=color, fontsize=fontsize,
+            ha="left", va="center", linespacing=1.45,
+            arrowprops={"arrowstyle": "-", "color": color, "lw": 1},
+            bbox={"boxstyle": "round,pad=.5", "fc": bg, "ec": "none", "alpha": .95})
+
+    leaders, front = summary["leaders"], summary["frontier"]
+    mq = leaders["qubits"]["officialMetrics"]
+    mp = leaders["product"]["officialMetrics"]
+    mt = leaders["toffoli"]["officialMetrics"]
+    own = next((s for s in points if s["id"] == "3f32acd2-71bf-4cc7-bae6-7407be97fe3b"), None)
+    q = [s["officialMetrics"]["qubits"] for s in front]
+    t = [s["officialMetrics"]["toffoli"] for s in front]
+    xmin, xmax = frontier_limits(summary, local)
+    fig = base("Official scores. Three independent goals.",
+        "Our submission is now publicly scored; product promotion is separate.  ·  " + summary["analyzed_at"][:16].replace("T", " ") + " Singapore")
+    cards = [
+        ("PUBLIC LOW WIDTH", f'{mq["qubits"]:,} qubits', f'Our Q{local["qubits"]} remains a local pass'),
+        ("PUBLIC LOW TOFFOLI", f'{mt["toffoli"]:,}', "Our officially scored submission" if own and own["id"] == leaders["toffoli"]["id"] else "Lowest eligible official metric"),
+        ("PUBLIC BEST Q × T", f'{leaders["product"]["officialScore"] / 1e6:,.3f}M', "No product improvement from our entry")]
+    for i, (label, value, caption) in enumerate(cards):
+        x = .065 + i * .302
+        fig.add_artist(FancyBboxPatch((x, .705), .285, .115, boxstyle="round,pad=.008,rounding_size=.015",
+            transform=fig.transFigure, facecolor=panel, edgecolor="#3f705a", lw=.7))
+        fig.text(x + .015, .788, label, fontsize=9, color=muted, weight="bold")
+        fig.text(x + .015, .746, value, fontsize=23, weight="bold")
+        fig.text(x + .015, .718, caption, fontsize=9, color=muted)
+    ax = fig.add_axes([.09, .23, .85, .42])
+    setup(ax)
+    ax.scatter([s["officialMetrics"]["qubits"] for s in points],
+        [s["officialMetrics"]["toffoli"] for s in points], color=muted, s=10, alpha=.12, rasterized=True, zorder=1)
+    ax.step(q + [xmax], t + [t[-1]], where="post", color=gold, lw=2, zorder=3)
+    ax.scatter(q, t, color=lilac, s=23, edgecolors=white, linewidths=.45, zorder=4)
+    point(ax, mp, gold, size=80)
+    point(ax, local, cyan, "D", 100)
+    if own:
+        point(ax, own["officialMetrics"], cyan, "*", 260)
+    ax.set(xlim=(xmin, xmax), ylim=(5.5e5, 2.7e9), yscale="log",
+        xlabel="Peak logical qubits  ·  fewer is better", ylabel="Rounded mean executed Toffolis")
+    ax.yaxis.set_major_locator(FixedLocator([1e6, 1e7, 1e8, 1e9]))
+    ax.yaxis.set_major_formatter(FuncFormatter(lambda v, p: f"{v / 1e9:g}B" if v >= 1e9 else f"{v / 1e6:g}M"))
+    ax.minorticks_off()
+    note(ax, f'Our Q{local["qubits"]} · local pass\n{local["toffoli"] / 1e9:.3f}B Toffolis; not submitted',
+        (local["qubits"], local["toffoli"]), (810, 1.1e9), cyan)
+    note(ax, f'Public low width · Q{mq["qubits"]}\n{mq["toffoli"] / 1e6:.3f}M Toffolis',
+        (mq["qubits"], mq["toffoli"]), (810, 2.2e8))
+    note(ax, f'Best product · Q{mp["qubits"]}\nT{mp["toffoli"]:,}', (mp["qubits"], mp["toffoli"]), (1000, 2.8e6), gold)
+    if own:
+        m = own["officialMetrics"]
+        note(ax, f'Our official score · Q{m["qubits"]}\nT{m["toffoli"]:,} · submission 3f32acd2',
+            (m["qubits"], m["toffoli"]), (1185, 2.2e7), cyan)
+    handles = [Line2D([], [], color=gold, lw=2, label="Official public frontier"),
+        Line2D([], [], marker="*", markersize=12, ls="", color=cyan, label="Our officially scored Toffoli entry"),
+        Line2D([], [], marker="o", ls="", color=lilac, label="Official public Pareto points"),
+        Line2D([], [], marker="D", ls="", color=cyan, label="Our separate Q692 local pass")]
+    fig.legend(handles=handles, loc="lower left", bbox_to_anchor=(.065, .105), ncol=2,
+        frameon=False, fontsize=10, handlelength=1.5, columnspacing=2.8)
+    fig.text(.065, .072, f'{summary["eligible_count"]:,} eligible scored records · {len(front)} public frontier points · logarithmic gate axis', color=muted, fontsize=9)
+    fig.text(.065, .045, 'Our entry: official metrics; score-only rejection because Q × T did not beat the product leader.', color=muted, fontsize=9)
+    fig.text(.065, .022, 'Only official scores and complete local passes. A finite pass is not an all-input proof.', color=muted, fontsize=9)
+    save(fig, "frontier")
+
+    fig = base("Lower Toffolis. More qubits. A different product.",
+        "Officially scored tradeoffs  ·  the current product leader, prior low-Toffoli entry and our submission", 8.8)
+    reference = next((s for s in points if s["id"] == "26dd1d00-8e45-4f13-adcf-5eac665ca15f"), None)
+    ax = fig.add_axes([.09, .30, .52, .45])
+    setup(ax)
+    lowq = min(mp["qubits"], mt["qubits"])
+    highq = max(mp["qubits"], mt["qubits"])
+    xs = np.linspace(lowq - 10, highq + 15, 250)
+    product = leaders["product"]["officialScore"]
+    ax.plot(xs, product / xs, color=gold, lw=1.8, ls="--")
+    ax.axhline(mt["toffoli"], color=lilac, lw=1.2, ls=":")
+    point(ax, mp, gold, size=110)
+    if reference:
+        point(ax, reference["officialMetrics"], lilac, size=75)
+    point(ax, mt, cyan if own and own["id"] == leaders["toffoli"]["id"] else lilac, "*", 240)
+    note(ax, f'Product leader\nQ{mp["qubits"]} · T{mp["toffoli"]:,}', (mp["qubits"], mp["toffoli"]), (lowq + 25, 783000), gold)
+    note(ax, f'Lowest public Toffolis\nQ{mt["qubits"]} · T{mt["toffoli"]:,}', (mt["qubits"], mt["toffoli"]), (highq - 100, 722000), cyan)
+    ax.set(xlim=(lowq - 15, highq + 20), ylim=(min(product / (highq + 15), mt["toffoli"]) * .97, max(mp["toffoli"], mt["toffoli"]) * 1.055),
+        xlabel="Peak logical qubits", ylabel="Rounded mean executed Toffolis")
+    ax.set_xticks(sorted({mp["qubits"], mt["qubits"], 1300, 1400}))
+    ax.yaxis.set_major_formatter(FuncFormatter(lambda v, p: f"{v / 1000:.0f}K"))
+    ax.text(.04, .05, "Gold curve: equal to the best Q × T", transform=ax.transAxes, color=muted, fontsize=9)
+    xcard = .66
+    fig.add_artist(FancyBboxPatch((xcard, .30), .28, .45, boxstyle="round,pad=.012,rounding_size=.012",
+        transform=fig.transFigure, facecolor=panel, edgecolor="#3f705a", lw=.7))
+    fig.text(xcard + .018, .71, "OUR ENTRY VS PRIOR LOW-T (B3)", fontsize=9, color=muted, weight="bold")
+    if own and reference:
+        a, b = own["officialMetrics"], reference["officialMetrics"]
+        dt = b["toffoli"] - a["toffoli"]
+        fig.text(xcard + .018, .655, f'−{dt:,} Toffolis', fontsize=21, weight="bold", color=cyan)
+        fig.text(xcard + .018, .62, f'{dt / b["toffoli"]:.2%} fewer executed gates', fontsize=10, color=muted)
+        fig.text(xcard + .018, .555, f'+{a["qubits"] - b["qubits"]:,} qubits', fontsize=21, weight="bold")
+        fig.text(xcard + .018, .52, f'{a["qubits"]:,} peak logical qubits', fontsize=10, color=muted)
+        fig.text(xcard + .018, .455, f'+{own["officialScore"] / product - 1:.2%} product', fontsize=21, weight="bold", color=gold)
+        fig.text(xcard + .018, .42, "Compared with the product leader", fontsize=10, color=muted)
+        fig.text(xcard + .018, .35, "Official metrics; no product promotion", fontsize=9, color=muted)
+    fig.text(.09, .21, f'Next low-T target: T ≤ {mt["toffoli"] - 1:,}.  At Q{mt["qubits"]}, product improvement needs T ≤ {(product - 1) // mt["qubits"]:,}.', fontsize=11, weight="bold")
+    fig.text(.09, .165, f'At Q{mp["qubits"]}, the strict product target remains T ≤ {(product - 1) // mp["qubits"]:,}.', fontsize=10, color=muted)
+    fig.text(.09, .105, 'Official Toffoli minimum: 3f32acd2. Product promotion still belongs to 85d067da.', fontsize=10, color=muted)
+    fig.text(.09, .065, 'Q692 remains a separate local result. Failed correctness and component-only results are excluded.', fontsize=9, color=muted)
+    save(fig, "record-tradeoffs")
 
 if __name__=="__main__":
     import importlib.util

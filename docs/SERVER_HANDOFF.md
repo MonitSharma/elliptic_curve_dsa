@@ -2,6 +2,21 @@
 
 ## Current work separation — 15 October 2026
 
+**Official submission complete, 19:19 Singapore:** the clean candidate at
+`/home/hclau/ecdsa_research/nonce-screen-20261015/candidate`, branch
+`research/toffoli-smooth-n375`, commit `7ff2ba53`, was uploaded as `3f32acd2`.
+Official metrics match the local pass: **Q1464/T753,771/product 1,103,520,744**.
+Official candidate source is `5a7c3902`. The rejection reason is only
+`score did not improve current best`; this is the lowest publicly scored T,
+with no product promotion. Preserve the frozen source, note, nonce 375 and
+failure census. Do not resubmit it merely because the scalar product lost.
+[Current result and saved receipts](../experiments/nonce-screen-20261015/STATUS.md).
+The CLI is installed at `/home/hclau/.local/bin/ecdsafail` and authenticated.
+The local `.env` is ignored; no credential belongs in source or handoff archives.
+
+The entries below preserve earlier experiment checkpoints and their own source
+versions. Their pending/failed descriptions do not override the official result.
+
 **Equal-division cycle is terminal:**
 `/home/hclau/ecdsa_research/equal-division-20261015/` has observer-b3 and fold-b3.
 PIDs3199075/3201429 exited0;64 artifacts and two patches are locally verified.

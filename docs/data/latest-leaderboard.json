@@ -1,14 +1,14 @@
 {
-  "analyzed_at": "2026-10-15T16:55:23.620310+08:00",
+  "analyzed_at": "2026-10-15T19:19:06.640711+08:00",
   "source": "https://api.ecdsa.fail/api/benchmarks/1ffb695a-309b-46b6-a728-2f97d8c7be74/submissions",
-  "record_count": 1568,
+  "record_count": 1569,
   "status_counts": {
     "accepted": 631,
-    "rejected": 706,
+    "rejected": 707,
     "failed": 228,
     "cancelled": 3
   },
-  "eligible_count": 1227,
+  "eligible_count": 1228,
   "benchmark_mode": "scalar",
   "closes_at": "2026-12-31T23:59:59.000Z",
   "eligibility": "Accepted or score-only rejected; positive integer official metrics; score equals Q*T.",
@@ -27,17 +27,17 @@
       "rejectionReason": "score did not improve current best"
     },
     "toffoli": {
-      "id": "26dd1d00-8e45-4f13-adcf-5eac665ca15f",
-      "status": "accepted",
-      "officialScore": 940027660,
+      "id": "3f32acd2-71bf-4cc7-bae6-7407be97fe3b",
+      "status": "rejected",
+      "officialScore": 1103520744,
       "officialMetrics": {
-        "qubits": 1235,
-        "toffoli": 761156
+        "qubits": 1464,
+        "toffoli": 753771
       },
-      "createdAt": "2026-10-13T13:08:23.259Z",
-      "submissionCommitSha": "b3c9fdd6e24bcd33450ab0d10884ab5ff9c46ab7",
-      "solverUsername": "jackylee0424",
-      "rejectionReason": null
+      "createdAt": "2026-10-15T11:13:04.788Z",
+      "submissionCommitSha": "5a7c390233c72133df9b591c92e43422c5892142",
+      "solverUsername": "MonitSharma",
+      "rejectionReason": "score did not improve current best"
     },
     "product": {
       "id": "85d067da-f7c5-485b-9a61-53b0e58f281e",
@@ -55,9 +55,10 @@
   },
   "targets": {
     "maximum_qubits": 679,
-    "maximum_toffoli": 761155,
+    "maximum_toffoli": 753770,
     "maximum_product": 939347947,
     "maximum_toffoli_for_product": {
+      "680": 1381394,
       "692": 1357439,
       "693": 1355480,
       "877": 1071092,
@@ -65,7 +66,8 @@
       "1200": 782789,
       "1230": 763697,
       "1234": 761221,
-      "1235": 760605
+      "1235": 760605,
+      "1464": 641631
     }
   },
   "frontier": [
@@ -692,10 +694,23 @@
       "submissionCommitSha": "b3c9fdd6e24bcd33450ab0d10884ab5ff9c46ab7",
       "solverUsername": "jackylee0424",
       "rejectionReason": null
+    },
+    {
+      "id": "3f32acd2-71bf-4cc7-bae6-7407be97fe3b",
+      "status": "rejected",
+      "officialScore": 1103520744,
+      "officialMetrics": {
+        "qubits": 1464,
+        "toffoli": 753771
+      },
+      "createdAt": "2026-10-15T11:13:04.788Z",
+      "submissionCommitSha": "5a7c390233c72133df9b591c92e43422c5892142",
+      "solverUsername": "MonitSharma",
+      "rejectionReason": "score did not improve current best"
     }
   ],
   "input_sha256": {
-    "submissions.json": "38df67c235f402dad0edbe5f4b3214e85173927e74faec5d16c77ca76854fa96",
-    "benchmark.json": "3f030dc0deb95fcf0a134f34cc3a8080fcdf15ea14cd39cdb7616ce861aa2ac0"
+    "submissions.json": "dc6705a8cbc1ce6941a02d530f4e0d8893fd18243fe5525d0645e42842dcfec1",
+    "benchmark.json": "027eeca7ccf0b75bf0edbea7ae42c4a65ec8a19e358588e15e44ddf13fbc4efa"
   }
 }

@@ -1,20 +1,44 @@
 # Results and submission status
 
-Updated 15 October 2026. **We have one new complete local width result and no
-submission-ready original circuit yet.** The three objectives remain independent:
-a lower-Toffoli result would count even if its product were worse.
+Updated 15 October 2026, 19:19 Singapore. **Our T753,771/Q1464 submission is
+officially scored and is the current public Toffoli minimum.** The service
+rejected it solely because its product did not improve the scalar best.
+The separate Q692 width pass remains local and unsubmitted.
+
+| Objective | Current public record | Our status |
+|---|---:|---|
+| Minimum peak qubits | 680 | Q692 complete local pass; width work deferred |
+| Minimum rounded mean executed Toffolis | **753,771 at Q1464** | **Ours: official metrics**, `3f32acd2` |
+| Minimum Q × T | 939,347,948 at Q1234/T761,222 | Our product 1,103,520,744 is 17.48% worse |
+
+Official source: `5a7c390233c72133df9b591c92e43422c5892142`, from our candidate
+`7ff2ba53`. The official score exactly matches the complete local benchmark.
+The gain over the previous B3 Toffoli minimum is 7,385 (0.97%), for 229 more
+qubits. Next strict targets are T753,770 or product 939,347,947.
+[Official result](https://api.ecdsa.fail/api/submissions/3f32acd2-71bf-4cc7-bae6-7407be97fe3b) ·
+[source-bound report and evidence](../experiments/nonce-screen-20261015/STATUS.md) ·
+[refreshed frontier](frontier-results.md).
 
 **Current research priority:** lower executed Toffolis and lower Q × T.
 Width-only optimization and Q692 submission engineering are deferred; existing
 width results and failures remain preserved.
 
-**Honest correctness (parallel Claude agent):** we keep the no-nonce rule, so a
-circuit must pass a *fresh* hash-derived test set on its own. A census of
-262,144 independent inputs per stream gives these fresh-pass probabilities:
+**Current disclosed-failure-rate policy:** nonce screening is allowed only
+after freezing the circuit and measuring a fresh-input failure rate no worse
+than the beaten record and never over 18 batches per packet. Our submitted
+stream has 159 failed batches on 262,144 independent shots: 5.47 expected failed
+batches per packet, compared with B3's 17.73. Nonce 375 is the lowest passing
+nonce from 1, with 593 screened. The scored packet passes all 9,024 shots;
+random and structured counterexamples remain disclosed.
 
-- the public B3 Toffoli record about 2–6×10⁻⁹ (two independent censuses);
+**Earlier correctness diagnostics:** the experiments below predate the final
+frozen submission. Their unqualified status applies to those exact circuits,
+not to the later official score. A census of 262,144 independent inputs per
+stream gave these fresh-pass probabilities:
+
+- the former public B3 Toffoli leader about 2–6×10⁻⁹ (two independent censuses);
 - the C5 product baseline about 1.5×10⁻⁸;
-- the best of the 29 streams built today about 10⁻³.
+- the best of the earlier 29-stream census about 10⁻³ (the final stream is about 0.4%).
 
 A gate-inert trace places 155 of the wide circuit's 186 value failures in the
 leapfrog walk rails, whose width table was fitted with a stated 0.00077-per-walk
@@ -28,12 +52,12 @@ drop budget.
 | +2 rail bits and anchors, smoothed tail | 1464 | 758,446 | 4.18 (3 replicates) |
 | +4 / +6 rail bits and anchors, smoothed tail | 1468 / 1472 | 763,076 / 767,661 | 4.78 / 5.37 |
 
-Tail smoothing is free; rails must widen with their YP8 anchors; more than
+Tail smoothing costs about 37 Toffolis; rails must widen with their YP8 anchors; more than
 +2 bits stops helping (the tail cliff returns, and non-walk failures rise with
 width). Convergence-aware envelopes with a rebuilt tail descent eliminate
 unconverged walks and halve walk failures (762,908 T, 3.79), but non-walk
 failures rise, so every walk-only lever plateaus at about 3.7–4.2. A constant ~1.1 batches of non-walk failures remains.
-None of these is close to the < 0.1 expected failed batches needed.
+None reaches the < 0.1 expected failed batches needed for a high fresh-pass probability.
 [Census and figure](../experiments/failure-census-20261015/STATUS.md) ·
 [trace](../experiments/trace-value-20261015/STATUS.md) ·
 [widening](../experiments/widen-walk-20261015/STATUS.md).
@@ -158,13 +182,18 @@ measurement-phase proof, not a new resource result.
 
 ## What has passed a complete benchmark
 
+Our wide smooth Leapfrog with nonce 375 has both a complete local pass and
+matching official evaluation: **Q1464/T753,771/product 1,103,520,744**. It is
+the public Toffoli minimum in the refreshed 1,569-submission snapshot, with a
+score-only rejection rather than a correctness rejection.
+
 Our original bank-swap v2 circuit passed all 9,024 shots at Q692,
 rounded mean T1,481,382,858 and product 1,025,116,937,736. All value, phase and
 ancilla failure channels were zero. Independent review rechecked its source,
 stream, protected evaluator and score; it did not rerun the entire evaluation.
-The 12:30 Singapore public refresh now reports a minimum of 682 qubits, below
+The latest public refresh reports a minimum of 680 qubits, below
 our preserved local result. Our pass is not an official leaderboard entry or
-an all-input correctness proof. Public Toffoli and product records are unchanged.
+an all-input correctness proof. The later Toffoli submission is a different circuit.
 
 Generation used the external streaming path; the unchanged protected evaluator
 processed the complete resulting circuit. The original ordinary submission
@@ -230,6 +259,8 @@ may cost gates, so only a complete repaired benchmark can establish a net record
   product arithmetic, and either acceptance or an explicit score-only rejection.
 - Our Q692 point requires the complete local pass and its preserved source,
   stream and verification receipt. It is styled separately from public scores.
+- Our Q1464/T753,771 star uses official metrics, including the explicit
+  score-only rejection reason. It belongs to the public frontier.
 - Failed candidates, generated counts, component tests and paired savings
   never appear as scored performance points.
 - The gold frontier contains only public records. The local Q692 result is
@@ -248,4 +279,5 @@ provenance and a fresh comparison with the relevant public record.
 
 The product and Toffoli cycles reported here are terminal. The Q692 arithmetic
 diagnosis belongs to the separate active chat. No challenge submission has
-been made from these cycles.
+been made from those earlier failed cycles. The later frozen smooth circuit
+was submitted and officially scored as `3f32acd2`.

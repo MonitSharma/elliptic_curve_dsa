@@ -1,14 +1,14 @@
 # Public resource frontier
 
-Snapshot analyzed 2026-10-15T16:55:23.620310+08:00 (Singapore time).
+Snapshot analyzed 2026-10-15T19:19:06.640711+08:00 (Singapore time).
 
-[1,568 public submissions](https://api.ecdsa.fail/api/benchmarks/1ffb695a-309b-46b6-a728-2f97d8c7be74/submissions) contain 1,227 eligible records and **48 nondominated resource pairs**.
+[1,569 public submissions](https://api.ecdsa.fail/api/benchmarks/1ffb695a-309b-46b6-a728-2f97d8c7be74/submissions) contain 1,228 eligible records and **49 nondominated resource pairs**.
 
 Accepted and explicitly score-only rejected records qualify; failures and claimed-only metrics do not. This is a dated snapshot, not independent reproduction. Promotion uses the scalar product.
 
 ![Resource frontier](figures/frontier.png)
 
-The gold step is the public frontier. The cyan diamond is our separately verified local Q692 pass; it is not an official submission. Failed experiments are excluded.
+The gold step is the public frontier. The cyan star marks our officially scored submission `3f32acd2` (Q1464/T753,771); it was rejected solely because its product did not improve the scalar leader. The cyan diamond is our separately verified local Q692 pass; it is not an official submission. Failed correctness experiments are excluded.
 
 ![Independent Toffoli and product objectives](figures/record-tradeoffs.png)
 
@@ -62,5 +62,6 @@ The gold step is the public frontier. The cyan diamond is our separately verifie
 | 1,174 | 943,826 | 1,108,051,724 | [ee410040](https://api.ecdsa.fail/api/submissions/ee410040-42fd-4a53-bcea-1150b7e2c5bf) |
 | 1,234 | 761,222 | 939,347,948 | [85d067da](https://api.ecdsa.fail/api/submissions/85d067da-f7c5-485b-9a61-53b0e58f281e) |
 | 1,235 | 761,156 | 940,027,660 | [26dd1d00](https://api.ecdsa.fail/api/submissions/26dd1d00-8e45-4f13-adcf-5eac665ca15f) |
+| 1,464 | 753,771 | 1,103,520,744 | [3f32acd2](https://api.ecdsa.fail/api/submissions/3f32acd2-71bf-4cc7-bae6-7407be97fe3b) |
 
-Refresh with `python scripts/analyze-leaderboard.py --snapshot research-output/public-20261014 --plot`. Use `--refresh` to fetch a new dated snapshot. Regenerate both figures offline with `python scripts/frontier_plot.py`. Compact records, source hashes and targets: [data/latest-leaderboard.json](data/latest-leaderboard.json).
+Refresh with `python scripts/analyze-leaderboard.py --refresh --plot`. Use `--snapshot <directory>` to analyze a saved dated snapshot. Regenerate both figures offline with `python scripts/frontier_plot.py`. Compact records, source hashes and targets: [data/latest-leaderboard.json](data/latest-leaderboard.json).

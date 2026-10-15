@@ -2,17 +2,22 @@
 
 ## Current priorities: 15 October 2026 user direction
 
-**Strategy change and Toffoli-record candidate (15 October, evening).** The
+**Officially scored Toffoli minimum (15 October, 19:19 Singapore).** The
 user replaced the no-nonce rule with a disclosed-failure-rate standard: a nonce
 may be screened only on a frozen circuit whose fresh-input failure rate is at
-or below that of the record it beats (every public record uses a ground nonce;
-the community cap is 18 failed batches per packet). The wide `smooth` circuit
+or below that of the record it beats (the inherited PR 419 cap is 18 failed
+batches per packet). The wide `smooth` circuit
 (5.47 failed batches, against B3's 17.73) passes the unchanged official
 benchmark at nonce 375, the lowest passing nonce from 1 (593 screened):
-**753,771 T at Q1464**, 7,385 T below the public Toffoli record. Submitted at
-19:13 Singapore as `3f32acd2`; official validation is pending.
+**753,771 T at Q1464**, 7,385 T below the prior B3 Toffoli minimum.
+Submission `3f32acd2` has matching official metrics, source `5a7c3902`, and
+status `rejected` solely because its product did not improve the scalar best.
+It is the current publicly scored Toffoli minimum; Q × T remains 17.48% worse
+than the product leader. Current public records: Q680, T753,771, product
+939,347,948 at Q1234/T761,222. Next strict targets: T753,770 and product
+939,347,947; at Q1464 the latter needs T641,631 or less.
 [Screen, census and benchmark](../experiments/nonce-screen-20261015/STATUS.md).
-Next: collect official validation, the product track on the public best (`4b2ec52f`), and
+Next: lower Toffolis further, the product track on the public best (`4b2ec52f`), and
 winning back failure rate to make searches cheaper.
 
 **Latest independent trace audit:** the 83 divide / 72 multiply first rail
@@ -44,12 +49,13 @@ boundary correction; more guard bits alone do not fix this case. All64
 artifacts verified; no full-point or resource qualification.
 [Inherited failure and exact boundary evidence](../experiments/equal-division-20261015/STATUS.md).
 
-**Parallel agent (Claude) — honest failure-rate census, read before choosing
+**Earlier pre-submission census (historical diagnostic snapshot), read before choosing
 the next repair:** the evaluator's packet is a hash of the stream, so a
 qualifying circuit must pass a *fresh* packet. On 262,144 independent shots,
 public B3 has P(pass) ≈ 2–6×10⁻⁹ (two censuses) and C5 ≈ 1.5×10⁻⁸. B3 pins a ground
-`TAIL_NONCE`. **No stream built today exceeds about 10⁻³**; the best wide
-variants fail about 7 batches per packet.
+`TAIL_NONCE`. At that earlier checkpoint no tested stream exceeded about 10⁻³
+fresh-pass probability; the wide parent failed about 7 batches per packet.
+The final smoothed stream above subsequently reached 5.47 and an official score.
 
 About 90% of failed batches are **deterministic, fully garbled value errors**
 that repeat under every measurement seed. Phase-only failures (the
@@ -314,7 +320,8 @@ for a repaired arithmetic base; do not seek a lucky validation packet.
 ## Ten-hour research cycle: final evidence and handoff
 
 [The final report](overnight-final-report.md) supersedes the historical experiment
-state below. No original submission-ready improvement has qualified. The new
+state below for that ten-hour window. No original submission-ready improvement
+had qualified within that window; the official result at the top came later. The new
 unchanged b3 reproduction passes all9,024 shots atQ1235/T761,156; historical c5
 complete evidence remainsQ1234/T761,658. Both have independent counterexamples.
 
@@ -480,8 +487,9 @@ The next gate experiment should synthesize across this complete constructor
 and consume/cleanup interface, then emit and prove a native replacement.
 Do not repeat the missing earlier phase-reader scans without a new hypothesis.
 
-For product, preserve Q1234 and target T ≤ **761,491**; at Q1235 the strict
-product target is **760,875**. An improvement must survive the final rounded
+For product, preserve Q1234 and target T ≤ **761,221**; at Q1235 the strict
+product target is **760,605**. At Q1464 it is **641,631**. The separate strict
+Toffoli target is **753,770** at any allowed width. An improvement must survive the final rounded
 mean count. Prefer material savings that persist on paired and independent
 inputs over a one-unit change in a hash-derived packet's mean.
 

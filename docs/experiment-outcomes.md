@@ -7,13 +7,21 @@ view. Original Q692 bank-swap v2: complete local pass. Later Q692 normal-build
 v6: complete FAIL (3 value / 2 phase batches / 3 ancilla batches). The two
 versions are not interchangeable.
 
+**Later official result, 15 October 2026, 19:19 Singapore:** the frozen wide
+smooth Leapfrog submission `3f32acd2` is officially scored at **Q1464/T753,771**,
+product **1,103,520,744**. It is the current public Toffoli minimum, 7,385 below
+the former B3 minimum. Its rejection is solely for not improving the product.
+[Official result and complete disclosure](../experiments/nonce-screen-20261015/STATUS.md).
+The public width and product minima remain Q680 and 939,347,948 respectively.
+
 The separate [product cycle](../experiments/product-focus-20261015/REPORT.md)
 found an exact three-Toffoli paired saving but no qualifying record. The
 [Toffoli cycle](../experiments/toffoli-readiness-20261015/REPORT.md) retained
 about four saved Toffolis at Q1235, or 74.91796875 per shot at Q1239 in the two
 fixed 256-shot comparisons. These are diagnostic relative savings on circuits
 with inherited correctness failures, not scored results. All patches, tests
-and terminal evidence are preserved. No candidate is submission-ready.
+and terminal evidence are preserved. Those earlier candidates did not qualify;
+the later frozen submission above is separate.
 
 Earlier pending descriptions below are historical snapshots.
 
@@ -35,7 +43,7 @@ statuses below; the terminal update above supersedes its pending bank-swap statu
 
 Updated 15 October 2026, Singapore time. This report preserves unsuccessful
 experiments and component-level findings. **No original candidate in this
-repository is ready for challenge submission.** These experimental costs do not
+earlier cycle was ready for challenge submission.** These experimental costs do not
 appear in the README's performance plots or result tables.
 
 The active10-hour cycle and its latest source-bound evidence are in

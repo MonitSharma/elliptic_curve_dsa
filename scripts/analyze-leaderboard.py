@@ -60,7 +60,8 @@ def analyze(records, benchmark):
                     "maximum_toffoli": leaders["toffoli"]["officialMetrics"]["toffoli"] - 1,
                     "maximum_product": score - 1,
                     "maximum_toffoli_for_product": {str(q): (score - 1) // q
-                        for q in sorted({692, 693, 877, 1170, 1200, 1230, 1234, 1235})}},
+                        for q in sorted({692, 693, 877, 1170, 1200, 1230, 1234, 1235, 1464}
+                            | {s["officialMetrics"]["qubits"] for s in leaders.values()})}},
         "frontier": [compact(s) for s in pareto(scored)],
     }
 
@@ -106,15 +107,18 @@ def markdown(summary):
         "Accepted and explicitly score-only rejected records qualify; failures and claimed-only metrics do not. "
         "This is a dated snapshot, not independent reproduction. Promotion uses the scalar product.", "",
         "![Resource frontier](figures/frontier.png)", "",
-        "The gold step is the public frontier. The cyan diamond is our separately verified local Q692 pass; it is not an official submission. Failed experiments are excluded.", "",
+        "The gold step is the public frontier. The cyan star marks our officially scored submission `3f32acd2` "
+        "(Q1464/T753,771); it was rejected solely because its product did not improve the scalar leader. "
+        "The cyan diamond is our separately verified local Q692 pass; it is not an official submission. "
+        "Failed correctness experiments are excluded.", "",
         "![Independent Toffoli and product objectives](figures/record-tradeoffs.png)", "",
         "| Qubits | Rounded mean Toffolis | Product | Submission |", "|---:|---:|---:|---|"]
     for s in summary["frontier"]:
         m = s["officialMetrics"]
         rows.append(f'| {m["qubits"]:,} | {m["toffoli"]:,} | {s["officialScore"]:,} | '
                     f'[{s["id"][:8]}](https://api.ecdsa.fail/api/submissions/{s["id"]}) |')
-    rows += ["", "Refresh with `python scripts/analyze-leaderboard.py --snapshot "
-             "research-output/public-20261014 --plot`. Use `--refresh` to fetch a new dated snapshot. "
+    rows += ["", "Refresh with `python scripts/analyze-leaderboard.py --refresh --plot`. "
+             "Use `--snapshot <directory>` to analyze a saved dated snapshot. "
              "Regenerate both figures offline with `python scripts/frontier_plot.py`. "
              "Compact records, source hashes and targets: [data/latest-leaderboard.json](data/latest-leaderboard.json).", ""]
     return "\n".join(rows)
