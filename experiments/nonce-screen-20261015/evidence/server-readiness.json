@@ -1,0 +1,41 @@
+{
+  "hostname": "LHC-104-070",
+  "branch": "research/toffoli-smooth-n375",
+  "revision": "7ff2ba53880560b3eeabe2989e0b1550c68ac9da",
+  "status": "",
+  "source_tree": "805671bfac2d94b61798c6ab9529d51816558650",
+  "changed_paths": [
+    "src/point_add/builder.rs",
+    "src/point_add/leapfrog.rs",
+    "src/point_add/leapfrog_data/pack_t0hat_tail0_138_steps_k770_lw2.txt",
+    "src/point_add/mod.rs",
+    "src/point_add/pingpong.rs",
+    "src/point_add/square.rs",
+    "src/point_add/tests_positive_bias.rs",
+    "src/point_add/tests_positive_large.rs",
+    "src/point_add/tests_positive_phase_polynomial.rs",
+    "src/point_add/y15_onefold.rs"
+  ],
+  "benchmark_time_production_diff_matches": true,
+  "protected_match_B3": true,
+  "protected_sha256": {
+    "src/bin/eval_circuit.rs": "b35314bc47a5f8eecbf60459e6c76c9b43aa034eeb9b7ec3421655d74f9e890b",
+    "src/sim.rs": "f0c72f2a280cd68acee1dbf8282098f72d6b3bf4311e0abf96d122fe002256d7",
+    "src/circuit.rs": "ac2255f6bcb6895c9da2dfe21c3a051a0ef8fc4e0af9598634fec0035dbf35c6",
+    "src/weierstrass_elliptic_curve.rs": "ecfca15ee3b831c243fbea559ff4b8937be47fe591a4f14786ec2b9bfb30bded",
+    "benchmark.sh": "122a65431ad42a1bad5114af9e8f8301fe5cb08c01adaeee00799c9f0d0ed92a",
+    "benchmark.json": "213c8e602881130991b9374d8f991acb2d2a7cc3618ec5f24d5e3cc27add06fb",
+    "Cargo.toml": "3c80178b08d29a158abb29a7dcb8eefc67c66f60f2c3bd14483b65eeca0740dc",
+    "Cargo.lock": "42ff16919e551891ad1b21821329b116d133194245a0e0734a33573dfe598e07",
+    "rust-toolchain": "92b454c1ccf330de9b94242f73bc3214370fb420d5152baeec12dc82ceef9dcc"
+  },
+  "artifacts": {
+    "candidate-7ff2ba53.patch": "34b605d3ea94a78ce8d5b03cd8986eacbadddb24c51cb062a4be8c76b28399d2",
+    "smooth-vs-b3.patch": "cf6ff309572d68cc2579898dc6962ceff4f509f0bd1a5ef718c94e32d46b08d7",
+    "benchmark.log": "15c95484383ce15eae82834a2529307bda56c06a38509fb21050d2c9a220e4b5"
+  },
+  "candidate_artifacts": {
+    "ops.bin": "01aad987cfe03e7ca97df6f3dcd26085a21a5836aa6e661ec8fbd9c9c1b63740",
+    "score.json": "3953d13f19c60d4272c88b494a6e107c8af8538d835fc74a48886f4873bb5c9d"
+  }
+}

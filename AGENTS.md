@@ -20,8 +20,15 @@ must reduce the complete measured Q × T. Keep these two objectives independent.
   complete locally passing benchmark reproductions, with provenance stated.
   Keep failed, pending and component-only experiments in separate Markdown
   reports. Never display their generated or diagnostic counts as scored results.
-- Do not search identity-tail nonces or tune hash-derived test packets. Run the
-  unchanged official benchmark on final source and independent tests as needed.
+- Disclosed-failure-rate standard (user decision, 15 October 2026; replaces the
+  earlier no-nonce rule). An identity-tail nonce may be searched only on a
+  finished, frozen circuit, and only if its fresh-input census shows expected
+  failed batches per 9,024-shot packet at or below those of the record it
+  beats (and never above the community cap of 18). Publish the nonce, the
+  census (inputs, shot count, failure rate) and the number of nonces screened
+  with every submission. Never tune circuit content, tables or cuts to a
+  packet, and never trade correctness for Toffolis to exploit the search. Run
+  the unchanged official benchmark on final source.
 - The three tracks are Git submodules. Save experimental diffs under
   `experiments/`; uncommitted nested files are not preserved by a root commit.
 - Use SSH alias `smu_server`. ECDSA work belongs in

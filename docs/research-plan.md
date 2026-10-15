@@ -2,6 +2,19 @@
 
 ## Current priorities: 15 October 2026 user direction
 
+**Strategy change and Toffoli-record candidate (15 October, evening).** The
+user replaced the no-nonce rule with a disclosed-failure-rate standard: a nonce
+may be screened only on a frozen circuit whose fresh-input failure rate is at
+or below that of the record it beats (every public record uses a ground nonce;
+the community cap is 18 failed batches per packet). The wide `smooth` circuit
+(5.47 failed batches, against B3's 17.73) passes the unchanged official
+benchmark at nonce 375, the lowest passing nonce from 1 (593 screened):
+**753,771 T at Q1464**, 7,385 T below the public Toffoli record. Submitted at
+19:13 Singapore as `3f32acd2`; official validation is pending.
+[Screen, census and benchmark](../experiments/nonce-screen-20261015/STATUS.md).
+Next: collect official validation, the product track on the public best (`4b2ec52f`), and
+winning back failure rate to make searches cheaper.
+
 **Latest independent trace audit:** the 83 divide / 72 multiply first rail
 violations are confirmed from the complete saved log, but the prior analyzer
 counted zero as a power of two. The correct target-delta split is 98 nonzero

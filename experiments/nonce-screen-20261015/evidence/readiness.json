@@ -1,0 +1,66 @@
+{
+  "checked_at_utc": "2026-10-15T10:59:19.370Z",
+  "checks": "Saved evidence and read-only server source audit; no new benchmark run, nonce search, login, commit, push or submission.",
+  "candidate_revision": "7ff2ba53880560b3eeabe2989e0b1550c68ac9da",
+  "source_tree": "805671bfac2d94b61798c6ab9529d51816558650",
+  "benchmark": {
+    "score": 1103520744,
+    "metrics": {
+      "toffoli": 753771,
+      "qubits": 1464
+    },
+    "shots": 9024,
+    "total_toffoli": 6802029174,
+    "stream_sha256": "01aad987cfe03e7ca97df6f3dcd26085a21a5836aa6e661ec8fbd9c9c1b63740",
+    "exit": 0
+  },
+  "census": {
+    "shots": 262144,
+    "failed_batches": 159,
+    "value_shots": 138,
+    "phase_shots": 99,
+    "dirty_shots": 0,
+    "phase_only_shots": 24,
+    "expected_failed_batches_per_packet": 5.473388671875,
+    "b3_reference_batches": 4096,
+    "b3_reference_failed_batches": 515,
+    "b3_expected_failed_batches_per_packet": 17.728271484375
+  },
+  "nonce": {
+    "selected": 375,
+    "screened": 593,
+    "all_lower_failed": true
+  },
+  "public_snapshot": {
+    "total_records": 1568,
+    "toffoli_record": {
+      "id": "26dd1d00-8e45-4f13-adcf-5eac665ca15f",
+      "qubits": 1235,
+      "toffoli": 761156
+    },
+    "product_record": {
+      "id": "85d067da-f7c5-485b-9a61-53b0e58f281e",
+      "score": 939347948,
+      "qubits": 1234,
+      "toffoli": 761222
+    },
+    "submissions_sha256": "4c7f46613b81f64ebb47b58dba0f9016e2650daaeec9f5709661656e47b3c947",
+    "benchmark_sha256": "027eeca7ccf0b75bf0edbea7ae42c4a65ec8a19e358588e15e44ddf13fbc4efa"
+  },
+  "submission": {
+    "cli_source_url": "https://api.ecdsa.fail/cli/ecdsafail.js",
+    "cli_sha256": "fbc35d256a0b8effb132f28c7028f3ed9ad06e9b21f6712e15976aa6db5f46c8",
+    "source_inspected": true,
+    "help_command_executed": false,
+    "note_minimum_bytes": 5120,
+    "note_bytes": 8382,
+    "model": "Claude Opus 5.5",
+    "harness": "Claude Code",
+    "fresh_clone_required": false,
+    "claimed_score_enabled": false,
+    "server_targz_size_bytes": 2627466,
+    "cli_archive_limit_bytes": 26214400,
+    "protected_files_match_latest_public_source": true
+  },
+  "checks_passed": true
+}
