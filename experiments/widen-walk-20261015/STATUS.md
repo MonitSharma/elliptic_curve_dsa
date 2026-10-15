@@ -45,6 +45,30 @@ The `fails_tsv` branch of `trace-value-20261015/prepare.py` is now fixed.
 value failures. It is ready but not yet run, because the server was
 unreachable at about 17:00 Singapore.
 
+**Why widening alone may fail: a hypothesis to test.** The rails carry a parked
+low bit (value = 2·register + 1), so one register wraparound shows up as a value
+delta of exactly 2^(w+1). That is the most common case among the parent's 98
+target-delta first violations: 43 at w+1, plus 23 sign-bit flips at w. These
+are real overflows. The YP8 deep/flat choice, however, reads a fixed bit window
+whose position comes from a separate anchor table
+(`leapfrog_data/yp8_L22_138_anch.txt`, "anchor = choice-step width − 3"). The
+wide parent already carries +3 rail bits over B3 but uses B3's anchors, and
+`mid2` widened the rails again without moving the window. A walk that lags its
+envelope then chooses on truncated magnitudes. Such choices are always valid,
+but they slow convergence, so the walk keeps drifting and overflows the wider
+rail later. Queued tests (`variants.txt`, `prepare.py` arguments
+`anch_delta win_delta`):
+
+| Variant | Rows 2–136 | Tail | Anchors | Window |
+|---|---:|---|---:|---:|
+| `smooth` | +0 | smoothed | +0 | +0 |
+| `mid2-smooth-anch2` | +2 | smoothed | +2 | +0 |
+| `mid2-smooth-anch2-win2` | +2 | smoothed | +2 | +2 |
+| `smooth-win2` | +0 | smoothed | +0 | +2 |
+
+A local check confirms the transforms: anchors fall to 3 at tick 136, matching
+row width − 3, and every `LF_YP8`/`LF_YP8_LATE` length shifts by the delta.
+
 Per the independent audit (`trace-audit-20261015`), 55 of the parent's 155 rail
 first-violations keep a correct target and corrupt the source rail; 30 of them
 are at tick 136, which the tail smoothing addresses. The other 98 have ±2^k

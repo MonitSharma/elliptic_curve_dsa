@@ -20,9 +20,9 @@ one() {
   fi
   cd "$root"
 }
-while read -r name a b c; do
+while read -r name args; do
   [ -z "$name" ] && continue; [ -e "$name" ] && continue
   while [ "$(jobs -rp | wc -l)" -ge "${PAR:-5}" ]; do sleep 5; done
-  one "$name" "$a" "$b" "$c" &
+  one "$name" $args &
 done < variants.txt
 wait; date -Is > run.exit
