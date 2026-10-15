@@ -1,5 +1,26 @@
 # Research state and next experiments
 
+## Filter qualification and negative attribution:16 October2026,05:31Singapore
+
+Product67 passes complete disabled runtime qualification, including protected
+own-input hashing and all9024q/b/phase/measurement positions. Root independently
+checks all4096rows in six crosskernel trials and exact source differences.
+No67nonce/fullbenchmark yet. Its102.13839T/Q1234 remains diagnostic.
+
+FreshA29 proof finishes sound but useless for screening: all512dependency roots
+are unknown. Repaired53 still has native/fresh qualification and14confirmedvalue
+fixes, but no fast rejection path. Strengthen only source-bound complete carry
+contracts with proved prefix relations; never assume nonzero scratch clean.
+The Flag12 apparent506→499physical gate gain disappears under exact same-input
+old-MR projection: zero phase/value/dirty repairs or regressions, +6T. Preserve
+that negative and do not compose it with caches solely to exploit tape shifts.
+
+Root begins the predetermined extra-width cap2048 native/fresh qualification.
+Its original32768cohort is unchanged; a pre-sample third reference uses the
+already complete753721 stream, now submitted separately as03be8e19 and still
+validating. Candidate must meet both references without resampling. This run
+continues in queue mode; foreign submission edits/jobs stay untouched.
+
 ## Repaired-source qualification: 16 October 2026, 05:09 Singapore
 
 Repaired53 passes native tests, complete stream identity and its sole32768-batch

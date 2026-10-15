@@ -1,9 +1,44 @@
 # Agent handoff: start here
 
-Last updated 16 October 2026, 05:09 Singapore. This page is for an AI agent (or
+Last updated 16 October 2026, 05:31 Singapore. This page is for an AI agent (or
 person) continuing the work. It holds the current state, the rules, the tools
 and the next steps in order. Details live in the linked reports. Do not copy
 numbers from older reports without checking the date.
+
+**05:31 checkpoint:** product67 complete disabled filter nowPASS ownFiat
+controls, protected9024q/b/phase/physicalMR,128+partialpackedshadows and all6
+4096row crosskernel comparisons. Root independently re-counted rows/markers,
+verified unchangedbinary and exactsource differences onlycandidate/proofbinds.
+75-filearchive9f392381... verified. Two-thread coldtrial medians36.895009s
+generic/35.168452direct have large variation, not a measured48thread forecast.
+No67nonce/searchauthority/fullbenchmark yet; production25 remains unchanged.
+
+FreshA29mask is TERMINAL NEGATIVE: exit0,33native+4protected containment
+streams,4161freshreset+376freshhelpercontractsPASS, but all512rootsCONST1
+(2-node maskfb176266...). No certifiablebits/fastrejection.80-filearchive
+fef4d688... independentlyverified. This is model weakness, not proof of real
+MRdependence. Prefilter now checks the first residual tick128 carry lifetime
+using exact prefix relations; a short-window contract correctly remained
+unproved, including nonzero q195. No clean-carry assumption is permitted.
+
+Flag12 fixed4096physicalgatePASS506→499batches, but sameinputs/oldMR-mapped
+diagnostic gives EXACTLYidentical506batches/548shots/437value/328phase,
+zero actual repairs/regressions, +5.998718T. Drop cache composite for no observed
+benefit. Its separately reviewed universal coordinate transfer/source theorem
+is useful proof infrastructure only; no improvedfailureclaim. Failureagent
+returns to true value-floor contracts.
+
+Rootwide2048nativequalification nowactive: frozenf84c499f...,Q1560,
+10,548,555ops,~67.949anchoredT saving. Sole originaldeclared32768sample/label
+unchanged; presample05:22:53extension adds complete753721 reference on SAME
+inputs, no candidate resampling. Onecoreper3streams after nativebyteidentity.
+Both failure references must pass before nonce work. Extra width is intentional.
+
+Separate authorized submission chat uploaded the prior753721/Q1468 result at
+05:19 as03be8e19; publicAPI checked05:23 saysvalidating/noofficialmetrics.
+This research run made no external submission and remainsqueue. Preserve that
+chat's README/submissionfiles/jobs; do not stage its edits. Currentrootbackup
+commitbffb3826 is pushed/remoteverified. Use path-limited commits for owned work.
 
 **05:09 checkpoint:** public refresh05:06 finds new Q677/T950615823,
 source d9d5e99119f0ef7702f926ff3c70a9d1efd93903, submission18912d63;
@@ -227,11 +262,11 @@ Refresh first: `.venv-research/Scripts/python.exe scripts/analyze-leaderboard.py
 (writes `docs/data/latest-leaderboard.json`, `docs/frontier-results.md` and
 `docs/figures/frontier.*`).
 
-| Record | Public best (16 October 00:19 refresh) | Ours | Strict next target |
+| Record | Public best (16 October 05:06 refresh) | Ours | Strict next target |
 |---|---|---|---|
 | Min executed Toffolis | **753,771 at Q1464 — ours** (`3f32acd2`, source `5a7c3902`) | Official | T ≤ 753,770 |
 | Min Q × T | 939,347,948 = 761,222 × 1,234 (jackylee0424, `85d067da`, source `4b2ec52f`) | None | T ≤ 761,221 at Q1234; T ≤ 760,605 at Q1235 |
-| Min qubits | 678 (jackylee0424, `b83078b5`, source `33fe7f32`) | Local Q692 pass only, unsubmitted | Q ≤ 677 |
+| Min qubits | 677 (jackylee0424, `18912d63`, source `d9d5e991`) | Local Q692 pass only, unsubmitted | Q ≤ 676 |
 
 The user's priority (15 Oct, night): improve any of the three records, each
 judged independently, in long unattended runs

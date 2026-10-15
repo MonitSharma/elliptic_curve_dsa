@@ -1,8 +1,15 @@
 # Submission queue — no external submissions authorized
 
+**Explicit user authorization, 16 October 2026, 05:19 Singapore:** the
+753721/Q1468 fifteen-stage entry below was submitted as
+[`03be8e19`](https://api.ecdsa.fail/api/submissions/03be8e19-ab3b-45c7-9c62-9d78970c4d95)
+after a fresh complete unchanged benchmark and source-hash check. Official
+validation is pending. Other candidates remain in queue mode.
+[Submission receipt](../wide15-record-20261016/submission-20261016/STATUS.md).
+
 ## 1. Lowest ready Toffoli count — fifteen-stage candidate
 
-**Ready:**753721 executed Toffolis at Q1468; unchanged benchmark passes all9024
+**Submitted, validating:**753721 executed Toffolis at Q1468; unchanged benchmark passes all9024
 shots with zero value/phase/ancilla failures. Public minimum at16October01:46
 Singapore remains753771/Q1464. This improves the independent T target by50.
 Product1106462428 does not beat939347948; four extra qubits are deliberate.
@@ -41,5 +48,9 @@ beat the product record939347948; target the independent Toffoli record.
 Refresh public records and reproduce the unchanged benchmark before an
 eventual submission. This run is **queue mode**; no external submission made.
 
-The product candidates remain research work, not queue entries. Their
-failure gate passes, but an affordable certified search is still required.
+The product candidates remain research work, not queue entries. Product25
+has an affordable certified search running since03:47; no passing nonce is
+selected yet. Product67's proof, native tests, fresh gate and disabled complete
+filter qualification pass. Repaired53 passes native/fresh checks,
+but its first arithmetic-specific mask proves no usable rejection bits.
+All still require a complete unchanged benchmark and final disclosed census.

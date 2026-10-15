@@ -6,6 +6,7 @@ model=root.parent/'prefilter-20261015/model-source'
 def run(name,first,count,look,fast,shadow=False,full=False):
  env=os.environ.copy()
  for key in ['FAST_ZERO_DISPATCH','PACKED_ZERO_SHADOW','EARLY_FULLSTATE_SHADOW']:env.pop(key,None)
+ env['CANDIDATE_SEED_SHADOW']='1'
  if fast:env['FAST_ZERO_DISPATCH']='1'
  if shadow:env['PACKED_ZERO_SHADOW']='1'
  if full:env['EARLY_FULLSTATE_SHADOW']='1'

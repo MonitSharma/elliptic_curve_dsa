@@ -1,5 +1,17 @@
 # Results and submission status
 
+**05:31 checkpoint:** separate authorized submission chat uploaded the complete
+753721/Q1468 source as03be8e19 at05:19; public validation is pending, no new
+official metrics yet. This research run remainsqueue. Product67 now passes its
+complete disabled filter checks but still has no67nonce/fullbenchmark. A29mask
+proves zero usable bits, so repaired53 remains search-blocked. Flag12's apparent
+fresh gate gain is entirely measurement-tape coupling in the mapped diagnostic;
+no actual failure repair is observed and no cache composite will be launched.
+The fixed extra-width cap2048 candidate is in native qualification, then its
+unchanged cohort must pass against both original5a and complete753721 references.
+[Filter evidence](../experiments/product67-filter-20261016/STATUS.md) ·
+[Extra-width qualification](../experiments/wide2048-native-20261016/STATUS.md).
+
 **05:09 checkpoint:** best complete queued result remains753721/Q1468.
 The repaired53 candidate passes native tests and its fixed fresh gate, saving
 39.349014T atQ1234 and fixing14value-failing shots with zero regressions in
