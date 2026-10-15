@@ -1,0 +1,14 @@
+{
+  "status": "PREDECLARED_DISABLED_LAZY_EXPECTED_CURVE_SUM",
+  "parent": "product-dispatch-filter-20261016",
+  "candidate_stream_sha256": "180af069679ffa33b099b200d3337d6fc6c20a451a72508a40dea6617150dc64",
+  "split_library_sha256": "365407f4d6922f4cedeaa23c896d4f3ffd53b264dbfa9689bea774988e52695d",
+  "change": "Prepare exact P/A first; compute reference P+A only before selected-witness use or full fallback",
+  "invariants": ["same raw scalar draws and rejection rule", "per-batch expectedReady bits", "fill before any comparison", "full original input stream consumed before MR reader clone"],
+  "validation": ["all9024 point triples and final reader bytes match full preparation", "11-shot partial packet", "protected9024fullstate/MR and forced fallback", "128/partial zeroMR shadow", "all4096 nonce rows identical"],
+  "timing": "Separate later3paired4096 trials8threads only after resource recheck",
+  "proof_gate": false,
+  "production_changes": false,
+  "nonce_selection": false,
+  "resources": "build4threads, validation1thread; later8thread timings separately coordinated"
+}

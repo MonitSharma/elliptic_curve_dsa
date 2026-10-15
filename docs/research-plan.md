@@ -1,5 +1,42 @@
 # Research state and next experiments
 
+## Universal67 complete; runtime follow-ups: 16 October 2026, 04:40 Singapore
+
+The 102.13839T/Q1234 product candidate now has a complete universal67 cache
+audit: 245,820 leases and 540,759 uses, certificate303a75ec, using the same
+hashed verifier as25. Its separate per-input transfer and identical physical
+register ABI are frozen. Independent protected checks pass on2,214inputs under
+eight candidate MR streams, with workspace covering all54,995classical bits.
+These are proof/runtime qualifications, not a complete benchmark result.
+[Candidate](../experiments/product67-native-20261016/STATUS.md).
+
+The original25 search continues unchanged. Its04:28:41 immutable checkpoint
+contains6,459,392complete rows and lower prefix6,410,240, with no pass. The
+terminal JSONL auditor now passes23lane and11independent full synthetic
+controls; it has not treated an active log as terminal. Final native benchmark,
+predeclared fresh census and prefix audit remain mandatory.
+
+Direct dispatch reduces the zero-MR component time19.4% and median full disabled
+pipeline time7.13% in three paired4,096-nonce/eight-thread trials, with identical
+rows and protected shadows. The live runtime is unchanged. Source-only mask
+pruning/lazy evaluation are negative; a49-output zero-MR cone removes only0.447%
+of operations. Scalar inputs-only preparation saves5.1% in isolation, but its
+attempted drop-in integration fails: the reverse-walk advisory itself consumes
+the deferred expected coordinate.81/128witness rows differ; the failed attempt
+is retained without deployment.
+[Dispatch](../experiments/product-dispatch-filter-20261016/STATUS.md) ·
+[Rejected deferral](../experiments/product-lazy-sum-20261016/STATUS.md).
+
+Strict Q1233 loan accounting corrects124conditional-entry identities:709spans
+remain unresolved, with752paidT already exceeding budget. Earlier585counts were
+optimistic query accounting, preserved with a separate scope-correction receipt.
+Two-back-seam zero-cost phase repair is in its sole fixed fresh census; no global
+identification of its comparator with overflow is claimed for the inherited
+104/105unresolved R5-scratch relations. Generic one-Toffoli measured-MAJ precision
+is the next source-family cost/proof lead. Product95 and repaired53 continue.
+Wide151 was abandoned before launch on source-only analytical saturation;
+independent larger retained-ANF caps2048/4096 replace that prospective work.
+
 ## Fresh-gate negatives and search checkpoint: 16 October 2026, 04:15 Singapore
 
 Public refresh at 04:08 is unchanged: Q678, T753771 and product939347948.

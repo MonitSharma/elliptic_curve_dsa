@@ -7,8 +7,15 @@ identity pass. Its full predeclared32,768-batch /2,097,152-shot census per sourc
 has candidate4162 failed batches (17.90899658 per packet), versus original4168
 (17.93481445), with0 dirty shots. The measured failure gate passes.
 See `PRODUCT67_FREEZE.json`, `product67-census-summary.json` and the coordinator's
-`product67-native-20261016` source/rows. A universal source-equivalence extension
-is running separately; the completed25 certificate alone does not certify67.
+`product67-native-20261016` source/rows. The universal67 source-equivalence audit
+is now complete: all67 stages,245,820 leases and540,759 replaced uses passed
+without sampled inputs. Its immutable certificate SHA256 is
+`303a75ec86a4da8c3a4008646e1b8257768fa40e198f0b7172eeafd19408c7c6`;
+the separate per-input mask-transfer companion and exact register ABI are
+preserved in `cache-certificate67-20261016` and `PRODUCT67_ABI.json`.
+All four256-bit original registers and ordered annotations are unchanged.
+This is a conditional source-transfer theorem, not global MR independence.
+The separately predeclared product95 continuation has started after this audit.
 No nonce search, complete official product benchmark or scored record is
 claimed here. The stream SHA256 is
 `268aefe234ede5eaab723e34e214b91f0bd8cac9b0f95d9ee90e3bf3ae8c951d`.
@@ -377,7 +384,12 @@ cheaply. The source is frozen at SHA256
 `1cd3457b44bd21d65921ce0d5b8352573a9c6f2bb2706430d367f68e5a7e5522`.
 Our independently predeclared repair-plus53 cache recipe recomputes every
 lease from that corrected source, with checkpoint25/final53; no old leases
-are reused. It remains pending. Its separate final32768-batch gate compares
+are reused. Its final53 source now passes all512 anchored state/classical/
+phase/scratch comparisons against the repair parent, saving82.5390625 T on
+both fixed packets at Q1234 with63,095 classical slots. Its frozen stream is
+`13d1f7341415847c50e94de8fd835ee24ed7b7acc44d9adf66e59afe727abaae`;
+see `REPAIR53_FREEZE.json`. Normal native source admission/build is running.
+Its separate final32768-batch gate remains pending and compares
 against original4b, not only against the repair source. No nonce work follows
 from the repair-alone result or from checkpoint diagnostics.
 
@@ -386,7 +398,7 @@ scratch comparisons, saving58.5390625 T versus the repair parent on both fixed
 packets. It retains Q1234, with59,303 classical slots. Its source is frozen in
 `REPAIR25_FREEZE.json` (stream SHA256
 `88ca09bf109e5b60f658415f108fb21c28cadfa27bbbe676bd8530a594eb4001`).
-The final53 recipe continues unchanged. The coordinator's current exact
+The completed final53 supersedes this historical25 checkpoint. The current exact
 SIMD census uses32-bit classical IDs and the protected harness uses64-bit IDs;
 an obsolete16-bit classical limit must not reject a valid source. Actual
 tool-specific limits remain checked and no IDs are truncated.
@@ -398,7 +410,11 @@ direct ordered-set oracle comparisons and all6 support/5 cache phase tests
 pass. The old group was retired only after those tests, before any stream
 was emitted. The same four fixed cases continue under
 `recursive-unfold-fast-20261016`; this is a speed replacement, not a changed
-candidate-selection rule. Its diagnostic results are pending.
+candidate-selection rule. Both independent product53 cap128/512 cases pass
+all512 replay comparisons and save90.47265625 T against original4b on both
+packets, an additional2 T. Cap512 is slower with no extra measured gain.
+The two predetermined wide43+16-slot cases continue; no fresh gate or resource
+record follows these component results.
 
 The fixed wide67 scratch continuation is terminal with all512 anchored state,
 classical, phase and scratch comparisons passing. Both proof packets save
@@ -407,15 +423,46 @@ classical slots (Q1490 belonged to checkpoint49). Density-based later cycles
 added width without further measured T savings on these packets. The frozen
 final67 stream SHA256 is
 `813d2863eebbba814c8d0b64eec28cdc6e47965a6d1839e3d0bb082dadaa80dd`;
-see `WIDE67_FREEZE.json`. No native source, fresh failure gate or score is
-claimed for that stream yet. A separately predeclared four ranked7-stage
+see `WIDE67_FREEZE.json`. The coordinator's native source now passes byte
+identity, and the fixed32768-batch fresh census is complete, saving
+61.43830490 +/-0.27844035 T. Its strict measured failure gate FAILS:
+candidate1351 bad batches (5.81332397 per packet), versus original1335
+(5.74447632), dirty0. See `wide67-census-summary.json` and the coordinator's
+`wide67-native-20261016` full source/rows archive. No nonce search, resampling,
+earlier-checkpoint selection or resource record follows this failed gate.
+A separately predeclared four ranked7-stage
 cycles67→95 now runs on the existing scratch, using compact classical flags,
 with no further quantum slots offered. It leaves frozen67 untouched.
 
-The product67 universal append audit runs the same frozen v2 verifier on all
+The product67 universal append audit passed the same frozen v2 verifier on all
 42 stages26..67, composing with the immutable complete25 certificate. Its
 two workers have12GiB address caps each. Product67's native source and complete
-fresh census pass independently; universal67 remains pending until every
-symbolic stage and source/hash obligation completes. The separately frozen
-product67→95 declaration waits for that audit before launch. All current
+fresh census pass independently; every symbolic stage and source/hash obligation
+has completed. The immutable composed67 certificate, separate mask-transfer
+companion and exact ABI are cited in this report's opening. The separately frozen
+product67→95 declaration started after that audit. All current
 analysis/address caps sum to80GiB and no unrelated workloads are changed.
+
+The separately prepared phasefix+67 plan is **NOT LAUNCHED**. The phase-only
+parent `9aaf3117c67051ac3258e72187810881791ba5d86e9377d5d5331b48d376dbab`
+passes its native/source/local symbolic proofs with4 extra CX and0 added
+T/Q/MR, but its fixed4096-batch fresh gate has exactly the original's527 bad
+batches,561 failed shots,456 value failures and324 phase failures, dirty0.
+Every batch T count and every failure outcome are unchanged. Both measure
+18.141357421875 failed batches per packet, exceeding18; standalone cap gate
+FAILS, and no measured floor improvement is established. Its copied source,
+proofs and prepared declaration remain preserved under
+`phasefix-cache67-20261016`; source SHA and the plan are not modified. Native
+local correctness evidence is not promoted to a full failure-rate repair or
+record. Current search, frozen67/95 andA29 repair53 remain unchanged.
+
+The prepared wide151 plan was abandoned before launch by an explicit coordinator
+plan change, based only on wide95's source-analytical available_proxy of
+1.81899e-11 T. No packet values or failure counts informed this decision.
+Prepared scripts and `wide-to151-rank-20261016/ABANDONED.json` are preserved.
+Its replacement is two independent retained-ANF cap2048/4096 probes from the
+same frozen wide95 source, each offering64 fresh quantum slots, pair256,
+product1M and density rank. Each uses one24GiB worker sequentially, with a
+fixed2-hour generation bound. The two sole final endpoints each have a distinct
+predeclared32768-batch original5a fresh gate after native full-byte identity.
+No earlier checkpoint selection or nonce work is authorized by these probes.

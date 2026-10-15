@@ -513,3 +513,37 @@ at64inputs and25.02ms at512inputs. Looped nary costs23.76/26.64ms; unrolled nary
 costs25.61/27.96ms. They are semantic passes and performance negatives, preserved
 without replacing the selected MRSLOT02 library or frozen v3 certificate. All
 owned research jobs are terminal; no live nonce search was launched by this agent.
+
+
+## Width1233 follow-up (16 October; terminal bounded negative)
+
+Complete original4b high-wire census covers3442 lifetimes/48681 references. Strict borrowed mixed-carry contract requires donorC wholly unreferenced, A/B stable, Z read-only, exact scope/phase/MR cleanup and dead old measurement bit. Native primitive tests pass512 exhaustive first-carry cases and65536 arbitrary bit-parallel borrowed-carry cases. Capped-affine queries find2075/2076 identities, but124 conditional-entry cases need an unproved cleaner-hoisting contract. Strict global-entry coverage is1951 atcaps32/128 and1952 atcap512. After checked paid rules,709 lifetimes remain unresolved and added unconditional T is753 (32/128) or752 (512); no complete Q1233 candidate exists and these costs already exceed the product margin. Untouched native source remainsQ1234. No generation/census/nonce search was launched for this route.
+
+[Proof and limitations](width-contracts-proof.md). Incremental immutable archive `evidence-width-supplement.tar.gz`,SHA256 `3b5faa0cf6bf60e292db91f602964a2648ea921956c9c8b3bd9017ba9270ed8d`:95 manifested files,7 server binary references; all local manifest entries verify. Historical CRLF wrapper receipt errors are preserved; separate LF-only unchanged-binary/exact-JSON recheck exits0. All prior mask artifacts and active product25 libraries remain unchanged.
+
+
+## Immutable mask root cones (16 October; terminal source-only negative)
+
+Frozen v3 has463 constant dependency1 roots (always unknown),49 nonconstant roots, no constant dependency0 root and only1 dead compiled node. All49 nontrivial cones are large: two are89.94% of the DAG, the other47 exceed99.65%. Full per-root/group1..64 census plus21 independent DFS/original-node-identity reconstructions PASS in5.67s on one core. [Report](mask-cones-v1-report.md). Archive `evidence-mask-cones-supplement.tar.gz`,SHA256 `32d624bd849f7e488a780a5d701a380b09e9c8c5bbcebad041838f1f76a43d17`,15files/2serverhashrefs, all locally verified. No production change or speedup claim.
+
+
+### Width scope correction
+
+A final review found124 affine identities start inside Push scopes and need an unproved cleaner-hoisting contract. Strict global-entry loan coverage is1951 atcaps32/128 and1952 at512, leaving709 unresolved lifetimes; paidT unchanged753/752. The earlier2075/2076 and585 counts were optimistic query accounting. Original raw evidence/archives stay immutable; `evidence/width-scope-correction-v1.json` records every excluded entry. This strengthens the terminal negative.
+
+### Lazy mask source analysis (terminal negative)
+
+Existing32-input audit, both child orders, packed32 and8scalar lanes: packed traversal needs99.816–99.986% of frozen DAG nodes, scalar lanes96.7–98.1%; large XOR backbone prevents useful absorbing shortcuts. No lazy runtime built. Archive `evidence-mask-lazy-supplement.tar.gz` SHA256 `1bf8fcce985e741ad156b5fbc6e324d3b6736acf4716e1d4f0f8c4ea3115cdfa`,13files/4serverrefs; all local manifest entries verify.
+
+
+## Deferred expected-sum scalar API (validated, isolated)
+
+New `scalar-split-v1/libscalar_split.so` SHA365407f4d6922f4cedeaa23c896d4f3ffd53b264dbfa9689bea774988e52695d preserves original immutable sources/library and pinned clean vendor. Protected4096pairs/24576coords,81independent edgepairs,29partial/invalid/guard controls PASS. Nine pinned fresh131072-input paired rounds: full10.4828us vsP/A-only9.9759us, pairedratio.94940; deferred64batchadd.588us/selectedpair. Caller musttrackexpectedReady and fill before every comparison/fullfallback. Root owns disabled integration; no production change here. [Report](scalar-split-v1/REPORT.md). Archive `evidence-scalar-split-supplement.tar.gz` SHA9eddecdeb5f77498e73500a12a5f5160cf46d9502b498bbac0e7470f6fe6a5a4,42files/3serverrefs, locallyverified.
+
+## Candidate67 source/known-bit controls (terminal PASS)
+
+Frozen268aefe234ede5eaab723e34e214b91f0bd8cac9b0f95d9ee90e3bf3ae8c951d independentlyhasQ1234/B54995 and four physical256-slot ABIs identical to original. Jointworkspace54995 covers original45701. Universalcert303a75ec/per-inputd774c492 were available and pinned before unchanged protected validator2214inputs*8candidatephysicalMR streams:17712known-coordinatecontainmentchecks PASS against ORIGINALzeroMR. Saved541inputs catch421;32auditcatch24;256structuredcatch125;1385arbitrary containmentonly. [Report](candidate67-knownbit-report.md). Archive `evidence-candidate67-controls.tar.gz` SHA8433b1dd26f914e5eafdb0498c4537f939c1bfa3ab764ba0ec1e46c86495808b,30files/7serverrefs, locallyverified. This empirical supplement does not replace the separate universal transfer certificate.
+
+## Terminal auditor independent review
+
+Rootaudit-terminal.py SHA70dd1d4378b498600027aefabbe7e170a2c356a9a9571773766aa148d768348e andtest8286d3f1 reviewed onlyfromsource. No materialfindings;23stock adversariallanecontrols and11independentfullsyntheticcontrols PASS, with globalprefixindependentlyenumerated. No productionlogsread orrootfilesedited. [Review](review/terminal-audit-v1/REVIEW.md). Archive `evidence-terminal-review-supplement.tar.gz` SHA0db4231b6b1f9026ec64c2b7963336a559d87ea3b535f7c72091a53d36667420,8files, allmanifestentriesverified.

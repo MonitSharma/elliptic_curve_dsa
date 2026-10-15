@@ -1,5 +1,14 @@
 # Frozen product25 search is active
 
+The later immutable checkpoint at16October04:28:41 contains6,459,392completed
+distinct operational rows and a complete lower prefix through6,410,240, with no
+pass. Its65-file source/progress archive SHA256 is
+`76a74e4b920d10c62c3bbbe675001b6a536a69ab7975a876791afd3b6fa70189`.
+Active full JSONL files remain server-only. The read-only terminal auditor has
+23lane and11independent full synthetic integrity controls, with no material
+review finding. It must run on clean terminal logs before a lowest-pass claim;
+no active log has been treated as terminal. Current source/libraries stay fixed.
+
 Started 16 October 2026 at 03:47:11 Singapore. Four persistent workers use
 12 threads each. The circuit is frozen at stream SHA256 `180af069...`; search
 starts at nonce1 and selects the lowest complete passing nonce only after

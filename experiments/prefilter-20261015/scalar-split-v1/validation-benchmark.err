@@ -1,0 +1,32 @@
+Traceback (most recent call last):
+  File "/home/hclau/ecdsa_research/prefilter-20261015/scalar-split-v1/validate-bench.py", line 21, in <module>
+    rows=[tuple(bytes.fromhex(w)for w in line.split())for line in p.read_text().splitlines()];assert len(rows)==4096 and all(len(a)==64 and len(b)==192 for a,b in rows)
+                                                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hclau/ecdsa_research/prefilter-20261015/scalar-split-v1/validate-bench.py", line 21, in <genexpr>
+    rows=[tuple(bytes.fromhex(w)for w in line.split())for line in p.read_text().splitlines()];assert len(rows)==4096 and all(len(a)==64 and len(b)==192 for a,b in rows)
+                                                                                                                                                            ^^^
+ValueError: too many values to unpack (expected 2)
+Command exited with non-zero status 1
+	Command being timed: "prlimit --as=8589934592 -- python3 validate-bench.py"
+	User time (seconds): 12.36
+	System time (seconds): 1.72
+	Percent of CPU this job got: 97%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:14.49
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 1818616
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 587222
+	Voluntary context switches: 81
+	Involuntary context switches: 25
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 8
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1

@@ -1,0 +1,28 @@
+               total        used        free      shared  buff/cache   available
+Mem:          515350      254297       98531           9      169256      261053
+Swap:           8191         334        7857
+    PID %CPU   RSS COMMAND
+3174330 1731 119430784 /home/hclau/tools/miniforge3/envs/qob-lattice/bin/python problems/01-marketsplit/classical/ms_sieve.py external/QOBLIB/01-marketsplit/instances/ms_14_200_002.dat --out problems/01-marketsplit/results/sieve/ms_14_200_002.sol --threads 18
+3207770 1723 103186340 /home/hclau/tools/miniforge3/envs/qob-lattice/bin/python problems/01-marketsplit/classical/ms_sieve.py external/QOBLIB/01-marketsplit/instances/ms_14_200_003.dat --out problems/01-marketsplit/results/sieve/ms_14_200_003.sol --threads 18
+3893469  991 2622324 /home/hclau/ecdsa_research/product25-operational-20261016/tool/target/release/value_prefilter /home/hclau/ecdsa_research/product-exact-20261015/candidate-product-final25/ops.bin 1 134217728 12 /home/hclau/ecdsa_research/product25-operational-20261016/worker3.jsonl /home/hclau/ecdsa_research/prefilter-20261015/model-source 4096
+3893466  988 2556868 /home/hclau/ecdsa_research/product25-operational-20261016/tool/target/release/value_prefilter /home/hclau/ecdsa_research/product-exact-20261015/candidate-product-final25/ops.bin 1 134217728 12 /home/hclau/ecdsa_research/product25-operational-20261016/worker1.jsonl /home/hclau/ecdsa_research/prefilter-20261015/model-source 4096
+3893465  986 2682360 /home/hclau/ecdsa_research/product25-operational-20261016/tool/target/release/value_prefilter /home/hclau/ecdsa_research/product-exact-20261015/candidate-product-final25/ops.bin 1 134217728 12 /home/hclau/ecdsa_research/product25-operational-20261016/worker0.jsonl /home/hclau/ecdsa_research/prefilter-20261015/model-source 4096
+3893468  985 2576212 /home/hclau/ecdsa_research/product25-operational-20261016/tool/target/release/value_prefilter /home/hclau/ecdsa_research/product-exact-20261015/candidate-product-final25/ops.bin 1 134217728 12 /home/hclau/ecdsa_research/product25-operational-20261016/worker2.jsonl /home/hclau/ecdsa_research/prefilter-20261015/model-source 4096
+4014926  800  4996 ps -eo pid,pcpu,rss,args --sort=-pcpu
+4013799  100 3275636 /home/hclau/ecdsa_research/product-exact-20261015/target-flags/release/product_paired_diagnostic /home/hclau/ecdsa_research/product-exact-20261015/repair-cache53-20261016/repair-51-retained-128.bin /home/hclau/ecdsa_research/product-exact-20261015/repair-cache53-20261016/repair-52-retained-512.bin
+4013687  100 3175408 /home/hclau/ecdsa_research/product-exact-20261015/target-flags/release/product_paired_diagnostic /home/hclau/ecdsa_research/product-exact-20261015/wide-to95-rank-20261016/wide-89-retained-128-start.bin /home/hclau/ecdsa_research/product-exact-20261015/wide-to95-rank-20261016/wide-90-retained-512-proxy.bin
+4010113 98.8 2531092 ./target-anchored-replay/release/product_paired_diagnostic tip/ops.bin recursive-unfold-fast-20261016/product53-512.bin +recursive-unfold-fast-20261016/product53-512.manifest independent recursive-unfold-fast-20261016/product53-512-independent.tsv
+3958097  4.2 64512 /opt/TrendMicro/EndpointBasecamp/bin/tmxbc service run
+1705398  3.8 558220 /opt/ds_agent/ds_agent -w /var/opt/ds_agent -b -i -e /opt/ds_agent/ext
+1706320  2.9 222584 /opt/ds_agent/ds_am -g ../diag -v 5 -d /var/opt/ds_agent/am -P 1 -R
+1702756  1.0 83820 /usr/bin/alloy run --storage.path=/var/lib/alloy/data /etc/alloy/config.alloy
+3777359  0.6 10080 .venv/bin/python tools/hpc/runner.py run tools/hpc/jobs/01_sieve.jsonl --max-cores 36
+3824740  0.4 25452 python3 run_repair_cache53.py
+3889756  0.3 49924 python3 run_product95.py wide
+4013897  0.1 10656 sshd: hclau [priv]
+1702753  0.1 27264 /usr/bin/containerd
+1706202  0.1 47028 /opt/ds_agent/netagent/tm_netagent --metrics-file /var/opt/ds_agent/netagent/metrics.json --log-folder /var/opt/ds_agent/netagent/logs --ptn-folder /opt/ds_agent/netagent/pattern --jat-folder /opt/ds_agent/netagent/java/jattach --jex-folder /var/opt/ds_agent/netagentjava --log-console=false --log-level 1 --tmCfg WyJTc2xMaW51eEphdmFCdWlsZEVuYWJsZWQiLCJKYXZhQXR0YWNoIiwiRGlzYWJsZURvY2tlckJQRiIsIlNzbEluYm91bmQiLCJTc2xPdXRib3VuZCJd
+     17  0.0     0 [rcu_preempt]
+   2866  0.0 48944 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+1706111  0.0 17312 /opt/ds_agent/netagent/tm_netagent --metrics-file /var/opt/ds_agent/netagent/metrics.json --log-folder /var/opt/ds_agent/netagent/logs --ptn-folder /opt/ds_agent/netagent/pattern --jat-folder /opt/ds_agent/netagent/java/jattach --jex-folder /var/opt/ds_agent/netagentjava --log-console=false --log-level 1 --tmCfg WyJTc2xMaW51eEphdmFCdWlsZEVuYWJsZWQiLCJKYXZhQXR0YWNoIiwiRGlzYWJsZURvY2tlckJQRiIsIlNzbEluYm91bmQiLCJTc2xPdXRib3VuZCJd
+3966817  0.0     0 [kworker/u290:3-events_unbound]

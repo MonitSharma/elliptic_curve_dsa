@@ -1,0 +1,13 @@
+{
+  "status": "PREDECLARED_DISABLED_CANDIDATE25_RUNTIME_COMPARISON",
+  "parent": "product-early-filter-20261016",
+  "candidate_stream_sha256": "180af069679ffa33b099b200d3337d6fc6c20a451a72508a40dea6617150dc64",
+  "change": "Only zeroMR C evaluator dispatch; exact same compact program and all other libraries",
+  "new_library_sha256": "1444e146e9359940123af3b951069c768313947f601d201b4bc391d8ac45cb95",
+  "validation": ["128 protected zeroMR-shadow nonces", "partial first17/count11/look9", "all4096 rows identical to frozen disabled baseline"],
+  "timing": "3 paired4096-nonce trials,8threads, alternating baseline/new order",
+  "proof_gate": false,
+  "nonce_selection": false,
+  "production_changes": false,
+  "resources": "build4threads then runtime8threads; other agents notified to keep aggregate<=64"
+}

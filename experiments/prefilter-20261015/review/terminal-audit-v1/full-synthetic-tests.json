@@ -1,0 +1,53 @@
+{
+  "status": "FULL_SYNTHETIC_TERMINAL_AUDIT_CONTROLS_PASS",
+  "checks": [
+    {
+      "case": "four complete lanes minimum3 vs5000",
+      "expected_accept": true
+    },
+    {
+      "case": "lane0 next window extends exact prefix",
+      "expected_accept": true
+    },
+    {
+      "case": "lane1 next window leaves earlier hole",
+      "expected_accept": true
+    },
+    {
+      "case": "zero progress lane no pass is safe",
+      "expected_accept": true
+    },
+    {
+      "case": "pass with incomplete lower prefix rejected",
+      "expected_accept": false
+    },
+    {
+      "case": "missing saved pass rejected",
+      "expected_accept": false
+    },
+    {
+      "case": "worker nonzero rejected",
+      "expected_accept": false
+    },
+    {
+      "case": "reported higher pass rejected",
+      "expected_accept": false
+    },
+    {
+      "case": "reported extra completed row rejected",
+      "expected_accept": false
+    },
+    {
+      "case": "progress range corruption rejected",
+      "expected_accept": false
+    },
+    {
+      "case": "complete log duplicate rejected",
+      "expected_accept": false
+    }
+  ],
+  "source_sha256": "70dd1d4378b498600027aefabbe7e170a2c356a9a9571773766aa148d768348e",
+  "production_logs_read": false,
+  "synthetic_hash_trust_anchors": true,
+  "actual_runtime_artifact_rehash_not_exercised_here": true
+}

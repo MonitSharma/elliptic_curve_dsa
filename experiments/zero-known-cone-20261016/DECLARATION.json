@@ -1,0 +1,13 @@
+{
+  "status": "PREDECLARED_SOURCE_BOUND_49_OUTPUT_ZERO_MR_CONE",
+  "original_stream_sha256": "2a522394cdf3e6a0df7784ad4db761030933c1f7ccd0ff8e641d68ec7a4dab3e",
+  "mask_sha256": "560c12d5044dd895a4ef32adc905cdde48a780a196b3b28a75951c7f27b4fe9d",
+  "query": "Exactly those scored output roots whose dependency DAG root is not constant1:49bits in second output register",
+  "premise": "All463otherroots are exact constant1 dependency, so their complemented known mask is always0 and they cannot support rejection",
+  "transformation": "Same conservative zeroMR simplification/backward-liveness/scope-snapshot algorithm; seed only49queried outputs",
+  "checks": "source hash/root kind/512mapping binding, previous512scopefixture with negative livegate control, protected512actual inputs and exact queried-output equality",
+  "runtime_library": "original zero8_slice code initially; threaded kernel can be measured separately later",
+  "production_changes": false,
+  "rejection_enabled": false,
+  "resources": "4buildthreads then1analysiscore, less than8GiB; launch after root8thread comparison finishes"
+}

@@ -10,7 +10,7 @@ independent, and existing evidence, including the Q692 width result, is preserve
 
 ## Where we stand
 
-**16 October 2026, 03:50 Singapore — product search is active.** The frozen
+**16 October 2026, 04:40 Singapore — product search is active.** The frozen
 candidate passed its fresh failure-rate, proof and runtime gates. The new
 prefilter clears the measured search-cost gate; nonce screening starts at1,
 selects the lowest pass and remains in queue mode. This is ongoing research,

@@ -1,5 +1,14 @@
 # Results and submission status
 
+**04:40 checkpoint:** product67's universal audit and independent known-bit
+controls now pass, in addition to its native reproduction and fresh failure-rate
+gate. It saves102.13839T diagnostically atQ1234; no complete product benchmark or
+nonce search is claimed for it. Earlier product25 is still searching; the04:28
+checkpoint records6,459,392completed nonces with no pass. Best complete queued
+Toffoli result remains753721/Q1468. All submissions stay in queue mode.
+[Qualified67](../experiments/product67-native-20261016/STATUS.md) ·
+[Active25](../experiments/product25-operational-20261016/STATUS.md).
+
 **04:15 checkpoint:** public records refreshed at04:08 remain unchanged.
 The active product25 search has screened about3.8million nonces with no pass.
 Its final32,768-batch census was declared before nonce selection. Wide67 fails

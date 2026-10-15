@@ -1,0 +1,104 @@
+{
+  "status": "SPLIT_API_PROTECTED_REFERENCE_AND_EDGE_VALIDATION_PASS",
+  "protected_fixture_sha256": "ce17d7cdbbdbea6838462cf09d02cb56ae98c532671486fa3aa499fc7a95237d",
+  "protected_pairs": 4096,
+  "protected_coordinates": 24576,
+  "independent_python_edge_pairs": 81,
+  "partial_invalid_guard_controls": 29,
+  "window": 20,
+  "original_init_s": 5.653224769979715,
+  "new_init_s": 7.6288473112508655,
+  "fresh_pair_rounds": [
+    {
+      "trial": 0,
+      "shots": 32768,
+      "order": [
+        "full",
+        "inputs"
+      ],
+      "full_seconds": 0.33617478236556053,
+      "inputs_seconds": 0.3942192792892456,
+      "inputs_ratio": 1.1726616628268292
+    },
+    {
+      "trial": 1,
+      "shots": 32768,
+      "order": [
+        "inputs",
+        "full"
+      ],
+      "inputs_seconds": 0.33802624698728323,
+      "full_seconds": 0.34492645785212517,
+      "inputs_ratio": 0.9799951244453385
+    },
+    {
+      "trial": 2,
+      "shots": 32768,
+      "order": [
+        "full",
+        "inputs"
+      ],
+      "full_seconds": 0.34353016782552004,
+      "inputs_seconds": 0.3274611532688141,
+      "inputs_ratio": 0.953223861943713
+    },
+    {
+      "trial": 3,
+      "shots": 32768,
+      "order": [
+        "inputs",
+        "full"
+      ],
+      "inputs_seconds": 0.32202787790447474,
+      "full_seconds": 0.33148043788969517,
+      "inputs_ratio": 0.9714838074747388
+    },
+    {
+      "trial": 4,
+      "shots": 32768,
+      "order": [
+        "full",
+        "inputs"
+      ],
+      "full_seconds": 0.3390451483428478,
+      "inputs_seconds": 0.3339550830423832,
+      "inputs_ratio": 0.9849870575486971
+    }
+  ],
+  "median_full_us": 10.346836802455073,
+  "median_inputs_us": 10.191500336986792,
+  "median_paired_time_ratio": 0.9799951244453385,
+  "deferred_add_api": [
+    {
+      "count": 1,
+      "shots": 16384,
+      "seconds": 0.04118134919553995,
+      "us_per_selected_input": 2.5135100827355927
+    },
+    {
+      "count": 2,
+      "shots": 16384,
+      "seconds": 0.025243702344596386,
+      "us_per_selected_input": 1.5407533169309318
+    },
+    {
+      "count": 8,
+      "shots": 16384,
+      "seconds": 0.013137646950781345,
+      "us_per_selected_input": 0.8018583343982755
+    },
+    {
+      "count": 64,
+      "shots": 16384,
+      "seconds": 0.009634310379624367,
+      "us_per_selected_input": 0.58803163938137
+    }
+  ],
+  "new_source_sha256": "12c6f493150ee04f5797cb2aa65d38760d59b61adbe2722dc44255c791b76afc",
+  "new_library_sha256": "365407f4d6922f4cedeaa23c896d4f3ffd53b264dbfa9689bea774988e52695d",
+  "original_library_sha256": "3bb2304219fb336795ea88d4bf81174883cdd33702f5975819b812c3dffca30f",
+  "not_claimed": [
+    "productionintegration",
+    "fullnoncepipeline speedup"
+  ]
+}

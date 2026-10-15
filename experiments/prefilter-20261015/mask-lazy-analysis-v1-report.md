@@ -1,0 +1,7 @@
+# Bounded lazy mask analysis: negative
+
+Frozen original v3 maskSHA560c12d5044dd895a4ef32adc905cdde48a780a196b3b28a75951c7f27b4fe9d remains unchanged. This source-only analysis uses its existing validated independent C evaluator as an immutable oracle for node values on the32 preserved audit inputs. It counts exact fixed-child-order memoized demand traversal, applying AND(first,second)=0 whenfirst=0 and OR(first,second)=1 whenfirst=1. It does not build or validate a new lazy runtime and its Python traversal timings are not runtime speedup evidence.
+
+The audit has359 known coordinate bits among32*49 potentiallycertifiable outputs, density22.895408%. All463 constant roots remain dependency1/known0. Packed32 demand traversal visits99.816058% to99.986304% of the complete7914981-node DAG for the two fixed child orders. Sixteen scalar traversals (eight predetermined audit lanes, both orders) visit96.720485% to98.036698%. The shared XOR backbone dominates; absorbing branches save little node work and scalarization loses packed execution.
+
+This is a bounded negative on existing fixtures, not a universal lower bound. All frozen audit output words match the independent evaluator; absorbing identities pass54 mixed-word truth controls. No source theorem, production program, library or active search was changed. A different symbolic representation might help, but no heavier lazy benchmark is justified by this evidence.

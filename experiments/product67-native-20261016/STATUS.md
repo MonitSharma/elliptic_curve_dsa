@@ -12,6 +12,12 @@ The fixed32,768-batch /2,097,152-shot sample per source has4,162 candidate versu
 The strict measured failure gate passes. Label: product67-frozen-20261016.
 
 This is a qualified research candidate, not a benchmark record. Universal
-equivalence certification through all67 stages is running before reuse of the
-original source's input-conditioned masks. Candidate-specific source/ABI/replay
-controls and its own nonce search/final benchmark would still be required.
+equivalence certification through all67 stages now passes245,820leases and
+540,759uses without sampled inputs. Certificate SHA256 is
+`303a75ec86a4da8c3a4008646e1b8257768fa40e198f0b7172eeafd19408c7c6`.
+Its separate per-input transfer companion and exact physical ABI are frozen.
+Independent known-bit checks pass2,214inputs under8candidate MR streams,
+17,712containment checks; workspace54,995 covers both source dimensions.
+These finite controls supplement the universal theorem. Candidate-specific
+Fiat/runtime/cost qualification, its own nonce search and final unchanged
+benchmark/fresh census would still be required. The active25search is separate.

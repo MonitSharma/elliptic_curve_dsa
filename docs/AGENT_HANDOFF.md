@@ -1,9 +1,36 @@
 # Agent handoff: start here
 
-Last updated 16 October 2026, 04:15 Singapore. This page is for an AI agent (or
+Last updated 16 October 2026, 04:40 Singapore. This page is for an AI agent (or
 person) continuing the work. It holds the current state, the rules, the tools
 and the next steps in order. Details live in the linked reports. Do not copy
 numbers from older reports without checking the date.
+
+**04:40 checkpoint:** universal67 certificate303a75ec... nowPASS67stages,
+245820leases/540759uses, same verifier2e9f5ee6... as25. Per-input transferd774c492...,
+MD5914f683..., ABI2d7f0fc1..., identicalordered4x256physicalports,Q1234/B54995.
+Independent2214x8candidateMRknownbitchecksPASS17712; jointworkspace54995.
+No67search/fullbenchmarkyet. Product25active unchanged; immutable04:28:41snapshot
+76a74e4b... contains6459392complete/lowerprefix6410240,65filesrootverified,no pass.
+Newterminalaudit.py SHA70dd1d43... reviewedwith23lane+11fullsyntheticcontrols,
+notrunonactiveJSONL; requirescleanexits/exactcoverage/lowestpass/runtimehashes.
+Allfinalbenchmark/census/prefixgatesremainrequired.
+
+RootdirectthreadCkernel1444e146... passes8192arbitrary+512actualallq/b checks;
+disabledfullpipeline3paired4096/8trials median9.969237→9.258027s,allrows/shadowsPASS.
+Do NOT replace productionlibs. Maskcone/lazynegative;49outputzeroMRcone only0.447%
+smaller. Scalar-split365407f4... APIvalidatedand5.1%prepsaving,butrootdropindeferral
+FAILS81/128witnessidentity:rail_fast_ffi consumes expected.x for reversewalk.
+Preservefailedproduct-lazy-sum source/logs, no deployment. NUMAcomparisonprepared
+byagentprefilter, onlyisolateddisabledtool, noactiveworker affinitychanges.
+
+Productagentnew3265filearchive214865b6... rootverified; ownsproduct95, repaired53
+native/fresh(originalcomparison),wide95thenindependentretainedANF2048/4096+scratch.
+Wide151abandonedBEFORElaunchbasedsourceonlyproxy1.8e-11; declarationretained.
+Strictwidthnegative correction709unhandled(not585),752paidT,124conditionalentry
+loansunproved. Backphase2sitezeroT/Q/MRrepair97f16886... native/proofPASS,
+fixed4096freshgateactive; inheritedR5cleanliness104/105UNKNOWNexplicit.
+Generic1CCX+HMRMAJprecisionfamily cost/proofnext. Runtime/failure/scriptnegative
+evidence staysoutsideREADMEscoredplots; queuedbestT753721unchanged.
 
 **04:15 checkpoint:** product25 search continues unchanged, about3.8million
 complete nonces and no pass at04:12. Final paired census is now predeclared in

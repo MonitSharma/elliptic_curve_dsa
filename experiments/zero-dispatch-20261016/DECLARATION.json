@@ -1,0 +1,13 @@
+{
+  "created_Singapore": "2026-10-16T04:15:00+08:00",
+  "status": "PREDECLARED_DISABLED_RUNTIME_EXPERIMENT",
+  "parent_program_sha256": "812f706d2edd7e821ff6c5f72db5e7e65b3f9756f562d99c1d0e1fceb007daf0",
+  "parent_library_sha256": "84b73bcdee01bb537d0320f9985a682758d1076860455ad382a2ae175690ea82",
+  "changes": ["defer guard loads until needed", "GNU direct threaded dispatch"],
+  "claim": "execution speed only; same zero-MR program, no resource change",
+  "validation": "all quantum/classical words versus pinned original on sixteen arbitrary 512-lane states and actual512-input fixture, plus malformed/scope return controls",
+  "timing": "21 alternating repetitions each variant; median; one core",
+  "production_changes": false,
+  "nonce_selection": false,
+  "resources": "one analysis core, less than 2 GiB; preflight before launch"
+}

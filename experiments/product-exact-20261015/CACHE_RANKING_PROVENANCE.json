@@ -1,0 +1,35 @@
+{
+  "status": "SOURCE_ONLY_ANALYTICAL_RANKING",
+  "generator_executable": "target-flags/release/product_paired_diagnostic",
+  "generator_executable_sha256": "3a556985ea1521e950e8f57326e349687fbbb7af3536f668e5fb366137b3f434",
+  "source_snapshot": "rank-source",
+  "source_files_sha256": {
+    "lazy_cache.rs": "139aa32272e9ff99336d6eb7b4d91b2f78419e52a7b5419d31a6eae06393ef42",
+    "lazy_cache_anf.rs": "2415d9db9bb6e3abd74e3e822736383a1057c73e02d308a89470a75aeb779208",
+    "lazy_cache_retained.rs": "d31413ad0f920f19967823a5cbe40268132f4adf3bf697827b9c48447e39f601",
+    "main.rs": "439fdb8e62c37546bef5c73f138a38c79f84add1f7ab7793545fcfa55e2cabd6"
+  },
+  "weights": "For a source CCX at PushCondition depth d, w=2^-(d+g), where g=1 iff c_condition is present, otherwise0. Uses only operation nesting and guard presence.",
+  "proxy": "For a repeated-product proposal U, sum(w_i) - (1-product(1-w_i)). This assumes independent fair guard events only as an allocation heuristic, without sampling actual guard values.",
+  "start": "Sort lexicographically by(start,end,use_indices).",
+  "proxy_rank": "Sort descending proxy, ties lexicographically by(start,end,use_indices).",
+  "density_rank": "Sort descending proxy/(end-start), same lexicographic ties.",
+  "eligibility": "Immutable symbolic repeated-product identities, universal-zero donor proof, raw source touch/control fences, lexical condition boundaries. Greedy allocator rejects overlapping source uses and donor lifetimes.",
+  "not_inputs": [
+    "anchored-packet values",
+    "packet Toffoli counts",
+    "failure flags or failure counts",
+    "curve-input samples",
+    "identity-tail nonce",
+    "census rows or benchmark outcomes"
+  ],
+  "exactness": "Ranking selects among universally exact rewrites; it does not establish equalities or replace proof. Conservative Boolean identities and the HMR/CZ gadget plus full source-bound verifier supply the equivalence obligations.",
+  "schedules": "Final67 and both95 schedules are fixed and separately frozen before their own measurements. Checkpoint metrics are reported only; no packet-selected stopping or in-run rank/cap changes.",
+  "relevant_artifacts": [
+    "PRODUCT67_FREEZE.json",
+    "product-to67-rank-20261016/DECLARATION.txt",
+    "product-to95-rank-20261016/DECLARATION.json",
+    "wide-to95-rank-20261016/DECLARATION.json"
+  ],
+  "score": null
+}
