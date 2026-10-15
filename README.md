@@ -3,9 +3,10 @@
 **Smaller quantum circuits for secp256k1 point addition. Three independent goals:
 fewer logical qubits, fewer Toffolis, and a lower qubit × Toffoli product.**
 
-**Current priority — 15 October 2026:** focus on lower executed Toffolis and
-lower Q × T. Defer width-only optimization and Q692 submission engineering.
-Preserve the width result; spend extra qubits when the gate savings justify it.
+**Current priority — 15 October 2026 (night):** improve any of the three
+records (qubits, Toffolis or Q × T) through long unattended runs driven by
+[docs/AUTONOMOUS_PROMPT.md](docs/AUTONOMOUS_PROMPT.md). Each objective stays
+independent, and existing evidence, including the Q692 width result, is preserved.
 
 ## Where we stand
 
@@ -50,7 +51,7 @@ excluded from these performance figures.
 
 | Objective | Public record | Our result | Next strict target |
 |---|---:|---|---:|
-| **Minimum logical qubits** | 679 | **692 — complete local pass**, not submitted | Width work deferred |
+| **Minimum logical qubits** | 679 | **692 — complete local pass**, not submitted | Q ≤ 678 |
 | **Minimum executed Toffolis** | **753,771 at Q1464 — ours** | **Officially scored**; product-only rejection | T ≤ 753,770 |
 | **Minimum Q × T** | 939,347,948 at Q1234/T761,222 | No new qualified record | Q × T ≤ 939,347,947 |
 
@@ -214,8 +215,10 @@ It is not the number of Toffolis written into the generated stream.
 3. Gate every candidate with the fresh-input census. Screen nonces only on
    frozen circuits at or below the beaten record's failure rate. Publish the
    nonce, the census and the number screened.
-4. Preserve existing Q692 evidence and failed experiments. Width work stays
-   deferred; any revival should start from the public Q679/Q680 designs.
+4. **Width record:** start from the public Q679 (`586a7673`) and Q680
+   (`eec4ffc8`) designs, not our Q692 bank-swap line. These streams are
+   about 1–2 billion ops, so stream them rather than loading them whole.
+   Preserve existing Q692 evidence and failed experiments.
 
 Only `src/point_add/` may change in a contestant submission. We preserve the
 harness, scorer, simulator, curve reference, dependencies and toolchain. We

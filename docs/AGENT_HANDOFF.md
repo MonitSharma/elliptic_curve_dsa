@@ -32,10 +32,12 @@ Refresh first: `.venv-research/Scripts/python.exe scripts/analyze-leaderboard.py
 |---|---|---|---|
 | Min executed Toffolis | **753,771 at Q1464 — ours** (`3f32acd2`, source `5a7c3902`) | Official | T ≤ 753,770 |
 | Min Q × T | 939,347,948 = 761,222 × 1,234 (jackylee0424, `85d067da`, source `4b2ec52f`) | None | T ≤ 761,221 at Q1234; T ≤ 760,605 at Q1235 |
-| Min qubits | 679 (jackylee0424, `80fe2050`) | Local Q692 pass only, unsubmitted | Deferred by user |
+| Min qubits | 679 (jackylee0424, `80fe2050`) | Local Q692 pass only, unsubmitted | Q ≤ 678 |
 
-The user's priority is lower Toffolis and lower Q × T, treated independently.
-Width-only work is deferred.
+The user's priority (15 Oct, night): improve any of the three records, each
+judged independently, in long unattended runs
+([AUTONOMOUS_PROMPT.md](AUTONOMOUS_PROMPT.md)). The Q679/Q680 sources are on
+the upstream branches `submissions/80fe2050-…` and `submissions/ebf0b736-…`.
 
 ## 3. Rules that shape every decision
 
