@@ -1,0 +1,35 @@
+{
+  "status": "INDEPENDENT_COMPLETE_RAW_RECOUNT_AGREES",
+  "failure_gate_pass": false,
+  "cohorts": {
+    "parent": {
+      "batches": 32768,
+      "shots": 2097152,
+      "failed_batches": 4118,
+      "failed_shots": 4390,
+      "lambda_failed_batches_per9024": 17.71966552734375,
+      "toffoli_total": 1596400158510,
+      "value_shots": 3552,
+      "phase_shots": 2580,
+      "dirty_shots": 0
+    },
+    "candidate": {
+      "batches": 32768,
+      "shots": 2097152,
+      "failed_batches": 4139,
+      "failed_shots": 4413,
+      "lambda_failed_batches_per9024": 17.810028076171875,
+      "toffoli_total": 1596276593570,
+      "value_shots": 3552,
+      "phase_shots": 2606,
+      "dirty_shots": 0
+    }
+  },
+  "raw_row_sha256": {
+    "parent": "478e6fe257f602c58381a3c8ae6f6c7ebbf14206e310ff25b4ee9cc3e3d260f1",
+    "candidate": "df9f400f293cb5998fcc401f5379b0a364e723ae2d1be7dfc8f4b04697cf4628"
+  },
+  "all_65536_rows_recounted": true,
+  "final_result_sha256": "51a8204c704458b7112ce064c0975f0e8811bd3c69031d0c3de0036f4df41704",
+  "no_circuit_execution_or_resampling": true
+}

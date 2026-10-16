@@ -1,0 +1,165 @@
+{
+  "status": "USER_REQUESTED_REVERSIBLE_STOP_NO_NEW_WORK",
+  "time_utc": "2026-10-16T01:08:35.418873+00:00",
+  "stopped_groups": {
+    "628797": "PRODUCT25 final native/benchmark coordinator",
+    "595517": "ALL70 fixed67 cache chain",
+    "595518": "ALL70 native watcher",
+    "595519": "ALL70 census watcher",
+    "606954": "ALL70 terminal archive watcher"
+  },
+  "process_snapshot": [
+    {
+      "pid": 595517,
+      "ppid": 1,
+      "pgid": 595517,
+      "sid": 595517,
+      "state": "Ts",
+      "command": "bash /home/hclau/ecdsa_research/product-exact-20261015/resume-all70-cache67.sh"
+    },
+    {
+      "pid": 595518,
+      "ppid": 1,
+      "pgid": 595518,
+      "sid": 595518,
+      "state": "Ts",
+      "command": "bash /home/hclau/ecdsa_research/product-exact-20261015/watch-all70-native67.sh"
+    },
+    {
+      "pid": 595519,
+      "ppid": 1,
+      "pgid": 595519,
+      "sid": 595519,
+      "state": "Ts",
+      "command": "bash /home/hclau/ecdsa_research/product-exact-20261015/watch-all70-census67.sh"
+    },
+    {
+      "pid": 595533,
+      "ppid": 595517,
+      "pgid": 595517,
+      "sid": 595517,
+      "state": "T",
+      "command": "python3 /home/hclau/ecdsa_research/product-exact-20261015/resume_all70_cache67.py"
+    },
+    {
+      "pid": 606954,
+      "ppid": 1,
+      "pgid": 606954,
+      "sid": 606954,
+      "state": "Ts",
+      "command": "bash /home/hclau/ecdsa_research/product-exact-20261015/watch-all70-terminal-archive.sh"
+    },
+    {
+      "pid": 628797,
+      "ppid": 1,
+      "pgid": 628797,
+      "sid": 628797,
+      "state": "Ts",
+      "command": "bash run-final.sh"
+    },
+    {
+      "pid": 640728,
+      "ppid": 595533,
+      "pgid": 595517,
+      "sid": 595517,
+      "state": "T",
+      "command": "/usr/bin/time -v /home/hclau/ecdsa_research/product-exact-20261015/target-cache-certificate-v2/release/product_paired_diagnostic /home/hclau/ecdsa_research/product-exact-20261015/all70-cache67-20261016/all70-19-retained-128.bin /home/hclau/ecdsa_research/product-exact-20261015/all70-cache67-20261016/all70-20-retained-512.bin /home/hclau/ecdsa_research/product-exact-20261015/all70-cache67-20261016/all70-20-retained-512-generate.log retained"
+    },
+    {
+      "pid": 640729,
+      "ppid": 640728,
+      "pgid": 595517,
+      "sid": 595517,
+      "state": "T",
+      "command": "/home/hclau/ecdsa_research/product-exact-20261015/target-cache-certificate-v2/release/product_paired_diagnostic /home/hclau/ecdsa_research/product-exact-20261015/all70-cache67-20261016/all70-19-retained-128.bin /home/hclau/ecdsa_research/product-exact-20261015/all70-cache67-20261016/all70-20-retained-512.bin /home/hclau/ecdsa_research/product-exact-20261015/all70-cache67-20261016/all70-20-retained-512-generate.log retained"
+    },
+    {
+      "pid": 641802,
+      "ppid": 606954,
+      "pgid": 606954,
+      "sid": 606954,
+      "state": "T",
+      "command": "sleep 15"
+    },
+    {
+      "pid": 641963,
+      "ppid": 595518,
+      "pgid": 595518,
+      "sid": 595518,
+      "state": "T",
+      "command": "sleep 10"
+    },
+    {
+      "pid": 641964,
+      "ppid": 595519,
+      "pgid": 595519,
+      "sid": 595519,
+      "state": "T",
+      "command": "sleep 10"
+    },
+    {
+      "pid": 642195,
+      "ppid": 628797,
+      "pgid": 628797,
+      "sid": 628797,
+      "state": "T",
+      "command": "python3 /home/hclau/ecdsa_research/product25-final-20261016/finalize.py benchmark"
+    }
+  ],
+  "no_processes_killed": true,
+  "no_submission": true,
+  "product25": {
+    "status": "UNCHANGED_BENCHMARK_COMPLETE_PASS_POSTVERIFIER_PAUSED_FINAL_FRESH_CENSUS_NOT_RUN",
+    "candidate": "/home/hclau/ecdsa_research/product25-final-20261016/candidate",
+    "nonce": 47449113,
+    "score": {
+      "score": 939285014,
+      "metrics": {
+        "toffoli": 761171,
+        "qubits": 1234
+      }
+    },
+    "shots": 9024,
+    "classical_mismatches": 0,
+    "phase_garbage_batches": 0,
+    "ancilla_garbage_batches": 0,
+    "total_executed_toffoli": 6868802834,
+    "mean_executed_toffoli": 761170.5268173759,
+    "old_public_product": 939347948,
+    "product_improvement": 62934,
+    "stream_sha256": "93122ce2668fe2861eba894b1520d3e44552c2094487337dd92300c2aa9d57d2",
+    "source_freeze_sha256": "eae8505df54f5d90240155b936c08a8baca7278a40dd8a54ef9904dcd621d477",
+    "native_receipt_sha256": "449f71cbe0909806aab93350d8d5009dbcc1091e2386739465fe8f681151582e",
+    "all_point_add_sources_still_frozen": true,
+    "protected_file_changes": [
+      "results.tsv"
+    ],
+    "protected_results_exception": "Exactly one unchanged-scorer OK row appended; copied with delta; candidate file remains untouched while paused",
+    "benchmark_result_json_present": false,
+    "final_exit_present": false,
+    "final_census_plan": "/home/hclau/ecdsa_research/product25-final-20261016/FINAL-CENSUS-PLAN.json",
+    "final_fresh_census_launched": false,
+    "submission_readiness": "Not yet complete under predeclared finalfresh requirement; no submission"
+  },
+  "all70": {
+    "last_complete_universal_stage": 19,
+    "paused_stage": 20,
+    "fixed_endpoint": 67,
+    "last_complete_stream": "all70-cache67-20261016/all70-19-retained-128.bin",
+    "last_complete_sha256": "b3f851c89325ea48fe3be04fa9a0ae0f951efe43624346883876bf522fb27b18",
+    "final_native_and_census_not_started": true,
+    "no_partial_checkpoint_submission_authority": true
+  },
+  "wide4096_record": {
+    "status": "DECLARATION_ONLY_NO_SOURCE_COPY_SEARCH_BUILD_OR_BENCHMARK_LAUNCHED",
+    "declaration": "/home/hclau/ecdsa_research/wide15-retained4096-record-20261016/DECLARATION.json",
+    "declaration_sha256": "2bd69ff15ba22ec613b884c3bfb3c22e9ccef1471ab0e4d6010c251ad8b23bb0"
+  },
+  "preserved_files": {
+    "stop-preserved/appended-results-row.tsv": "a74c0aac1bbcc74ce7ea3705ff831f100f0730b36ea7302cc34b93895d4f0db7",
+    "stop-preserved/benchmark.log": "9a6dba7e9bcd2f5b646187f4b63c99281fea15e70950d528fc97ee5178b12d01",
+    "stop-preserved/generated-full-results.tsv": "e8f7b6fed4c4087c8b5f2dc9ab9780bc58aa4308c330180307e34842d0a9dcde",
+    "stop-preserved/score.json": "e47fc87c8c340752fe1fc7f75d805941ac524a8628ff77c549b47268f4df64f6"
+  },
+  "resume_requires": "Explicit user authorization; recheck exact leader commands/PGIDs and resources; SIGCONT selected owned group only. No automatic resume. Parent also paused its own census coordinator."
+}

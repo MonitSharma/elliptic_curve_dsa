@@ -1,5 +1,33 @@
 # Agent handoff: start here
 
+## Latest: 16 October 2026, 09:40 Singapore — PLAIN67 product search running
+
+- **Rule change (user, 16 Oct):** the failure-rate gate is now statistical
+  (see `AGENTS.md`). It applies to gates declared from now on. **Product25
+  stays ineligible** (its declared gate failed: 4,139 vs 4,118 failing
+  batches) and must not be submitted or re-judged.
+- **PLAIN67** (record circuit `4b2ec52f` + 67-stage exact cache, Q1234,
+  −102.14 ± 0.44 T paired) passes the new gate on its pre-declared cohort:
+  value failures 3,622 vs 3,622, McNemar p = 0.65, 17.91 per packet, dirty 0.
+  Its ascending nonce search **started 09:36:40 Singapore** on the server:
+  4 × 14 threads, 48 h cap, expected about 18.5 h, queue mode. **Do not
+  stop or restart it.** Monitor and finish it as described in
+  [its STATUS](../experiments/plain67-operational-20261016/STATUS.md).
+- The other overnight pipelines (ALL70, ALL74, PRESEED10) remain stopped
+  (`T` state). Resume them only on an explicit user request.
+
+## STOPPED at user's request: 16 October 2026, 09:07 Singapore (historical)
+
+**Do not launch or resume research, searches, benchmarks, censuses or
+submissions.** The user requested a stop and candidate analysis in the review
+chat. Our owned live pipelines are reversibly stopped; all sources and partial
+outputs are preserved. Product25's unchanged benchmark finished just before
+STOP: **Q1234/T761171/product939285014**, all9,024shots/channels pass. Its final
+fresh census is NOTRUN, so it is not fully READY. The post-verifier is paused.
+Read [the complete stop and readiness checkpoint](../experiments/autorun-20261015-2239/STOP-20261016-0907.md)
+and each agent's STOP-CHECKPOINT before any continuation. Original active
+checkpoints below are historical. No submission or automatic resume was set.
+
 ## Latest: 16 October 2026, 08:55 Singapore
 
 Read the newest research-plan section first. PRODUCT25 SEARCH IS TERMINAL:
@@ -459,8 +487,12 @@ the upstream branches `submissions/80fe2050-…` and `submissions/ebf0b736-…`.
 - Only `src/point_add/` may differ in a submission. The harness, evaluator,
   simulator, curve reference, Cargo files and toolchain stay byte-identical.
 - **Nonces.** Screen an identity-tail nonce only on a **frozen** circuit
-  whose **fresh-input census** shows failed batches per 9,024-shot packet at
-  or below those of the record it beats, and never above 18. Pre-declare the
+  that passes the **statistical failure-rate gate** in `AGENTS.md` (16 Oct). On the same
+  declared fresh inputs (one label, ≥ 32,768 batches) versus the exact stream
+  of the record it beats: value failures no more than the parent's; one-sided
+  exact McNemar p ≥ 0.05 on the discordant batches; ≤ 18 failed batches per
+  packet; zero dirty shots. A declared gate's verdict is final; never re-judge
+  or resample. Pre-declare the nonce
   policy (we use: ascending from 1, lowest pass). Never pick a nonce for its
   T, never tune circuit content to a packet, and never cut gates that trade
   correctness for T. Publish the nonce, the census and the number screened.

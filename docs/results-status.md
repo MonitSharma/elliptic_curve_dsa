@@ -1,5 +1,33 @@
 # Results and submission status
 
+**09:40 — PLAIN67 is the next product candidate; search running.** It passes
+the new statistical failure-rate gate (`AGENTS.md`) on its pre-declared
+cohort and saves 102.14 ± 0.44 T per shot at Q1234 (diagnostic). Its lowest-pass
+nonce search started at 09:36:40 Singapore; no score yet. Product25 remains
+ineligible under its own declared gate.
+[PLAIN67 status](../experiments/plain67-operational-20261016/STATUS.md).
+
+**09:19 final verification — PRODUCT25 is not eligible for submission.**
+Its unchanged full benchmark passes at Q1234/T761171/product939285014, but
+the predeclared final census fails the comparison rule:4,139 candidate versus
+4,118 parent failing batches/32,768 (2,097,152 shots each), or17.810028 versus
+17.719666 per9,024 shots. Both are below18; candidate must also be no worse
+than parent. Independent raw recount agrees. No resampling or submission;
+other research remains paused. This supersedes the pending-gate status below.
+[Final verification report](../experiments/product25-final-20261016/VERIFICATION.md).
+
+**09:07 STOP checkpoint:** product25 completes the unchanged local benchmark
+at **Q1234/T761171/product939285014**, all9,024 shots and all correctness
+channels pass. This is62,934 below the current public product939347948.
+**Not submitted; not fully READY:** final fresh census has not run and the
+post-benchmark verifier is paused. The user requested stopping for candidate
+analysis; all owned active pipelines are reversibly stopped and no new work
+will launch. PLAIN67's102.138T diagnostic saving remains stronger but needs
+nonce/full benchmark; the Q1473 current-Toffoli-parent probe saves2.995T in a
+fixed fresh cohort and also has no selected nonce/full benchmark. Existing
+official753721/Q1468 and historical Q692 evidence remain preserved.
+[Full stop/candidate inventory](../experiments/autorun-20261015-2239/STOP-20261016-0907.md).
+
 **08:55 checkpoint:** product25 has a search pass at nonce47,449,113. The
 complete terminal audit validates47,452,160 distinct operational nonces and
 every lower nonce, with3,047 overrun. Exact final native source, unchanged

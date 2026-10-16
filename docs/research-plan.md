@@ -1,5 +1,48 @@
 # Research state and next experiments
 
+## Statistical gate adopted; PLAIN67 search running: 16 October 2026, 09:40 Singapore
+
+The user did not submit Product25 and replaced the strict "candidate ≤ parent"
+comparison with a statistical gate for future runs (`AGENTS.md`): value
+failures no more than parent, one-sided exact McNemar p ≥ 0.05, ≤ 18 failed
+batches per packet, zero dirty shots. Product25's verdict stands. PLAIN67
+passes the gate on its pre-declared cohort (3,622 = 3,622 value shots; 155
+newly failing vs 161 newly passing, p = 0.65; 17.91 per packet). Its
+ascending nonce search started at 09:36:40 Singapore (4 × 14 threads, 48 h
+cap, about 2.08×10⁸ expected nonces, about 18.5 h). A pass would give about
+761,120 × 1,234 ≈ 939.22M if the benchmark confirms it.
+[Status and finishing steps](../experiments/plain67-operational-20261016/STATUS.md).
+
+## Final PRODUCT25 verification: 16 October 2026, 09:19 Singapore
+
+The user authorized verification of the best preserved product candidate.
+Only PRODUCT25's post-benchmark verification and its already declared final
+fresh census were resumed; other research stays paused. Native/source and
+unchanged benchmark checks pass: Q1234/T761171/product939285014, all9,024 shots,
+zero value/phase/ancilla failures. The final census is terminal **FAIL**:
+candidate4139 versus parent4118 failing batches/32768, or17.810028 versus
+17.719666 per9,024 shots. Independent recount of all65,536 raw rows agrees.
+The candidate is below18 but worse than its paired parent, so it is not
+submittable under the existing standard. No resampling, source/nonce change
+or submission. Preserve all evidence and keep research paused.
+[Verification report](../experiments/product25-final-20261016/VERIFICATION.md).
+
+## STOPPED for candidate analysis: 16 October 2026, 09:07 Singapore
+
+The user requested a stop through the review chat. All owned live ECDSA
+pipelines are reversibly stopped; no new work or submissions. The unchanged
+product25 benchmark finished before pause: **Q1234/T761171/product939285014**,
+all9,024 shots pass/zero classical, phase or ancilla failures. It improves the
+current public product by62,934, but final fresh census and post-verifier are
+pending, so no READY or official record claim. Stronger PLAIN67 remains a
+102.138T diagnostic candidate without nonce/full benchmark. Root current-parent
+wide4096 passes its full fixed fresh gate at2.99464±.28166T saving/Q1473, but
+no new nonce search was started. Seed+1T is terminal negative/no failure change.
+Whole-family cache pipelines stop at PRESEED10 3/67, ALL70 19/67, ALL74 12/67.
+Both exact MAJ and broader bounded affine scans are terminal negatives.
+Read [the stop/readiness checkpoint](../experiments/autorun-20261015-2239/STOP-20261016-0907.md)
+for frozen sources, evidence, process groups and explicit resume requirements.
+
 ## Product lowest-pass audit: 16 October 2026, 08:55 Singapore
 
 The original frozen 25-stage product search is terminal. The unchanged auditor

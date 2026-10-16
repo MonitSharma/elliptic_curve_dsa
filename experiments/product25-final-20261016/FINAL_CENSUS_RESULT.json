@@ -1,0 +1,48 @@
+{
+  "status": "FINAL_FRESH_CENSUS_FAIL",
+  "failure_gate_pass": false,
+  "label": "product25-final-nonce-20261016-v1",
+  "cohorts": {
+    "parent": {
+      "batches": 32768,
+      "shots": 2097152,
+      "failed_batches": 4118,
+      "failed_shots": 4390,
+      "lambda_failed_batches_per9024": 17.71966552734375,
+      "toffoli_total": 1596400158510,
+      "mean_executed_toffoli": 761222.9149389267,
+      "value_shots": 3552,
+      "phase_shots": 2580,
+      "dirty_shots": 0
+    },
+    "candidate": {
+      "batches": 32768,
+      "shots": 2097152,
+      "failed_batches": 4139,
+      "failed_shots": 4413,
+      "lambda_failed_batches_per9024": 17.810028076171875,
+      "toffoli_total": 1596276593570,
+      "mean_executed_toffoli": 761163.9945840836,
+      "value_shots": 3552,
+      "phase_shots": 2606,
+      "dirty_shots": 0
+    }
+  },
+  "paired_mean_T_saving": 58.92035484313965,
+  "paired_saving_standard_error": 0.4398210311656798,
+  "newly_passing_batches": 158,
+  "newly_failing_batches": 179,
+  "source_sha256": {
+    "parent": "2a522394cdf3e6a0df7784ad4db761030933c1f7ccd0ff8e641d68ec7a4dab3e",
+    "candidate": "93122ce2668fe2861eba894b1520d3e44552c2094487337dd92300c2aa9d57d2"
+  },
+  "raw_row_sha256": {
+    "parent": "478e6fe257f602c58381a3c8ae6f6c7ebbf14206e310ff25b4ee9cc3e3d260f1",
+    "candidate": "df9f400f293cb5998fcc401f5379b0a364e723ae2d1be7dfc8f4b04697cf4628"
+  },
+  "binding_sha256": "58db6b44356bb799b1c7d64b1ae4b7f0d44278d51122878a2f5de579b34fbd4d",
+  "all_rows_included": true,
+  "no_resampling": true,
+  "submission_mode": "queue",
+  "public_submission_performed": false
+}

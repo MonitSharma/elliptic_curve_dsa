@@ -1,0 +1,40 @@
+{
+  "status": "FAILURE_GATE_PASS",
+  "rule": "AGENTS.md statistical failure-rate gate, 16 October 2026",
+  "label": "product67-frozen-20261016",
+  "batches": 32768,
+  "shots_each": 2097152,
+  "parent_stream_sha256": "2a522394cdf3e6a0df7784ad4db761030933c1f7ccd0ff8e641d68ec7a4dab3e",
+  "candidate_stream_sha256": "268aefe234ede5eaab723e34e214b91f0bd8cac9b0f95d9ee90e3bf3ae8c951d",
+  "census_sha256": {
+    "parent": "1cab583d7af943943e1778168494791dbd3bc93a65552e17e8d6fae7a1f816c9",
+    "candidate": "2f32c7d8da73b1dd29be200ab71b0cf912f2a208f3967fbdf4640ea70d79f7da"
+  },
+  "failed_batches": {
+    "parent": 4168,
+    "candidate": 4162
+  },
+  "failed_batches_per_packet": {
+    "parent": 17.934814453125,
+    "candidate": 17.90899658203125
+  },
+  "value_shots": {
+    "parent": 3622,
+    "candidate": 3622
+  },
+  "dirty_shots": {
+    "parent": 0,
+    "candidate": 0
+  },
+  "newly_failing_b": 155,
+  "newly_passing_c": 161,
+  "mcnemar_one_sided_p": 0.6530959773073822,
+  "rules": {
+    "1_value_failures_not_above_parent": true,
+    "2_mcnemar_one_sided_p_at_least_0.05": true,
+    "3_failed_batches_per_packet_at_most_18": true,
+    "4_zero_dirty_shots": true
+  },
+  "also_passed_old_rule_candidate_le_parent": true,
+  "new_sample_drawn": false
+}

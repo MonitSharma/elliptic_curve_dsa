@@ -23,13 +23,29 @@ evidence, including the Q692 width result.
   reports. Never display their generated or diagnostic counts as scored results.
 - Disclosed-failure-rate standard (user decision, 15 October 2026; replaces the
   earlier no-nonce rule). An identity-tail nonce may be searched only on a
-  finished, frozen circuit, and only if its fresh-input census shows expected
-  failed batches per 9,024-shot packet at or below those of the record it
-  beats (and never above the community cap of 18). Publish the nonce, the
-  census (inputs, shot count, failure rate) and the number of nonces screened
-  with every submission. Never tune circuit content, tables or cuts to a
-  packet, and never trade correctness for Toffolis to exploit the search. Run
-  the unchanged official benchmark on final source.
+  finished, frozen circuit that meets the failure-rate gate below. Publish
+  the nonce, the census (label, inputs, shot count, failure rates, test
+  statistics) and the number of nonces screened with every submission. Never
+  tune circuit content, tables or cuts to a packet, and never trade
+  correctness for Toffolis to exploit the search. Run the unchanged official
+  benchmark on final source.
+- Failure-rate gate (statistical form, user decision, 16 October 2026). It
+  applies only to gates declared after this date; earlier verdicts stand, so
+  Product25 stays ineligible. Compare the candidate with the exact public
+  stream of the record it would beat (the parent) on the same fresh inputs:
+  one census label and at least 32,768 batches of 64 shots, with the label and
+  batch count declared in writing before the census runs. All four must hold:
+  1. Value-failing shots (wrong output point) in the candidate are no more
+     than in the parent.
+  2. Not significantly worse on the paired test: with b batches newly failing
+     and c newly passing, the one-sided exact McNemar p-value
+     P(X ≥ b | X ~ Binomial(b + c, 1/2)) is at least 0.05.
+  3. Candidate failed batches per 9,024-shot packet, 141 × (failed batches /
+     total batches), is at most 18.
+  4. Zero dirty-ancilla shots.
+  The outcome of a declared gate is final. Never rerun with a new label, more
+  batches or another nonce to turn a failure into a pass. Never re-judge a
+  past verdict under a newer rule.
 - The three tracks are Git submodules. Save experimental diffs under
   `experiments/`; uncommitted nested files are not preserved by a root commit.
 - Use SSH alias `smu_server`. ECDSA work belongs in

@@ -1,0 +1,72 @@
+{
+  "status": "SOURCE_BOUND_MASK_TRANSFER_AND_RUNTIME_ACCEPTED_FOR_ASCENDING_SEARCH",
+  "accepted_utc": "2026-10-16T01:35:54.453835+00:00",
+  "candidate": "PLAIN67 (67-stage exact cache chain on public product record 4b2ec52f)",
+  "candidate_stream_sha256": "268aefe234ede5eaab723e34e214b91f0bd8cac9b0f95d9ee90e3bf3ae8c951d",
+  "mask_sha256": "560c12d5044dd895a4ef32adc905cdde48a780a196b3b28a75951c7f27b4fe9d",
+  "lowest_pass_from": 1,
+  "submission_mode": "queue",
+  "failure_gate_pass": true,
+  "failure_gate": {
+    "status": "FAILURE_GATE_PASS",
+    "rule": "AGENTS.md statistical failure-rate gate, 16 October 2026",
+    "label": "product67-frozen-20261016",
+    "batches": 32768,
+    "shots_each": 2097152,
+    "parent_stream_sha256": "2a522394cdf3e6a0df7784ad4db761030933c1f7ccd0ff8e641d68ec7a4dab3e",
+    "candidate_stream_sha256": "268aefe234ede5eaab723e34e214b91f0bd8cac9b0f95d9ee90e3bf3ae8c951d",
+    "census_sha256": {
+      "parent": "1cab583d7af943943e1778168494791dbd3bc93a65552e17e8d6fae7a1f816c9",
+      "candidate": "2f32c7d8da73b1dd29be200ab71b0cf912f2a208f3967fbdf4640ea70d79f7da"
+    },
+    "failed_batches": {
+      "parent": 4168,
+      "candidate": 4162
+    },
+    "failed_batches_per_packet": {
+      "parent": 17.934814453125,
+      "candidate": 17.90899658203125
+    },
+    "value_shots": {
+      "parent": 3622,
+      "candidate": 3622
+    },
+    "dirty_shots": {
+      "parent": 0,
+      "candidate": 0
+    },
+    "newly_failing_b": 155,
+    "newly_passing_c": 161,
+    "mcnemar_one_sided_p": 0.6530959773073822,
+    "rules": {
+      "1_value_failures_not_above_parent": true,
+      "2_mcnemar_one_sided_p_at_least_0.05": true,
+      "3_failed_batches_per_packet_at_most_18": true,
+      "4_zero_dirty_shots": true
+    },
+    "also_passed_old_rule_candidate_le_parent": true,
+    "new_sample_drawn": false
+  },
+  "cost_gate_pass": true,
+  "expected_nonces": 207962434.33397862,
+  "pilot_rate_nonces_per_thread_second": 55.82911610674972,
+  "expected_hours_at_56_threads_ideal_linear": 18.4770916334146,
+  "wall_limit_hours": 48,
+  "runtime_artifacts": {
+    "/home/hclau/ecdsa_research/product-exact-20261015/product-to67-rank-20261016/product-67-retained-1024-proxy.bin": "268aefe234ede5eaab723e34e214b91f0bd8cac9b0f95d9ee90e3bf3ae8c951d",
+    "/home/hclau/ecdsa_research/product-exact-20261015/cache-certificate67-20261016/CACHE_EQUIVALENCE_CERTIFICATE.json": "303a75ec86a4da8c3a4008646e1b8257768fa40e198f0b7172eeafd19408c7c6",
+    "/home/hclau/ecdsa_research/product-exact-20261015/cache-certificate67-20261016/PER_INPUT_MASK_TRANSFER.json": "d774c492b94f1c6ca458cc42de82d6dbee90a316f7d80c9dc6ee32eb1fe5201f",
+    "/home/hclau/ecdsa_research/prefilter-20261015/evidence/mr-mask-tip-v3.bin": "560c12d5044dd895a4ef32adc905cdde48a780a196b3b28a75951c7f27b4fe9d",
+    "/home/hclau/ecdsa_research/prefilter-20261015/evidence/mr-mask-tip-v3-fused.bin": "1ccbbfc4a45b8d359be9ce21eb4640c72bb9bfe9bffb35f5630c0d13da3f2f8a",
+    "/home/hclau/ecdsa_research/prefilter-20261015/libmask_fused.so": "dc8219ae84c21e244ec0e1b92a14e9d0705faf7ebced04a2663499a75a6af1a0",
+    "/home/hclau/ecdsa_research/scalar-fast-20261015/libscalar_fast_batch.so": "3bb2304219fb336795ea88d4bf81174883cdd33702f5975819b812c3dffca30f"
+  },
+  "derivation": "Same operational patches as product25-operational-20261016 (prepare.py, search.rs), applied to the PLAIN67-qualified product67-filter tool; TOOL_DIFF_AUDIT.json proves the patched sources differ from product25's only in PLAIN67 bindings.",
+  "remaining_gates": [
+    "Lane-0 control equals qualified rows 1..4096 (CONTROL.json)",
+    "Every lower nonce accounted before selecting the lowest pass",
+    "Native source with selected TAIL_NONCE reproduces the pre-tail stream",
+    "Unchanged official benchmark.sh on the final source"
+  ],
+  "score": null
+}

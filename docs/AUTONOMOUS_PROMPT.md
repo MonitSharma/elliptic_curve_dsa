@@ -37,9 +37,12 @@ and switch to another. Idle time is the only failure.
 - A submission may change only src/point_add/. The harness, evaluator,
   simulator, curve reference, Cargo files and toolchain stay byte-identical.
 - Disclosed-failure-rate standard: screen identity-tail nonces only on a
-  frozen circuit whose fresh-input census failure rate (failed batches per
-  9,024-shot packet) is at or below that of the record it beats, and never
-  above 18. Nonce policy: ascending from 1, lowest pass. Never pick a nonce by
+  frozen circuit that passes the statistical gate in AGENTS.md: on the same
+  declared fresh inputs (one label, >= 32,768 batches, declared in writing
+  before running) versus the exact stream of the record it beats, value
+  failures no more than the parent's, one-sided exact McNemar p >= 0.05 on
+  the discordant batches, <= 18 failed batches per packet, zero dirty shots.
+  A declared gate's verdict is final: never resample or re-judge. Nonce policy: ascending from 1, lowest pass. Never pick a nonce by
   its T, never tune content to a packet, and never delete or weaken gates in a
   way that trades correctness for resources (no census-style rare-event cuts).
   Publish the nonce, census and number screened in every note.
@@ -104,8 +107,10 @@ Fetch any source with: git -C /home/hclau/ecdsa_research/toffoli fetch origin <s
        shots (must be 0). For very large width streams, use fewer batches
        and say so.
     c. The improvement must clear the target record with margin (packet SD
-       of mean T is about 6 on the 1,234-qubit circuits), and the failure
-       rate must meet the standard.
+       of mean T is about 6 on the 1,234-qubit circuits), and the frozen
+       circuit must pass the statistical failure-rate gate (declare its label
+       and >= 32,768 batches first; gate.py in
+       experiments/plain67-operational-20261016 computes all four criteria).
     d. The nonce search must be affordable: expected thread-hours =
        E[batches per nonce] x 0.25 s / (1 − f)^141, where f is the batch-failure
        fraction (see experiments/product-tip-20261015/figures/search-cost.png).

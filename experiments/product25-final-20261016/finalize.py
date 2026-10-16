@@ -93,6 +93,18 @@ def prepare():
       'submission_mode':'queue','census_owner':'root; no census launched here'})
     print('SOURCE_FREEZE_SHA256',sha(r/'SOURCE_FREEZE.json'),flush=True)
 def benchmark():
+    # The unchanged scorer appends its authoritative row to tracked results.tsv.
+    # Preserve that full file, validate the single generated row, then restore
+    # historical HEAD bytes before repeating the protected source checks.
+    generated=(t/'results.tsv').read_bytes(); historical=git('show','HEAD:results.tsv')
+    assert generated.startswith(historical)
+    appended=generated[len(historical):]; rows=appended.decode().splitlines()
+    assert len(rows)==1,rows
+    fields=rows[0].split('\t'); assert len(fields)>=8 and fields[6]=='OK' and fields[4:6]==['1234','14142629'],fields
+    (r/'results.tsv').write_bytes(generated)
+    (r/'benchmark-appended-row.tsv').write_bytes(appended)
+    shutil.copy2(t/'score.json',r/'score.json')
+    (t/'results.tsv').write_bytes(historical)
     before=json.loads((r/'NATIVE_RECEIPT.json').read_text())
     native_receipt()
     after=json.loads((r/'NATIVE_RECEIPT.json').read_text()); assert before==after
@@ -103,11 +115,18 @@ def benchmark():
     score=json.loads((t/'score.json').read_text()); assert set(score)=={'score','metrics'}
     assert set(score['metrics'])=={'toffoli','qubits'}
     q=score['metrics']['qubits']; tof=score['metrics']['toffoli']; assert q==1234 and score['score']==q*tof
-    shutil.copy2(t/'score.json',r/'score.json'); shutil.copy2(t/'results.tsv',r/'results.tsv')
+    totals=re.findall(r'total Toffoli \(sum\)\s*:\s*(\d+) over 9024 shots',log)
+    assert len(totals)==1,totals
+    total_toffoli=int(totals[0]); mean_toffoli=total_toffoli/9024
+    assert int(mean_toffoli+0.5)==tof
+    assert fields[2]==f'{mean_toffoli:.3f}'
     save('BENCHMARK_RESULT.json',{'status':'UNCHANGED_BENCHMARK_PASS','candidate_stream_sha256':after['candidate_stream_sha256'],
       'qubits':q,'rounded_mean_toffoli':tof,'product':score['score'],'score_sha256':sha(r/'score.json'),
       'native_receipt_sha256':sha(r/'NATIVE_RECEIPT.json'),'source_freeze_sha256':sha(r/'SOURCE_FREEZE.json'),
       'benchmark_log_sha256':sha(r/'benchmark.log'),'tested_shots':9024,'classical_mismatches':0,
-      'phase_garbage_batches':0,'ancilla_garbage_batches':0,'nonce':nonce,'submission_mode':'queue'})
+      'phase_garbage_batches':0,'ancilla_garbage_batches':0,'nonce':nonce,
+      'total_executed_toffoli':total_toffoli,'mean_executed_toffoli':mean_toffoli,
+      'authoritative_results_row_mean':fields[2],'generated_full_results_sha256':sha(r/'results.tsv'),
+      'appended_results_row_sha256':sha(r/'benchmark-appended-row.tsv'),'submission_mode':'queue'})
     print((r/'BENCHMARK_RESULT.json').read_text(),flush=True)
 if __name__=='__main__': {'prepare':prepare,'native':native_receipt,'benchmark':benchmark}[sys.argv[1]]()
