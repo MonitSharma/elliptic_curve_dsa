@@ -1,0 +1,82 @@
+{
+  "status": "ACTUAL FINAL431-WITNESS ATTRIBUTION; DIAGNOSTIC ONLY",
+  "source_stream_sha256": "2a522394cdf3e6a0df7784ad4db761030933c1f7ccd0ff8e641d68ec7a4dab3e",
+  "original_cohort_label": "tip-4b2ec52f",
+  "no_new_sampling": true,
+  "exact_original_input_keys_MR_continuation_and_failure_flags_reproduced": true,
+  "every_q_b_phase_T_protected_differential": true,
+  "full_original_batches_replayed": 413,
+  "context_shots": 26432,
+  "target_witnesses": 431,
+  "all": {
+    "shots": 431,
+    "batches": 413,
+    "lambda_value_affected_batches_per9024": 14.217041015625,
+    "by_category": {
+      "wrong_global_stage_without_observed_payload_transition_mismatch": 103,
+      "other_actual_payload_transition_mismatch": 299,
+      "exact_fold_boundary_loss": 26,
+      "exact_square_window_loss": 3
+    },
+    "first_global_stage": {
+      "multiply": 214,
+      "divide": 212,
+      "square": 5
+    },
+    "payload_phase_direction": {
+      "NONE": 104,
+      "divide/forward": 270,
+      "multiply/reverse": 57
+    }
+  },
+  "advisory_model_unexplained": {
+    "shots": 55,
+    "batches": 54,
+    "lambda_value_affected_batches_per9024": 1.85888671875,
+    "by_category": {
+      "exact_fold_boundary_loss": 26,
+      "other_actual_payload_transition_mismatch": 24,
+      "wrong_global_stage_without_observed_payload_transition_mismatch": 2,
+      "exact_square_window_loss": 3
+    },
+    "first_global_stage": {
+      "multiply": 22,
+      "divide": 28,
+      "square": 5
+    },
+    "payload_phase_direction": {
+      "multiply/reverse": 14,
+      "divide/forward": 38,
+      "NONE": 3
+    }
+  },
+  "event_counts": {
+    "PAY_EVENT": 327,
+    "STAGE_EVENT": 431,
+    "FOLD_BOUNDARY": 34,
+    "FOLD_LOW_MISMATCH": 0,
+    "WINDOW_EVENT": 3,
+    "PAY_SHOT": 431,
+    "ATTR_BATCH": 413
+  },
+  "marker_coverage": {
+    "source_markers": 1113,
+    "admitted_markers": 1107,
+    "unknown_regions": 3,
+    "source_counts": {
+      "payload": 550,
+      "fold": 526,
+      "stage": 3,
+      "window": 34
+    },
+    "admitted_counts": {
+      "payload": 550,
+      "fold": 520,
+      "stage": 3,
+      "window": 34
+    }
+  },
+  "reports_no_record_or_repair": true,
+  "no_candidate_change": true,
+  "no_packet_selected_cuts": true
+}

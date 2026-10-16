@@ -1,0 +1,130 @@
+{
+  "status": "SOURCE_ONLY_BOUNDED_TWO_CCX_AFFINE_INVENTORY_COMPLETE",
+  "source_sha256": "1d8c05eeee7b43dd694506b5efe963c771461b7e690bc62f409947b2306b7d77",
+  "ops": 10522755,
+  "scan_counters": {
+    "CCX_seeds": 773580,
+    "target_read_barrier": 737093,
+    "non_X_CX_SWAP_barrier": 4193,
+    "other_CCX_target_barrier": 21064,
+    "support_cap": 9138,
+    "guard_barrier": 1837,
+    "rank4": 3,
+    "separator_cap": 252
+  },
+  "all_cones": [
+    {
+      "begin": 5264778,
+      "end_exclusive": 5264782,
+      "middle_ops": 2,
+      "target": 778,
+      "entry_control_wires": [
+        320,
+        321,
+        352,
+        353
+      ],
+      "direct_condition": null,
+      "rank": 4,
+      "old_T": 2,
+      "new_T": 2,
+      "syntactic_T_saving": 0,
+      "polynomial": {
+        "constant": 0,
+        "linear": 0,
+        "polar_rows": [
+          8,
+          4,
+          2,
+          1
+        ]
+      },
+      "factorization_and_exact_frame": {
+        "rank": 4,
+        "T": 2
+      },
+      "span_sha256": "48beee97e837fa1def041a6ba7146f005c8e5e5a4b4238bd32f1f31c29c40ced",
+      "entry_depth": 0,
+      "provable_enable": "true"
+    },
+    {
+      "begin": 5470112,
+      "end_exclusive": 5470116,
+      "middle_ops": 2,
+      "target": 644,
+      "entry_control_wires": [
+        448,
+        449,
+        480,
+        481
+      ],
+      "direct_condition": null,
+      "rank": 4,
+      "old_T": 2,
+      "new_T": 2,
+      "syntactic_T_saving": 0,
+      "polynomial": {
+        "constant": 0,
+        "linear": 0,
+        "polar_rows": [
+          8,
+          4,
+          2,
+          1
+        ]
+      },
+      "factorization_and_exact_frame": {
+        "rank": 4,
+        "T": 2
+      },
+      "span_sha256": "2b9042335ba19ce505a14ceab96cb96464ce4b7aeaf0f907db66743c47877b53",
+      "entry_depth": 0,
+      "provable_enable": "true"
+    },
+    {
+      "begin": 5693984,
+      "end_exclusive": 5693988,
+      "middle_ops": 2,
+      "target": 797,
+      "entry_control_wires": [
+        448,
+        449,
+        480,
+        481
+      ],
+      "direct_condition": null,
+      "rank": 4,
+      "old_T": 2,
+      "new_T": 2,
+      "syntactic_T_saving": 0,
+      "polynomial": {
+        "constant": 0,
+        "linear": 0,
+        "polar_rows": [
+          8,
+          4,
+          2,
+          1
+        ]
+      },
+      "factorization_and_exact_frame": {
+        "rank": 4,
+        "T": 2
+      },
+      "span_sha256": "f5d66f6c77e53f81119801eb05e3e94fa00665fc76ffbf3370d90f21f872add8",
+      "entry_depth": 0,
+      "provable_enable": "true"
+    }
+  ],
+  "selected_beneficial_indices": [],
+  "selected_nonoverlap_cones": 0,
+  "selected_rank_counts": {},
+  "selected_provable_enable_counts": {},
+  "guaranteed_executed_T_saving_per_shot": 0,
+  "maximum_selected_syntactic_T_saving_per_shot": 0,
+  "selection": "Maximum-cardinality beneficial disjoint intervals by earliest finish, then earliest start; not a maximum-weight T optimization.",
+  "elapsed_seconds": 18.522568363696337,
+  "candidate_created": false,
+  "census_or_nonce_search": false,
+  "mean_T_claim": false
+}

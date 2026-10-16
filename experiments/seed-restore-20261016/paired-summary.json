@@ -1,0 +1,60 @@
+{
+  "status": "SOLE FIXED FRESH GATE TERMINAL",
+  "parent": {
+    "shots": 2097152,
+    "batches": 32768,
+    "toffoli": 1596401387448,
+    "value_shots": 3622,
+    "phase_shots": 2723,
+    "dirty_shots": 0,
+    "failed_batches": 4214,
+    "failed_shots": 4523,
+    "mean_toffoli": 761223.5009422302,
+    "lambda_failed_batches_per9024": 18.13275146484375
+  },
+  "candidate": {
+    "shots": 2097152,
+    "batches": 32768,
+    "toffoli": 1596403484600,
+    "value_shots": 3622,
+    "phase_shots": 2723,
+    "dirty_shots": 0,
+    "failed_batches": 4214,
+    "failed_shots": 4523,
+    "mean_toffoli": 761224.5009422302,
+    "lambda_failed_batches_per9024": 18.13275146484375
+  },
+  "newly_passing_shots": 0,
+  "newly_failing_shots": 0,
+  "unchanged_failing_shots": 4523,
+  "newly_passing_batches": 0,
+  "newly_failing_batches": 0,
+  "repairs": {
+    "value": [],
+    "phase": [],
+    "dirty": []
+  },
+  "regressions": {
+    "value": [],
+    "phase": [],
+    "dirty": []
+  },
+  "changes": [],
+  "paired_mean_toffoli_delta": 1,
+  "paired_toffoli_delta_se": 0,
+  "strict_paired_failure_gate_passed": false,
+  "label": "public4b-all-seed-dropped-control-restore-independent-20261016-v1",
+  "domain": "ecdsa-research-failure-census-v1",
+  "source_stream_sha256": "a996cf16d64b11a20cb9a56d0688d034153f843751f640ea7113f50739c20608",
+  "family_predeclaration_sha256": "98ccedaa3eaed8efa99458d2daa84aa7968d3e19ee765855aa47d606c30115c6",
+  "Q": 1234,
+  "added_T": 1,
+  "added_MR": 0,
+  "old_MR_draw_ordinal_coupling": "identity; no added draws or classical/scope edits; common labelled input/RNG stream",
+  "no_resampling": true,
+  "nonce_search": false,
+  "official_packet": false,
+  "resource_score": false,
+  "old_arithmetic_mask_transferred": false,
+  "eligibility": "Standalone costs1T and cannot improve a resource record alone; cache composition requires independent exact lease/source/interface proof and a separately frozen whole-composite gate."
+}

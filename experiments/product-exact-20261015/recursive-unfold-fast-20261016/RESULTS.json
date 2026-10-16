@@ -1,0 +1,209 @@
+{
+  "status": "ALL_FOUR_PREDECLARED_CASES_COMPLETE_DIAGNOSTIC_ONLY",
+  "scope": "Four independent fixed cases, all retained including slower/no-gain configurations. Every512 full quantum/classical/phase/scratch comparison passes. These fixed coupled packets are diagnostics, not universal numerical means, native candidates, fresh failure gates or scored records.",
+  "source_declaration_sha256": "d33ea0ab9fd15e3e282a56cbb108def51f1e6a26b8c1b83404366dac2769465b",
+  "cases": [
+    {
+      "family": "product53",
+      "atom_cap": 128,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "extra_qubits_offered": 0,
+      "stream": "recursive-unfold-fast-20261016/product53-128.bin",
+      "stream_sha256": "716b83db41b491bbd80ff7eca1fa5215ccc95639becd0d0a0711dc30b2c4f94f",
+      "chain_manifest": "recursive-unfold-fast-20261016/product53-128.manifest",
+      "chain_manifest_sha256": "0c4f0b7ae14ee89c6acaa3c331b306684cb3a11a074f2adb9aad68c6332054c1",
+      "generate_log_sha256": "2dfcbc62832b82dc59d5b8fd6c8f488540c7f0364bac5259f8a68c07b756f53c",
+      "resources": {
+        "path": "recursive-unfold-fast-20261016/product53-128.bin",
+        "ops": 16804271,
+        "qubits": 1234,
+        "classical_bits": 52112,
+        "registers": 4,
+        "u16_physical_ids_supported": true
+      },
+      "packets": {
+        "independent": {
+          "shots": "256",
+          "unequal_batches": "0",
+          "left_bad": "1",
+          "right_bad": "1",
+          "left_phase_batches": "0",
+          "right_phase_batches": "0",
+          "left_dirty_batches": "0",
+          "right_dirty_batches": "0",
+          "paired_gate_saving_total": "23161",
+          "paired_gate_saving_mean": "90.47265625",
+          "score": "NONE"
+        },
+        "structured": {
+          "shots": "256",
+          "unequal_batches": "0",
+          "left_bad": "189",
+          "right_bad": "189",
+          "left_phase_batches": "4",
+          "right_phase_batches": "4",
+          "left_dirty_batches": "0",
+          "right_dirty_batches": "0",
+          "paired_gate_saving_total": "23161",
+          "paired_gate_saving_mean": "90.47265625",
+          "score": "NONE"
+        }
+      },
+      "wall_time": "16:38.87",
+      "peak_rss_kib": 4841740
+    },
+    {
+      "family": "product53",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "extra_qubits_offered": 0,
+      "stream": "recursive-unfold-fast-20261016/product53-512.bin",
+      "stream_sha256": "ae7d60085d8cdda83e56009a756ade238794be765cc83d0a9125e5608db53fe2",
+      "chain_manifest": "recursive-unfold-fast-20261016/product53-512.manifest",
+      "chain_manifest_sha256": "4b9037fa9943c8da522f1d2248cf7ff4c6ee83d7ac5590a288046a2dcd954b17",
+      "generate_log_sha256": "ef95b7ee22466c81c8648d94dd4bbb0fc3c9d5261a412bafab3d1aae23846f89",
+      "resources": {
+        "path": "recursive-unfold-fast-20261016/product53-512.bin",
+        "ops": 16804302,
+        "qubits": 1234,
+        "classical_bits": 52112,
+        "registers": 4,
+        "u16_physical_ids_supported": true
+      },
+      "packets": {
+        "independent": {
+          "shots": "256",
+          "unequal_batches": "0",
+          "left_bad": "1",
+          "right_bad": "1",
+          "left_phase_batches": "0",
+          "right_phase_batches": "0",
+          "left_dirty_batches": "0",
+          "right_dirty_batches": "0",
+          "paired_gate_saving_total": "23161",
+          "paired_gate_saving_mean": "90.47265625",
+          "score": "NONE"
+        },
+        "structured": {
+          "shots": "256",
+          "unequal_batches": "0",
+          "left_bad": "189",
+          "right_bad": "189",
+          "left_phase_batches": "4",
+          "right_phase_batches": "4",
+          "left_dirty_batches": "0",
+          "right_dirty_batches": "0",
+          "paired_gate_saving_total": "23161",
+          "paired_gate_saving_mean": "90.47265625",
+          "score": "NONE"
+        }
+      },
+      "wall_time": "49:53.01",
+      "peak_rss_kib": 6335616
+    },
+    {
+      "family": "wide43",
+      "atom_cap": 128,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "extra_qubits_offered": 16,
+      "stream": "recursive-unfold-fast-20261016/wide43-128.bin",
+      "stream_sha256": "1b7579a78ec6c26ae7210bd6d78f99349009623864ee1adb809d0c3be8fc558a",
+      "chain_manifest": "recursive-unfold-fast-20261016/wide43-128.manifest",
+      "chain_manifest_sha256": "cdd39cc85d27d807398ad3644acf419cfba54aa72cf831bcae049b154280fd19",
+      "generate_log_sha256": "ff67b4b6581a399c9bbe2d3f1872357e2d4e8419eb8ae3451b85c6b041408cbb",
+      "resources": {
+        "path": "recursive-unfold-fast-20261016/wide43-128.bin",
+        "ops": 10530051,
+        "qubits": 1471,
+        "classical_bits": 3916,
+        "registers": 4,
+        "u16_physical_ids_supported": true
+      },
+      "packets": {
+        "independent": {
+          "shots": "256",
+          "unequal_batches": "0",
+          "left_bad": "0",
+          "right_bad": "0",
+          "left_phase_batches": "0",
+          "right_phase_batches": "0",
+          "left_dirty_batches": "0",
+          "right_dirty_batches": "0",
+          "paired_gate_saving_total": "14579",
+          "paired_gate_saving_mean": "56.94921875",
+          "score": "NONE"
+        },
+        "structured": {
+          "shots": "256",
+          "unequal_batches": "0",
+          "left_bad": "128",
+          "right_bad": "128",
+          "left_phase_batches": "4",
+          "right_phase_batches": "4",
+          "left_dirty_batches": "0",
+          "right_dirty_batches": "0",
+          "paired_gate_saving_total": "14579",
+          "paired_gate_saving_mean": "56.94921875",
+          "score": "NONE"
+        }
+      },
+      "wall_time": "17:38.93",
+      "peak_rss_kib": 2544248
+    },
+    {
+      "family": "wide43",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "extra_qubits_offered": 16,
+      "stream": "recursive-unfold-fast-20261016/wide43-512.bin",
+      "stream_sha256": "8ec405248159fb6d16a9d292517cd561a27d726c98c86d66298c4f5d675928df",
+      "chain_manifest": "recursive-unfold-fast-20261016/wide43-512.manifest",
+      "chain_manifest_sha256": "a5774352b57b6a2ab95a9e2d5ef5e36a92943adbfcc9119647309872b3c63762",
+      "generate_log_sha256": "10d428b6a251dca5068bd1703e8c2b859f820a253fa6657c2d21b2b656d68665",
+      "resources": {
+        "path": "recursive-unfold-fast-20261016/wide43-512.bin",
+        "ops": 10530027,
+        "qubits": 1473,
+        "classical_bits": 3895,
+        "registers": 4,
+        "u16_physical_ids_supported": true
+      },
+      "packets": {
+        "independent": {
+          "shots": "256",
+          "unequal_batches": "0",
+          "left_bad": "0",
+          "right_bad": "0",
+          "left_phase_batches": "0",
+          "right_phase_batches": "0",
+          "left_dirty_batches": "0",
+          "right_dirty_batches": "0",
+          "paired_gate_saving_total": "13299",
+          "paired_gate_saving_mean": "51.94921875",
+          "score": "NONE"
+        },
+        "structured": {
+          "shots": "256",
+          "unequal_batches": "0",
+          "left_bad": "128",
+          "right_bad": "128",
+          "left_phase_batches": "4",
+          "right_phase_batches": "4",
+          "left_dirty_batches": "0",
+          "right_dirty_batches": "0",
+          "paired_gate_saving_total": "13299",
+          "paired_gate_saving_mean": "51.94921875",
+          "score": "NONE"
+        }
+      },
+      "wall_time": "41:58.75",
+      "peak_rss_kib": 4305012
+    }
+  ],
+  "score": null,
+  "nonce_search_performed": false
+}

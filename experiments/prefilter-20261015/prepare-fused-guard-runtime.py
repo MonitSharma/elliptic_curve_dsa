@@ -1,0 +1,10 @@
+from pathlib import Path
+import hashlib,json,tarfile
+p=Path(__file__).resolve().parent;r=p.parent;d=r/'repair67-fused-filter-20261016';assert not d.exists();d.mkdir()
+archive=r/'repair67-conditional-filter-20261016/evidence.tar.gz';assert hashlib.sha256(archive.read_bytes()).hexdigest()=='db095518788bfafb6cdf0ded3a1172a9e570a14988e48a502d13ab76d71d70f0'
+with tarfile.open(archive)as t:
+ pins=json.load(t.extractfile('PREPARED_SOURCE.json'))
+ (d/'PRECURSOR_SOURCE_PINS.json').write_bytes((json.dumps(pins,indent=2)+'\n').encode())
+ (d/'precursor-run.py').write_bytes(t.extractfile('run.py').read())
+(d/'DECLARATION.json').write_bytes((json.dumps({'status':'ISOLATED_DISABLED_OPTIONAL_FUSED_GUARD_QUALIFICATION_ONLY','precursor_archive_sha256':'db095518788bfafb6cdf0ded3a1172a9e570a14988e48a502d13ab76d71d70f0','candidate_stream_sha256':'0beec42b117e5f623736c4171e156d8ffdfaeeb585285636f91bab2838e7c10b','G_sha256':'355f9951eda21a7204a96fd391b3208e8d6e000dce6a14feb40d8f19b637f2b3','wrapper_sha256':'5477d190d11716b0769d0d1c681b49368549345e095a71c85fae871e48e14375','plan_sha256':'e889e0a6f123a7ae34a9d81339a209ba93aad5246b224057107de3360a9c578a','lineage_sha256':'8c7efbddc0bb2d46f3e6a696f53ff677025b066219b3726e84ba12d47e5e070b','proof_accepted':False,'authoritative_rejection':False,'nonce_selection':False,'only_semantic_change':'Optional FUSED_GUARD switches raw G to universally identical fused G evaluator. Raw implementation retained. Resolved scalar library hash is additionally pinned. Original generic zero-MR IR remains identical in all trials.','threads_build_max':2,'threads_runtime':2,'GiB_process_cap':24,'reserve_GiB_min':100,'new_sampling':False,'controls':'Existingfixed445+32audit and deterministic partials; candidate full9024 q/b/phase/MR; forcedscheduler1,2; partial11; shadow128; three alternating raw/fused4096 complete rows all equal prior completed rows.','production_operational_changes':False},indent=2)+'\n').encode())
+print(d)

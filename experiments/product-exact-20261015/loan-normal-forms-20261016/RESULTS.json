@@ -1,0 +1,321 @@
+{
+  "status": "COMPLETE_SOURCE_ONLY_DIRTY_RHS_QUERIES_NO_CANDIDATE",
+  "rows": [
+    {
+      "at_after_out": 4051851,
+      "full_window_end": 4226087,
+      "phase": "divide",
+      "result": {
+        "candidate_limit": 4096,
+        "candidate_limit_truncated": false,
+        "candidate_pair_variants_per_factor_form_max": 8,
+        "candidate_pairs": 0,
+        "current_classical_slots": 45701,
+        "eligible_full_window_untouched_q": 650,
+        "immutable_next_atom": 845735,
+        "pair_method": "existing product-node inverse index only; no Cartesian quantum-pair search",
+        "physical_factor_pair_options_before_bounds": 0,
+        "quantum_basis_rank": 650,
+        "quantum_plus_classical_basis_rank": 1655,
+        "query_rows": [
+          {
+            "atom_count": 102,
+            "constant": true,
+            "direct_q_or_complement": [],
+            "direct_xor_two_q_count": 0,
+            "direct_xor_two_q_first16": [],
+            "existing_relevant_products_plus_affine": null,
+            "stable_q_affine": null,
+            "stable_q_plus_current_c_affine": null,
+            "target": 208
+          },
+          {
+            "atom_count": 475,
+            "constant": true,
+            "direct_q_or_complement": [],
+            "direct_xor_two_q_count": 0,
+            "direct_xor_two_q_first16": [],
+            "existing_relevant_products_plus_affine": null,
+            "stable_q_affine": null,
+            "stable_q_plus_current_c_affine": null,
+            "target": 209
+          },
+          {
+            "atom_count": 390,
+            "constant": true,
+            "direct_q_or_complement": [],
+            "direct_xor_two_q_count": 0,
+            "direct_xor_two_q_first16": [],
+            "existing_relevant_products_plus_affine": null,
+            "stable_q_affine": null,
+            "stable_q_plus_current_c_affine": null,
+            "target": 210
+          },
+          {
+            "atom_count": 0,
+            "constant": false,
+            "direct_q_or_complement": [],
+            "direct_xor_two_q_count": 0,
+            "direct_xor_two_q_first16": [],
+            "existing_relevant_products_plus_affine": {
+              "classical_xor_snapshot_needed": [],
+              "constant": false,
+              "products_count": 0,
+              "quantum_products": [],
+              "quantum_xor": [],
+              "roundtrip_added_CCX_if_valid": 0
+            },
+            "stable_q_affine": {
+              "classical_xor_snapshot_needed": [],
+              "constant": false,
+              "products_count": 0,
+              "quantum_products": [],
+              "quantum_xor": [],
+              "roundtrip_added_CCX_if_valid": 0
+            },
+            "stable_q_plus_current_c_affine": {
+              "classical_xor_snapshot_needed": [],
+              "constant": false,
+              "products_count": 0,
+              "quantum_products": [],
+              "quantum_xor": [],
+              "roundtrip_added_CCX_if_valid": 0
+            },
+            "target": 211
+          },
+          {
+            "atom_count": 333,
+            "constant": false,
+            "direct_q_or_complement": [],
+            "direct_xor_two_q_count": 0,
+            "direct_xor_two_q_first16": [],
+            "existing_relevant_products_plus_affine": null,
+            "stable_q_affine": null,
+            "stable_q_plus_current_c_affine": null,
+            "target": 556
+          },
+          {
+            "atom_count": 332,
+            "constant": false,
+            "direct_q_or_complement": [],
+            "direct_xor_two_q_count": 0,
+            "direct_xor_two_q_first16": [],
+            "existing_relevant_products_plus_affine": null,
+            "stable_q_affine": null,
+            "stable_q_plus_current_c_affine": null,
+            "target": 555
+          },
+          {
+            "atom_count": 470,
+            "constant": true,
+            "direct_q_or_complement": [],
+            "direct_xor_two_q_count": 0,
+            "direct_xor_two_q_first16": [],
+            "existing_relevant_products_plus_affine": null,
+            "stable_q_affine": null,
+            "stable_q_plus_current_c_affine": null,
+            "target": 554
+          },
+          {
+            "atom_count": 0,
+            "constant": false,
+            "direct_q_or_complement": [],
+            "direct_xor_two_q_count": 0,
+            "direct_xor_two_q_first16": [],
+            "existing_relevant_products_plus_affine": {
+              "classical_xor_snapshot_needed": [],
+              "constant": false,
+              "products_count": 0,
+              "quantum_products": [],
+              "quantum_xor": [],
+              "roundtrip_added_CCX_if_valid": 0
+            },
+            "stable_q_affine": {
+              "classical_xor_snapshot_needed": [],
+              "constant": false,
+              "products_count": 0,
+              "quantum_products": [],
+              "quantum_xor": [],
+              "roundtrip_added_CCX_if_valid": 0
+            },
+            "stable_q_plus_current_c_affine": {
+              "classical_xor_snapshot_needed": [],
+              "constant": false,
+              "products_count": 0,
+              "quantum_products": [],
+              "quantum_xor": [],
+              "roundtrip_added_CCX_if_valid": 0
+            },
+            "target": 553
+          }
+        ],
+        "retained_product_nodes": 70664,
+        "scope": "Exact equalities in conservative immutable source support; absence is bounded proof failure, not impossibility. Classical terms require stable snapshots; return-zero and whole repair phase/value obligations remain. No rewrites or sampled inputs.",
+        "target_atom_ids_with_existing_inverse_product": 636
+      },
+      "rewrites_applied": false,
+      "sampled_inputs": 0,
+      "seconds": 8.670732538
+    },
+    {
+      "at_after_out": 7480333,
+      "full_window_end": 7606171,
+      "phase": "multiply",
+      "result": {
+        "candidate_limit": 4096,
+        "candidate_limit_truncated": false,
+        "candidate_pair_variants_per_factor_form_max": 8,
+        "candidate_pairs": 0,
+        "current_classical_slots": 45701,
+        "eligible_full_window_untouched_q": 650,
+        "immutable_next_atom": 1446571,
+        "pair_method": "existing product-node inverse index only; no Cartesian quantum-pair search",
+        "physical_factor_pair_options_before_bounds": 0,
+        "quantum_basis_rank": 650,
+        "quantum_plus_classical_basis_rank": 8149,
+        "query_rows": [
+          {
+            "atom_count": 419,
+            "constant": false,
+            "direct_q_or_complement": [],
+            "direct_xor_two_q_count": 0,
+            "direct_xor_two_q_first16": [],
+            "existing_relevant_products_plus_affine": null,
+            "stable_q_affine": null,
+            "stable_q_plus_current_c_affine": null,
+            "target": 208
+          },
+          {
+            "atom_count": 419,
+            "constant": false,
+            "direct_q_or_complement": [],
+            "direct_xor_two_q_count": 0,
+            "direct_xor_two_q_first16": [],
+            "existing_relevant_products_plus_affine": null,
+            "stable_q_affine": null,
+            "stable_q_plus_current_c_affine": null,
+            "target": 209
+          },
+          {
+            "atom_count": 438,
+            "constant": false,
+            "direct_q_or_complement": [],
+            "direct_xor_two_q_count": 0,
+            "direct_xor_two_q_first16": [],
+            "existing_relevant_products_plus_affine": null,
+            "stable_q_affine": null,
+            "stable_q_plus_current_c_affine": null,
+            "target": 210
+          },
+          {
+            "atom_count": 0,
+            "constant": false,
+            "direct_q_or_complement": [],
+            "direct_xor_two_q_count": 0,
+            "direct_xor_two_q_first16": [],
+            "existing_relevant_products_plus_affine": {
+              "classical_xor_snapshot_needed": [],
+              "constant": false,
+              "products_count": 0,
+              "quantum_products": [],
+              "quantum_xor": [],
+              "roundtrip_added_CCX_if_valid": 0
+            },
+            "stable_q_affine": {
+              "classical_xor_snapshot_needed": [],
+              "constant": false,
+              "products_count": 0,
+              "quantum_products": [],
+              "quantum_xor": [],
+              "roundtrip_added_CCX_if_valid": 0
+            },
+            "stable_q_plus_current_c_affine": {
+              "classical_xor_snapshot_needed": [],
+              "constant": false,
+              "products_count": 0,
+              "quantum_products": [],
+              "quantum_xor": [],
+              "roundtrip_added_CCX_if_valid": 0
+            },
+            "target": 211
+          },
+          {
+            "atom_count": 447,
+            "constant": false,
+            "direct_q_or_complement": [],
+            "direct_xor_two_q_count": 0,
+            "direct_xor_two_q_first16": [],
+            "existing_relevant_products_plus_affine": null,
+            "stable_q_affine": null,
+            "stable_q_plus_current_c_affine": null,
+            "target": 579
+          },
+          {
+            "atom_count": 403,
+            "constant": false,
+            "direct_q_or_complement": [],
+            "direct_xor_two_q_count": 0,
+            "direct_xor_two_q_first16": [],
+            "existing_relevant_products_plus_affine": null,
+            "stable_q_affine": null,
+            "stable_q_plus_current_c_affine": null,
+            "target": 577
+          },
+          {
+            "atom_count": 443,
+            "constant": false,
+            "direct_q_or_complement": [],
+            "direct_xor_two_q_count": 0,
+            "direct_xor_two_q_first16": [],
+            "existing_relevant_products_plus_affine": null,
+            "stable_q_affine": null,
+            "stable_q_plus_current_c_affine": null,
+            "target": 613
+          },
+          {
+            "atom_count": 0,
+            "constant": false,
+            "direct_q_or_complement": [],
+            "direct_xor_two_q_count": 0,
+            "direct_xor_two_q_first16": [],
+            "existing_relevant_products_plus_affine": {
+              "classical_xor_snapshot_needed": [],
+              "constant": false,
+              "products_count": 0,
+              "quantum_products": [],
+              "quantum_xor": [],
+              "roundtrip_added_CCX_if_valid": 0
+            },
+            "stable_q_affine": {
+              "classical_xor_snapshot_needed": [],
+              "constant": false,
+              "products_count": 0,
+              "quantum_products": [],
+              "quantum_xor": [],
+              "roundtrip_added_CCX_if_valid": 0
+            },
+            "stable_q_plus_current_c_affine": {
+              "classical_xor_snapshot_needed": [],
+              "constant": false,
+              "products_count": 0,
+              "quantum_products": [],
+              "quantum_xor": [],
+              "roundtrip_added_CCX_if_valid": 0
+            },
+            "target": 612
+          }
+        ],
+        "retained_product_nodes": 182773,
+        "scope": "Exact equalities in conservative immutable source support; absence is bounded proof failure, not impossibility. Classical terms require stable snapshots; return-zero and whole repair phase/value obligations remain. No rewrites or sampled inputs.",
+        "target_atom_ids_with_existing_inverse_product": 670
+      },
+      "rewrites_applied": false,
+      "sampled_inputs": 0,
+      "seconds": 14.718987736999999
+    }
+  ],
+  "stream_sha256": "2a522394cdf3e6a0df7784ad4db761030933c1f7ccd0ff8e641d68ec7a4dab3e",
+  "executable_sha256": "ed9549ba17b2eda3ed6408ec0da6f5ec15c7944a674116a7e8f6bf4cb82b12ac",
+  "sampled_inputs": 0,
+  "emits_stream": false
+}

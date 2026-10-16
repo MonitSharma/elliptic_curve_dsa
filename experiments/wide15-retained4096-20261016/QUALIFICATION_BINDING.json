@@ -1,0 +1,65 @@
+{
+  "status": "BOUND_BEFORE_ANCHORED_OR_FRESH_EVALUATION",
+  "source_sha256": {
+    "parent": "1d8c05eeee7b43dd694506b5efe963c771461b7e690bc62f409947b2306b7d77",
+    "candidate": "1d4a9e1ed9d0a81bd16b922cfa7b2d2570792d1f91215de7f3300c9f795860b1"
+  },
+  "native_receipt_sha256": "e43f38b5f664d87c7890aa16a9e63d3a32a38a825ded3df8158403769b193db7",
+  "native_source_freeze_sha256": "fc6545984ab42e02b24888f8ab44717ca6d069cba5c753e8b5790e2a1e92b39a",
+  "declaration_sha256": "c1749ebfcec851dc089f076eac7be720097a45bc7f3d8bd2eb833d1ca4df150f",
+  "proof_receipt_sha256": "c52a4fbb8c7acade64c9a57d32ce3b9a666a0eaa60788bc6b294a7f4e575fcaa",
+  "checker_sha256": "b8e534ed907ac44b5d936c4731bdb48a201ba4fd9822c9325cdd27f72b51e19d",
+  "manifest_sha256": "aae330487435f6cbfc27ff3cb903a39598129cb0d71947a9f066272500b642e2",
+  "preflight": {
+    "checked_at": "2026-10-16T01:01:38.080848+00:00",
+    "hostname": "LHC-104-070",
+    "cpu_affinity_count": 144,
+    "load_average": [
+      39.03125,
+      41.9296875,
+      52.033203125
+    ],
+    "memory": {
+      "MemTotal_bytes": 540384096256,
+      "MemAvailable_bytes": 269297152000,
+      "SwapTotal_bytes": 8589930496,
+      "SwapFree_bytes": 8437985280
+    },
+    "disk_free_bytes": 4972127924224,
+    "schedulers": {
+      "squeue": null,
+      "qstat": null
+    },
+    "active_processes": [
+      "    PID %CPU %MEM COMMAND",
+      "3174330 1697 22.6 python",
+      "3207770 1664 19.5 python",
+      " 635022  800  0.0 ps",
+      " 633812  100  0.4 product_paired_",
+      " 633388  100  1.4 product_paired_",
+      " 632800  100  1.6 product_paired_",
+      " 632101  100  0.5 build_circuit",
+      " 634960 98.9  0.1 python3",
+      " 635020 68.7  0.0 python3",
+      " 635021 66.6  0.0 python3",
+      " 218208 12.0  0.0 ds_am",
+      " 216089  4.5  0.0 ds_agent",
+      " 211341  4.5  0.0 tmxbc",
+      " 634964  4.0  0.0 sshd"
+    ],
+    "ecdsa_workspace": "/home/hclau/ecdsa_research",
+    "chemistry_repository_modified": false
+  },
+  "fresh_gate": {
+    "label": "official753721-plus-retained4096-one-stage-independent-20261016-v1",
+    "first_batch": 0,
+    "batches_per_source": 32768,
+    "shots_per_batch": 64,
+    "parent_stream_sha256": "1d8c05eeee7b43dd694506b5efe963c771461b7e690bc62f409947b2306b7d77",
+    "runner": "/home/hclau/ecdsa_research/simd-census-v2-20261016/bin/simd_census_v2",
+    "runner_sha256": "790e92266ea67ec54ef701b2deed76fe8d0b766b411ca9eab877f82ae2c11a66",
+    "no_resampling_or_subset": true,
+    "requirements": "all rows, failed batches <= same-input parent and <=18/9024, dirty0; actual executed savings must beat current public T with margin"
+  },
+  "no_nonce_search": true
+}

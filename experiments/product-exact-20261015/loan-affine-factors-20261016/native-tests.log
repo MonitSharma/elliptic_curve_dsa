@@ -1,0 +1,80 @@
+   Compiling value_prefilter v0.1.0 (/home/hclau/ecdsa_research/product-exact-20261015/loan-affine-factors-tool)
+warning: unused import: `BTreeMap`
+   --> src/support.rs:413:24
+    |
+413 | use std::collections::{BTreeMap,BTreeSet,HashMap,HashSet};
+    |                        ^^^^^^^^
+    |
+    = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: field `0` is never read
+  --> src/support.rs:48:8
+   |
+48 |     Cx(QubitId),
+   |     -- ^^^^^^^
+   |     |
+   |     field in this variant
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+help: consider changing the field to be of unit type to suppress this warning while preserving the field numbering, or remove the field
+   |
+48 -     Cx(QubitId),
+48 +     Cx(()),
+   |
+
+warning: method `emit` is never used
+  --> src/support.rs:52:19
+   |
+51 | impl Rewrite {
+   | ------------ method in this implementation
+52 |     pub(super) fn emit(self, op: Op, result: &mut Vec<Op>) {
+   |                   ^^^^
+
+warning: function `simplify` is never used
+   --> src/support.rs:299:15
+    |
+299 | pub(crate) fn simplify(ops: Vec<Op>) -> Vec<Op> {
+    |               ^^^^^^^^
+
+warning: function `witnesses` is never used
+   --> src/support.rs:310:15
+    |
+310 | pub(crate) fn witnesses(ops:Vec<Op>)->Vec<Op>{
+    |               ^^^^^^^^^
+
+warning: method `loan_relation` is never used
+   --> src/support.rs:357:19
+    |
+354 | impl Support {
+    | ------------ method in this implementation
+...
+357 |     pub(crate) fn loan_relation(&self, top:usize, nt:&[usize], nw:&[usize], end:usize)->Option<(usize,Vec<usize>,bool)> {
+    |                   ^^^^^^^^^^^^^
+
+warning: method `product_loan_relation` is never used
+   --> src/support.rs:385:19
+    |
+382 | impl Support {
+    | ------------ method in this implementation
+...
+385 |     pub(crate) fn product_loan_relation(&mut self, top:usize, nt:&[usize], nw:&[usize], end:usize,a:usize,b:usize)->Option<(usize,V...
+    |                   ^^^^^^^^^^^^^^^^^^^^^
+
+warning: method `dirty_rhs_queries` is never used
+   --> src/support.rs:423:16
+    |
+422 | impl Support{
+    | ------------ method in this implementation
+423 |  pub(super) fn dirty_rhs_queries(&self,eligible:&[usize],targets:&[usize])->serde_json::Value{
+    |                ^^^^^^^^^^^^^^^^^
+
+warning: `value_prefilter` (bin "value_prefilter" test) generated 8 warnings (run `cargo fix --bin "value_prefilter" -p value_prefilter --tests` to apply 1 suggestion)
+    Finished `release` profile [optimized] target(s) in 20.13s
+     Running unittests src/main.rs (target-endpoint-census/release/deps/value_prefilter-efe9ccffe98a0d91)
+
+running 2 tests
+test support::dirty_rhs_tests::exact_xor_sorted_parity ... ok
+test support::dirty_rhs_tests::gaussian_dirty_rhs_and_product_labels ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

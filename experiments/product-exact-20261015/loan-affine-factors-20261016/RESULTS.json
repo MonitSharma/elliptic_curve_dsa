@@ -1,0 +1,231 @@
+{
+  "status": "COMPLETE_SOURCE_ONLY_AFFINE_PRODUCT_FACTOR_QUERIES_NO_CANDIDATE",
+  "rows": [
+    {
+      "at_after_out": 4051851,
+      "full_window_end": 4226087,
+      "phase": "divide",
+      "result": {
+        "classical_first_affine_basis_rank": 1655,
+        "eligible_full_window_untouched_q": 650,
+        "factor_nodes": [],
+        "no_rewrites": true,
+        "query_rows": [
+          {
+            "constant_if_expressible": true,
+            "dirty_atom_count": 102,
+            "expressible": false,
+            "linear_current_c_snapshot_if_expressible": [],
+            "linear_quantum_xor_if_expressible": [],
+            "product_node_ids_if_expressible": [],
+            "target": 208,
+            "unresolved_atom_count": 102,
+            "upper_bound_added_roundtrip_CCX_if_all_obligations_met": null
+          },
+          {
+            "constant_if_expressible": true,
+            "dirty_atom_count": 475,
+            "expressible": false,
+            "linear_current_c_snapshot_if_expressible": [],
+            "linear_quantum_xor_if_expressible": [],
+            "product_node_ids_if_expressible": [],
+            "target": 209,
+            "unresolved_atom_count": 475,
+            "upper_bound_added_roundtrip_CCX_if_all_obligations_met": null
+          },
+          {
+            "constant_if_expressible": true,
+            "dirty_atom_count": 390,
+            "expressible": false,
+            "linear_current_c_snapshot_if_expressible": [],
+            "linear_quantum_xor_if_expressible": [],
+            "product_node_ids_if_expressible": [],
+            "target": 210,
+            "unresolved_atom_count": 390,
+            "upper_bound_added_roundtrip_CCX_if_all_obligations_met": null
+          },
+          {
+            "constant_if_expressible": false,
+            "dirty_atom_count": 0,
+            "expressible": true,
+            "linear_current_c_snapshot_if_expressible": [],
+            "linear_quantum_xor_if_expressible": [],
+            "product_node_ids_if_expressible": [],
+            "target": 211,
+            "unresolved_atom_count": 0,
+            "upper_bound_added_roundtrip_CCX_if_all_obligations_met": 0
+          },
+          {
+            "constant_if_expressible": false,
+            "dirty_atom_count": 333,
+            "expressible": false,
+            "linear_current_c_snapshot_if_expressible": [],
+            "linear_quantum_xor_if_expressible": [],
+            "product_node_ids_if_expressible": [],
+            "target": 556,
+            "unresolved_atom_count": 333,
+            "upper_bound_added_roundtrip_CCX_if_all_obligations_met": null
+          },
+          {
+            "constant_if_expressible": false,
+            "dirty_atom_count": 332,
+            "expressible": false,
+            "linear_current_c_snapshot_if_expressible": [],
+            "linear_quantum_xor_if_expressible": [],
+            "product_node_ids_if_expressible": [],
+            "target": 555,
+            "unresolved_atom_count": 332,
+            "upper_bound_added_roundtrip_CCX_if_all_obligations_met": null
+          },
+          {
+            "constant_if_expressible": true,
+            "dirty_atom_count": 470,
+            "expressible": false,
+            "linear_current_c_snapshot_if_expressible": [],
+            "linear_quantum_xor_if_expressible": [],
+            "product_node_ids_if_expressible": [],
+            "target": 554,
+            "unresolved_atom_count": 470,
+            "upper_bound_added_roundtrip_CCX_if_all_obligations_met": null
+          },
+          {
+            "constant_if_expressible": false,
+            "dirty_atom_count": 0,
+            "expressible": true,
+            "linear_current_c_snapshot_if_expressible": [],
+            "linear_quantum_xor_if_expressible": [],
+            "product_node_ids_if_expressible": [],
+            "target": 553,
+            "unresolved_atom_count": 0,
+            "upper_bound_added_roundtrip_CCX_if_all_obligations_met": 0
+          }
+        ],
+        "rank2_quantum_product_nodes": 0,
+        "relevant_existing_product_nodes_both_factors_spanned": 0,
+        "relevant_existing_product_nodes_neither_factor_spanned": 525,
+        "relevant_existing_product_nodes_one_factor_spanned": 111,
+        "sampled_inputs": 0,
+        "scope": "Existing inverse nodes only, no pair search. Factors are exact conservative affine relations. Cost is a source algebra upper bound contingent on classical snapshots, invertible dirty-host Clifford conjugations, return-zero and complete repair phase/value proofs. No circuit generated; failure to express is not impossibility.",
+        "zero_T_mixed_or_rank1_product_nodes": 0
+      },
+      "rewrites_applied": false,
+      "sampled_inputs": 0,
+      "seconds": 9.059517099
+    },
+    {
+      "at_after_out": 7480333,
+      "full_window_end": 7606171,
+      "phase": "multiply",
+      "result": {
+        "classical_first_affine_basis_rank": 8149,
+        "eligible_full_window_untouched_q": 650,
+        "factor_nodes": [],
+        "no_rewrites": true,
+        "query_rows": [
+          {
+            "constant_if_expressible": false,
+            "dirty_atom_count": 419,
+            "expressible": false,
+            "linear_current_c_snapshot_if_expressible": [],
+            "linear_quantum_xor_if_expressible": [],
+            "product_node_ids_if_expressible": [],
+            "target": 208,
+            "unresolved_atom_count": 419,
+            "upper_bound_added_roundtrip_CCX_if_all_obligations_met": null
+          },
+          {
+            "constant_if_expressible": false,
+            "dirty_atom_count": 419,
+            "expressible": false,
+            "linear_current_c_snapshot_if_expressible": [],
+            "linear_quantum_xor_if_expressible": [],
+            "product_node_ids_if_expressible": [],
+            "target": 209,
+            "unresolved_atom_count": 419,
+            "upper_bound_added_roundtrip_CCX_if_all_obligations_met": null
+          },
+          {
+            "constant_if_expressible": false,
+            "dirty_atom_count": 438,
+            "expressible": false,
+            "linear_current_c_snapshot_if_expressible": [],
+            "linear_quantum_xor_if_expressible": [],
+            "product_node_ids_if_expressible": [],
+            "target": 210,
+            "unresolved_atom_count": 438,
+            "upper_bound_added_roundtrip_CCX_if_all_obligations_met": null
+          },
+          {
+            "constant_if_expressible": false,
+            "dirty_atom_count": 0,
+            "expressible": true,
+            "linear_current_c_snapshot_if_expressible": [],
+            "linear_quantum_xor_if_expressible": [],
+            "product_node_ids_if_expressible": [],
+            "target": 211,
+            "unresolved_atom_count": 0,
+            "upper_bound_added_roundtrip_CCX_if_all_obligations_met": 0
+          },
+          {
+            "constant_if_expressible": false,
+            "dirty_atom_count": 447,
+            "expressible": false,
+            "linear_current_c_snapshot_if_expressible": [],
+            "linear_quantum_xor_if_expressible": [],
+            "product_node_ids_if_expressible": [],
+            "target": 579,
+            "unresolved_atom_count": 447,
+            "upper_bound_added_roundtrip_CCX_if_all_obligations_met": null
+          },
+          {
+            "constant_if_expressible": false,
+            "dirty_atom_count": 403,
+            "expressible": false,
+            "linear_current_c_snapshot_if_expressible": [],
+            "linear_quantum_xor_if_expressible": [],
+            "product_node_ids_if_expressible": [],
+            "target": 577,
+            "unresolved_atom_count": 403,
+            "upper_bound_added_roundtrip_CCX_if_all_obligations_met": null
+          },
+          {
+            "constant_if_expressible": false,
+            "dirty_atom_count": 443,
+            "expressible": false,
+            "linear_current_c_snapshot_if_expressible": [],
+            "linear_quantum_xor_if_expressible": [],
+            "product_node_ids_if_expressible": [],
+            "target": 613,
+            "unresolved_atom_count": 443,
+            "upper_bound_added_roundtrip_CCX_if_all_obligations_met": null
+          },
+          {
+            "constant_if_expressible": false,
+            "dirty_atom_count": 0,
+            "expressible": true,
+            "linear_current_c_snapshot_if_expressible": [],
+            "linear_quantum_xor_if_expressible": [],
+            "product_node_ids_if_expressible": [],
+            "target": 612,
+            "unresolved_atom_count": 0,
+            "upper_bound_added_roundtrip_CCX_if_all_obligations_met": 0
+          }
+        ],
+        "rank2_quantum_product_nodes": 0,
+        "relevant_existing_product_nodes_both_factors_spanned": 0,
+        "relevant_existing_product_nodes_neither_factor_spanned": 530,
+        "relevant_existing_product_nodes_one_factor_spanned": 140,
+        "sampled_inputs": 0,
+        "scope": "Existing inverse nodes only, no pair search. Factors are exact conservative affine relations. Cost is a source algebra upper bound contingent on classical snapshots, invertible dirty-host Clifford conjugations, return-zero and complete repair phase/value proofs. No circuit generated; failure to express is not impossibility.",
+        "zero_T_mixed_or_rank1_product_nodes": 0
+      },
+      "rewrites_applied": false,
+      "sampled_inputs": 0,
+      "seconds": 14.991065074
+    }
+  ],
+  "stream_sha256": "2a522394cdf3e6a0df7784ad4db761030933c1f7ccd0ff8e641d68ec7a4dab3e",
+  "executable_sha256": "58f4029779d6c53728c3db24a2c5474623722a2ba4d383e38992f502898c41e5",
+  "sampled_inputs": 0,
+  "emits_stream": false
+}

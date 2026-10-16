@@ -1,0 +1,212 @@
+{
+  "parent": {
+    "batches": 4096,
+    "shots": 262144,
+    "failed_batches": 186,
+    "failures_per_packet": 6.40283203125,
+    "mean_t": 753764.6756439209,
+    "census_sha256": "3e3a8f01f18cea2d33998e9785f1262286a2d0551a71548da0ef00563918731f",
+    "failure_per_packet_se": 0.4586950373627697
+  },
+  "candidate": {
+    "batches": 4096,
+    "shots": 262144,
+    "failed_batches": 178,
+    "failures_per_packet": 6.12744140625,
+    "mean_t": 753722.3272705078,
+    "census_sha256": "14ee307d10c8ac2cc1828aaef2d31c1c8ec36fbaf8ea3cb80ecacce77967793a",
+    "failure_per_packet_se": 0.44918103105075147
+  },
+  "paired_saving_t": 42.34837341308594,
+  "paired_se_t": 0.7939350088472588,
+  "label": "wide-compound-frozen-20261016",
+  "nonce_search_performed": false,
+  "score": null,
+  "measured_failure_gate_pass": true,
+  "declaration": {
+    "base_revision": "5a7c390233c72133df9b591c92e43422c5892142",
+    "candidate": "candidate-wide-compound",
+    "stages": [
+      {
+        "family": "retained",
+        "atom_cap": 128,
+        "pair_cap": 64,
+        "extra_zero_slots_offered": 0,
+        "product_cap": 1000000,
+        "rank": "density",
+        "split": true
+      },
+      {
+        "family": "affine",
+        "atom_cap": 128,
+        "pair_cap": 64,
+        "extra_zero_slots_offered": 0,
+        "product_cap": 1000000,
+        "rank": "density",
+        "split": true
+      },
+      {
+        "family": "anf",
+        "atom_cap": 512,
+        "pair_cap": 64,
+        "extra_zero_slots_offered": 0,
+        "product_cap": 1000000,
+        "rank": "density",
+        "split": true
+      },
+      {
+        "family": "retained",
+        "atom_cap": 512,
+        "pair_cap": 64,
+        "extra_zero_slots_offered": 0,
+        "product_cap": 1000000,
+        "rank": "density",
+        "split": true
+      },
+      {
+        "family": "retained",
+        "atom_cap": 128,
+        "pair_cap": 64,
+        "extra_zero_slots_offered": 0,
+        "product_cap": 1000000,
+        "rank": "density",
+        "split": true
+      },
+      {
+        "family": "retained",
+        "atom_cap": 512,
+        "pair_cap": 64,
+        "extra_zero_slots_offered": 0,
+        "product_cap": 1000000,
+        "rank": "density",
+        "split": true
+      },
+      {
+        "family": "retained",
+        "atom_cap": 1024,
+        "pair_cap": 64,
+        "extra_zero_slots_offered": 0,
+        "product_cap": 1000000,
+        "rank": "density",
+        "split": true
+      },
+      {
+        "family": "anf",
+        "atom_cap": 512,
+        "pair_cap": 64,
+        "extra_zero_slots_offered": 0,
+        "product_cap": 1000000,
+        "rank": "density",
+        "split": true
+      },
+      {
+        "family": "retained",
+        "atom_cap": 128,
+        "pair_cap": 64,
+        "extra_zero_slots_offered": 0,
+        "product_cap": 1000000,
+        "rank": "density",
+        "split": true
+      },
+      {
+        "family": "retained",
+        "atom_cap": 512,
+        "pair_cap": 64,
+        "extra_zero_slots_offered": 0,
+        "product_cap": 1000000,
+        "rank": "density",
+        "split": true
+      },
+      {
+        "family": "retained",
+        "atom_cap": 1024,
+        "pair_cap": 64,
+        "extra_zero_slots_offered": 0,
+        "product_cap": 1000000,
+        "rank": "density",
+        "split": true
+      },
+      {
+        "family": "scratch",
+        "atom_cap": 1024,
+        "pair_cap": 64,
+        "extra_zero_slots_offered": 8,
+        "product_cap": 1000000,
+        "rank": "density",
+        "split": true
+      },
+      {
+        "family": "unfold",
+        "atom_cap": 128,
+        "pair_cap": 64,
+        "extra_zero_slots_offered": 0,
+        "product_cap": 1000000,
+        "rank": "density",
+        "split": true
+      },
+      {
+        "family": "affine",
+        "atom_cap": 128,
+        "pair_cap": 64,
+        "extra_zero_slots_offered": 0,
+        "product_cap": 1000000,
+        "rank": "density",
+        "split": true
+      },
+      {
+        "family": "retained",
+        "atom_cap": 512,
+        "pair_cap": 256,
+        "extra_zero_slots_offered": 0,
+        "product_cap": 1000000,
+        "rank": "density",
+        "split": true
+      }
+    ],
+    "scope": "exact semantic rewrites, no input-selected tables/cuts; inherited failures retained",
+    "external_stream": "wide-compound-20261016/wide-15-retained-512.bin",
+    "external_stream_sha256": "9fe47b0a547b2aad68ddeb682be4f9fcab5dd184459a94f96afdc63e0e3fded8",
+    "anchored_diagnostic_packets": {
+      "independent": {
+        "shots": "256",
+        "unequal_batches": "0",
+        "left_bad": "0",
+        "right_bad": "0",
+        "left_phase_batches": "0",
+        "right_phase_batches": "0",
+        "left_dirty_batches": "0",
+        "right_dirty_batches": "0",
+        "paired_gate_saving_total": "10739",
+        "paired_gate_saving_mean": "41.94921875",
+        "score": "NONE"
+      },
+      "structured": {
+        "shots": "256",
+        "unequal_batches": "0",
+        "left_bad": "128",
+        "right_bad": "128",
+        "left_phase_batches": "4",
+        "right_phase_batches": "4",
+        "left_dirty_batches": "0",
+        "right_dirty_batches": "0",
+        "paired_gate_saving_total": "10739",
+        "paired_gate_saving_mean": "41.94921875",
+        "score": "NONE"
+      }
+    },
+    "diagnostic_rng_protocol": "Original MR words indexed by immutable original-event ordinal; fresh added-cache MR words use a separate fixed XOF. Not a universal exact mean.",
+    "resources": {
+      "path": "wide-compound-20261016/wide-15-retained-512.bin",
+      "ops": 10522755,
+      "qubits": 1468,
+      "classical_bits": 3046,
+      "registers": 4,
+      "u16_physical_ids_supported": true
+    },
+    "label": "wide-compound-frozen-20261016",
+    "batches_per_source": 4096,
+    "shots_per_source": 262144,
+    "nonce_search_performed": false,
+    "score": null
+  }
+}

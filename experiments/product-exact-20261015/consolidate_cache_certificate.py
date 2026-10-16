@@ -1,0 +1,19 @@
+"""Consolidate the terminal universal cache-equivalence proof and trust base."""
+import hashlib,json,re,subprocess
+from pathlib import Path
+r=Path(__file__).resolve().parent;d=r/'cache-certificate-v2-20261016';assert (d/'launcher.exit').read_text().strip()=='0'
+receipt=json.loads((d/'RECEIPT.json').read_text());assert receipt['status']=='UNIVERSAL_CACHE_CHAIN_PASS' and len(receipt['stages'])==25
+sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+last='2a522394cdf3e6a0df7784ad4db761030933c1f7ccd0ff8e641d68ec7a4dab3e';leases=uses=0
+for row in receipt['stages']:
+    assert row['status']=='PASS' and row['returncode']==0 and row['input_sha256']==last
+    for k,h in [('input_stream','input_sha256'),('output_stream','output_sha256'),('lease_log','lease_log_sha256'),('audit_log','audit_log_sha256')]:assert sha(r/row[k])==row[h]
+    log=(r/row['audit_log']).read_text();assert 'UNIVERSAL_CACHE_CERTIFICATE_PASS' in log and 'independent_zero_and_product_passes=true' in log
+    leases+=int(re.search(r'leases=(\d+)',log).group(1));uses+=int(re.search(r'uses=(\d+)',log).group(1));last=row['output_sha256']
+assert last=='180af069679ffa33b099b200d3337d6fc6c20a451a72508a40dea6617150dc64'
+native=r/'candidate-product-final25/ops.bin';assert sha(native)==last and (r/'product25-native.exit').read_text().strip()=='0'
+tool=r/'cache-certificate-v2-tool';sources={str(p.relative_to(tool)):sha(p) for p in tool.rglob('*') if p.is_file() and 'target' not in p.relative_to(tool).parts}
+dependency=r.parent/'overnight-20261014/product-b3-baseline';paths=subprocess.check_output(['git','-C',str(dependency),'ls-files'],text=True).splitlines()
+protected={n:sha(dependency/n) for n in paths if (dependency/n).is_file() and not n.startswith('src/point_add/')}
+answer={'status':'UNIVERSAL_CACHE_EQUIVALENCE_AUDIT_PASS','stage_count':25,'leases_verified':leases,'replaced_uses_verified':uses,'no_sampled_inputs':True,'baseline_stream_sha256':receipt['baseline_stream_sha256'],'candidate_stream_sha256':last,'receipt_sha256':sha(d/'RECEIPT.json'),'verifier_executable_sha256':receipt['verifier_executable_sha256'],'source_files_sha256':sources,'protected_dependency_revision':subprocess.check_output(['git','-C',str(dependency),'rev-parse','HEAD'],text=True).strip(),'protected_dependency_files_sha256':protected,'native_source_patch_sha256':sha(r/'candidate-product-final25.patch'),'native_stream_byte_identity_verified':True,'trusted_base':['conservative immutable Boolean symbolic Support kernels','stream decoder and Op semantics from hashed protected circuit code','lazy first-active-use AND and HMR/CZ cleanup theorem stated in FOLLOWUP.md; no proof-assistant claim'],'conclusion':'For every original ABI input and original MR assignment, all original output coordinates and phase agree under the preserved original-MR mapping, independently of added private cache MR assignments; original classical outputs retained and new private flags cleaned.','original_coordinate_measurement_independence_proved_by_this_audit':False,'conditional_transfer':'If a separate source-bound theorem proves original4b coordinates independent of every MR for all inputs, the same follows for this candidate; the original zero-MR value function can then evaluate candidate Fiat inputs.','nonce_scope':'Frozen identity tail only. A changed nonce additionally needs exact pre-tail bytes and validation of48 adjacent XX identity pairs; the final candidate Fiat inputs must still derive from final source.','phase_screening':'Coordinate independence does not imply phase-failure independence or remove full-simulator qualification.','score':None,'nonce_search_performed_by_this_experiment':False}
+(d/'CACHE_EQUIVALENCE_CERTIFICATE.json').write_text(json.dumps(answer,indent=2)+'\n');print(json.dumps({k:answer[k] for k in ['status','stage_count','leases_verified','replaced_uses_verified','baseline_stream_sha256','candidate_stream_sha256']}))

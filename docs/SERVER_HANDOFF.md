@@ -1,5 +1,16 @@
 # CPU server: ECDSA research handoff
 
+## STOPPED: 16 October 2026, 09:07 Singapore
+
+User requested stop/candidate review. No further launches or automatic resume.
+Verified SIGSTOP groups:628797(product25, post-verifier642195),595517/595518/
+595519/606954(ALL70chain/watchers),627572(PRESEED10),572494(ALL74). Unrelated
+jobs untouched. Rootwide probe/fresh census and original product search are
+terminal; affine query naturally exited before STOP. Product benchmark passed
+Q1234/T761171/product939285014 before pause; final fresh census NOTRUN.
+Read [stop checkpoint/process resume requirements](../experiments/autorun-20261015-2239/STOP-20261016-0907.md).
+Do not blindly CONT timed jobs: elapsed wall deadlines need inspection first.
+
 ## Latest: 16 October 2026, 08:55 Singapore
 
 The original48-thread product25 search ended cleanly at08:43. All four old

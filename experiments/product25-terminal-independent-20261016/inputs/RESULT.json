@@ -1,0 +1,51 @@
+{
+  "status": "PASS_AWAITS_COMPLETE_LOG_AUDIT_AND_UNCHANGED_BENCHMARK",
+  "best_full_protected_pass": 47449113,
+  "lowest_prefix_window_completion": true,
+  "requires_complete_jsonl_row_audit": true,
+  "worker_exit_codes": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "progress": [
+    {
+      "count": 4096,
+      "cumulative_worker_rows": 11866112,
+      "first": 47448065,
+      "lane": 0,
+      "last": 47452160,
+      "status": "COMPLETE_WINDOW_ALL_ROWS_RECORDED"
+    },
+    {
+      "count": 4096,
+      "cumulative_worker_rows": 11862016,
+      "first": 47435777,
+      "lane": 1,
+      "last": 47439872,
+      "status": "COMPLETE_WINDOW_ALL_ROWS_RECORDED"
+    },
+    {
+      "count": 4096,
+      "cumulative_worker_rows": 11862016,
+      "first": 47439873,
+      "lane": 2,
+      "last": 47443968,
+      "status": "COMPLETE_WINDOW_ALL_ROWS_RECORDED"
+    },
+    {
+      "count": 4096,
+      "cumulative_worker_rows": 11862016,
+      "first": 47443969,
+      "lane": 3,
+      "last": 47448064,
+      "status": "COMPLETE_WINDOW_ALL_ROWS_RECORDED"
+    }
+  ],
+  "screened_unique_completed_rows": 47452160,
+  "wall_seconds": 17788.205226626247,
+  "deadline_stop": false,
+  "score": null,
+  "submission_mode": "queue"
+}

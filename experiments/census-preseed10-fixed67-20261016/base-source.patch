@@ -1,0 +1,64 @@
+diff --git a/src/point_add/census_cut.rs b/src/point_add/census_cut.rs
+index 0c3d7e2d..713dae0e 100755
+--- a/src/point_add/census_cut.rs
++++ b/src/point_add/census_cut.rs
+@@ -7,6 +7,9 @@
+ //! under `bit`. Edits apply in descending order and may not overlap, so every index refers to the unedited stream.
+ use crate::circuit::{Op, OperationType as K, QubitId, NO_BIT};
+ use super::rebind;
++use sha3::{Digest,Sha3_256};
++const PRESEED_ENTRY:usize=618865;
++fn preseed_hash(ops:&[Op])->String { let mut h=Sha3_256::new(); for o in ops { h.update((o.kind as u32).to_le_bytes());h.update([0u8;4]);for v in [o.q_control2.0,o.q_control1.0,o.q_target.0,o.c_target.0,o.c_condition.0,o.r_target.0] {h.update(v.to_le_bytes());}} format!("{:x}",h.finalize()) }
+ 
+ /// Expected executed Toffoli of a gate list: each CCX / CCZ weighted 2^-k for the k classical conditions it runs under.
+ pub fn static_t(ops: &[Op]) -> f64 {
+@@ -37,6 +40,8 @@ pub fn rows() -> Vec<(usize, Vec<&'static str>)> {
+ pub fn run(ops: Vec<Op>) -> Vec<Op> {
+     let rows = rows();
+     let ops = if TEST_SHIFT { test_shift(ops, &rows) } else { ops };
++    assert!(ops.len() >= PRESEED_ENTRY,"preseed checkpoint missing");
++    assert_eq!(preseed_hash(&ops[..PRESEED_ENTRY]),"4a22a6498bafa44e245c5ba84decbe2a488d5b1eac61685d1c4db663fa5afc21","preseed checkpoint source prefix");
+     let rows = anchor_rows(&ops, rows);
+     run_rows(ops, rows)
+ }
+@@ -224,6 +229,7 @@ pub fn run_rows(mut ops: Vec<Op>, mut rows: Vec<(usize, Vec<&str>)>) -> Vec<Op>
+     rows.sort_by(|a, b| b.0.cmp(&a.0));
+     let w = |s: &str| -> u64 { s.parse().unwrap() };
+     let (mut n_del, mut n_red, mut n_blk) = (0usize, 0usize, 0usize);
++    let (mut restored_del,mut restored_red)=(0usize,0usize);
+     let mut floor = usize::MAX;
+     for (site, f) in &rows {
+         let mut x = Op::empty();
+@@ -252,19 +258,29 @@ pub fn run_rows(mut ops: Vec<Op>, mut rows: Vec<(usize, Vec<&str>)>) -> Vec<Op>
+         assert!(o.kind == kind && o.q_control2.0 == w(f[2]) && o.q_control1.0 == w(f[3]) && o.q_target.0 == w(f[4]) && cc == f[5],
+             "census_cut: row at {site} does not match the stream");
+         x.c_condition = o.c_condition;
++        let restore_prefix = *site < PRESEED_ENTRY;
++        if restore_prefix { assert_eq!(kind,K::CCX,"preseed family is CCX only"); }
+         let rep = match f[6].split_once(':') {
+-            None if f[6] == "del" => { n_del += 1; vec![] }
+-            Some(("cx", a)) if kind == K::CCX => { x.kind = K::CX; x.q_control1 = QubitId(w(a)); x.q_target = o.q_target; vec![x] }
++            None if f[6] == "del" => { n_del += 1; if restore_prefix {restored_del+=1;vec![o]}else{vec![]} }
++            Some(("cx", a)) if kind == K::CCX => { if restore_prefix { assert!(w(a)==o.q_control1.0||w(a)==o.q_control2.0);restored_red+=1;vec![o] }else{x.kind=K::CX;x.q_control1=QubitId(w(a));x.q_target=o.q_target;vec![x]} }
+             Some(("cz", ab)) if kind == K::CCZ => {
+                 let (a, b) = ab.split_once(',').unwrap();
+                 x.kind = K::CZ; x.q_control1 = QubitId(w(a)); x.q_target = QubitId(w(b)); vec![x]
+             }
+             _ => panic!("census_cut: bad action {:?}", f[6]),
+         };
+-        if !rep.is_empty() { n_red += 1; for r in &rep { r.validate(); } }
++        if !rep.is_empty() { if f[6]!="del" {n_red+=1;}for r in &rep {r.validate();} }
+         ops.splice(*site..*site + 1, rep);
+     }
++    assert_eq!((rows.len(),n_del,n_red,n_blk,restored_del,restored_red),(144,74,70,0,7,3),"complete preseed10 family and all134 remaining rows");
++    eprintln!("PRESEED10 restored_del={restored_del} restored_red={restored_red} boundary={PRESEED_ENTRY}");
+     let w1 = static_t(&ops);
+     eprintln!("CENSUS_CUT rows={} deleted={} reduced={} blocks={} static expected Toffoli {w0:.1} -> {w1:.1} ({:.1})", rows.len(), n_del, n_red, n_blk, w1 - w0);
+     ops
+ }
++
++#[cfg(test)]mod preseed10_uniform_tests{
++ use super::*;
++ #[test]fn complete_checkpoint_family(){let r=rows();assert_eq!(r.len(),144);let p:Vec<_>=r.iter().filter(|(at,_)|*at<PRESEED_ENTRY).collect();assert_eq!(p.len(),10);assert_eq!(p.iter().filter(|(_,f)|f[6]=="del").count(),7);assert_eq!(p.iter().filter(|(_,f)|f[6].starts_with("cx:")).count(),3);assert!(p.iter().all(|(_,f)|f[1]=="ccx"));}
++ #[test]fn checkpoint_hash_covers_quantum_and_classical_fields(){let mut o=Op::empty();o.kind=K::X;o.q_target=QubitId(0);let h=preseed_hash(&[o]);let mut changed=o;changed.q_target=QubitId(1);assert_ne!(h,preseed_hash(&[changed]));changed=o;changed.c_condition=crate::circuit::BitId(1);assert_ne!(h,preseed_hash(&[changed]));}
++}

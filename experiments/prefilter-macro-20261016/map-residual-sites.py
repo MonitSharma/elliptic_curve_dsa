@@ -4,7 +4,7 @@ root=Path('/home/hclau/ecdsa_research/prefilter-macro-20261016');out=root/'addit
 z=ctypes.CDLL(ctypes.util.find_library('zstd'));z.ZSTD_decompress.argtypes=[ctypes.c_void_p,ctypes.c_size_t,ctypes.c_void_p,ctypes.c_size_t];z.ZSTD_decompress.restype=ctypes.c_size_t
 def load(p):
  d=p.read_bytes();n=struct.unpack_from('<Q',d,8)[0];o=ctypes.create_string_buffer(n*56);assert z.ZSTD_decompress(o,len(o),d[16:],len(d)-16)==n*56;return o.raw
-raw=load(root/'raw-builder.bin');final=load(root.parent/'product-exact-20261015/tip/ops.bin');targets=[11495985,11481418,11466851,11623042,11610904];compact=0;rows=[];stack=[];scope_stack=[];wanted=set(targets);original_targets={3332030}
+raw=load(root/'raw-builder.bin');final=load(root.parent/'product-exact-20261015/tip/ops.bin');targets=[11495985,11481418,11466851,11623042,11610904,5498416];compact=0;rows=[];stack=[];scope_stack=[];wanted=set(targets);original_targets={3332030}
 for i in range(len(final)//56):
  r=struct.unpack_from('<7Q',final,i*56);k,q2,q1,t,ct,cc,rt=r
  if k not in(1,2):

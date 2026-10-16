@@ -1,0 +1,33 @@
+{
+  "prepare_repair67_native.py": {
+    "parent": "prepare_repair53_native.py",
+    "parent_sha256": "4404fcc082bbd51c5258ac4e9c972d30029c8deb39e71e02d52155eb4198a74a",
+    "sha256": "563ab626bbc225d658f575b38f318f093bd7f49a5571485979feb56ebfa08fd8"
+  },
+  "qualify_repair67_native.py": {
+    "parent": "qualify_repair53_native.py",
+    "parent_sha256": "ceb18bcd3dff0ad26ee6502d57ef3c98a93ccf044e0b7588925e3d30c9fdd2e3",
+    "sha256": "a0c200fa0749652698d6e007d638d68f97681856edbd2d0b6255542dcd5b7d77"
+  },
+  "run_repair67_census.py": {
+    "parent": "run_repair53_census.py",
+    "parent_sha256": "7acb2f6639f659456a337ee976c61afcf2fd8c4b3ed2ce2039de5da0acfd2fef",
+    "sha256": "f26779267b79f90c1aedef577ff834c36816101decc28ec0aa51df3588a6810e"
+  },
+  "run-repair67-native.sh": {
+    "parent": "run-repair53-native.sh",
+    "parent_sha256": "58008e6e5aac9bf405f5e37a07eac73b930044dc35b9276b6423547bddc258a8",
+    "sha256": "233b1dfcb882c246ff440f05b7d913a73c3bebcff5f96bd6a05d9116eba54cbe",
+    "previous_prelaunch_sha256": "f8fe831bf17fe377ef2b6a7fd173ce578f6aad5c4e3df9641d535e003dccb22c",
+    "resource_amendment": "Before any native launch: coordinator requested two build threads instead of four to preserve global64 compute limit; source, tests, endpoint and census unchanged."
+  },
+  "run-repair67-census.sh": {
+    "parent": "run-repair53-census.sh",
+    "parent_sha256": "f4c3964eddb5d79be10beff6f03dc660c598956f5eeed9bd282829b7484beb7b",
+    "sha256": "0565d6e0d9b5bb5a13e042099cbe03683742ecf2e684b7c836b07f5b54fb3e94"
+  },
+  "REPAIR67_FRESH_CENSUS_PLAN.json": {
+    "sha256": "0c6436f247d4a15cf37bc7993a8a64addc4e571eda601a11f837db97ab7f65f5",
+    "source_declaration_sha256": "fb1f5b13b9302b2a71d81857035e2ff4159285c641d07a7dd526db827b9fb75a"
+  }
+}

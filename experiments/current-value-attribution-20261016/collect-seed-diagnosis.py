@@ -1,0 +1,18 @@
+from pathlib import Path
+import json,hashlib,tarfile,shutil
+r=Path('/home/hclau/ecdsa_research/current-value-attribution-20261016');n='seed-diagnosis-v1';d=r/n;assert not d.exists();d.mkdir()
+assert(r/'seed-attribution.exit').read_text().strip()=='0';assert(r/'seed-bdd-contract.exit').read_text().strip()=='0';assert(r/'seed-entry-predicate-v1.exit').read_text().strip()=='0';assert(r/'seed-prefix-pinned.exit').read_text().strip()=='0'
+files=['prepare-seed-observer.py','run-seed-markers.sh','prepare-seed-runtime.py','run-seed-attribution.sh','wait-seed-then-replay.sh','seed-source-files.json','raw-seed-markers.jsonl','raw-seed-builder.sha256','actual-seed-markers.json','SEED-REPLAY-DECLARATION.json','seed-attribution.log','seed-attribution.exit','seed-attribution-build.log','seed-attribution-build.exit','seed-attribution-prepare.log','seed-attribution-prepare.exit','seed-attribution-stream-before.sha256','seed-attribution-stream-after.sha256','seed-markers-build.log','seed-markers-build.exit','seed-markers.log','seed-markers.exit','seed-markers-preflight.log','inspect-seed-region.py','seed-region-diff.json','seed-region-diff.log','prove-seed-bdd.py','seed-bdd-contract.json','seed-bdd-contract.log','seed-bdd-contract.exit','prepare-seed-prefix.py','run-seed-prefix.sh','seed-prefix-source.json','seed-prefix-build.log','seed-prefix-build.exit','seed-prefix-zeros.log','seed-prefix-zeros.exit','run-seed-prefix-pinned.py','seed-prefix-pinned.log','seed-prefix-pinned.exit','prove-seed-predicate-v1.py','seed-entry-predicate-v1.json','seed-entry-predicate-v1.log','seed-entry-predicate-v1.exit','tool/src/seed_payload_runtime.rs','tool/src/bin/current_seed_payload.rs','tool/src/bin/seed_prefix_zeros.rs','tool/src/bin/seed_support.rs','source-seed-observer/src/point_add/payload_trace.rs','source-seed-observer/src/point_add/pingpong.rs']
+for folder in ['seed-prefix-pinned-v1','seed-setup-type-negative']:
+ files.extend(str(p.relative_to(r))for p in(r/folder).rglob('*')if p.is_file())
+for f in files:
+ p=r/f;q=d/f;q.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(p,q)
+sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+base={n:sha(r/n)for n in['attribution-checkpoint-v1.tar.gz','phase-attribution-addendum-v2.tar.gz']}
+(d/'BASE-PINS.json').write_text(json.dumps(dict(depends_on=base,base_contains='full431/413 packets/protected reference/actual final source bindings',actual_stream_sha256='2a522394cdf3e6a0df7784ad4db761030933c1f7ccd0ff8e641d68ec7a4dab3e',raw_stream_sha256='ff5163962ff5337753235d79f4026893e35b0445ae7406bf03be76d8a3d27a69',candidate_status='separate frozen candidate/native qualification active; no census outcome in this terminal diagnosis archive'),indent=2)+'\n')
+files={str(p.relative_to(d)):dict(bytes=p.stat().st_size,sha256=sha(p))for p in d.rglob('*')if p.is_file()};external={str(p):dict(bytes=p.stat().st_size,sha256=sha(p),status='preserved server-only, not archive member')for p in[r/'raw-seed-builder.bin',r.parent/'product-exact-20261015/tip/ops.bin',r/'target-tool/release/seed_prefix_zeros']}
+(d/'MANIFEST.json').write_text(json.dumps(dict(files=files,external=external,depends_on=base),indent=2)+'\n');archive=r/(n+'.tar.gz')
+with tarfile.open(archive,'w:gz')as tf:tf.add(d,arcname=n)
+with tarfile.open(archive)as tf:
+ for f,v in files.items():b=tf.extractfile(n+'/'+f).read();assert len(b)==v['bytes']and hashlib.sha256(b).hexdigest()==v['sha256']
+out=dict(status='PASS',archive=str(archive),sha256=sha(archive),bytes=archive.stat().st_size,verified_members=len(files),external_server_only=len(external),base_pins=base);(r/(n+'-receipt.json')).write_text(json.dumps(out,indent=2)+'\n');print(json.dumps(out,indent=2))

@@ -1,0 +1,173 @@
+{
+  "status": "EXACT_ALL_BOOLEAN_INPUT_AND_MEASUREMENT_VALUE_PHASE_IDENTITY_WITH_CLEAN_Z",
+  "data_inputs": 32,
+  "measurement_outcomes": 2,
+  "incoming_base_masks": 2,
+  "incoming_classical_m_values": 2,
+  "incoming_phases": 2,
+  "total_cases": 512,
+  "source_toffoli_per_active": 2,
+  "replacement_toffoli_per_active": 4,
+  "delta_toffoli_per_active": 2,
+  "original": [
+    [
+      "ccx",
+      0,
+      1,
+      5
+    ],
+    [
+      "cx",
+      2,
+      0
+    ],
+    [
+      "cx",
+      2,
+      5
+    ],
+    [
+      "cx",
+      2,
+      1
+    ],
+    [
+      "cx",
+      5,
+      3
+    ],
+    [
+      "cx",
+      5,
+      0
+    ],
+    [
+      "ccx",
+      0,
+      3,
+      4
+    ],
+    [
+      "cx",
+      5,
+      0
+    ],
+    [
+      "cx",
+      5,
+      4
+    ],
+    [
+      "cx",
+      5,
+      3
+    ],
+    [
+      "cx",
+      0,
+      4
+    ],
+    [
+      "cx",
+      0,
+      3
+    ],
+    [
+      "cx",
+      5,
+      3
+    ],
+    [
+      "cx",
+      2,
+      5
+    ],
+    [
+      "cx",
+      2,
+      1
+    ],
+    [
+      "cx",
+      2,
+      0
+    ],
+    [
+      "hmr",
+      5
+    ],
+    [
+      "czm",
+      0,
+      1
+    ]
+  ],
+  "replacement": [
+    [
+      "cx",
+      2,
+      3
+    ],
+    [
+      "x",
+      3
+    ],
+    [
+      "ccx",
+      2,
+      3,
+      4
+    ],
+    [
+      "x",
+      1
+    ],
+    [
+      "ccx",
+      0,
+      1,
+      2
+    ],
+    [
+      "ccx",
+      2,
+      3,
+      4
+    ],
+    [
+      "cx",
+      2,
+      3
+    ],
+    [
+      "x",
+      3
+    ],
+    [
+      "ccx",
+      0,
+      1,
+      2
+    ],
+    [
+      "x",
+      1
+    ]
+  ],
+  "formula": "f=A & !B; A,B,C unchanged; Dnew=D^f; Enew=E^(f&(D^C^1))",
+  "dirty_scratch_negative_cases": 256,
+  "missing_phase_correction_fault_cases": 32,
+  "missing_replacement_toffoli_fault_cases": 64,
+  "required_preconditions": [
+    "five data wires distinct",
+    "removed scratch initially0",
+    "common unchanged classical scope/base for whole region",
+    "originalMRclassicaloutput has no downstream live use before overwrite"
+  ],
+  "not_proved": [
+    "actual4b source matching",
+    "downstream classical-M death",
+    "complete circuit width1233",
+    "scored product improvement"
+  ]
+}

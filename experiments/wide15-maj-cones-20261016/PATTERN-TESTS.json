@@ -1,0 +1,110 @@
+{
+  "status": "SHARED_ACTUAL_SCANNER_POSITIVE_AND_ADVERSARIAL_PATTERN_TESTS_PASS",
+  "checks": [
+    {
+      "name": "exact contiguous",
+      "expected_match": true,
+      "matches": 1
+    },
+    {
+      "name": "controls reversed",
+      "expected_match": true,
+      "matches": 1
+    },
+    {
+      "name": "independent pure gates",
+      "expected_match": true,
+      "matches": 1
+    },
+    {
+      "name": "fourth wire earlier observation",
+      "expected_match": false,
+      "matches": 0
+    },
+    {
+      "name": "changed control observed",
+      "expected_match": false,
+      "matches": 0
+    },
+    {
+      "name": "barrier 1",
+      "expected_match": false,
+      "matches": 0
+    },
+    {
+      "name": "barrier 2",
+      "expected_match": false,
+      "matches": 0
+    },
+    {
+      "name": "barrier 3",
+      "expected_match": false,
+      "matches": 0
+    },
+    {
+      "name": "barrier 4",
+      "expected_match": false,
+      "matches": 0
+    },
+    {
+      "name": "barrier 5",
+      "expected_match": false,
+      "matches": 0
+    },
+    {
+      "name": "barrier 11",
+      "expected_match": false,
+      "matches": 0
+    },
+    {
+      "name": "barrier 12",
+      "expected_match": false,
+      "matches": 0
+    },
+    {
+      "name": "barrier 15",
+      "expected_match": false,
+      "matches": 0
+    },
+    {
+      "name": "barrier 16",
+      "expected_match": false,
+      "matches": 0
+    },
+    {
+      "name": "barrier 17",
+      "expected_match": false,
+      "matches": 0
+    },
+    {
+      "name": "different guard 1",
+      "expected_match": false,
+      "matches": 0
+    },
+    {
+      "name": "different guard 2",
+      "expected_match": false,
+      "matches": 0
+    },
+    {
+      "name": "different guard 3",
+      "expected_match": false,
+      "matches": 0
+    },
+    {
+      "name": "fourth wire alias",
+      "expected_match": false,
+      "matches": 0
+    },
+    {
+      "name": "unfinished",
+      "expected_match": false,
+      "matches": 0
+    },
+    {
+      "name": "two copies",
+      "expected_match": true,
+      "matches": 2
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+--- a/README.md
++++ b/README.md
+@@ -237,3 +237,61 @@
+ 5. **Width record:** the public minimum is Q677 (`d9d5e991`); the next target
+    is Q676. Preserve the Q692 evidence and all failed experiments. Width is the
+    third research priority, independent of the product and Toffoli records.
++
++Only `src/point_add/` may change in a contestant submission. We preserve the
++harness, scorer, simulator, curve reference, dependencies and toolchain. We
++never tune circuit content to a packet; identity-tail nonces follow the
++disclosed-failure-rate standard in `AGENTS.md`.
++**Picking this up as an AI agent?** Start with
++[docs/AGENT_HANDOFF.md](docs/AGENT_HANDOFF.md).
++[Research plan](docs/research-plan.md) · [Server workflow](docs/SERVER_HANDOFF.md)
++
++## Reproduce and explore
++
++The figures are static PNGs for reliable GitHub rendering, with downloadable
++[frontier SVG](docs/figures/frontier.svg) and
++[record comparison SVG](docs/figures/record-tradeoffs.svg).
++Their green-and-gold presentation is inspired by the challenge; all points use
++this repository's dated evidence.
++
++```bash
++git submodule update --init --jobs 3
++python -m pip install matplotlib
++python scripts/test_leaderboard.py
++python scripts/test_frontier_plot.py
++python scripts/frontier_plot.py                         # offline, tracked data
++python scripts/analyze-leaderboard.py --refresh --plot  # refresh public records
++```
++
++Use an isolated Python environment. Circuit builds use pinned Rust 1.93.0 and
++locked dependencies. [Local setup](LOCAL_SETUP.md) documents the environment.
++Research runs on `smu_server` under `/home/hclau/ecdsa_research`, with resource
++preflights, dedicated logs and saved process IDs.
++
++| Location | Contents |
++|---|---|
++| `agents/qubits/`, `agents/toffoli/`, `agents/product/` | Separate public source tracks and working research |
++| `experiments/` | Exact patches, proofs, tests, failures and receipts |
++| `docs/data/`, `docs/figures/` | Dated evidence, public records and figures |
++| `scripts/` | Reproduction, analysis, plotting and validation tools |
++| `research-output/` | Ignored raw snapshots and large artifacts |
++
++A root Git commit does not preserve uncommitted submodule changes. Reapplicable
++experiment patches are retained separately. Older evidence gaps are documented
++in the [workspace recovery audit](docs/data/workspace-audit.json).
++
++## Foundations and attribution
++
++This project builds on the [ECDSA.fail challenge](https://ecdsa.fail/),
++its [public source](https://github.com/Layr-Labs/ecdsafail-challenge), and the
++circuits contributed by other researchers. Public reproductions are credited
++to their source revisions; our modifications have separate patches and receipts.
++
++Relevant methods include
++[optimized point-addition circuits](https://arxiv.org/html/2606.02235v1),
++[record-and-replay arithmetic](https://arxiv.org/html/2609.28882v1),
++[space-efficient point addition](https://arxiv.org/html/2607.13816v2),
++[temporary logical ANDs](https://arxiv.org/abs/1709.06648), and
++[controlled add/subtract multiplication](https://arxiv.org/html/2410.00899v1).
++See [NOTICE](NOTICE) and the [challenge terms](https://ecdsa.fail/terms) for
++licensing and attribution.

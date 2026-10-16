@@ -1,0 +1,64 @@
+   Compiling value_prefilter v0.1.0 (/home/hclau/ecdsa_research/prefilter-20261015/tool)
+warning: unused imports: `Arc`, `AtomicUsize`, `Mutex`, and `Ordering`
+  --> src/bin/a29_rng_mask_v5.rs:15:17
+   |
+15 | use std::sync::{Arc, Mutex, atomic::{AtomicUsize, Ordering}};
+   |                 ^^^  ^^^^^           ^^^^^^^^^^^  ^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: constant `NUM_TESTS` is never used
+  --> src/bin/a29_rng_mask_v5.rs:31:7
+   |
+31 | const NUM_TESTS: usize = 9024;
+   |       ^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `secp256k1` is never used
+   --> src/bin/a29_rng_mask_v5.rs:137:4
+    |
+137 | fn secp256k1() -> WeierstrassEllipticCurve {
+    |    ^^^^^^^^^
+
+warning: function `fiat_shamir_seed` is never used
+   --> src/bin/a29_rng_mask_v5.rs:169:4
+    |
+169 | fn fiat_shamir_seed(ops: &[Op]) -> sha3::Shake256Reader {
+    |    ^^^^^^^^^^^^^^^^
+
+warning: fields `classical_wires`, `ops`, `mr`, `unresolved`, and `seconds` are never read
+  --> src/bin/../shadow_value_contract_bound.rs:11:5
+   |
+ 9 | struct ShadowCertificate {
+   |        ----------------- fields in this struct
+10 |     operation_digest: [u8;32], proved: bool, status: &'static str, quantum_ids: Vec<u64>, choices: Vec<u8>,
+11 |     classical_wires: usize, ops: usize, mr: usize, nodes: usize, caps: usize,
+   |     ^^^^^^^^^^^^^^^         ^^^         ^^
+12 |     unresolved: usize, seconds: f64,
+   |     ^^^^^^^^^^         ^^^^^^^
+   |
+   = note: `ShadowCertificate` has a derived impl for the trait `Clone`, but this is intentionally ignored during dead code analysis
+
+warning: multiple fields are never read
+ --> src/bin/../reset_projection.rs:2:53
+  |
+2 | ...ct ResetCertificate{proved:bool,status:&'static str,quantum_wires:usize,classical_wires:usize,ops:usize,mr:usize,nodes:usize,caps:usize,unresolved:usize,seconds:f64}
+  |       ----------------             ^^^^^^              ^^^^^^^^^^^^^       ^^^^^^^^^^^^^^^       ^^^       ^^       ^^^^^       ^^^^       ^^^^^^^^^^       ^^^^^^^
+  |       |
+  |       fields in this struct
+  |
+  = note: `ResetCertificate` has a derived impl for the trait `Clone`, but this is intentionally ignored during dead code analysis
+
+warning: multiple fields are never read
+ --> src/bin/../reset_projection_symbols.rs:2:53
+  |
+2 | ...ct ResetCertificate{proved:bool,status:&'static str,quantum_wires:usize,classical_wires:usize,ops:usize,mr:usize,nodes:usize,caps:usize,unresolved:usize,seconds:f64}
+  |       ----------------             ^^^^^^              ^^^^^^^^^^^^^       ^^^^^^^^^^^^^^^       ^^^       ^^       ^^^^^       ^^^^       ^^^^^^^^^^       ^^^^^^^
+  |       |
+  |       fields in this struct
+  |
+  = note: `ResetCertificate` has a derived impl for the trait `Clone`, but this is intentionally ignored during dead code analysis
+
+warning: `value_prefilter` (bin "a29_rng_mask_v5") generated 7 warnings (run `cargo fix --bin "a29_rng_mask_v5" -p value_prefilter` to apply 1 suggestion)
+    Finished `release` profile [optimized] target(s) in 15.59s

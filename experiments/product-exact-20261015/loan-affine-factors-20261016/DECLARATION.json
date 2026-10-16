@@ -1,0 +1,23 @@
+{
+  "status": "PREDECLARED_EXISTING_INVERSE_FACTORS_AFFINE_SPAN_SOURCE_ONLY",
+  "stream": "tip/ops.bin",
+  "stream_sha256": "2a522394cdf3e6a0df7784ad4db761030933c1f7ccd0ff8e641d68ec7a4dab3e",
+  "family_sha256": "d9549e40e9e87d108fb5fd78e007b1b76f03a50bd5a62f780a4a748d08ab96d5",
+  "parent_result_sha256": "b5d08476d2467ecaa8761709576c7533ff238aadd6927967017cceef99b56004",
+  "atom_cap": 512,
+  "product_cap": 200000,
+  "workers": 1,
+  "address_limit_GiB": 24,
+  "time_limit_seconds": 1800,
+  "all16_dirty_targets": true,
+  "pair_enumeration": false,
+  "max_existing_factor_nodes_per_site": 4096,
+  "method": "Current-classical-first Gaussian span plus650fullyuntouchedq; inspect only existing inverse product IDs in dirtyforms, express both factors, then Gaussian span dirtyRHS with indexed product generators. Costs reflect quantum-factor rank0/1/2 and are feasibility upper bounds only.",
+  "stop_rule": "If12nonconstantdirtytargets remain unsupported or costs unpromising, stop this cheap-factor route. No generator, candidate or sampling.",
+  "source_files_sha256": {
+    "Cargo.toml": "82f955c7810893b47ba772a04a6cd27fcaaa5c5b2cf376a4ccb34f103b8e2a25",
+    "Cargo.lock": "ccd6741a19c0284377e309ca5e160b4cb12739267e29a374234e8677bde4c1d2",
+    "src/main.rs": "99124d977bfa62e72d39517b5bc31583888f5162fb1838974fb98bec70b45d3f",
+    "src/support.rs": "4aa37587edffea7ae84c35cf1bd19c44b536c7730f8255a9fa21234541a51d35"
+  }
+}

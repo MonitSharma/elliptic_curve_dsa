@@ -1,0 +1,77 @@
+{
+  "status": "PREDECLARED_NOT_LAUNCHED_DISABLED_NUMA_AFFINITY_COMPARISON",
+  "immutable_binary": "/home/hclau/ecdsa_research/product-dispatch-filter-20261016/tool/target/release/value_prefilter",
+  "binary_sha256": "fa676f130fdeae547c8e40eb7fd20375d1058c5285609c93f4a3e8e9155f3356",
+  "candidate_stream_sha256": "180af069679ffa33b099b200d3337d6fc6c20a451a72508a40dea6617150dc64",
+  "reference4096_sha256": "d41180484936093bc6bb43f5796af04099708e02f659a294d8dbd507e6d01e12",
+  "modes": {
+    "unbound": "direct executable; inherited default policy/all144CPUs verified",
+    "numa3": "numactl --cpunodebind=3 --membind=3"
+  },
+  "threads": 4,
+  "paired_trials": 3,
+  "nonce_first": 1,
+  "nonce_count": 4096,
+  "lookahead": 4096,
+  "mode_order": [
+    [
+      "unbound",
+      "numa3"
+    ],
+    [
+      "numa3",
+      "unbound"
+    ],
+    [
+      "unbound",
+      "numa3"
+    ]
+  ],
+  "FAST_ZERO_DISPATCH": "absent in both child environments",
+  "row_identity": "all4096 sorted complete JSON records equal frozen disabled baseline and paired mode; gatesfalse required",
+  "known_node3_cpus": [
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    126,
+    127,
+    128,
+    129,
+    130,
+    131,
+    132,
+    133,
+    134,
+    135,
+    136,
+    137,
+    138,
+    139,
+    140,
+    141,
+    142,
+    143
+  ],
+  "resources": "runtime4threads,16GiBaddresscap; global>=120GiBavailable,node3>=16GiBfree; resource preflight+coordinator release mandatory",
+  "deadline_seconds": 600,
+  "per_process_timeout_seconds": 120,
+  "active_worker_affinity_changed": false,
+  "production_changed": false,
+  "proof_gate": false,
+  "nonce_selection": false
+}

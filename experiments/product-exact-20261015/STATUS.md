@@ -1,5 +1,36 @@
 # Exact product savings, 15 October 2026
 
+Active fixed experiment: uniformly restore all70 inherited CCX controls while
+retaining all74 deletion rows and all original table/anchor checks. Native base
+is `candidate-all70-base`; fresh fixed67 cache derivation/universal audits are
+`all70-cache67-20261016`, followed by native port `all70-native67-20261016`.
+The complete67-stage source recipe is fixed before generation. The sole final
+fresh gate is label `product-all70-fixed67-independent-20261016-v1`, batches0–32767
+per source against original4b, candidate rate no worse than parent/cap18,
+zero dirty shots. No candidate selection, resampling, old equivalence certificate,
+A29 mix, nonce search or submission is authorized by these launchers.
+Native BASE source/full-byte proof PASS: source SHA256
+`06cdc5de3dadbe23a2ff306466ec2ef27514bed53be1145ec83bdf490cb99a7a`.
+Every operation except the70 intended restorations matches original2a,
+including all physical MR/classical positions and the identity tail;
+all17 protected files remain unchanged. Base evidence archive
+`all70-base-native-evidence.tar.gz` SHA256
+`0c9afdc441dd7801524aea236f3d46f2c84b9eae2e92d4e004ea1cb1dad79258`
+has215 independently verified artifacts. Fresh cache proofs, final native
+port and the whole fixed census are pending; no new record claim.
+The complete source inventory archive is `../census-control-family-20261016/evidence.tar.gz`,
+SHA25623b6a65c55d1c5c191c892ee37e2b03d2d57c700c6bbd607a1b1851d155976a6,
+with all34 members independently verified locally. Its56–70T universal restoration
+cost bound and63T depth proxy are distinct from fresh measured expected cost.
+
+Latest source-only follow-up: complete original4b N2 dirty-loan family,
+all16 dirty targets. Fourhighest bits are provablyzero; the12 nonconstant bits
+have no stableq/current-C affine witness, and none of636divide/670multiply
+relevant existing product nodes has both factors in that span. No candidate or
+sampling followed. Strict return-zero audit proves2/16 destinations;14 remain
+unknown under conditional resets. See `N2-DIRTY-RHS-NEGATIVE.md` for exact scope
+and preserved17-second bounded runs. Existing production search is unchanged.
+
 **Best complete exact-cache native/fresh-census result: 102.13839293 ± 0.44366693
 executed Toffolis saved per shot at unchanged Q1234**, on frozen67 stages.
 The coordinator's4 source-binding tests, normal generation and complete byte

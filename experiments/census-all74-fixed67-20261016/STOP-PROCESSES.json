@@ -1,0 +1,112 @@
+{
+  "name": "census-all74-fixed67-20261016",
+  "pgid": 572494,
+  "before": [
+    {
+      "pid": 572494,
+      "ppid": 1,
+      "pgid": 572494,
+      "sid": 572494,
+      "state": "S",
+      "cmd": "bash watch-all74-cache67.sh ",
+      "cwd": "/home/hclau/ecdsa_research/census-all74-fixed67-20261016",
+      "start_ticks": 809666313
+    },
+    {
+      "pid": 595631,
+      "ppid": 572494,
+      "pgid": 572494,
+      "sid": 572494,
+      "state": "S",
+      "cmd": "python3 /home/hclau/ecdsa_research/census-all74-fixed67-20261016/run_all74_cache67.py ",
+      "cwd": "/home/hclau/ecdsa_research/census-all74-fixed67-20261016",
+      "start_ticks": 809713337
+    },
+    {
+      "pid": 640876,
+      "ppid": 595631,
+      "pgid": 572494,
+      "sid": 572494,
+      "state": "S",
+      "cmd": "/usr/bin/time -v /home/hclau/ecdsa_research/census-all74-fixed67-20261016/target-flags/release/product_paired_diagnostic /home/hclau/ecdsa_research/census-all74-fixed67-20261016/all74-cache67-20261016/all74-12-retained-128.bin /home/hclau/ecdsa_research/census-all74-fixed67-20261016/all74-cache67-20261016/all74-13-retained-512.bin ",
+      "cwd": "/home/hclau/ecdsa_research/census-all74-fixed67-20261016",
+      "start_ticks": 809896419
+    },
+    {
+      "pid": 640877,
+      "ppid": 640876,
+      "pgid": 572494,
+      "sid": 572494,
+      "state": "R",
+      "cmd": "/home/hclau/ecdsa_research/census-all74-fixed67-20261016/target-flags/release/product_paired_diagnostic /home/hclau/ecdsa_research/census-all74-fixed67-20261016/all74-cache67-20261016/all74-12-retained-128.bin /home/hclau/ecdsa_research/census-all74-fixed67-20261016/all74-cache67-20261016/all74-13-retained-512.bin ",
+      "cwd": "/home/hclau/ecdsa_research/census-all74-fixed67-20261016",
+      "start_ticks": 809896420
+    }
+  ],
+  "after": [
+    {
+      "pid": 572494,
+      "ppid": 1,
+      "pgid": 572494,
+      "sid": 572494,
+      "state": "T",
+      "cmd": "bash watch-all74-cache67.sh ",
+      "cwd": "/home/hclau/ecdsa_research/census-all74-fixed67-20261016",
+      "start_ticks": 809666313
+    },
+    {
+      "pid": 595631,
+      "ppid": 572494,
+      "pgid": 572494,
+      "sid": 572494,
+      "state": "T",
+      "cmd": "python3 /home/hclau/ecdsa_research/census-all74-fixed67-20261016/run_all74_cache67.py ",
+      "cwd": "/home/hclau/ecdsa_research/census-all74-fixed67-20261016",
+      "start_ticks": 809713337
+    },
+    {
+      "pid": 640876,
+      "ppid": 595631,
+      "pgid": 572494,
+      "sid": 572494,
+      "state": "T",
+      "cmd": "/usr/bin/time -v /home/hclau/ecdsa_research/census-all74-fixed67-20261016/target-flags/release/product_paired_diagnostic /home/hclau/ecdsa_research/census-all74-fixed67-20261016/all74-cache67-20261016/all74-12-retained-128.bin /home/hclau/ecdsa_research/census-all74-fixed67-20261016/all74-cache67-20261016/all74-13-retained-512.bin ",
+      "cwd": "/home/hclau/ecdsa_research/census-all74-fixed67-20261016",
+      "start_ticks": 809896419
+    },
+    {
+      "pid": 640877,
+      "ppid": 640876,
+      "pgid": 572494,
+      "sid": 572494,
+      "state": "T",
+      "cmd": "/home/hclau/ecdsa_research/census-all74-fixed67-20261016/target-flags/release/product_paired_diagnostic /home/hclau/ecdsa_research/census-all74-fixed67-20261016/all74-cache67-20261016/all74-12-retained-128.bin /home/hclau/ecdsa_research/census-all74-fixed67-20261016/all74-cache67-20261016/all74-13-retained-512.bin ",
+      "cwd": "/home/hclau/ecdsa_research/census-all74-fixed67-20261016",
+      "start_ticks": 809896420
+    }
+  ],
+  "completed_universal_stages": 12,
+  "last_completed": {
+    "stage": 12,
+    "config": {
+      "family": "retained",
+      "atom_cap": 128,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    "input_stream": "all74-cache67-20261016/all74-11-retained-1024.bin",
+    "input_sha256": "5f7623cd5ab78d8062d60338b0b3aef6d857d88f531a99b9ff4595f3d5bb1367",
+    "output_stream": "all74-cache67-20261016/all74-12-retained-128.bin",
+    "output_sha256": "2a60480c7247f1214f98dabed5a8cc5a3a528981718abab43caf99e7d068a57b",
+    "lease_log": "all74-cache67-20261016/all74-12-retained-128-generate.log",
+    "lease_log_sha256": "8449fde7d392f8e6a4d8fb20f8c74f0dc2b2f318a5154c8494050ea633c5a9a8",
+    "audit_log": "all74-cache67-20261016/all74-12-retained-128-universal.log",
+    "audit_log_sha256": "654446e479274bd755bd2905f942063dccbb03f2b09e8bb57e0489f9badbaabc",
+    "status": "UNIVERSAL_PASS"
+  },
+  "utc": "2026-10-16T01:07:18.587820+00:00",
+  "status": "USER_REQUESTED_SIGSTOP_NO_RESUME_WITHOUT_AUTHORIZATION"
+}

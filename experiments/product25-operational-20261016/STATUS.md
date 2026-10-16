@@ -1,5 +1,14 @@
 # Frozen product25 search: terminal lowest-pass audit passed
 
+**09:07 STOP update:** the unchanged benchmark on final nonce47,449,113
+finished just before user-requested pause: **Q1234/T761171/product939285014**,
+all9,024shots/zero classical, phase and ancilla failures. The fullstream is
+`93122ce2668fe2861eba894b1520d3e44552c2094487337dd92300c2aa9d57d2`.
+Its final fixed fresh census has **not run**. The post-verifier is stopped;
+no submission or automatic continuation. This is a complete local benchmark,
+not yet a fully READY or official product record. See
+[stop checkpoint](../autorun-20261015-2239/STOP-20261016-0907.md).
+
 **16 October 2026, 08:53 Singapore:** the complete read-only terminal audit
 passes. Nonce **47,449,113** is the lowest protected 9,024-shot pass. All
 **47,452,160 operational nonces** form one complete prefix from 1; the

@@ -1,0 +1,199 @@
+{
+  "status": "STRICT_SOURCE_LAST_WRITE_ZERO_AUDIT",
+  "stream_sha256": "2a522394cdf3e6a0df7784ad4db761030933c1f7ccd0ff8e641d68ec7a4dab3e",
+  "marker_sha256": "73ba3117b8aa042e1085cde490c6f650e06967e3dbf382630dae0428f71a2bdb",
+  "audit_source_sha256": "3b2c7f55abeccd5f44795f39a4ce83b38be88fb8b4afa391a8cf3383abf642cb",
+  "proved": 2,
+  "total": 16,
+  "rows": [
+    {
+      "phase": "divide",
+      "at": 4226079,
+      "results": [
+        {
+          "q": 1233,
+          "proved_zero": true,
+          "last_value_write": {
+            "at": 4225380,
+            "kind": 12,
+            "depth": 0,
+            "condition": 18446744073709551615
+          },
+          "initial_quantum_ABI": false
+        },
+        {
+          "q": 588,
+          "proved_zero": false,
+          "last_value_write": {
+            "at": 4225550,
+            "kind": 11,
+            "depth": 1,
+            "condition": 18446744073709551615
+          },
+          "initial_quantum_ABI": false
+        },
+        {
+          "q": 567,
+          "proved_zero": false,
+          "last_value_write": {
+            "at": 4225549,
+            "kind": 11,
+            "depth": 1,
+            "condition": 18446744073709551615
+          },
+          "initial_quantum_ABI": false
+        },
+        {
+          "q": 583,
+          "proved_zero": false,
+          "last_value_write": {
+            "at": 4225548,
+            "kind": 11,
+            "depth": 1,
+            "condition": 18446744073709551615
+          },
+          "initial_quantum_ABI": false
+        },
+        {
+          "q": 211,
+          "proved_zero": false,
+          "last_value_write": {
+            "at": 4225547,
+            "kind": 11,
+            "depth": 1,
+            "condition": 18446744073709551615
+          },
+          "initial_quantum_ABI": false
+        },
+        {
+          "q": 197,
+          "proved_zero": false,
+          "last_value_write": {
+            "at": 4225546,
+            "kind": 11,
+            "depth": 1,
+            "condition": 18446744073709551615
+          },
+          "initial_quantum_ABI": false
+        },
+        {
+          "q": 177,
+          "proved_zero": false,
+          "last_value_write": {
+            "at": 4225545,
+            "kind": 11,
+            "depth": 1,
+            "condition": 18446744073709551615
+          },
+          "initial_quantum_ABI": false
+        },
+        {
+          "q": 1218,
+          "proved_zero": false,
+          "last_value_write": {
+            "at": 4225544,
+            "kind": 11,
+            "depth": 1,
+            "condition": 18446744073709551615
+          },
+          "initial_quantum_ABI": false
+        }
+      ]
+    },
+    {
+      "phase": "multiply",
+      "at": 7606163,
+      "results": [
+        {
+          "q": 862,
+          "proved_zero": true,
+          "last_value_write": {
+            "at": 7605905,
+            "kind": 11,
+            "depth": 0,
+            "condition": 18446744073709551615
+          },
+          "initial_quantum_ABI": false
+        },
+        {
+          "q": 613,
+          "proved_zero": false,
+          "last_value_write": {
+            "at": 7605888,
+            "kind": 11,
+            "depth": 1,
+            "condition": 18446744073709551615
+          },
+          "initial_quantum_ABI": false
+        },
+        {
+          "q": 699,
+          "proved_zero": false,
+          "last_value_write": {
+            "at": 7605887,
+            "kind": 11,
+            "depth": 1,
+            "condition": 18446744073709551615
+          },
+          "initial_quantum_ABI": false
+        },
+        {
+          "q": 1200,
+          "proved_zero": false,
+          "last_value_write": {
+            "at": 7605886,
+            "kind": 11,
+            "depth": 1,
+            "condition": 18446744073709551615
+          },
+          "initial_quantum_ABI": false
+        },
+        {
+          "q": 210,
+          "proved_zero": false,
+          "last_value_write": {
+            "at": 7605885,
+            "kind": 11,
+            "depth": 1,
+            "condition": 18446744073709551615
+          },
+          "initial_quantum_ABI": false
+        },
+        {
+          "q": 1228,
+          "proved_zero": false,
+          "last_value_write": {
+            "at": 7605884,
+            "kind": 11,
+            "depth": 1,
+            "condition": 18446744073709551615
+          },
+          "initial_quantum_ABI": false
+        },
+        {
+          "q": 577,
+          "proved_zero": false,
+          "last_value_write": {
+            "at": 7605883,
+            "kind": 11,
+            "depth": 1,
+            "condition": 18446744073709551615
+          },
+          "initial_quantum_ABI": false
+        },
+        {
+          "q": 548,
+          "proved_zero": false,
+          "last_value_write": {
+            "at": 7605882,
+            "kind": 11,
+            "depth": 1,
+            "condition": 18446744073709551615
+          },
+          "initial_quantum_ABI": false
+        }
+      ]
+    }
+  ],
+  "scope": "Counts both Swap endpoints and every possible conditional value write. Only a last depth-zero unconditionally executed R/HMR or never-written non-input scratch proves zero. Does not prove phase, a repair, or identities on other inputs."
+}

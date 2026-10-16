@@ -1,0 +1,333 @@
+{
+  "status": "ACTUAL FINAL MARKER BINDING; DIAGNOSTIC ONLY",
+  "minimum_literal_context_ops": 16,
+  "criterion": "same centered consecutive literal Op neighborhood uniquely present in raw and actual final; globally monotone; no fixed offset assumption; paired boundaries required; missing UNKNOWN",
+  "raw_stream_sha256": "ff5163962ff5337753235d79f4026893e35b0445ae7406bf03be76d8a3d27a69",
+  "actual_stream_sha256": "2a522394cdf3e6a0df7784ad4db761030933c1f7ccd0ff8e641d68ec7a4dab3e",
+  "source_markers": 8,
+  "admitted_markers": 8,
+  "unknown_regions": 0,
+  "source_counts": {
+    "stage": 8
+  },
+  "admitted_counts": {
+    "stage": 8
+  },
+  "markers": [
+    {
+      "family": "stage",
+      "id": 0,
+      "at": 4051843,
+      "label": "out-before",
+      "phase": "divide",
+      "rail0": [
+        208,
+        209,
+        210,
+        211,
+        206
+      ],
+      "rail1": [
+        556,
+        555,
+        554,
+        553,
+        186
+      ],
+      "raw_at": 4051285,
+      "anchor": {
+        "actual_at": 4051843,
+        "radius": 8,
+        "literal_context_sha256": "e8c605efe408633fe94fce52b710cad50bbff763e839bafab4d5d9b4b75f85fc"
+      }
+    },
+    {
+      "family": "stage",
+      "id": 1,
+      "at": 4051851,
+      "label": "out-after",
+      "phase": "divide",
+      "rail0": [
+        206
+      ],
+      "rail1": [
+        186
+      ],
+      "raw_at": 4051293,
+      "anchor": {
+        "actual_at": 4051851,
+        "radius": 8,
+        "literal_context_sha256": "e00abb1de9f0499e9de05fccc9adfd2b69326eeaa31c7030d83192af89d55eef"
+      }
+    },
+    {
+      "family": "stage",
+      "id": 2,
+      "at": 4226079,
+      "label": "in-before",
+      "phase": "divide",
+      "rail0": [
+        206
+      ],
+      "rail1": [
+        186
+      ],
+      "raw_at": 4225476,
+      "anchor": {
+        "actual_at": 4226079,
+        "radius": 8,
+        "literal_context_sha256": "e793004ebe9fbaa889790b2c393f14b18850e5b0d257ec69ca55a6f596b2274e"
+      }
+    },
+    {
+      "family": "stage",
+      "id": 3,
+      "at": 4226087,
+      "label": "in-after",
+      "phase": "divide",
+      "rail0": [
+        1233,
+        588,
+        567,
+        583,
+        206
+      ],
+      "rail1": [
+        211,
+        197,
+        177,
+        1218,
+        186
+      ],
+      "raw_at": 4225484,
+      "anchor": {
+        "actual_at": 4226087,
+        "radius": 8,
+        "literal_context_sha256": "ec256c3572d9cc720cec1f4e0d06e4c5cc86f21080d0bf75b3caa2612ed070c2"
+      }
+    },
+    {
+      "family": "stage",
+      "id": 4,
+      "at": 7480325,
+      "label": "out-before",
+      "phase": "multiply",
+      "rail0": [
+        208,
+        209,
+        210,
+        211,
+        206
+      ],
+      "rail1": [
+        579,
+        577,
+        613,
+        612,
+        759
+      ],
+      "raw_at": 7112137,
+      "anchor": {
+        "actual_at": 7480325,
+        "radius": 8,
+        "literal_context_sha256": "39970a1d84ed30049fec58bd4b1e9630f201e51bc2edc8c994ef9f13937bf480"
+      }
+    },
+    {
+      "family": "stage",
+      "id": 5,
+      "at": 7480333,
+      "label": "out-after",
+      "phase": "multiply",
+      "rail0": [
+        206
+      ],
+      "rail1": [
+        759
+      ],
+      "raw_at": 7112145,
+      "anchor": {
+        "actual_at": 7480333,
+        "radius": 8,
+        "literal_context_sha256": "e31d6c7a37518c61cfb13670b7797ca69f28ef77fbc4674e3b835f840f73699d"
+      }
+    },
+    {
+      "family": "stage",
+      "id": 6,
+      "at": 7606163,
+      "label": "in-before",
+      "phase": "multiply",
+      "rail0": [
+        206
+      ],
+      "rail1": [
+        759
+      ],
+      "raw_at": 7237999,
+      "anchor": {
+        "actual_at": 7606163,
+        "radius": 8,
+        "literal_context_sha256": "0d1c352063ae97d5ac594bc4953ad3eba1084f5ef2c8e3d0ab209d6824f847d1"
+      }
+    },
+    {
+      "family": "stage",
+      "id": 7,
+      "at": 7606171,
+      "label": "in-after",
+      "phase": "multiply",
+      "rail0": [
+        862,
+        613,
+        699,
+        1200,
+        206
+      ],
+      "rail1": [
+        210,
+        1228,
+        577,
+        548,
+        759
+      ],
+      "raw_at": 7238007,
+      "anchor": {
+        "actual_at": 7606171,
+        "radius": 8,
+        "literal_context_sha256": "9686ecd34d2931ee9c92d5813d19d75d39f6cca47a78775fcd128ff7bfee6ff5"
+      }
+    }
+  ],
+  "unknown": [],
+  "mapping": [
+    {
+      "raw_at": 4051285,
+      "status": "BOUND",
+      "bound": {
+        "actual_at": 4051843,
+        "radius": 8,
+        "literal_context_sha256": "e8c605efe408633fe94fce52b710cad50bbff763e839bafab4d5d9b4b75f85fc"
+      },
+      "trials": [
+        {
+          "radius": 8,
+          "raw_matches": 1,
+          "actual_matches": 1
+        }
+      ]
+    },
+    {
+      "raw_at": 4051293,
+      "status": "BOUND",
+      "bound": {
+        "actual_at": 4051851,
+        "radius": 8,
+        "literal_context_sha256": "e00abb1de9f0499e9de05fccc9adfd2b69326eeaa31c7030d83192af89d55eef"
+      },
+      "trials": [
+        {
+          "radius": 8,
+          "raw_matches": 1,
+          "actual_matches": 1
+        }
+      ]
+    },
+    {
+      "raw_at": 4225476,
+      "status": "BOUND",
+      "bound": {
+        "actual_at": 4226079,
+        "radius": 8,
+        "literal_context_sha256": "e793004ebe9fbaa889790b2c393f14b18850e5b0d257ec69ca55a6f596b2274e"
+      },
+      "trials": [
+        {
+          "radius": 8,
+          "raw_matches": 1,
+          "actual_matches": 1
+        }
+      ]
+    },
+    {
+      "raw_at": 4225484,
+      "status": "BOUND",
+      "bound": {
+        "actual_at": 4226087,
+        "radius": 8,
+        "literal_context_sha256": "ec256c3572d9cc720cec1f4e0d06e4c5cc86f21080d0bf75b3caa2612ed070c2"
+      },
+      "trials": [
+        {
+          "radius": 8,
+          "raw_matches": 1,
+          "actual_matches": 1
+        }
+      ]
+    },
+    {
+      "raw_at": 7112137,
+      "status": "BOUND",
+      "bound": {
+        "actual_at": 7480325,
+        "radius": 8,
+        "literal_context_sha256": "39970a1d84ed30049fec58bd4b1e9630f201e51bc2edc8c994ef9f13937bf480"
+      },
+      "trials": [
+        {
+          "radius": 8,
+          "raw_matches": 1,
+          "actual_matches": 1
+        }
+      ]
+    },
+    {
+      "raw_at": 7112145,
+      "status": "BOUND",
+      "bound": {
+        "actual_at": 7480333,
+        "radius": 8,
+        "literal_context_sha256": "e31d6c7a37518c61cfb13670b7797ca69f28ef77fbc4674e3b835f840f73699d"
+      },
+      "trials": [
+        {
+          "radius": 8,
+          "raw_matches": 1,
+          "actual_matches": 1
+        }
+      ]
+    },
+    {
+      "raw_at": 7237999,
+      "status": "BOUND",
+      "bound": {
+        "actual_at": 7606163,
+        "radius": 8,
+        "literal_context_sha256": "0d1c352063ae97d5ac594bc4953ad3eba1084f5ef2c8e3d0ab209d6824f847d1"
+      },
+      "trials": [
+        {
+          "radius": 8,
+          "raw_matches": 1,
+          "actual_matches": 1
+        }
+      ]
+    },
+    {
+      "raw_at": 7238007,
+      "status": "BOUND",
+      "bound": {
+        "actual_at": 7606171,
+        "radius": 8,
+        "literal_context_sha256": "9686ecd34d2931ee9c92d5813d19d75d39f6cca47a78775fcd128ff7bfee6ff5"
+      },
+      "trials": [
+        {
+          "radius": 8,
+          "raw_matches": 1,
+          "actual_matches": 1
+        }
+      ]
+    }
+  ]
+}

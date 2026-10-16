@@ -1,0 +1,51 @@
+{
+  "status": "FIXED_COHORT_BEFORE_ROWS",
+  "preflight": {
+    "checked_at": "2026-10-16T01:01:52.258113+00:00",
+    "hostname": "LHC-104-070",
+    "cpu_affinity_count": 144,
+    "load_average": [
+      39.689453125,
+      41.93408203125,
+      51.87158203125
+    ],
+    "memory": {
+      "MemTotal_bytes": 540384096256,
+      "MemAvailable_bytes": 268690657280,
+      "SwapTotal_bytes": 8589930496,
+      "SwapFree_bytes": 8437985280
+    },
+    "disk_free_bytes": 4972127686656,
+    "schedulers": {
+      "squeue": null,
+      "qstat": null
+    },
+    "active_processes": [
+      "    PID %CPU %MEM COMMAND",
+      "3174330 1697 22.6 python",
+      "3207770 1664 19.5 python",
+      " 633812  100  0.4 product_paired_",
+      " 633388  100  1.4 product_paired_",
+      " 632800  100  1.6 product_paired_",
+      " 632101  100  0.5 build_circuit",
+      " 634960 99.8  0.1 python3",
+      " 635258 80.0  0.0 python3",
+      " 218208 12.0  0.0 ds_am",
+      " 216089  4.5  0.0 ds_agent",
+      " 211341  4.5  0.0 tmxbc",
+      " 635020  4.1  0.0 python3",
+      " 633807  1.2  0.0 python3",
+      "1702756  1.0  0.0 alloy"
+    ],
+    "ecdsa_workspace": "/home/hclau/ecdsa_research",
+    "chemistry_repository_modified": false
+  },
+  "label": "official753721-plus-retained4096-one-stage-independent-20261016-v1",
+  "first_batch": 0,
+  "batches_per_source": 32768,
+  "workers_per_source": 4,
+  "source_sha256": {
+    "parent": "1d8c05eeee7b43dd694506b5efe963c771461b7e690bc62f409947b2306b7d77",
+    "candidate": "1d4a9e1ed9d0a81bd16b922cfa7b2d2570792d1f91215de7f3300c9f795860b1"
+  }
+}

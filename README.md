@@ -10,23 +10,36 @@ independent, and existing evidence, including the Q692 width result, is preserve
 
 ## Where we stand
 
-**16 October 2026, 06:09 Singapore — product search is active.** The frozen
-candidate passed its fresh failure-rate, proof and runtime gates. The new
-prefilter clears the measured search-cost gate; nonce screening starts at1,
-selects the lowest pass and remains in queue mode. This is ongoing research,
-with no new product benchmark result yet. The 06:09 checkpoint records 22.5 million
-distinct screened nonces without a pass.
-[Search status and provenance](experiments/product25-operational-20261016/STATUS.md).
+**16 October 2026, 09:19 Singapore — product final verification failed its
+failure-rate gate.** PRODUCT25 passes the unchanged 9,024-shot benchmark at
+Q1234/T761171 (product939285014), but the predeclared final fresh comparison
+finds4,139 failing batches versus the parent's4,118 across2,097,152 shots each:
+17.8100 versus17.7197 per9,024-shot packet. Both are below18, but our standard
+also requires no worse than the parent. An independent complete raw recount
+agrees. This candidate is **not eligible for submission under that standard**;
+there is no resampling or new product-record claim. Other research remains
+paused, and nothing was submitted during verification.
+[Final verification evidence](experiments/product25-final-20261016/VERIFICATION.md).
+
+**16 October 2026, 09:40 Singapore — next product candidate searching.** We
+did not submit Product25. For future runs only, the failure-rate gate is now a
+paired statistical test (`AGENTS.md`). PLAIN67 (the record circuit plus an
+exact 67-stage cache, Q1234, −102 T per shot in paired fresh tests) passes it
+on its pre-declared cohort. Its lowest-pass nonce search has been running
+since 09:36, with about 21 h expected. There is no new score yet.
+[PLAIN67 status](experiments/plain67-operational-20261016/STATUS.md).
 
 **16 October 2026, 06:08 Singapore — official Toffoli record: 753,721
 Toffolis at Q1468**, 50 below our previous public Toffoli record. The unchanged
 benchmark passes all 9,024 shots with zero value, phase or ancilla failures.
 Nonce 644 is the lowest pass from 1 (731 screened). The final paired census
 passes at 5.77 failing batches per packet versus the parent's 5.80, across
-1,048,576 fresh shots each. Official evaluation confirms these metrics as
-[`03be8e19`](https://api.ecdsa.fail/api/submissions/03be8e19-ab3b-45c7-9c62-9d78970c4d95),
-source `b5adb653`. It is rejected solely because its product does not improve
-the product record; it is the independent public Toffoli minimum.
+1,048,576 fresh shots each. After a fresh unchanged benchmark reproduced the
+same score and stream, it was **submitted at 05:19 Singapore** as
+[`03be8e19`](https://api.ecdsa.fail/api/submissions/03be8e19-ab3b-45c7-9c62-9d78970c4d95).
+Official evaluation confirms 753,721/Q1468, source `b5adb653`; rejection is
+solely because its product does not improve. It is the independent Toffoli minimum.
+[Upload receipt and fresh verification](experiments/wide15-record-20261016/submission-20261016/STATUS.md).
 [Benchmark and source evidence](experiments/wide15-record-20261016/STATUS.md).
 The earlier753,745/Q1464 complete pass is preserved as a lower-width alternative;
 it no longer improves the current independent Toffoli minimum.

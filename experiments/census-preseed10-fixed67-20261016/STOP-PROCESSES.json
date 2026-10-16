@@ -1,0 +1,112 @@
+{
+  "name": "census-preseed10-fixed67-20261016",
+  "pgid": 627572,
+  "before": [
+    {
+      "pid": 627572,
+      "ppid": 1,
+      "pgid": 627572,
+      "sid": 627572,
+      "state": "S",
+      "cmd": "bash watch-preseed10-cache67.sh ",
+      "cwd": "/home/hclau/ecdsa_research/census-preseed10-fixed67-20261016",
+      "start_ticks": 809833159
+    },
+    {
+      "pid": 633807,
+      "ppid": 627572,
+      "pgid": 627572,
+      "sid": 627572,
+      "state": "S",
+      "cmd": "python3 /home/hclau/ecdsa_research/census-preseed10-fixed67-20261016/run_preseed10_cache67.py ",
+      "cwd": "/home/hclau/ecdsa_research/census-preseed10-fixed67-20261016",
+      "start_ticks": 809866174
+    },
+    {
+      "pid": 641576,
+      "ppid": 633807,
+      "pgid": 627572,
+      "sid": 627572,
+      "state": "S",
+      "cmd": "/usr/bin/time -v /home/hclau/ecdsa_research/census-preseed10-fixed67-20261016/target-cache-certificate-v2/release/product_paired_diagnostic /home/hclau/ecdsa_research/census-preseed10-fixed67-20261016/preseed10-cache67-20261016/preseed10-03-anf-512.bin /home/hclau/ecdsa_research/census-preseed10-fixed67-20261016/preseed10-cache67-20261016/preseed10-04-retained-512.bin /home/hclau/ecdsa_research/census-preseed10-fixed67-20261016/preseed10-cache67-20261016/preseed10-04-retained-512-generate.log retained ",
+      "cwd": "/home/hclau/ecdsa_research/census-preseed10-fixed67-20261016",
+      "start_ticks": 809900590
+    },
+    {
+      "pid": 641577,
+      "ppid": 641576,
+      "pgid": 627572,
+      "sid": 627572,
+      "state": "R",
+      "cmd": "/home/hclau/ecdsa_research/census-preseed10-fixed67-20261016/target-cache-certificate-v2/release/product_paired_diagnostic /home/hclau/ecdsa_research/census-preseed10-fixed67-20261016/preseed10-cache67-20261016/preseed10-03-anf-512.bin /home/hclau/ecdsa_research/census-preseed10-fixed67-20261016/preseed10-cache67-20261016/preseed10-04-retained-512.bin /home/hclau/ecdsa_research/census-preseed10-fixed67-20261016/preseed10-cache67-20261016/preseed10-04-retained-512-generate.log retained ",
+      "cwd": "/home/hclau/ecdsa_research/census-preseed10-fixed67-20261016",
+      "start_ticks": 809900590
+    }
+  ],
+  "after": [
+    {
+      "pid": 627572,
+      "ppid": 1,
+      "pgid": 627572,
+      "sid": 627572,
+      "state": "T",
+      "cmd": "bash watch-preseed10-cache67.sh ",
+      "cwd": "/home/hclau/ecdsa_research/census-preseed10-fixed67-20261016",
+      "start_ticks": 809833159
+    },
+    {
+      "pid": 633807,
+      "ppid": 627572,
+      "pgid": 627572,
+      "sid": 627572,
+      "state": "T",
+      "cmd": "python3 /home/hclau/ecdsa_research/census-preseed10-fixed67-20261016/run_preseed10_cache67.py ",
+      "cwd": "/home/hclau/ecdsa_research/census-preseed10-fixed67-20261016",
+      "start_ticks": 809866174
+    },
+    {
+      "pid": 641576,
+      "ppid": 633807,
+      "pgid": 627572,
+      "sid": 627572,
+      "state": "T",
+      "cmd": "/usr/bin/time -v /home/hclau/ecdsa_research/census-preseed10-fixed67-20261016/target-cache-certificate-v2/release/product_paired_diagnostic /home/hclau/ecdsa_research/census-preseed10-fixed67-20261016/preseed10-cache67-20261016/preseed10-03-anf-512.bin /home/hclau/ecdsa_research/census-preseed10-fixed67-20261016/preseed10-cache67-20261016/preseed10-04-retained-512.bin /home/hclau/ecdsa_research/census-preseed10-fixed67-20261016/preseed10-cache67-20261016/preseed10-04-retained-512-generate.log retained ",
+      "cwd": "/home/hclau/ecdsa_research/census-preseed10-fixed67-20261016",
+      "start_ticks": 809900590
+    },
+    {
+      "pid": 641577,
+      "ppid": 641576,
+      "pgid": 627572,
+      "sid": 627572,
+      "state": "T",
+      "cmd": "/home/hclau/ecdsa_research/census-preseed10-fixed67-20261016/target-cache-certificate-v2/release/product_paired_diagnostic /home/hclau/ecdsa_research/census-preseed10-fixed67-20261016/preseed10-cache67-20261016/preseed10-03-anf-512.bin /home/hclau/ecdsa_research/census-preseed10-fixed67-20261016/preseed10-cache67-20261016/preseed10-04-retained-512.bin /home/hclau/ecdsa_research/census-preseed10-fixed67-20261016/preseed10-cache67-20261016/preseed10-04-retained-512-generate.log retained ",
+      "cwd": "/home/hclau/ecdsa_research/census-preseed10-fixed67-20261016",
+      "start_ticks": 809900590
+    }
+  ],
+  "completed_universal_stages": 3,
+  "last_completed": {
+    "stage": 3,
+    "config": {
+      "family": "anf",
+      "atom_cap": 512,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    "input_stream": "preseed10-cache67-20261016/preseed10-02-affine-128.bin",
+    "input_sha256": "3017be89923b55754db48c9abf1f05ffcbe6724e3daf35e8eef19381375eb6ca",
+    "output_stream": "preseed10-cache67-20261016/preseed10-03-anf-512.bin",
+    "output_sha256": "f327e235e287391dec9c9289460b6fbd52b3b34c6a79f586146fcb0687760b34",
+    "lease_log": "preseed10-cache67-20261016/preseed10-03-anf-512-generate.log",
+    "lease_log_sha256": "9659ebc3070056f9c63a2465aad9b1955ec44816f6bdd2666cc0432ef9e1fcbd",
+    "audit_log": "preseed10-cache67-20261016/preseed10-03-anf-512-universal.log",
+    "audit_log_sha256": "55379dc25e834a34ca6fb9031cea902d470d197f7b46504fe42916f08d3a5371",
+    "status": "UNIVERSAL_PASS"
+  },
+  "utc": "2026-10-16T01:07:18.586713+00:00",
+  "status": "USER_REQUESTED_SIGSTOP_NO_RESUME_WITHOUT_AUTHORIZATION"
+}

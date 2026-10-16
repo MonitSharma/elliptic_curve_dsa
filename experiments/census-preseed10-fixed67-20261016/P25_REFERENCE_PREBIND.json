@@ -1,0 +1,20 @@
+{
+  "status": "FIXED_REFERENCE_IDENTITY_BEFORE_ANY_PRESEED10_COHORT",
+  "source_root": "/home/hclau/ecdsa_research/product25-final-20261016",
+  "source_stream": "/home/hclau/ecdsa_research/product25-final-20261016/candidate/ops.bin",
+  "source_stream_sha256": "93122ce2668fe2861eba894b1520d3e44552c2094487337dd92300c2aa9d57d2",
+  "native_receipt": "/home/hclau/ecdsa_research/product25-final-20261016/NATIVE_RECEIPT.json",
+  "native_receipt_sha256": "449f71cbe0909806aab93350d8d5009dbcc1091e2386739465fe8f681151582e",
+  "source_freeze": "/home/hclau/ecdsa_research/product25-final-20261016/SOURCE_FREEZE.json",
+  "source_freeze_sha256": "eae8505df54f5d90240155b936c08a8baca7278a40dd8a54ef9904dcd621d477",
+  "pre_tail_ops": 14142533,
+  "pre_tail_sha3_256": "24027e53f377f24195d290b5d343c519156cfa3ae45f64529def428a901f8480",
+  "identity_tail_nonce": 47449113,
+  "benchmark_receipt": "/home/hclau/ecdsa_research/product25-final-20261016/BENCHMARK_RESULT.json",
+  "benchmark_pass_status": "UNCHANGED_BENCHMARK_PASS",
+  "final_gate_receipt": "/home/hclau/ecdsa_research/product25-final-20261016/FINAL_CENSUS_RESULT.json",
+  "final_gate_pass_field": "failure_gate_pass",
+  "final_gate_pass_status": "FINAL_FRESH_CENSUS_PASS",
+  "final_gate_source_hash_field": ["source_sha256", "candidate"],
+  "policy": "Wait for a terminal final gate before any new cohort. If PASS, P25 is a mandatory32768-row additional baseline and candidate must not exceed either it or original4b. Pending cannot be treated as FAIL or omitted. Never substitute another source."
+}

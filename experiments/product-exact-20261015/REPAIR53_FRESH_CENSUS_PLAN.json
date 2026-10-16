@@ -1,0 +1,18 @@
+{
+  "scope": "Declared before repair+cache checkpoint measurements and before any final composite census rows.",
+  "label": "repair-plus53-frozen-20261016",
+  "original_reference_stream": "tip/ops.bin",
+  "original_reference_sha256": "2a522394cdf3e6a0df7784ad4db761030933c1f7ccd0ff8e641d68ec7a4dab3e",
+  "corrected_parent_stream_sha256": "1cd3457b44bd21d65921ce0d5b8352573a9c6f2bb2706430d367f68e5a7e5522",
+  "candidate": "Predetermined final53-stage exact-cache recipe on the frozen corrected parent; final hash must be frozen and native full-stream byte identity established before launch.",
+  "batches_per_source": 32768,
+  "first_batch": 0,
+  "last_batch": 32767,
+  "shots_per_source": 2097152,
+  "threads_per_source": 8,
+  "runner": "/home/hclau/ecdsa_research/simd-census-v2-20261016/bin/simd_census_v2",
+  "runner_sha256": "790e92266ea67ec54ef701b2deed76fe8d0b766b411ca9eab877f82ae2c11a66",
+  "selection": "Retain every declared row; no interim rate selection, stage/nonce adjustment, sample extension or stopping. Native proof and fresh composite-versus-original4b gate required; repair-parent-only gate is insufficient.",
+  "nonce_search_performed": false,
+  "score": null
+}

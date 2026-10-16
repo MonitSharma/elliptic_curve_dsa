@@ -1,0 +1,40 @@
+from pathlib import Path
+import json,hashlib,struct,subprocess,shutil,datetime
+base=Path('/home/hclau/ecdsa_research');e=base/'current-value-attribution-20261016';r=base/'seed-restore-20261016';r.mkdir(exist_ok=True)
+assert(e/'seed-attribution.exit').read_text().strip()=='0';assert(e/'seed-prefix-zeros.exit').read_text().strip()=='0'
+prefix=json.loads((e/'seed-prefix-zeros.log').read_text().splitlines()[0]);assert all(prefix['exact_zero'])
+proof=json.loads((e/'seed-bdd-contract.json').read_text());assert proof['original_source']['phase_exact_zero']and proof['original_source']['all256_target_bits_match_finite53_formula']and proof['original_source']['all_scratch_restored_zero']
+diff=json.loads((e/'seed-region-diff.json').read_text());assert len(diff['changes'])==1;change=diff['changes'][0];assert change['raw_end']-change['raw_begin']==1 and change['actual_end']-change['actual_begin']==1
+rawop=change['raw'][0];oldop=change['actual'][0];assert rawop[:4]==[13,881,1106,1134]and oldop[:4]==[8,2**64-1,1106,1134]
+source=e/'source-observer/src/point_add';row=(source/'census_cut_data.txt').read_text().splitlines()[10];assert row=='619007 ccx 881 1106 1134 - cx:1106'
+marks=json.loads((e/'actual-seed-markers.json').read_text());assert marks['source_counts']=={'seed':2}and marks['unknown_regions']==0
+decl=dict(status='FROZEN SOURCE-DEFINED ALL-SEED RESTORATION BEFORE GENERATION/SAMPLING',created_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),base_revision='4b2ec52fc55da796aa8f5ef851290297e8706424',base_stream_sha256=marks['actual_stream_sha256'],family='ALL inherited CCX-to-CX dropped-control edits inside ALL source mod_halve_pm complete helper instances',source_helper_instances=1,all_matching_edits=1,no_witness_selected_subset=True,source_rows=[row],full_helper=[diff['actual_begin'],diff['actual_end']],old_helper_sha256=diff['actual_region_sha256'],restored_helper_sha256=diff['raw_region_sha256'],cost=dict(added_executed_T=1,added_Q=0,added_MR=0,added_classical_bits=0),arithmetic='Restore exact finite53bit low subtraction then parity-loaded right rotation, not a full ideal-modular-halving claim',scratch_precondition_proof=prefix,universal_contract=proof['original_source'],fresh_gate=dict(label='public4b-all-seed-dropped-control-restore-independent-20261016-v1',batches=32768,shots_per_batch=64,sources_sequential=True,parent='original4b',strict_bad_batches_no_increase=True,community_lambda_cap=18,no_resample=True,no_cache_composite=True),proof_files={str(p.relative_to(e)):hashlib.sha256(p.read_bytes()).hexdigest()for p in[e/'prove-seed-bdd.py',e/'seed-bdd-contract.json',e/'seed-prefix-source.json',e/'seed-prefix-zeros.log',e/'seed-region-diff.json',e/'actual-seed-markers.json']})
+p=r/'PREDECLARATION.json';assert not p.exists();p.write_text(json.dumps(decl,indent=2)+'\n')
+exec((e/'inspect-seed-region.py').read_text().split('m=json.loads')[0].replace("assert(r/'seed-attribution.exit').read_text().strip()=='0'",''))
+# The preceding helper changes its own r; retain the new experiment path.
+r=base/'seed-restore-20261016';final=load(base/'product-exact-20261015/tip/ops.bin');body=final[:-96*56];old=final[diff['actual_begin']*56:diff['actual_end']*56];assert hashlib.sha256(old).hexdigest()==diff['actual_region_sha256'];at=change['actual_begin']-diff['actual_begin'];assert at==142
+(r/'seed_restore.bin').write_bytes(old)
+template=(base/'value-carry-contracts-20261016/square4-candidate/src/point_add/square_carry.rs').read_text();s=template[template.index('use crate::'):template.index('fn ccx(')]
+s=s.replace('include_bytes!("square_carry.bin")','include_bytes!("seed_restore.bin")');a=s.index('#[derive(Clone,Copy)]');b=s.index('fn decode(');s=s[:a]+s[b:]
+s=s.replace('const EXPECTED_INPUT:[u8;32]=[67, 103, 119, 99, 108, 231, 10, 124, 182, 32, 135, 211, 223, 6, 20, 141, 84, 29, 23, 208, 198, 168, 227, 92, 52, 180, 8, 8, 18, 89, 143, 117];','const EXPECTED_INPUT:[u8;32]='+str(list(hashlib.shake_256(body).digest(32)))+';')
+s+='''
+fn corrected(old:&[Op])->Vec<Op>{assert_eq!(old.len(),933);let mut out=old.to_vec();let o=old[142];assert_eq!(o.kind,K::CX);assert_eq!(o.q_control2.0,NONE);assert_eq!((o.q_control1.0,o.q_target.0),(1106,1134));assert_eq!((o.c_target.0,o.c_condition.0,o.r_target.0),(NONE,NONE,NONE));out[142].kind=K::CCX;out[142].q_control2=QubitId(881);out[142].validate();out}
+fn positions(ops:&[Op],old:&[Op])->Vec<usize>{ops.windows(old.len()).enumerate().filter_map(|(i,w)|(w==old).then_some(i)).collect()}
+pub fn run(mut ops:Vec<Op>)->Vec<Op>{assert_eq!(ops.len(),INPUT_OPS);assert_eq!(digest(&ops),EXPECTED_INPUT,"frozen complete post-table input");let(nq,nb,_,regs)=analyze_ops(ops.iter());assert_eq!((nq,nb),(1234,45701));let old=decode(DATA);let new=corrected(&old);let hits=positions(&ops,&old);assert_eq!(hits.len(),1,"complete ALL-seed family changed/ambiguous");let at=hits[0];let mut depth=0isize;for o in &ops[..at]{if o.kind==K::PushCondition{depth+=1}if o.kind==K::PopCondition{depth-=1}}assert_eq!(depth,0);ops[at..at+old.len()].copy_from_slice(&new);let(nq2,nb2,_,regs2)=analyze_ops(ops.iter());assert_eq!((nq2,nb2),(nq,nb));assert_eq!(regs2,regs);eprintln!("SEED_RESTORE all_helpers=1 all_dropped_controls=1 at={} addedT=1 addedQ=0 addedMR=0",at+142);ops}
+#[cfg(test)]mod tests{use super::*;
+#[test]fn exactly_one_original_control_restored(){let old=decode(DATA);let new=corrected(&old);let diff:Vec<_>=old.iter().zip(&new).enumerate().filter_map(|(i,(a,b))|(a!=b).then_some(i)).collect();assert_eq!(diff,vec![142]);assert_eq!(new[142].q_control2.0,881);}
+#[test]fn ambiguity_detected(){let old=decode(DATA);let mut x=old.clone();x.extend_from_slice(&old);assert_eq!(positions(&x,&old).len(),2);}
+#[test]#[should_panic]fn wrong_survivor_rejected(){let mut old=decode(DATA);old[142].q_control1=QubitId(1107);corrected(&old);}
+#[test]#[should_panic]fn conditional_edit_rejected(){let mut old=decode(DATA);old[142].c_condition=BitId(3);corrected(&old);}
+#[test]fn whole_input_mutation_changes_digest(){let old=decode(DATA);let mut x=old.clone();x[0].kind=K::Neg;assert_ne!(digest(&x),digest(&old));}}
+'''
+(r/'seed_restore.rs').write_text(s)
+tip=base/'product-exact-20261015/tip';dest=r/'candidate';assert not dest.exists();assert subprocess.check_output(['git','-C',str(tip),'rev-parse','HEAD'],text=True).strip()==decl['base_revision'];subprocess.run(['git','-C',str(tip),'worktree','add','--detach',str(dest),decl['base_revision']],check=True)
+for n in ['seed_restore.rs','seed_restore.bin']:shutil.copy2(r/n,dest/'src/point_add'/n)
+p=dest/'src/point_add/mod.rs';s=p.read_text();needle='    let nonce: u64 = required_env("TAIL_NONCE");';assert s.count(needle)==1;p.write_text('mod seed_restore;\n'+s.replace(needle,'    ops = seed_restore::run(ops);\n'+needle))
+subprocess.run(['git','-C',str(dest),'add','-N','src/point_add/seed_restore.rs','src/point_add/seed_restore.bin'],check=True);(r/'source.patch').write_bytes(subprocess.check_output(['git','-C',str(dest),'diff','--binary']))
+(r/'source-files.json').write_text(json.dumps({str(p.relative_to(dest)):hashlib.sha256(p.read_bytes()).hexdigest()for p in(dest/'src/point_add').rglob('*')if p.is_file()},indent=2)+'\n')
+predicted=bytearray(final);predicted[change['actual_begin']*56:(change['actual_begin']+1)*56]=struct.pack('<7Q',*rawop)
+(r/'predicted.json').write_text(json.dumps(dict(expected_canonical_sha256=hashlib.sha256(predicted).hexdigest(),ops=len(final)//56,only_one_op_change=change['actual_begin'],all_original_MR_ops_positions_identical=True,identity_tail_byte_identical=True,declaration_sha256=hashlib.sha256((r/'PREDECLARATION.json').read_bytes()).hexdigest()),indent=2)+'\n')
+tool=r/'tool';(tool/'src/bin').mkdir(parents=True,exist_ok=True);shutil.copy2(e/'tool/Cargo.toml',tool/'Cargo.toml');shutil.copy2(e/'tool/Cargo.lock',tool/'Cargo.lock');(tool/'src/bin/native_guard.rs').write_text('pub use quantum_ecc::circuit;\n#[path="/home/hclau/ecdsa_research/seed-restore-20261016/candidate/src/point_add/seed_restore.rs"]mod seed_restore;\nfn main(){}\n')
+print(json.dumps(decl,indent=2))

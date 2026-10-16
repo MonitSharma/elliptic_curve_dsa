@@ -1,0 +1,86 @@
+{
+  "status": "PASS CONSERVATIVE SOURCE-ONLY ALL74 N2/ALL786 ADD JOIN",
+  "rows": 74,
+  "all_add_instances": 786,
+  "add_boundary_queries": 1572,
+  "loan_boundary_queries": 8,
+  "all_source_rows_preserved": true,
+  "divide_out_before_all_rail_potential_sources": [
+    2,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "divide_out_before_q555_q556_potential_sources": {
+    "555": [
+      2,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "556": [
+      2,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ]
+  },
+  "multiply_out_before_all_rail_potential_sources": [
+    2,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    22,
+    24,
+    26,
+    28,
+    29,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    47,
+    48,
+    51,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    66
+  ],
+  "unknown40_syntactic_scope_grouping": {
+    "no-enclosing-syntactic-Push-helper-UNKNOWN": 39,
+    "smallest-balanced-Push": 1
+  },
+  "limits": [
+    "Reachability overapproximates value differences: no cancellation, zero-AND or correlated-guard reasoning. No demonstrated repair or nonzero effect.",
+    "Only value dependencies: fixed-tape HMR outcome is independent fresh input, so no quantum-to-classical tag propagation. Phase is outside this analysis.",
+    "Conditional resets retain old tags; known-active resets remove them. Paths never cross a known-active quantum reset of their carrier.",
+    "Queries at deletion-tied boundaries conservatively include all deletions before the preserved actual next Op.",
+    "A balanced Push scope is a syntactic region, not a named source helper. Unmarked depth0 helper families remain UNKNOWN."
+  ],
+  "seconds": 21.85133011173457
+}

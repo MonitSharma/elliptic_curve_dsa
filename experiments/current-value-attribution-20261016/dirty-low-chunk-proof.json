@@ -1,0 +1,36 @@
+{
+  "status": "PASS: EXACT ACTUAL FIRST4BIT CHUNK DIRTY-ENTRY CHARACTERIZATION",
+  "original_stream_sha256": "2a522394cdf3e6a0df7784ad4db761030933c1f7ccd0ff8e641d68ec7a4dab3e",
+  "actual_original_span": [
+    4052107,
+    4052138
+  ],
+  "actual_op_rows_sha256": "e8ab48caea911d777da86b72376a924e738339a29adbcf138fa556e11acbbf04",
+  "universal_quantum_entry_variables": 12,
+  "universal_physical_MR_variables": 6,
+  "uncapped_canonical_square_free_ANF": true,
+  "input_q": [
+    256,
+    257,
+    258,
+    259,
+    764,
+    699,
+    852,
+    853,
+    554,
+    555,
+    556,
+    553
+  ],
+  "sum": "sum[i] = a[i] XOR b[i] XOR c[i], c[0]=0; c[i+1]=dirty[i] XOR MAJ(a[i],b[i],c[i])",
+  "source": "all four original bits restored",
+  "scratch": "three internal dirty carries reset to0; output dirty carry equals olddirty XOR actual carry",
+  "exact_phase": "incoming_phase XOR HMR0*dirty0 XOR HMR1*dirty1 XOR HMR2*dirty2; all three extra R draws remain consumed",
+  "arbitrary_external_snapshot_guard": "if0, identity; if1, displayed exact contract; MR consumed either way",
+  "ordinary_clean_arithmetic_and_phase_recovered_iff": "all four scratch entry bits0 (the normal sufficient clean-adder premise)",
+  "false_clean_phase_negative_control_detected": true,
+  "single_dirty_carry_integer_cases": 768,
+  "no_repair": true,
+  "no_discard_or_classicalization_justified": true
+}

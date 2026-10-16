@@ -1,0 +1,327 @@
+{
+  "status": "SOURCE_ONLY_LAZY_ABSORBING_TRAVERSAL_DIAGNOSTIC",
+  "source_sha256": "560c12d5044dd895a4ef32adc905cdde48a780a196b3b28a75951c7f27b4fe9d",
+  "reference_library_sha256": "641f8c1b6578c9878244650bd05cbbbd1fd452e9199c504bc76832cf72fd81e1",
+  "fixture": "frozen32auditinputs",
+  "fixture_input_sha256": "b5a1e5c690727cd4ca6351152284f49090cca73c7b4be6a6bc3ab69a6b46897f",
+  "scored_outputs": 512,
+  "nonconstant_outputs": 49,
+  "actual_input_count": 32,
+  "known_bit_density": 0.22895408163265307,
+  "known_bits": 359,
+  "known_per_input": [
+    8,
+    11,
+    11,
+    17,
+    19,
+    8,
+    14,
+    13,
+    11,
+    17,
+    10,
+    5,
+    10,
+    11,
+    11,
+    12,
+    7,
+    7,
+    13,
+    16,
+    11,
+    11,
+    10,
+    12,
+    9,
+    9,
+    11,
+    5,
+    10,
+    18,
+    6,
+    16
+  ],
+  "full_nodes": 7914981,
+  "records": [
+    {
+      "visited_nodes": 7913897,
+      "fraction_full": 0.9998630445227853,
+      "absorbing_branches": 265979,
+      "kinds": {
+        "5": 707,
+        "3": 6664979,
+        "1": 1,
+        "4": 1247186,
+        "2": 1024
+      },
+      "mode": "packed32",
+      "first_child": "smaller_id",
+      "seconds": 10.760186055675149
+    },
+    {
+      "visited_nodes": 7900422,
+      "fraction_full": 0.9981605767594388,
+      "absorbing_branches": 285970,
+      "kinds": {
+        "5": 708,
+        "3": 6651485,
+        "4": 1247204,
+        "2": 1024,
+        "1": 1
+      },
+      "mode": "packed32",
+      "first_child": "larger_id",
+      "seconds": 13.278801579028368
+    },
+    {
+      "visited_nodes": 7754067,
+      "fraction_full": 0.9796696921950918,
+      "absorbing_branches": 769873,
+      "kinds": {
+        "5": 255,
+        "3": 6510610,
+        "1": 1,
+        "4": 1242177,
+        "2": 1024
+      },
+      "mode": "lane0",
+      "first_child": "smaller_id",
+      "seconds": 12.43326102849096
+    },
+    {
+      "visited_nodes": 7657550,
+      "fraction_full": 0.9674754746726493,
+      "absorbing_branches": 769739,
+      "kinds": {
+        "5": 708,
+        "3": 6409154,
+        "4": 1246663,
+        "2": 1024,
+        "1": 1
+      },
+      "mode": "lane0",
+      "first_child": "larger_id",
+      "seconds": 7.505013822577894
+    },
+    {
+      "visited_nodes": 7758105,
+      "fraction_full": 0.9801798639819855,
+      "absorbing_branches": 780415,
+      "kinds": {
+        "5": 241,
+        "3": 6514363,
+        "1": 1,
+        "4": 1242476,
+        "2": 1024
+      },
+      "mode": "lane1",
+      "first_child": "smaller_id",
+      "seconds": 7.069183408282697
+    },
+    {
+      "visited_nodes": 7658641,
+      "fraction_full": 0.967613314548702,
+      "absorbing_branches": 770975,
+      "kinds": {
+        "5": 708,
+        "3": 6410151,
+        "4": 1246757,
+        "2": 1024,
+        "1": 1
+      },
+      "mode": "lane1",
+      "first_child": "larger_id",
+      "seconds": 8.715068916790187
+    },
+    {
+      "visited_nodes": 7754965,
+      "fraction_full": 0.9797831479317511,
+      "absorbing_branches": 792681,
+      "kinds": {
+        "5": 307,
+        "3": 6510720,
+        "1": 1,
+        "4": 1242913,
+        "2": 1024
+      },
+      "mode": "lane2",
+      "first_child": "smaller_id",
+      "seconds": 11.289356670342386
+    },
+    {
+      "visited_nodes": 7656666,
+      "fraction_full": 0.967363787733666,
+      "absorbing_branches": 772091,
+      "kinds": {
+        "5": 708,
+        "3": 6408908,
+        "4": 1246025,
+        "2": 1024,
+        "1": 1
+      },
+      "mode": "lane2",
+      "first_child": "larger_id",
+      "seconds": 13.212241065688431
+    },
+    {
+      "visited_nodes": 7757640,
+      "fraction_full": 0.9801211146305974,
+      "absorbing_branches": 777611,
+      "kinds": {
+        "5": 335,
+        "3": 6513186,
+        "1": 1,
+        "4": 1243094,
+        "2": 1024
+      },
+      "mode": "lane3",
+      "first_child": "smaller_id",
+      "seconds": 10.280694974586368
+    },
+    {
+      "visited_nodes": 7660813,
+      "fraction_full": 0.967887730873896,
+      "absorbing_branches": 766117,
+      "kinds": {
+        "5": 708,
+        "3": 6412259,
+        "4": 1246821,
+        "2": 1024,
+        "1": 1
+      },
+      "mode": "lane3",
+      "first_child": "larger_id",
+      "seconds": 7.457425398752093
+    },
+    {
+      "visited_nodes": 7756671,
+      "fraction_full": 0.9799986885628658,
+      "absorbing_branches": 780870,
+      "kinds": {
+        "5": 234,
+        "3": 6512519,
+        "1": 1,
+        "4": 1242893,
+        "2": 1024
+      },
+      "mode": "lane24",
+      "first_child": "smaller_id",
+      "seconds": 11.483048162423074
+    },
+    {
+      "visited_nodes": 7655408,
+      "fraction_full": 0.96720484862819,
+      "absorbing_branches": 777640,
+      "kinds": {
+        "5": 708,
+        "3": 6406840,
+        "4": 1246835,
+        "2": 1024,
+        "1": 1
+      },
+      "mode": "lane24",
+      "first_child": "larger_id",
+      "seconds": 12.113810437731445
+    },
+    {
+      "visited_nodes": 7759586,
+      "fraction_full": 0.9803669775075897,
+      "absorbing_branches": 785200,
+      "kinds": {
+        "5": 206,
+        "3": 6515001,
+        "1": 1,
+        "4": 1243354,
+        "2": 1024
+      },
+      "mode": "lane25",
+      "first_child": "smaller_id",
+      "seconds": 12.56097233761102
+    },
+    {
+      "visited_nodes": 7657509,
+      "fraction_full": 0.9674702946223118,
+      "absorbing_branches": 776031,
+      "kinds": {
+        "5": 708,
+        "3": 6408929,
+        "4": 1246847,
+        "2": 1024,
+        "1": 1
+      },
+      "mode": "lane25",
+      "first_child": "larger_id",
+      "seconds": 8.857678227126598
+    },
+    {
+      "visited_nodes": 7756843,
+      "fraction_full": 0.9800204195057448,
+      "absorbing_branches": 797105,
+      "kinds": {
+        "5": 229,
+        "3": 6512406,
+        "1": 1,
+        "4": 1243183,
+        "2": 1024
+      },
+      "mode": "lane30",
+      "first_child": "smaller_id",
+      "seconds": 7.231333175674081
+    },
+    {
+      "visited_nodes": 7657782,
+      "fraction_full": 0.9675047861769978,
+      "absorbing_branches": 776010,
+      "kinds": {
+        "5": 708,
+        "3": 6409180,
+        "4": 1246869,
+        "2": 1024,
+        "1": 1
+      },
+      "mode": "lane30",
+      "first_child": "larger_id",
+      "seconds": 11.725394377484918
+    },
+    {
+      "visited_nodes": 7757089,
+      "fraction_full": 0.9800514998077696,
+      "absorbing_branches": 783290,
+      "kinds": {
+        "5": 395,
+        "3": 6512426,
+        "1": 1,
+        "4": 1243243,
+        "2": 1024
+      },
+      "mode": "lane31",
+      "first_child": "smaller_id",
+      "seconds": 10.967770270071924
+    },
+    {
+      "visited_nodes": 7658549,
+      "fraction_full": 0.9676016910211155,
+      "absorbing_branches": 775620,
+      "kinds": {
+        "5": 708,
+        "3": 6409982,
+        "4": 1246834,
+        "2": 1024,
+        "1": 1
+      },
+      "mode": "lane31",
+      "first_child": "larger_id",
+      "seconds": 12.219056838192046
+    }
+  ],
+  "absorbing_truth_cases": 54,
+  "total_s": 191.012581105344,
+  "not_claimed": [
+    "runtime speedup",
+    "source independence theorem change",
+    "production change",
+    "validated lazy evaluator"
+  ]
+}

@@ -1,0 +1,41 @@
+//! Read-only census of written/restored cleanup control products.
+use crate::circuit::{Op,OperationType as K,NO_QUBIT};
+use std::collections::{BTreeMap,BTreeSet,HashMap};
+type Key=(bool,Vec<u64>);
+pub fn analyze(ops:&[Op]){
+ let nq=ops.iter().flat_map(|o|[o.q_control1,o.q_control2,o.q_target]).filter(|q|*q!=NO_QUBIT).map(|q|q.0 as usize).max().unwrap()+1;
+ let mut depth=0usize;let mut ends=vec![usize::MAX;ops.len()];
+ for(i,o)in ops.iter().enumerate(){match o.kind{K::PushCondition=>depth+=1,K::PopCondition=>depth=depth.checked_sub(1).unwrap(),_=>{}}if depth==0{ends[i]=i+1;}}
+ assert_eq!(depth,0);let mut following=ops.len();let mut next=vec![usize::MAX;nq];let mut raw_ok=vec![false;ops.len()];
+ for(i,o)in ops.iter().enumerate().rev(){if ends[i]!=usize::MAX{following=ends[i];}else{ends[i]=following;}
+  if o.kind==K::CCX{raw_ok[i]=[o.q_control1,o.q_control2].iter().all(|q|next[q.0 as usize]>=following);}
+  match o.kind{K::X|K::CX|K::CCX|K::R|K::Hmr=>next[o.q_target.0 as usize]=i,K::Swap=>{next[o.q_target.0 as usize]=i;next[o.q_control1.0 as usize]=i;},_=>{}}
+ }
+ let mut groups:BTreeMap<Key,Vec<usize>>=BTreeMap::new();let mut support=super::interned_anf_retained::Support::new(ops);
+ let(mut dropped,mut linear)=(0usize,0usize);
+ for(i,o)in ops.iter().enumerate(){
+  if o.kind==K::CCX{groups.entry(support.cache_product(o)).or_default().push(i);}
+  let rewrite=support.step(o);
+  if o.kind==K::CCX{use super::interned_anf_retained::Rewrite;match rewrite{Rewrite::Drop=>dropped+=1,Rewrite::X|Rewrite::Cx(_)=>linear+=1,_=>{}}}
+ }
+ println!("SOURCE_EXISTING_RETAINED_SIMPLIFIER_CENSUS structural_dropped={dropped} structural_linear={linear} includes_unreachable_classical_guards=true numerical_executed_T_saving=UNKNOWN emits_stream=false sampled_inputs=0");
+ let mut checks:BTreeMap<usize,Vec<usize>>=BTreeMap::new();let mut wanted=BTreeSet::new();let mut repeated=0;
+ for uses in groups.values().filter(|us|us.len()>1){repeated+=1;for &at in uses.iter().skip(1){if !raw_ok[at]{checks.entry(ends[at]).or_default().push(at);wanted.insert(at);}}}
+ for ats in checks.values_mut(){ats.sort_unstable();}
+ drop(groups);drop(support);
+ let mut proof=super::interned_anf_retained::Support::new(ops);let mut expected:HashMap<usize,Key>=HashMap::new();let mut recovered=0;
+ for i in 0..=ops.len(){
+  if let Some(ats)=checks.get(&i){for &at in ats{let before=expected.remove(&at).expect("last use must precede cleanup");if proof.cache_product(&ops[at])==before{recovered+=1;if recovered<=20{println!("RECOVERED_LAST_USE at={at} end={i} controls={},{}",ops[at].q_control1.0,ops[at].q_control2.0);}}}}
+  if i<ops.len(){if ops[i].kind==K::CCX{let key=proof.cache_product(&ops[i]);if wanted.contains(&i){assert!(expected.insert(i,key).is_none());}}proof.step(&ops[i]);}
+ }
+ assert!(expected.is_empty());println!("SOURCE_ENDPOINT_CENSUS_COMPLETE repeated_groups={repeated} raw_rejected_last_uses={} recovered={recovered} source_only=true emits_stream=false sampled_inputs=0",wanted.len());
+}
+#[cfg(test)]mod tests{
+ use super::*;use crate::circuit::{QubitId,RegisterId};
+ fn gate(k:K,a:Option<u64>,b:Option<u64>,t:Option<u64>)->Op{let mut o=Op::empty();o.kind=k;o.q_control1=QubitId(a.unwrap_or(u64::MAX));o.q_control2=QubitId(b.unwrap_or(u64::MAX));o.q_target=QubitId(t.unwrap_or(u64::MAX));o}
+ fn prefix()->Vec<Op>{let mut out=vec![];let mut reg=Op::empty();reg.kind=K::Register;reg.r_target=RegisterId(0);out.push(reg);for q in 0..3{let mut o=reg;o.kind=K::AppendToRegister;o.q_target=QubitId(q);out.push(o);}out}
+ fn proves(tail:Vec<Op>)->bool{let mut ops=prefix();let ccx=gate(K::CCX,Some(0),Some(1),Some(2));ops.push(ccx);ops.extend(tail);let mut s=super::super::interned_anf_retained::Support::new(&ops);let mut expected=None;for o in &ops{if o.kind==K::CCX{expected=Some(s.cache_product(o));}s.step(o);}s.cache_product(&ccx)==expected.unwrap()}
+ #[test]fn restored_x_control_is_provable(){assert!(proves(vec![gate(K::X,None,None,Some(0)),gate(K::X,None,None,Some(0))]));}
+ #[test]fn swapped_controls_keep_the_product(){assert!(proves(vec![gate(K::Swap,Some(0),None,Some(1))]));}
+ #[test]fn changed_control_is_not_accepted(){assert!(!proves(vec![gate(K::X,None,None,Some(0))]));}
+}

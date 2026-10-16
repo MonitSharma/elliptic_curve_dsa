@@ -1,0 +1,33 @@
+{
+  "status": "PREDECLARED_SOURCE_ONLY_BOUNDED_TWO_CCX_AFFINE_CONE_INVENTORY",
+  "source": "/home/hclau/ecdsa_research/wide15-record-20261016/evidence/final-ops.bin",
+  "source_sha256": "1d8c05eeee7b43dd694506b5efe963c771461b7e690bc62f409947b2306b7d77",
+  "ops": 10522755,
+  "bounds": {
+    "middle_X_CX_SWAP_ops_max": 32,
+    "control_wire_support_max": 16
+  },
+  "guard": "All cone gates have one identical direct classical condition and unchanged enclosing snapshot stack; no scope/classical/phase/MR/reset/metadata/debug barriers. Target cannot be a quantum control or swapped. Linear target writes are retained exactly.",
+  "method": "Propagate affine controls, compute exact two-product Boolean polynomial and GF2 polar rank. Rank0 affine-only; rank2 explicitly invertible existing-control frame plus oneCCX and inverse frame/affine target correction; rank4 stays2. Preserve original middle Clifford map including passenger/dirty wires. Exact coefficient and symbolic full frame equality required per cone.",
+  "selection": "Maximum-cardinality beneficial disjoint intervals by earliest finish, then earliest start; report unknown guards without mean saving or weighted optimization claim.",
+  "tests": "Exhaustive all2196 quadraticpolynomials over<=4vars,78112 arbitrary state/dirty target/guard cases; actualsharedscanner17fixtures including384 fullentrytruthcases and hard32/16 limits. Pure X/CX/SWAP/CCX leaves all incoming phase/classical state and MR unchanged.",
+  "max_threads": 1,
+  "max_GiB": 12,
+  "wall_seconds": 900,
+  "source_only": true,
+  "output_candidate": false,
+  "census": false,
+  "nonce_search": false,
+  "record_claim": false,
+  "code_pins": {
+    "algebra.py": "f650f589d51892d1442d35a0bb6879e3b347ebc04587438591a9087befeab0db",
+    "cone-tests.py": "b69ca76fe6f6ee888db1f0a3f5538d6b3fd29b728cc868fb3e64d959938039ce",
+    "cones.py": "6466147450936b23abad16d325b0db6af2d060fdc6c15fb085c4d5f3b257f2a1",
+    "launch.py": "109cac7ad8b75c006f6c4db9483e1e6104952d3b98008882fb35173d67d51f99",
+    "protected-circuit-reference.rs": "ac2255f6bcb6895c9da2dfe21c3a051a0ef8fc4e0af9598634fec0035dbf35c6",
+    "protected-sim-reference.rs": "f0c72f2a280cd68acee1dbf8282098f72d6b3bf4311e0abf96d122fe002256d7",
+    "run.sh": "8e7d082c089987e4cb5eed0f3a5c1fae0f77e933e1c11c96357212ea6db4efc2",
+    "scan.py": "1ebfbad6c143255781a4406bfe167c2a96960ba1823b94d2c6c707dff617123c",
+    "tests.py": "50633d25ae2e074283c5dd2da8c7f2bc96bfe59c018cbc01f90836fc925d88d1"
+  }
+}

@@ -1,0 +1,5 @@
+# Deferred-sum integration review: terminal negative
+
+The initial review was incomplete: it checked selected-witness comparisons and fallback readiness but missed an earlier expected-sum consumer in `rail_fast_ffi::rail_flags`. That function builds the reverse-walk denominator as `model.sub(o.0,e.0)` before `next_witness` calls `expected_one`. Supplying dummy expected sums changes advisory inputs.
+
+The coordinator's disabled validation discovered81 differing rows among128; this review independently reproduces that count from the preserved disabled fixtures. Every row keeps the proof and authoritative-rejection gates false, and production is unchanged. Full-packet triple/MR controls can pass while this earlier advisory dependency is wrong. Drop-in integration is rejected; expected sums must be ready before advisory too, or a separately declared advisory redesign would be needed. The isolated C APIs remain correctly validated; their performance gain does not establish this integration's equivalence.

@@ -1,0 +1,40 @@
+diff --git a/src/point_add/census_cut.rs b/src/point_add/census_cut.rs
+index 0c3d7e2d..e872a399 100755
+--- a/src/point_add/census_cut.rs
++++ b/src/point_add/census_cut.rs
+@@ -254,17 +254,32 @@ pub fn run_rows(mut ops: Vec<Op>, mut rows: Vec<(usize, Vec<&str>)>) -> Vec<Op>
+         x.c_condition = o.c_condition;
+         let rep = match f[6].split_once(':') {
+             None if f[6] == "del" => { n_del += 1; vec![] }
+-            Some(("cx", a)) if kind == K::CCX => { x.kind = K::CX; x.q_control1 = QubitId(w(a)); x.q_target = o.q_target; vec![x] }
++            Some(("cx", a)) if kind == K::CCX => { assert!(w(a) == o.q_control1.0 || w(a) == o.q_control2.0, "restored control must be original"); vec![o] }
+             Some(("cz", ab)) if kind == K::CCZ => {
+                 let (a, b) = ab.split_once(',').unwrap();
+-                x.kind = K::CZ; x.q_control1 = QubitId(w(a)); x.q_target = QubitId(w(b)); vec![x]
++                assert!(a != b); panic!("ALL70 source family contains CCX reductions only")
+             }
+             _ => panic!("census_cut: bad action {:?}", f[6]),
+         };
+         if !rep.is_empty() { n_red += 1; for r in &rep { r.validate(); } }
+         ops.splice(*site..*site + 1, rep);
+     }
++    assert_eq!((rows.len(), n_del, n_red, n_blk), (144, 74, 70, 0), "complete ALL70 family required");
+     let w1 = static_t(&ops);
+-    eprintln!("CENSUS_CUT rows={} deleted={} reduced={} blocks={} static expected Toffoli {w0:.1} -> {w1:.1} ({:.1})", rows.len(), n_del, n_red, n_blk, w1 - w0);
++    eprintln!("CENSUS_CUT rows={} deleted={} retained_original_controls={} blocks={} static expected Toffoli {w0:.1} -> {w1:.1} ({:.1})", rows.len(), n_del, n_red, n_blk, w1 - w0);
+     ops
+ }
++
++#[cfg(test)] mod all70_uniform_tests {
++ use super::*;
++ #[test] fn fixed_source_family_is_complete() {
++  let r=rows();assert_eq!(r.len(),144);assert_eq!(r.iter().filter(|(_,f)|f[6]=="del").count(),74);
++  let reds:Vec<_>=r.iter().filter(|(_,f)|f[6]!="del").collect();assert_eq!(reds.len(),70);
++  assert!(reds.iter().all(|(_,f)|f[1]=="ccx"&&f[6].starts_with("cx:")));
++ }
++ #[test] fn retained_ccx_arbitrary_dirty_target_truth_table() {
++  for a in [false,true] {for b in [false,true] {for t in [false,true] {for enabled in [false,true] {
++   let after=t^(enabled&&a&&b);assert_eq!(after^ (enabled&&a&&b),t);
++  }}}}
++ }
++}

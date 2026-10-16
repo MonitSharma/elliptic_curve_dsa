@@ -1,0 +1,33 @@
+               total        used        free      shared  buff/cache   available
+Mem:          515350      253767       88424          10      179893      261582
+Swap:           8191         144        8047
+    PID %CPU   RSS COMMAND
+3174330 1710 119430784 /home/hclau/tools/miniforge3/envs/qob-lattice/bin/python problems/01-marketsplit/classical/ms_sieve.py external/QOBLIB/01-marketsplit/instances/ms_14_200_002.dat --out problems/01-marketsplit/results/sieve/ms_14_200_002.sol --threads 18
+3207770 1689 103186340 /home/hclau/tools/miniforge3/envs/qob-lattice/bin/python problems/01-marketsplit/classical/ms_sieve.py external/QOBLIB/01-marketsplit/instances/ms_14_200_003.dat --out problems/01-marketsplit/results/sieve/ms_14_200_003.sol --threads 18
+3893465  996 2718428 /home/hclau/ecdsa_research/product25-operational-20261016/tool/target/release/value_prefilter /home/hclau/ecdsa_research/product-exact-20261015/candidate-product-final25/ops.bin 1 134217728 12 /home/hclau/ecdsa_research/product25-operational-20261016/worker0.jsonl /home/hclau/ecdsa_research/prefilter-20261015/model-source 4096
+3893468  994 2719860 /home/hclau/ecdsa_research/product25-operational-20261016/tool/target/release/value_prefilter /home/hclau/ecdsa_research/product-exact-20261015/candidate-product-final25/ops.bin 1 134217728 12 /home/hclau/ecdsa_research/product25-operational-20261016/worker2.jsonl /home/hclau/ecdsa_research/prefilter-20261015/model-source 4096
+3893469  993 2692244 /home/hclau/ecdsa_research/product25-operational-20261016/tool/target/release/value_prefilter /home/hclau/ecdsa_research/product-exact-20261015/candidate-product-final25/ops.bin 1 134217728 12 /home/hclau/ecdsa_research/product25-operational-20261016/worker3.jsonl /home/hclau/ecdsa_research/prefilter-20261015/model-source 4096
+3893466  991 2646540 /home/hclau/ecdsa_research/product25-operational-20261016/tool/target/release/value_prefilter /home/hclau/ecdsa_research/product-exact-20261015/candidate-product-final25/ops.bin 1 134217728 12 /home/hclau/ecdsa_research/product25-operational-20261016/worker1.jsonl /home/hclau/ecdsa_research/prefilter-20261015/model-source 4096
+ 163483  398 644532 /home/hclau/ecdsa_research/failure-census-20261015/target/release/failure_census ../product-exact-20261015/tip/ops.bin public4b-all-C130-square-dirty-carry-independent-20261016-v1 0 32768 4 square-fresh/parent.jsonl
+ 221686  100 8254804 /home/hclau/ecdsa_research/product-exact-20261015/target-endpoint-census/release/product_paired_diagnostic /home/hclau/ecdsa_research/product-exact-20261015/product-to95-rank-20261016/product-95-retained-1024-proxy.bin
+ 218208 26.0 200708 /opt/ds_agent/ds_am -g ../diag -v 5 -d /var/opt/ds_agent/am -P 1 -R
+ 216089 19.5 374888 /opt/ds_agent/ds_agent -w /var/opt/ds_agent -b -i -e /opt/ds_agent/ext
+ 211341  9.3 54560 /opt/TrendMicro/EndpointBasecamp/bin/tmxbc service run
+1702756  1.0 84196 /usr/bin/alloy run --storage.path=/var/lib/alloy/data /etc/alloy/config.alloy
+ 220953  0.8 53128 /usr/libexec/fwupd/fwupd
+3777359  0.6 10080 .venv/bin/python tools/hpc/runner.py run tools/hpc/jobs/01_sieve.jsonl --max-cores 36
+ 218092  0.3 43628 /opt/ds_agent/netagent/tm_netagent --metrics-file /var/opt/ds_agent/netagent/metrics.json --log-folder /var/opt/ds_agent/netagent/logs --ptn-folder /opt/ds_agent/netagent/pattern --jat-folder /opt/ds_agent/netagent/java/jattach --jex-folder /var/opt/ds_agent/netagentjava --log-console=false --log-level 1 --tmCfg WyJTc2xMaW51eEphdmFCdWlsZEVuYWJsZWQiLCJKYXZhQXR0YWNoIiwiRGlzYWJsZURvY2tlckJQRiIsIlNzbEluYm91bmQiLCJTc2xPdXRib3VuZCJd
+1702753  0.1 27904 /usr/bin/containerd
+ 221659  0.1 17060 python3 -
+ 204394  0.1 55516 /usr/lib/systemd/systemd-journald
+ 211449  0.1 13904 /usr/libexec/udisks2/udisksd
+ 211526  0.0 13200 /usr/sbin/ModemManager
+ 211482  0.0  8260 /usr/lib/polkit-1/polkitd --no-debug
+ 218009  0.0 38464 /opt/ds_agent/netagent/tm_netagent --metrics-file /var/opt/ds_agent/netagent/metrics.json --log-folder /var/opt/ds_agent/netagent/logs --ptn-folder /opt/ds_agent/netagent/pattern --jat-folder /opt/ds_agent/netagent/java/jattach --jex-folder /var/opt/ds_agent/netagentjava --log-console=false --log-level 1 --tmCfg WyJTc2xMaW51eEphdmFCdWlsZEVuYWJsZWQiLCJKYXZhQXR0YWNoIiwiRGlzYWJsZURvY2tlckJQRiIsIlNzbEluYm91bmQiLCJTc2xPdXRib3VuZCJd
+     17  0.0     0 [rcu_preempt]
+ 204692  0.0  7936 /usr/lib/systemd/systemd-udevd
+ 220948  0.0 21276 /usr/libexec/packagekitd
+ 211365  0.0  9384 /usr/libexec/upowerd
+ 108978  0.0     0 [kworker/112:2-rcu_par_gp]
+ 219193  0.0 22088 /opt/ds_agent/dsa-connect hub
+   2866  0.0 49636 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock

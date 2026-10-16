@@ -1,0 +1,28 @@
+{
+  "status": "PREDECLARED_SOURCE_ONLY_EXACT_MAJ_CONE_INVENTORY",
+  "source": "/home/hclau/ecdsa_research/wide15-record-20261016/evidence/final-ops.bin",
+  "source_sha256": "1d8c05eeee7b43dd694506b5efe963c771461b7e690bc62f409947b2306b7d77",
+  "ops": 10522755,
+  "old_pattern": "CCX(a,b->t);CX(a->b);CCX(b,c->t);CX(a->b)",
+  "new_pattern": "CX(b->a);CX(b->c);CCX(a,c->t);CX(b->c);CX(b->a);CX(b->t)",
+  "preconditions": "Four distinct quantum wires; identical fixed classical guard and scope; no intermediate observations. Arbitrary dirty target, all other wires/classical/phase arbitrary. No clean scratch premise.",
+  "source_scan": "Every CCX seed, both control orientations, complete contiguous4-op matching plus projected matches across arbitrary-length pure quantum/global-phase blocks disjoint from all4macro wires. No scope/classical/MR/reset/metadata/debug barriers crossed. No input packets consulted.",
+  "selection": "Report all syntactic matches and separate deterministic ascending disjoint-span subset; exact enabled-count lower bound only from conservative source-only classical constant propagation, unknown weights stay unknown.",
+  "max_threads": 1,
+  "max_GiB": 12,
+  "wall_seconds": 900,
+  "native_generation": false,
+  "output_candidate": false,
+  "census": false,
+  "nonce_search": false,
+  "mean_saving_claim": false,
+  "code_and_reference_pins": {
+    "pattern-tests.py": "bb0a06024748c0c493fa503bb6dfcec54d1265b8797fd507c8022ca63fbf1df6",
+    "patterns.py": "2db7cbcbfb8091d34905821d43cda7274f0b1aca36c3695371ae55cf608b3ba9",
+    "primitive.py": "65426dbbda38bd104b835049f8740033f0ec772331db08fdebb0f6fff7c55ace",
+    "protected-circuit-reference.rs": "ac2255f6bcb6895c9da2dfe21c3a051a0ef8fc4e0af9598634fec0035dbf35c6",
+    "protected-sim-reference.rs": "f0c72f2a280cd68acee1dbf8282098f72d6b3bf4311e0abf96d122fe002256d7",
+    "run.sh": "5f0449955171c153c46fa89d96a8aea73319cfab5366485612cffac16b3e5ac2",
+    "scan.py": "5fe2ae75c3f9b4b9226c6d17576200c7f9f45c08f933d5b0fed5072cc7377236"
+  }
+}

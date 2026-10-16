@@ -1,0 +1,1144 @@
+{
+  "status": "TERMINAL_NEGATIVE_MISSED_ADVISORY_EXPECTED_SUM_DEPENDENCY",
+  "initial_review": "Historical incomplete no-material-finding statement traced packed comparisons and exact fallback but missed rail_flags consumer.",
+  "finding": "rail_fast_ffi::rail_flags uses model.sub(o.0,e.0) before next_witness calls expected_one; dummy e=(0,0) therefore changes reverse advisory input and selected witness.",
+  "required_precondition": "Expected sum must be filled before advisory as well as comparisons/fallback; current drop-in deferral cannot preserve its witness selection.",
+  "rows": 128,
+  "different_rows": 81,
+  "all_gates_disabled": true,
+  "production_changed": false,
+  "no_new_lazy_integration_accepted": true,
+  "differences": [
+    {
+      "nonce": 1,
+      "differences": {
+        "witness_shot": [
+          19,
+          22
+        ],
+        "witness_batch": [
+          18,
+          41
+        ],
+        "witnesses_tried": [
+          1,
+          4
+        ]
+      }
+    },
+    {
+      "nonce": 2,
+      "differences": {
+        "witnesses_tried": [
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "nonce": 3,
+      "differences": {
+        "witnesses_tried": [
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "nonce": 4,
+      "differences": {
+        "witness_shot": [
+          44,
+          35
+        ],
+        "witness_batch": [
+          18,
+          69
+        ],
+        "witnesses_tried": [
+          1,
+          6
+        ]
+      }
+    },
+    {
+      "nonce": 5,
+      "differences": {
+        "witness_shot": [
+          17,
+          11
+        ],
+        "witness_batch": [
+          4,
+          6
+        ]
+      }
+    },
+    {
+      "nonce": 8,
+      "differences": {
+        "witness_shot": [
+          0,
+          36
+        ],
+        "witness_batch": [
+          0,
+          53
+        ],
+        "witnesses_tried": [
+          1,
+          5
+        ]
+      }
+    },
+    {
+      "nonce": 9,
+      "differences": {
+        "witness_shot": [
+          53,
+          1
+        ],
+        "witness_batch": [
+          3,
+          60
+        ],
+        "witnesses_tried": [
+          1,
+          5
+        ]
+      }
+    },
+    {
+      "nonce": 11,
+      "differences": {
+        "witness_shot": [
+          32,
+          10
+        ],
+        "witness_batch": [
+          7,
+          12
+        ],
+        "witnesses_tried": [
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "nonce": 14,
+      "differences": {
+        "witness_shot": [
+          6,
+          19
+        ],
+        "witness_batch": [
+          0,
+          6
+        ]
+      }
+    },
+    {
+      "nonce": 15,
+      "differences": {
+        "witness_shot": [
+          7,
+          28
+        ],
+        "witness_batch": [
+          25,
+          32
+        ],
+        "witnesses_tried": [
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "nonce": 18,
+      "differences": {
+        "witness_shot": [
+          26,
+          36
+        ],
+        "witness_batch": [
+          17,
+          24
+        ],
+        "witnesses_tried": [
+          1,
+          5
+        ]
+      }
+    },
+    {
+      "nonce": 19,
+      "differences": {
+        "witness_shot": [
+          62,
+          14
+        ],
+        "witness_batch": [
+          5,
+          33
+        ],
+        "witnesses_tried": [
+          1,
+          3
+        ]
+      }
+    },
+    {
+      "nonce": 20,
+      "differences": {
+        "witness_shot": [
+          33,
+          22
+        ],
+        "witness_batch": [
+          6,
+          18
+        ]
+      }
+    },
+    {
+      "nonce": 22,
+      "differences": {
+        "witness_shot": [
+          2,
+          46
+        ],
+        "witness_batch": [
+          10,
+          12
+        ]
+      }
+    },
+    {
+      "nonce": 23,
+      "differences": {
+        "witness_shot": [
+          11,
+          50
+        ],
+        "witness_batch": [
+          5,
+          14
+        ]
+      }
+    },
+    {
+      "nonce": 24,
+      "differences": {
+        "witnesses_tried": [
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "nonce": 26,
+      "differences": {
+        "witness_shot": [
+          31,
+          47
+        ],
+        "witness_batch": [
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "nonce": 27,
+      "differences": {
+        "witness_shot": [
+          54,
+          22
+        ],
+        "witness_batch": [
+          1,
+          25
+        ],
+        "witnesses_tried": [
+          1,
+          3
+        ]
+      }
+    },
+    {
+      "nonce": 28,
+      "differences": {
+        "witness_shot": [
+          16,
+          58
+        ],
+        "witness_batch": [
+          6,
+          17
+        ],
+        "witnesses_tried": [
+          1,
+          3
+        ]
+      }
+    },
+    {
+      "nonce": 30,
+      "differences": {
+        "witness_shot": [
+          48,
+          33
+        ],
+        "witness_batch": [
+          20,
+          44
+        ],
+        "witnesses_tried": [
+          1,
+          4
+        ]
+      }
+    },
+    {
+      "nonce": 31,
+      "differences": {
+        "witness_shot": [
+          63,
+          61
+        ],
+        "witness_batch": [
+          35,
+          67
+        ],
+        "witnesses_tried": [
+          1,
+          3
+        ]
+      }
+    },
+    {
+      "nonce": 33,
+      "differences": {
+        "witness_shot": [
+          40,
+          9
+        ],
+        "witness_batch": [
+          13,
+          19
+        ],
+        "witnesses_tried": [
+          1,
+          3
+        ]
+      }
+    },
+    {
+      "nonce": 34,
+      "differences": {
+        "witness_shot": [
+          2,
+          61
+        ],
+        "witnesses_tried": [
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "nonce": 35,
+      "differences": {
+        "witnesses_tried": [
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "nonce": 36,
+      "differences": {
+        "witness_shot": [
+          13,
+          1
+        ],
+        "witness_batch": [
+          5,
+          8
+        ]
+      }
+    },
+    {
+      "nonce": 38,
+      "differences": {
+        "witnesses_tried": [
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "nonce": 39,
+      "differences": {
+        "witness_shot": [
+          42,
+          17
+        ],
+        "witness_batch": [
+          2,
+          10
+        ]
+      }
+    },
+    {
+      "nonce": 40,
+      "differences": {
+        "witness_shot": [
+          51,
+          44
+        ],
+        "witness_batch": [
+          10,
+          41
+        ],
+        "witnesses_tried": [
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "nonce": 41,
+      "differences": {
+        "witness_shot": [
+          25,
+          17
+        ],
+        "witness_batch": [
+          26,
+          111
+        ],
+        "witnesses_tried": [
+          1,
+          6
+        ]
+      }
+    },
+    {
+      "nonce": 43,
+      "differences": {
+        "witness_shot": [
+          55,
+          61
+        ],
+        "witness_batch": [
+          2,
+          7
+        ],
+        "witnesses_tried": [
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "nonce": 44,
+      "differences": {
+        "witnesses_tried": [
+          1,
+          4
+        ]
+      }
+    },
+    {
+      "nonce": 47,
+      "differences": {
+        "witnesses_tried": [
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "nonce": 49,
+      "differences": {
+        "witness_shot": [
+          27,
+          25
+        ],
+        "witness_batch": [
+          0,
+          10
+        ]
+      }
+    },
+    {
+      "nonce": 51,
+      "differences": {
+        "witness_shot": [
+          54,
+          30
+        ],
+        "witness_batch": [
+          12,
+          46
+        ],
+        "witnesses_tried": [
+          1,
+          6
+        ]
+      }
+    },
+    {
+      "nonce": 52,
+      "differences": {
+        "witnesses_tried": [
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "nonce": 53,
+      "differences": {
+        "witness_shot": [
+          19,
+          18
+        ],
+        "witness_batch": [
+          4,
+          37
+        ],
+        "witnesses_tried": [
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "nonce": 55,
+      "differences": {
+        "witnesses_tried": [
+          1,
+          4
+        ]
+      }
+    },
+    {
+      "nonce": 56,
+      "differences": {
+        "witness_shot": [
+          58,
+          36
+        ],
+        "witness_batch": [
+          1,
+          3
+        ]
+      }
+    },
+    {
+      "nonce": 57,
+      "differences": {
+        "witness_shot": [
+          35,
+          6
+        ],
+        "witness_batch": [
+          10,
+          43
+        ]
+      }
+    },
+    {
+      "nonce": 59,
+      "differences": {
+        "witness_shot": [
+          6,
+          57
+        ],
+        "witness_batch": [
+          16,
+          32
+        ],
+        "witnesses_tried": [
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "nonce": 62,
+      "differences": {
+        "witness_batch": [
+          17,
+          34
+        ]
+      }
+    },
+    {
+      "nonce": 63,
+      "differences": {
+        "witness_shot": [
+          45,
+          10
+        ],
+        "witness_batch": [
+          28,
+          43
+        ],
+        "witnesses_tried": [
+          1,
+          3
+        ]
+      }
+    },
+    {
+      "nonce": 64,
+      "differences": {
+        "witness_shot": [
+          38,
+          53
+        ],
+        "witness_batch": [
+          12,
+          41
+        ],
+        "witnesses_tried": [
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "nonce": 67,
+      "differences": {
+        "witnesses_tried": [
+          1,
+          3
+        ]
+      }
+    },
+    {
+      "nonce": 68,
+      "differences": {
+        "witness_shot": [
+          18,
+          31
+        ],
+        "witness_batch": [
+          0,
+          42
+        ]
+      }
+    },
+    {
+      "nonce": 69,
+      "differences": {
+        "witness_shot": [
+          27,
+          49
+        ],
+        "witness_batch": [
+          0,
+          14
+        ]
+      }
+    },
+    {
+      "nonce": 70,
+      "differences": {
+        "witness_shot": [
+          3,
+          36
+        ]
+      }
+    },
+    {
+      "nonce": 71,
+      "differences": {
+        "witness_shot": [
+          50,
+          19
+        ],
+        "witness_batch": [
+          1,
+          18
+        ],
+        "witnesses_tried": [
+          1,
+          3
+        ]
+      }
+    },
+    {
+      "nonce": 74,
+      "differences": {
+        "witness_shot": [
+          55,
+          26
+        ],
+        "witness_batch": [
+          22,
+          33
+        ],
+        "witnesses_tried": [
+          1,
+          6
+        ]
+      }
+    },
+    {
+      "nonce": 77,
+      "differences": {
+        "witness_shot": [
+          57,
+          33
+        ],
+        "witness_batch": [
+          15,
+          27
+        ],
+        "witnesses_tried": [
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "nonce": 78,
+      "differences": {
+        "witness_shot": [
+          20,
+          48
+        ],
+        "witness_batch": [
+          2,
+          7
+        ]
+      }
+    },
+    {
+      "nonce": 80,
+      "differences": {
+        "witness_shot": [
+          49,
+          34
+        ],
+        "witness_batch": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "nonce": 82,
+      "differences": {
+        "witness_shot": [
+          15,
+          27
+        ],
+        "witness_batch": [
+          9,
+          30
+        ]
+      }
+    },
+    {
+      "nonce": 83,
+      "differences": {
+        "witnesses_tried": [
+          1,
+          6
+        ]
+      }
+    },
+    {
+      "nonce": 84,
+      "differences": {
+        "witness_shot": [
+          18,
+          12
+        ],
+        "witness_batch": [
+          4,
+          126
+        ],
+        "witnesses_tried": [
+          1,
+          7
+        ]
+      }
+    },
+    {
+      "nonce": 85,
+      "differences": {
+        "witness_shot": [
+          17,
+          16
+        ],
+        "witness_batch": [
+          22,
+          28
+        ]
+      }
+    },
+    {
+      "nonce": 86,
+      "differences": {
+        "witness_shot": [
+          52,
+          59
+        ],
+        "witness_batch": [
+          23,
+          24
+        ]
+      }
+    },
+    {
+      "nonce": 90,
+      "differences": {
+        "witness_shot": [
+          22,
+          19
+        ],
+        "witness_batch": [
+          5,
+          20
+        ],
+        "witnesses_tried": [
+          2,
+          1
+        ]
+      }
+    },
+    {
+      "nonce": 93,
+      "differences": {
+        "witness_shot": [
+          13,
+          8
+        ],
+        "witness_batch": [
+          5,
+          13
+        ]
+      }
+    },
+    {
+      "nonce": 99,
+      "differences": {
+        "witness_shot": [
+          13,
+          1
+        ],
+        "witness_batch": [
+          7,
+          32
+        ],
+        "witnesses_tried": [
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "nonce": 100,
+      "differences": {
+        "witness_shot": [
+          57,
+          56
+        ],
+        "witness_batch": [
+          8,
+          16
+        ],
+        "witnesses_tried": [
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "nonce": 101,
+      "differences": {
+        "witness_shot": [
+          16,
+          17
+        ],
+        "witness_batch": [
+          1,
+          34
+        ],
+        "witnesses_tried": [
+          1,
+          5
+        ]
+      }
+    },
+    {
+      "nonce": 104,
+      "differences": {
+        "witnesses_tried": [
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "nonce": 106,
+      "differences": {
+        "witness_shot": [
+          27,
+          21
+        ],
+        "witness_batch": [
+          33,
+          96
+        ],
+        "witnesses_tried": [
+          1,
+          12
+        ]
+      }
+    },
+    {
+      "nonce": 107,
+      "differences": {
+        "witnesses_tried": [
+          1,
+          3
+        ]
+      }
+    },
+    {
+      "nonce": 108,
+      "differences": {
+        "witness_shot": [
+          41,
+          31
+        ],
+        "witness_batch": [
+          3,
+          7
+        ]
+      }
+    },
+    {
+      "nonce": 109,
+      "differences": {
+        "witness_shot": [
+          20,
+          47
+        ],
+        "witness_batch": [
+          3,
+          24
+        ],
+        "witnesses_tried": [
+          1,
+          3
+        ]
+      }
+    },
+    {
+      "nonce": 111,
+      "differences": {
+        "witness_shot": [
+          49,
+          61
+        ],
+        "witness_batch": [
+          6,
+          15
+        ]
+      }
+    },
+    {
+      "nonce": 112,
+      "differences": {
+        "witnesses_tried": [
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "nonce": 113,
+      "differences": {
+        "witnesses_tried": [
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "nonce": 115,
+      "differences": {
+        "witness_shot": [
+          58,
+          1
+        ],
+        "witness_batch": [
+          34,
+          68
+        ],
+        "witnesses_tried": [
+          1,
+          9
+        ]
+      }
+    },
+    {
+      "nonce": 116,
+      "differences": {
+        "witnesses_tried": [
+          1,
+          3
+        ]
+      }
+    },
+    {
+      "nonce": 117,
+      "differences": {
+        "witness_shot": [
+          24,
+          31
+        ],
+        "witness_batch": [
+          19,
+          69
+        ],
+        "witnesses_tried": [
+          1,
+          4
+        ]
+      }
+    },
+    {
+      "nonce": 118,
+      "differences": {
+        "witness_shot": [
+          8,
+          53
+        ],
+        "witness_batch": [
+          3,
+          10
+        ],
+        "witnesses_tried": [
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "nonce": 119,
+      "differences": {
+        "witness_shot": [
+          55,
+          32
+        ],
+        "witness_batch": [
+          3,
+          10
+        ],
+        "witnesses_tried": [
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "nonce": 121,
+      "differences": {
+        "witnesses_tried": [
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "nonce": 123,
+      "differences": {
+        "witness_shot": [
+          2,
+          52
+        ],
+        "witness_batch": [
+          0,
+          2
+        ]
+      }
+    },
+    {
+      "nonce": 124,
+      "differences": {
+        "witness_shot": [
+          9,
+          26
+        ],
+        "witness_batch": [
+          17,
+          42
+        ],
+        "witnesses_tried": [
+          1,
+          5
+        ]
+      }
+    },
+    {
+      "nonce": 125,
+      "differences": {
+        "witness_shot": [
+          22,
+          42
+        ]
+      }
+    },
+    {
+      "nonce": 126,
+      "differences": {
+        "witness_shot": [
+          14,
+          61
+        ],
+        "witness_batch": [
+          3,
+          60
+        ],
+        "witnesses_tried": [
+          1,
+          4
+        ]
+      }
+    },
+    {
+      "nonce": 128,
+      "differences": {
+        "witness_batch": [
+          11,
+          14
+        ],
+        "witnesses_tried": [
+          1,
+          2
+        ]
+      }
+    }
+  ],
+  "source_files": {
+    "baseline-shadow128.jsonl": "e099e423831cd5ccff3a5a55b5734764ff3fc731d4c7d60aa15ca3697e19680e",
+    "DECLARATION.json": "cb7fd10ccb43bd870ede8df609f7c023df5b7e0dd7cee4c3bae5a91c6197556b",
+    "fast_curve_c.rs": "cf0d6c1d870a7aaa0d4abe3ae1ce4b290c2a367f06d88058fe3d817c996e199d",
+    "lazy-shadow128.jsonl": "4ae8722a9796ee65515011e384ba6c211f380427c02d6b91f436cb9cba329cd3",
+    "lazy.rs": "9563b0a4717ad1f5e5c6de9043b5e4c577390af726acd8a8fe9f5e069c88f14d",
+    "prepare.py": "c2e06dba3396e810e9ff0581e6819e9a176ec478d3d7a93d71a5c5f1a285f73e",
+    "rail_fast_ffi.rs": "9632bd4e87792d6fa0d990f5e3c8d424f7992aeda816c8fc95204ea66b7565c3",
+    "validate.py": "889ae1c06d59755268089516adc56400daebd206cae3e295baf5597dca9cf4fa"
+  }
+}

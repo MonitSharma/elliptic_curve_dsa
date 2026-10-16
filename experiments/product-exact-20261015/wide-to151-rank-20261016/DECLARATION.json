@@ -1,0 +1,1473 @@
+{
+  "source_freeze": "WIDE95_FREEZE.json",
+  "source_freeze_sha256": "58baad21604d087c20df3edac7719dce12b10cf01a55a2d480fe936c0777f13d",
+  "input_stream": "wide-to95-rank-20261016/wide-95-retained-1024-proxy.bin",
+  "input_stream_sha256": "7c0ac9588dbf3aa90967315923778c9b3ccb954aae34bb71fc6c7bb970523109",
+  "baseline_stream": "/home/hclau/ecdsa_research/nonce-screen-20261015/final-census/ops.bin",
+  "base_revision": "5a7c390233c72133df9b591c92e43422c5892142",
+  "stages": [
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 64,
+      "extra_zero_slots_offered": 0,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "affine",
+      "atom_cap": 128,
+      "pair_cap": 64,
+      "extra_zero_slots_offered": 0,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "anf",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "extra_zero_slots_offered": 0,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "extra_zero_slots_offered": 0,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 64,
+      "extra_zero_slots_offered": 0,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "extra_zero_slots_offered": 0,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "pair_cap": 64,
+      "extra_zero_slots_offered": 0,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "anf",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "extra_zero_slots_offered": 0,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 64,
+      "extra_zero_slots_offered": 0,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "extra_zero_slots_offered": 0,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "pair_cap": 64,
+      "extra_zero_slots_offered": 0,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "scratch",
+      "atom_cap": 1024,
+      "pair_cap": 64,
+      "extra_zero_slots_offered": 8,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "unfold",
+      "atom_cap": 128,
+      "pair_cap": 64,
+      "extra_zero_slots_offered": 0,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "affine",
+      "atom_cap": 128,
+      "pair_cap": 64,
+      "extra_zero_slots_offered": 0,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 256,
+      "extra_zero_slots_offered": 0,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 64,
+      "extra_zero_slots_offered": 0,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "extra_zero_slots_offered": 0,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "pair_cap": 64,
+      "extra_zero_slots_offered": 0,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "anf",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "extra_zero_slots_offered": 0,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 64,
+      "extra_zero_slots_offered": 0,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "extra_zero_slots_offered": 0,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "pair_cap": 64,
+      "extra_zero_slots_offered": 0,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 64,
+      "extra_zero_slots_offered": 0,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "extra_zero_slots_offered": 0,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "pair_cap": 64,
+      "extra_zero_slots_offered": 0,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "anf",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "extra_zero_slots_offered": 0,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 64,
+      "extra_zero_slots_offered": 0,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "extra_zero_slots_offered": 0,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "pair_cap": 64,
+      "extra_zero_slots_offered": 0,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 64,
+      "extra_zero_slots_offered": 0,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "extra_zero_slots_offered": 0,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "pair_cap": 64,
+      "extra_zero_slots_offered": 0,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "anf",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "extra_zero_slots_offered": 0,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 64,
+      "extra_zero_slots_offered": 0,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "extra_zero_slots_offered": 0,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "pair_cap": 64,
+      "extra_zero_slots_offered": 0,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 64,
+      "extra_zero_slots_offered": 0,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "extra_zero_slots_offered": 0,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "pair_cap": 64,
+      "extra_zero_slots_offered": 0,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "anf",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "extra_zero_slots_offered": 0,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 64,
+      "extra_zero_slots_offered": 0,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "extra_zero_slots_offered": 0,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "pair_cap": 64,
+      "extra_zero_slots_offered": 0,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 256,
+      "extra_zero_slots_offered": 16,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 256,
+      "extra_zero_slots_offered": 16,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "pair_cap": 256,
+      "extra_zero_slots_offered": 16,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 256,
+      "extra_zero_slots_offered": 16,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 256,
+      "extra_zero_slots_offered": 16,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "pair_cap": 256,
+      "extra_zero_slots_offered": 16,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 256,
+      "extra_zero_slots_offered": 16,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 256,
+      "extra_zero_slots_offered": 16,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "pair_cap": 256,
+      "extra_zero_slots_offered": 16,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 256,
+      "extra_zero_slots_offered": 16,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 256,
+      "extra_zero_slots_offered": 16,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "pair_cap": 256,
+      "extra_zero_slots_offered": 16,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 256,
+      "extra_zero_slots_offered": 16,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 256,
+      "extra_zero_slots_offered": 16,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "pair_cap": 256,
+      "extra_zero_slots_offered": 16,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 256,
+      "extra_zero_slots_offered": 16,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 256,
+      "extra_zero_slots_offered": 16,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "pair_cap": 256,
+      "extra_zero_slots_offered": 16,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 256,
+      "extra_zero_slots_offered": 16,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 256,
+      "extra_zero_slots_offered": 16,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "pair_cap": 256,
+      "extra_zero_slots_offered": 16,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 256,
+      "extra_zero_slots_offered": 16,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 256,
+      "extra_zero_slots_offered": 16,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "pair_cap": 256,
+      "extra_zero_slots_offered": 16,
+      "product_cap": 1000000,
+      "rank": "density",
+      "split": true
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "start",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "start",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "anf",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "start",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "start",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "start",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "anf",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "start",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "start",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "start",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "anf",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "start",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "start",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "start",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "anf",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "start",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "start",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "start",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "anf",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "start",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "start",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "start",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "anf",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "start",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "start",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "start",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "anf",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "start",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "start",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "start",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "anf",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "start",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "start",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "start",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "anf",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "start",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "start",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "start",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "anf",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "start",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "start",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "start",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "anf",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "start",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "start",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "start",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "anf",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 128,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 512,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "start",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    {
+      "family": "retained",
+      "atom_cap": 1024,
+      "pair_cap": 64,
+      "product_cap": 1000000,
+      "rank": "proxy",
+      "split": true,
+      "extra_zero_slots_offered": 0,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    }
+  ],
+  "fixed_endpoint": 151,
+  "checkpoints": [
+    151
+  ],
+  "analysis_threads": 1,
+  "address_limit_GiB": 24,
+  "scope": "Eight full source-only start/proxy rank cycles after95. Final151 is the sole endpoint; no earlier source is selected by packet savings or failures. No new quantum slots. Preserve every stage/hash/resource failure and final512 anchored quantum/classical/phase/scratch replay. All56 stages run, even if packet Toffoli savings plateau.",
+  "fresh_census_plan": {
+    "label": "wide151-frozen-20261016",
+    "original_stream_sha256": "01aad987cfe03e7ca97df6f3dcd26085a21a5836aa6e661ec8fbd9c9c1b63740",
+    "first_batch": 0,
+    "batches_per_source": 32768,
+    "shots_per_batch": 64,
+    "sample_extension_or_interim_selection": false,
+    "runner": "/home/hclau/ecdsa_research/simd-census-v2-20261016/bin/simd_census_v2",
+    "runner_sha256": "790e92266ea67ec54ef701b2deed76fe8d0b766b411ca9eab877f82ae2c11a66",
+    "gate": "Every row included; final151 vs original5a expected failed batches per9024 shots <= original and <=18; zero dirty shots. Native generation full-byte identity before census. No nonce before gate."
+  },
+  "nonce_search_performed": false,
+  "score": null
+}

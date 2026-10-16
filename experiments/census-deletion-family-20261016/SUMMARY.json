@@ -1,0 +1,54 @@
+{
+  "status": "PASS BOUNDED ALL74 SOURCE-ONLY INVENTORY",
+  "rows": 74,
+  "kinds": {
+    "13": 74
+  },
+  "scope_depths": {
+    "0": 59,
+    "1": 15
+  },
+  "classical_guard_constants": {
+    "1": 59,
+    "None": 15
+  },
+  "rigorous_added_executed_T_per_shot_bounds": [
+    59,
+    74
+  ],
+  "syntactic_half_per_scope_proxy_exact": "133/2",
+  "proxy_not_measured_mean": true,
+  "source_marker_family_groups": {
+    "UNKNOWN": 40,
+    "fold:divide:forward|payload:divide:forward": 2,
+    "payload:divide:forward": 2,
+    "payload:multiply:reverse": 30
+  },
+  "virtual_target_next_value_write_kinds": {
+    "8": 68,
+    "12": 5,
+    "6": 1
+  },
+  "virtual_target_next_value_fanout_kinds": {
+    "8": 65,
+    "13": 3,
+    "10": 6
+  },
+  "all74_original_CCX_retained_in_virtual_view": true,
+  "all70_control_reductions_still_present_in_virtual_view": true,
+  "no_serialized_candidate": true,
+  "no_sampling": true,
+  "no_mask_transfer": true,
+  "product_margin": {
+    "assumed_old67_saving_T": 102,
+    "conservative_remaining_after_upper_T": 28,
+    "conditional_only": "Only in principle: fresh cache leases, native reproduction, Q and complete executed mean, fresh failure gate and new source-bound certificate all remain untested"
+  },
+  "limits": [
+    "Unknown helper labels preserved; paired marker membership is diagnostic, not a proof of complete primitive correctness.",
+    "CCX has exact arbitrary-dirty permutation action without clean scratch; restoring it does not establish whole helper cleanup with70 reductions/other cuts retained.",
+    "No failure monotonicity or ideal arithmetic claim. Guard-dependent T bounds do not assume random independent conditions.",
+    "Fanout includes subsequent restored CCXs; first physical event is not a complete dependency or reset-cleanliness proof."
+  ],
+  "seconds": 95.00541403423995
+}

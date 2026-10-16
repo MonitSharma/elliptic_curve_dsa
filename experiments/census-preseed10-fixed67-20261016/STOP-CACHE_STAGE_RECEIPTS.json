@@ -1,0 +1,65 @@
+[
+  {
+    "stage": 1,
+    "config": {
+      "family": "retained",
+      "atom_cap": 128,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    "input_stream": "preseed10-cache67-20261016/preseed10-parent.bin",
+    "input_sha256": "fcfb7693215a24085de489e30f1d6cb93d7f125a2e5d6de326f4ee4215295996",
+    "output_stream": "preseed10-cache67-20261016/preseed10-01-retained-128.bin",
+    "output_sha256": "979730c2b6e28209ec8547e7f335da9450b05e42b0067507e63e602122a1276a",
+    "lease_log": "preseed10-cache67-20261016/preseed10-01-retained-128-generate.log",
+    "lease_log_sha256": "44012876558718de194d752ef78c0735ea884db71545d0988b4d3229174c4e4f",
+    "audit_log": "preseed10-cache67-20261016/preseed10-01-retained-128-universal.log",
+    "audit_log_sha256": "c9baa2e6444313e33aaf592e4ee993395eb7d87031dd7b6dd7b4cd0115e12eb3",
+    "status": "UNIVERSAL_PASS"
+  },
+  {
+    "stage": 2,
+    "config": {
+      "family": "affine",
+      "atom_cap": 128,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    "input_stream": "preseed10-cache67-20261016/preseed10-01-retained-128.bin",
+    "input_sha256": "979730c2b6e28209ec8547e7f335da9450b05e42b0067507e63e602122a1276a",
+    "output_stream": "preseed10-cache67-20261016/preseed10-02-affine-128.bin",
+    "output_sha256": "3017be89923b55754db48c9abf1f05ffcbe6724e3daf35e8eef19381375eb6ca",
+    "lease_log": "preseed10-cache67-20261016/preseed10-02-affine-128-generate.log",
+    "lease_log_sha256": "2f5ab10ef98dd4096ed89abc0212163c21ca0851ea95720ae0d35ddc2a530849",
+    "audit_log": "preseed10-cache67-20261016/preseed10-02-affine-128-universal.log",
+    "audit_log_sha256": "8e12db6758e95ffda8d1002def32a4d991c05b4bc9ac7dda6ee3efe78741933c",
+    "status": "UNIVERSAL_PASS"
+  },
+  {
+    "stage": 3,
+    "config": {
+      "family": "anf",
+      "atom_cap": 512,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    "input_stream": "preseed10-cache67-20261016/preseed10-02-affine-128.bin",
+    "input_sha256": "3017be89923b55754db48c9abf1f05ffcbe6724e3daf35e8eef19381375eb6ca",
+    "output_stream": "preseed10-cache67-20261016/preseed10-03-anf-512.bin",
+    "output_sha256": "f327e235e287391dec9c9289460b6fbd52b3b34c6a79f586146fcb0687760b34",
+    "lease_log": "preseed10-cache67-20261016/preseed10-03-anf-512-generate.log",
+    "lease_log_sha256": "9659ebc3070056f9c63a2465aad9b1955ec44816f6bdd2666cc0432ef9e1fcbd",
+    "audit_log": "preseed10-cache67-20261016/preseed10-03-anf-512-universal.log",
+    "audit_log_sha256": "55379dc25e834a34ca6fb9031cea902d470d197f7b46504fe42916f08d3a5371",
+    "status": "UNIVERSAL_PASS"
+  }
+]

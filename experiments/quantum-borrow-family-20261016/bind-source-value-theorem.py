@@ -1,0 +1,18 @@
+from pathlib import Path
+import hashlib,json
+r=Path(__file__).parent
+def read(n):return json.loads((r/n).read_text())
+native=read('native-verification.json');mapping=read('global-MR-map-proof.json');classical=read('classical-interface-proof.json');zeros=read('flag-prefix-zero-receipt.json');review=read('independent-transfer-review.json');sites=read('flag-regions.json')
+assert native['sha256']==mapping['new_stream_sha256']=='12840968ed58bb2063128d133a8f493bce3ed90256ee3b03bb5dcdc3f40dc30e'
+assert native['parent_sha256']==mapping['old_stream_sha256']==zeros['source_sha256']=='2a522394cdf3e6a0df7784ad4db761030933c1f7ccd0ff8e641d68ec7a4dab3e'
+assert native['all_unrelated_operations_byte_identical']and native['all12_regions_exact']and mapping['ABI_register_operations_byte_identical']and mapping['all_original_R_HMR_operations_byte_identical_in_order']
+assert classical['proved']and zeros['proved']and review['status']=='INDEPENDENT_READ_ONLY_REVIEW_SUPPORTS_CONDITIONAL_COORDINATE_MASK_TRANSFER'and not review['material_findings']
+premises=['native-verification.json','global-MR-map-proof.json','classical-interface-proof.json','flag-prefix-zero-receipt.json','flag-regions.json','quantum-proof-source-hashes.json','independent-transfer-review.json','quantum_flag.bin','ARITHMETIC-PHASE-PROOF.md']
+for s in sites:
+ j=s['site'];z=next(z for z in zeros['results']if z['site']==j);assert not z['unresolved']and set(z['scratch'])==set(s['scratch'])
+ for mode in['old','new']:
+  name=f'{mode}-quantum-contract-{j}.json';q=read(name);assert q['phase_contract_proved']and not q['q_contract_unresolved']and q['outer_caps']==0;assert set(q['clean_scratch_preconditions'])==set(s['scratch']);premises.append(name)
+ assert not(set(s['lower'])&set(s['scratch']))
+assert hashlib.sha256((r/'quantum_flag.bin').read_bytes()).hexdigest()==classical['helper_blob_sha256']
+out=dict(status='SOURCE_BOUND_UNIVERSAL_COORDINATE_RELATION_PROVED_AND_INDEPENDENTLY_REVIEWED; MASK_RUNTIME_CERTIFICATE_NOT_ISSUED',old_stream_sha256=mapping['old_stream_sha256'],new_stream_sha256=mapping['new_stream_sha256'],new_canonical_sha256=native['canonical_sha256'],quantum_bound=1234,old_classical_bound=45701,new_classical_bound=45702,ABI_operations_byte_identical=True,MR_projection=mapping['extra_MR'],theorem='For every original ABI input x and every906168-word new MR tape R, candidate scored coordinates equal original scored coordinates at(x,pi(R)), where pi deletes exactly these12 cleanup words. This follows by induction through unchanged outside operations, source-proved clean-carry preconditions, arbitrary other-q entry restoration, and arbitrary-entry classical/snapshot equality. All MR words, including inactive events, are quantified.',conditional_mask_corollary='If an independently validated original mask proves an output bit constant over every original MR tape at x, the corresponding candidate bit has the same constant value over every new MR tape at x. A new certificate must bind that original mask/proof digest and identical physical ports to this source relation; this receipt alone does not authorize runtime rejection.',not_transferred=['phase equality','failure rate','unprojected physical RNG tape','Fiat-Shamir input seed','any cached composite whose extra-read and donor entry interface has not been proved'],runtime_authority=False,original_mask_digest=None,original_mask_port_map=None,requires_runtime_binding_and_root_review=True,premises={n:dict(bytes=(r/n).stat().st_size,sha256=hashlib.sha256((r/n).read_bytes()).hexdigest())for n in premises})
+(r/'SOURCE-VALUE-THEOREM.json').write_text(json.dumps(out,indent=2)+'\n');print(out['status']);print(hashlib.sha256((r/'SOURCE-VALUE-THEOREM.json').read_bytes()).hexdigest())

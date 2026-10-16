@@ -1,0 +1,28 @@
+               total        used        free      shared  buff/cache   available
+Mem:          515350      273665       73636           9      174783      241685
+Swap:           8191         334        7857
+    PID %CPU   RSS COMMAND
+3174330 1719 119430784 /home/hclau/tools/miniforge3/envs/qob-lattice/bin/python problems/01-marketsplit/classical/ms_sieve.py external/QOBLIB/01-marketsplit/instances/ms_14_200_002.dat --out problems/01-marketsplit/results/sieve/ms_14_200_002.sol --threads 18
+3207770 1705 103186340 /home/hclau/tools/miniforge3/envs/qob-lattice/bin/python problems/01-marketsplit/classical/ms_sieve.py external/QOBLIB/01-marketsplit/instances/ms_14_200_003.dat --out problems/01-marketsplit/results/sieve/ms_14_200_003.sol --threads 18
+3893468  994 2688660 /home/hclau/ecdsa_research/product25-operational-20261016/tool/target/release/value_prefilter /home/hclau/ecdsa_research/product-exact-20261015/candidate-product-final25/ops.bin 1 134217728 12 /home/hclau/ecdsa_research/product25-operational-20261016/worker2.jsonl /home/hclau/ecdsa_research/prefilter-20261015/model-source 4096
+3893469  993 2699164 /home/hclau/ecdsa_research/product25-operational-20261016/tool/target/release/value_prefilter /home/hclau/ecdsa_research/product-exact-20261015/candidate-product-final25/ops.bin 1 134217728 12 /home/hclau/ecdsa_research/product25-operational-20261016/worker3.jsonl /home/hclau/ecdsa_research/prefilter-20261015/model-source 4096
+3893465  993 2672640 /home/hclau/ecdsa_research/product25-operational-20261016/tool/target/release/value_prefilter /home/hclau/ecdsa_research/product-exact-20261015/candidate-product-final25/ops.bin 1 134217728 12 /home/hclau/ecdsa_research/product25-operational-20261016/worker0.jsonl /home/hclau/ecdsa_research/prefilter-20261015/model-source 4096
+3893466  991 2654840 /home/hclau/ecdsa_research/product25-operational-20261016/tool/target/release/value_prefilter /home/hclau/ecdsa_research/product-exact-20261015/candidate-product-final25/ops.bin 1 134217728 12 /home/hclau/ecdsa_research/product25-operational-20261016/worker1.jsonl /home/hclau/ecdsa_research/prefilter-20261015/model-source 4096
+  15925  100 5105620 /home/hclau/ecdsa_research/product-exact-20261015/target-flags/release/product_paired_diagnostic /home/hclau/ecdsa_research/product-exact-20261015/product-to95-rank-20261016/product-83-retained-512-proxy.bin /home/hclau/ecdsa_research/product-exact-20261015/product-to95-rank-20261016/product-84-retained-1024-start.bin
+  14304  100 4487296 /home/hclau/ecdsa_research/product-exact-20261015/target-cache-certificate-v2/release/product_paired_diagnostic /home/hclau/ecdsa_research/product-exact-20261015/repair-cache53-20261016/repair-35-retained-1024.bin /home/hclau/ecdsa_research/product-exact-20261015/repair-cache53-20261016/repair-36-anf-512.bin /home/hclau/ecdsa_research/product-exact-20261015/repair-cache53-20261016/repair-36-anf-512-generate.log anf
+  11547  100 6889784 /home/hclau/ecdsa_research/product-exact-20261015/target-cache-certificate-v2/release/product_paired_diagnostic /home/hclau/ecdsa_research/product-exact-20261015/repair-cache53-20261016/repair-34-retained-512.bin /home/hclau/ecdsa_research/product-exact-20261015/repair-cache53-20261016/repair-35-retained-1024.bin /home/hclau/ecdsa_research/product-exact-20261015/repair-cache53-20261016/repair-35-retained-1024-generate.log retained
+   9194  100 7369340 /home/hclau/ecdsa_research/product-exact-20261015/target-flags/release/product_paired_diagnostic /home/hclau/ecdsa_research/product-exact-20261015/repair-to67-rank-20261016/repair-66-retained-512-start.bin /home/hclau/ecdsa_research/product-exact-20261015/repair-to67-rank-20261016/repair-67-retained-1024-proxy.bin
+   8247  100 1266304 /usr/bin/python3 /home/hclau/ecdsa_research/wide2048-native-20261016/wide2048/generated-prepare.py
+4090876 99.9 3713520 ./target-recursive-unfold-fast/release/product_paired_diagnostic wide-to43-20261016/wide-43-retained-1024.bin recursive-unfold-fast-20261016/wide43-512.bin
+3958097  4.2 63564 /opt/TrendMicro/EndpointBasecamp/bin/tmxbc service run
+1705398  3.8 547796 /opt/ds_agent/ds_agent -w /var/opt/ds_agent -b -i -e /opt/ds_agent/ext
+1706320  2.9 223892 /opt/ds_agent/ds_am -g ../diag -v 5 -d /var/opt/ds_agent/am -P 1 -R
+1702756  1.0 83912 /usr/bin/alloy run --storage.path=/var/lib/alloy/data /etc/alloy/config.alloy
+4112581  0.6 19912 python3 audit_repair53.py run
+3777359  0.6 10080 .venv/bin/python tools/hpc/runner.py run tools/hpc/jobs/01_sieve.jsonl --max-cores 36
+4106043  0.4 17524 python3 run_repair67.py
+4027214  0.2 17660 python3 run_product95.py
+1702753  0.1 27408 /usr/bin/containerd
+1706202  0.1 46792 /opt/ds_agent/netagent/tm_netagent --metrics-file /var/opt/ds_agent/netagent/metrics.json --log-folder /var/opt/ds_agent/netagent/logs --ptn-folder /opt/ds_agent/netagent/pattern --jat-folder /opt/ds_agent/netagent/java/jattach --jex-folder /var/opt/ds_agent/netagentjava --log-console=false --log-level 1 --tmCfg WyJTc2xMaW51eEphdmFCdWlsZEVuYWJsZWQiLCJKYXZhQXR0YWNoIiwiRGlzYWJsZURvY2tlckJQRiIsIlNzbEluYm91bmQiLCJTc2xPdXRib3VuZCJd
+     17  0.0     0 [rcu_preempt]
+   2866  0.0 49264 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock

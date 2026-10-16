@@ -1,0 +1,676 @@
+   Compiling product_paired_diagnostic v0.1.0 (/home/hclau/ecdsa_research/product-exact-20261015/endpoint-census-tool)
+warning: unused imports: `QubitOrBit` and `analyze_ops`
+ --> src/main.rs:4:5
+  |
+4 |     analyze_ops, BitId, Op, OperationType, QubitId, QubitOrBit, RegisterId,
+  |     ^^^^^^^^^^^                                     ^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `quantum_ecc::sim::Simulator`
+ --> src/main.rs:6:5
+  |
+6 | use quantum_ecc::sim::Simulator;
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `sim`
+   --> src/main.rs:224:27
+    |
+224 | use quantum_ecc::{circuit,sim};
+    |                           ^^^
+
+warning: unused import: `XofReader`
+ --> src/main.rs:9:40
+  |
+9 |     digest::{ExtendableOutput, Update, XofReader},
+  |                                        ^^^^^^^^^
+
+warning: constant `LIBRARY_SOURCE` is never used
+ --> src/main.rs:1:7
+  |
+1 | const LIBRARY_SOURCE:&str="/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline";
+  |       ^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: constant `NUM_TESTS` is never used
+  --> src/main.rs:29:7
+   |
+29 | const NUM_TESTS: usize = 9024;
+   |       ^^^^^^^^^
+
+warning: function `secp256k1` is never used
+   --> src/main.rs:135:4
+    |
+135 | fn secp256k1() -> WeierstrassEllipticCurve {
+    |    ^^^^^^^^^
+
+warning: function `fiat_shamir_seed` is never used
+   --> src/main.rs:167:4
+    |
+167 | fn fiat_shamir_seed(ops: &[Op]) -> sha3::Shake256Reader {
+    |    ^^^^^^^^^^^^^^^^
+
+warning: function `zstd_level` is never used
+   --> src/main.rs:184:4
+    |
+184 | fn zstd_level() -> i32 {
+    |    ^^^^^^^^^^
+
+warning: function `write_ops` is never used
+   --> src/main.rs:191:4
+    |
+191 | fn write_ops(ops: &[Op], path: &Path) -> std::io::Result<()> {
+    |    ^^^^^^^^^
+
+warning: constant `DEFAULT_ZSTD_LEVEL` is never used
+   --> src/main.rs:226:7
+    |
+226 | const DEFAULT_ZSTD_LEVEL:i32=3;
+    |       ^^^^^^^^^^^^^^^^^^
+
+warning: function `atom_cap` is never used
+ --> src/interned_witness.rs:7:4
+  |
+7 | fn atom_cap()->usize { static V:std::sync::OnceLock<usize>=std::sync::OnceLock::new(); *V.get_or_init(||std::env::var("CACHE_ATOM_CAP...
+  |    ^^^^^^^^
+
+warning: function `product_cap` is never used
+ --> src/interned_witness.rs:8:4
+  |
+8 | fn product_cap()->usize { static V:std::sync::OnceLock<usize>=std::sync::OnceLock::new(); *V.get_or_init(||std::env::var("CACHE_PRODU...
+  |    ^^^^^^^^^^^
+
+warning: struct `Affine` is never constructed
+  --> src/interned_witness.rs:11:8
+   |
+11 | struct Affine {
+   |        ^^^^^^
+
+warning: associated items `constant`, `is_zero`, `is_one`, `complement`, and `complements` are never used
+  --> src/interned_witness.rs:17:8
+   |
+16 | impl Affine {
+   | ----------- associated items in this implementation
+17 |     fn constant(value: bool) -> Self {
+   |        ^^^^^^^^
+...
+24 |     fn is_zero(&self) -> bool {
+   |        ^^^^^^^
+...
+28 |     fn is_one(&self) -> bool {
+   |        ^^^^^^
+...
+32 |     fn complement(&self) -> Self {
+   |        ^^^^^^^^^^
+...
+39 |     fn complements(&self, other: &Self) -> bool {
+   |        ^^^^^^^^^^^
+
+warning: enum `Rewrite` is never used
+  --> src/interned_witness.rs:44:17
+   |
+44 | pub(super) enum Rewrite {
+   |                 ^^^^^^^
+
+warning: method `emit` is never used
+  --> src/interned_witness.rs:52:19
+   |
+51 | impl Rewrite {
+   | ------------ method in this implementation
+52 |     pub(super) fn emit(self, op: Op, result: &mut Vec<Op>) {
+   |                   ^^^^
+
+warning: struct `Support` is never constructed
+  --> src/interned_witness.rs:75:19
+   |
+75 | pub(super) struct Support {
+   |                   ^^^^^^^
+
+warning: associated items `new`, `fresh`, `xor`, `and`, `ccx_rewrite`, and `step` are never used
+   --> src/interned_witness.rs:85:19
+    |
+ 84 | impl Support {
+    | ------------ associated items in this implementation
+ 85 |     pub(super) fn new(ops: &[Op]) -> Self {
+    |                   ^^^
+...
+120 |     fn fresh(&mut self) -> Affine {
+    |        ^^^^^
+...
+129 |     fn xor(&mut self, a: &Affine, b: &Affine) -> Affine {
+    |        ^^^
+...
+156 |     fn and(&mut self, a: &Affine, b: &Affine) -> Affine {
+    |        ^^^
+...
+186 |     fn ccx_rewrite(condition: &Affine, a: &Affine, b: &Affine, op: &Op) -> Rewrite {
+    |        ^^^^^^^^^^^
+...
+200 |     pub(super) fn step(&mut self, op: &Op) -> Rewrite {
+    |                   ^^^^
+
+warning: function `simplify` is never used
+   --> src/interned_witness.rs:299:15
+    |
+299 | pub(crate) fn simplify(ops: Vec<Op>) -> Vec<Op> {
+    |               ^^^^^^^^
+
+warning: function `witnesses` is never used
+   --> src/interned_witness.rs:310:15
+    |
+310 | pub(crate) fn witnesses(ops:Vec<Op>)->Vec<Op>{
+    |               ^^^^^^^^^
+
+warning: methods `cache_zeros` and `cache_product` are never used
+   --> src/interned_witness.rs:355:19
+    |
+354 | impl Support {
+    | ------------ methods in this implementation
+355 |     pub(crate) fn cache_zeros(&self)->Vec<usize> {
+    |                   ^^^^^^^^^^^
+...
+358 |     pub(crate) fn cache_product(&mut self,op:&Op)->(bool,Vec<u64>) {
+    |                   ^^^^^^^^^^^^^
+
+warning: function `atom_cap` is never used
+ --> src/interned_anf.rs:7:4
+  |
+7 | fn atom_cap()->usize { static V:std::sync::OnceLock<usize>=std::sync::OnceLock::new(); *V.get_or_init(||std::env::var("CACHE_ATOM_CAP...
+  |    ^^^^^^^^
+
+warning: function `product_cap` is never used
+ --> src/interned_anf.rs:8:4
+  |
+8 | fn product_cap()->usize { static V:std::sync::OnceLock<usize>=std::sync::OnceLock::new(); *V.get_or_init(||std::env::var("CACHE_PRODU...
+  |    ^^^^^^^^^^^
+
+warning: struct `Affine` is never constructed
+  --> src/interned_anf.rs:11:8
+   |
+11 | struct Affine {
+   |        ^^^^^^
+
+warning: associated items `constant`, `is_zero`, `is_one`, `complement`, and `complements` are never used
+  --> src/interned_anf.rs:17:8
+   |
+16 | impl Affine {
+   | ----------- associated items in this implementation
+17 |     fn constant(value: bool) -> Self {
+   |        ^^^^^^^^
+...
+24 |     fn is_zero(&self) -> bool {
+   |        ^^^^^^^
+...
+28 |     fn is_one(&self) -> bool {
+   |        ^^^^^^
+...
+32 |     fn complement(&self) -> Self {
+   |        ^^^^^^^^^^
+...
+39 |     fn complements(&self, other: &Self) -> bool {
+   |        ^^^^^^^^^^^
+
+warning: enum `Rewrite` is never used
+  --> src/interned_anf.rs:44:17
+   |
+44 | pub(super) enum Rewrite {
+   |                 ^^^^^^^
+
+warning: method `emit` is never used
+  --> src/interned_anf.rs:52:19
+   |
+51 | impl Rewrite {
+   | ------------ method in this implementation
+52 |     pub(super) fn emit(self, op: Op, result: &mut Vec<Op>) {
+   |                   ^^^^
+
+warning: struct `Support` is never constructed
+  --> src/interned_anf.rs:75:19
+   |
+75 | pub(super) struct Support {
+   |                   ^^^^^^^
+
+warning: associated items `new`, `fresh`, `xor`, `and`, `ccx_rewrite`, and `step` are never used
+   --> src/interned_anf.rs:87:19
+    |
+ 86 | impl Support {
+    | ------------ associated items in this implementation
+ 87 |     pub(super) fn new(ops: &[Op]) -> Self {
+    |                   ^^^
+...
+124 |     fn fresh(&mut self) -> Affine {
+    |        ^^^^^
+...
+135 |     fn xor(&mut self, a: &Affine, b: &Affine) -> Affine {
+    |        ^^^
+...
+162 |     fn and(&mut self, a: &Affine, b: &Affine) -> Affine {
+    |        ^^^
+...
+212 |     fn ccx_rewrite(condition: &Affine, a: &Affine, b: &Affine, op: &Op) -> Rewrite {
+    |        ^^^^^^^^^^^
+...
+226 |     pub(super) fn step(&mut self, op: &Op) -> Rewrite {
+    |                   ^^^^
+
+warning: function `simplify` is never used
+   --> src/interned_anf.rs:331:15
+    |
+331 | pub(crate) fn simplify(ops: Vec<Op>) -> Vec<Op> {
+    |               ^^^^^^^^
+
+warning: function `witnesses` is never used
+   --> src/interned_anf.rs:348:15
+    |
+348 | pub(crate) fn witnesses(ops:Vec<Op>)->Vec<Op>{
+    |               ^^^^^^^^^
+
+warning: methods `cache_zeros` and `cache_product` are never used
+   --> src/interned_anf.rs:393:19
+    |
+392 | impl Support {
+    | ------------ methods in this implementation
+393 |     pub(crate) fn cache_zeros(&self)->Vec<usize> {
+    |                   ^^^^^^^^^^^
+...
+396 |     pub(crate) fn cache_product(&mut self,op:&Op)->(bool,Vec<u64>) {
+    |                   ^^^^^^^^^^^^^
+
+warning: struct `Window` is never constructed
+ --> src/lazy_cache.rs:4:8
+  |
+4 | struct Window {uses:Vec<usize>,start:usize,end:usize,proxy:f64,donors:Vec<usize>,conditional_donors:Vec<usize>,preserve_resets:bool}
+  |        ^^^^^^
+
+warning: function `touches` is never used
+ --> src/lazy_cache.rs:5:4
+  |
+5 | fn touches(o:&Op)->Vec<usize>{
+  |    ^^^^^^^
+
+warning: function `optimize` is never used
+ --> src/lazy_cache.rs:9:8
+  |
+9 | pub fn optimize(ops:Vec<Op>)->Vec<Op> {
+  |        ^^^^^^^^
+
+warning: function `optimize_impl` is never used
+  --> src/lazy_cache.rs:13:4
+   |
+13 | fn optimize_impl(ops:Vec<Op>,split:bool)->Vec<Op> {
+   |    ^^^^^^^^^^^^^
+
+warning: function `optimize_with_options` is never used
+  --> src/lazy_cache.rs:17:4
+   |
+17 | fn optimize_with_options(ops:Vec<Op>,split:bool,conditional:bool)->Vec<Op> {
+   |    ^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `gate` is never used
+   --> src/lazy_cache.rs:123:4
+    |
+123 | fn gate(k:K,a:Option<u64>,b:Option<u64>,t:Option<u64>,bt:Option<u64>,c:Option<u64>)->Op {
+    |    ^^^^
+
+warning: function `store` is never used
+   --> src/lazy_cache.rs:128:4
+    |
+128 | fn store(bit:u64,value:bool)->Op {gate(if value{K::BitStore1}else{K::BitStore0},None,None,None,Some(bit),None)}
+    |    ^^^^^
+
+warning: function `push` is never used
+   --> src/lazy_cache.rs:129:4
+    |
+129 | fn push(bit:u64)->Op {gate(K::PushCondition,None,None,None,None,Some(bit))}
+    |    ^^^^
+
+warning: function `pop` is never used
+   --> src/lazy_cache.rs:130:4
+    |
+130 | fn pop()->Op {gate(K::PopCondition,None,None,None,None,None)}
+    |    ^^^
+
+warning: function `render` is never used
+   --> src/lazy_cache.rs:132:4
+    |
+132 | fn render(ops:Vec<Op>,chosen:Vec<(usize,Window)>,nb:u64,nq:usize)->Vec<Op>{
+    |    ^^^^^^
+
+warning: function `audit` is never used
+   --> src/lazy_cache.rs:172:8
+    |
+172 | pub fn audit(ops:&[Op]) {let _=optimize(ops.to_vec());}
+    |        ^^^^^
+
+warning: function `optimize` is never used
+ --> src/lifetime_compact.rs:3:8
+  |
+3 | pub fn optimize(mut ops:Vec<Op>)->Vec<Op>{
+  |        ^^^^^^^^
+
+warning: function `gate` is never used
+ --> src/xor_fuse.rs:6:4
+  |
+6 | fn gate(k:K,bit:u64)->Op {let mut o=Op::empty();o.kind=k;if k==K::PushCondition{o.c_condition=BitId(bit);}else{o.c_target=BitId(bit);}o}
+  |    ^^^^
+
+warning: function `optimize` is never used
+ --> src/xor_fuse.rs:7:8
+  |
+7 | pub fn optimize(ops:Vec<Op>)->Vec<Op>{
+  |        ^^^^^^^^
+
+warning: function `update` is never used
+  --> src/xor_fuse.rs:47:4
+   |
+47 | fn update(o:&Op,i:usize,w:&mut[usize],r:&mut[usize]){
+   |    ^^^^^^
+
+warning: struct `Window` is never constructed
+ --> src/lazy_cache_anf.rs:4:8
+  |
+4 | struct Window {uses:Vec<usize>,start:usize,end:usize,proxy:f64,donors:Vec<usize>}
+  |        ^^^^^^
+
+warning: function `touches` is never used
+ --> src/lazy_cache_anf.rs:5:4
+  |
+5 | fn touches(o:&Op)->Vec<usize>{
+  |    ^^^^^^^
+
+warning: function `optimize` is never used
+ --> src/lazy_cache_anf.rs:9:8
+  |
+9 | pub fn optimize(ops:Vec<Op>)->Vec<Op> {
+  |        ^^^^^^^^
+
+warning: function `optimize_impl` is never used
+  --> src/lazy_cache_anf.rs:13:4
+   |
+13 | fn optimize_impl(ops:Vec<Op>,split:bool)->Vec<Op> {
+   |    ^^^^^^^^^^^^^
+
+warning: function `gate` is never used
+   --> src/lazy_cache_anf.rs:104:4
+    |
+104 | fn gate(k:K,a:Option<u64>,b:Option<u64>,t:Option<u64>,bt:Option<u64>,c:Option<u64>)->Op {
+    |    ^^^^
+
+warning: function `store` is never used
+   --> src/lazy_cache_anf.rs:109:4
+    |
+109 | fn store(bit:u64,value:bool)->Op {gate(if value{K::BitStore1}else{K::BitStore0},None,None,None,Some(bit),None)}
+    |    ^^^^^
+
+warning: function `push` is never used
+   --> src/lazy_cache_anf.rs:110:4
+    |
+110 | fn push(bit:u64)->Op {gate(K::PushCondition,None,None,None,None,Some(bit))}
+    |    ^^^^
+
+warning: function `pop` is never used
+   --> src/lazy_cache_anf.rs:111:4
+    |
+111 | fn pop()->Op {gate(K::PopCondition,None,None,None,None,None)}
+    |    ^^^
+
+warning: function `render` is never used
+   --> src/lazy_cache_anf.rs:113:4
+    |
+113 | fn render(ops:Vec<Op>,chosen:Vec<(usize,Window)>,nb:u64,nq:usize)->Vec<Op>{
+    |    ^^^^^^
+
+warning: function `audit` is never used
+   --> src/lazy_cache_anf.rs:159:8
+    |
+159 | pub fn audit(ops:&[Op]) {let _=optimize(ops.to_vec());}
+    |        ^^^^^
+
+warning: struct `Dag` is never constructed
+ --> src/control_predicates.rs:6:8
+  |
+6 | struct Dag{next:u64,factors:HashMap<u64,Vec<u64>>,ands:HashMap<Vec<u64>,u64>,xors:HashMap<(u64,u64),u64>}
+  |        ^^^
+
+warning: methods `fresh`, `lits`, `and`, and `xor` are never used
+  --> src/control_predicates.rs:8:8
+   |
+ 7 | impl Dag{
+   | -------- methods in this implementation
+ 8 |     fn fresh(&mut self)->u64{let id=self.next;self.next+=2;id}
+   |        ^^^^^
+ 9 |     fn lits(&self,id:u64)->Vec<u64>{if id==1{vec![]}else if id&1==0{self.factors.get(&id).cloned().unwrap_or(vec![id])}else{vec![id]}}
+   |        ^^^^
+10 |     fn and(&mut self,a:u64,b:u64)->u64{
+   |        ^^^
+...
+16 |     fn xor(&mut self,a:u64,b:u64)->u64{
+   |        ^^^
+
+warning: function `build_guards` is never used
+  --> src/control_predicates.rs:22:8
+   |
+22 | pub fn build_guards(ops:&[Op])->Vec<Vec<u64>>{
+   |        ^^^^^^^^^^^^
+
+warning: function `disjoint` is never used
+  --> src/control_predicates.rs:41:8
+   |
+41 | pub fn disjoint(a:&[u64],b:&[u64])->bool{a.contains(&0)||b.contains(&0)||a.iter().any(|x|b.binary_search(&(x^1)).is_ok())}
+   |        ^^^^^^^^
+
+warning: function `atom_cap` is never used
+ --> src/interned_context_witness.rs:7:4
+  |
+7 | fn atom_cap()->usize { static V:std::sync::OnceLock<usize>=std::sync::OnceLock::new(); *V.get_or_init(||std::env::var("CACHE_ATOM_CAP...
+  |    ^^^^^^^^
+
+warning: function `product_cap` is never used
+ --> src/interned_context_witness.rs:8:4
+  |
+8 | fn product_cap()->usize { static V:std::sync::OnceLock<usize>=std::sync::OnceLock::new(); *V.get_or_init(||std::env::var("CACHE_PRODU...
+  |    ^^^^^^^^^^^
+
+warning: struct `Affine` is never constructed
+  --> src/interned_context_witness.rs:11:8
+   |
+11 | struct Affine {
+   |        ^^^^^^
+
+warning: associated items `constant`, `is_zero`, `is_one`, `complement`, and `complements` are never used
+  --> src/interned_context_witness.rs:17:8
+   |
+16 | impl Affine {
+   | ----------- associated items in this implementation
+17 |     fn constant(value: bool) -> Self {
+   |        ^^^^^^^^
+...
+24 |     fn is_zero(&self) -> bool {
+   |        ^^^^^^^
+...
+28 |     fn is_one(&self) -> bool {
+   |        ^^^^^^
+...
+32 |     fn complement(&self) -> Self {
+   |        ^^^^^^^^^^
+...
+39 |     fn complements(&self, other: &Self) -> bool {
+   |        ^^^^^^^^^^^
+
+warning: enum `Rewrite` is never used
+  --> src/interned_context_witness.rs:44:17
+   |
+44 | pub(super) enum Rewrite {
+   |                 ^^^^^^^
+
+warning: method `emit` is never used
+  --> src/interned_context_witness.rs:52:19
+   |
+51 | impl Rewrite {
+   | ------------ method in this implementation
+52 |     pub(super) fn emit(self, op: Op, result: &mut Vec<Op>) {
+   |                   ^^^^
+
+warning: struct `Support` is never constructed
+  --> src/interned_context_witness.rs:75:19
+   |
+75 | pub(super) struct Support {
+   |                   ^^^^^^^
+
+warning: associated items `new`, `fresh`, `xor`, `and`, `ccx_rewrite`, and `step` are never used
+   --> src/interned_context_witness.rs:87:19
+    |
+ 86 | impl Support {
+    | ------------ associated items in this implementation
+ 87 |     pub(super) fn new(ops: &[Op]) -> Self {
+    |                   ^^^
+...
+124 |     fn fresh(&mut self) -> Affine {
+    |        ^^^^^
+...
+135 |     fn xor(&mut self, a: &Affine, b: &Affine) -> Affine {
+    |        ^^^
+...
+162 |     fn and(&mut self, a: &Affine, b: &Affine) -> Affine {
+    |        ^^^
+...
+212 |     fn ccx_rewrite(condition: &Affine, a: &Affine, b: &Affine, op: &Op) -> Rewrite {
+    |        ^^^^^^^^^^^
+...
+226 |     pub(super) fn step(&mut self, op: &Op) -> Rewrite {
+    |                   ^^^^
+
+warning: function `simplify` is never used
+   --> src/interned_context_witness.rs:331:15
+    |
+331 | pub(crate) fn simplify(ops: Vec<Op>) -> Vec<Op> {
+    |               ^^^^^^^^
+
+warning: function `witnesses` is never used
+   --> src/interned_context_witness.rs:348:15
+    |
+348 | pub(crate) fn witnesses(ops:Vec<Op>)->Vec<Op>{
+    |               ^^^^^^^^^
+
+warning: methods `cache_zeros` and `cache_product` are never used
+   --> src/interned_context_witness.rs:400:19
+    |
+399 | impl Support {
+    | ------------ methods in this implementation
+400 |     pub(crate) fn cache_zeros(&self)->Vec<usize> {
+    |                   ^^^^^^^^^^^
+...
+403 |     pub(crate) fn cache_product(&mut self,op:&Op)->(bool,Vec<u64>) {
+    |                   ^^^^^^^^^^^^^
+
+warning: function `optimize` is never used
+ --> src/early_reset.rs:6:8
+  |
+6 | pub fn optimize(ops:Vec<Op>)->Vec<Op>{
+  |        ^^^^^^^^
+
+warning: field `0` is never read
+  --> src/interned_anf_retained.rs:48:8
+   |
+48 |     Cx(QubitId),
+   |     -- ^^^^^^^
+   |     |
+   |     field in this variant
+   |
+help: consider changing the field to be of unit type to suppress this warning while preserving the field numbering, or remove the field
+   |
+48 -     Cx(QubitId),
+48 +     Cx(()),
+   |
+
+warning: method `emit` is never used
+  --> src/interned_anf_retained.rs:52:19
+   |
+51 | impl Rewrite {
+   | ------------ method in this implementation
+52 |     pub(super) fn emit(self, op: Op, result: &mut Vec<Op>) {
+   |                   ^^^^
+
+warning: function `simplify` is never used
+   --> src/interned_anf_retained.rs:342:15
+    |
+342 | pub(crate) fn simplify(ops: Vec<Op>) -> Vec<Op> {
+    |               ^^^^^^^^
+
+warning: function `witnesses` is never used
+   --> src/interned_anf_retained.rs:359:15
+    |
+359 | pub(crate) fn witnesses(ops:Vec<Op>)->Vec<Op>{
+    |               ^^^^^^^^^
+
+warning: method `cache_zeros` is never used
+   --> src/interned_anf_retained.rs:404:19
+    |
+403 | impl Support {
+    | ------------ method in this implementation
+404 |     pub(crate) fn cache_zeros(&self)->Vec<usize> {
+    |                   ^^^^^^^^^^^
+
+warning: struct `Window` is never constructed
+ --> src/lazy_cache_retained.rs:4:8
+  |
+4 | struct Window {uses:Vec<usize>,start:usize,end:usize,proxy:f64,donors:Vec<usize>}
+  |        ^^^^^^
+
+warning: function `touches` is never used
+ --> src/lazy_cache_retained.rs:5:4
+  |
+5 | fn touches(o:&Op)->Vec<usize>{
+  |    ^^^^^^^
+
+warning: function `optimize` is never used
+ --> src/lazy_cache_retained.rs:9:8
+  |
+9 | pub fn optimize(ops:Vec<Op>)->Vec<Op> {
+  |        ^^^^^^^^
+
+warning: function `optimize_impl` is never used
+  --> src/lazy_cache_retained.rs:13:4
+   |
+13 | fn optimize_impl(ops:Vec<Op>,split:bool)->Vec<Op> {
+   |    ^^^^^^^^^^^^^
+
+warning: function `gate` is never used
+   --> src/lazy_cache_retained.rs:104:4
+    |
+104 | fn gate(k:K,a:Option<u64>,b:Option<u64>,t:Option<u64>,bt:Option<u64>,c:Option<u64>)->Op {
+    |    ^^^^
+
+warning: function `store` is never used
+   --> src/lazy_cache_retained.rs:109:4
+    |
+109 | fn store(bit:u64,value:bool)->Op {gate(if value{K::BitStore1}else{K::BitStore0},None,None,None,Some(bit),None)}
+    |    ^^^^^
+
+warning: function `push` is never used
+   --> src/lazy_cache_retained.rs:110:4
+    |
+110 | fn push(bit:u64)->Op {gate(K::PushCondition,None,None,None,None,Some(bit))}
+    |    ^^^^
+
+warning: function `pop` is never used
+   --> src/lazy_cache_retained.rs:111:4
+    |
+111 | fn pop()->Op {gate(K::PopCondition,None,None,None,None,None)}
+    |    ^^^
+
+warning: function `render` is never used
+   --> src/lazy_cache_retained.rs:113:4
+    |
+113 | fn render(ops:Vec<Op>,chosen:Vec<(usize,Window)>,nb:u64,nq:usize)->Vec<Op>{
+    |    ^^^^^^
+
+warning: function `audit` is never used
+   --> src/lazy_cache_retained.rs:159:8
+    |
+159 | pub fn audit(ops:&[Op]) {let _=optimize(ops.to_vec());}
+    |        ^^^^^
+
+warning: `product_paired_diagnostic` (bin "product_paired_diagnostic") generated 89 warnings (run `cargo fix --bin "product_paired_diagnostic" -p product_paired_diagnostic` to apply 3 suggestions)
+    Finished `release` profile [optimized] target(s) in 4.54s

@@ -1,0 +1,254 @@
+[
+  {
+    "stage": 1,
+    "config": {
+      "family": "retained",
+      "atom_cap": 128,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    "input_stream": "all74-cache67-20261016/all74-parent.bin",
+    "input_sha256": "d6e7091b3952519e383eb7e0093c802035de26a5c3b65ea23e8e54b0169ab91a",
+    "output_stream": "all74-cache67-20261016/all74-01-retained-128.bin",
+    "output_sha256": "87326cecadbcf18c9f3601002f507dd9bb24242f56b42b0b88de5d4efcdd4cf9",
+    "lease_log": "all74-cache67-20261016/all74-01-retained-128-generate.log",
+    "lease_log_sha256": "fd8bd3a89d9381d0ab4993a4a9649ee5070263ee55ee131ce82c77120f59eb03",
+    "audit_log": "all74-cache67-20261016/all74-01-retained-128-universal.log",
+    "audit_log_sha256": "a71542cd63a42abfd3271aa75fe36934d56a677c09f05aec702ca838f8ecba57",
+    "status": "UNIVERSAL_PASS"
+  },
+  {
+    "stage": 2,
+    "config": {
+      "family": "affine",
+      "atom_cap": 128,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    "input_stream": "all74-cache67-20261016/all74-01-retained-128.bin",
+    "input_sha256": "87326cecadbcf18c9f3601002f507dd9bb24242f56b42b0b88de5d4efcdd4cf9",
+    "output_stream": "all74-cache67-20261016/all74-02-affine-128.bin",
+    "output_sha256": "894cf5aecb6a3e59303c20ca56d152259e06159f2e9c266fec96828c72d9916d",
+    "lease_log": "all74-cache67-20261016/all74-02-affine-128-generate.log",
+    "lease_log_sha256": "4f3abb59a32b0ecb21e755125421f538d557afa61d547a8aeda93c5e0a7a4552",
+    "audit_log": "all74-cache67-20261016/all74-02-affine-128-universal.log",
+    "audit_log_sha256": "4702d873af8ab9e239a38e77b68de1e56366b3b35e41119ecc27c6f259af24c1",
+    "status": "UNIVERSAL_PASS"
+  },
+  {
+    "stage": 3,
+    "config": {
+      "family": "anf",
+      "atom_cap": 512,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    "input_stream": "all74-cache67-20261016/all74-02-affine-128.bin",
+    "input_sha256": "894cf5aecb6a3e59303c20ca56d152259e06159f2e9c266fec96828c72d9916d",
+    "output_stream": "all74-cache67-20261016/all74-03-anf-512.bin",
+    "output_sha256": "6ac2e5df89ea2dc50d7447459073136532d84b94968127f11e46e0a5e2b89ad5",
+    "lease_log": "all74-cache67-20261016/all74-03-anf-512-generate.log",
+    "lease_log_sha256": "26ccfcab49479f40fdecd7c4dfb61253de08401d4cb3d97daee6c2409d6016dc",
+    "audit_log": "all74-cache67-20261016/all74-03-anf-512-universal.log",
+    "audit_log_sha256": "4a7621c1f71b366b0893dea15a44de93980941f8354c6000123e7ef9accc633f",
+    "status": "UNIVERSAL_PASS"
+  },
+  {
+    "stage": 4,
+    "config": {
+      "family": "retained",
+      "atom_cap": 512,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    "input_stream": "all74-cache67-20261016/all74-03-anf-512.bin",
+    "input_sha256": "6ac2e5df89ea2dc50d7447459073136532d84b94968127f11e46e0a5e2b89ad5",
+    "output_stream": "all74-cache67-20261016/all74-04-retained-512.bin",
+    "output_sha256": "e0d3e898a5563629508a5b29b50da6402ac4197d3fdd3196d265ab16c2799eea",
+    "lease_log": "all74-cache67-20261016/all74-04-retained-512-generate.log",
+    "lease_log_sha256": "b98e229d9376d26ebb3fe9442a2d1e25396c8767da2fbf35d8c8cf39f47a37ab",
+    "audit_log": "all74-cache67-20261016/all74-04-retained-512-universal.log",
+    "audit_log_sha256": "fa1923b2cd1190c718076e1cb3e848da275d0584716c9efc3ee3b8c7a3011632",
+    "status": "UNIVERSAL_PASS"
+  },
+  {
+    "stage": 5,
+    "config": {
+      "family": "retained",
+      "atom_cap": 128,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    "input_stream": "all74-cache67-20261016/all74-04-retained-512.bin",
+    "input_sha256": "e0d3e898a5563629508a5b29b50da6402ac4197d3fdd3196d265ab16c2799eea",
+    "output_stream": "all74-cache67-20261016/all74-05-retained-128.bin",
+    "output_sha256": "19de09380d10ec2ee5fd685e377b7333fe3a83fd6f052f34bc62aed88d9fda3c",
+    "lease_log": "all74-cache67-20261016/all74-05-retained-128-generate.log",
+    "lease_log_sha256": "c4e075e3f1968c2ec3c9e6de68c535410a5b86a00717aee90569dc4887bbd7eb",
+    "audit_log": "all74-cache67-20261016/all74-05-retained-128-universal.log",
+    "audit_log_sha256": "ff0d50f85d33ebf8c2053b509720661c6b2a16ecaec510ad24ef3387d7cf9560",
+    "status": "UNIVERSAL_PASS"
+  },
+  {
+    "stage": 6,
+    "config": {
+      "family": "retained",
+      "atom_cap": 512,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    "input_stream": "all74-cache67-20261016/all74-05-retained-128.bin",
+    "input_sha256": "19de09380d10ec2ee5fd685e377b7333fe3a83fd6f052f34bc62aed88d9fda3c",
+    "output_stream": "all74-cache67-20261016/all74-06-retained-512.bin",
+    "output_sha256": "b30348da01cb92d8eb8f3d6d6a6e7e730af94085ce6924460a966a9663ca6970",
+    "lease_log": "all74-cache67-20261016/all74-06-retained-512-generate.log",
+    "lease_log_sha256": "08a0fb7c5e5881312acd5b0e5f9e41f338cf41f089ffda971e51d3031b9aa294",
+    "audit_log": "all74-cache67-20261016/all74-06-retained-512-universal.log",
+    "audit_log_sha256": "df91fe3ebae8f36436a0926ad2e7ba4dffe88f7c7e06b54865d854c1f8d23e65",
+    "status": "UNIVERSAL_PASS"
+  },
+  {
+    "stage": 7,
+    "config": {
+      "family": "retained",
+      "atom_cap": 1024,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    "input_stream": "all74-cache67-20261016/all74-06-retained-512.bin",
+    "input_sha256": "b30348da01cb92d8eb8f3d6d6a6e7e730af94085ce6924460a966a9663ca6970",
+    "output_stream": "all74-cache67-20261016/all74-07-retained-1024.bin",
+    "output_sha256": "68bd69930163fa8b584116a6e853e5c1485e2a4f7639426317ff99287d2c1097",
+    "lease_log": "all74-cache67-20261016/all74-07-retained-1024-generate.log",
+    "lease_log_sha256": "1f31cd603b65ee67e53d3144b059930fbc270b55406e1553f8ca1de4d42b6590",
+    "audit_log": "all74-cache67-20261016/all74-07-retained-1024-universal.log",
+    "audit_log_sha256": "77c6d19718fc4dfa5caac85b49893af8c155857348ffc48cf504d573196f3443",
+    "status": "UNIVERSAL_PASS"
+  },
+  {
+    "stage": 8,
+    "config": {
+      "family": "anf",
+      "atom_cap": 512,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    "input_stream": "all74-cache67-20261016/all74-07-retained-1024.bin",
+    "input_sha256": "68bd69930163fa8b584116a6e853e5c1485e2a4f7639426317ff99287d2c1097",
+    "output_stream": "all74-cache67-20261016/all74-08-anf-512.bin",
+    "output_sha256": "edf85d77ac779a2039b6b70d3ab2096d721653fda59466ad65b991a554924a9b",
+    "lease_log": "all74-cache67-20261016/all74-08-anf-512-generate.log",
+    "lease_log_sha256": "3c5cfd8398b813ca136235c511a4d25ec37d2a5f3b7df2148c72fd47df812c6b",
+    "audit_log": "all74-cache67-20261016/all74-08-anf-512-universal.log",
+    "audit_log_sha256": "955e39b1d2ea620d1e74a624627b71ccca913d9e5458ae70f07e63f60d014f53",
+    "status": "UNIVERSAL_PASS"
+  },
+  {
+    "stage": 9,
+    "config": {
+      "family": "retained",
+      "atom_cap": 128,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    "input_stream": "all74-cache67-20261016/all74-08-anf-512.bin",
+    "input_sha256": "edf85d77ac779a2039b6b70d3ab2096d721653fda59466ad65b991a554924a9b",
+    "output_stream": "all74-cache67-20261016/all74-09-retained-128.bin",
+    "output_sha256": "67fba6c5093909d90eb37955cb1ecef1e049e90ec7f155b0e9a3775426e4e4d8",
+    "lease_log": "all74-cache67-20261016/all74-09-retained-128-generate.log",
+    "lease_log_sha256": "ab44e943da4f2e4dc2adb328bd063998132fc2577d16f987863c90b41837980c",
+    "audit_log": "all74-cache67-20261016/all74-09-retained-128-universal.log",
+    "audit_log_sha256": "de850e4ae0362963dae88c0f73f8d86882156cffba5266e0495a6f33075be9bf",
+    "status": "UNIVERSAL_PASS"
+  },
+  {
+    "stage": 10,
+    "config": {
+      "family": "retained",
+      "atom_cap": 512,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    "input_stream": "all74-cache67-20261016/all74-09-retained-128.bin",
+    "input_sha256": "67fba6c5093909d90eb37955cb1ecef1e049e90ec7f155b0e9a3775426e4e4d8",
+    "output_stream": "all74-cache67-20261016/all74-10-retained-512.bin",
+    "output_sha256": "d29ac3ffb96a3088573b1fecd7cfc01e4f685c7f132b9ebbed66a07603aeeed6",
+    "lease_log": "all74-cache67-20261016/all74-10-retained-512-generate.log",
+    "lease_log_sha256": "27237ec7471a52efce9a2c4102bd6f13b8dabb64f5189a3323846d554cadbe6d",
+    "audit_log": "all74-cache67-20261016/all74-10-retained-512-universal.log",
+    "audit_log_sha256": "63e12f2a6ebe7aa3835ba814b1cb9cce5fc380bae335a27983b63293715812bd",
+    "status": "UNIVERSAL_PASS"
+  },
+  {
+    "stage": 11,
+    "config": {
+      "family": "retained",
+      "atom_cap": 1024,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    "input_stream": "all74-cache67-20261016/all74-10-retained-512.bin",
+    "input_sha256": "d29ac3ffb96a3088573b1fecd7cfc01e4f685c7f132b9ebbed66a07603aeeed6",
+    "output_stream": "all74-cache67-20261016/all74-11-retained-1024.bin",
+    "output_sha256": "5f7623cd5ab78d8062d60338b0b3aef6d857d88f531a99b9ff4595f3d5bb1367",
+    "lease_log": "all74-cache67-20261016/all74-11-retained-1024-generate.log",
+    "lease_log_sha256": "125f5e31b3e9cf962455429a5bc4df7905f9c39dad7f1e8d47fc9beab4c0a85d",
+    "audit_log": "all74-cache67-20261016/all74-11-retained-1024-universal.log",
+    "audit_log_sha256": "f7d9a6730f5485b8bc41af4a2ff9ea1b6169147f4448237dca17076b750845ab",
+    "status": "UNIVERSAL_PASS"
+  },
+  {
+    "stage": 12,
+    "config": {
+      "family": "retained",
+      "atom_cap": 128,
+      "product_cap": 1000000,
+      "pair_cap": 64,
+      "rank": "density",
+      "split": true,
+      "flags": "three per donor; disjoint top-level lifetimes"
+    },
+    "input_stream": "all74-cache67-20261016/all74-11-retained-1024.bin",
+    "input_sha256": "5f7623cd5ab78d8062d60338b0b3aef6d857d88f531a99b9ff4595f3d5bb1367",
+    "output_stream": "all74-cache67-20261016/all74-12-retained-128.bin",
+    "output_sha256": "2a60480c7247f1214f98dabed5a8cc5a3a528981718abab43caf99e7d068a57b",
+    "lease_log": "all74-cache67-20261016/all74-12-retained-128-generate.log",
+    "lease_log_sha256": "8449fde7d392f8e6a4d8fb20f8c74f0dc2b2f318a5154c8494050ea633c5a9a8",
+    "audit_log": "all74-cache67-20261016/all74-12-retained-128-universal.log",
+    "audit_log_sha256": "654446e479274bd755bd2905f942063dccbb03f2b09e8bb57e0489f9badbaabc",
+    "status": "UNIVERSAL_PASS"
+  }
+]

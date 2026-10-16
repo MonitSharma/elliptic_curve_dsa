@@ -1,0 +1,125 @@
+   Compiling typenum v1.20.1
+   Compiling generic-array v0.14.9
+   Compiling libc v0.2.190
+   Compiling zeroize v1.9.1
+   Compiling jobserver v0.1.35
+   Compiling shlex v2.0.1
+   Compiling find-msvc-tools v0.1.14
+   Compiling proc-macro2 v1.0.107
+   Compiling cc v1.8.0
+   Compiling unicode-ident v1.0.27
+   Compiling quote v1.0.47
+   Compiling pkg-config v0.3.34
+   Compiling zstd-sys v2.1.1+zstd.1.5.7
+   Compiling hybrid-array v0.4.15
+   Compiling cfg-if v1.0.5
+   Compiling subtle v2.6.1
+   Compiling unicode-segmentation v1.13.3
+   Compiling rand_core v0.6.4
+   Compiling convert_case v0.10.0
+   Compiling syn v2.0.119
+   Compiling crypto-common v0.2.2
+   Compiling block-buffer v0.12.1
+   Compiling const-oid v0.9.6
+   Compiling zstd-safe v7.3.0
+   Compiling der v0.7.10
+   Compiling derive_more-impl v2.1.1
+   Compiling digest v0.11.3
+   Compiling ff v0.13.1
+   Compiling keccak v0.2.2
+   Compiling block-buffer v0.10.4
+   Compiling crypto-common v0.1.6
+   Compiling serde_core v1.0.229
+   Compiling zmij v1.0.23
+   Compiling base16ct v0.2.0
+   Compiling sec1 v0.7.3
+   Compiling const-hex v1.19.3
+   Compiling hashbrown v0.17.1
+   Compiling ruint v1.20.1
+   Compiling digest v0.10.7
+   Compiling sha3 v0.11.0
+   Compiling group v0.13.0
+   Compiling derive_more v2.1.1
+   Compiling crypto-bigint v0.5.5
+   Compiling keccak v0.1.6
+   Compiling bytes v1.12.1
+   Compiling serde_json v1.0.154
+   Compiling alloy-primitives v1.7.3
+   Compiling sha3 v0.10.9
+   Compiling elliptic-curve v0.13.8
+   Compiling zstd v0.13.3
+   Compiling memchr v2.8.3
+   Compiling quantum_ecc v0.1.0 (/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline)
+   Compiling k256 v0.13.4
+   Compiling value_prefilter v0.1.0 (/home/hclau/ecdsa_research/product-exact-20261015/loan-normal-forms-tool)
+warning: unused import: `BTreeMap`
+   --> src/support.rs:413:24
+    |
+413 | use std::collections::{BTreeMap,BTreeSet,HashMap,HashSet};
+    |                        ^^^^^^^^
+    |
+    = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: field `0` is never read
+  --> src/support.rs:48:8
+   |
+48 |     Cx(QubitId),
+   |     -- ^^^^^^^
+   |     |
+   |     field in this variant
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+help: consider changing the field to be of unit type to suppress this warning while preserving the field numbering, or remove the field
+   |
+48 -     Cx(QubitId),
+48 +     Cx(()),
+   |
+
+warning: method `emit` is never used
+  --> src/support.rs:52:19
+   |
+51 | impl Rewrite {
+   | ------------ method in this implementation
+52 |     pub(super) fn emit(self, op: Op, result: &mut Vec<Op>) {
+   |                   ^^^^
+
+warning: function `simplify` is never used
+   --> src/support.rs:299:15
+    |
+299 | pub(crate) fn simplify(ops: Vec<Op>) -> Vec<Op> {
+    |               ^^^^^^^^
+
+warning: function `witnesses` is never used
+   --> src/support.rs:310:15
+    |
+310 | pub(crate) fn witnesses(ops:Vec<Op>)->Vec<Op>{
+    |               ^^^^^^^^^
+
+warning: method `loan_relation` is never used
+   --> src/support.rs:357:19
+    |
+354 | impl Support {
+    | ------------ method in this implementation
+...
+357 |     pub(crate) fn loan_relation(&self, top:usize, nt:&[usize], nw:&[usize], end:usize)->Option<(usize,Vec<usize>,bool)> {
+    |                   ^^^^^^^^^^^^^
+
+warning: method `product_loan_relation` is never used
+   --> src/support.rs:385:19
+    |
+382 | impl Support {
+    | ------------ method in this implementation
+...
+385 |     pub(crate) fn product_loan_relation(&mut self, top:usize, nt:&[usize], nw:&[usize], end:usize,a:usize,b:usize)->Option<(usize,V...
+    |                   ^^^^^^^^^^^^^^^^^^^^^
+
+warning: `value_prefilter` (bin "value_prefilter" test) generated 7 warnings (run `cargo fix --bin "value_prefilter" -p value_prefilter --tests` to apply 1 suggestion)
+    Finished `release` profile [optimized] target(s) in 1m 40s
+     Running unittests src/main.rs (target-endpoint-census/release/deps/value_prefilter-efe9ccffe98a0d91)
+
+running 2 tests
+test support::dirty_rhs_tests::exact_xor_sorted_parity ... ok
+test support::dirty_rhs_tests::gaussian_dirty_rhs_and_product_labels ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
