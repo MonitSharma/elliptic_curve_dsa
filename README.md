@@ -197,6 +197,13 @@ community judge how far away such attacks are and plan the move to
 post-quantum cryptography. The repository contains no credentials, and none
 are needed to reproduce the results.
 
+## License
+
+Original contributions by Monit Sharma are licensed under the
+[MIT License](LICENSE). Third-party code, dependencies and submodules retain
+their respective licenses. In particular, the reused simulator and curve files
+listed in [NOTICE](NOTICE) remain under CC BY 4.0.
+
 ## Attribution
 
 This work builds on the [ECDSA.fail challenge](https://ecdsa.fail/) and its
