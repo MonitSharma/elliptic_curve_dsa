@@ -17,7 +17,7 @@ including failed ones.
 | Record | Public best (16 Oct 2026) | Our standing |
 |---|---:|---|
 | **Fewest executed Toffolis** | **753,721** at 1,468 qubits | **Ours**: officially scored submission [`03be8e19`](https://api.ecdsa.fail/api/submissions/03be8e19-ab3b-45c7-9c62-9d78970c4d95) |
-| Lowest qubit × Toffoli product | 939,347,948 (761,222 × 1,234) | Candidate in final search; see [current work](#current-work) |
+| Lowest qubit × Toffoli product | 939,347,948 (761,222 × 1,234) | **939,223,314** (761,121 × 1,234): complete local benchmark pass, queued for submission; see [current work](#current-work) |
 | Fewest logical qubits | 676 | A complete local pass at 692 qubits (not submitted) |
 
 ![Public Pareto frontier with our officially scored Toffoli record](docs/figures/frontier.png)
@@ -94,16 +94,16 @@ pre-declared failure-rate check came out marginally worse than the record's
 
 ## Current work
 
-- **Product record (in progress).** The leading circuit gets an exact,
-  universally certified 67-stage cache. It keeps 1,234 qubits and saves 102 ±
-  0.4 Toffolis per shot in paired fresh tests, which would give about 939.22
-  million against the record's 939.35 million. It passes the failure-rate
-  check (identical wrong-answer failures; McNemar p = 0.65). An ascending
-  nonce search with a certified prefilter is running, and a dry-run-verified
-  pipeline will audit and benchmark any pass automatically. **There is no
-  score until the unchanged benchmark confirms it.**
-  [Status](experiments/plain67-operational-20261016/STATUS.md) ·
-  [finalization](experiments/plain67-final-20261016/STATUS.md).
+- **Product record (benchmark passed, queued).** The leading circuit
+  (`4b2ec52f`) plus an exact, universally certified 67-stage cache, at the same
+  1,234 qubits. The unchanged benchmark scores **761,121 × 1,234 =
+  939,223,314**, 124,634 below the public record, with all 9,024 shots
+  passing. It passed its pre-declared failure-rate check (identical
+  wrong-answer failures; McNemar p = 0.65; 17.91 vs 17.93 failing batches per
+  test set). Nonce 129,023,534, the lowest pass in an ascending search of
+  129.2 million. Not yet officially scored.
+  [Status](experiments/plain67-final-20261016/STATUS.md) ·
+  [note](experiments/plain67-final-20261016/SUBMISSION-NOTE.md).
 - **Toffoli record.** Further exact savings on our wide circuit; the next
   target is 753,720 or fewer.
 - **Qubit record.** The public frontier is at 676 qubits, built on a different
@@ -140,6 +140,7 @@ Only circuits that passed the complete 9,024-shot benchmark appear here.
 | Circuit | Qubits | Rounded mean executed Toffolis | Q × T | Status |
 |---|---:|---:|---:|---|
 | Wide circuit + 15-stage cache | 1,468 | **753,721** | 1,106,462,428 | Official [`03be8e19`](https://api.ecdsa.fail/api/submissions/03be8e19-ab3b-45c7-9c62-9d78970c4d95) (current Toffoli record) |
+| PLAIN67 product candidate | 1,234 | 761,121 | **939,223,314** | Local pass, queued; [evidence](experiments/plain67-final-20261016/STATUS.md) |
 | Wide circuit + 4-stage cache | 1,464 | 753,745 | 1,103,482,680 | Local pass, [evidence](experiments/wide-record-20261015/STATUS.md) |
 | Wide smoothed-walk circuit | 1,464 | 753,771 | 1,103,520,744 | Official [`3f32acd2`](https://api.ecdsa.fail/api/submissions/3f32acd2-71bf-4cc7-bae6-7407be97fe3b) (previous record) |
 | Product25 (not submitted) | 1,234 | 761,171 | 939,285,014 | Local pass; failed its own failure-rate check, [verification](experiments/product25-final-20261016/VERIFICATION.md) |

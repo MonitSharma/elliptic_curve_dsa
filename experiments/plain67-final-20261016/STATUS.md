@@ -1,3 +1,28 @@
+# PLAIN67 product candidate: unchanged benchmark PASS, 939,223,314 (queued)
+
+**Result (16 Oct 2026, 22:09 Singapore; recorded 17 Oct 07:35).** The search
+found its lowest pass at nonce **129,023,534**; the watcher audited every
+lower row and ran the unchanged `benchmark.sh` on the frozen source:
+**Q1234, rounded mean 761,121 T, product 939,223,314**, all 9,024 shots pass,
+zero classical, phase and ancilla failures. This beats the public product
+record 939,347,948 (refreshed 17 Oct 07:30). **Queue mode: not submitted;
+awaiting the user.** Note: [SUBMISSION-NOTE.md](SUBMISSION-NOTE.md).
+
+| Step | Evidence (in `evidence/`) | Result |
+|---|---|---|
+| Search | `RESULT.json`, `passes/` | lowest protected pass 129,023,534; 129,245,184 unique rows |
+| Terminal audit | `ROOT_TERMINAL_AUDIT.json` | every row checked; complete prefix 129,052,672 |
+| Source freeze | `SOURCE_FREEZE.json` | only `TAIL_NONCE` changed |
+| Native receipt | `NATIVE_RECEIPT.json` | pre-tail byte-identical to `268aefe2…` |
+| Tail invariance | `TAILCHECK.json` | 512/512 gate batches identical |
+| Benchmark | `BENCHMARK_RESULT.json`, `score.json`, `final-logs.tar.gz` | PASS, 939,223,314 |
+
+Large files stay on the server (`/home/hclau/ecdsa_research/plain67-final-20261016`);
+hashes in `evidence/LARGE-FILES.sha256`. The candidate tree for submission is
+`/home/hclau/ecdsa_research/plain67-final-20261016/candidate`.
+
+---
+
 # PLAIN67 automatic finalization: armed, dry run passed
 
 16 October 2026, 10:07 Singapore. **No score yet; queue mode; never submits.**

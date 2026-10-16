@@ -1,29 +1,29 @@
 {
-  "analyzed_at": "2026-10-16T15:22:40.989522+08:00",
+  "analyzed_at": "2026-10-17T07:29:46.454255+08:00",
   "source": "https://api.ecdsa.fail/api/benchmarks/1ffb695a-309b-46b6-a728-2f97d8c7be74/submissions",
-  "record_count": 1576,
+  "record_count": 1582,
   "status_counts": {
     "accepted": 631,
-    "rejected": 712,
+    "rejected": 718,
     "failed": 230,
     "cancelled": 3
   },
-  "eligible_count": 1233,
+  "eligible_count": 1239,
   "benchmark_mode": "scalar",
   "closes_at": "2026-12-31T23:59:59.000Z",
   "eligibility": "Accepted or score-only rejected; positive integer official metrics; score equals Q*T.",
   "leaders": {
     "qubits": {
-      "id": "2c8be618-cef8-48c9-bd05-e7286e4cab85",
+      "id": "42ae2103-575e-4f95-bbd5-ab2051a994f2",
       "status": "rejected",
-      "officialScore": 363251435820,
+      "officialScore": 331340774700,
       "officialMetrics": {
         "qubits": 676,
-        "toffoli": 537354195
+        "toffoli": 490149075
       },
-      "createdAt": "2026-10-16T03:23:49.087Z",
-      "submissionCommitSha": "f65f8b1cdefbcd6a244d36f02d64d269efcede6f",
-      "solverUsername": "jackylee0424",
+      "createdAt": "2026-10-16T21:41:29.034Z",
+      "submissionCommitSha": "bec8516cf2c147a225662ab297cf4c71f2ec0104",
+      "solverUsername": "bulengerk",
       "rejectionReason": "score did not improve current best"
     },
     "toffoli": {
@@ -86,80 +86,28 @@
   },
   "frontier": [
     {
-      "id": "2c8be618-cef8-48c9-bd05-e7286e4cab85",
+      "id": "42ae2103-575e-4f95-bbd5-ab2051a994f2",
       "status": "rejected",
-      "officialScore": 363251435820,
+      "officialScore": 331340774700,
       "officialMetrics": {
         "qubits": 676,
-        "toffoli": 537354195
+        "toffoli": 490149075
       },
-      "createdAt": "2026-10-16T03:23:49.087Z",
-      "submissionCommitSha": "f65f8b1cdefbcd6a244d36f02d64d269efcede6f",
-      "solverUsername": "jackylee0424",
+      "createdAt": "2026-10-16T21:41:29.034Z",
+      "submissionCommitSha": "bec8516cf2c147a225662ab297cf4c71f2ec0104",
+      "solverUsername": "bulengerk",
       "rejectionReason": "score did not improve current best"
     },
     {
-      "id": "261d4e06-ad9f-4a0a-9c13-12726127c1d8",
+      "id": "13c1e055-7ffa-4115-a79c-8b42c53d79b3",
       "status": "rejected",
-      "officialScore": 233438752008,
+      "officialScore": 204881996138,
       "officialMetrics": {
-        "qubits": 693,
-        "toffoli": 336852456
+        "qubits": 691,
+        "toffoli": 296500718
       },
-      "createdAt": "2026-10-14T07:38:03.467Z",
-      "submissionCommitSha": "c95b9325913abacca9c86bdebad10a20633cd04e",
-      "solverUsername": "jackylee0424",
-      "rejectionReason": "score did not improve current best"
-    },
-    {
-      "id": "3bcef1d9-8c99-4cb8-b89b-0b2a774e19a5",
-      "status": "rejected",
-      "officialScore": 233705810966,
-      "officialMetrics": {
-        "qubits": 694,
-        "toffoli": 336751889
-      },
-      "createdAt": "2026-10-14T02:16:14.912Z",
-      "submissionCommitSha": "4ef906688f6dfb422aa8dd10d3d07265839e2f3c",
-      "solverUsername": "jackylee0424",
-      "rejectionReason": "score did not improve current best"
-    },
-    {
-      "id": "bcb97b34-a457-4d1a-bc54-149858d5a384",
-      "status": "rejected",
-      "officialScore": 234040384725,
-      "officialMetrics": {
-        "qubits": 695,
-        "toffoli": 336748755
-      },
-      "createdAt": "2026-10-14T00:06:38.539Z",
-      "submissionCommitSha": "7e5203de6daf1e798cb111bdef1bbe9f393bf632",
-      "solverUsername": "jackylee0424",
-      "rejectionReason": "score did not improve current best"
-    },
-    {
-      "id": "88367054-b476-4822-84bb-0b734e87ba42",
-      "status": "rejected",
-      "officialScore": 230599063824,
-      "officialMetrics": {
-        "qubits": 696,
-        "toffoli": 331320494
-      },
-      "createdAt": "2026-10-13T19:28:32.061Z",
-      "submissionCommitSha": "f4c570bcb6692db502bb651cf83e4f51569b0b5f",
-      "solverUsername": "jackylee0424",
-      "rejectionReason": "score did not improve current best"
-    },
-    {
-      "id": "285c3390-ee5a-4365-b18b-43930175d4d1",
-      "status": "rejected",
-      "officialScore": 224485072675,
-      "officialMetrics": {
-        "qubits": 697,
-        "toffoli": 322073275
-      },
-      "createdAt": "2026-10-13T14:16:47.181Z",
-      "submissionCommitSha": "f07dc8945bf35995791c42670b500e8143d4e267",
+      "createdAt": "2026-10-16T16:39:25.457Z",
+      "submissionCommitSha": "8da9dab70e21b70ac0adb316ca87ff29a7b38a1e",
       "solverUsername": "jackylee0424",
       "rejectionReason": "score did not improve current best"
     },
@@ -724,7 +672,7 @@
     }
   ],
   "input_sha256": {
-    "submissions.json": "a292a31b315e610411fc20265192749b51ac9018c8bcd4e76929d4baefc18a16",
+    "submissions.json": "6b9e2d16eaf6de1b356b12388aeb95d1b5f370a335d254a8f89a2e608e12305a",
     "benchmark.json": "977fd702959c82a3002845d55c566568b204543226d117ac3eb15600110d1fc1"
   }
 }

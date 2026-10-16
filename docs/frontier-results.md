@@ -1,8 +1,8 @@
 # Public resource frontier
 
-Snapshot analyzed 2026-10-16T15:22:40.989522+08:00 (Singapore time).
+Snapshot analyzed 2026-10-17T07:29:46.454255+08:00 (Singapore time).
 
-[1,576 public submissions](https://api.ecdsa.fail/api/benchmarks/1ffb695a-309b-46b6-a728-2f97d8c7be74/submissions) contain 1,233 eligible records and **49 nondominated resource pairs**.
+[1,582 public submissions](https://api.ecdsa.fail/api/benchmarks/1ffb695a-309b-46b6-a728-2f97d8c7be74/submissions) contain 1,239 eligible records and **45 nondominated resource pairs**.
 
 Accepted and explicitly score-only rejected records qualify; failures and claimed-only metrics do not. This is a dated snapshot, not independent reproduction. Promotion uses the scalar product.
 
@@ -14,12 +14,8 @@ The gold step is the public frontier. The cyan star marks our officially scored 
 
 | Qubits | Rounded mean Toffolis | Product | Submission |
 |---:|---:|---:|---|
-| 676 | 537,354,195 | 363,251,435,820 | [2c8be618](https://api.ecdsa.fail/api/submissions/2c8be618-cef8-48c9-bd05-e7286e4cab85) |
-| 693 | 336,852,456 | 233,438,752,008 | [261d4e06](https://api.ecdsa.fail/api/submissions/261d4e06-ad9f-4a0a-9c13-12726127c1d8) |
-| 694 | 336,751,889 | 233,705,810,966 | [3bcef1d9](https://api.ecdsa.fail/api/submissions/3bcef1d9-8c99-4cb8-b89b-0b2a774e19a5) |
-| 695 | 336,748,755 | 234,040,384,725 | [bcb97b34](https://api.ecdsa.fail/api/submissions/bcb97b34-a457-4d1a-bc54-149858d5a384) |
-| 696 | 331,320,494 | 230,599,063,824 | [88367054](https://api.ecdsa.fail/api/submissions/88367054-b476-4822-84bb-0b734e87ba42) |
-| 697 | 322,073,275 | 224,485,072,675 | [285c3390](https://api.ecdsa.fail/api/submissions/285c3390-ee5a-4365-b18b-43930175d4d1) |
+| 676 | 490,149,075 | 331,340,774,700 | [42ae2103](https://api.ecdsa.fail/api/submissions/42ae2103-575e-4f95-bbd5-ab2051a994f2) |
+| 691 | 296,500,718 | 204,881,996,138 | [13c1e055](https://api.ecdsa.fail/api/submissions/13c1e055-7ffa-4115-a79c-8b42c53d79b3) |
 | 698 | 291,612,614 | 203,545,604,572 | [f20716bf](https://api.ecdsa.fail/api/submissions/f20716bf-b03e-4101-ab81-46f286f232e2) |
 | 718 | 284,765,142 | 204,461,371,956 | [b98ba940](https://api.ecdsa.fail/api/submissions/b98ba940-142f-4148-8f10-8df44a2c47d6) |
 | 739 | 220,601,275 | 163,024,342,225 | [ae371a08](https://api.ecdsa.fail/api/submissions/ae371a08-0aaf-4be0-bd3c-6b9ff9e15955) |
