@@ -1,0 +1,52 @@
+{
+  "parent": "official753721-Q1468-source-b5adb653",
+  "input_stream": "/home/hclau/ecdsa_research/wide15-record-20261016/evidence/final-ops.bin",
+  "input_stream_sha256": "1d8c05eeee7b43dd694506b5efe963c771461b7e690bc62f409947b2306b7d77",
+  "optimizer_executable": "/home/hclau/ecdsa_research/product-exact-20261015/target-scratch/release/product_paired_diagnostic",
+  "optimizer_executable_sha256": "e25ce2b8c48438f909bd823ac4e31d17fe4877b5ef8510fad79d9715bcc8035d",
+  "optimizer_source_files_sha256": {
+    "Cargo.toml": "e120cdfedbc38a9eba2a86f51a44170f914c48247996905e5c1d721cc79788ac",
+    "Cargo.lock": "c0ef722135cb1a56eb8d1ffb72e3245b8773d8e56ea3e7b2ac82299bbd8250a0",
+    "src/xor_fuse.rs": "78f54b970977dfc91b40002ab760038ffe803095ee67fdb986af043455bbb762",
+    "src/lifetime_compact.rs": "8db8e4810405d98bce3386b77a52a8aa8fd69103f71e01c362043d2cf8a6583a",
+    "src/main.rs": "439fdb8e62c37546bef5c73f138a38c79f84add1f7ab7793545fcfa55e2cabd6",
+    "src/interned_anf.rs": "1dad52ac99fccbd78bce21cfea04f59aa6c47fa272edade12ddd28a99e61cf21",
+    "src/interned_context_witness.rs": "09504ed921dfd6e08164e57e51e5f9a6b5fed866b4c5685792e1ff85802a570e",
+    "src/early_reset.rs": "807b8e94fba9c263878d43d71c5656d85ddb433fe3251375ef4fba74b83f5a24",
+    "src/lazy_cache_retained.rs": "9ad34ebd56b0bd408b2e0eaf1ec5564523e742d02c62473edd63b2b647a3fe83",
+    "src/interned_anf_retained.rs": "705e430c98261ad175e58f1c07152e8164c6acc6830c90e47558b47c07e48e66",
+    "src/control_predicates.rs": "dcb39eeb36e4ebac9cda75320c9398c8d74f5e5629d9afc2a870e43cedddfb1a",
+    "src/lazy_cache.rs": "139aa32272e9ff99336d6eb7b4d91b2f78419e52a7b5419d31a6eae06393ef42",
+    "src/interned_witness.rs": "7917bf52e2fb579ec7bc9d867614743a9a16ba41154acad513b8528a9e3ff04b",
+    "src/lazy_cache_anf.rs": "02ddd6361430b95e895972716dc863588e76d5b4cf7edf500fcb171f689761ba"
+  },
+  "fixed_case": {
+    "family": "retained",
+    "atom_cap": 4096,
+    "pair_cap": 256,
+    "product_cap": 1000000,
+    "rank": "density",
+    "split": true,
+    "extra_zero_slots_offered": 64,
+    "additional_stages": 1
+  },
+  "analysis_threads": 1,
+  "address_limit_GiB": 64,
+  "generation_wall_limit_seconds": 2700,
+  "scope": "Source-only exact optimization on the current best source. No samples or packet data. Extra width acceptable for the independent Toffoli target.",
+  "independence": "Different frozen parent from wide95. Old cap4096 24GiB resource failure remains terminal and is not replaced. No changed-limit retry in this declaration.",
+  "prospective_native_gate": "Only src/point_add; full source and patch frozen, protected files unchanged, normal builder exact byte identity, universal new-stage semantics/clean donors and independent full q/b/phase/MR anchored replay before any fresh census.",
+  "prospective_fresh_gate": {
+    "label": "official753721-plus-retained4096-one-stage-independent-20261016-v1",
+    "first_batch": 0,
+    "batches_per_source": 32768,
+    "shots_per_batch": 64,
+    "parent_stream_sha256": "1d8c05eeee7b43dd694506b5efe963c771461b7e690bc62f409947b2306b7d77",
+    "runner": "/home/hclau/ecdsa_research/simd-census-v2-20261016/bin/simd_census_v2",
+    "runner_sha256": "790e92266ea67ec54ef701b2deed76fe8d0b766b411ca9eab877f82ae2c11a66",
+    "no_resampling_or_subset": true,
+    "requirements": "all rows, failed batches <= same-input parent and <=18/9024, dirty0; actual executed savings must beat current public T with margin"
+  },
+  "nonce_search_authorized_by_this_probe": false,
+  "scored_result": null
+}

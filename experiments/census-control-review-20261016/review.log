@@ -1,0 +1,59 @@
+{
+  "status": "PASS INDEPENDENT144 BASELINE BINDING AND70 ELEMENTARY RESTORATION REVIEW",
+  "input_hashes": {
+    "/home/hclau/ecdsa_research/payload-model-20261016/before-census.bin": "4b603d502456f8db2145ac5f7c36c9b44f496acfd0c3c5cc3149006cbc51a310",
+    "/home/hclau/ecdsa_research/product-exact-20261015/tip/ops.bin": "2a522394cdf3e6a0df7784ad4db761030933c1f7ccd0ff8e641d68ec7a4dab3e",
+    "/home/hclau/ecdsa_research/census-control-review-20261016/ALL144.json": "e102abb95c3a51b20c367383b755e1cf3d816a3bf7284f320b0d16d795779930",
+    "/home/hclau/ecdsa_research/census-control-review-20261016/ALL70.json": "453e32f606d5dfaabbf12b4c7714c1cc986c5a6bdd534de3c76b123837d977d7",
+    "/home/hclau/ecdsa_research/census-control-review-20261016/inventory.py": "af535fa070aef0d37c691b82c7236bbf317d11d8492ef746605228c76afe3628"
+  },
+  "all144_anchors_independently_unique_and_exact": true,
+  "entire_before144_application_equals_final_actual_bytes": true,
+  "all70_uniform_CCX_to_CX": true,
+  "all74_deletions_retained_as_separate_family": true,
+  "no_A29_overlap": true,
+  "seed_row_one_based11_verified": true,
+  "full_arbitrary_dirty_gate_contract": "For any t,a,b and scope/direct guard g: target_new=t XOR(g AND a AND b), controls unchanged, no phase multiplier. Valid on arbitrary superpositions by linearity. No clean scratch premise or measurement.",
+  "unchanged_MR_classical_ABI_positions_for_future70_one_for_one_restoration": true,
+  "executed_added_T_per_shot_bounds": [
+    56,
+    70
+  ],
+  "syntactic_depth_weight_proxy": 63,
+  "proxy_is_not_measured_expected_T": true,
+  "helper_lifecycle_next_value_write_kinds": {
+    "8": 61,
+    "12": 5,
+    "13": 4
+  },
+  "limitations": [
+    "Review binds original4b family only; actual generated candidate/native bytes still require independent comparison.",
+    "Restored original gate semantics do not establish each complete helper is correct with the74deletions or other inherited approximations retained.",
+    "No whole arithmetic correctness, identical phase to original4b, or monotone failure reduction claim. Fresh paired gate remains necessary.",
+    "No candidate stream generated or serialized; source lifecycle inspection only."
+  ],
+  "seconds": 49.201950550079346
+}
+	Command being timed: "python3 review-binding.py"
+	User time (seconds): 46.48
+	System time (seconds): 2.87
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:49.38
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 1962384
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 981513
+	Voluntary context switches: 24
+	Involuntary context switches: 113
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 176
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

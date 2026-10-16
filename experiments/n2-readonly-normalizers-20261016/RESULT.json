@@ -1,0 +1,482 @@
+{
+  "status": "TERMINAL FIXED ALL16 SOURCE-ONLY QUERY",
+  "predeclaration_sha256": "acbd30a280a339848487d1bbf22cbcb99cdf62f06ac300f068cbd500596c90d3",
+  "all_source_loans_and_targets": true,
+  "unchanged_retained_Support_kernel": true,
+  "unchanged_kernel_sha256": "e7a6755f21f6b25f4c48d177ec14085b57afe090a3503a145eabe0016af358a4",
+  "before_after_source_pins_identical": true,
+  "stream_sha256": "2a522394cdf3e6a0df7784ad4db761030933c1f7ccd0ff8e641d68ec7a4dab3e",
+  "no_candidate": true,
+  "no_sample": true,
+  "no_rewrites": true,
+  "query_sha256": "4223fa39fdd1cf5e55d2497e4aadc4a156af2dc8ecae27f1567d6a3773322469",
+  "phases": [
+    {
+      "phase": "divide",
+      "at_after_out": 4051851,
+      "full_window": [
+        4051843,
+        4226087
+      ],
+      "strict_untouched_q": 650,
+      "no_value_write_q": 653,
+      "new_readonly_q": [
+        182,
+        186,
+        206
+      ],
+      "stable_classical_bits": 45696,
+      "inverse_product_nodes": 636,
+      "physical_factor_options": 1,
+      "physical_candidate_pairs": 1,
+      "candidate_limit_truncated": false,
+      "existing_nodes_both_affine_factors_spanned": 1,
+      "queries": [
+        {
+          "target": 208,
+          "dirty_atom_count": 102,
+          "constant": true,
+          "direct_aliases": [],
+          "xor_two_count": 0,
+          "affine_q": null,
+          "affine_q_stable_classical": null,
+          "existing_physical_product_rhs": null,
+          "affine_factor_rhs": {
+            "constant_if_expressible": true,
+            "dirty_atom_count": 102,
+            "expressible": false,
+            "linear_quantum_xor_if_expressible": [],
+            "linear_stable_classical_if_expressible": [],
+            "product_node_ids_if_expressible": [],
+            "target": 208,
+            "unresolved_atom_count": 102,
+            "upper_bound_added_roundtrip_CCX_if_all_obligations_met": null
+          }
+        },
+        {
+          "target": 209,
+          "dirty_atom_count": 475,
+          "constant": true,
+          "direct_aliases": [],
+          "xor_two_count": 0,
+          "affine_q": null,
+          "affine_q_stable_classical": null,
+          "existing_physical_product_rhs": null,
+          "affine_factor_rhs": {
+            "constant_if_expressible": true,
+            "dirty_atom_count": 475,
+            "expressible": false,
+            "linear_quantum_xor_if_expressible": [],
+            "linear_stable_classical_if_expressible": [],
+            "product_node_ids_if_expressible": [],
+            "target": 209,
+            "unresolved_atom_count": 475,
+            "upper_bound_added_roundtrip_CCX_if_all_obligations_met": null
+          }
+        },
+        {
+          "target": 210,
+          "dirty_atom_count": 390,
+          "constant": true,
+          "direct_aliases": [],
+          "xor_two_count": 0,
+          "affine_q": null,
+          "affine_q_stable_classical": null,
+          "existing_physical_product_rhs": null,
+          "affine_factor_rhs": {
+            "constant_if_expressible": true,
+            "dirty_atom_count": 390,
+            "expressible": false,
+            "linear_quantum_xor_if_expressible": [],
+            "linear_stable_classical_if_expressible": [],
+            "product_node_ids_if_expressible": [],
+            "target": 210,
+            "unresolved_atom_count": 390,
+            "upper_bound_added_roundtrip_CCX_if_all_obligations_met": null
+          }
+        },
+        {
+          "target": 211,
+          "dirty_atom_count": 0,
+          "constant": false,
+          "direct_aliases": [],
+          "xor_two_count": 0,
+          "affine_q": {
+            "classical_xor_snapshot_needed": [],
+            "constant": false,
+            "products_count": 0,
+            "quantum_products": [],
+            "quantum_xor": [],
+            "roundtrip_added_CCX_if_valid": 0
+          },
+          "affine_q_stable_classical": {
+            "classical_xor_snapshot_needed": [],
+            "constant": false,
+            "products_count": 0,
+            "quantum_products": [],
+            "quantum_xor": [],
+            "roundtrip_added_CCX_if_valid": 0
+          },
+          "existing_physical_product_rhs": {
+            "classical_xor_snapshot_needed": [],
+            "constant": false,
+            "products_count": 0,
+            "quantum_products": [],
+            "quantum_xor": [],
+            "roundtrip_added_CCX_if_valid": 0
+          },
+          "affine_factor_rhs": {
+            "constant_if_expressible": false,
+            "dirty_atom_count": 0,
+            "expressible": true,
+            "linear_quantum_xor_if_expressible": [],
+            "linear_stable_classical_if_expressible": [],
+            "product_node_ids_if_expressible": [],
+            "target": 211,
+            "unresolved_atom_count": 0,
+            "upper_bound_added_roundtrip_CCX_if_all_obligations_met": 0
+          }
+        },
+        {
+          "target": 556,
+          "dirty_atom_count": 333,
+          "constant": false,
+          "direct_aliases": [],
+          "xor_two_count": 0,
+          "affine_q": null,
+          "affine_q_stable_classical": null,
+          "existing_physical_product_rhs": null,
+          "affine_factor_rhs": {
+            "constant_if_expressible": false,
+            "dirty_atom_count": 333,
+            "expressible": false,
+            "linear_quantum_xor_if_expressible": [],
+            "linear_stable_classical_if_expressible": [],
+            "product_node_ids_if_expressible": [],
+            "target": 556,
+            "unresolved_atom_count": 333,
+            "upper_bound_added_roundtrip_CCX_if_all_obligations_met": null
+          }
+        },
+        {
+          "target": 555,
+          "dirty_atom_count": 332,
+          "constant": false,
+          "direct_aliases": [],
+          "xor_two_count": 0,
+          "affine_q": null,
+          "affine_q_stable_classical": null,
+          "existing_physical_product_rhs": null,
+          "affine_factor_rhs": {
+            "constant_if_expressible": false,
+            "dirty_atom_count": 332,
+            "expressible": false,
+            "linear_quantum_xor_if_expressible": [],
+            "linear_stable_classical_if_expressible": [],
+            "product_node_ids_if_expressible": [],
+            "target": 555,
+            "unresolved_atom_count": 332,
+            "upper_bound_added_roundtrip_CCX_if_all_obligations_met": null
+          }
+        },
+        {
+          "target": 554,
+          "dirty_atom_count": 470,
+          "constant": true,
+          "direct_aliases": [],
+          "xor_two_count": 0,
+          "affine_q": null,
+          "affine_q_stable_classical": null,
+          "existing_physical_product_rhs": null,
+          "affine_factor_rhs": {
+            "constant_if_expressible": true,
+            "dirty_atom_count": 470,
+            "expressible": false,
+            "linear_quantum_xor_if_expressible": [],
+            "linear_stable_classical_if_expressible": [],
+            "product_node_ids_if_expressible": [],
+            "target": 554,
+            "unresolved_atom_count": 470,
+            "upper_bound_added_roundtrip_CCX_if_all_obligations_met": null
+          }
+        },
+        {
+          "target": 553,
+          "dirty_atom_count": 0,
+          "constant": false,
+          "direct_aliases": [],
+          "xor_two_count": 0,
+          "affine_q": {
+            "classical_xor_snapshot_needed": [],
+            "constant": false,
+            "products_count": 0,
+            "quantum_products": [],
+            "quantum_xor": [],
+            "roundtrip_added_CCX_if_valid": 0
+          },
+          "affine_q_stable_classical": {
+            "classical_xor_snapshot_needed": [],
+            "constant": false,
+            "products_count": 0,
+            "quantum_products": [],
+            "quantum_xor": [],
+            "roundtrip_added_CCX_if_valid": 0
+          },
+          "existing_physical_product_rhs": {
+            "classical_xor_snapshot_needed": [],
+            "constant": false,
+            "products_count": 0,
+            "quantum_products": [],
+            "quantum_xor": [],
+            "roundtrip_added_CCX_if_valid": 0
+          },
+          "affine_factor_rhs": {
+            "constant_if_expressible": false,
+            "dirty_atom_count": 0,
+            "expressible": true,
+            "linear_quantum_xor_if_expressible": [],
+            "linear_stable_classical_if_expressible": [],
+            "product_node_ids_if_expressible": [],
+            "target": 553,
+            "unresolved_atom_count": 0,
+            "upper_bound_added_roundtrip_CCX_if_all_obligations_met": 0
+          }
+        }
+      ]
+    },
+    {
+      "phase": "multiply",
+      "at_after_out": 7480333,
+      "full_window": [
+        7480325,
+        7606171
+      ],
+      "strict_untouched_q": 650,
+      "no_value_write_q": 652,
+      "new_readonly_q": [
+        206,
+        759
+      ],
+      "stable_classical_bits": 45699,
+      "inverse_product_nodes": 670,
+      "physical_factor_options": 0,
+      "physical_candidate_pairs": 0,
+      "candidate_limit_truncated": false,
+      "existing_nodes_both_affine_factors_spanned": 0,
+      "queries": [
+        {
+          "target": 208,
+          "dirty_atom_count": 419,
+          "constant": false,
+          "direct_aliases": [],
+          "xor_two_count": 0,
+          "affine_q": null,
+          "affine_q_stable_classical": null,
+          "existing_physical_product_rhs": null,
+          "affine_factor_rhs": {
+            "constant_if_expressible": false,
+            "dirty_atom_count": 419,
+            "expressible": false,
+            "linear_quantum_xor_if_expressible": [],
+            "linear_stable_classical_if_expressible": [],
+            "product_node_ids_if_expressible": [],
+            "target": 208,
+            "unresolved_atom_count": 419,
+            "upper_bound_added_roundtrip_CCX_if_all_obligations_met": null
+          }
+        },
+        {
+          "target": 209,
+          "dirty_atom_count": 419,
+          "constant": false,
+          "direct_aliases": [],
+          "xor_two_count": 0,
+          "affine_q": null,
+          "affine_q_stable_classical": null,
+          "existing_physical_product_rhs": null,
+          "affine_factor_rhs": {
+            "constant_if_expressible": false,
+            "dirty_atom_count": 419,
+            "expressible": false,
+            "linear_quantum_xor_if_expressible": [],
+            "linear_stable_classical_if_expressible": [],
+            "product_node_ids_if_expressible": [],
+            "target": 209,
+            "unresolved_atom_count": 419,
+            "upper_bound_added_roundtrip_CCX_if_all_obligations_met": null
+          }
+        },
+        {
+          "target": 210,
+          "dirty_atom_count": 438,
+          "constant": false,
+          "direct_aliases": [],
+          "xor_two_count": 0,
+          "affine_q": null,
+          "affine_q_stable_classical": null,
+          "existing_physical_product_rhs": null,
+          "affine_factor_rhs": {
+            "constant_if_expressible": false,
+            "dirty_atom_count": 438,
+            "expressible": false,
+            "linear_quantum_xor_if_expressible": [],
+            "linear_stable_classical_if_expressible": [],
+            "product_node_ids_if_expressible": [],
+            "target": 210,
+            "unresolved_atom_count": 438,
+            "upper_bound_added_roundtrip_CCX_if_all_obligations_met": null
+          }
+        },
+        {
+          "target": 211,
+          "dirty_atom_count": 0,
+          "constant": false,
+          "direct_aliases": [],
+          "xor_two_count": 0,
+          "affine_q": {
+            "classical_xor_snapshot_needed": [],
+            "constant": false,
+            "products_count": 0,
+            "quantum_products": [],
+            "quantum_xor": [],
+            "roundtrip_added_CCX_if_valid": 0
+          },
+          "affine_q_stable_classical": {
+            "classical_xor_snapshot_needed": [],
+            "constant": false,
+            "products_count": 0,
+            "quantum_products": [],
+            "quantum_xor": [],
+            "roundtrip_added_CCX_if_valid": 0
+          },
+          "existing_physical_product_rhs": {
+            "classical_xor_snapshot_needed": [],
+            "constant": false,
+            "products_count": 0,
+            "quantum_products": [],
+            "quantum_xor": [],
+            "roundtrip_added_CCX_if_valid": 0
+          },
+          "affine_factor_rhs": {
+            "constant_if_expressible": false,
+            "dirty_atom_count": 0,
+            "expressible": true,
+            "linear_quantum_xor_if_expressible": [],
+            "linear_stable_classical_if_expressible": [],
+            "product_node_ids_if_expressible": [],
+            "target": 211,
+            "unresolved_atom_count": 0,
+            "upper_bound_added_roundtrip_CCX_if_all_obligations_met": 0
+          }
+        },
+        {
+          "target": 579,
+          "dirty_atom_count": 447,
+          "constant": false,
+          "direct_aliases": [],
+          "xor_two_count": 0,
+          "affine_q": null,
+          "affine_q_stable_classical": null,
+          "existing_physical_product_rhs": null,
+          "affine_factor_rhs": {
+            "constant_if_expressible": false,
+            "dirty_atom_count": 447,
+            "expressible": false,
+            "linear_quantum_xor_if_expressible": [],
+            "linear_stable_classical_if_expressible": [],
+            "product_node_ids_if_expressible": [],
+            "target": 579,
+            "unresolved_atom_count": 447,
+            "upper_bound_added_roundtrip_CCX_if_all_obligations_met": null
+          }
+        },
+        {
+          "target": 577,
+          "dirty_atom_count": 403,
+          "constant": false,
+          "direct_aliases": [],
+          "xor_two_count": 0,
+          "affine_q": null,
+          "affine_q_stable_classical": null,
+          "existing_physical_product_rhs": null,
+          "affine_factor_rhs": {
+            "constant_if_expressible": false,
+            "dirty_atom_count": 403,
+            "expressible": false,
+            "linear_quantum_xor_if_expressible": [],
+            "linear_stable_classical_if_expressible": [],
+            "product_node_ids_if_expressible": [],
+            "target": 577,
+            "unresolved_atom_count": 403,
+            "upper_bound_added_roundtrip_CCX_if_all_obligations_met": null
+          }
+        },
+        {
+          "target": 613,
+          "dirty_atom_count": 443,
+          "constant": false,
+          "direct_aliases": [],
+          "xor_two_count": 0,
+          "affine_q": null,
+          "affine_q_stable_classical": null,
+          "existing_physical_product_rhs": null,
+          "affine_factor_rhs": {
+            "constant_if_expressible": false,
+            "dirty_atom_count": 443,
+            "expressible": false,
+            "linear_quantum_xor_if_expressible": [],
+            "linear_stable_classical_if_expressible": [],
+            "product_node_ids_if_expressible": [],
+            "target": 613,
+            "unresolved_atom_count": 443,
+            "upper_bound_added_roundtrip_CCX_if_all_obligations_met": null
+          }
+        },
+        {
+          "target": 612,
+          "dirty_atom_count": 0,
+          "constant": false,
+          "direct_aliases": [],
+          "xor_two_count": 0,
+          "affine_q": {
+            "classical_xor_snapshot_needed": [],
+            "constant": false,
+            "products_count": 0,
+            "quantum_products": [],
+            "quantum_xor": [],
+            "roundtrip_added_CCX_if_valid": 0
+          },
+          "affine_q_stable_classical": {
+            "classical_xor_snapshot_needed": [],
+            "constant": false,
+            "products_count": 0,
+            "quantum_products": [],
+            "quantum_xor": [],
+            "roundtrip_added_CCX_if_valid": 0
+          },
+          "existing_physical_product_rhs": {
+            "classical_xor_snapshot_needed": [],
+            "constant": false,
+            "products_count": 0,
+            "quantum_products": [],
+            "quantum_xor": [],
+            "roundtrip_added_CCX_if_valid": 0
+          },
+          "affine_factor_rhs": {
+            "constant_if_expressible": false,
+            "dirty_atom_count": 0,
+            "expressible": true,
+            "linear_quantum_xor_if_expressible": [],
+            "linear_stable_classical_if_expressible": [],
+            "product_node_ids_if_expressible": [],
+            "target": 612,
+            "unresolved_atom_count": 0,
+            "upper_bound_added_roundtrip_CCX_if_all_obligations_met": 0
+          }
+        }
+      ]
+    }
+  ],
+  "resource_log": "\tCommand being timed: \"/home/hclau/ecdsa_research/current-value-attribution-20261016/target-tool/release/readonly_loans ../product-exact-20261015/tip/ops.bin family.json\"\n\tUser time (seconds): 15.20\n\tSystem time (seconds): 1.62\n\tPercent of CPU this job got: 99%\n\tElapsed (wall clock) time (h:mm:ss or m:ss): 0:16.83\n\tAverage shared text size (kbytes): 0\n\tAverage unshared data size (kbytes): 0\n\tAverage stack size (kbytes): 0\n\tAverage total size (kbytes): 0\n\tMaximum resident set size (kbytes): 1181828\n\tAverage resident set size (kbytes): 0\n\tMajor (requiring I/O) page faults: 0\n\tMinor (reclaiming a frame) page faults: 563727\n\tVoluntary context switches: 1\n\tInvoluntary context switches: 31\n\tSwaps: 0\n\tFile system inputs: 0\n\tFile system outputs: 1080\n\tSocket messages sent: 0\n\tSocket messages received: 0\n\tSignals delivered: 0\n\tPage size (bytes): 4096\n\tExit status: 0\n",
+  "limitation": "Failure to express is bounded/conservative. Even a positive cleanup needs return-zero/interface/phase proof before a candidate; no unstable current classical bit admitted."
+}

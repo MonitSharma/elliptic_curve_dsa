@@ -1,0 +1,233 @@
+{
+  "status": "ALL_SOURCE_WINDOWS_AND_REQUESTED_REVERSE127_EXTRACT",
+  "all_square_windows": [
+    {
+      "id": 0,
+      "actual_span": [
+        5484129,
+        5485530
+      ],
+      "inverse": false,
+      "shift": 4,
+      "carry_in": 700
+    },
+    {
+      "id": 2,
+      "actual_span": [
+        5485530,
+        5487227
+      ],
+      "inverse": true,
+      "shift": 6,
+      "carry_in": 700
+    },
+    {
+      "id": 4,
+      "actual_span": [
+        5487227,
+        5488628
+      ],
+      "inverse": false,
+      "shift": 10,
+      "carry_in": 700
+    },
+    {
+      "id": 6,
+      "actual_span": [
+        5488628,
+        5490029
+      ],
+      "inverse": false,
+      "shift": 32,
+      "carry_in": 700
+    },
+    {
+      "id": 8,
+      "actual_span": [
+        5799438,
+        5801231
+      ],
+      "inverse": true,
+      "shift": 4,
+      "carry_in": 757
+    },
+    {
+      "id": 10,
+      "actual_span": [
+        5801231,
+        5802724
+      ],
+      "inverse": false,
+      "shift": 6,
+      "carry_in": 757
+    },
+    {
+      "id": 12,
+      "actual_span": [
+        5802724,
+        5804517
+      ],
+      "inverse": true,
+      "shift": 10,
+      "carry_in": 757
+    },
+    {
+      "id": 14,
+      "actual_span": [
+        5804517,
+        5806310
+      ],
+      "inverse": true,
+      "shift": 32,
+      "carry_in": 757
+    },
+    {
+      "id": 16,
+      "actual_span": [
+        5806768,
+        5806919
+      ],
+      "inverse": true,
+      "shift": 128,
+      "carry_in": null
+    },
+    {
+      "id": 18,
+      "actual_span": [
+        6119075,
+        6120476
+      ],
+      "inverse": false,
+      "shift": 4,
+      "carry_in": 783
+    },
+    {
+      "id": 20,
+      "actual_span": [
+        6120476,
+        6122173
+      ],
+      "inverse": true,
+      "shift": 6,
+      "carry_in": 783
+    },
+    {
+      "id": 22,
+      "actual_span": [
+        6122173,
+        6123574
+      ],
+      "inverse": false,
+      "shift": 10,
+      "carry_in": 783
+    },
+    {
+      "id": 24,
+      "actual_span": [
+        6123574,
+        6124975
+      ],
+      "inverse": false,
+      "shift": 32,
+      "carry_in": 783
+    },
+    {
+      "id": 26,
+      "actual_span": [
+        6140298,
+        6140826
+      ],
+      "inverse": true,
+      "shift": 4,
+      "carry_in": 783
+    },
+    {
+      "id": 28,
+      "actual_span": [
+        6140826,
+        6141248
+      ],
+      "inverse": false,
+      "shift": 6,
+      "carry_in": 783
+    },
+    {
+      "id": 30,
+      "actual_span": [
+        6141248,
+        6141776
+      ],
+      "inverse": true,
+      "shift": 10,
+      "carry_in": 783
+    },
+    {
+      "id": 32,
+      "actual_span": [
+        6141776,
+        6142304
+      ],
+      "inverse": true,
+      "shift": 32,
+      "carry_in": 783
+    }
+  ],
+  "square_reductions": [],
+  "multiply_reverse127_reductions": [
+    {
+      "row": 132,
+      "legacy_index": 7682348,
+      "radius": 32,
+      "anchor_sha3": "74dd4ee25d17aac81f214c5ab10c41c927c20ead0d0dfd944450ffa7e56ab907",
+      "old": [
+        13,
+        650,
+        561,
+        195,
+        18446744073709551615,
+        18446744073709551615,
+        18446744073709551615
+      ],
+      "action": "cx:561",
+      "hits": [
+        7682348
+      ],
+      "raw_index": 7682348,
+      "actual_index": 7682284,
+      "new": [
+        8,
+        18446744073709551615,
+        561,
+        195,
+        18446744073709551615,
+        18446744073709551615,
+        18446744073709551615
+      ],
+      "removed_control": 650,
+      "depth": 1,
+      "direct_condition": null,
+      "weight_exponent": 1,
+      "depth_weight_exact": "1/2",
+      "guard_constant_proof": null,
+      "actual_regions": [
+        {
+          "family": "payload",
+          "id": 296,
+          "phase": "multiply",
+          "tick": 127,
+          "reverse": true,
+          "skip": false,
+          "span": [
+            7674861,
+            7696170
+          ]
+        }
+      ],
+      "A29_old_region_overlap_ticks": [],
+      "seed_restoration_same_row": false,
+      "prior_coverage": "outside_A29_regions_and_seed",
+      "source_row_one_based": 133,
+      "square_window_memberships": []
+    }
+  ]
+}

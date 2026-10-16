@@ -1,0 +1,109 @@
+{
+  "status": "PASS_COMPONENT_ONLY",
+  "authority": false,
+  "summary": [
+    {
+      "window": 13,
+      "us_per_pair": [
+        13.50519580078125,
+        28.675633399963377,
+        16.538268966674806
+      ],
+      "median_us_per_pair": 16.538268966674806,
+      "initialization_s": [
+        0.065715997,
+        0.1233008,
+        0.068225334
+      ],
+      "rss_after_init_MiB": [
+        35.1953125,
+        35.16796875,
+        35.171875
+      ],
+      "peak_rss_MiB": [
+        34.19140625,
+        34.1953125,
+        34.1953125
+      ],
+      "nominal_table_MiB": 10.0
+    },
+    {
+      "window": 16,
+      "us_per_pair": [
+        18.340154472351074,
+        11.317044464111328,
+        11.146076400756836
+      ],
+      "median_us_per_pair": 11.317044464111328,
+      "initialization_s": [
+        0.545717099,
+        0.461844031,
+        0.463398128
+      ],
+      "rss_after_init_MiB": [
+        88.9453125,
+        88.90625,
+        88.95703125
+      ],
+      "peak_rss_MiB": [
+        101.69140625,
+        100.5703125,
+        101.69921875
+      ],
+      "nominal_table_MiB": 64.0
+    },
+    {
+      "window": 18,
+      "us_per_pair": [
+        18.706817459106446,
+        15.742532958984375,
+        16.305682037353517
+      ],
+      "median_us_per_pair": 16.305682037353517,
+      "initialization_s": [
+        2.878094891,
+        2.550150664,
+        1.807215328
+      ],
+      "rss_after_init_MiB": [
+        248.94921875,
+        248.94140625,
+        248.95703125
+      ],
+      "peak_rss_MiB": [
+        301.94140625,
+        300.8203125,
+        301.9453125
+      ],
+      "nominal_table_MiB": 240.0
+    },
+    {
+      "window": 20,
+      "us_per_pair": [
+        10.848548461914062,
+        17.176543449401855,
+        11.448299560546875
+      ],
+      "median_us_per_pair": 11.448299560546875,
+      "initialization_s": [
+        5.662427751,
+        9.569696372,
+        10.349306701
+      ],
+      "rss_after_init_MiB": [
+        796.9453125,
+        797.05078125,
+        796.95703125
+      ],
+      "peak_rss_MiB": [
+        1010.6875,
+        1010.69140625,
+        1011.8203125
+      ],
+      "nominal_table_MiB": 832.0
+    }
+  ],
+  "interpretation": "All timings are the same fixed4096-pair corpus repeated32times, not newly sampled/fresh-input throughput. Python ctypes call-loop overhead is included. All coordinates checked outside every measured pass. Sequential isolated processes under shared machine load; no8-thread or persistent search forecast.",
+  "controls": "All12cases equal all24576 protected Rust coordinates and explicit oldwindow20 byte output; empty/1/7/63/64partial and invalid65/u32MAX controls pass. Secondinit rejects.",
+  "scope": "No library rebuild, table/window/production change, new nonce sampling, circuit change or search."
+}

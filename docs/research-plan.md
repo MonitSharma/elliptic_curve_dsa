@@ -1,5 +1,61 @@
 # Research state and next experiments
 
+## Whole-family repair and preparation profile:16 October2026,08:15Singapore
+
+Product priority unchanged. Plain67 saves102.13839T/Q1234 and repaired67
+saves49.55103T/Q1234 in complete fixed fresh comparisons; neither has a nonce
+or full benchmark. Original25 ascending search is unchanged. Independently
+verified08:10:46 snapshoteb95aac0 has42,586,112 distinct completed nonces and
+42,184,704 fully covered lower prefix; no pass signal. Public08:00 refresh
+remains Q677/T753721/product939347948;12 publication/data checks pass.
+
+New product hypothesis restores the complete70 inherited CCX-to-CX reductions,
+retaining the separate74 deletion family and every original table. Exact
+one-for-one native base06cdc5de preserves all other operations, MR, classical
+positions and tail;17 protected dependencies unchanged. Complete215-artifact
+base archive0c9afdc4 is frozen. Added executed T is rigorously56..70 per shot;
+63 is a syntactic depth proxy, not a measured mean. Freshly rederive the SAME
+fixed67 cache method on this new base, with a fresh universal proof at every
+stage, final native identity, then sole32768/source paired gate against4b.
+Label product-all70-fixed67-independent-20261016-v1, no resampling or selected
+subsets. No old cache leases, arithmetic masks or phase contracts transfer.
+An independent fresh-mask feasibility query is active, all512 outputs/cap32/
+900seconds; a source-only scan rejects simple phase-only transfer at all70
+sites because every target has value fanout before reset. Net product saving
+and failure benefit remain unmeasured.
+
+Fine-grained disabled-filter preparation profile identifies C curve arithmetic
+as70.955% and C rail preparation as26.099% of86.179 summed worker-seconds.
+Serial44.619s startup is a separate scope; do not add it as worker percentages.
+The4096-nonce window prepared3,139,328 scalar pairs. All8192 off/on result rows
+match. Instrumentation/load variation is not a speedup estimate. Scalar windows
+13/16/18/20 on the same immutable library pass all12 complete coordinate tests;
+window16 cuts table memory/startup but has no stable compute gain over20 under
+shared load. No production replacement. See the separately labelled
+[preparation figure](../experiments/search-cost-profile-20261016/preparation-profile.png),
+not a scored resource result or persistent-worker search forecast.
+
+Seed+1T/Q0 repair's sole32768/source fresh census remains active, parent then
+candidate. Complete207-artifact source freeze and independent fullstream
+comparison verify exactly one CX-to-CCX restoration/all other11630715Ops equal.
+All786 low-add interfaces on the SAME431 witnesses/413 contexts localize89
+local errors to divide-forward131; these are not89 demonstrated final repairs.
+Read-only N2 affine/product normalization is negative on all12 nonconstant
+targets. Temporal clean-hole storage has gaps before all six live values can
+be retained; no free separate-slot route was admitted. Broader arithmetic or
+compression remains outside those negative proofs.
+
+Independent Toffoli source probe on CURRENT official753721 parent1d8c05ee is
+active: ONE retained4096 stage/+64 offered scratch/one core/64GiB/2700s. This is
+a different parent from terminal oldwide95/24GiB failure; the old case is not
+retried or replaced. No packet inputs or census/nonce authority. Exact native
+source, universal clean-donor and full-state phase gates must precede the
+predeclared sole fresh comparison. All15 existing wide cache stages already
+erase by HMR/CZ; no Toffoli cleanup saving was found there.
+
+Queue only. Last pushed and remotely verified backup4f5b7ab. Preserve the
+separate chat's README/submission edits and all active frozen worker sources.
+
 ## Cheap exact repair and measured filter cost:16 October2026,07:43Singapore
 
 Keep original product25 ascending search unchanged. Latest verified07:44:22

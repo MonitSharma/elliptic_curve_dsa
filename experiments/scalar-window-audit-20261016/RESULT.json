@@ -1,0 +1,1219 @@
+{
+  "status": "PASS",
+  "all_outputs_equal_old20_and_preserved_protected_Rust": true,
+  "results": [
+    {
+      "window": 20,
+      "trial": 0,
+      "pairs": 131072,
+      "passes": 32,
+      "batch": 64,
+      "call_loop_ns": 1421940944,
+      "pass_ns": [
+        43762092,
+        42268923,
+        44757665,
+        45632215,
+        45209975,
+        43902128,
+        42654134,
+        44865057,
+        45640061,
+        45103767,
+        43837739,
+        43011187,
+        45049317,
+        45588392,
+        44956429,
+        43758276,
+        43185276,
+        45236496,
+        45591229,
+        44871638,
+        43608704,
+        43576567,
+        45235575,
+        45365910,
+        44792053,
+        43489292,
+        44108559,
+        45223665,
+        45221512,
+        44580271,
+        43594667,
+        44262173
+      ],
+      "us_per_pair": 10.848548461914062,
+      "init_ns": 5662427751,
+      "rss_before_bytes": 26058752,
+      "rss_after_init_bytes": 835657728,
+      "max_rss_bytes": 1059782656,
+      "nominal_table_bytes": 872415232,
+      "coordinate_checks": 811008,
+      "partial_empty_controls": [
+        [
+          0,
+          0
+        ],
+        [
+          4032,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          4032,
+          1
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          4032,
+          7
+        ],
+        [
+          0,
+          63
+        ],
+        [
+          4032,
+          63
+        ],
+        [
+          0,
+          64
+        ],
+        [
+          4032,
+          64
+        ]
+      ],
+      "invalid_count_controls": [
+        65,
+        4294967295
+      ],
+      "output_sha256": "88655888c460ada6f26b87cf5e0599bf2780521e12367c879adf742780ecdaec",
+      "lib_sha256": "3bb2304219fb336795ea88d4bf81174883cdd33702f5975819b812c3dffca30f",
+      "corpus_sha256": "ce17d7cdbbdbea6838462cf09d02cb56ae98c532671486fa3aa499fc7a95237d",
+      "timing_scope": "32 fixed corpus call loops; excludes equality checks, parsing, allocation and initialization; includes Python C-call loop overhead",
+      "authority": false,
+      "process_elapsed_s": 7.309168498031795
+    },
+    {
+      "window": 13,
+      "trial": 0,
+      "pairs": 131072,
+      "passes": 32,
+      "batch": 64,
+      "call_loop_ns": 1770153024,
+      "pass_ns": [
+        55291190,
+        54726157,
+        54588575,
+        55632766,
+        55421648,
+        54645890,
+        54707640,
+        55608103,
+        55369915,
+        54672722,
+        54828701,
+        55576430,
+        55393712,
+        54702744,
+        55225188,
+        55549798,
+        55604923,
+        55030842,
+        55069394,
+        56487856,
+        57318002,
+        55737701,
+        55045698,
+        55861911,
+        55180169,
+        55008502,
+        55128565,
+        55665416,
+        55117985,
+        54995148,
+        55235357,
+        55724376
+      ],
+      "us_per_pair": 13.50519580078125,
+      "init_ns": 65715997,
+      "rss_before_bytes": 26091520,
+      "rss_after_init_bytes": 36904960,
+      "max_rss_bytes": 35852288,
+      "nominal_table_bytes": 10485760,
+      "coordinate_checks": 811008,
+      "partial_empty_controls": [
+        [
+          0,
+          0
+        ],
+        [
+          4032,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          4032,
+          1
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          4032,
+          7
+        ],
+        [
+          0,
+          63
+        ],
+        [
+          4032,
+          63
+        ],
+        [
+          0,
+          64
+        ],
+        [
+          4032,
+          64
+        ]
+      ],
+      "invalid_count_controls": [
+        65,
+        4294967295
+      ],
+      "output_sha256": "88655888c460ada6f26b87cf5e0599bf2780521e12367c879adf742780ecdaec",
+      "lib_sha256": "3bb2304219fb336795ea88d4bf81174883cdd33702f5975819b812c3dffca30f",
+      "corpus_sha256": "ce17d7cdbbdbea6838462cf09d02cb56ae98c532671486fa3aa499fc7a95237d",
+      "timing_scope": "32 fixed corpus call loops; excludes equality checks, parsing, allocation and initialization; includes Python C-call loop overhead",
+      "authority": false,
+      "process_elapsed_s": 1.994857589714229
+    },
+    {
+      "window": 16,
+      "trial": 0,
+      "pairs": 131072,
+      "passes": 32,
+      "batch": 64,
+      "call_loop_ns": 2403880727,
+      "pass_ns": [
+        75632180,
+        74982901,
+        75022984,
+        74925708,
+        75076767,
+        75257180,
+        74836692,
+        74673267,
+        75377609,
+        75284218,
+        74864830,
+        75033737,
+        75013502,
+        75077530,
+        75263734,
+        74909087,
+        74839685,
+        77503845,
+        75278503,
+        74643564,
+        74862668,
+        74592885,
+        74698498,
+        74835781,
+        74801339,
+        74923265,
+        75540040,
+        74805265,
+        74821114,
+        75020702,
+        74841107,
+        76640540
+      ],
+      "us_per_pair": 18.340154472351074,
+      "init_ns": 545717099,
+      "rss_before_bytes": 26058752,
+      "rss_after_init_bytes": 93265920,
+      "max_rss_bytes": 106631168,
+      "nominal_table_bytes": 67108864,
+      "coordinate_checks": 811008,
+      "partial_empty_controls": [
+        [
+          0,
+          0
+        ],
+        [
+          4032,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          4032,
+          1
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          4032,
+          7
+        ],
+        [
+          0,
+          63
+        ],
+        [
+          4032,
+          63
+        ],
+        [
+          0,
+          64
+        ],
+        [
+          4032,
+          64
+        ]
+      ],
+      "invalid_count_controls": [
+        65,
+        4294967295
+      ],
+      "output_sha256": "88655888c460ada6f26b87cf5e0599bf2780521e12367c879adf742780ecdaec",
+      "lib_sha256": "3bb2304219fb336795ea88d4bf81174883cdd33702f5975819b812c3dffca30f",
+      "corpus_sha256": "ce17d7cdbbdbea6838462cf09d02cb56ae98c532671486fa3aa499fc7a95237d",
+      "timing_scope": "32 fixed corpus call loops; excludes equality checks, parsing, allocation and initialization; includes Python C-call loop overhead",
+      "authority": false,
+      "process_elapsed_s": 3.1463549248874187
+    },
+    {
+      "window": 18,
+      "trial": 0,
+      "pairs": 131072,
+      "passes": 32,
+      "batch": 64,
+      "call_loop_ns": 2451939978,
+      "pass_ns": [
+        81274945,
+        76774417,
+        72270275,
+        76559677,
+        81358264,
+        76432569,
+        72090238,
+        75042921,
+        81455235,
+        77931067,
+        72450888,
+        73650172,
+        81179448,
+        78763597,
+        72477880,
+        72502442,
+        80628843,
+        79645327,
+        73514479,
+        71966156,
+        79971264,
+        80383565,
+        74095977,
+        72088420,
+        78710316,
+        81127359,
+        74555383,
+        76118491,
+        78109950,
+        81052584,
+        74844317,
+        72913512
+      ],
+      "us_per_pair": 18.706817459106446,
+      "init_ns": 2878094891,
+      "rss_before_bytes": 26062848,
+      "rss_after_init_bytes": 261042176,
+      "max_rss_bytes": 316608512,
+      "nominal_table_bytes": 251658240,
+      "coordinate_checks": 811008,
+      "partial_empty_controls": [
+        [
+          0,
+          0
+        ],
+        [
+          4032,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          4032,
+          1
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          4032,
+          7
+        ],
+        [
+          0,
+          63
+        ],
+        [
+          4032,
+          63
+        ],
+        [
+          0,
+          64
+        ],
+        [
+          4032,
+          64
+        ]
+      ],
+      "invalid_count_controls": [
+        65,
+        4294967295
+      ],
+      "output_sha256": "88655888c460ada6f26b87cf5e0599bf2780521e12367c879adf742780ecdaec",
+      "lib_sha256": "3bb2304219fb336795ea88d4bf81174883cdd33702f5975819b812c3dffca30f",
+      "corpus_sha256": "ce17d7cdbbdbea6838462cf09d02cb56ae98c532671486fa3aa499fc7a95237d",
+      "timing_scope": "32 fixed corpus call loops; excludes equality checks, parsing, allocation and initialization; includes Python C-call loop overhead",
+      "authority": false,
+      "process_elapsed_s": 5.645170005038381
+    },
+    {
+      "window": 18,
+      "trial": 1,
+      "pairs": 131072,
+      "passes": 32,
+      "batch": 64,
+      "call_loop_ns": 2063405280,
+      "pass_ns": [
+        100839804,
+        100265215,
+        99865155,
+        100143472,
+        99790375,
+        119066095,
+        65844926,
+        55749869,
+        55760353,
+        55520856,
+        55088639,
+        55183262,
+        55545715,
+        55454832,
+        54880356,
+        54601152,
+        66706632,
+        62456687,
+        52104169,
+        52758090,
+        55503900,
+        55231059,
+        52206918,
+        52484453,
+        55242367,
+        55219444,
+        52334344,
+        52293468,
+        54935065,
+        55369940,
+        52637045,
+        52321623
+      ],
+      "us_per_pair": 15.742532958984375,
+      "init_ns": 2550150664,
+      "rss_before_bytes": 26054656,
+      "rss_after_init_bytes": 261033984,
+      "max_rss_bytes": 315432960,
+      "nominal_table_bytes": 251658240,
+      "coordinate_checks": 811008,
+      "partial_empty_controls": [
+        [
+          0,
+          0
+        ],
+        [
+          4032,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          4032,
+          1
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          4032,
+          7
+        ],
+        [
+          0,
+          63
+        ],
+        [
+          4032,
+          63
+        ],
+        [
+          0,
+          64
+        ],
+        [
+          4032,
+          64
+        ]
+      ],
+      "invalid_count_controls": [
+        65,
+        4294967295
+      ],
+      "output_sha256": "88655888c460ada6f26b87cf5e0599bf2780521e12367c879adf742780ecdaec",
+      "lib_sha256": "3bb2304219fb336795ea88d4bf81174883cdd33702f5975819b812c3dffca30f",
+      "corpus_sha256": "ce17d7cdbbdbea6838462cf09d02cb56ae98c532671486fa3aa499fc7a95237d",
+      "timing_scope": "32 fixed corpus call loops; excludes equality checks, parsing, allocation and initialization; includes Python C-call loop overhead",
+      "authority": false,
+      "process_elapsed_s": 4.950744749978185
+    },
+    {
+      "window": 16,
+      "trial": 1,
+      "pairs": 131072,
+      "passes": 32,
+      "batch": 64,
+      "call_loop_ns": 1483347652,
+      "pass_ns": [
+        45570068,
+        46470602,
+        46001939,
+        44773382,
+        45428515,
+        46101027,
+        46627321,
+        46744562,
+        46379610,
+        45891478,
+        46115920,
+        46530112,
+        47480255,
+        47084693,
+        46787610,
+        45915261,
+        45833890,
+        46143805,
+        46556830,
+        47504361,
+        47037065,
+        46820098,
+        45796524,
+        45853329,
+        46119325,
+        46415572,
+        47205276,
+        46750554,
+        46478834,
+        45804718,
+        46966633,
+        46158483
+      ],
+      "us_per_pair": 11.317044464111328,
+      "init_ns": 461844031,
+      "rss_before_bytes": 26042368,
+      "rss_after_init_bytes": 93224960,
+      "max_rss_bytes": 105455616,
+      "nominal_table_bytes": 67108864,
+      "coordinate_checks": 811008,
+      "partial_empty_controls": [
+        [
+          0,
+          0
+        ],
+        [
+          4032,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          4032,
+          1
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          4032,
+          7
+        ],
+        [
+          0,
+          63
+        ],
+        [
+          4032,
+          63
+        ],
+        [
+          0,
+          64
+        ],
+        [
+          4032,
+          64
+        ]
+      ],
+      "invalid_count_controls": [
+        65,
+        4294967295
+      ],
+      "output_sha256": "88655888c460ada6f26b87cf5e0599bf2780521e12367c879adf742780ecdaec",
+      "lib_sha256": "3bb2304219fb336795ea88d4bf81174883cdd33702f5975819b812c3dffca30f",
+      "corpus_sha256": "ce17d7cdbbdbea6838462cf09d02cb56ae98c532671486fa3aa499fc7a95237d",
+      "timing_scope": "32 fixed corpus call loops; excludes equality checks, parsing, allocation and initialization; includes Python C-call loop overhead",
+      "authority": false,
+      "process_elapsed_s": 2.1290638092905283
+    },
+    {
+      "window": 13,
+      "trial": 1,
+      "pairs": 131072,
+      "passes": 32,
+      "batch": 64,
+      "call_loop_ns": 3758572621,
+      "pass_ns": [
+        119039609,
+        118422619,
+        119251406,
+        119120909,
+        118251446,
+        119577807,
+        118520427,
+        118829020,
+        119383356,
+        118648273,
+        118778182,
+        119331311,
+        118364136,
+        125998061,
+        119030509,
+        118301690,
+        119285125,
+        118605192,
+        119004701,
+        119273034,
+        118377794,
+        118835141,
+        118860271,
+        118445871,
+        119636743,
+        119080767,
+        119119719,
+        119431916,
+        118553144,
+        118847151,
+        129307209,
+        55060082
+      ],
+      "us_per_pair": 28.675633399963377,
+      "init_ns": 123300800,
+      "rss_before_bytes": 26058752,
+      "rss_after_init_bytes": 36876288,
+      "max_rss_bytes": 35856384,
+      "nominal_table_bytes": 10485760,
+      "coordinate_checks": 811008,
+      "partial_empty_controls": [
+        [
+          0,
+          0
+        ],
+        [
+          4032,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          4032,
+          1
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          4032,
+          7
+        ],
+        [
+          0,
+          63
+        ],
+        [
+          4032,
+          63
+        ],
+        [
+          0,
+          64
+        ],
+        [
+          4032,
+          64
+        ]
+      ],
+      "invalid_count_controls": [
+        65,
+        4294967295
+      ],
+      "output_sha256": "88655888c460ada6f26b87cf5e0599bf2780521e12367c879adf742780ecdaec",
+      "lib_sha256": "3bb2304219fb336795ea88d4bf81174883cdd33702f5975819b812c3dffca30f",
+      "corpus_sha256": "ce17d7cdbbdbea6838462cf09d02cb56ae98c532671486fa3aa499fc7a95237d",
+      "timing_scope": "32 fixed corpus call loops; excludes equality checks, parsing, allocation and initialization; includes Python C-call loop overhead",
+      "authority": false,
+      "process_elapsed_s": 4.175770680420101
+    },
+    {
+      "window": 20,
+      "trial": 1,
+      "pairs": 131072,
+      "passes": 32,
+      "batch": 64,
+      "call_loop_ns": 2251363903,
+      "pass_ns": [
+        69468325,
+        72452065,
+        71457004,
+        68899512,
+        68210400,
+        71311169,
+        72341135,
+        70112769,
+        68293684,
+        69347151,
+        72177136,
+        71651329,
+        69232267,
+        68394214,
+        70920753,
+        72406968,
+        70493466,
+        68761253,
+        69572784,
+        71700798,
+        71619295,
+        69824897,
+        68715463,
+        70628805,
+        72064552,
+        70739641,
+        68946473,
+        69823642,
+        71205087,
+        71364574,
+        70184071,
+        69043221
+      ],
+      "us_per_pair": 17.176543449401855,
+      "init_ns": 9569696372,
+      "rss_before_bytes": 26165248,
+      "rss_after_init_bytes": 835768320,
+      "max_rss_bytes": 1059786752,
+      "nominal_table_bytes": 872415232,
+      "coordinate_checks": 811008,
+      "partial_empty_controls": [
+        [
+          0,
+          0
+        ],
+        [
+          4032,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          4032,
+          1
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          4032,
+          7
+        ],
+        [
+          0,
+          63
+        ],
+        [
+          4032,
+          63
+        ],
+        [
+          0,
+          64
+        ],
+        [
+          4032,
+          64
+        ]
+      ],
+      "invalid_count_controls": [
+        65,
+        4294967295
+      ],
+      "output_sha256": "88655888c460ada6f26b87cf5e0599bf2780521e12367c879adf742780ecdaec",
+      "lib_sha256": "3bb2304219fb336795ea88d4bf81174883cdd33702f5975819b812c3dffca30f",
+      "corpus_sha256": "ce17d7cdbbdbea6838462cf09d02cb56ae98c532671486fa3aa499fc7a95237d",
+      "timing_scope": "32 fixed corpus call loops; excludes equality checks, parsing, allocation and initialization; includes Python C-call loop overhead",
+      "authority": false,
+      "process_elapsed_s": 12.182044611312449
+    },
+    {
+      "window": 13,
+      "trial": 2,
+      "pairs": 131072,
+      "passes": 32,
+      "batch": 64,
+      "call_loop_ns": 2167703990,
+      "pass_ns": [
+        49043335,
+        47591349,
+        47018228,
+        46839482,
+        46515724,
+        46123745,
+        45929840,
+        55444571,
+        72597526,
+        69220135,
+        73476960,
+        90758681,
+        74942870,
+        70697057,
+        66361576,
+        66697755,
+        70742386,
+        71442628,
+        71425071,
+        71621724,
+        76230804,
+        77096237,
+        77974236,
+        75994785,
+        75917862,
+        74857697,
+        77831394,
+        78325467,
+        74620257,
+        74834808,
+        75153106,
+        74376694
+      ],
+      "us_per_pair": 16.538268966674806,
+      "init_ns": 68225334,
+      "rss_before_bytes": 26062848,
+      "rss_after_init_bytes": 36880384,
+      "max_rss_bytes": 35856384,
+      "nominal_table_bytes": 10485760,
+      "coordinate_checks": 811008,
+      "partial_empty_controls": [
+        [
+          0,
+          0
+        ],
+        [
+          4032,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          4032,
+          1
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          4032,
+          7
+        ],
+        [
+          0,
+          63
+        ],
+        [
+          4032,
+          63
+        ],
+        [
+          0,
+          64
+        ],
+        [
+          4032,
+          64
+        ]
+      ],
+      "invalid_count_controls": [
+        65,
+        4294967295
+      ],
+      "output_sha256": "88655888c460ada6f26b87cf5e0599bf2780521e12367c879adf742780ecdaec",
+      "lib_sha256": "3bb2304219fb336795ea88d4bf81174883cdd33702f5975819b812c3dffca30f",
+      "corpus_sha256": "ce17d7cdbbdbea6838462cf09d02cb56ae98c532671486fa3aa499fc7a95237d",
+      "timing_scope": "32 fixed corpus call loops; excludes equality checks, parsing, allocation and initialization; includes Python C-call loop overhead",
+      "authority": false,
+      "process_elapsed_s": 2.43444886803627
+    },
+    {
+      "window": 20,
+      "trial": 2,
+      "pairs": 131072,
+      "passes": 32,
+      "batch": 64,
+      "call_loop_ns": 1500551520,
+      "pass_ns": [
+        46010878,
+        45571666,
+        43884856,
+        44131179,
+        46125822,
+        46242323,
+        45352049,
+        43385962,
+        44453080,
+        46191954,
+        46037736,
+        45144010,
+        42778537,
+        44803021,
+        46298154,
+        45759054,
+        44858331,
+        42280274,
+        45350911,
+        46346832,
+        45687038,
+        44562874,
+        42288309,
+        45511205,
+        45807503,
+        45515337,
+        44200471,
+        42294932,
+        47401200,
+        61641916,
+        68248957,
+        66385149
+      ],
+      "us_per_pair": 11.448299560546875,
+      "init_ns": 10349306701,
+      "rss_before_bytes": 26066944,
+      "rss_after_init_bytes": 835670016,
+      "max_rss_bytes": 1060970496,
+      "nominal_table_bytes": 872415232,
+      "coordinate_checks": 811008,
+      "partial_empty_controls": [
+        [
+          0,
+          0
+        ],
+        [
+          4032,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          4032,
+          1
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          4032,
+          7
+        ],
+        [
+          0,
+          63
+        ],
+        [
+          4032,
+          63
+        ],
+        [
+          0,
+          64
+        ],
+        [
+          4032,
+          64
+        ]
+      ],
+      "invalid_count_controls": [
+        65,
+        4294967295
+      ],
+      "output_sha256": "88655888c460ada6f26b87cf5e0599bf2780521e12367c879adf742780ecdaec",
+      "lib_sha256": "3bb2304219fb336795ea88d4bf81174883cdd33702f5975819b812c3dffca30f",
+      "corpus_sha256": "ce17d7cdbbdbea6838462cf09d02cb56ae98c532671486fa3aa499fc7a95237d",
+      "timing_scope": "32 fixed corpus call loops; excludes equality checks, parsing, allocation and initialization; includes Python C-call loop overhead",
+      "authority": false,
+      "process_elapsed_s": 12.154186150990427
+    },
+    {
+      "window": 18,
+      "trial": 2,
+      "pairs": 131072,
+      "passes": 32,
+      "batch": 64,
+      "call_loop_ns": 2137218356,
+      "pass_ns": [
+        84287353,
+        129471300,
+        64689551,
+        63645705,
+        63714252,
+        64071311,
+        63544194,
+        63502045,
+        63875560,
+        63523356,
+        63478725,
+        63621001,
+        63445217,
+        63296029,
+        63437945,
+        63754661,
+        63637010,
+        63273165,
+        63841132,
+        65016332,
+        64351093,
+        64664012,
+        65115588,
+        64690845,
+        64513722,
+        64878032,
+        64718012,
+        64370108,
+        64704255,
+        64892323,
+        64617795,
+        64576727
+      ],
+      "us_per_pair": 16.305682037353517,
+      "init_ns": 1807215328,
+      "rss_before_bytes": 26066944,
+      "rss_after_init_bytes": 261050368,
+      "max_rss_bytes": 316612608,
+      "nominal_table_bytes": 251658240,
+      "coordinate_checks": 811008,
+      "partial_empty_controls": [
+        [
+          0,
+          0
+        ],
+        [
+          4032,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          4032,
+          1
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          4032,
+          7
+        ],
+        [
+          0,
+          63
+        ],
+        [
+          4032,
+          63
+        ],
+        [
+          0,
+          64
+        ],
+        [
+          4032,
+          64
+        ]
+      ],
+      "invalid_count_controls": [
+        65,
+        4294967295
+      ],
+      "output_sha256": "88655888c460ada6f26b87cf5e0599bf2780521e12367c879adf742780ecdaec",
+      "lib_sha256": "3bb2304219fb336795ea88d4bf81174883cdd33702f5975819b812c3dffca30f",
+      "corpus_sha256": "ce17d7cdbbdbea6838462cf09d02cb56ae98c532671486fa3aa499fc7a95237d",
+      "timing_scope": "32 fixed corpus call loops; excludes equality checks, parsing, allocation and initialization; includes Python C-call loop overhead",
+      "authority": false,
+      "process_elapsed_s": 4.151904854923487
+    },
+    {
+      "window": 16,
+      "trial": 2,
+      "pairs": 131072,
+      "passes": 32,
+      "batch": 64,
+      "call_loop_ns": 1460938526,
+      "pass_ns": [
+        45700040,
+        45950552,
+        45617153,
+        45416006,
+        45612330,
+        45804180,
+        45954709,
+        45382941,
+        45557506,
+        45577006,
+        45681641,
+        45832292,
+        45300149,
+        45392075,
+        45392725,
+        45749303,
+        45732979,
+        45394745,
+        45731815,
+        45669043,
+        45739435,
+        45664409,
+        45492005,
+        45735862,
+        45689474,
+        45803478,
+        45457273,
+        45618641,
+        45787141,
+        45663202,
+        46579200,
+        45259216
+      ],
+      "us_per_pair": 11.146076400756836,
+      "init_ns": 463398128,
+      "rss_before_bytes": 26066944,
+      "rss_after_init_bytes": 93278208,
+      "max_rss_bytes": 106639360,
+      "nominal_table_bytes": 67108864,
+      "coordinate_checks": 811008,
+      "partial_empty_controls": [
+        [
+          0,
+          0
+        ],
+        [
+          4032,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          4032,
+          1
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          4032,
+          7
+        ],
+        [
+          0,
+          63
+        ],
+        [
+          4032,
+          63
+        ],
+        [
+          0,
+          64
+        ],
+        [
+          4032,
+          64
+        ]
+      ],
+      "invalid_count_controls": [
+        65,
+        4294967295
+      ],
+      "output_sha256": "88655888c460ada6f26b87cf5e0599bf2780521e12367c879adf742780ecdaec",
+      "lib_sha256": "3bb2304219fb336795ea88d4bf81174883cdd33702f5975819b812c3dffca30f",
+      "corpus_sha256": "ce17d7cdbbdbea6838462cf09d02cb56ae98c532671486fa3aa499fc7a95237d",
+      "timing_scope": "32 fixed corpus call loops; excludes equality checks, parsing, allocation and initialization; includes Python C-call loop overhead",
+      "authority": false,
+      "process_elapsed_s": 2.091667647473514
+    }
+  ],
+  "authority": false
+}

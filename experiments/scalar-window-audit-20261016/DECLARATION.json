@@ -1,0 +1,53 @@
+{
+  "status": "PREDECLARED_COMPONENT_ONLY",
+  "authority": false,
+  "windows": [
+    13,
+    16,
+    18,
+    20
+  ],
+  "order": [
+    [
+      20,
+      13,
+      16,
+      18
+    ],
+    [
+      18,
+      16,
+      13,
+      20
+    ],
+    [
+      13,
+      20,
+      18,
+      16
+    ]
+  ],
+  "pairs_per_trial": 131072,
+  "passes_per_trial": 32,
+  "corpus_pairs": 4096,
+  "new_sampling": false,
+  "fixed_corpus_repetition": true,
+  "max_concurrent_processes": 1,
+  "max_threads": 1,
+  "memory_cap_GiB": 16,
+  "pins": {
+    "libscalar_fast_batch.so": "3bb2304219fb336795ea88d4bf81174883cdd33702f5975819b812c3dffca30f",
+    "validation-vectors.tsv": "ce17d7cdbbdbea6838462cf09d02cb56ae98c532671486fa3aa499fc7a95237d",
+    "fixed_table.c": "ccb8b80355ff220ea4c0aad6c533b5d6cbf526c705c6cecf10f442e40cb234fe",
+    "batch_table.c": "9ed69594b784bedfc845e30a3326bf75bd9ab41d9c5b554f7ac149fd0c50abb1",
+    "verify-reference/target/release/product_paired_diagnostic": "78de42373cae10e230f38e97f1d4226bd83b0743eb56a6f9d743583439b20ca8",
+    "verify-reference/src/main.rs": "5f83a86fb3cde6e667fb6893f1d5a2cca09b757619c7665b1ddd406dc664df38"
+  },
+  "scope": "Existing immutable library; isolated process each case. Every timed pass complete output equality outside call-loop timer. Corpus repeated, not fresh-input throughput or 8-thread forecast. No production changes.",
+  "source_api_support": "fixed_table.c scalar_fast_fixed_init accepts8..20, requires fresh process, tables read-only afterinit. All requested13/16/18/20 supported.",
+  "experiment_source_pins": {
+    "run.py": "c59a1be6ec5ccb5a92aa43f7f4db921b9c857c994757cf360e175b16ffa6ffff",
+    "run.sh": "cebf6098a0516b94103e1bfd5b76b17d31b97eaab65b34a2eeb9d0eefead0e8a",
+    "worker.py": "47e38ce85363778d2d44ce477e59ee421dbd76dab6335e763e9ee908d8ec2947"
+  }
+}

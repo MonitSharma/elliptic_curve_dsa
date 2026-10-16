@@ -1,0 +1,240 @@
+{
+  "status": "BOUNDED_INSTRUMENTATION_OWN_FIAT_AND_COMPLETE4096_ROWS_PASS",
+  "records": [
+    {
+      "mode": "off",
+      "process_wall_seconds": 81.01406077016145,
+      "window_wall_seconds": 35.659726,
+      "outside_window_wall_seconds": 45.35433477016145,
+      "all4096_rows_match_frozen_precursor": true
+    },
+    {
+      "mode": "on",
+      "process_wall_seconds": 89.86682015378028,
+      "window_wall_seconds": 45.016012,
+      "outside_window_wall_seconds": 44.85080815378028,
+      "all4096_rows_match_frozen_precursor": true,
+      "profile": {
+        "metrics": [
+          {
+            "calls": 1,
+            "name": "startup_source_hash",
+            "seconds": 0.237465519,
+            "units": 0
+          },
+          {
+            "calls": 1,
+            "name": "startup_source_decode",
+            "seconds": 2.861141851,
+            "units": 0
+          },
+          {
+            "calls": 1,
+            "name": "startup_transfer_bind",
+            "seconds": 0.335005255,
+            "units": 0
+          },
+          {
+            "calls": 1,
+            "name": "startup_ABI_analysis",
+            "seconds": 0.36779957,
+            "units": 0
+          },
+          {
+            "calls": 1,
+            "name": "startup_C_SHAKE8_context_init_unused_base",
+            "seconds": 0.000256588,
+            "units": 0
+          },
+          {
+            "calls": 1,
+            "name": "startup_whole_prefix_build_inclusive",
+            "seconds": 7.18719434,
+            "units": 0
+          },
+          {
+            "calls": 549,
+            "name": "startup_C_SHAKE8_updates_unused_base",
+            "seconds": 3.414873509,
+            "units": 0
+          },
+          {
+            "calls": 549,
+            "name": "startup_Rust_SHAKE256_updates",
+            "seconds": 3.326148028,
+            "units": 0
+          },
+          {
+            "calls": 1,
+            "name": "startup_candidate_seed_diagnostics",
+            "seconds": 26.491744467,
+            "units": 0
+          },
+          {
+            "calls": 1,
+            "name": "startup_scalar_backend_inclusive",
+            "seconds": 5.75004162,
+            "units": 0
+          },
+          {
+            "calls": 1,
+            "name": "startup_scalar_fixed_table_init",
+            "seconds": 5.737408599,
+            "units": 0
+          },
+          {
+            "calls": 1,
+            "name": "startup_rail_model_load",
+            "seconds": 0.000162978,
+            "units": 0
+          },
+          {
+            "calls": 1,
+            "name": "startup_zeroIR_load_bind",
+            "seconds": 0.535266793,
+            "units": 0
+          },
+          {
+            "calls": 1,
+            "name": "startup_knownmask_load_bind",
+            "seconds": 0.359995904,
+            "units": 0
+          },
+          {
+            "calls": 1,
+            "name": "startup_full_compact_compile",
+            "seconds": 0.492821423,
+            "units": 0
+          },
+          {
+            "calls": 512,
+            "name": "prep_nonce_hash_packet_create_inclusive",
+            "seconds": 0.119555152,
+            "units": 4096
+          },
+          {
+            "calls": 49052,
+            "name": "prep_key_buffer_alloc",
+            "seconds": 0.008319296,
+            "units": 0
+          },
+          {
+            "calls": 49052,
+            "name": "prep_SHAKE_key_read",
+            "seconds": 1.12752807,
+            "units": 200916992
+          },
+          {
+            "calls": 49052,
+            "name": "prep_scalar_decode_alloc",
+            "seconds": 0.028671519,
+            "units": 0
+          },
+          {
+            "calls": 49052,
+            "name": "prep_curve_input_BE_pack_alloc",
+            "seconds": 0.042850689,
+            "units": 0
+          },
+          {
+            "calls": 49052,
+            "name": "prep_curve_output_buffer_alloc",
+            "seconds": 0.018281604,
+            "units": 0
+          },
+          {
+            "calls": 49052,
+            "name": "prep_curve_C_paircall",
+            "seconds": 61.148380485,
+            "units": 3139328
+          },
+          {
+            "calls": 49052,
+            "name": "prep_curve_output_decode_alloc",
+            "seconds": 0.986092875,
+            "units": 0
+          },
+          {
+            "calls": 49052,
+            "name": "prep_curve_valid_point_filter",
+            "seconds": 0.104037437,
+            "units": 0
+          },
+          {
+            "calls": 49052,
+            "name": "prep_point_vector_alloc",
+            "seconds": 0.012685641,
+            "units": 0
+          },
+          {
+            "calls": 1,
+            "name": "prep_rail_init_once",
+            "seconds": 0.000128504,
+            "units": 0
+          },
+          {
+            "calls": 49052,
+            "name": "prep_rail_denominator_pack_alloc",
+            "seconds": 0.064945574,
+            "units": 0
+          },
+          {
+            "calls": 49052,
+            "name": "prep_rail_flags_alloc",
+            "seconds": 0.010062775,
+            "units": 0
+          },
+          {
+            "calls": 49052,
+            "name": "prep_rail_C_walk",
+            "seconds": 22.491516006,
+            "units": 3139328
+          },
+          {
+            "calls": 0,
+            "name": "prep_rail_shadow_reference",
+            "seconds": 0.0,
+            "units": 0
+          },
+          {
+            "calls": 49052,
+            "name": "prep_flag_candidate_collect",
+            "seconds": 0.006596009,
+            "units": 4447
+          },
+          {
+            "calls": 49052,
+            "name": "prep_ensure_inclusive",
+            "seconds": 63.557406406,
+            "units": 0
+          },
+          {
+            "calls": 1,
+            "name": "startup_main_to_window",
+            "seconds": 44.618757866,
+            "units": 0
+          },
+          {
+            "calls": 4251,
+            "name": "prep_next_witness_inclusive",
+            "seconds": 86.167333895,
+            "units": 0
+          },
+          {
+            "calls": 49052,
+            "name": "prep_packet_container_push",
+            "seconds": 0.009538983,
+            "units": 0
+          }
+        ],
+        "status": "INSTRUMENTATION_ONLY_NO_AUTHORITY",
+        "timing_convention": "Startup serial elapsed; prep summed worker elapsed, inclusive clocks explicitly labeled and not additive with children or wall."
+      }
+    }
+  ],
+  "new_sampling": false,
+  "source_operations_or_libraries_changed": false,
+  "proof_accepted": false,
+  "cost_forecast_or_search_authority": false,
+  "measurement_limits": "One off/on fixed pair; startup and diagnostic controls separated, summed worker times overlap and are not aggregate wall time; no stable throughput or instrumentation-overhead claim."
+}

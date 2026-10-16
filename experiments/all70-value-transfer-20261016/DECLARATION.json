@@ -1,0 +1,20 @@
+{
+  "status": "PREDECLARED_SOURCE_ONLY_ALL70_FEASIBILITY",
+  "authority": false,
+  "new_candidate_generation": false,
+  "input_sampling": false,
+  "all_sites": 70,
+  "max_threads": 1,
+  "address_space_GiB": 16,
+  "pins": {
+    "product-exact-20261015/tip/ops.bin": "2a522394cdf3e6a0df7784ad4db761030933c1f7ccd0ff8e641d68ec7a4dab3e",
+    "all70-value-transfer-20261016/provenance/ALL70.json": "453e32f606d5dfaabbf12b4c7714c1cc986c5a6bdd534de3c76b123837d977d7",
+    "all70-value-transfer-20261016/provenance/RAW-ACTUAL-BINDING.json": "f4053d72e9e0a14ef93f0ee74de4b42f44e2b117778d33d392d308ea397eb21b",
+    "all70-value-transfer-20261016/provenance/protected-sim.rs": "f0c72f2a280cd68acee1dbf8282098f72d6b3bf4311e0abf96d122fe002256d7"
+  },
+  "classification_rule": "Track exact changedtarget; phase-only reads and target XORupdates permitted; first valuefanout,swap,guardedreset or unsupported operation is UNKNOWN. Only depth0 no-direct-condition protected HMR/R clears difference. Scan unionactual/allrestored operands so missing controls cannot conceal restored fanout. MRdraw/classicalevent order preserved; phase excluded. No oldmask transfer claimed.",
+  "source_pins": {
+    "classify.py": "b329f5ee72f63a9abb583dfd865605a11ffc35422878c50d01f85198377cd508",
+    "run.sh": "3a79803fc20f5bc7c064b62a39c6087384d88cd6657eb52e28eeae4dedce2b8d"
+  }
+}

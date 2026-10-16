@@ -1,0 +1,29 @@
+{
+  "status": "PREDECLARED ALL-SOURCE NO-VALUE-WRITE CONTROL QUERY BEFORE POOL EXPANSION",
+  "utc": "2026-10-15T23:52:07.286920+00:00",
+  "source_revision": "4b2ec52fc55da796aa8f5ef851290297e8706424",
+  "stream_sha256": "2a522394cdf3e6a0df7784ad4db761030933c1f7ccd0ff8e641d68ec7a4dab3e",
+  "all_source_loan_calls": 2,
+  "all_dirty_targets": 16,
+  "quantum_admission": "Over entire source out-before through return-after, exclude every possible X/CX/CCX destination, R/HMR target, and BOTH SWAP endpoints, regardless of condition. Read-only controls and Z/CZ/CCZ/Neg phase uses permitted.",
+  "classical_admission": "Exclude every possible HMR/BitInvert/BitStore0/BitStore1 target across same complete interval, regardless of condition. Current unstable slots never enter basis.",
+  "query": "Exact affine q/c aliases, existing inverse one-product physical factors, then exact affine factor forms; no Cartesian pair search.",
+  "unchanged_limits": {
+    "atom_cap": 512,
+    "product_cap": 200000,
+    "physical_candidate_pair_cap": 4096,
+    "variants_per_inverse_factor": 8,
+    "worker_threads": 1,
+    "address_space_GiB": 16
+  },
+  "no_candidate": true,
+  "no_sampling": true,
+  "no_rewrites": true,
+  "no_adaptive_cap_or_subset": true,
+  "preserve_strict650_negative": true,
+  "inputs": {
+    "/home/hclau/ecdsa_research/product-exact-20261015/loan-affine-factors-tool/src/support.rs": "4aa37587edffea7ae84c35cf1bd19c44b536c7730f8255a9fa21234541a51d35",
+    "/home/hclau/ecdsa_research/product-exact-20261015/loan-normal-forms-tool/src/main.rs": "2c8e22382df6248604c152b4555d204001cedce08de659abb035385bc68dc280",
+    "/home/hclau/ecdsa_research/current-value-attribution-20261016/n2-loan-family.json": "d9549e40e9e87d108fb5fd78e007b1b76f03a50bd5a62f780a4a748d08ab96d5"
+  }
+}

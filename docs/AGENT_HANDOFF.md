@@ -1,5 +1,46 @@
 # Agent handoff: start here
 
+## Current checkpoint:16 October2026,08:15Singapore
+
+Read the newest research-plan section. Public08:00 unchanged Q677/T753721/
+product939347948;12 publication checks pass. Original25 four-worker48thread
+search untouched: verified08:10:46 snapshoteb95aac0 =42,586,112 distinct rows,
+lower prefix42,184,704, no pass signal. Keep ascending lowest-pass policy and
+terminal auditor/final fixed census. Snapshot is not a scored result.
+
+Plain67 diagnostic102.13839T and repaired67 diagnostic49.55103T stay pending
+benchmark. New ALL70 restoration native base06cdc5de is complete; all other
+Ops/MR/classical/tail equal original2a,17 protected dependencies unchanged.
+Agent product_savings now freshly derives fixed67 caches/universal proof per
+stage, final native source then sole32768/source label
+product-all70-fixed67-independent-20261016-v1. No interim selection/resampling;
+one worker/source (2total) after qualification. Restore cost56..70T/Q0, source
+proxy63 is not measured T. Fresh whole-source mask is independently queried
+by prefilter agent, cap32/all512 outputs/24GiB/900s. No original-mask transfer.
+
+Seed+1T/Q0 repair sole fresh cohort active under failure_floor:
+seed-restore-20261016/seed-fresh/{parent,candidate}.{log,jsonl,exit}; parent
+PID427621, coordinator412785, sequential4workers. Do not claim final failure
+benefit. Complete207 source freeze/root native+whole12mOp comparison PASS.
+N2 readonly normalization and temporal separate clean-hole storage negative;
+no arbitrary dirty/reset shortcut. ALL74 deletion-family source study pending.
+
+Disabled-filter preparation profile: C curve70.955%, C rail26.099% of summed
+worker time, startup separate. New scientific preparation figure explicitly
+separates scopes. Scalar window16 lowers memory/startup but no stable compute
+gain; original production20/library unchanged. Old repaired67 cost proposal
+stays hard-disabled. Root independently verified34/28/60/21/16/26 respective
+source-family/review/scalar/fanout/cleanup/readonly archive members; no score.
+
+Root isolated wide15-retained4096-20261016 single-stage study active, PID518734,
+one core/64GiB/2700s with minavailable preflight228GiB and own-stop110GiB. Parent
+is current official1d8c05ee; not oldwide95 retry. Source-only; no new nonce or
+fresh census until native/universal/phase gates. Its DECLARATION freezes the
+prospective32768/source label before generation. Preserve unrelated jobs.
+
+Latest remotely verified backup4f5b7ab. Queue only. README/submission edits
+belong to the separate chat and must stay out of root path-limited commits.
+
 ## Current checkpoint:16 October2026,07:43Singapore
 
 Read [research-plan.md](research-plan.md)'s newest section for exact evidence

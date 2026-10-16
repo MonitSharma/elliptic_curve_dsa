@@ -1,5 +1,35 @@
 # CPU server: ECDSA research handoff
 
+## Active research:16 October2026,08:15Singapore
+
+Original product25 four48-thread workers/PIDs3893465,3893466,3893468,3893469
+unchanged, verified08:10:46 snapshot42,586,112 distinct rows/lower42,184,704,
+no pass signal. Never audit active JSONL as terminal. Seed fixed32768/source
+census parentPID427621/coordinator412785 uses4workers, then same candidate;
+exact logs seed-restore-20261016/seed-fresh/{parent,candidate}.log. No resampling.
+
+product-exact-20261015/all70-cache67-20261016 has complete native ALL70 base
+06cdc5de/all17 protected files unchanged. Fresh fixed67 stage chain uses ONE
+core/24GiB, cache-chain.log emits only universally admitted stage receipts.
+Final native port uses at most2buildcores, then declared sole32768/source gate
+with1worker/source. Prefilter all70-mask-feasibility-20261016 independently
+queries the new base,1core/24GiB/all512outputs/cap32/900s; no old mask transfer.
+
+Root wide15-retained4096-20261016 PID518734 is a separate source-only one-stage
+probe on current official Toffoli source1d8c05ee,1core/64GiB/2700s. Preflight
+228GiB minimum and own-only stop below110GiB. Not an oldwide95 changed-limit
+retry. No census/nonce launched by this study. Leave all unrelated jobs alone.
+
+Preparation profile and scalar-window studies are terminal; no production
+changes. Old repaired67 source proposal stays disabled. A separate persistent
+worker cost-only study may be prepared within spare8cores after mask query;
+the user's affordability criterion is about1day on64threads, while the old
+proposal imposed its own stricter8thread gate. No search authority from a
+program-timer projection; distinguish measured amortization and64thread estimates.
+
+Latest availability246GiB at mask launch, registeredresearch~56cores. Recheck
+CPU/memory/processes before every launch. Latest pushed backup4f5b7ab.
+
 ## Active research:16 October2026,07:43Singapore
 
 Original product25 four48-thread workers/PIDs3893465,3893466,3893468,3893469

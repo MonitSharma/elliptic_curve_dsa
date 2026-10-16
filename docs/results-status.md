@@ -1,5 +1,19 @@
 # Results and submission status
 
+**08:15 checkpoint:** public08:00 still confirms official753721/Q1468,
+Q677/product939347948. No new full product benchmark. Plain67 diagnostic
+saving102.13839T/Q1234 and repaired67 saving49.55103T/Q1234 remain promising.
+Original25 search has42,586,112 verified distinct nonces/no pass at08:10:46.
+Whole70-control restoration now has a native exact base; fresh67 cache proof
+chain and separate source-bound mask feasibility are active, with no measured
+composite saving or failure-rate claim yet. Seed+1T/Q0 exact repair's fixed
+fresh census is active. A new bounded4096-cap cache study targets current
+official Toffoli source; source-only status, no score or nonce. Preparation
+profiling identifies curve arithmetic as the main worker cost; scalar window
+tests find no stable compute gain, and no production library changes.
+[Research plan](research-plan.md) ·
+[Preparation profile](../experiments/search-cost-profile-20261016/preparation-profile.png).
+
 **07:43 checkpoint:** public07:06 confirms our official753721/Q1468,
 Q677/product939347948. Plain67 remains102.13839T/Q1234 diagnostic, repaired67
 49.55103T/Q1234; neither is a complete resource record. Repaired67's complete

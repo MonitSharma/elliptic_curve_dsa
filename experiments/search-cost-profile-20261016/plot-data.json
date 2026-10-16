@@ -1,0 +1,54 @@
+{
+  "source": "repair67-prep-profile-20261016\\ANALYSIS.json",
+  "analysis_sha256": "fb339ba657ba9a5f4941aa62280b70e768fac0e9d8ad98b2b380a9813ef290d0",
+  "profile_archive_sha256": "c8b3551351a57a63d7eeb32edd8b16f53e09e10cca8842bdabc5494abcf56674",
+  "fixed_nonces": 4096,
+  "scalar_pairs": 3139328,
+  "groups": [
+    {
+      "title": "Repeated preparation",
+      "time_unit": "Summed worker time (seconds)",
+      "components": [
+        {
+          "name": "Curve points",
+          "seconds": 61.148380485
+        },
+        {
+          "name": "Rail predictor",
+          "seconds": 22.491516006
+        },
+        {
+          "name": "Other preparation",
+          "seconds": 2.539294127999998
+        }
+      ]
+    },
+    {
+      "title": "One-time startup",
+      "time_unit": "Serial wall time (seconds)",
+      "components": [
+        {
+          "name": "Own-input checks",
+          "seconds": 26.491744467
+        },
+        {
+          "name": "Curve table",
+          "seconds": 5.737408599
+        },
+        {
+          "name": "Unused C hash",
+          "seconds": 3.414873509
+        },
+        {
+          "name": "Actual input hash",
+          "seconds": 3.326148028
+        },
+        {
+          "name": "Other startup",
+          "seconds": 5.648583263000003
+        }
+      ]
+    }
+  ],
+  "no_resource_score_or_speedup_claim": true
+}

@@ -1,0 +1,15 @@
+from pathlib import Path
+import json,hashlib,subprocess,tarfile
+r=Path('/home/hclau/ecdsa_research/census-control-review-20261016');c=r.parent/'product-exact-20261015/candidate-all70-base';rev='4b2ec52fc55da796aa8f5ef851290297e8706424';sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+assert subprocess.check_output(['git','-C',str(c),'rev-parse','HEAD'],text=True).strip()==rev
+assert subprocess.check_output(['git','-C',str(c),'diff','--name-only'],text=True).splitlines()==['src/point_add/census_cut.rs']
+p=c/'src/point_add/census_cut.rs';assert sha(p)=='ff324878900e115b8c2cdd76e438f898099c57ec8495cac64609580a32c9572a';(r/'candidate-census_cut.rs').write_bytes(p.read_bytes());(r/'public-census_cut.rs').write_bytes(subprocess.check_output(['git','-C',str(c),'show',rev+':src/point_add/census_cut.rs']));(r/'candidate-source.patch').write_bytes(subprocess.check_output(['git','-C',str(c),'diff','--','src/point_add/census_cut.rs']))
+out=dict(status='PASS READ-ONLY ACTUAL SOURCE REVIEW; NATIVE BYTE VERIFICATION PENDING',candidate=str(c),base_revision=rev,source_file='src/point_add/census_cut.rs',source_sha256=sha(p),only_tracked_source_change=True,all_original_anchor_row_assertions_retained=True,all70_reduction_actions_return_original_asserted_CCX=True,all74_delete_actions_unchanged=True,strict_family_count_assertion=[144,74,70,0],no_A29=True,elementary_dirty_target_gate_contract_exact=True,MR_classical_positions_condition='Follow from one-for-one quantum-only replacement; actual generated stream must still be independently compared.',executed_added_T_bounds=[56,70],structural_proxy63_not_measured_mean=True,complete_helper_cleanup_not_proved=True,whole_arithmetic_correctness_not_proved=True,failure_monotonicity_not_proved=True,independent_binding_review_sha256=sha(r/'REVIEW.json'),source_row_pins_sha256=sha(r/'SOURCE-ROW-PINS.json'))
+(r/'NATIVE-SOURCE-REVIEW.json').write_text(json.dumps(out,indent=2)+'\n')
+external={str(p):dict(bytes=p.stat().st_size,sha256=sha(p),status='server-only, not archive member')for p in[r.parent/'payload-model-20261016/before-census.bin',r.parent/'product-exact-20261015/tip/ops.bin']};files={str(p.relative_to(r)):dict(bytes=p.stat().st_size,sha256=sha(p))for p in r.rglob('*')if p.is_file()and p.suffix not in['.gz']and p.name not in['MANIFEST.json','archive-receipt.json']};(r/'MANIFEST.json').write_text(json.dumps(dict(files=files,external=external),indent=2)+'\n');a=r/'review-v1.tar.gz'
+with tarfile.open(a,'w:gz')as tf:
+ for name in files:tf.add(r/name,arcname=name)
+ tf.add(r/'MANIFEST.json',arcname='MANIFEST.json')
+with tarfile.open(a)as tf:
+ for name,v in files.items():data=tf.extractfile(name).read();assert len(data)==v['bytes']and hashlib.sha256(data).hexdigest()==v['sha256']
+receipt=dict(status='PASS',archive=str(a),sha256=sha(a),bytes=a.stat().st_size,verified_members=len(files),external_server_only=len(external));(r/'archive-receipt.json').write_text(json.dumps(receipt,indent=2)+'\n');print(json.dumps(receipt,indent=2))
