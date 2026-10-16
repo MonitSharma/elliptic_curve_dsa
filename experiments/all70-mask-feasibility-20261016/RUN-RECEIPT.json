@@ -1,0 +1,55 @@
+{
+  "proof_exit": 0,
+  "elapsed_s": 238.60156420897692,
+  "source_before_after_equal": true,
+  "authority": false,
+  "mask_nodes": 7918169,
+  "concrete_known_output_bits": 2133,
+  "unresolved_rng_dependent_bits": 512,
+  "root_summary": {
+    "constant0_known": 0,
+    "constant1_unknown": 332,
+    "nonconstant": 180
+  },
+  "existing_fixture_validation": {
+    "audit": {
+      "batches": 1,
+      "certified_wrong_value_shots": 24,
+      "fixture": "/home/hclau/ecdsa_research/prefilter-20261015/packets/audit.tsv",
+      "independent_physical_mr_streams": 8,
+      "input_count": 1024,
+      "known_scored_bits": 2133,
+      "mask_program": "/home/hclau/ecdsa_research/all70-mask-feasibility-20261016/mr-mask-all70.bin",
+      "mask_seconds": 0.068559928,
+      "mask_us_per_shot": 2142.49775,
+      "output_count": 512,
+      "placeholder_expected_values_not_used_for_failure_claim": false,
+      "program_nodes": 7918169,
+      "protected_known_bit_containment_passed": true,
+      "seconds": 0.826870497,
+      "shots": 32,
+      "source_stream": "/home/hclau/ecdsa_research/product-exact-20261015/candidate-all70-base/ops.bin",
+      "status": "INPUT_CONDITIONED_MR_MASK_PROTECTED_VALIDATION_NOT_GLOBAL_INDEPENDENCE"
+    },
+    "all-failing-tip": {
+      "batches": 9,
+      "certified_wrong_value_shots": 426,
+      "fixture": "/home/hclau/ecdsa_research/prefilter-20261015/packets/all-failing-tip.tsv",
+      "independent_physical_mr_streams": 8,
+      "input_count": 1024,
+      "known_scored_bits": 36256,
+      "mask_program": "/home/hclau/ecdsa_research/all70-mask-feasibility-20261016/mr-mask-all70.bin",
+      "mask_seconds": 0.6026232010000001,
+      "mask_us_per_shot": 1113.9061016635862,
+      "output_count": 512,
+      "placeholder_expected_values_not_used_for_failure_claim": false,
+      "program_nodes": 7918169,
+      "protected_known_bit_containment_passed": true,
+      "seconds": 7.190644418,
+      "shots": 541,
+      "source_stream": "/home/hclau/ecdsa_research/product-exact-20261015/candidate-all70-base/ops.bin",
+      "status": "INPUT_CONDITIONED_MR_MASK_PROTECTED_VALIDATION_NOT_GLOBAL_INDEPENDENCE"
+    }
+  },
+  "proof_plus_validation_elapsed_s": 250.95243587251753
+}

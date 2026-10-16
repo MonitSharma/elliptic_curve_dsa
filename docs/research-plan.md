@@ -1,5 +1,45 @@
 # Research state and next experiments
 
+## Product lowest-pass audit: 16 October 2026, 08:55 Singapore
+
+The original frozen 25-stage product search is terminal. The unchanged auditor
+checked every one of 47,452,160 JSONL rows, uniqueness, exact lower coverage,
+authoritative rejections, protected full passes, clean worker exits and all
+runtime pins. Lowest pass is nonce47,449,113, with3,047 overrun. No Toffoli-based
+nonce selection. Final native source and unchanged benchmark are being prepared
+in isolated product25-final-20261016; the original source remains preserved.
+After those gates, run the already declared final cohort
+product25-final-nonce-20261016-v1:32,768 batches/source, four workers/source,
+parent2a522394, candidate identical frozen pre-tail plus the selected96-op tail.
+All rows, failure rate no higher than paired parent or18/packet, dirty0. Queue
+only; no new product record is claimed before these final gates pass.
+
+Public08:55 refresh remains Q677, our T753721/Q1468 and product939347948.
+The product candidate's earlier paired saving58.15368T/Q1234 is diagnostic.
+Plain67 remains the stronger102.13839T/Q1234 candidate without a nonce. Its
+fixed persistent four-core pilot passes65,536 row comparisons and protected
+9,024-shot controls:219–223nonces/s, ideal-linear64-thread mean16.2–16.5hours,
+with actual64-thread scaling unmeasured. Any later search must first satisfy
+the then-current record's disclosed failure gate. The old eight-core proposal
+remains disabled; ideal scaling is not measured search performance.
+
+Seed+1T/Q0 repair's original fixed cohort is still running; no final benefit
+claim. Source-defined PRESEED10 restores ALL first10 census edits, exact+10T/
+Q0/MR0, preserving the remaining134 edits. Its whole pre-helper prefix equals
+the before-census source and its suffix equals actual2a. A new native/fresh67
+derivation is authorized, with no old donor leases, seed-zero or mask transfer.
+It must compare against both original4b and the frozen final product25 source
+if product25 qualifies, before any new source's census is launched. ALL70 and
+ALL74 whole-family pipelines continue unchanged as separate failure studies.
+
+The independent current-Toffoli-parent4096-cap stage passes the universal
+identity-padding adapter proof, independently reviewed. It uses Q1473; its
+4.3948T source proxy is not measured savings. Native verification and independent
+full-state replay are still pending. This does not reach the753670 target.
+
+Latest pushed backup before this checkpoint:9b0b8d5. Preserve foreign README/
+submission edits, every failed experiment and existing Q692 evidence.
+
 ## Whole-family repair and preparation profile:16 October2026,08:15Singapore
 
 Product priority unchanged. Plain67 saves102.13839T/Q1234 and repaired67

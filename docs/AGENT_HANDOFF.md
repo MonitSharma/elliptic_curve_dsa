@@ -1,5 +1,23 @@
 # Agent handoff: start here
 
+## Latest: 16 October 2026, 08:55 Singapore
+
+Read the newest research-plan section first. PRODUCT25 SEARCH IS TERMINAL:
+lowest protected pass47,449,113, complete audited prefix47,452,160/overrun3047.
+ROOT_TERMINAL_AUDIT.json passes every row and runtime pin; never restart the
+old four workers. Product agent owns isolated final source/unchanged benchmark
+in product25-final-20261016. Root owns the predeclared final census and queue
+gate; no submission. A search pass is not yet a scored resource result.
+
+Plain67's persistent pilot passes; ideal64 mean16.2–16.5h is a scaling model,
+not measured64 throughput. Any search requires then-current failure eligibility.
+Seed's sole fresh comparison is active. NEW complete PRESEED10+fresh67 is the
+cheap source-family repair lead, with an additional mandatory comparison against
+the frozen final product25 source if its final gate passes. ALL70/ALL74 chains
+are separate, unchanged studies. Root current-parent4096 universal stage passes
+via a reviewed proof-only identity adapter; native/full-state replay pending,
+4.3948T proxy/Q1473 is not a score. Public08:55 unchanged Q677/T753721/product939347948.
+
 ## Current checkpoint:16 October2026,08:15Singapore
 
 Read the newest research-plan section. Public08:00 unchanged Q677/T753721/

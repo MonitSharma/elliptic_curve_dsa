@@ -1,0 +1,279 @@
+{
+  "status": "VERIFIED_PRELAUNCH_COMPLETE_NONCE_ROW_ACCOUNTING",
+  "archives": [
+    {
+      "folder": "product-mask-filter-20261016",
+      "archive_sha256": "7df43698680092e3ff423b03aa9b27e44839ce19a74890692656c703d395d291",
+      "verified_members": 38,
+      "rowfiles": [
+        {
+          "name": "forced-full.jsonl",
+          "rows": 1,
+          "minimum_nonce": 1,
+          "maximum_nonce": 1,
+          "sha256": "0d9113e2f175228657dfa22d369a9fd348f2bf1e8159ee106ded21c19ecbe13f"
+        },
+        {
+          "name": "partial.jsonl",
+          "rows": 11,
+          "minimum_nonce": 17,
+          "maximum_nonce": 27,
+          "sha256": "0316593a83f2d2c67360137bce49c17861aae284c000765be367c6d1b8653277"
+        },
+        {
+          "name": "shadow128.jsonl",
+          "rows": 128,
+          "minimum_nonce": 1,
+          "maximum_nonce": 128,
+          "sha256": "b95da7b7341127b0761bdc5bf7c9c766685613d11d12fd9da4f9adee017932e4"
+        },
+        {
+          "name": "timing4096-t16.jsonl",
+          "rows": 4096,
+          "minimum_nonce": 1,
+          "maximum_nonce": 4096,
+          "sha256": "5a9331b778fb11a0481883ade4b2f4e36a4a16fd8d6c5aed93c8c1aebbc8f0bc"
+        }
+      ],
+      "complete_nonce_row_attempts": 4236,
+      "distinct_nonces": 4096,
+      "result": {
+        "status": "BOUNDED_CANDIDATE25_SOURCE_TRANSFER_INTEGRATION_PASS",
+        "candidate_own_Fiat_4096bytes_nonces": [
+          1,
+          2,
+          17,
+          255
+        ],
+        "candidate_zeroMR_output_shadow": true,
+        "forced_full_candidate_9024": true,
+        "universal_cache_transfer_pinned": true,
+        "authoritative_rejection": false,
+        "nonce_search": false
+      }
+    },
+    {
+      "folder": "product-filter-cost-20261016",
+      "archive_sha256": "2547e01c9857f996f0d6086e042b53f461e2b7b2ef658f35d21c71dbec558f8b",
+      "verified_members": 46,
+      "rowfiles": [
+        {
+          "name": "worker0.jsonl",
+          "rows": 65536,
+          "minimum_nonce": 1,
+          "maximum_nonce": 65536,
+          "sha256": "ade5ed38ba5e5bd5c49fec414370de012783bbe070508cac84c5170c8883a8b0"
+        },
+        {
+          "name": "worker1.jsonl",
+          "rows": 65536,
+          "minimum_nonce": 65537,
+          "maximum_nonce": 131072,
+          "sha256": "5cb5101c7bb04d0823964a091a9fedcbc1df6fb99d21edda88c445a7fd328a54"
+        },
+        {
+          "name": "worker2.jsonl",
+          "rows": 65536,
+          "minimum_nonce": 131073,
+          "maximum_nonce": 196608,
+          "sha256": "775a65302a21a995318825d695b0a8684a9a334b337f1a88d8e72ce0fb4e8bdc"
+        },
+        {
+          "name": "worker3.jsonl",
+          "rows": 65536,
+          "minimum_nonce": 196609,
+          "maximum_nonce": 262144,
+          "sha256": "2b49df6fae0874ce7f95a7c8d2535e2f85cf6ad4e29c8a822637bbe76c2e2529"
+        }
+      ],
+      "complete_nonce_row_attempts": 262144,
+      "distinct_nonces": 262144,
+      "result": {
+        "status": "BOUNDED_FOUR_PROCESS_COST_MEASUREMENT_PASS",
+        "processes": 4,
+        "threads_each": 12,
+        "nonce_count": 262144,
+        "wall_including_four_startups_seconds": 157.38416983466595,
+        "workers": [
+          {
+            "worker": 0,
+            "first": 1,
+            "count": 65536,
+            "observed_full_pass_controls": []
+          },
+          {
+            "worker": 1,
+            "first": 65537,
+            "count": 65536,
+            "observed_full_pass_controls": []
+          },
+          {
+            "worker": 2,
+            "first": 131073,
+            "count": 65536,
+            "observed_full_pass_controls": []
+          },
+          {
+            "worker": 3,
+            "first": 196609,
+            "count": 65536,
+            "observed_full_pass_controls": []
+          }
+        ],
+        "authoritative_rejection": false,
+        "nonce_selected": false
+      }
+    },
+    {
+      "folder": "product-fused-filter-20261016",
+      "archive_sha256": "d855e931bf553a701b09c2c2d98e3ee4144810db49c88d28aa2afef63638fb1f",
+      "verified_members": 35,
+      "rowfiles": [
+        {
+          "name": "partial.jsonl",
+          "rows": 11,
+          "minimum_nonce": 17,
+          "maximum_nonce": 27,
+          "sha256": "0316593a83f2d2c67360137bce49c17861aae284c000765be367c6d1b8653277"
+        },
+        {
+          "name": "shadow128.jsonl",
+          "rows": 128,
+          "minimum_nonce": 1,
+          "maximum_nonce": 128,
+          "sha256": "e099e423831cd5ccff3a5a55b5734764ff3fc731d4c7d60aa15ca3697e19680e"
+        },
+        {
+          "name": "timing4096-t16.jsonl",
+          "rows": 4096,
+          "minimum_nonce": 1,
+          "maximum_nonce": 4096,
+          "sha256": "8789fd45eeb90ae0ebe4af505f5413113247181f128b938cc582bf5b55f29b3d"
+        }
+      ],
+      "complete_nonce_row_attempts": 4235,
+      "distinct_nonces": 4096,
+      "result": {
+        "status": "FUSED_CANDIDATE25_BOUNDED_ROWS_EXACT_PASS",
+        "candidate_zeroMR_shadow128_and_partial": true,
+        "all4096witness_rows_equal_unfused": true,
+        "nonce_selected": false,
+        "authoritative_rejection": false
+      }
+    },
+    {
+      "folder": "product-early-filter-20261016",
+      "archive_sha256": "cfcc1c9e6a0844131061c8116bec8c02fbc5be97c14b5df308a0935a7c5ae296",
+      "verified_members": 33,
+      "rowfiles": [
+        {
+          "name": "fullstate9024.jsonl",
+          "rows": 1,
+          "minimum_nonce": 1,
+          "maximum_nonce": 1,
+          "sha256": "eb8cde1eae20982add3c345c60fdc6b03622f57e7386f859c3e4225182adf662"
+        },
+        {
+          "name": "rows4096.jsonl",
+          "rows": 4096,
+          "minimum_nonce": 1,
+          "maximum_nonce": 4096,
+          "sha256": "d41180484936093bc6bb43f5796af04099708e02f659a294d8dbd507e6d01e12"
+        }
+      ],
+      "complete_nonce_row_attempts": 4097,
+      "distinct_nonces": 4096,
+      "result": {
+        "status": "EXACT_EARLY_FULLSTATE9024_AND_ROWS4096_PASS",
+        "every_q_b_phase_and_physical_rng_match": true,
+        "full_protected_confirmation_for_all_survivors": true,
+        "nonce_search": false,
+        "authoritative_rejection": false
+      }
+    },
+    {
+      "folder": "product-early-cost-20261016",
+      "archive_sha256": "e374f6192bea5fe64bb0de32dbe063d079dc2072e84b76b312f40c5d4fed3f15",
+      "verified_members": 47,
+      "rowfiles": [
+        {
+          "name": "worker0.jsonl",
+          "rows": 65536,
+          "minimum_nonce": 1,
+          "maximum_nonce": 65536,
+          "sha256": "80c30b41c876936600605555a32abf611e9e31916015011c2e731a789e287919"
+        },
+        {
+          "name": "worker1.jsonl",
+          "rows": 65536,
+          "minimum_nonce": 65537,
+          "maximum_nonce": 131072,
+          "sha256": "18dc92c4d3065d0bc45478311c416c30586fb2e1ce07ae5b8ef8fc277882f6c3"
+        },
+        {
+          "name": "worker2.jsonl",
+          "rows": 65536,
+          "minimum_nonce": 131073,
+          "maximum_nonce": 196608,
+          "sha256": "0cdb17e8163c53e5f78b62d4c5efa96dea7049d20316941a9ebc1f20fb8ed473"
+        },
+        {
+          "name": "worker3.jsonl",
+          "rows": 65536,
+          "minimum_nonce": 196609,
+          "maximum_nonce": 262144,
+          "sha256": "60b72fdc12984f6609f5c77d585f0ff7cbf5a2485c58f1314b7e598b48b3896e"
+        }
+      ],
+      "complete_nonce_row_attempts": 262144,
+      "distinct_nonces": 262144,
+      "result": {
+        "status": "BOUNDED_FOUR_PROCESS_COST_MEASUREMENT_PASS",
+        "processes": 4,
+        "threads_each": 12,
+        "nonce_count": 262144,
+        "wall_including_four_startups_seconds": 115.35541215538979,
+        "workers": [
+          {
+            "worker": 0,
+            "first": 1,
+            "count": 65536,
+            "observed_full_pass_controls": []
+          },
+          {
+            "worker": 1,
+            "first": 65537,
+            "count": 65536,
+            "observed_full_pass_controls": []
+          },
+          {
+            "worker": 2,
+            "first": 131073,
+            "count": 65536,
+            "observed_full_pass_controls": []
+          },
+          {
+            "worker": 3,
+            "first": 196609,
+            "count": 65536,
+            "observed_full_pass_controls": []
+          }
+        ],
+        "authoritative_rejection": false,
+        "nonce_selected": false
+      }
+    }
+  ],
+  "preliminary_unique_nonce_range": [
+    1,
+    262144
+  ],
+  "preliminary_distinct_nonces": 262144,
+  "preliminary_complete_nonce_row_attempts": 536856,
+  "preliminary_repeated_rows_within_preliminary": 274712,
+  "all_preliminary_nonce_rows_repeated_in_operational_run": true,
+  "operational_unique_completed_rows": 47452160,
+  "combined_distinct_nonces": 47452160,
+  "combined_operational_plus_preliminary_row_attempts": 47989016,
+  "scope": "All complete nonce packet JSONL rows in the five archived prelaunch candidate25 integration/control/timing experiments. In-process scalar, protected-seed, helper, per-shot and MR-control evaluations are not extra nonce packet rows. Later concurrent disabled runtime experiments are outside this explicitly prelaunch ledger. No repeats are added to the operational unique count."
+}

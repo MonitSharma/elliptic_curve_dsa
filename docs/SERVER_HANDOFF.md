@@ -1,5 +1,21 @@
 # CPU server: ECDSA research handoff
 
+## Latest: 16 October 2026, 08:55 Singapore
+
+The original48-thread product25 search ended cleanly at08:43. All four old
+workers have exited; do not relaunch them. The08:53 terminal full-row audit
+passes:lowest47,449,113, completeprefix47,452,160. Final source/benchmark now
+belongs to product_savings in product25-final-20261016. Root's final census
+will use the predeclared label/range with4workers/source after those gates.
+Terminal receipt remains product25-operational-20261016/ROOT_TERMINAL_AUDIT.json.
+
+08:53 preflight: LHC-104-070, approximately258GiB available; unrelated lattice
+jobs untouched. Seed candidate census548566 uses4workers, ALL70/ALL74 chains
+one core each, root current-parent4096 native one core. Plain67 cost pilot
+is terminal and releases4cores. New PRESEED10 native build up to4cores then
+one proof/generation core; resource check and dedicated nohup/PID/log/exits
+remain mandatory. Do not change chemistry or frozen search/runtime artifacts.
+
 ## Active research:16 October2026,08:15Singapore
 
 Original product25 four48-thread workers/PIDs3893465,3893466,3893468,3893469

@@ -1,5 +1,15 @@
 # Results and submission status
 
+**08:55 checkpoint:** product25 has a search pass at nonce47,449,113. The
+complete terminal audit validates47,452,160 distinct operational nonces and
+every lower nonce, with3,047 overrun. Exact final native source, unchanged
+benchmark and predeclared32,768-batch final comparison remain pending. No new
+product resource record is claimed; queue only. Earlier diagnostic saving is
+58.15368T atQ1234. Plain67 shows102.13839T/Q1234 and passes its persistent cost
+pilot, but still has no selected nonce or complete benchmark. The public08:55
+records remain Q677, our753721/Q1468 and product939347948.
+[Product terminal audit](../experiments/product25-operational-20261016/ROOT_TERMINAL_AUDIT.json).
+
 **08:15 checkpoint:** public08:00 still confirms official753721/Q1468,
 Q677/product939347948. No new full product benchmark. Plain67 diagnostic
 saving102.13839T/Q1234 and repaired67 saving49.55103T/Q1234 remain promising.

@@ -1,0 +1,78 @@
+{
+  "status": "UNCHANGED_DISABLED_PLAIN67_PERSISTENT_COST_PILOT_AND_PROTOCOL_CONTROLS_PASS",
+  "trials": [
+    {
+      "name": "control-generic",
+      "mode": "generic",
+      "workers": 1,
+      "threads_each": 2,
+      "count_each": 11,
+      "group_elapsed_seconds_including_startup": 64.11930118966848,
+      "individual_program_only_wall_seconds": [
+        2.375676
+      ],
+      "resolved_mapped_scalar_verified": true
+    },
+    {
+      "name": "control-direct",
+      "mode": "direct",
+      "workers": 1,
+      "threads_each": 2,
+      "count_each": 11,
+      "group_elapsed_seconds_including_startup": 33.59327898547053,
+      "individual_program_only_wall_seconds": [
+        2.400144
+      ],
+      "resolved_mapped_scalar_verified": true
+    },
+    {
+      "name": "trial0-generic",
+      "mode": "generic",
+      "workers": 2,
+      "threads_each": 2,
+      "count_each": 16384,
+      "group_elapsed_seconds_including_startup": 146.73347119335085,
+      "individual_program_only_wall_seconds": [
+        112.021694,
+        114.588015
+      ],
+      "resolved_mapped_scalar_verified": true,
+      "rows_with_repetitions": 32768,
+      "unique_fixed_nonces": 16384,
+      "all_rows_equal_across_modes_and_workers": true,
+      "observed_four_core_amortized_nonces_per_second": 223.3164644269989,
+      "observed_four_core_mean_model_hours": 258.6792828678044,
+      "ideal_linear64_mean_model_hours_NOT_MEASURED": 16.167455179237773
+    },
+    {
+      "name": "trial1-direct",
+      "mode": "direct",
+      "workers": 2,
+      "threads_each": 2,
+      "count_each": 16384,
+      "group_elapsed_seconds_including_startup": 149.49470739997923,
+      "individual_program_only_wall_seconds": [
+        113.612005,
+        117.180431
+      ],
+      "resolved_mapped_scalar_verified": true,
+      "rows_with_repetitions": 32768,
+      "unique_fixed_nonces": 16384,
+      "all_rows_equal_across_modes_and_workers": true,
+      "observed_four_core_amortized_nonces_per_second": 219.19170631457789,
+      "observed_four_core_mean_model_hours": 263.5471197420377,
+      "ideal_linear64_mean_model_hours_NOT_MEASURED": 16.471694983877356
+    }
+  ],
+  "candidate_sha256": "268aefe234ede5eaab723e34e214b91f0bd8cac9b0f95d9ee90e3bf3ae8c951d",
+  "expected_nonces_model": 207962434.33397862,
+  "all65536trial_rows_equal": true,
+  "qualified4096prefix_equal": true,
+  "extra_new_boundary_partial_and_full9024_controls": true,
+  "original2a_function_via_fresh67_certificate": true,
+  "A29_or_G_used": false,
+  "executable_or_source_changed": false,
+  "nonce_selected": null,
+  "production_changed": false,
+  "search_authority": false
+}

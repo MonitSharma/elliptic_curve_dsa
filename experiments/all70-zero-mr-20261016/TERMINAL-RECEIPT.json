@@ -1,0 +1,32 @@
+{
+  "status": "FRESH_ALL70_ZERO_MR_IR_SOURCE_AND_CONTROLS_PASS",
+  "authority": false,
+  "source_sha256": "06cdc5de3dadbe23a2ff306466ec2ef27514bed53be1145ec83bdf490cb99a7a",
+  "program_sha256": "a805af2e120bc191062d6901cbcd4d4a390abba814f3a2fd5007d4b0b46c3859",
+  "program_ops": 7944813,
+  "reviewed_generic_compiler_and_kernel_unchanged": true,
+  "generic512_actual_inputs_all_q_b": true,
+  "generic512_scope_assignments_and_live_gate_negative": true,
+  "additional_declared_ABI_states": 4,
+  "additional_audit_inputs": 32,
+  "partial_counts": [
+    0,
+    1,
+    7,
+    11,
+    31,
+    32,
+    63,
+    64,
+    65,
+    511,
+    512
+  ],
+  "negative_kernel_controls": 4,
+  "all512_scored_outputs_checked": true,
+  "original2a_IR_not_loaded_or_transferred": true,
+  "required_mask_source_sidecar_sha256": "bfd68eae7215bfadaa0222b62203ec5cf6dc12c987af30ba6084c4282b07d485",
+  "failed_first_attempt": "The added separate verifier had an ambiguous read trait call. Complete failed source/logs/pins are preserved; corrected only to XofReader::read. The generic compiler, C kernel and declaration are unchanged. Retry used the remaining original900-second wall budget.",
+  "phase_or_pass_authority": false,
+  "no_runtime_search_or_production_changes": true
+}

@@ -1,0 +1,57 @@
+{
+  "status": "SOURCE_AND_COST_PROPOSAL_ONLY_DISABLED",
+  "source_sha256": "268aefe234ede5eaab723e34e214b91f0bd8cac9b0f95d9ee90e3bf3ae8c951d",
+  "Q": 1234,
+  "B": 54995,
+  "qualified_diagnostic_binary_sha256": "12fb482e919ba69459d54904ff4370807b61512a280af0a10599c0a242293065",
+  "diagnostic_qualification_archive_sha256": "9f3923817a8175babb68ee992bf4da5593ffa3c5c36a6c297b7ad7897b48bfee",
+  "source_relative_to_original": "Universally audited67-stage cache chain preserves original4b coordinate function under the original-MR projection. No A29 arithmetic change and no conditional G guard.",
+  "universal_cache_certificate_sha256": "303a75ec86a4da8c3a4008646e1b8257768fa40e198f0b7172eeafd19408c7c6",
+  "per_input_mask_transfer_sha256": "d774c492b94f1c6ca458cc42de82d6dbee90a316f7d80c9dc6ee32eb1fe5201f",
+  "original_mask_sha256": "560c12d5044dd895a4ef32adc905cdde48a780a196b3b28a75951c7f27b4fe9d",
+  "original_zeroMR_IR_sha256": "812f706d2edd7e821ff6c5f72db5e7e65b3f9756f562d99c1d0e1fceb007daf0",
+  "ABI_sha256": "2d7f0fc10292ecc815bbf72990bb237ac52b0966aeb9445deee896deed75e510",
+  "resolved_scalar_library_sha256": "3bb2304219fb336795ea88d4bf81174883cdd33702f5975819b812c3dffca30f",
+  "resource_proposal": {
+    "workers": 4,
+    "threads_each": 2,
+    "total_worker_threads_cap": 8,
+    "GiB_each_process_cap": 12,
+    "available_GiB_reserve": 100,
+    "wall_hours_cap": 24,
+    "lookahead": 4096,
+    "first_nonce": 1,
+    "selection": "Lowest protected-full-passing nonce only after every lower nonce has a complete terminal disposition.",
+    "queue_only": true
+  },
+  "mandatory_new_source_hardening": [
+    "Use checked first/count arithmetic and enforce every nonce in[1,2^48); fix first1 and source hash independently of environment.",
+    "Retain source-specific candidate Fiat transcript, prefix and identity-tail construction; never seed from original4b or another cached source.",
+    "Keep coordinate rejection limited to original-mask-known wrong bits under the pinned transfer theorem; all other paths use full exact candidate fallback with its own phase and physical MR transcript.",
+    "Allocate classical workspaces for actual B54995 with u32 IDs; reject metadata/capacity mismatch rather than truncate.",
+    "Hash-check the resolved scalar shared library in the runtime before initialization; disallow an unpinned environment override.",
+    "Any candidate passing disposition must explicitly assert protected result.n_shots==9024 and all value/phase/dirty outcomes pass.",
+    "Extend persistent COUNT beyond diagnostic65536 only with checked window arithmetic and predeclared partition semantics; preserve per-window complete rows.",
+    "Reuse reviewed ascending four-worker coordinator semantics in a NEW isolated implementation: atomic pass writes, threshold stop, deadline/missing/bad-row dispositions always incomplete, and independent lower-prefix audit before choosing a pass."
+  ],
+  "required_before_any_launch": [
+    "Independently review the new full source/proof bindings, exact source diff and source-specific nonce/Fiat/classical workspace semantics.",
+    "Run disabled fixed-fixture full9024, physical MR, scalar mapping, partial lookahead, forced exact fallback, nonce-boundary and supervisor failure controls; compare all fixed corpus rows to immutable12fb qualification.",
+    "Review unchanged-binary persistent cost pilot separately: observed4core amortization and ideal64 projection, not measured64 scalability or evidence of8core24h expected completion.",
+    "Refresh the public record and compare this frozen candidate's fresh census to the record it would beat, never above18 failed batches per packet; any new public lower-failure record may block eligibility.",
+    "Parent must select a bounded wall cap consistent with the remaining authorized session and explicitly authorize the new operational run. No original25 artifacts or run state are changed."
+  ],
+  "final_acceptance_if_later_authorized": {
+    "native_full_source_reproduction": true,
+    "unchanged_official_9024_benchmark": true,
+    "lowest_prefix_and_screened_count_disclosure": true,
+    "separate_final_fixed_census_batches": 32768,
+    "separate_final_census_label_predeclared_before_search": "plain67-final-source-qualification-20261016-v1",
+    "retain_runner_and_all_failed_evidence": true,
+    "submission_mode": "queue"
+  },
+  "prepared_executable_created": false,
+  "search_started": false,
+  "proof_or_runtime_authority_granted": false,
+  "existing_active_or_historical_artifacts_modified": false
+}

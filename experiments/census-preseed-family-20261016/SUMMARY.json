@@ -1,0 +1,60 @@
+{
+  "status": "PASS COMPLETE PRESEED10 SOURCE-ONLY CHECKPOINT FAMILY",
+  "family_count": 10,
+  "selected_source_rows_one_based": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "selected_deletions": 7,
+  "selected_reductions": 3,
+  "remaining_rows": 134,
+  "remaining_deletions": 67,
+  "remaining_reductions": 67,
+  "exact_added_T_per_shot": 10,
+  "added_Q_B_MR": [
+    0,
+    0,
+    0
+  ],
+  "Q_B_MR": [
+    1234,
+    45701,
+    906156
+  ],
+  "current_actual_entry": 618858,
+  "before_census_entry": 618865,
+  "older_raw_builder_seed_entry": 618835,
+  "boundary_context_unique_in_both_before_and_actual": true,
+  "boundary_literal_context_sha256": "b35e563ac9daba540f426ebc64c4c569615d81b275e19e45cc960778239ec76c",
+  "prefix_ops": 618865,
+  "prefix_sha256": "1fae2dd394354c96638377aeda67d9ce1341fd65cce5bd689735e8fab46605df",
+  "virtual_restored_prefix_equals_before_census_prefix_byte_for_byte": true,
+  "virtual_suffix_equals_current_actual_suffix_byte_for_byte": true,
+  "suffix_old_actual_begin": 618858,
+  "suffix_new_virtual_begin": 618865,
+  "suffix_sha256": "63fa8520ff3644fa482801b34d3c30a47897bd650be0c02827a6c41554c3e335",
+  "all134_later_edits_preserved": true,
+  "virtual_ops": 11630723,
+  "virtual_canonical_sha256": "6a64596fca2928f04370c326f3d3818d651da73f4cb4087dd696f12736ccac83",
+  "classical_ABI_MR_sequence_and_physical_ids_preserved": true,
+  "old_MR_draw_ordinals_unchanged": true,
+  "suffix_Op_positions_shift_exactly7": true,
+  "scope_depth_at_checkpoint": 0,
+  "no_virtual_stream_serialized": true,
+  "no_build_or_sampling": true,
+  "limits": [
+    "Prefix equality gives identical complete source-prefix action to before-census for all inputs/allMR, including phase and dirty entry. It does not establish ideal arithmetic, clean scratch, or clean N2 loans.",
+    "Remaining134 inherited census edits and all earlier non-census approximations remain; seed own row11 remains reduced.",
+    "The byte-identical suffix receives a changed quantum entry state; no full output/phase/failure monotonicity claim.",
+    "Any future cache leases, native generation, source-bound mask and sole fresh gate require new proofs; no old mask or lease transfer."
+  ],
+  "seconds": 27.856786305084825
+}

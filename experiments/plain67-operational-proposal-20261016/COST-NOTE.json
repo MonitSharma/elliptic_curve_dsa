@@ -1,0 +1,32 @@
+{
+  "status": "DISABLED_COST_PROPOSAL_SUPPLEMENT_NO_OPERATIONAL_AUTHORITY",
+  "pilot_archive_sha256": "28495fad94ee52e130df1acc0023fc62f2df979c2167b3e6430aa06e684d3eb2",
+  "terminal_receipt_sha256": "c74fb40e2320826996e33f4092ec551bcdcc2ffebea8b11bc27c89ed3bffb24f",
+  "own_candidate_failed_batches": 4162,
+  "own_census_batches": 32768,
+  "packet_batches": 141,
+  "expected_nonces_model": 207962434.33397862,
+  "trials": [
+    {
+      "mode": "generic",
+      "measured_four_core_group_seconds": 146.73347119335085,
+      "measured_four_core_amortized_rate": 223.3164644269989,
+      "ideal_linear64_mean_hours_NOT_MEASURED": 16.167455179237773,
+      "ideal_linear8_mean_hours_NOT_MEASURED": 129.3396414339022,
+      "ideal_linear8_probability_of_at_least_one_pass_within24hours_model_only": 0.16935930967418455
+    },
+    {
+      "mode": "direct",
+      "measured_four_core_group_seconds": 149.49470739997923,
+      "measured_four_core_amortized_rate": 219.19170631457789,
+      "ideal_linear64_mean_hours_NOT_MEASURED": 16.471694983877356,
+      "ideal_linear8_mean_hours_NOT_MEASURED": 131.77355987101885,
+      "ideal_linear8_probability_of_at_least_one_pass_within24hours_model_only": 0.1665075364752075
+    }
+  ],
+  "interpretation": "The user affordability criterion of about one day on64 threads is cleared only as an ideal-linear model. A proposed8-thread24-hour hedge has an ideal-model success probability near17%, not a24-hour expected completion. Resource scaling, cache contention and future co-tenancy are unmeasured.",
+  "eligibility": "The old gate was paired against original4b. A new public product record with a lower disclosed failure rate requires a new then-current eligibility comparison; cost cannot override that gate.",
+  "co_tenancy": "Original25 production had terminated before these timing trials. No causal comparison against earlier repaired67 timings or generic/direct speedup is claimed.",
+  "search_started": false,
+  "new_source_or_executable_created": false
+}

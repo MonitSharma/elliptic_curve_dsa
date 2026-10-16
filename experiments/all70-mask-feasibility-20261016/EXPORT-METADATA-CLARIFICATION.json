@@ -1,0 +1,25 @@
+{
+  "status": "REQUIRED_FRESH_ALL70_SOURCE_BINDING_CLARIFICATION_NO_RUNTIME_AUTHORITY",
+  "program_path": "mr-mask-all70.bin",
+  "program_sha256": "1e3092db38ecfca8a6583829852ad7302ba13c38629474c6ea808c5637677c60",
+  "raw_export_manifest_path": "mr-mask-all70.json",
+  "raw_export_manifest_sha256": "5bf224423344488c9898eb1ce606715c2b35144a9d815a8e5c9045da3356b2b1",
+  "evaluated_source_stream_sha256": "06cdc5de3dadbe23a2ff306466ec2ef27514bed53be1145ec83bdf490cb99a7a",
+  "preserved_original_archive_sha256": "814a8e74aa0c4990e29cddf120a6739c117c45df773544bc6f83d5594ac58b87",
+  "invalid_legacy_exporter_fields": {
+    "original_stream_sha256": "2a522394cdf3e6a0df7784ad4db761030933c1f7ccd0ff8e641d68ec7a4dab3e",
+    "source_commit": "4b2ec52fc55da796aa8f5ef851290297e8706424"
+  },
+  "cause": "The unchanged generic exporter hardcodes these two labels at mask_program_trace.rs line33. They do not identify the stream loaded by this fresh query. No graph, kernel, program bytes or proof result changed for this clarification.",
+  "authoritative_fresh_binding": {
+    "BASE-BINDING.json": "2f2476a530ef0f6678f9d46e4e6c648d46f73b2e4877cb96e86328c7397c97f1",
+    "global.json": "b40ac52e9c6339481560fd78bf6736324ad19618a0df46f5feb31422ff2488fc",
+    "RUN-RECEIPT.json": "5dea05a609f8474d8a775529f2cc526acaab8787ee8cd782829819a6a8bcc93b",
+    "BEFORE-PINS.json": "a1e7776cef3ea3f52fc08b1cbf1793b3169d3362555a505f27935297f60f64ca",
+    "AFTER-PINS.json": "a1e7776cef3ea3f52fc08b1cbf1793b3169d3362555a505f27935297f60f64ca"
+  },
+  "exporter_source_sha256": "33552d2dfb40e1dc566badbf2726df31efef52649f4f42c80fd5fed25b503c80",
+  "consumer_requirement": "Before any downstream runtime or transfer, validate this sidecar program hash AND raw manifest hash AND evaluated source06 hash against the fresh proof/source receipts. Reject a binding based only on the legacy2a labels. The original2a mask and its runtime remain separate and unchanged.",
+  "authority": false,
+  "program_or_proof_rerun": false
+}

@@ -1,0 +1,19 @@
+{
+  "status": "INDEPENDENT_TERMINAL_SOURCE_RECEIPT_ACCOUNTING_AND_COST_REVIEW_PASS",
+  "audit_receipt_sha256": "b6c1a81f02a288c802555162ae0eb339a39e06200294cac932b6dde7d1f98ed3",
+  "audit_source_sha256": "70dd1d4378b498600027aefabbe7e170a2c356a9a9571773766aa148d768348e",
+  "review_scope": "Read exact frozen auditor source and small terminal receipts; independently reconstruct partition/cardinality/disposition arithmetic. No second read or rerun of47million operational rows. Trust is explicitly in the completed pinned root full-log audit plus previously accepted source-bound value certificate/runtime.",
+  "lowest_pass": 47449113,
+  "operational_unique_nonces": 47452160,
+  "overrun": 3047,
+  "workers_all_clean_terminal": true,
+  "protected9024_pass_required_by_auditor": true,
+  "runtime_and_auxiliary_artifact_hashes_match_acceptance": true,
+  "preliminary_attempt_accounting_sha256": "a5be6b4145815f5bf292f7a764a8c283460d56dc13671ccfa9d7acd9e0a5aade",
+  "persistent_cost_review_sha256": "63e34df0c616438d85f50420bfb3f87ed56b5549a96674c7648e06691defc8c7",
+  "material_findings": [],
+  "disclosure_correction": "262144 preliminary distinct nonces is not the number of preliminary attempts: both262144 cost runs and all smaller prelaunch JSONL controls must be disclosed as repetitions.",
+  "official_benchmark_and_final_predeclared_census_still_required": true,
+  "score": null,
+  "submission_mode": "queue"
+}

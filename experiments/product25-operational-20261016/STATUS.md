@@ -1,4 +1,19 @@
-# Frozen product25 search is active
+# Frozen product25 search: terminal lowest-pass audit passed
+
+**16 October 2026, 08:53 Singapore:** the complete read-only terminal audit
+passes. Nonce **47,449,113** is the lowest protected 9,024-shot pass. All
+**47,452,160 operational nonces** form one complete prefix from 1; the
+3,047-nonce overrun is disclosed. All four workers exited cleanly. The frozen
+circuit, executable and runtime dependencies still match the launch hashes.
+[Complete audit receipt](ROOT_TERMINAL_AUDIT.json).
+
+This is a passing search candidate, **not yet a resource record**. The separate
+native final-source tree, unchanged official benchmark and predeclared final
+32,768-batch comparison are pending. Submission mode remains **queue**.
+The earlier timing and control attempts repeat operational nonces; their
+attempt ledger is being assembled separately, without adding duplicates to
+the operational distinct count. The historical active checkpoints below are
+preserved as observations at their stated times.
 
 The later immutable checkpoint at16October06:09:18 contains22,523,904completed
 distinct operational rows and a complete lower prefix through22,401,024, with no

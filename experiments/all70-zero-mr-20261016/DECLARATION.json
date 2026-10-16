@@ -1,0 +1,41 @@
+{
+  "status": "PREDECLARED_FRESH_ALL70_ZERO_MR_VALUE_IR",
+  "source_path": "product-exact-20261015/candidate-all70-base/ops.bin",
+  "source_sha256": "06cdc5de3dadbe23a2ff306466ec2ef27514bed53be1145ec83bdf490cb99a7a",
+  "source_count": 11630716,
+  "Q": 1234,
+  "B": 45701,
+  "MR": 906156,
+  "output_bits": 512,
+  "canonical_input_ports": 1024,
+  "fresh_mask_program_sha256": "1e3092db38ecfca8a6583829852ad7302ba13c38629474c6ea808c5637677c60",
+  "required_mask_source_sidecar_sha256": "bfd68eae7215bfadaa0222b62203ec5cf6dc12c987af30ba6084c4282b07d485",
+  "original_2a_IR_transfer_forbidden": true,
+  "compiler_source_lineage": {
+    "tool/Cargo.lock": "c0ef722135cb1a56eb8d1ffb72e3245b8773d8e56ea3e7b2ac82299bbd8250a0",
+    "tool/Cargo.toml": "e120cdfedbc38a9eba2a86f51a44170f914c48247996905e5c1d721cc79788ac",
+    "tool/build.rs": "c4f26e438099cd0cc64027f4e4d311f16a05d3193316fe6de4eb4c55ed9da9a4",
+    "tool/simd8wide.h": "344386a0b12743282de5c7f8bfabb0e65b75807d1576b2dd932d4115cb7db744",
+    "tool/src/fast_sim_wide.rs": "0082e2cf935fbe02bc61277342d1625d0f676a8628c05c5a7b63f10d41b89674",
+    "tool/src/main.rs": "6544214601c6fcfce8a3ea4f97838abce31ed002548b2b200cc24cd96d313e67",
+    "tool/src/prefix.rs": "361f4f9693610b5b079e09c2b6400f09feb04a456008a9de27466e565e45c57e",
+    "tool/zero8.c": "198490b80d502dd6a53c0de33e733a43a5e9a26b7e6829b9c00ef5c119742128"
+  },
+  "compiler_method": "Copy the archived reviewed generic compiler, C kernel and Cargo files byte-for-byte into a private build. Generate a new value IR from06. No old IR bytes or original mask roots are copied. Any added verifier is a separate binary and does not change generic compiler functions.",
+  "controls": [
+    "Generic512 guard/scope/overwrite fixtures with a live-gate negative control",
+    "Generic512 existing actual inputs: full and simplified every quantum/classical word equal protected fixed-zero simulator; sliced all512 scored outputs equal",
+    "Four arbitrary declared-ABI states (all0, all1, striped, fixedSHAKEdomain), auxiliary wires zero; compare full native every q/b and generated IR scored outputs against protected zeroMR",
+    "Existing32 audit inputs and partial packing counts0,1,7,11,31,32,63,64,65,511,512 from existing pinned corpus; all512 scored outputs compared, no phase query"
+  ],
+  "max_threads": 1,
+  "address_space_GiB": 16,
+  "whole_query_timeout_s": 900,
+  "starts_only_after_persistent_cost_releases_8cores": true,
+  "source_before_after_hashes_required": true,
+  "program_compiler_kernel_abi_hashes_required": true,
+  "no_circuit_census_nonce_content_tuning": true,
+  "phase_or_pass_authority": false,
+  "runtime_or_search_authority": false,
+  "production_changes": false
+}

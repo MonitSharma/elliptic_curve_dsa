@@ -1,0 +1,39 @@
+{
+  "status": "INDEPENDENT_ADAPTER_SOURCE_AND_SAVED_BINDINGS_REVIEW_PASS",
+  "reviewer": "product_savings",
+  "review_scope": "Read-only review of actual adapter/codec source, declared premises, saved file hashes, protected Simulator initialization, and terminal unchanged-checker marker. No additional numerical tests or universal rerun.",
+  "files_sha256": {
+    "prove.py": "b9da7684a0a9b11b62fb698e206e410e9c28f04d1623a2045c777deab2e8a769",
+    "ops_io.py": "fe1eda36fb54b504ffbd7d166d658f0df2ba6803d2c6ae4a64071e196d4be557",
+    "PROOF_PLAN.json": "d2e7b0fde62df8559fa882ec8cc8f6be635149a786b614931e939879afc8da7c",
+    "PROOF_RESULT.json": "c52a4fbb8c7acade64c9a57d32ce3b9a666a0eaa60788bc6b294a7f4e575fcaa",
+    "generation.log": "c4e2db5f958745361a8ae80883271d2bacbb7d8c2d75c16d5cf02510a27d36cc",
+    "proof-leases.log": "f2bac03687ab509731fec24b21ae1375cf60241906e4057b57d4bbb6a81265dd",
+    "universal.log": "35096981e69118a024998841d5984d5fbd7cb8c01bcbce75a4ba36aa80d6fffc"
+  },
+  "actual_parent_sha256": "1d8c05eeee7b43dd694506b5efe963c771461b7e690bc62f409947b2306b7d77",
+  "actual_candidate_sha256": "1d4a9e1ed9d0a81bd16b922cfa7b2d2570792d1f91215de7f3300c9f795860b1",
+  "unchanged_checker_sha256": "2e9f5ee6ed4ea1fa5b625f38298a71e05ce885778db7aed1064b23d2ee657091",
+  "fresh_ids": [1468, 1469, 1470, 1471, 1472],
+  "old_max_qid": 1467,
+  "new_max_qid": 1472,
+  "initial_zero_premise": {
+    "protected_source": "/home/hclau/ecdsa_research/product-exact-20261015/tip/src/sim.rs",
+    "sha256": "f0c72f2a280cd68acee1dbf8282098f72d6b3bf4311e0abf96d122fe002256d7",
+    "source_lines": [26, 27, 28],
+    "fact": "Simulator::new initializes every qubit to0. Actual adapter scans every original quantum operand and proves all fresh IDs exceed its maximum; therefore they are absent from original register inputs as well. They are non-input zero ancillas. XX alone preserves arbitrary dirty states and does not independently establish a clean donor."
+  },
+  "adapter_review": [
+    "Exactly10 unconditional X records, two adjacent identical records per fresh wire; kind6 and all unused/classical/register fields NONE. Both sides receive exactly the same prefix, adding no MR or phase.",
+    "Canonical56-byte7-u64 codec round trips assert proof-left=prefix+actual-parent bytes and proof-right=prefix+actual-candidate bytes.",
+    "Every one of22 LAZY_WINDOW start/end/use indices increases by10. Other fields, donor IDs, and all LAZY_FLAG lines are preserved; final96-op tails match.",
+    "Declaration and checker invocation agree on retained cap4096, pair cap256, product cap1000000. The immutable checker remains unchanged and its existing equal-width rule is satisfied by the proof-only zero-ancilla extension.",
+    "Terminal log reports independent_zero_and_product_passes=true, no_simulated_inputs=true,22 leases,44 uses, padded input10522765/output10523293, exit0. Actual candidate hash remains unchanged."
+  ],
+  "leases_verified": 22,
+  "uses_verified": 44,
+  "conclusion": "Under the explicit fresh-zero premise, the unchanged checker's padded equivalence transfers to the actual new stage as an isometry on the original input space. No blocking source/translation gap found.",
+  "native_full_diagnostic_and_fresh_census": "Separate obligations; this review does not claim them complete.",
+  "score": null,
+  "search_or_submission_authority": false
+}

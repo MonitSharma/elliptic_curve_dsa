@@ -1,0 +1,195 @@
+{
+  "status": "DISABLED_PERSISTENT_FOUR_WINDOW_COST_AND_COMPLETE_ROWS_PASS",
+  "trials": [
+    {
+      "trial": 0,
+      "mode": "raw",
+      "available_KiB_before": 270049352,
+      "group_elapsed_seconds_including_startup": 210.26515338849276,
+      "rows_with_repetitions": 65536,
+      "unique_existing_nonces": 16384,
+      "observed_eight_thread_amortized_nonces_per_second": 311.6826489975424,
+      "observed_eight_thread_amortized_mean_hours": 161.45845573984172,
+      "ideal_linear_64_thread_mean_hours_NOT_MEASURED": 20.182306967480216,
+      "individual_program_only_wall_seconds": [
+        153.159451,
+        165.770364,
+        142.232596,
+        133.053291
+      ],
+      "program_only_common_steady_state_claimed": false,
+      "outputs": [
+        {
+          "path": "trial0-raw-worker0.jsonl",
+          "sha256": "94a5ebf62001d1ab99d7c91a0d3ba22a3be5c8ad755ed7615c890a931193c4f9",
+          "rows": 16384,
+          "all_rows_equal_frozen_reference": true
+        },
+        {
+          "path": "trial0-raw-worker1.jsonl",
+          "sha256": "64d2d99ce06f1f77c9ba92832ec53ec04efe2b23138f815344c39df0d9a8d858",
+          "rows": 16384,
+          "all_rows_equal_frozen_reference": true
+        },
+        {
+          "path": "trial0-raw-worker2.jsonl",
+          "sha256": "070eb26d5bf0814dc692b9aa1d975fbc0a32d61be4c13ada9aed3504aa9bdb28",
+          "rows": 16384,
+          "all_rows_equal_frozen_reference": true
+        },
+        {
+          "path": "trial0-raw-worker3.jsonl",
+          "sha256": "d86b79bd81839fead1423e9ed6beababeeeefa94b770085b79ae9c23f8ad9083",
+          "rows": 16384,
+          "all_rows_equal_frozen_reference": true
+        }
+      ]
+    },
+    {
+      "trial": 1,
+      "mode": "fused",
+      "available_KiB_before": 257849704,
+      "group_elapsed_seconds_including_startup": 195.08655574917793,
+      "rows_with_repetitions": 65536,
+      "unique_existing_nonces": 16384,
+      "observed_eight_thread_amortized_nonces_per_second": 335.93293883490054,
+      "observed_eight_thread_amortized_mean_hours": 149.80311059279228,
+      "ideal_linear_64_thread_mean_hours_NOT_MEASURED": 18.725388824099035,
+      "individual_program_only_wall_seconds": [
+        147.785466,
+        133.178059,
+        148.756934,
+        133.605944
+      ],
+      "program_only_common_steady_state_claimed": false,
+      "outputs": [
+        {
+          "path": "trial1-fused-worker0.jsonl",
+          "sha256": "a9cd56cc065d59f791383a2ce5ed69f5cedf89dc978a80b6663ae5fbc21cf3db",
+          "rows": 16384,
+          "all_rows_equal_frozen_reference": true
+        },
+        {
+          "path": "trial1-fused-worker1.jsonl",
+          "sha256": "6526a4bd71789d5d4fd79e3697b88100d4fecd4bccea59dbc5624b6fbd6dd7a2",
+          "rows": 16384,
+          "all_rows_equal_frozen_reference": true
+        },
+        {
+          "path": "trial1-fused-worker2.jsonl",
+          "sha256": "df63225ef540ff772d23144cbfff7a37c1c321bd01d943aecb7e6a4d03d094d6",
+          "rows": 16384,
+          "all_rows_equal_frozen_reference": true
+        },
+        {
+          "path": "trial1-fused-worker3.jsonl",
+          "sha256": "8c56fe2621ee270434ca36e155bfcf1f2adc794c7d7619b4ede4a562902d7665",
+          "rows": 16384,
+          "all_rows_equal_frozen_reference": true
+        }
+      ]
+    },
+    {
+      "trial": 2,
+      "mode": "fused",
+      "available_KiB_before": 239105364,
+      "group_elapsed_seconds_including_startup": 186.2074479907751,
+      "rows_with_repetitions": 65536,
+      "unique_existing_nonces": 16384,
+      "observed_eight_thread_amortized_nonces_per_second": 351.95155031203,
+      "observed_eight_thread_amortized_mean_hours": 142.9850192261711,
+      "ideal_linear_64_thread_mean_hours_NOT_MEASURED": 17.873127403271386,
+      "individual_program_only_wall_seconds": [
+        145.827676,
+        135.272441,
+        147.678281,
+        143.70812
+      ],
+      "program_only_common_steady_state_claimed": false,
+      "outputs": [
+        {
+          "path": "trial2-fused-worker0.jsonl",
+          "sha256": "4d3c00aa289e935df5588a9bd511869e6cdc36b5de44b508289a797284297088",
+          "rows": 16384,
+          "all_rows_equal_frozen_reference": true
+        },
+        {
+          "path": "trial2-fused-worker1.jsonl",
+          "sha256": "94633e3cc9641c8b98ad0acf32a51b95c2de84fc91fd8fc72b837cbcf94fe2cf",
+          "rows": 16384,
+          "all_rows_equal_frozen_reference": true
+        },
+        {
+          "path": "trial2-fused-worker2.jsonl",
+          "sha256": "3f543011d7619c443ed610a91877eb3d01056198856542430d7e7ef4e80084fe",
+          "rows": 16384,
+          "all_rows_equal_frozen_reference": true
+        },
+        {
+          "path": "trial2-fused-worker3.jsonl",
+          "sha256": "4055e20e2fba9f5da52d0b23aca782da28b60ed2c7ee2f4b43e98d6635e3578b",
+          "rows": 16384,
+          "all_rows_equal_frozen_reference": true
+        }
+      ]
+    },
+    {
+      "trial": 3,
+      "mode": "raw",
+      "available_KiB_before": 239338904,
+      "group_elapsed_seconds_including_startup": 186.77418353315443,
+      "rows_with_repetitions": 65536,
+      "unique_existing_nonces": 16384,
+      "observed_eight_thread_amortized_nonces_per_second": 350.8836112158223,
+      "observed_eight_thread_amortized_mean_hours": 143.42020424856221,
+      "ideal_linear_64_thread_mean_hours_NOT_MEASURED": 17.927525531070277,
+      "individual_program_only_wall_seconds": [
+        137.241487,
+        138.23379,
+        141.023483,
+        135.13646
+      ],
+      "program_only_common_steady_state_claimed": false,
+      "outputs": [
+        {
+          "path": "trial3-raw-worker0.jsonl",
+          "sha256": "d5544861296768d3addaba5ffbc67f4023f6fdf6255bc8c21f85fe3c8fffc5fc",
+          "rows": 16384,
+          "all_rows_equal_frozen_reference": true
+        },
+        {
+          "path": "trial3-raw-worker1.jsonl",
+          "sha256": "bdc61c2b93533f9cdbabc73e52bef4f75f1b07f1967551b5fb6057488c12a0aa",
+          "rows": 16384,
+          "all_rows_equal_frozen_reference": true
+        },
+        {
+          "path": "trial3-raw-worker2.jsonl",
+          "sha256": "805743b4e49ab02c29154e0d084eb9e97c6e0cb01eebfb13f201a373677d93b6",
+          "rows": 16384,
+          "all_rows_equal_frozen_reference": true
+        },
+        {
+          "path": "trial3-raw-worker3.jsonl",
+          "sha256": "537e8a825fead759b3ab9d75fbf89363488d723d4bbfd03b3cbf4a734c9a4de8",
+          "rows": 16384,
+          "all_rows_equal_frozen_reference": true
+        }
+      ]
+    }
+  ],
+  "median_group_seconds": {
+    "raw": 198.5196684608236,
+    "fused": 190.64700186997652
+  },
+  "ideal_linear_64_thread_mean_hours_NOT_MEASURED": {
+    "raw": 19.054916249275244,
+    "fused": 18.29925811368521
+  },
+  "user_criterion": "Approximately24hoursat64threads; previous8thread24hrestrictionwasours. Onlyanideallinearprojectionisavailablehere.",
+  "source_and_binary_changed": false,
+  "new_unique_inputs": false,
+  "nonce_selected": null,
+  "production_changed": false,
+  "additional_search_authority": false
+}

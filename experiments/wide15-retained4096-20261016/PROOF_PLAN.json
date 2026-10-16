@@ -1,0 +1,32 @@
+{
+  "status": "IDENTITY_ONLY_PROOF_ADAPTER_FROZEN",
+  "actual_source_sha256": "1d8c05eeee7b43dd694506b5efe963c771461b7e690bc62f409947b2306b7d77",
+  "actual_candidate_sha256": "1d4a9e1ed9d0a81bd16b922cfa7b2d2570792d1f91215de7f3300c9f795860b1",
+  "proof_left_sha256": "6fabd10e42900825354e33d862880a2111a2208e1bd9290bdf8304eae1dfdc7f",
+  "proof_right_sha256": "0acc8aba05cad539a65f9b156764ccfbcab025fa7ba0cfc165596871e232362a",
+  "original_log_sha256": "c4e2db5f958745361a8ae80883271d2bacbb7d8c2d75c16d5cf02510a27d36cc",
+  "translated_log_sha256": "f2bac03687ab509731fec24b21ae1375cf60241906e4057b57d4bbb6a81265dd",
+  "checker_sha256": "2e9f5ee6ed4ea1fa5b625f38298a71e05ce885778db7aed1064b23d2ee657091",
+  "fresh_ids": [
+    1468,
+    1469,
+    1470,
+    1471,
+    1472
+  ],
+  "prefix_ops": 10,
+  "all_leases_shifted": 22,
+  "semantic_premises": "Fresh IDs absent every original Op and ABI, start0 as non-input scratch; two unconditional X per fresh wire are identity with no MR/phase; exact same prefix and translation on both sides. No candidate/source changes.",
+  "atom_cap": 4096,
+  "pair_cap": 256,
+  "product_cap": 1000000,
+  "threads": 1,
+  "address_limit_GiB": 48,
+  "wall_limit_seconds": 1200,
+  "files_sha256": {
+    "prove.py": "b9da7684a0a9b11b62fb698e206e410e9c28f04d1623a2045c777deab2e8a769",
+    "ops_io.py": "fe1eda36fb54b504ffbd7d166d658f0df2ba6803d2c6ae4a64071e196d4be557",
+    "proof.sh": "f9f47b0287f07cc057ccef2f0045266282df389b640ac9cfd22ffd630a5886b7"
+  },
+  "score": null
+}

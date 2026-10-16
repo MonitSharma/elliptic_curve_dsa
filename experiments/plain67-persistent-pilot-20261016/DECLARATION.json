@@ -1,0 +1,59 @@
+{
+  "status": "PREDECLARED_DISABLED_UNCHANGED_PLAIN67_COST_ONLY_PILOT",
+  "qualification_archive_sha256": "9f3923817a8175babb68ee992bf4da5593ffa3c5c36a6c297b7ad7897b48bfee",
+  "qualification_review_sha256": "bee5e0d1a81118934520a52ae29768cb3e3d7272f36d91ff91e2cdc983bf856a",
+  "reference_prefix_path": "baseline-0.jsonl",
+  "reference_prefix_sha256": "54db817249a41619adb3b4f92bc49fc3bac62a36fc27580749931d158bdf4fb3",
+  "reference_prefix_nonces": [
+    1,
+    4096
+  ],
+  "trial_modes": [
+    "generic",
+    "direct"
+  ],
+  "workers_each_trial": 2,
+  "threads_each_worker": 2,
+  "max_worker_threads": 4,
+  "first_each_worker": 1,
+  "count_each_worker": 16384,
+  "lookahead": 4096,
+  "windows_per_startup": 4,
+  "unique_cost_inputs": 16384,
+  "already_qualified_prefix": 4096,
+  "new_predetermined_cost_only_inputs": 12288,
+  "rows_with_repetitions": 65536,
+  "pretrial_controls": {
+    "first": 4097,
+    "count": 11,
+    "lookahead": 9,
+    "modes": [
+      "generic",
+      "direct"
+    ],
+    "packed_protected_zeroMR_shadow": true,
+    "generic_full9024_q_b_phase_physicalMR_shadow": true
+  },
+  "all_rows_check": "Covered1..4096 prefix equals archived baseline. All16384 complete rows equal across both workers and both modes. New boundary partial controls also equal each other and the matching trial rows.",
+  "source_and_binary_changed": false,
+  "Q": 1234,
+  "B": 54995,
+  "no_A29_or_G_transfer": true,
+  "candidate_failed_batches": 4162,
+  "census_batches": 32768,
+  "packet_batches": 141,
+  "expected_nonces_model": 207962434.33397862,
+  "cost_scope": "Actual four-core group wall includes startup amortized over four windows per worker. Ideal linear64-thread projection multiplies measured throughput by16; it does not measure64-thread scalability.",
+  "scalar_library": "Resolved absolute libscalar_fast_batch.so with3bb23042 hash is fixed explicitly, verified before/after and captured from each initialized worker process map.",
+  "memory_GiB_each": 12,
+  "minimum_available_GiB": 124,
+  "overall_timeout_s": 900,
+  "CANDIDATE_SEED_SHADOW": true,
+  "proof_accepted": false,
+  "authoritative_rejection": false,
+  "nonce_selected": null,
+  "source_content_tuning": false,
+  "new_eligibility_census": false,
+  "production_changed": false,
+  "search_authority": false
+}
