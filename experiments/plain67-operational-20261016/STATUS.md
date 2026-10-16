@@ -61,6 +61,12 @@ touched the search code.
 
 ## When the search finishes
 
+**Automated (10:07):** a watcher in
+[plain67-final-20261016](../plain67-final-20261016/STATUS.md) runs steps 1–3
+automatically, plus a tail-invariance check, and writes `WATCH_RESULT.json`. Its
+pipeline passed a full dry run. Only step 4 (the note, and asking the user)
+remains manual.
+
 1. Read `RESULT.json`. If its status is `PASS_AWAITS_COMPLETE_LOG_AUDIT_AND_UNCHANGED_BENCHMARK`,
    run a complete JSONL audit of every lower nonce (adapt
    `product25-operational-20261016/audit-terminal.py`).

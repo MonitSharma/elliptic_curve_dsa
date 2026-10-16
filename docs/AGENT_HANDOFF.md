@@ -13,6 +13,12 @@
   4 × 14 threads, 48 h cap, expected about 18.5 h, queue mode. **Do not
   stop or restart it.** Monitor and finish it as described in
   [its STATUS](../experiments/plain67-operational-20261016/STATUS.md).
+  A watcher (`plain67-final-20261016/watch.sh`, dry-run verified) audits and
+  finalizes a pass automatically, up to the unchanged benchmark and a
+  public-record comparison. Check `plain67-final-20261016/WATCH_RESULT.json`;
+  `READY_FOR_USER_REVIEW` means: write the note and ask the user to submit.
+- Overnight evidence is committed (`e6052371`). Files over 5 MB are listed with
+  their hashes in `experiments/LARGE-FILES-MANIFEST-20261016.json`.
 - The other overnight pipelines (ALL70, ALL74, PRESEED10) remain stopped
   (`T` state). Resume them only on an explicit user request.
 
