@@ -1,0 +1,76 @@
+{
+  "label": "product95-gate-20261017-v1",
+  "batches": 32768,
+  "candidate_stream_sha256": "ba87b9ceb0691ccfe8c509539cfc38e774ee02134363c19e3541c6e942723e84",
+  "census_sha256": {
+    "candidate": "e5e69730c157f6e31655230235e1d5b7a20f60361542b5c432e37d809d6c2c5b",
+    "public_record_4b2ec52f": "254ac92aafb316944b3fbc6616aa448bd2438a1fc79f3f94fa888b612cfa0a1a",
+    "plain67_final": "426756f50980f64b0e8b0e6d2eb3e486eaba9e1d2d8987268004e910ae64b368"
+  },
+  "verdicts": {
+    "public_record_4b2ec52f": {
+      "status": "FAILURE_GATE_PASS",
+      "parent_stream_sha256": "2a522394cdf3e6a0df7784ad4db761030933c1f7ccd0ff8e641d68ec7a4dab3e",
+      "failed_batches": {
+        "parent": 4179,
+        "candidate": 4165
+      },
+      "failed_batches_per_packet": {
+        "parent": 17.982147216796875,
+        "candidate": 17.921905517578125
+      },
+      "value_shots": {
+        "parent": 3614,
+        "candidate": 3614
+      },
+      "dirty_shots_candidate": 0,
+      "newly_failing_b": 161,
+      "newly_passing_c": 175,
+      "mcnemar_one_sided_p": 0.7933925414170905,
+      "rules": {
+        "1_value_failures_not_above_parent": true,
+        "2_mcnemar_one_sided_p_at_least_0.05": true,
+        "3_failed_batches_per_packet_at_most_18": true,
+        "4_zero_dirty_shots": true
+      },
+      "paired_mean_T_saving": 113.21760272979736,
+      "saving_standard_error": 0.4425307084639942,
+      "mean_T": {
+        "parent": 761223.2873110771,
+        "candidate": 761110.0697083473
+      }
+    },
+    "plain67_final": {
+      "status": "FAILURE_GATE_PASS",
+      "parent_stream_sha256": "f2279f98d631113bf045f7d2c8f17cbc514d77a135e14234b983d4534057b78d",
+      "failed_batches": {
+        "parent": 4176,
+        "candidate": 4165
+      },
+      "failed_batches_per_packet": {
+        "parent": 17.96923828125,
+        "candidate": 17.921905517578125
+      },
+      "value_shots": {
+        "parent": 3614,
+        "candidate": 3614
+      },
+      "dirty_shots_candidate": 0,
+      "newly_failing_b": 161,
+      "newly_passing_c": 172,
+      "mcnemar_one_sided_p": 0.7445708517943039,
+      "rules": {
+        "1_value_failures_not_above_parent": true,
+        "2_mcnemar_one_sided_p_at_least_0.05": true,
+        "3_failed_batches_per_packet_at_most_18": true,
+        "4_zero_dirty_shots": true
+      },
+      "paired_mean_T_saving": 10.554931640625,
+      "saving_standard_error": 0.4428629187463048,
+      "mean_T": {
+        "parent": 761120.624639988,
+        "candidate": 761110.0697083473
+      }
+    }
+  }
+}
