@@ -1,0 +1,37 @@
+{
+  "status": "DECLARED_BEFORE_ANY_CENSUS_RUN",
+  "declared_at": "2026-10-17T07:58:00+08:00",
+  "rule": "AGENTS.md statistical failure-rate gate (16 October 2026)",
+  "candidate": {
+    "name": "PRODUCT95",
+    "description": "public product record 4b2ec52f plus the predeclared fixed 95-stage exact cache (product-to95-rank-20261016)",
+    "stream_sha256": "ba87b9ceb0691ccfe8c509539cfc38e774ee02134363c19e3541c6e942723e84",
+    "stream_source": "native generation of product95-native-20261017/candidate (must be byte-identical to the frozen external stream before the census runs)"
+  },
+  "label": "product95-gate-20261017-v1",
+  "first_batch": 0,
+  "batch_count": 32768,
+  "shots_per_batch": 64,
+  "census_binary": "/home/hclau/ecdsa_research/simd-census-v2-20261016/bin/simd_census_v2 (sha256 790e92266ea67ec54ef701b2deed76fe8d0b766b411ca9eab877f82ae2c11a66)",
+  "parents": {
+    "public_record_4b2ec52f": {
+      "stream_sha256": "2a522394cdf3e6a0df7784ad4db761030933c1f7ccd0ff8e641d68ec7a4dab3e",
+      "path": "/home/hclau/ecdsa_research/product-exact-20261015/tip/ops.bin",
+      "role": "current public product record (85d067da, 939,347,948)"
+    },
+    "plain67_final": {
+      "stream_sha256": "f2279f98d631113bf045f7d2c8f17cbc514d77a135e14234b983d4534057b78d",
+      "path": "/home/hclau/ecdsa_research/plain67-final-20261016/native-selected.ops.bin",
+      "role": "our queued PLAIN67 candidate (939,223,314); the record PRODUCT95 would beat if PLAIN67 is submitted first"
+    }
+  },
+  "criteria": [
+    "1. candidate value-failing shots <= parent value-failing shots",
+    "2. one-sided exact McNemar p = P(X >= b | X ~ Bin(b+c, 1/2)) >= 0.05, b = batches newly failing, c = newly passing",
+    "3. candidate failed batches per 9,024-shot packet, 141 x failed/32768, <= 18",
+    "4. zero candidate dirty-ancilla shots"
+  ],
+  "verdicts": "Evaluated separately against each parent on the same rows. PRODUCT95 may be submitted only against a record whose gate verdict is PASS. Both verdicts are final: no rerun with another label, more batches or another nonce.",
+  "nonce_policy": "If eligible: ascending from 1, lowest protected full 9,024-shot pass, no selection by Toffoli count; tail-invariance check on 512 batches of this label after selection.",
+  "no_packet_tuning": "The 95-stage recipe and endpoint were frozen on 16 Oct 2026 before any measurement (product-to95-rank-20261016/DECLARATION.json); nothing is changed after this declaration."
+}
