@@ -1,310 +1,217 @@
 # ECDSA Circuit Research
 
-**Smaller quantum circuits for secp256k1 point addition. Three independent goals:
-fewer logical qubits, fewer Toffolis, and a lower qubit × Toffoli product.**
+**Smaller quantum circuits for secp256k1 elliptic-curve point addition, built
+and verified for the public [ECDSA.fail](https://ecdsa.fail/) resource
+challenge.**
 
-**Current priority — 15 October 2026 (night):** improve **Q × T first,
-Toffolis second, qubits third**, through long unattended runs driven by
-[docs/AUTONOMOUS_PROMPT.md](docs/AUTONOMOUS_PROMPT.md). Each objective stays
-independent, and existing evidence, including the Q692 width result, is preserved.
+The challenge scores a reversible circuit that adds a classical point to a
+quantum point on Bitcoin's curve, the core subroutine of Shor's algorithm for
+elliptic curves. Each entry is scored on three independent resource records:
+**fewest logical qubits**, **fewest executed Toffoli gates**, and **lowest
+qubit × Toffoli product**. This repository holds our circuits, the tools we
+built to verify them, and a dated, reproducible record of every experiment,
+including failed ones.
 
-## Where we stand
+## Results at a glance
 
-**16 October 2026, 09:19 Singapore — product final verification failed its
-failure-rate gate.** PRODUCT25 passes the unchanged 9,024-shot benchmark at
-Q1234/T761171 (product939285014), but the predeclared final fresh comparison
-finds4,139 failing batches versus the parent's4,118 across2,097,152 shots each:
-17.8100 versus17.7197 per9,024-shot packet. Both are below18, but our standard
-also requires no worse than the parent. An independent complete raw recount
-agrees. This candidate is **not eligible for submission under that standard**;
-there is no resampling or new product-record claim. Other research remains
-paused, and nothing was submitted during verification.
-[Final verification evidence](experiments/product25-final-20261016/VERIFICATION.md).
+| Record | Public best (16 Oct 2026) | Our standing |
+|---|---:|---|
+| **Fewest executed Toffolis** | **753,721** at 1,468 qubits | **Ours**: officially scored submission [`03be8e19`](https://api.ecdsa.fail/api/submissions/03be8e19-ab3b-45c7-9c62-9d78970c4d95) |
+| Lowest qubit × Toffoli product | 939,347,948 (761,222 × 1,234) | Candidate in final search; see [current work](#current-work) |
+| Fewest logical qubits | 676 | A complete local pass at 692 qubits (not submitted) |
 
-**16 October 2026, 09:40 Singapore — next product candidate searching.** We
-did not submit Product25. For future runs only, the failure-rate gate is now a
-paired statistical test (`AGENTS.md`). PLAIN67 (the record circuit plus an
-exact 67-stage cache, Q1234, −102 T per shot in paired fresh tests) passes it
-on its pre-declared cohort. Its lowest-pass nonce search has been running
-since 09:36, with about 21 h expected. There is no new score yet.
-[PLAIN67 status](experiments/plain67-operational-20261016/STATUS.md).
+![Public Pareto frontier with our officially scored Toffoli record](docs/figures/frontier.png)
 
-**16 October 2026, 06:08 Singapore — official Toffoli record: 753,721
-Toffolis at Q1468**, 50 below our previous public Toffoli record. The unchanged
-benchmark passes all 9,024 shots with zero value, phase or ancilla failures.
-Nonce 644 is the lowest pass from 1 (731 screened). The final paired census
-passes at 5.77 failing batches per packet versus the parent's 5.80, across
-1,048,576 fresh shots each. After a fresh unchanged benchmark reproduced the
-same score and stream, it was **submitted at 05:19 Singapore** as
-[`03be8e19`](https://api.ecdsa.fail/api/submissions/03be8e19-ab3b-45c7-9c62-9d78970c4d95).
-Official evaluation confirms 753,721/Q1468, source `b5adb653`; rejection is
-solely because its product does not improve. It is the independent Toffoli minimum.
-[Upload receipt and fresh verification](experiments/wide15-record-20261016/submission-20261016/STATUS.md).
-[Benchmark and source evidence](experiments/wide15-record-20261016/STATUS.md).
-The earlier753,745/Q1464 complete pass is preserved as a lower-width alternative;
-it no longer improves the current independent Toffoli minimum.
+The gold step is the officially scored public frontier; leftward means fewer
+qubits, downward fewer Toffolis (log scale). The cyan star is our official
+Toffoli record. The cyan diamond is a separate 692-qubit circuit that passed
+the full local benchmark. Only official scores and complete local benchmark
+passes appear in this figure.
 
-**Historical result, 15 October 2026, 19:19 Singapore — our previous publicly
-scored Toffoli minimum: 753,771 at 1,464 qubits.** The official evaluation of
-[`3f32acd2`](https://api.ecdsa.fail/api/submissions/3f32acd2-71bf-4cc7-bae6-7407be97fe3b)
-matches our complete local benchmark and is 7,385 Toffolis below the previous
-minimum of 761,156 (−0.97%). The service marks it **rejected solely because
-its product did not improve the current best**; this is an officially scored
-Toffoli minimum, with no product promotion. Official source: `5a7c3902`.
+### Our Toffoli record
 
-Its Q × T is **1,103,520,744**, 17.48% worse than the product leader. Fresh-input
-tests still find **5.47 failed batches per 9,024-shot packet**, compared with
-17.73 for the prior B3 Toffoli leader. We disclose nonce **375** (the lowest
-passing nonce from 1; 593 screened) and retain the arithmetic limitations.
-The complete scored packet passes; the circuit is not correct on every input.
-[Official result, screen and census](experiments/nonce-screen-20261015/STATUS.md)
+Our circuit lowered the public minimum from **761,156** to **753,771** executed
+Toffolis (submission `3f32acd2`, 15 Oct), then to **753,721** (`03be8e19`,
+16 Oct), about 1% below the previous state of the art. It deliberately uses
+more qubits (1,468, versus 1,235 for the prior leader). This record rewards
+fewer gates at any width, so its qubit × Toffoli product is not competitive.
 
-**Earlier on 15 October 2026 — one new complete local benchmark result: 692 logical qubits.**
-The original bank-swap v2 circuit passed all **9,024 shots**, with zero value,
-phase or ancilla failures. The refreshed public minimum is now **677 qubits**;
-our preserved local result is no longer below it.
-It is **not an official submission**.
-Its width submission work remains deferred; the newer Toffoli candidate above is separate.
+![Fewer Toffolis at higher width: a different trade-off from the best product](docs/figures/record-tradeoffs.png)
 
-The newer Q692 version that fits the normal build is a **different circuit**:
-its full benchmark failed correctness. That failure does not invalidate the
-preserved original pass, and the original pass does not qualify the new version.
-[Current results and submission status](docs/results-status.md) ·
-[Original passing result](experiments/followup-20261015/bankswap-terminal/RESULT.md) ·
-[Independent verification](experiments/verification-20261015/independent-verification.json)
+How it was built, in short:
 
-![Public Pareto frontier with our official Toffoli minimum and local Q692 pass](docs/figures/frontier.png)
+- A wider workspace. A stricter allocator returns every freshly allocated wire,
+  which lets the modular-inversion walk run with more room. That removes about
+  7,400 expected Toffolis.
+- Exact repairs to several approximate arithmetic steps inherited from the
+  public baseline, plus a smoothed walk-width schedule that removes a cliff in
+  the failure rate.
+- Exact gate-level caching. The 753,721 version adds 15 verified cache stages
+  that reuse repeated AND computations, for 4 extra qubits and about 42 fewer
+  Toffolis per shot.
 
-The gold step is the **officially scored public frontier**, including our
-**cyan-star Toffoli entry**. The cyan diamond is our **separate local Q692 pass**.
-Leftward means fewer qubits; downward means fewer
-Toffolis. The vertical axis is logarithmic. The original Q692 circuit saves width
-at a substantial gate-cost increase. Failed and component-only experiments are
-excluded from these performance figures.
+Details, evidence and hashes:
+[753,771 entry](experiments/nonce-screen-20261015/STATUS.md) ·
+[753,721 entry](experiments/wide15-record-20261016/STATUS.md).
 
-## Three records, not one
+## How the benchmark works, and the standard we hold ourselves to
 
-| Objective | Public record | Our result | Next strict target |
-|---|---:|---|---:|
-| **Minimum logical qubits** | 677 | **692 — complete local pass**, not submitted | Q ≤ 676 |
-| **Minimum executed Toffolis** | **753,721 at Q1468 — ours** | **Officially scored**; score-only product rejection | T ≤ 753,720 |
-| **Minimum Q × T** | 939,347,948 at Q1234/T761,222 | No new qualified record | Q × T ≤ 939,347,947 |
+The official evaluator simulates the circuit on **9,024 test inputs derived
+from a hash of the circuit itself** and requires every one to produce the
+right point, a clean workspace and no stray phase. Change anything, even an
+identity gate, and the test set changes.
 
-These remain three distinct records, with **product first, Toffolis second,
-qubits third** in our research. The challenge
-promotes the scalar product, while its Pareto view also recognizes the low-qubit
-and low-Toffoli extremes. A Toffoli record can use more qubits and have a worse
-product. These are separate achievements.
+Every current record circuit, ours and others', uses approximate arithmetic
+that fails on a small fraction of inputs. They pass the scored test because
+an identity-only "nonce" at the end of the circuit was searched until the
+derived test set happened to pass. The community caps this at 18 expected
+failing 64-shot batches per 9,024-shot test set.
 
-![Why the low-Toffoli record and best product are different](docs/figures/record-tradeoffs.png)
+We disclose this openly and hold our entries to a stricter, pre-declared
+standard ([AGENTS.md](AGENTS.md)):
 
-The next Toffoli target is **T ≤ 753,720**, at any allowed width. At our Q1468,
-the strict product threshold is **T ≤ 639,882**. At Q1235 it is **T ≤ 760,605**;
-at Q1234 it is **T ≤ 761,221**. These are independent objectives, using rounded
-mean executed Toffolis rather than emitted gates.
+1. **Freeze first.** The circuit is finished before any nonce is searched.
+   Nothing about the circuit is tuned to a test set, and no gates are removed
+   in ways that trade correctness for score.
+2. **Measure the failure rate on fresh inputs.** Run at least 2 million
+   independent shots, paired with the record being beaten on identical
+   inputs. The candidate must have no more wrong-answer failures, must not be
+   statistically worse (one-sided exact McNemar test, 5% level), must stay at
+   or below 18 failing batches per test set, and must leave no dirty
+   workspace. The test plan is fixed in writing before it runs, and a failed
+   check is final: no reruns.
+3. **Search transparently.** Try nonces in ascending order from 1, take the
+   lowest one that passes, and never pick by score.
+4. **Publish everything.** The nonce, the number screened, the fresh-input
+   census, and the unchanged official benchmark run on the final source.
 
-Snapshot: **1,573 public submissions · 1,232 eligible scored records ·
-52 public Pareto points**, analyzed 16 October 2026 at 06:08 Singapore.
-The current width minimum is Q677 (jackylee0424, `18912d63`).
-[Full frontier and provenance](docs/frontier-results.md) ·
-[Machine-readable records](docs/data/latest-leaderboard.json) ·
-[Public API](https://api.ecdsa.fail/api/benchmarks/1ffb695a-309b-46b6-a728-2f97d8c7be74/submissions)
+For example, our 753,721 entry fails 5.77 batches per test set on fresh
+inputs, about a third of the 17.7 measured for the baseline it improved on.
+We also reject our own near-misses: a product candidate that beat the record
+by 62,934 on the official benchmark was **not submitted**, because its
+pre-declared failure-rate check came out marginally worse than the record's
+([verification](experiments/product25-final-20261016/VERIFICATION.md)).
+
+## Current work
+
+- **Product record (in progress).** The leading circuit gets an exact,
+  universally certified 67-stage cache. It keeps 1,234 qubits and saves 102 ±
+  0.4 Toffolis per shot in paired fresh tests, which would give about 939.22
+  million against the record's 939.35 million. It passes the failure-rate
+  check (identical wrong-answer failures; McNemar p = 0.65). An ascending
+  nonce search with a certified prefilter is running, and a dry-run-verified
+  pipeline will audit and benchmark any pass automatically. **There is no
+  score until the unchanged benchmark confirms it.**
+  [Status](experiments/plain67-operational-20261016/STATUS.md) ·
+  [finalization](experiments/plain67-final-20261016/STATUS.md).
+- **Toffoli record.** Further exact savings on our wide circuit; the next
+  target is 753,720 or fewer.
+- **Qubit record.** The public frontier is at 676 qubits, built on a different
+  ring-based design than our 692-qubit circuit.
+
+## What we have learned
+
+- **Where circuits fail.** Gate-inert tracing places most wrong outputs in the
+  bounded-width rails of the modular-inversion walk ("leapfrog" GCD). The rest
+  come from truncated folds and merged squaring windows. Widening rails helps
+  only up to about 2 bits.
+  [Census](experiments/failure-census-20261015/STATUS.md) ·
+  [trace](experiments/trace-value-20261015/STATUS.md) ·
+  [walk widening](experiments/widen-walk-20261015/STATUS.md)
+- **Search cost grows exponentially with the failure rate.** At the product
+  record's 17.7 failing batches per test set, an exact gate-level screener
+  would need about 58 days on 64 threads. A certified classical prefilter,
+  which rejects nonces using proven wrong output bits, makes it about a day.
+  This is why lowering failure rates matters as much as saving gates.
+  [Measurements and figure](experiments/product-tip-20261015/STATUS.md)
+- **Width and gates trade off sharply.** Our 692-qubit circuit passes the full
+  benchmark but needs about 1.48 billion Toffolis.
+  [Result](experiments/followup-20261015/bankswap-terminal/RESULT.md)
+
+The complete, dated history, including every negative result, is in
+[docs/research-plan.md](docs/research-plan.md),
+[docs/results-status.md](docs/results-status.md) and
+[docs/experiment-outcomes.md](docs/experiment-outcomes.md).
 
 ## Complete passing results
 
-Only complete passing circuit evaluations appear in this table.
+Only circuits that passed the complete 9,024-shot benchmark appear here.
 
-| Circuit | Peak Q | Rounded mean executed T | Q × T | Provenance |
+| Circuit | Qubits | Rounded mean executed Toffolis | Q × T | Status |
 |---|---:|---:|---:|---|
-| **Our fifteen-stage cache, nonce644** | **1,468** | **753,721** | **1,106,462,428** | [Unchanged9,024-shot benchmark](experiments/wide15-record-20261016/STATUS.md); officially scored as`03be8e19`, source `b5adb653`, stream`1d8c05ee`; final fresh census5.766 failures/packet |
-| **Our four-stage cache, nonce92** | **1,464** | **753,745** | **1,103,482,680** | [Unchanged9,024-shot benchmark](experiments/wide-record-20261015/STATUS.md); complete local alternative, stream`ba9bd284`; final fresh census5.800 failures/packet |
-| **Our wide smooth Leapfrog, nonce 375** | **1,464** | **753,771** | **1,103,520,744** | [Official evaluation `3f32acd2`](https://api.ecdsa.fail/api/submissions/3f32acd2-71bf-4cc7-bae6-7407be97fe3b), source `5a7c3902`; also complete local pass, stream `01aad987`; census 5.47 failed batches/packet |
-| **Our original bank-swap v2** | **692** | **1,481,382,858** | **1,025,116,937,736** | [9,024-shot local pass](experiments/followup-20261015/bankswap-terminal/RESULT.md); streamed generation, unchanged protected evaluator |
-| Public C5 reproduction | 1,234 | 761,658 | 939,885,972 | [Complete passing reproduction](docs/data/server-verification.json), source `c5bb1ec8` |
-| Public B3 reproduction | 1,235 | 761,156 | 940,027,660 | [Complete passing reproduction](experiments/overnight-20261014/coordinator/b3-reference-full-receipt.json), source `b3c9fdd6` |
+| Wide circuit + 15-stage cache | 1,468 | **753,721** | 1,106,462,428 | Official [`03be8e19`](https://api.ecdsa.fail/api/submissions/03be8e19-ab3b-45c7-9c62-9d78970c4d95) (current Toffoli record) |
+| Wide circuit + 4-stage cache | 1,464 | 753,745 | 1,103,482,680 | Local pass, [evidence](experiments/wide-record-20261015/STATUS.md) |
+| Wide smoothed-walk circuit | 1,464 | 753,771 | 1,103,520,744 | Official [`3f32acd2`](https://api.ecdsa.fail/api/submissions/3f32acd2-71bf-4cc7-bae6-7407be97fe3b) (previous record) |
+| Product25 (not submitted) | 1,234 | 761,171 | 939,285,014 | Local pass; failed its own failure-rate check, [verification](experiments/product25-final-20261016/VERIFICATION.md) |
+| Bank-swap circuit | 692 | 1,481,382,858 | 1,025,116,937,736 | Local pass, [evidence](experiments/followup-20261015/bankswap-terminal/RESULT.md) |
+| Public B3 (reproduction) | 1,235 | 761,156 | 940,027,660 | Others' circuit, [receipt](experiments/overnight-20261014/coordinator/b3-reference-full-receipt.json) |
+| Public C5 (reproduction) | 1,234 | 761,658 | 939,885,972 | Others' circuit, [receipt](docs/data/server-verification.json) |
 
-**The latter two reproduce other contributors' circuits; they are not our own
-record improvements.** Each passed its complete benchmark packet. Independent
-inputs also expose inherited arithmetic and phase failures in those baselines.
-A finite passing benchmark is not a proof for every valid input.
-[Counterexamples](experiments/overnight-20261014/product/b3-paired-results.md)
+A passing 9,024-shot benchmark is not a proof of correctness on every input;
+fresh-input failure rates are reported with each entry.
 
-## Why the low-Toffoli records do not pass fresh tests
-
-The benchmark derives its 9,024 test inputs from a hash of the circuit, so any
-change gets a fresh test set. On **262,144 independent inputs**, the former B3
-Toffoli leader has only about a **2–6×10⁻⁹ chance of passing a fresh test set**
-(two independent censuses),
-and the C5 product baseline about 1.5×10⁻⁸. B3's source pins a ground
-`TAIL_NONCE`; its walk-width table states a deliberate drop budget of
-0.00077 per walk; its recipe comments budget about 19 expected failed batches
-per test set. These baselines use searched identity-tail nonces. The inherited
-PR 419 contract caps the failure rate at 18 batches per
-9,024 shots (the "PR 419" contract). **Since 15 October we follow a
-disclosed-failure-rate standard.** We screen nonces only on frozen circuits whose
-fresh-input failure rate is at or below that of the record they beat, and we
-publish the nonce, the census and the number of nonces screened. Lowering the
-failure rate remains valuable, because it makes the search cheap and the result
-more honest.
-
-Our officially scored circuit's fresh-pass probability is about **0.4%**; the
-passing packet was selected under that disclosed policy. The independent census
-and structured counterexamples remain relevant after official scoring.
-Diagnostic count/failure plots stay in the experiment reports, separate from
-the scored performance figures above.
-[Census](experiments/failure-census-20261015/STATUS.md) ·
-[root-cause trace](experiments/trace-value-20261015/STATUS.md) ·
-[walk widening](experiments/widen-walk-20261015/STATUS.md)
-
-## What the recent experiments established
-
-- **Correctness diagnosis:** exact, gate-inert tracing localizes the saved
-  failures outside the walk-rail events to payload-fold truncations and square
-  merged windows. The previously unexplained floor now has known sources.
-  Uniform precision widening is expensive; a selected one-bit product repair
-  fails its fresh paired failure gate and triggers no nonce search. Cheap
-  repair remains unresolved. Diagnostic counts and failed variants stay in
-  the research reports.
-  [Census](experiments/failure-census-20261015/STATUS.md) ·
-  [trace](experiments/trace-value-20261015/STATUS.md) ·
-  [widening](experiments/widen-walk-20261015/STATUS.md) ·
-  [guard sweep](experiments/guard-sweep-20261015/STATUS.md) ·
-  [completed localization](experiments/failure-floor-20261015/STATUS.md) ·
-  [current-source repair](experiments/precision-repair-20261016/STATUS.md).
-- **Width:** the original Q692 pass is preserved with its exact patch,
-  stream hash, evaluator hash and score. Ordinary submission generation and
-  arithmetic limits remain unresolved for that original version.
-- **Submission engineering:** a later Q692 version builds within the tested
-  memory budget, but its complete benchmark reports three value failures,
-  two phase-failure batches and three ancilla-failure batches. Diagnosis is
-  continuing on the same failed inputs.
-- **Toffoli reduction:** the 753,721/Q1468 complete pass is now officially scored;
-  the 753,745/Q1464 alternative is preserved. Product25 has an affordable
-  certified search running; product67 has native, fresh, universal and disabled
-  runtime qualification. Neither has a complete product benchmark result. Their
-  diagnostic savings stay in the [current research report](experiments/product-exact-20261015/STATUS.md);
-  the [older cache study](experiments/cache-retention-20261015/STATUS.md) uses a
-  different baseline and does not establish the saving on our public source.
-- **Arithmetic repair:** the tick-104 borrow repair now integrates on B3 and
-  fixes the known independent input's value and phase. Its native prototype
-  passes 256 fixed independent inputs; other packet and structured failures
-  remain. [Repair, local proof and limits](experiments/arithmetic-repair-20261015/REPORT.md).
-- **Rail diagnosis:** fourteen of sixteen packet failures now have exact
-  forward-rail counterexamples. A widened primitive passes 43,680 exhaustive
-  signed cases, but repairing tick 109 exposes another overflow at tick 110;
-  the complete candidate remains incorrect. [New evidence](experiments/rail-repair-20261015/REPORT.md).
-- **Historical exact-only search cost on public tip `4b2ec52f`:** the
-  record circuit fails **17.69 batches per packet** on fresh inputs, and its
-  fresh mean is 761,221.70 T, against a strict threshold below 761,221.5.
-  Packet means vary by about 6 T. With our exact screener, a lowest-pass nonce
-  search needs about 1.6×10⁸ nonces, about **58 days on 64 threads**. The
-  width-free cache saves only **2.2 ± 1.2 T** on the tip. The product record
-  was blocked under that exact-only cost model. The new certified prefilter
-  gives a measured 19.609-hour mean projection at 48 threads on product25; this
-  is an expectation, not a completion guarantee. The search is now active.
-  [Current measured search](experiments/product25-operational-20261016/STATUS.md) ·
-  [New mask-cost figure and assumptions](experiments/search-cost-mask-20261016/STATUS.md).
-  [Measurements and search-cost figure](experiments/product-tip-20261015/STATUS.md).
-- **Earlier product cycle:** no qualified improvement. Exact savings and
-  unsuccessful width searches are preserved.
-
-Detailed counts, test domains and failures:
-[current results](docs/results-status.md) ·
-[Toffoli experiments](experiments/toffoli-readiness-20261015/REPORT.md) ·
-[product experiments](experiments/product-focus-20261015/REPORT.md) ·
-[experiment archive](docs/experiment-outcomes.md).
-
-## What we are building
-
-The circuit performs **`P → P + A`** on secp256k1, with a quantum point `P`
-and a classically supplied point `A`. It must compute the right coordinates,
-clean temporary storage and preserve quantum phase. Correct classical output
-alone is insufficient.
-
-This is a building block of quantum elliptic-curve algorithms. We design and
-simulate circuits on classical computers; this repository does not implement
-a complete private-key recovery system.
-
-**Q** is peak logical storage, not circuit depth or physical qubits.
-**T** is rounded mean *executed* Toffolis, including conditional execution.
-It is not the number of Toffolis written into the generated stream.
-
-## Next work
-
-1. **Finish a product record first.** The frozen product25 search is active.
-   Preserve its source, ascending nonce ledger and disclosed fresh census;
-   any pass must reproduce the unchanged full benchmark. Product67 is the
-   stronger qualified alternative, with diagnostic savings documented in the
-   [research report](experiments/product-exact-20261015/STATUS.md).
-2. **Improve the official T753,721 record** (`03be8e19`, Q1468), aiming toward
-   roughly 753,670. Extra qubits are acceptable for this independent objective.
-   Keep failed fresh gates separate; do not resample them or count source
-   proxies as complete results.
-3. **Reduce failures cheaply on the current product source.** Attribute the
-   remaining current 4b failures, qualify complete source-defined precision
-   repairs, and prove fresh arithmetic-specific filters before combining them
-   with exact caches. Earlier B3 witnesses are historical evidence.
-4. Gate every frozen candidate with its predeclared fresh census and rate cap.
-   Publish nonce, census and number screened. This run remains queue; separate
-   user-authorized submissions are recorded explicitly.
-5. **Width record:** the public minimum is Q677 (`d9d5e991`); the next target
-   is Q676. Preserve the Q692 evidence and all failed experiments. Width is the
-   third research priority, independent of the product and Toffoli records.
-
-Only `src/point_add/` may change in a contestant submission. We preserve the
-harness, scorer, simulator, curve reference, dependencies and toolchain. We
-never tune circuit content to a packet; identity-tail nonces follow the
-disclosed-failure-rate standard in `AGENTS.md`.
-**Picking this up as an AI agent?** Start with
-[docs/AGENT_HANDOFF.md](docs/AGENT_HANDOFF.md).
-[Research plan](docs/research-plan.md) · [Server workflow](docs/SERVER_HANDOFF.md)
-
-## Reproduce and explore
-
-The figures are static PNGs for reliable GitHub rendering, with downloadable
-[frontier SVG](docs/figures/frontier.svg) and
-[record comparison SVG](docs/figures/record-tradeoffs.svg).
-Their green-and-gold presentation is inspired by the challenge; all points use
-this repository's dated evidence.
-
-```bash
-git submodule update --init --jobs 3
-python -m pip install matplotlib
-python scripts/test_leaderboard.py
-python scripts/test_frontier_plot.py
-python scripts/frontier_plot.py                         # offline, tracked data
-python scripts/analyze-leaderboard.py --refresh --plot  # refresh public records
-```
-
-Use an isolated Python environment. Circuit builds use pinned Rust 1.93.0 and
-locked dependencies. [Local setup](LOCAL_SETUP.md) documents the environment.
-Research runs on `smu_server` under `/home/hclau/ecdsa_research`, with resource
-preflights, dedicated logs and saved process IDs.
+## Repository layout
 
 | Location | Contents |
 |---|---|
-| `agents/qubits/`, `agents/toffoli/`, `agents/product/` | Separate public source tracks and working research |
-| `experiments/` | Exact patches, proofs, tests, failures and receipts |
-| `docs/data/`, `docs/figures/` | Dated evidence, public records and figures |
-| `scripts/` | Reproduction, analysis, plotting and validation tools |
-| `research-output/` | Ignored raw snapshots and large artifacts |
+| `experiments/<name>-<date>/` | One folder per experiment: `STATUS.md` (result first), scripts, patches, hashes, logs and receipts |
+| `docs/` | Results, research plan, public frontier snapshots, figures and the agent handoff guide |
+| `scripts/` | Leaderboard analysis, plotting, audits and helpers |
+| `agents/{toffoli,product,qubits}` | Git submodules pinned to public challenge commits that served as baselines |
+| `src/`, `Cargo.*`, `benchmark.sh` | The challenge harness (simulator, evaluator, benchmark script) used for local scoring |
 
-A root Git commit does not preserve uncommitted submodule changes. Reapplicable
-experiment patches are retained separately. Older evidence gaps are documented
-in the [workspace recovery audit](docs/data/workspace-audit.json).
+Submissions change only `src/point_add/` inside a challenge checkout.
+Experiment archives larger than 5 MB are not in Git; they are listed with their
+SHA-256 in [experiments/LARGE-FILES-MANIFEST-20261016.json](experiments/LARGE-FILES-MANIFEST-20261016.json).
 
-## Foundations and attribution
+## Reproduce
 
-This project builds on the [ECDSA.fail challenge](https://ecdsa.fail/),
-its [public source](https://github.com/Layr-Labs/ecdsafail-challenge), and the
-circuits contributed by other researchers. Public reproductions are credited
-to their source revisions; our modifications have separate patches and receipts.
+```bash
+git clone --recurse-submodules https://github.com/MonitSharma/elliptic_curve_dsa.git
+cd elliptic_curve_dsa
+python -m pip install matplotlib
+python scripts/test_leaderboard.py
+python scripts/test_frontier_plot.py
+python scripts/analyze-leaderboard.py --refresh --plot   # refresh public records and figures
+```
 
-Relevant methods include
+To re-score a circuit, apply its experiment's `src/point_add` patch to the
+named public challenge commit and run the challenge's unchanged
+`./benchmark.sh` (Rust 1.93.0, locked dependencies). Each experiment's
+`STATUS.md` names the base commit, patch, expected stream hash and score.
+Heavy runs used a 144-core Linux server; [LOCAL_SETUP.md](LOCAL_SETUP.md)
+covers a workstation setup.
+
+Much of this research was carried out by AI coding agents (Claude and GPT
+models) under human direction. [docs/AGENT_HANDOFF.md](docs/AGENT_HANDOFF.md)
+and [docs/AUTONOMOUS_PROMPT.md](docs/AUTONOMOUS_PROMPT.md) document how they
+are run and how a new agent can continue the work.
+
+## Responsible use
+
+This is resource-estimation research on a public benchmark. Everything here
+runs on classical simulators of small, fixed circuits. Nothing in this
+repository can recover a private key, and none of it threatens any real
+cryptographic system with today's hardware. Results like these help the
+community judge how far away such attacks are and plan the move to
+post-quantum cryptography. The repository contains no credentials, and none
+are needed to reproduce the results.
+
+## Attribution
+
+This work builds on the [ECDSA.fail challenge](https://ecdsa.fail/) and its
+[public source](https://github.com/Layr-Labs/ecdsafail-challenge). It also
+builds on the circuits other participants published there, especially the
+Leapfrog line by jackylee0424, krishparadox and kaankolcu, credited by
+revision in each experiment.
+
+The simulator and curve files are reused under CC BY 4.0 from
+[zkp_ecc](https://github.com/tanujkhattar/zkp_ecc); see [NOTICE](NOTICE) and
+the [challenge terms](https://ecdsa.fail/terms).
+
+Related methods:
 [optimized point-addition circuits](https://arxiv.org/html/2606.02235v1),
 [record-and-replay arithmetic](https://arxiv.org/html/2609.28882v1),
 [space-efficient point addition](https://arxiv.org/html/2607.13816v2),
-[temporary logical ANDs](https://arxiv.org/abs/1709.06648), and
+[temporary logical ANDs](https://arxiv.org/abs/1709.06648),
 [controlled add/subtract multiplication](https://arxiv.org/html/2410.00899v1).
-See [NOTICE](NOTICE) and the [challenge terms](https://ecdsa.fail/terms) for
-licensing and attribution.

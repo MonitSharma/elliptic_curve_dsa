@@ -1,28 +1,28 @@
 {
-  "analyzed_at": "2026-10-16T08:54:09.422633+08:00",
+  "analyzed_at": "2026-10-16T15:22:40.989522+08:00",
   "source": "https://api.ecdsa.fail/api/benchmarks/1ffb695a-309b-46b6-a728-2f97d8c7be74/submissions",
-  "record_count": 1574,
+  "record_count": 1576,
   "status_counts": {
     "accepted": 631,
-    "rejected": 711,
-    "failed": 229,
+    "rejected": 712,
+    "failed": 230,
     "cancelled": 3
   },
-  "eligible_count": 1232,
+  "eligible_count": 1233,
   "benchmark_mode": "scalar",
   "closes_at": "2026-12-31T23:59:59.000Z",
   "eligibility": "Accepted or score-only rejected; positive integer official metrics; score equals Q*T.",
   "leaders": {
     "qubits": {
-      "id": "18912d63-9fc8-470d-91af-60a136629ce0",
+      "id": "2c8be618-cef8-48c9-bd05-e7286e4cab85",
       "status": "rejected",
-      "officialScore": 643566912171,
+      "officialScore": 363251435820,
       "officialMetrics": {
-        "qubits": 677,
-        "toffoli": 950615823
+        "qubits": 676,
+        "toffoli": 537354195
       },
-      "createdAt": "2026-10-15T20:25:53.728Z",
-      "submissionCommitSha": "d9d5e99119f0ef7702f926ff3c70a9d1efd93903",
+      "createdAt": "2026-10-16T03:23:49.087Z",
+      "submissionCommitSha": "f65f8b1cdefbcd6a244d36f02d64d269efcede6f",
       "solverUsername": "jackylee0424",
       "rejectionReason": "score did not improve current best"
     },
@@ -67,11 +67,11 @@
     "rejectionReason": "score did not improve current best"
   },
   "targets": {
-    "maximum_qubits": 676,
+    "maximum_qubits": 675,
     "maximum_toffoli": 753720,
     "maximum_product": 939347947,
     "maximum_toffoli_for_product": {
-      "677": 1387515,
+      "676": 1389567,
       "692": 1357439,
       "693": 1355480,
       "877": 1071092,
@@ -86,55 +86,16 @@
   },
   "frontier": [
     {
-      "id": "18912d63-9fc8-470d-91af-60a136629ce0",
+      "id": "2c8be618-cef8-48c9-bd05-e7286e4cab85",
       "status": "rejected",
-      "officialScore": 643566912171,
+      "officialScore": 363251435820,
       "officialMetrics": {
-        "qubits": 677,
-        "toffoli": 950615823
+        "qubits": 676,
+        "toffoli": 537354195
       },
-      "createdAt": "2026-10-15T20:25:53.728Z",
-      "submissionCommitSha": "d9d5e99119f0ef7702f926ff3c70a9d1efd93903",
+      "createdAt": "2026-10-16T03:23:49.087Z",
+      "submissionCommitSha": "f65f8b1cdefbcd6a244d36f02d64d269efcede6f",
       "solverUsername": "jackylee0424",
-      "rejectionReason": "score did not improve current best"
-    },
-    {
-      "id": "b83078b5-a62b-4c56-afe1-f982d55b76be",
-      "status": "rejected",
-      "officialScore": 556764030708,
-      "officialMetrics": {
-        "qubits": 678,
-        "toffoli": 821185886
-      },
-      "createdAt": "2026-10-15T15:37:10.557Z",
-      "submissionCommitSha": "33fe7f328b3c668c1537fcfcaf647e396b2bf563",
-      "solverUsername": "jackylee0424",
-      "rejectionReason": "score did not improve current best"
-    },
-    {
-      "id": "ebf0b736-3264-4d35-9159-803349b6d6ac",
-      "status": "rejected",
-      "officialScore": 455202159200,
-      "officialMetrics": {
-        "qubits": 680,
-        "toffoli": 669414940
-      },
-      "createdAt": "2026-10-15T07:58:13.450Z",
-      "submissionCommitSha": "eec4ffc81e16257f5f15ddeeccc19367a79be996",
-      "solverUsername": "BitWonka",
-      "rejectionReason": "score did not improve current best"
-    },
-    {
-      "id": "2c974054-85cf-4a0a-83b7-54ef12e1e579",
-      "status": "rejected",
-      "officialScore": 439950432702,
-      "officialMetrics": {
-        "qubits": 682,
-        "toffoli": 645088611
-      },
-      "createdAt": "2026-10-15T02:44:55.282Z",
-      "submissionCommitSha": "ad14964216c40c4e4d9217297243228596010b1e",
-      "solverUsername": "BitWonka",
       "rejectionReason": "score did not improve current best"
     },
     {
@@ -763,7 +724,7 @@
     }
   ],
   "input_sha256": {
-    "submissions.json": "bf8fd057edc22147a1ecaf36c4d21063692f7b2f79b7fa30d4b311166a495474",
-    "benchmark.json": "3f030dc0deb95fcf0a134f34cc3a8080fcdf15ea14cd39cdb7616ce861aa2ac0"
+    "submissions.json": "a292a31b315e610411fc20265192749b51ac9018c8bcd4e76929d4baefc18a16",
+    "benchmark.json": "977fd702959c82a3002845d55c566568b204543226d117ac3eb15600110d1fc1"
   }
 }
