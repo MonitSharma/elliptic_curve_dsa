@@ -1,0 +1,51 @@
+{
+  "status": "STOPPED_NO_CERTIFIED_PASS",
+  "best_full_protected_pass": null,
+  "lowest_prefix_window_completion": false,
+  "requires_complete_jsonl_row_audit": true,
+  "worker_exit_codes": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "progress": [
+    {
+      "count": 4096,
+      "cumulative_worker_rows": 1376256,
+      "first": 5488641,
+      "lane": 0,
+      "last": 5492736,
+      "status": "COMPLETE_WINDOW_ALL_ROWS_RECORDED"
+    },
+    {
+      "count": 4096,
+      "cumulative_worker_rows": 1376256,
+      "first": 5492737,
+      "lane": 1,
+      "last": 5496832,
+      "status": "COMPLETE_WINDOW_ALL_ROWS_RECORDED"
+    },
+    {
+      "count": 4096,
+      "cumulative_worker_rows": 1392640,
+      "first": 5562369,
+      "lane": 2,
+      "last": 5566464,
+      "status": "COMPLETE_WINDOW_ALL_ROWS_RECORDED"
+    },
+    {
+      "count": 4096,
+      "cumulative_worker_rows": 1384448,
+      "first": 5533697,
+      "lane": 3,
+      "last": 5537792,
+      "status": "COMPLETE_WINDOW_ALL_ROWS_RECORDED"
+    }
+  ],
+  "screened_unique_completed_rows": 5529600,
+  "wall_seconds": 1891.668284451589,
+  "deadline_stop": false,
+  "score": null,
+  "submission_mode": "queue"
+}

@@ -1,4 +1,14 @@
-# PRODUCT95 product candidate: gate PASS, ascending search running
+# PRODUCT95 product candidate: gate PASS; search stopped by the user (no pass)
+
+**17 Oct 2026, 08:51 Singapore.** At the user's request the ascending search was
+stopped cleanly after 5,529,600 nonces (0.53 h,
+about 2.5% of the 211,060,610 expected): `STOPPED_NO_CERTIFIED_PASS`, all worker rows
+kept on the server. No pass was found and none was expected yet. PRODUCT95's
+gate verdict stands; the 95-stage stream is superseded by the longer declared
+continuation (`../product179-20261017`), which will be qualified on its own.
+
+---
+
 
 17 October 2026, Singapore. **No score yet; queue mode; no submission.**
 PRODUCT95 is the public product record's circuit (`4b2ec52f`, Q1234) with

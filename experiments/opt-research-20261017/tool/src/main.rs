@@ -511,6 +511,62 @@ fn main() {
             }
             println!("fresh_ccx={n_fresh} sinkable_candidates={n} their_T={tsum:.3} (saving would be T x P(not c))");
         }
+        // xorfuse OPS STATS SHOTS: CCX(a,b->t) then CCX(a,c->t), same conditions, nothing reads/writes t
+        // between and a,b,c unchanged between: t ^= a(b^c) needs one Toffoli.
+        "xorfuse" => {
+            let ops = io::load_ops(&a[2]);
+            let raw = std::fs::read(&a[3]).unwrap();
+            let shots: f64 = a[4].parse().unwrap();
+            let st = |i: usize, k: usize| u32::from_le_bytes(raw[16 * i + 4 * k..16 * i + 4 * k + 4].try_into().unwrap()) as u64;
+            let (nq, _, _, _) = analyze_ops(ops.iter());
+            let conds = prove::Conds::build(&ops);
+            let wr = prove::Writers::build(&ops, nq);
+            // next op index touching qubit t at all (read or write), per qubit
+            let mut touch: std::collections::HashMap<u64, Vec<u32>> = std::collections::HashMap::new();
+            for (i, op) in ops.iter().enumerate() {
+                for q in [op.q_target.0, op.q_control1.0, op.q_control2.0] { if q != u64::MAX { touch.entry(q).or_default().push(i as u32); } }
+            }
+            let next_touch = |q: u64, i: usize| -> Option<usize> { let v = touch.get(&q)?; let k = v.partition_point(|&x| x <= i as u32); v.get(k).map(|&x| x as usize) };
+            let (mut n, mut tsave, mut n_same_ctrl) = (0usize, 0f64, 0usize);
+            let mut shown = 0;
+            for (i, op) in ops.iter().enumerate() {
+                if op.kind != K::CCX { continue; }
+                let t = op.q_target.0;
+                // Walk later ops touching t; pure XOR updates of t (t only as target) commute and are skipped.
+                let mut cur = i;
+                let mut found = None;
+                for _ in 0..64 {
+                    let Some(j) = next_touch(t, cur) else { break };
+                    let o = &ops[j];
+                    let xor_update = matches!(o.kind, K::X | K::CX | K::CCX) && o.q_target.0 == t;
+                    if !xor_update { break; }
+                    if o.kind == K::CCX {
+                        let ci = [op.q_control1.0, op.q_control2.0];
+                        let cj = [o.q_control1.0, o.q_control2.0];
+                        if ci.iter().filter(|x| cj.contains(x)).count() == 1 { found = Some(j); break; }
+                    }
+                    cur = j;
+                }
+                let Some(j) = found else { continue };
+                let o = &ops[j];
+                let ci = [op.q_control1.0, op.q_control2.0];
+                let cj = [o.q_control1.0, o.q_control2.0];
+                let shared: Vec<u64> = ci.iter().copied().filter(|x| cj.contains(x)).collect();
+                if shared.len() == 2 { n_same_ctrl += 1; continue; } // identical AND twice: cancels or cached elsewhere
+                if shared.len() != 1 { continue; }
+                let same_cond = conds.of(i) == conds.of(j) || conds.of(i).iter().map(|x| x.0).eq(conds.of(j).iter().map(|x| x.0));
+                if !same_cond { continue; }
+                let unchanged = |q: u64| wr.first_after(q, i as u32).map_or(true, |w| w as usize >= j);
+                if !ci.iter().chain(cj.iter()).all(|&q| unchanged(q)) { continue; }
+                // condition bits must be unchanged between too
+                if !conds.of(j).iter().all(|&(b, _)| wr.first_after(nq + b, i as u32).map_or(true, |w| w as usize >= j)) { continue; }
+                n += 1;
+                let e = st(i, 0).min(st(j, 0)) as f64 / shots;
+                tsave += e;
+                if shown < 5 { shown += 1; println!("EX i={i} j={j} t=q{t} ci={ci:?} cj={cj:?} exec={e:.4} gap={}", j - i); }
+            }
+            println!("xor-fusable pairs={n} saving_T={tsave:.3} (identical-control adjacent pairs skipped={n_same_ctrl})");
+        }
         _ => panic!("unknown command"),
     }
 }
