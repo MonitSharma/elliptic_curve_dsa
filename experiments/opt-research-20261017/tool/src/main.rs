@@ -458,6 +458,59 @@ fn main() {
             }
             for k in 0..4 { println!("pairs controls_unchanged={} same_cond={} : {} pairs, second-gate T={:.3}", k / 2, k % 2, n[k], t_saved[k]); }
         }
+        // sink OPS STATS SHOTS: CCX into a fresh ancilla whose readers all share an extra condition bit
+        "sink" => {
+            let ops = io::load_ops(&a[2]);
+            let raw = std::fs::read(&a[3]).unwrap();
+            let shots: f64 = a[4].parse().unwrap();
+            let st = |i: usize, k: usize| u32::from_le_bytes(raw[16 * i + 4 * k..16 * i + 4 * k + 4].try_into().unwrap()) as u64;
+            let (nq, _, _, _) = analyze_ops(ops.iter());
+            let conds = prove::Conds::build(&ops);
+            let wr = prove::Writers::build(&ops, nq);
+            // readers index: per qubit, ops reading it as control or phase operand
+            let mut readers: std::collections::HashMap<u64, Vec<u32>> = std::collections::HashMap::new();
+            for (i, op) in ops.iter().enumerate() {
+                let mut rs = vec![];
+                match op.kind {
+                    K::CX | K::CCX => { rs.push(op.q_control1.0); if op.kind == K::CCX { rs.push(op.q_control2.0); } }
+                    K::CZ => { rs.push(op.q_control1.0); rs.push(op.q_target.0); }
+                    K::CCZ => { rs.push(op.q_control1.0); rs.push(op.q_control2.0); rs.push(op.q_target.0); }
+                    K::Z => rs.push(op.q_target.0),
+                    K::Swap => { rs.push(op.q_control1.0); rs.push(op.q_target.0); }
+                    _ => {}
+                }
+                for r in rs { readers.entry(r).or_default().push(i as u32); }
+            }
+            let (mut n, mut tsum, mut n_fresh) = (0usize, 0f64, 0usize);
+            let mut shown = 0;
+            for (i, op) in ops.iter().enumerate() {
+                if op.kind != K::CCX { continue; }
+                let t = op.q_target.0;
+                let fresh = match wr.last_before(t, i as u32) { None => true, Some(w) => { let o = &ops[w as usize]; matches!(o.kind, K::R | K::Hmr) && conds.of(w as usize).is_empty() } };
+                if !fresh { continue; }
+                n_fresh += 1;
+                let Some(clear) = wr.first_after(t, i as u32) else { continue };
+                if ops[clear as usize].kind != K::Hmr { continue; }
+                let rd: Vec<u32> = readers.get(&t).map(|v| v.iter().copied().filter(|&x| x > i as u32 && x < clear).collect()).unwrap_or_default();
+                if rd.is_empty() { continue; }
+                let own: std::collections::HashSet<u64> = conds.of(i).iter().map(|x| x.0).collect();
+                let mut common: Option<std::collections::HashSet<u64>> = None;
+                for &x in &rd {
+                    let s: std::collections::HashSet<u64> = conds.of(x as usize).iter().map(|c| c.0).collect();
+                    common = Some(match common { None => s, Some(c) => c.intersection(&s).copied().collect() });
+                }
+                let last = *rd.last().unwrap();
+                let extra: Vec<u64> = common.unwrap().into_iter().filter(|b| !own.contains(b))
+                    .filter(|&b| wr.first_after(nq + b, i as u32).map_or(true, |w| w > last) && wr.last_before(nq + b, i as u32).is_some())
+                    .collect();
+                if extra.is_empty() { continue; }
+                n += 1;
+                let e = st(i, 0) as f64 / shots;
+                tsum += e;
+                if shown < 8 { shown += 1; println!("EX ccx={i} t=q{t} exec={e:.4} readers={} clear={clear} extra_bits={:?} own={:?}", rd.len(), extra, own); }
+            }
+            println!("fresh_ccx={n_fresh} sinkable_candidates={n} their_T={tsum:.3} (saving would be T x P(not c))");
+        }
         _ => panic!("unknown command"),
     }
 }
