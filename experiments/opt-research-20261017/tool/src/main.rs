@@ -376,6 +376,88 @@ fn main() {
                 }
             }
         }
+        // liveness OPS: max simultaneous live qubits, where a qubit is dead between an
+        // unconditional R/HMR and its next reference (and before its first reference).
+        "liveness" => {
+            let ops = io::load_ops(&a[2]);
+            let (nq, _, _, regs) = analyze_ops(ops.iter());
+            let nq = nq as usize;
+            let mut is_reg = vec![false; nq];
+            for r in &regs { for it in r { if let QubitOrBit::Qubit(q) = it { is_reg[q.0 as usize] = true; } } }
+            // depth of condition stack per op
+            let mut depth = 0usize;
+            let mut delta = vec![0i32; ops.len() + 2];
+            let mut open: Vec<Option<usize>> = vec![None; nq]; // start of current live interval
+            let mut last: Vec<usize> = vec![0; nq];
+            let mut intervals = 0usize;
+            let close = |q: usize, open: &mut Vec<Option<usize>>, last: &Vec<usize>, delta: &mut Vec<i32>, intervals: &mut usize| {
+                if let Some(s) = open[q] { delta[s] += 1; delta[last[q] + 1] -= 1; open[q] = None; *intervals += 1; }
+            };
+            for (i, op) in ops.iter().enumerate() {
+                match op.kind { K::PushCondition => depth += 1, K::PopCondition => depth = depth.saturating_sub(1), _ => {} }
+                let uncond_reset = matches!(op.kind, K::R | K::Hmr) && depth == 0 && op.c_condition == NO_BIT;
+                for q in [op.q_target.0, op.q_control1.0, op.q_control2.0] {
+                    if q == u64::MAX { continue; }
+                    let q = q as usize;
+                    if open[q].is_none() { open[q] = Some(i); }
+                    last[q] = i;
+                }
+                if uncond_reset { close(op.q_target.0 as usize, &mut open, &last, &mut delta, &mut intervals); }
+            }
+            for q in 0..nq { close(q, &mut open, &last, &mut delta, &mut intervals); }
+            let mut cur = 0i64; let mut best = 0i64; let mut at = 0usize; let mut hist = std::collections::BTreeMap::<i64, usize>::new();
+            for i in 0..ops.len() { cur += delta[i] as i64; if cur > best { best = cur; at = i; } *hist.entry(cur).or_default() += 1; }
+            println!("qubit_ids={} intervals={} max_live={} first_at_op={}", nq, intervals, best, at);
+            for (k, v) in hist.iter().rev().take(6) { println!("  live={k} ops={v}"); }
+            let _ = is_reg;
+        }
+        // pairs OPS STATS SHOTS: CCX(a,b->t) ... CCX(a,b->t) with a,b,t not written in between
+        "pairs" => {
+            let ops = io::load_ops(&a[2]);
+            let raw = std::fs::read(&a[3]).unwrap();
+            let shots: f64 = a[4].parse().unwrap();
+            let st = |i: usize, k: usize| u32::from_le_bytes(raw[16 * i + 4 * k..16 * i + 4 * k + 4].try_into().unwrap()) as u64;
+            let (nq, _, _, _) = analyze_ops(ops.iter());
+            let conds = prove::Conds::build(&ops);
+            let wr = prove::Writers::build(&ops, nq);
+            let mut n = [0usize; 4];
+            let mut t_saved = [0f64; 4];
+            for (i, op) in ops.iter().enumerate() {
+                if op.kind != K::CCX { continue; }
+                let t = op.q_target.0;
+                // next writer of t after i
+                let nxt = |r: u64| -> Option<u32> { wr.last_before(r, u32::MAX).and_then(|_| None) };
+                let _ = nxt;
+                let after = |r: u64| -> Option<usize> {
+                    // first writer strictly after i
+                    let mut lo = i as u32 + 1;
+                    let _ = &mut lo;
+                    let w = wr.first_after(r, i as u32)?;
+                    Some(w as usize)
+                };
+                let Some(j) = after(t) else { continue };
+                let o = &ops[j];
+                if o.kind != K::CCX { continue; }
+                let same = (o.q_control1 == op.q_control1 && o.q_control2 == op.q_control2) || (o.q_control1 == op.q_control2 && o.q_control2 == op.q_control1);
+                if !same { continue; }
+                let clean_a = after(op.q_control1.0).map_or(true, |w| w > j) ;
+                let clean_b = after(op.q_control2.0).map_or(true, |w| w > j);
+                let same_cond = conds.of(i).iter().map(|x| x.0).collect::<Vec<_>>() == conds.of(j).iter().map(|x| x.0).collect::<Vec<_>>();
+                let k = (clean_a && clean_b) as usize * 2 + same_cond as usize;
+                n[k] += 1;
+                t_saved[k] += st(j, 0) as f64 / shots;
+                if k == 2 && n[k] % 400 == 1 {
+                    let fc = |x: usize| conds.of(x).iter().map(|(b, t)| format!("b{b}@{t}")).collect::<Vec<_>>().join(",");
+                    println!("EX i={i} j={j} gap={} t=q{} a=q{} b=q{} cond_i=[{}] cond_j=[{}] exec_i={:.4} exec_j={:.4} fire_i={:.4} fire_j={:.4}", j - i, t, op.q_control1.0, op.q_control2.0, fc(i), fc(j), st(i,0) as f64/shots, st(j,0) as f64/shots, st(i,1) as f64/shots, st(j,1) as f64/shots);
+                    // ops between i and j touching t
+                    let mut shown = 0;
+                    for x in i + 1..j { let o = &ops[x]; if o.q_control1.0 == t || o.q_control2.0 == t { if shown < 6 { println!("    read at {x}: {:?} t=q{} c1=q{} c2=q{} cond=[{}]", o.kind, o.q_target.0, o.q_control1.0, o.q_control2.0, fc(x)); } shown += 1; } }
+                    if let Some(w) = wr.first_after(t, j as u32) { let o = &ops[w as usize]; println!("    next write of t at {w}: {:?} cond=[{}] ct=b{}", o.kind, fc(w as usize), o.c_target.0); }
+                    if let Some(w) = wr.last_before(t, i as u32) { let o = &ops[w as usize]; println!("    prev write of t at {w}: {:?} cond=[{}]", o.kind, fc(w as usize)); }
+                }
+            }
+            for k in 0..4 { println!("pairs controls_unchanged={} same_cond={} : {} pairs, second-gate T={:.3}", k / 2, k % 2, n[k], t_saved[k]); }
+        }
         _ => panic!("unknown command"),
     }
 }

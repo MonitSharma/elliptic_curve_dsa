@@ -1,0 +1,39 @@
+{
+  "status": "DECLARED_BEFORE_ANY_CENSUS_RUN",
+  "declared_at": "2026-10-17T08:05:00+08:00",
+  "rule": "AGENTS.md statistical failure-rate gate (16 October 2026)",
+  "objective": "fewest executed Toffolis (independent of qubits)",
+  "candidate": {
+    "name": "WIDE95",
+    "description": "official 753,771 source 5a7c3902 plus the predeclared fixed 95-stage exact cache (wide-to95-rank-20261016), Q1556; frozen 16 Oct before any measurement and never gated before",
+    "stream_sha256": "7c0ac9588dbf3aa90967315923778c9b3ccb954aae34bb71fc6c7bb970523109",
+    "stream_source": "native generation of wide95-native-20261017/candidate (must be byte-identical before the census runs)"
+  },
+  "disclosed_sibling_verdicts": "WIDE67 (wide67-frozen-20261016) and WIDE95+cap2048 (wide95-plus-retained2048-scratch64-frozen-20261016) failed their gates under the older strict rule. Those verdicts stand, are not re-judged, and are disclosed with any WIDE95 submission. WIDE95 is a distinct frozen stream with no prior verdict.",
+  "label": "wide95-gate-20261017-v1",
+  "first_batch": 0,
+  "batch_count": 32768,
+  "shots_per_batch": 64,
+  "census_binary": "/home/hclau/ecdsa_research/simd-census-v2-20261016/bin/simd_census_v2 (sha256 790e92266ea67ec54ef701b2deed76fe8d0b766b411ca9eab877f82ae2c11a66)",
+  "parents": {
+    "official_toffoli_record_1d8c05ee": {
+      "stream_sha256": "1d8c05eeee7b43dd694506b5efe963c771461b7e690bc62f409947b2306b7d77",
+      "path": "/home/hclau/ecdsa_research/wide15-record-20261016/evidence/final-ops.bin",
+      "role": "current public Toffoli record (ours, 03be8e19, 753,721 at Q1468): the record WIDE95 would beat; the gate verdict that decides eligibility"
+    },
+    "official_5a7c3902": {
+      "stream_sha256": "01aad987cfe03e7ca97df6f3dcd26085a21a5836aa6e661ec8fbd9c9c1b63740",
+      "path": "/home/hclau/ecdsa_research/nonce-screen-20261015/final-census/ops.bin",
+      "role": "WIDE95's source parent (informational paired saving; verdict also reported)"
+    }
+  },
+  "criteria": [
+    "1. candidate value-failing shots <= parent value-failing shots",
+    "2. one-sided exact McNemar p = P(X >= b | X ~ Bin(b+c, 1/2)) >= 0.05",
+    "3. candidate failed batches per 9,024-shot packet <= 18",
+    "4. zero candidate dirty-ancilla shots"
+  ],
+  "verdicts": "Eligibility is decided by the verdict against the official record 1d8c05ee. Verdicts are final: no rerun with another label, more batches or another nonce.",
+  "nonce_policy": "If eligible: ascending from 1 with the exact nonce screener, lowest full 9,024-shot pass, no selection by Toffoli count.",
+  "submission_condition": "Submit (with user approval) only if the unchanged benchmark beats the then-current public Toffoli record."
+}

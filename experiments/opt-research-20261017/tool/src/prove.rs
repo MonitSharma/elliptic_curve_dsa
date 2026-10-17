@@ -74,6 +74,12 @@ impl Writers {
         }
         Writers { by_res }
     }
+    /// Earliest writer of r strictly after time t.
+    pub fn first_after(&self, r: Res, t: u32) -> Option<u32> {
+        let v = self.by_res.get(&r)?;
+        let k = v.partition_point(|&x| x <= t);
+        v.get(k).copied()
+    }
     /// Latest writer of r strictly before time t.
     pub fn last_before(&self, r: Res, t: u32) -> Option<u32> {
         let v = self.by_res.get(&r)?;
