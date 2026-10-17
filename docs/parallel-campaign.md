@@ -1,5 +1,10 @@
 # Three-front optimization campaign
 
+**Archive: 14 October local research.** The later public submissions now lead
+the product and Toffoli objectives. See [17 October results](leaderboard-results.md)
+and the [current frontier](frontier-results.md). The qualification statements
+and baseline targets below apply to this earlier campaign.
+
 14 October 2026. The three independent checkouts are ready. All three delegated
 agents hit the account usage limit before executing research, so the primary
 agent continued this iteration locally. No new official improvement has qualified.

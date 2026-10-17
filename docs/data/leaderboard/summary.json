@@ -1,0 +1,169 @@
+{
+  "snapshot_at": "2026-10-17T12:36:04.294170+08:00",
+  "source": "https://api.ecdsa.fail/api/benchmarks/1ffb695a-309b-46b6-a728-2f97d8c7be74/submissions",
+  "record_count": 1584,
+  "status_counts": {
+    "accepted": 632,
+    "rejected": 719,
+    "failed": 230,
+    "cancelled": 3
+  },
+  "officially_scored_count": 1241,
+  "frontier_count": 45,
+  "benchmark_mode": "scalar",
+  "best": {
+    "id": "d7f69382-4716-4b86-9fac-151c8bc581e4",
+    "solverUsername": "MonitSharma",
+    "status": "accepted",
+    "rejectionReason": null,
+    "officialScore": 939223314,
+    "officialMetrics": {
+      "qubits": 1234,
+      "toffoli": 761121
+    },
+    "createdAt": "2026-10-17T00:33:03.271Z",
+    "submissionCommitSha": "0ae6d109bee6f3241e1f74c38fddb5a05b7f79de"
+  },
+  "minimum_qubits": {
+    "id": "42ae2103-575e-4f95-bbd5-ab2051a994f2",
+    "solverUsername": "bulengerk",
+    "status": "rejected",
+    "rejectionReason": "score did not improve current best",
+    "officialScore": 331340774700,
+    "officialMetrics": {
+      "qubits": 676,
+      "toffoli": 490149075
+    },
+    "createdAt": "2026-10-16T21:41:29.034Z",
+    "submissionCommitSha": "bec8516cf2c147a225662ab297cf4c71f2ec0104"
+  },
+  "minimum_toffolis": {
+    "id": "b99c9678-5a68-49e8-a8b7-91fc6c383e37",
+    "solverUsername": "MonitSharma",
+    "status": "rejected",
+    "rejectionReason": "score did not improve current best",
+    "officialScore": 1172747864,
+    "officialMetrics": {
+      "qubits": 1556,
+      "toffoli": 753694
+    },
+    "createdAt": "2026-10-17T00:36:33.265Z",
+    "submissionCommitSha": "9d967c4dc0b8ecc66eb721e4a347d3aafcc30ae0"
+  },
+  "highlighted_frontier": [
+    {
+      "id": "d7f69382-4716-4b86-9fac-151c8bc581e4",
+      "solverUsername": "MonitSharma",
+      "status": "accepted",
+      "rejectionReason": null,
+      "officialScore": 939223314,
+      "officialMetrics": {
+        "qubits": 1234,
+        "toffoli": 761121
+      },
+      "createdAt": "2026-10-17T00:33:03.271Z",
+      "submissionCommitSha": "0ae6d109bee6f3241e1f74c38fddb5a05b7f79de"
+    },
+    {
+      "id": "3f32acd2-71bf-4cc7-bae6-7407be97fe3b",
+      "solverUsername": "MonitSharma",
+      "status": "rejected",
+      "rejectionReason": "score did not improve current best",
+      "officialScore": 1103520744,
+      "officialMetrics": {
+        "qubits": 1464,
+        "toffoli": 753771
+      },
+      "createdAt": "2026-10-15T11:13:04.788Z",
+      "submissionCommitSha": "5a7c390233c72133df9b591c92e43422c5892142"
+    },
+    {
+      "id": "03be8e19-ab3b-45c7-9c62-9d78970c4d95",
+      "solverUsername": "MonitSharma",
+      "status": "rejected",
+      "rejectionReason": "score did not improve current best",
+      "officialScore": 1106462428,
+      "officialMetrics": {
+        "qubits": 1468,
+        "toffoli": 753721
+      },
+      "createdAt": "2026-10-15T21:19:50.038Z",
+      "submissionCommitSha": "b5adb653d5ac6e344b27fc4fb9ed274718720e96"
+    },
+    {
+      "id": "b99c9678-5a68-49e8-a8b7-91fc6c383e37",
+      "solverUsername": "MonitSharma",
+      "status": "rejected",
+      "rejectionReason": "score did not improve current best",
+      "officialScore": 1172747864,
+      "officialMetrics": {
+        "qubits": 1556,
+        "toffoli": 753694
+      },
+      "createdAt": "2026-10-17T00:36:33.265Z",
+      "submissionCommitSha": "9d967c4dc0b8ecc66eb721e4a347d3aafcc30ae0"
+    }
+  ],
+  "previous_product_record": {
+    "id": "85d067da-f7c5-485b-9a61-53b0e58f281e",
+    "solverUsername": "jackylee0424",
+    "status": "accepted",
+    "rejectionReason": null,
+    "officialScore": 939347948,
+    "officialMetrics": {
+      "qubits": 1234,
+      "toffoli": 761222
+    },
+    "createdAt": "2026-10-15T01:57:40.460Z",
+    "submissionCommitSha": "4b2ec52fc55da796aa8f5ef851290297e8706424"
+  },
+  "product_record_count": 627,
+  "strict_gate_by_qubits": {
+    "676": 1389383,
+    "691": 1359223,
+    "698": 1345592,
+    "718": 1308110,
+    "739": 1270938,
+    "770": 1219770,
+    "794": 1182900,
+    "795": 1181412,
+    "796": 1179928,
+    "797": 1178448,
+    "798": 1176971,
+    "799": 1175498,
+    "819": 1146792,
+    "843": 1114143,
+    "860": 1092120,
+    "870": 1079567,
+    "874": 1074626,
+    "877": 1070950,
+    "880": 1067299,
+    "883": 1063673,
+    "886": 1060071,
+    "888": 1057683,
+    "889": 1056494,
+    "893": 1051761,
+    "1108": 847674,
+    "1109": 846910,
+    "1110": 846147,
+    "1111": 845385,
+    "1112": 844625,
+    "1133": 828970,
+    "1134": 828239,
+    "1141": 823158,
+    "1142": 822437,
+    "1143": 821717,
+    "1145": 820282,
+    "1164": 806892,
+    "1170": 802754,
+    "1171": 802069,
+    "1172": 801385,
+    "1173": 800701,
+    "1174": 800019,
+    "1234": 761120,
+    "1464": 641545,
+    "1468": 639797,
+    "1556": 603613
+  },
+  "eligibility": "accepted or score-only rejected; positive official metrics; verified Q*T equality; failures and claimed-only scores excluded"
+}

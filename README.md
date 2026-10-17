@@ -1,58 +1,91 @@
-# ECDSA.fail optimization workspace
+# ECDSA.fail · Pareto-leading circuit research
 
-This workspace contains the official secp256k1 point-add challenge, local research,
-and three separate optimization tracks. **No original improvement has yet passed
-the full official benchmark or been submitted to the platform.**
+**MonitSharma holds the lowest qubit–Toffoli product and the lowest Toffoli count
+on [ECDSA.fail](https://ecdsa.fail/), with four points on the current Pareto frontier.**
+This repository contains secp256k1 point-addition research, three optimization
+tracks, and reproducible public leaderboard analysis.
+
+## Public results · 17 October 2026
+
+Verified against the website and official API. Snapshot retrieved at **12:36
+Singapore time**: 1,584 submissions, 1,241 eligible officially scored results,
+and **45 nondominated resource pairs**. Each objective below has its own circuit.
+
+| Objective | Qubits | Rounded mean Toffolis | Product | Solver / official submission |
+|---|---:|---:|---:|---|
+| **Lowest product** | **1,234** | **761,121** | **939,223,314** | **MonitSharma** · [d7f69382](https://api.ecdsa.fail/api/submissions/d7f69382-4716-4b86-9fac-151c8bc581e4) |
+| **Fewest Toffolis** | 1,556 | **753,694** | 1,172,747,864 | **MonitSharma** · [b99c9678](https://api.ecdsa.fail/api/submissions/b99c9678-5a68-49e8-a8b7-91fc6c383e37) |
+| Fewest qubits | **676** | 490,149,075 | 331,340,774,700 | bulengerk · [42ae2103](https://api.ecdsa.fail/api/submissions/42ae2103-575e-4f95-bbd5-ab2051a994f2) |
+
+The product record improves on jackylee0424’s preceding **939,347,948** by
+**124,634 (0.01327%)**, saving 101 rounded Toffolis at the same width. The new
+Toffoli record improves on our previous **753,721** by **27 gates (0.00358%)**.
+Our Q1464/T753771 and Q1468/T753721 entries also remain nondominated.
+
+![ECDSA.fail resource frontier, highlighting MonitSharma’s four Pareto points](docs/figures/leaderboard-frontier.png)
+
+The API promotes the scalar product. Our product entry is **accepted and promoted**;
+the three wider gate-saving entries are officially scored but rejected only because
+their product did not improve the incumbent. They are included in the website’s
+Pareto view and in this analysis. Pareto membership describes a resource tradeoff;
+it does not mean one circuit wins every objective.
+
+![Product record history, with the latest eight records enlarged](docs/figures/product-progress.png)
+
+The full challenge has reduced product **91.27%** from its starting baseline;
+that cumulative gain includes many contributors. The product submission adds an
+exact repeated-AND cache to jackylee0424’s `4b2ec52f` lineage. The submissions
+retain inherited approximate arithmetic and disclose finite-packet testing,
+fresh-input failure measurements, and identity-tail nonce searches. Read the
+[results, source revisions and attribution](docs/leaderboard-results.md) for scope.
+
+[Full frontier table](docs/frontier-results.md) ·
+[Frontier SVG](docs/figures/leaderboard-frontier.svg) ·
+[Product-history SVG](docs/figures/product-progress.svg) ·
+[Saved source data](docs/data/leaderboard/README.md)
+
+## Reproduce or refresh the plots
+
+The figures, counts, highlights and record comparisons are generated from the
+saved official data. Both high-resolution PNG and editable SVG versions are
+available in `docs/figures/`; the original `research-output/` figure paths are
+updated at the same time.
+
+```bash
+source ./activate.sh
+python scripts/analyze-leaderboard.py           # reproduce offline
+python scripts/analyze-leaderboard.py --refresh # fetch and analyze new public data
+```
+
+The script verifies snapshot hashes, official Q × T products, and agreement with
+benchmark metadata before plotting. See [snapshot provenance](docs/data/leaderboard/README.md).
+The dated README and narrative result report record this snapshot; review them
+when refreshing to a later leaderboard.
+
+## Local research checkout · 14 October archive
+
+The published records above come from the official service. This Mac checkout
+still contains the earlier research and reproduced baselines; this documentation
+refresh does not import the newer winning source or rerun its circuit benchmark.
+The local `score.json` and track sources retain their measured provenance.
+
+| Folder | Purpose | Local state recorded on 14 October |
+|---|---|---|
+| Workspace root | Earlier Q1235 work | Exact implication cleanup prototype; disabled after a failed official packet |
+| `agents/qubits` | Minimum-width Scheme G | Compact reciprocal tested in a 693-wire component frame; complete circuit still Q694 |
+| `agents/toffoli` | Minimum-gate track | Phase-reader prototype passes fixtures; zero savings on the incumbent stream |
+| `agents/product` | Product track | Q1234/T761658 reproduced; missing guard recovery unqualified |
+| `agents/source-cache.git` | Shared public Git storage | Required when transferring shared clones; repair paths with the relocation helper |
 
 For another machine or a CPU server, start with [the server handoff](docs/SERVER_HANDOFF.md).
 It covers transferring uncommitted code and ignored evidence, repairing shared Git
 paths, recreating the environment, memory planning, verification, and next tasks.
+Its circuit baselines and the [campaign report](docs/parallel-campaign.md) describe
+the 14 October local state and predate the public records above.
 
-## Recorded results — 14 October 2026
-
-These are saved public records. Refresh [ECDSA.fail](https://ecdsa.fail/) before
-comparing or submitting; the live leaderboard may advance.
-
-| Objective | Qubits | Rounded Toffolis | Product | Source revision |
-|---|---:|---:|---:|---|
-| Minimum qubits | **694** | 336,751,889 | 233,705,810,966 | `4ef906688f6dfb422aa8dd10d3d07265839e2f3c` |
-| Minimum Toffolis | 1,235 | **761,156** | 940,027,660 | `b3c9fdd6e24bcd33450ab0d10884ab5ff9c46ab7` |
-| Minimum product | 1,234 | 761,658 | **939,885,972** | `c5bb1ec876db859a3f9f8a9052c140a145df834e` |
-
-The website and supplied screenshot show **694**, not 684, as the minimum width.
-The latest saved API snapshot has 1,558 submissions and 42 derived frontier points.
-The website inspection showed 1,040 historical frontier advances. The official
-scalar score promotes the lowest product; the Pareto view shows different width/gate
-tradeoffs, including correctness-passing score-only rejections.
-
-We reproduced Q1235/T761156 in the main checkout and Q1234/T761658 in the product
-checkout through the unchanged official benchmark, with all 9,024 shots passing.
-The product stream was rebuilt byte for byte after adding the research helpers.
-Reproduction is not an original leaderboard improvement.
-
-## Code and research status
-
-| Folder | Purpose | Current state |
-|---|---|---|
-| Workspace root | Earlier Q1235 work | Exact implication cleanup prototype; disabled because its official packet fails |
-| `agents/qubits` | Minimum-width Scheme G | Compact reciprocal tested in a 693-wire component frame; complete circuit still Q694 |
-| `agents/toffoli` | Minimum-gate track | Phase-reader prototype passes fixtures; zero savings on the full incumbent stream |
-| `agents/product` | Product track | Leader reproduced; missing guard recovery unqualified; default stream unchanged |
-| `agents/source-cache.git` | Shared public Git storage | Required when transferring the shared clones; repair paths with the relocation helper |
-
-The three delegated agents hit the account usage limit before starting research.
-The primary agent performed this iteration. No agents are continuing in the background.
-
-The strongest lead is `stage1_v_compact` in `agents/qubits/src/point_add/midg.rs`.
-It uses 24 remainder lanes plus the existing quotient flag, retaining K24 precision
-and TC26. The arithmetic identity is solver-proved in its stated domain. Native
-component tests cover values, inverse behavior, dirty passengers and phase corrections.
-Two representative layouts save **104 Toffolis per V-form call**.
-
-**This is not a complete 693-qubit result.** The highest external quotient bit competes
-with SX6, the gate-on accumulator; the seven-lane crossing reserve must remain valid.
-A proved ownership/recomputation schedule is the next task. Read
-[the campaign report](docs/parallel-campaign.md) for proof limits and failed approaches.
+The compact-reciprocal lead remains a component result: two tested layouts save
+104 Toffolis per V-form call, but a complete 693-qubit integration was unfinished
+in that local campaign. See the campaign report for its proof limits.
 
 ## Running locally
 
@@ -95,7 +128,9 @@ approximate arithmetic and their authors report failures on other packets.
 
 Changing a gate changes the canonical packet. Measure real improvements on independent
 and paired inputs, preserve phase/measurement semantics, and benchmark final source.
-This campaign did not search nonces or submit publicly.
+The 14 October local campaign did not search nonces or submit publicly. The later
+public submissions disclose identity-tail nonce searches and fresh-input failure
+measurements; see [the current result notes](docs/leaderboard-results.md).
 
 Only `src/point_add/` is eligible contestant code. Preserve the harness, simulator,
 scoring programs, Cargo files and toolchain specification. Bound tables must reject
@@ -123,11 +158,13 @@ Linux execution has not yet been verified here. See [SERVER_HANDOFF.md](docs/SER
 - [Verified baseline provenance](docs/setup-verification.md)
 - [First failed qualification attempt](docs/optimization-iteration-1.md)
 - [Updated research proposal and historical analysis](docs/optimization-proposal.md)
-- [Latest saved Pareto frontier](docs/frontier-results.md)
+- [Current public results and attribution](docs/leaderboard-results.md)
+- [Current Pareto frontier](docs/frontier-results.md)
+- [Reproducible leaderboard snapshot](docs/data/leaderboard/README.md)
 - [User-supplied background writeup](docs/user-writeup.md)
 - [Archived upstream README](docs/upstream-readme.md)
 
-Machine-readable status: `research-output/parallel-20261014/campaign-status.json`.
+Historical local campaign status: `research-output/parallel-20261014/campaign-status.json`.
 Each track has `research-output/track-result.json`. Logs, source snapshots, compressed
 streams, solver inputs/results and submission notes accompany the source in the handoff.
 Much of this evidence is ignored by Git; pushing tracked files alone loses it.

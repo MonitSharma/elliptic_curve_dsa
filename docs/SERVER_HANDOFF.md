@@ -1,11 +1,17 @@
 # CPU-server handoff — 14 October 2026
 
+**Historical local handoff.** On 17 October, MonitSharma's public results lead
+the product (939,223,314) and Toffoli (753,694) objectives, with four current
+Pareto points. See [current results](leaderboard-results.md). The local source,
+scores, reproduction evidence and next tasks below describe the older checkout;
+they are not the source or evidence for those later submissions.
+
 ## Read this first
 
 The objective is to establish improvements on **three separate fronts**: minimum
 logical qubits, minimum mean executed Toffolis, and minimum qubit-Toffoli product.
-They can require different circuits. There is currently **no new qualified result
-of our own and no public submission**.
+They can require different circuits. As of this **14 October local handoff**,
+there was no new qualified result of our own and no public submission.
 
 We have reproduced the public Q1235/T761156 baseline and the newer
 Q1234/T761658/product939885972 baseline. A compact reciprocal component fits a
@@ -152,7 +158,9 @@ before porting research onto a newer revision.
 The API snapshot lives in `research-output/parallel-20261014/submissions.json`;
 leaders and their full notes are saved alongside it. It has 1,558 records. The
 older `research-output/all-submissions.json` has 1,557 and is retained for historical
-reproduction. The earlier plot/script use that older snapshot. None is live data.
+reproduction. Both are historical. The updated plot script now defaults to the
+hashed 17 October snapshot in `docs/data/leaderboard/`; it reproduces the current
+figures and can refresh public data with `--refresh`.
 
 ## Resume the qubit track first
 
