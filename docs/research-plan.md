@@ -1,5 +1,34 @@
 # Research state and next experiments
 
+## PLAIN67 benchmark PASS; PRODUCT95 and WIDE95 qualifying: 17 October 2026, 08:10 Singapore
+
+- **PLAIN67 (product): complete local benchmark pass, queued.** Lowest pass
+  nonce 129,023,534 (129,245,184 screened; full JSONL audit). Unchanged
+  `benchmark.sh`: Q1234, rounded 761,121 T, **939,223,314**, all 9,024 shots
+  pass. Beats the public 939,347,948 (refreshed 07:30). Awaiting user approval
+  to submit. [Status](../experiments/plain67-final-20261016/STATUS.md).
+- **PRODUCT95 (product, next step):** 4b2ec52f + the frozen 95-stage cache.
+  Native source byte-identical (`ba87b9ce…`). Declared gate
+  `product95-gate-20261017-v1` (32,768 batches) **PASS** against both the
+  public record and PLAIN67: value shots 3,614 = 3,614, McNemar p 0.79 / 0.74,
+  17.92 per packet, dirty 0. Saving 113.2 ± 0.4 T vs record, 10.6 ± 0.4 vs
+  PLAIN67 (fresh mean 761,110.1). Universal 68–95 certificate, filter
+  qualification, acceptance, control and the ascending search run as one
+  server chain (`plain95-operational-20261017/chain.sh`); a watcher
+  (`plain95-final-20261017`) audits and benchmarks any pass. No score yet.
+- **WIDE95 (Toffoli):** 5a7c3902 + the frozen wide 95-stage cache, Q1556,
+  never gated before (WIDE67 and WIDE95+cap2048 failed their own gates under
+  the older rule; disclosed, not re-judged). Gate `wide95-gate-20261017-v1`
+  declared against our official 753,721 stream (`1d8c05ee`). Diagnostic
+  saving ~67 T vs 5a, i.e. ~25 T below our record if it holds.
+- **Negative/diagnostic (opt-research-20261017):** per-op profile of PLAIN67
+  (65,536 shots): ~3,000 T sit in Toffolis that never fire and ~760 T in ones
+  that act as CNOTs, but a sound local truth-table prover (cut ≤ 24 free
+  variables) proves none; they are rare-event carries or walk invariants and
+  stay untouched. True simultaneous liveness is 1,234 for ~321k ops, so no free
+  qubit exists. Recent literature is far above the board (millions of T).
+
+
 ## Statistical gate adopted; PLAIN67 search running: 16 October 2026, 09:40 Singapore
 
 The user did not submit Product25 and replaced the strict "candidate ≤ parent"
