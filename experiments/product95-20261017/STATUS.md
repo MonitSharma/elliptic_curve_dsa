@@ -1,4 +1,4 @@
-# PRODUCT95 product candidate: gate PASS, search chain running
+# PRODUCT95 product candidate: gate PASS, ascending search running
 
 17 October 2026, Singapore. **No score yet; queue mode; no submission.**
 PRODUCT95 is the public product record's circuit (`4b2ec52f`, Q1234) with
@@ -11,8 +11,10 @@ further stages frozen on 16 Oct, `product-to95-rank-20261016`). It keeps
 | Native source port (`product95-native-20261017`) | 3 `src/point_add` paths; 4 binding tests pass; generated stream byte-identical to frozen `ba87b9ce…` (20,275,836 ops) |
 | Universal equivalence, stages 68–95 | all 28 appended stages PASS; composed certificate covers 95 stages, 332,059 leases, 758,134 replaced uses, no sampled inputs |
 | Declared gate `product95-gate-20261017-v1` | **PASS** against both parents (below) |
-| Filter qualification, acceptance, control, ascending search | running as one chain (`plain95-operational-20261017/chain.sh`) |
-| Finalization | watcher armed (`plain95-final-20261017/watch.sh`): audit, nonce freeze, native receipt, tail invariance, unchanged benchmark |
+| Filter qualification (`product95-filter-20261017`) | PASS: all 4,096 rows identical generic vs threaded; protected full 9,024 checks |
+| Acceptance, tool-diff audit, lane-0 control | PASS (`plain95-operational-20261017/evidence/`): only PRODUCT95 bindings differ from PLAIN67's tool; control rows 1–4,096 equal qualified rows |
+| Ascending search | **started 2026-10-17 08:19:49 Singapore**, 4 × 14 threads, 48 h cap, ~2,200 nonces/s observed |
+| Finalization | watcher armed (`plain95-final-20261017/watch.sh`); its dry run (nonce 12,345, fake audit) passed native receipt and 512/512 tail invariance (`plain95-final-20261017/dryrun-evidence/`) |
 
 ## Failure-rate gate (declared in `GATE-DECLARATION.json` before running)
 
