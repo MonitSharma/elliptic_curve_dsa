@@ -3,8 +3,17 @@
 17 October 2026, Singapore. **No score yet.** Public 4b2ec52f plus the fixed
 exact cache chain 1–179 (PRODUCT95's 95 stages, then 96–123 and 124–179, each
 continuation declared before generation with a fixed endpoint). Checkpoint
-packets so far: 115.47 T saved at stage 102 (PRODUCT95: 112.47, PLAIN67:
-102.47 on the same fixed packets; diagnostic only).
+packets (fixed 256-shot families, diagnostic only; PLAIN67 102.47, PRODUCT95
+112.47): stage 102 115.47, 109 117.47, 116 118.47, **123 121.47 T saved**, all
+with zero unequal batches. Stage 123 has 22,596,388 ops and 69,185 classical
+bits (beyond 16-bit IDs; the candidate search path uses 32-bit classical IDs).
+
+**Failed attempt 1 (10:20, preserved in `attempt1-launcher-bug/` on the
+server):** the 124–179 runner crashed before generating any stage because the
+quotes in `spec['family']` were stripped when the file was written through
+SSH. No stage, declaration or stream was affected; phases A and B stopped
+correctly. Fixed runner relaunched 10:24 (statically checked for undefined
+names).
 
 - **Phase A** (`chain-a.sh`, unattended): freeze the stage-179 endpoint,
   universal certificate for stages 96–179 (4 workers), native port with byte

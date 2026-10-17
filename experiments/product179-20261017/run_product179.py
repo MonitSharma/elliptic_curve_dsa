@@ -10,7 +10,7 @@ manifest=d/"chain.manifest";shutil.copy2(src/"chain.manifest",manifest)
 (d/"INPUT_BINDING.json").write_text(json.dumps({"input_stream":str(previous.relative_to(r)),"input_sha256":sha(previous)},indent=2)+"\n")
 env=os.environ.copy();env.update(RAYON_NUM_THREADS="1",OMP_NUM_THREADS="1")
 for i,spec in enumerate(plan["stages"][123:],124):
-    name=d/f"product-{i}-{spec[family]}-{spec[atom_cap]}-{spec[rank]}";output=Path(str(name)+".bin");log=Path(str(name)+"-generate.log")
+    name=d/f"product-{i}-{spec['family']}-{spec['atom_cap']}-{spec['rank']}";output=Path(str(name)+".bin");log=Path(str(name)+"-generate.log")
     env.update(EXACT_MODE="cache-"+spec["family"],CACHE_ATOM_CAP=str(spec["atom_cap"]),ANF_PAIR_CAP="64",CACHE_PRODUCT_CAP="1000000",CACHE_SPLIT="1",CACHE_RANK=spec["rank"])
     with log.open("wb") as out:subprocess.run(["/usr/bin/time","-v",str(r/"target-flags/release/product_paired_diagnostic"),str(previous),str(output)],stdout=out,stderr=subprocess.STDOUT,env=env,check=True)
     mapping="=" if sha(output)==sha(previous) else str(log.relative_to(r))
