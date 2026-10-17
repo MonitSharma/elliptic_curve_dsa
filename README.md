@@ -1,58 +1,63 @@
-# ECDSA Circuit Research
+# ECDSA.fail · Pareto-leading circuit research
 
-**Smaller quantum circuits for secp256k1 elliptic-curve point addition, built
-and verified for the public [ECDSA.fail](https://ecdsa.fail/) resource
-challenge.**
+**MonitSharma holds the lowest qubit–Toffoli product and the lowest Toffoli count
+on [ECDSA.fail](https://ecdsa.fail/), with four points on the current Pareto frontier.**
+This repository contains secp256k1 point-addition research, three optimization
+tracks, and reproducible public leaderboard analysis.
 
-The challenge scores a reversible circuit that adds a classical point to a
-quantum point on Bitcoin's curve, the core subroutine of Shor's algorithm for
-elliptic curves. Each entry is scored on three independent resource records:
-**fewest logical qubits**, **fewest executed Toffoli gates**, and **lowest
-qubit × Toffoli product**. This repository holds our circuits, the tools we
-built to verify them, and a dated, reproducible record of every experiment,
-including failed ones.
+## Public results · 17 October 2026
 
-## Results at a glance
+Verified against the website and official API. Snapshot retrieved at **12:36
+Singapore time**: 1,584 submissions, 1,241 eligible officially scored results,
+and **45 nondominated resource pairs**. Each objective below has its own circuit.
 
-| Record | Public best (16 Oct 2026) | Our standing |
-|---|---:|---|
-| **Fewest executed Toffolis** | **753,721** at 1,468 qubits | **Ours**: officially scored submission [`03be8e19`](https://api.ecdsa.fail/api/submissions/03be8e19-ab3b-45c7-9c62-9d78970c4d95); new local pass **753,694** at 1,556 qubits queued |
-| Lowest qubit × Toffoli product | 939,347,948 (761,222 × 1,234) | **939,223,314** (761,121 × 1,234): complete local benchmark pass, queued for submission; see [current work](#current-work) |
-| Fewest logical qubits | 676 | A complete local pass at 692 qubits (not submitted) |
+| Objective | Qubits | Rounded mean Toffolis | Product | Solver / official submission |
+|---|---:|---:|---:|---|
+| **Lowest product** | **1,234** | **761,121** | **939,223,314** | **MonitSharma** · [d7f69382](https://api.ecdsa.fail/api/submissions/d7f69382-4716-4b86-9fac-151c8bc581e4) |
+| **Fewest Toffolis** | 1,556 | **753,694** | 1,172,747,864 | **MonitSharma** · [b99c9678](https://api.ecdsa.fail/api/submissions/b99c9678-5a68-49e8-a8b7-91fc6c383e37) |
+| Fewest qubits | **676** | 490,149,075 | 331,340,774,700 | bulengerk · [42ae2103](https://api.ecdsa.fail/api/submissions/42ae2103-575e-4f95-bbd5-ab2051a994f2) |
 
-![Public Pareto frontier with our officially scored Toffoli record](docs/figures/frontier.png)
+The product record improves on jackylee0424’s preceding **939,347,948** by
+**124,634 (0.01327%)**, saving 101 rounded Toffolis at the same width. The new
+Toffoli record improves on our previous **753,721** by **27 gates (0.00358%)**.
+Our Q1464/T753771 and Q1468/T753721 entries also remain nondominated.
 
-The gold step is the officially scored public frontier; leftward means fewer
-qubits, downward fewer Toffolis (log scale). The cyan star is our official
-Toffoli record. The cyan diamond is a separate 692-qubit circuit that passed
-the full local benchmark. Only official scores and complete local benchmark
-passes appear in this figure.
+![ECDSA.fail resource frontier, highlighting MonitSharma’s four Pareto points](docs/figures/leaderboard-frontier.png)
 
-### Our Toffoli record
+The API promotes the scalar product. Our product entry is **accepted and promoted**;
+the three wider gate-saving entries are officially scored but rejected only because
+their product did not improve the incumbent. They are included in the website’s
+Pareto view and in this analysis. Pareto membership describes a resource tradeoff;
+it does not mean one circuit wins every objective.
 
-Our circuit lowered the public minimum from **761,156** to **753,771** executed
-Toffolis (submission `3f32acd2`, 15 Oct), then to **753,721** (`03be8e19`,
-16 Oct), about 1% below the previous state of the art. It deliberately uses
-more qubits (1,468, versus 1,235 for the prior leader). This record rewards
-fewer gates at any width, so its qubit × Toffoli product is not competitive.
+![Product record history, with the latest eight records enlarged](docs/figures/product-progress.png)
 
-![Fewer Toffolis at higher width: a different trade-off from the best product](docs/figures/record-tradeoffs.png)
+The full challenge has reduced product **91.27%** from its starting baseline;
+that cumulative gain includes many contributors. The product submission adds an
+exact repeated-AND cache to jackylee0424’s `4b2ec52f` lineage. The submissions
+retain inherited approximate arithmetic and disclose finite-packet testing,
+fresh-input failure measurements, and identity-tail nonce searches. Read the
+[results, source revisions and attribution](docs/leaderboard-results.md) for scope.
 
-How it was built, in short:
+[Full frontier table](docs/frontier-results.md) ·
+[Frontier SVG](docs/figures/leaderboard-frontier.svg) ·
+[Product-history SVG](docs/figures/product-progress.svg) ·
+[Saved source data](docs/data/leaderboard/README.md)
 
-- A wider workspace. A stricter allocator returns every freshly allocated wire,
-  which lets the modular-inversion walk run with more room. That removes about
-  7,400 expected Toffolis.
-- Exact repairs to several approximate arithmetic steps inherited from the
-  public baseline, plus a smoothed walk-width schedule that removes a cliff in
-  the failure rate.
-- Exact gate-level caching. The 753,721 version adds 15 verified cache stages
-  that reuse repeated AND computations, for 4 extra qubits and about 42 fewer
-  Toffolis per shot.
+## Reproduce the updated plots
 
-Details, evidence and hashes:
-[753,771 entry](experiments/nonce-screen-20261015/STATUS.md) ·
-[753,721 entry](experiments/wide15-record-20261016/STATUS.md).
+The headline figures use the complete hashed 17 October public snapshot and
+regenerate offline, with no ignored research folder required:
+
+```bash
+python scripts/plot-leaderboard-records.py
+python scripts/plot-leaderboard-records.py --refresh # fetch a newer public snapshot
+```
+
+This creates high-resolution PNG and editable SVG files in `docs/figures/`.
+It checks snapshot hashes, Q × T consistency and benchmark metadata before
+plotting. [Saved data and method](docs/data/leaderboard/README.md).
+The existing research analyzer and its tests remain available separately.
 
 ## How the benchmark works, and the standard we hold ourselves to
 
@@ -94,27 +99,21 @@ pre-declared failure-rate check came out marginally worse than the record's
 
 ## Current work
 
-- **Product record (benchmark passed, queued).** The leading circuit
-  (`4b2ec52f`) plus an exact, universally certified 67-stage cache, at the same
-  1,234 qubits. The unchanged benchmark scores **761,121 × 1,234 =
-  939,223,314**, 124,634 below the public record, with all 9,024 shots
-  passing. It passed its pre-declared failure-rate check (identical
-  wrong-answer failures; McNemar p = 0.65; 17.91 vs 17.93 failing batches per
-  test set). Nonce 129,023,534, the lowest pass in an ascending search of
-  129.2 million. Not yet officially scored.
-  [Status](experiments/plain67-final-20261016/STATUS.md) ·
-  [note](experiments/plain67-final-20261016/SUBMISSION-NOTE.md).
-- **Toffoli record (benchmark passed, queued).** Our wide circuit plus a
-  frozen 95-stage exact cache: **753,694** executed Toffolis at 1,556 qubits,
-  all 9,024 shots passing; 27 below the current record. Pre-declared gate
-  passed against our 753,721 entry (McNemar p = 0.82, identical wrong-answer
-  shots). Nonce 294, lowest pass of 379 screened.
-  [Status](experiments/wide95-20261017/STATUS.md).
-- **Next product step.** A 95-stage cache on the product circuit (PRODUCT95)
-  passed its gate (saving 10.6 T over the queued product candidate); its
-  nonce search is running. No score until the benchmark confirms it.
+- **Product record (officially accepted and promoted).** PLAIN67 scores
+  **761,121 × 1,234 = 939,223,314**, official submission
+  [d7f69382](https://api.ecdsa.fail/api/submissions/d7f69382-4716-4b86-9fac-151c8bc581e4).
+  [Research evidence](experiments/plain67-final-20261016/STATUS.md) ·
+  [submission note](experiments/plain67-final-20261016/SUBMISSION-NOTE.md).
+- **Toffoli record (officially scored, Pareto-optimal).** WIDE95 scores
+  **753,694** at **1,556 qubits**, official submission
+  [b99c9678](https://api.ecdsa.fail/api/submissions/b99c9678-5a68-49e8-a8b7-91fc6c383e37).
+  [Research evidence](experiments/wide95-20261017/STATUS.md).
+- **Further product research.** Later cache continuations and their frozen
+  experiments remain separate from the official records above. See the
+  [agent handoff](docs/AGENT_HANDOFF.md) and dated experiment statuses for
+  current research; pending counts are excluded from these result plots.
 - **Qubit record.** The public frontier is at 676 qubits, built on a different
-  ring-based design than our 692-qubit circuit.
+  ring-based design than our complete local 692-qubit pass.
 
 ## What we have learned
 
@@ -146,9 +145,9 @@ Only circuits that passed the complete 9,024-shot benchmark appear here.
 
 | Circuit | Qubits | Rounded mean executed Toffolis | Q × T | Status |
 |---|---:|---:|---:|---|
-| Wide circuit + 15-stage cache | 1,468 | **753,721** | 1,106,462,428 | Official [`03be8e19`](https://api.ecdsa.fail/api/submissions/03be8e19-ab3b-45c7-9c62-9d78970c4d95) (current Toffoli record) |
-| WIDE95 Toffoli candidate | 1,556 | **753,694** | 1,172,747,864 | Local pass, queued; [evidence](experiments/wide95-20261017/STATUS.md) |
-| PLAIN67 product candidate | 1,234 | 761,121 | **939,223,314** | Local pass, queued; [evidence](experiments/plain67-final-20261016/STATUS.md) |
+| Wide circuit + 15-stage cache | 1,468 | **753,721** | 1,106,462,428 | Official [`03be8e19`](https://api.ecdsa.fail/api/submissions/03be8e19-ab3b-45c7-9c62-9d78970c4d95) (previous Toffoli record) |
+| WIDE95 Toffoli candidate | 1,556 | **753,694** | 1,172,747,864 | Official [b99c9678](https://api.ecdsa.fail/api/submissions/b99c9678-5a68-49e8-a8b7-91fc6c383e37), current Toffoli record; [evidence](experiments/wide95-20261017/STATUS.md) |
+| PLAIN67 product candidate | 1,234 | 761,121 | **939,223,314** | Official [d7f69382](https://api.ecdsa.fail/api/submissions/d7f69382-4716-4b86-9fac-151c8bc581e4), current product record; [evidence](experiments/plain67-final-20261016/STATUS.md) |
 | Wide circuit + 4-stage cache | 1,464 | 753,745 | 1,103,482,680 | Local pass, [evidence](experiments/wide-record-20261015/STATUS.md) |
 | Wide smoothed-walk circuit | 1,464 | 753,771 | 1,103,520,744 | Official [`3f32acd2`](https://api.ecdsa.fail/api/submissions/3f32acd2-71bf-4cc7-bae6-7407be97fe3b) (previous record) |
 | Product25 (not submitted) | 1,234 | 761,171 | 939,285,014 | Local pass; failed its own failure-rate check, [verification](experiments/product25-final-20261016/VERIFICATION.md) |

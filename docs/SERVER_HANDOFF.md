@@ -1,5 +1,11 @@
 # CPU server: ECDSA research handoff
 
+**Public result update · 17 October, 12:36 Singapore.** MonitSharma now holds
+the product record (939,223,314) and Toffoli record (753,694), with four current
+Pareto points. See [official results and provenance](leaderboard-results.md).
+The dated operational checkpoints below remain preserved; this documentation
+refresh does not launch, stop, or change any server research.
+
 ## STOPPED: 16 October 2026, 09:07 Singapore
 
 User requested stop/candidate review. No further launches or automatic resume.

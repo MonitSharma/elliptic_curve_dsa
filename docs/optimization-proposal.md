@@ -2,6 +2,13 @@
 
 # Optimization proposal and continuation priorities
 
+**Historical plan, superseded by the 17 October public results.** MonitSharma now
+leads product at **939,223,314** and Toffolis at **753,694**; minimum width is
+**676** (bulengerk). See [current results](leaderboard-results.md) and the
+[current frontier](frontier-results.md). For a new product record use
+`floor((939223314 - 1) / Q)` as the strict maximum rounded T. The priorities and
+thresholds below record the older local campaign, not the current leaderboard.
+
 Updated for the CPU-server handoff on 14 October 2026. The objective is improvement
 on all three fronts: width, Toffolis and product, in separate code tracks. The
 initial scalar-only recommendation below is retained as historical analysis;
@@ -11,7 +18,7 @@ Read [SERVER_HANDOFF.md](SERVER_HANDOFF.md) for exact resume commands, and
 [parallel-campaign.md](parallel-campaign.md) for the measured experiments.
 **No new original full-benchmark result has qualified.**
 
-## Current priorities
+## 14 October priorities
 
 1. **Qubits:** integrate `stage1_v_compact` in the Q694 Scheme G branch with a proved
    quotient-owner schedule. The 693-wire component and104-T per-call saving are
