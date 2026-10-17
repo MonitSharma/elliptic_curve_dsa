@@ -1,0 +1,76 @@
+{
+  "label": "wide95-gate-20261017-v1",
+  "batches": 32768,
+  "candidate_stream_sha256": "7c0ac9588dbf3aa90967315923778c9b3ccb954aae34bb71fc6c7bb970523109",
+  "census_sha256": {
+    "candidate": "42fabb4535358087c4fbd2d893f1bbc27ae8f9855d8a3e70ec23a5a7e8f3c513",
+    "official_toffoli_record_1d8c05ee": "ecb8c1e8811e30c82a9a314ab5a980b9908acd9a17454376ce1e0bb4432e5191",
+    "official_5a7c3902": "89bc63620cf84d66909990e63891afcd98cdf62ebe9b67d459bf2aa7a190cd48"
+  },
+  "verdicts": {
+    "official_toffoli_record_1d8c05ee": {
+      "status": "FAILURE_GATE_PASS",
+      "parent_stream_sha256": "1d8c05eeee7b43dd694506b5efe963c771461b7e690bc62f409947b2306b7d77",
+      "failed_batches": {
+        "parent": 1343,
+        "candidate": 1337
+      },
+      "failed_batches_per_packet": {
+        "parent": 5.778900146484375,
+        "candidate": 5.753082275390625
+      },
+      "value_shots": {
+        "parent": 1174,
+        "candidate": 1174
+      },
+      "dirty_shots_candidate": 0,
+      "newly_failing_b": 27,
+      "newly_passing_c": 33,
+      "mcnemar_one_sided_p": 0.8168529966483544,
+      "rules": {
+        "1_value_failures_not_above_parent": true,
+        "2_mcnemar_one_sided_p_at_least_0.05": true,
+        "3_failed_batches_per_packet_at_most_18": true,
+        "4_zero_dirty_shots": true
+      },
+      "paired_mean_T_saving": 25.016839027404785,
+      "saving_standard_error": 0.28104111608348514,
+      "mean_T": {
+        "parent": 753722.6555771828,
+        "candidate": 753697.6387381554
+      }
+    },
+    "official_5a7c3902": {
+      "status": "FAILURE_GATE_PASS",
+      "parent_stream_sha256": "01aad987cfe03e7ca97df6f3dcd26085a21a5836aa6e661ec8fbd9c9c1b63740",
+      "failed_batches": {
+        "parent": 1336,
+        "candidate": 1337
+      },
+      "failed_batches_per_packet": {
+        "parent": 5.748779296875,
+        "candidate": 5.753082275390625
+      },
+      "value_shots": {
+        "parent": 1174,
+        "candidate": 1174
+      },
+      "dirty_shots_candidate": 0,
+      "newly_failing_b": 28,
+      "newly_passing_c": 27,
+      "mcnemar_one_sided_p": 0.5,
+      "rules": {
+        "1_value_failures_not_above_parent": true,
+        "2_mcnemar_one_sided_p_at_least_0.05": true,
+        "3_failed_batches_per_packet_at_most_18": true,
+        "4_zero_dirty_shots": true
+      },
+      "paired_mean_T_saving": 66.82749366760254,
+      "saving_standard_error": 0.2799941988245024,
+      "mean_T": {
+        "parent": 753764.466231823,
+        "candidate": 753697.6387381554
+      }
+    }
+  }
+}
