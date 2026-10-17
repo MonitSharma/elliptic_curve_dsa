@@ -16,7 +16,7 @@ including failed ones.
 
 | Record | Public best (16 Oct 2026) | Our standing |
 |---|---:|---|
-| **Fewest executed Toffolis** | **753,721** at 1,468 qubits | **Ours**: officially scored submission [`03be8e19`](https://api.ecdsa.fail/api/submissions/03be8e19-ab3b-45c7-9c62-9d78970c4d95) |
+| **Fewest executed Toffolis** | **753,721** at 1,468 qubits | **Ours**: officially scored submission [`03be8e19`](https://api.ecdsa.fail/api/submissions/03be8e19-ab3b-45c7-9c62-9d78970c4d95); new local pass **753,694** at 1,556 qubits queued |
 | Lowest qubit × Toffoli product | 939,347,948 (761,222 × 1,234) | **939,223,314** (761,121 × 1,234): complete local benchmark pass, queued for submission; see [current work](#current-work) |
 | Fewest logical qubits | 676 | A complete local pass at 692 qubits (not submitted) |
 
@@ -104,8 +104,15 @@ pre-declared failure-rate check came out marginally worse than the record's
   129.2 million. Not yet officially scored.
   [Status](experiments/plain67-final-20261016/STATUS.md) ·
   [note](experiments/plain67-final-20261016/SUBMISSION-NOTE.md).
-- **Toffoli record.** Further exact savings on our wide circuit; the next
-  target is 753,720 or fewer.
+- **Toffoli record (benchmark passed, queued).** Our wide circuit plus a
+  frozen 95-stage exact cache: **753,694** executed Toffolis at 1,556 qubits,
+  all 9,024 shots passing; 27 below the current record. Pre-declared gate
+  passed against our 753,721 entry (McNemar p = 0.82, identical wrong-answer
+  shots). Nonce 294, lowest pass of 379 screened.
+  [Status](experiments/wide95-20261017/STATUS.md).
+- **Next product step.** A 95-stage cache on the product circuit (PRODUCT95)
+  passed its gate (saving 10.6 T over the queued product candidate); its
+  nonce search is running. No score until the benchmark confirms it.
 - **Qubit record.** The public frontier is at 676 qubits, built on a different
   ring-based design than our 692-qubit circuit.
 
@@ -140,6 +147,7 @@ Only circuits that passed the complete 9,024-shot benchmark appear here.
 | Circuit | Qubits | Rounded mean executed Toffolis | Q × T | Status |
 |---|---:|---:|---:|---|
 | Wide circuit + 15-stage cache | 1,468 | **753,721** | 1,106,462,428 | Official [`03be8e19`](https://api.ecdsa.fail/api/submissions/03be8e19-ab3b-45c7-9c62-9d78970c4d95) (current Toffoli record) |
+| WIDE95 Toffoli candidate | 1,556 | **753,694** | 1,172,747,864 | Local pass, queued; [evidence](experiments/wide95-20261017/STATUS.md) |
 | PLAIN67 product candidate | 1,234 | 761,121 | **939,223,314** | Local pass, queued; [evidence](experiments/plain67-final-20261016/STATUS.md) |
 | Wide circuit + 4-stage cache | 1,464 | 753,745 | 1,103,482,680 | Local pass, [evidence](experiments/wide-record-20261015/STATUS.md) |
 | Wide smoothed-walk circuit | 1,464 | 753,771 | 1,103,520,744 | Official [`3f32acd2`](https://api.ecdsa.fail/api/submissions/3f32acd2-71bf-4cc7-bae6-7407be97fe3b) (previous record) |
