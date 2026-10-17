@@ -1,0 +1,109 @@
+{
+  "status": "SOURCE_BOUND_MASK_TRANSFER_AND_RUNTIME_ACCEPTED_FOR_ASCENDING_SEARCH",
+  "accepted_utc": "2026-10-17T00:19:27.135428+00:00",
+  "candidate": "PRODUCT95 (95-stage exact cache chain on public product record 4b2ec52f)",
+  "candidate_stream_sha256": "ba87b9ceb0691ccfe8c509539cfc38e774ee02134363c19e3541c6e942723e84",
+  "mask_sha256": "560c12d5044dd895a4ef32adc905cdde48a780a196b3b28a75951c7f27b4fe9d",
+  "lowest_pass_from": 1,
+  "submission_mode": "queue",
+  "failure_gate_pass": true,
+  "failure_gate": {
+    "label": "product95-gate-20261017-v1",
+    "batches": 32768,
+    "candidate_stream_sha256": "ba87b9ceb0691ccfe8c509539cfc38e774ee02134363c19e3541c6e942723e84",
+    "census_sha256": {
+      "candidate": "e5e69730c157f6e31655230235e1d5b7a20f60361542b5c432e37d809d6c2c5b",
+      "public_record_4b2ec52f": "254ac92aafb316944b3fbc6616aa448bd2438a1fc79f3f94fa888b612cfa0a1a",
+      "plain67_final": "426756f50980f64b0e8b0e6d2eb3e486eaba9e1d2d8987268004e910ae64b368"
+    },
+    "verdicts": {
+      "public_record_4b2ec52f": {
+        "status": "FAILURE_GATE_PASS",
+        "parent_stream_sha256": "2a522394cdf3e6a0df7784ad4db761030933c1f7ccd0ff8e641d68ec7a4dab3e",
+        "failed_batches": {
+          "parent": 4179,
+          "candidate": 4165
+        },
+        "failed_batches_per_packet": {
+          "parent": 17.982147216796875,
+          "candidate": 17.921905517578125
+        },
+        "value_shots": {
+          "parent": 3614,
+          "candidate": 3614
+        },
+        "dirty_shots_candidate": 0,
+        "newly_failing_b": 161,
+        "newly_passing_c": 175,
+        "mcnemar_one_sided_p": 0.7933925414170905,
+        "rules": {
+          "1_value_failures_not_above_parent": true,
+          "2_mcnemar_one_sided_p_at_least_0.05": true,
+          "3_failed_batches_per_packet_at_most_18": true,
+          "4_zero_dirty_shots": true
+        },
+        "paired_mean_T_saving": 113.21760272979736,
+        "saving_standard_error": 0.4425307084639942,
+        "mean_T": {
+          "parent": 761223.2873110771,
+          "candidate": 761110.0697083473
+        }
+      },
+      "plain67_final": {
+        "status": "FAILURE_GATE_PASS",
+        "parent_stream_sha256": "f2279f98d631113bf045f7d2c8f17cbc514d77a135e14234b983d4534057b78d",
+        "failed_batches": {
+          "parent": 4176,
+          "candidate": 4165
+        },
+        "failed_batches_per_packet": {
+          "parent": 17.96923828125,
+          "candidate": 17.921905517578125
+        },
+        "value_shots": {
+          "parent": 3614,
+          "candidate": 3614
+        },
+        "dirty_shots_candidate": 0,
+        "newly_failing_b": 161,
+        "newly_passing_c": 172,
+        "mcnemar_one_sided_p": 0.7445708517943039,
+        "rules": {
+          "1_value_failures_not_above_parent": true,
+          "2_mcnemar_one_sided_p_at_least_0.05": true,
+          "3_failed_batches_per_packet_at_most_18": true,
+          "4_zero_dirty_shots": true
+        },
+        "paired_mean_T_saving": 10.554931640625,
+        "saving_standard_error": 0.4428629187463048,
+        "mean_T": {
+          "parent": 761120.624639988,
+          "candidate": 761110.0697083473
+        }
+      }
+    }
+  },
+  "cost_gate_pass": true,
+  "expected_nonces": 211060609.75804612,
+  "rate_estimate_source": "PLAIN67 persistent pilot (17.9M ops); PRODUCT95 has 20.3M ops, so the true rate may be lower. Estimate only.",
+  "pilot_rate_nonces_per_thread_second_plain67": 55.82911610674972,
+  "expected_hours_at_56_threads_ideal_linear_plain67_rate": 18.75235899787983,
+  "wall_limit_hours": 48,
+  "runtime_artifacts": {
+    "/home/hclau/ecdsa_research/product-exact-20261015/product-to95-rank-20261016/product-95-retained-1024-proxy.bin": "ba87b9ceb0691ccfe8c509539cfc38e774ee02134363c19e3541c6e942723e84",
+    "/home/hclau/ecdsa_research/product-exact-20261015/cache-certificate95-20261017/CACHE_EQUIVALENCE_CERTIFICATE.json": "f3af2e4d3275f9b39fa34ad61d8a000f166935eb4f7236ac28a5cd2032dc27ad",
+    "/home/hclau/ecdsa_research/product-exact-20261015/cache-certificate95-20261017/PER_INPUT_MASK_TRANSFER.json": "473fa613278d91786ed33b4225b8c41b1f0219db367d9110009c5dfd1ff32b75",
+    "/home/hclau/ecdsa_research/prefilter-20261015/evidence/mr-mask-tip-v3.bin": "560c12d5044dd895a4ef32adc905cdde48a780a196b3b28a75951c7f27b4fe9d",
+    "/home/hclau/ecdsa_research/prefilter-20261015/evidence/mr-mask-tip-v3-fused.bin": "1ccbbfc4a45b8d359be9ce21eb4640c72bb9bfe9bffb35f5630c0d13da3f2f8a",
+    "/home/hclau/ecdsa_research/prefilter-20261015/libmask_fused.so": "dc8219ae84c21e244ec0e1b92a14e9d0705faf7ebced04a2663499a75a6af1a0",
+    "/home/hclau/ecdsa_research/scalar-fast-20261015/libscalar_fast_batch.so": "3bb2304219fb336795ea88d4bf81174883cdd33702f5975819b812c3dffca30f"
+  },
+  "derivation": "PLAIN67 operational patches (prepare.py, search.rs) applied to the PRODUCT95-qualified product95-filter tool; TOOL_DIFF_AUDIT.json proves the sources differ from PLAIN67's operational tool only in PRODUCT95 bindings.",
+  "remaining_gates": [
+    "Lane-0 control equals qualified rows 1..4096 (CONTROL.json)",
+    "Every lower nonce accounted before selecting the lowest pass",
+    "Native source with selected TAIL_NONCE reproduces the pre-tail stream",
+    "Unchanged official benchmark.sh on the final source"
+  ],
+  "score": null
+}

@@ -1,0 +1,113 @@
+{
+  "old_tool": "/home/hclau/ecdsa_research/plain67-operational-20261016/tool",
+  "new_tool": "/home/hclau/ecdsa_research/plain95-operational-20261017/tool",
+  "replacements": [
+    [
+      "268aefe234ede5eaab723e34e214b91f0bd8cac9b0f95d9ee90e3bf3ae8c951d",
+      "ba87b9ceb0691ccfe8c509539cfc38e774ee02134363c19e3541c6e942723e84"
+    ],
+    [
+      "assert_eq!(n,17_891_821)",
+      "assert_eq!(n,20_275_836)"
+    ],
+    [
+      "cache-certificate67-20261016",
+      "cache-certificate95-20261017"
+    ],
+    [
+      "303a75ec86a4da8c3a4008646e1b8257768fa40e198f0b7172eeafd19408c7c6",
+      "f3af2e4d3275f9b39fa34ad61d8a000f166935eb4f7236ac28a5cd2032dc27ad"
+    ],
+    [
+      "d774c492b94f1c6ca458cc42de82d6dbee90a316f7d80c9dc6ee32eb1fe5201f",
+      "473fa613278d91786ed33b4225b8c41b1f0219db367d9110009c5dfd1ff32b75"
+    ],
+    [
+      "5914f683bb5df08d21f94d79663c6239a84715e27b2eac7e18ce1fcafaee0167",
+      "4ad765ee35d95876c3f06fb5fb14d9060a33e9396c6538d97a57bc03b47bb2c1"
+    ],
+    [
+      "candidate268aefe2 universal67stage",
+      "candidateba87b9ce universal95stage"
+    ]
+  ],
+  "files": {
+    "Cargo.lock": {
+      "equal_after_bindings": true,
+      "changed": false,
+      "sha256": "0cdd430d442689523e00c08c0d1e21ec71e72fee0f2349bb048cc1334bedeff4"
+    },
+    "Cargo.toml": {
+      "equal_after_bindings": true,
+      "changed": false,
+      "sha256": "c0e5bb7ba6d4299e5f0e9206a4b22c1ab48b07fee7b6892fe112f5221d7035bf"
+    },
+    "src/baseline_body.rs": {
+      "equal_after_bindings": true,
+      "changed": false,
+      "sha256": "2eaba78cab2b37dc964ec04bce7da751e91a33b066a82e53367dab3fd65777ab"
+    },
+    "src/early.rs": {
+      "equal_after_bindings": true,
+      "changed": false,
+      "sha256": "e7151df4b3ea32d02b47334ba6618c5034d9e992df32d925256c8ff822262daa"
+    },
+    "src/fast_curve_c.rs": {
+      "equal_after_bindings": true,
+      "changed": false,
+      "sha256": "28e3d5a6e29890b4d1c9c5c63dcb55883cfc71e630cc76bf9146c21ece51f68e"
+    },
+    "src/fast_sim_wide.rs": {
+      "equal_after_bindings": true,
+      "changed": false,
+      "sha256": "0082e2cf935fbe02bc61277342d1625d0f676a8628c05c5a7b63f10d41b89674"
+    },
+    "src/main.rs": {
+      "equal_after_bindings": true,
+      "changed": false,
+      "sha256": "ed5172301706d2147bdbf5792d84c018427be316c8bfcea2a5ab63be2d58f00a"
+    },
+    "src/masks.rs": {
+      "equal_after_bindings": true,
+      "changed": false,
+      "sha256": "7147212871d6df580227263ff25ea157b4114eb43bfbc7dba0795aff35d25eb5"
+    },
+    "src/official.rs": {
+      "equal_after_bindings": true,
+      "changed": false,
+      "sha256": "7401f33071d78932db1ad323922d7a058fbb455c4f0635c204d677b2af21521e"
+    },
+    "src/packed_body.rs": {
+      "equal_after_bindings": true,
+      "changed": true,
+      "sha256": "874ba366a0c5079e427b678b4825635c21305255de18be3738608d91d062933c"
+    },
+    "src/rail_advisory.rs": {
+      "equal_after_bindings": true,
+      "changed": false,
+      "sha256": "2ebcf9a43c2fc153d36906cd2edac94c164ef7b540898e7a4328d35a0f1f0027"
+    },
+    "src/rail_fast_ffi.rs": {
+      "equal_after_bindings": true,
+      "changed": false,
+      "sha256": "9632bd4e87792d6fa0d990f5e3c8d424f7992aeda816c8fc95204ea66b7565c3"
+    },
+    "src/search.rs": {
+      "equal_after_bindings": true,
+      "changed": true,
+      "sha256": "941fc1d01342f483f6b41791c270c92b1e3d779a7cc127bd56b173b65918ac6c"
+    },
+    "src/simd_screen_ffi_wide.rs": {
+      "equal_after_bindings": true,
+      "changed": false,
+      "sha256": "e821e59d994d1496aecabb1353ca1838b3b00ab5fc5d0b14d299fbf6151afca2"
+    },
+    "src/transfer.rs": {
+      "equal_after_bindings": true,
+      "changed": true,
+      "sha256": "e8567275179aa1d55506f0590310fdcd3baf0e87342df297ec5c9c2286ac2d54"
+    }
+  },
+  "same_file_set": true,
+  "status": "ONLY_PRODUCT95_BINDINGS_DIFFER"
+}
