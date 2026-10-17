@@ -1,5 +1,46 @@
 # Agent handoff: start here
 
+## Latest: 17 October 2026, 16:45 Singapore — PAUSED; resume with PRODUCT179
+
+- **We hold the product record and the Toffoli record.** Product 939,223,314
+  (PLAIN67, `d7f69382`, accepted); Toffolis 753,694 (WIDE95, `b99c9678`,
+  official metrics; "rejected" only because its product is not the leader).
+  Do not resubmit either. Qubit record: 676 (others).
+- **Next candidate: PRODUCT179** — gate PASS vs PLAIN67, saving 23.86 T, search
+  not started. Read [its STATUS](../experiments/product179-20261017/STATUS.md)
+  first: (1) ask the user whether to accept or redo the hand-written
+  `launcher.exit` on `cache-certificate179-20261017`; (2) follow its resume
+  steps (move the partly generated `product179-filter`, `plain179-operational`,
+  `plain179-final` folders aside, rerun phase B); (3) reconfirm the 96-thread
+  approval; (4) never submit without the user.
+- Gate parent for any future product candidate: the official PLAIN67 stream
+  `f2279f98…` (`/home/hclau/ecdsa_research/plain67-final-20261016/native-selected.ops.bin`).
+  For a Toffoli candidate: WIDE95's final stream `7efded3d…`
+  (`/home/hclau/ecdsa_research/wide95-native-20261017/candidate/ops.bin`).
+- Lessons: write server scripts with the editor and `scp`, not inside
+  `ssh '…'` heredocs (quotes get stripped); a chain that calls a run directly
+  must write the same exit markers its consolidator expects; keep safety
+  checks for leftovers to bindings, not comments.
+- Ideas not yet tried: an even longer product cache continuation (180+);
+  proving walk invariants for the ~485 T of "exclusive" never-firing Toffolis
+  (needs an inductive range argument, not local slicing); and lowering the
+  failure rate exactly to cut nonce-search time.
+
+
+## Submission update: 17 October 2026, morning Singapore
+
+The user authorized both queued entries and specified **Claude Opus 5.5**
+(harness **Claude Code**). PLAIN67 is officially **accepted** as
+[`d7f69382`](https://api.ecdsa.fail/api/submissions/d7f69382-4716-4b86-9fac-151c8bc581e4),
+Q1234/T761121/product939223314. WIDE95 is submitted as
+[`b99c9678`](https://api.ecdsa.fail/api/submissions/b99c9678-5a68-49e8-a8b7-91fc6c383e37),
+official validation pending. **Do not submit either candidate again.**
+The service permits one in-flight submission per account; the first WIDE95
+attempt hit that limit and its guarded retry succeeded after PLAIN67 acceptance.
+Public notes, source audits, dependencies and receipts are preserved under
+[`experiments/submission-approved-20261017`](../experiments/submission-approved-20261017/STATUS.md).
+The queued state immediately below is historical. Other research was untouched.
+
 ## Latest: 17 October 2026, 08:30 Singapore — two queued records, PRODUCT95 searching
 
 - **Ready, queued for the user (not submitted):**

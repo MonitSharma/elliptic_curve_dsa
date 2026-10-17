@@ -35,6 +35,8 @@ common = [
     ('candidateba87b9ce universal95stage', f'candidate{S[:8]} universal179stage'),
     ('product95-gate-20261017-v1', 'product179-gate-20261017-v1'),
     ('universal95', 'universal179'), ('PRODUCT95', 'PRODUCT179'), ('95-stage', '179-stage'),
+    # comment/docstring text only (found on the first real run, 17 Oct 15:55)
+    ('cache-certificate95 directory', 'cache-certificate179 directory'), ('ba87b9ce stream', f'{S[:8]} stream'),
 ]
 
 def conv(src, dst, extra=(), required=()):

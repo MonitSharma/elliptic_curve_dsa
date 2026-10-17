@@ -1,0 +1,36 @@
+{
+  "status": "CONDITIONAL_PER_INPUT_MASK_TRANSFER",
+  "cache_equivalence_certificate_sha256": "5c3922ec0912668a979a6b0c8bab884f95af21acf140ab450e530e9a5abbeacb",
+  "baseline_stream_sha256": "2a522394cdf3e6a0df7784ad4db761030933c1f7ccd0ff8e641d68ec7a4dab3e",
+  "candidate_stream_sha256": "fa1f6d93d08acd5974cbab6307eb7c3a7018e5c4d6c85aae2c692b2f4e83066d",
+  "audited_identity_tail_prefix": {
+    "path": "/home/hclau/ecdsa_research/product-exact-20261015/product-to179-rank-20261017/product-179-retained-1024-proxy.bin",
+    "ops": 26007019,
+    "pre_tail_ops": 26006923,
+    "pre_tail_bytes": 1456387688,
+    "pre_tail_sha256": "1ba123fba5dc41df3262e17d287703250e40b5ea88d292d351faed646c592982",
+    "pre_tail_sha3_256": "ba1e3cc16099c0964bdb30595633ba062a0439fc1f91627c93bb3cea5ec3117b",
+    "serialization": "Each operation7 little-endian u64:kind,control2,control1,target,c_target,c_condition,r_target. Kind padding is zero. Same56-byte records as protected QECCOPSZ payload.",
+    "tail_ops": 96,
+    "tail_sha256": "de35b0e67bd2b427a34ad6b7c6a36c523fef04d796286b328ff858ca69999a2e",
+    "nonce": 1046072871510,
+    "tail_verified_48_adjacent_XX_pairs_q0_or_q1": true
+  },
+  "statement": "For each fixed original ABI input x and scored coordinate bit b, audited equivalence is G_b(x,s)=F_b(x,pi(s)) for every candidate MR vector s. If a separate sound source-bound certificate proves F_b(x,r) constant for every original MR vector r for this x,b, then G_b(x,s)=F_b(x,0) for every s. This per-input premise does not require global MR independence.",
+  "separate_premises": [
+    "The mask certifies every original MR assignment for this exact input and bit, and is bound to original4b stream hash.",
+    "The value evaluator exactly computes the original source function with all original MR bits zero.",
+    "The expected curve output and every evaluated input derive from the final candidate own Fiat preparation, including its final nonce."
+  ],
+  "safe_rejection": "A certified masked-bit mismatch to the correct reference curve value proves failure on this input regardless of candidate MR. Uncertified bits, matching bits and empty masks do not prove a full pass.",
+  "nonce_scope": "A nonce change must preserve the audited pre-tail operations byte for byte, followed by48 adjacent XX identity pairs. Validate these exact bytes/shape and use the final candidate own Fiat inputs. Never reuse a packet belonging to another source.",
+  "remaining_validation": "Full exact simulator handles survivors, including every unproved bit, phase and dirty scratch; unchanged official benchmark remains required.",
+  "does_not_certify": [
+    "mask or value-model implementation",
+    "global original coordinate MR independence",
+    "phase independence",
+    "any arithmetic precision repair changing F",
+    "a full resource record"
+  ],
+  "score": null
+}

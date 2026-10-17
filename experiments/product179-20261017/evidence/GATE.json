@@ -1,0 +1,39 @@
+{
+  "status": "FAILURE_GATE_PASS",
+  "label": "product179-gate-20261017-v1",
+  "batches": 32768,
+  "candidate_stream_sha256": "fa1f6d93d08acd5974cbab6307eb7c3a7018e5c4d6c85aae2c692b2f4e83066d",
+  "parent_stream_sha256": "f2279f98d631113bf045f7d2c8f17cbc514d77a135e14234b983d4534057b78d",
+  "census_sha256": {
+    "candidate": "9db329e6e5b027ca9cfbaab3c492844cd293a818f6c64e31075bbbaf47ccaa67",
+    "parent": "2f76cc3a7cc9787bb8057e786907d41adb1fb7a605339771751877aa3b6eac71"
+  },
+  "failed_batches": {
+    "parent": 4071,
+    "candidate": 4047
+  },
+  "failed_batches_per_packet": {
+    "parent": 17.517425537109375,
+    "candidate": 17.414154052734375
+  },
+  "value_shots": {
+    "parent": 3534,
+    "candidate": 3534
+  },
+  "dirty_shots_candidate": 0,
+  "newly_failing_b": 149,
+  "newly_passing_c": 173,
+  "mcnemar_one_sided_p": 0.9182708474302207,
+  "rules": {
+    "1_value_failures_not_above_parent": true,
+    "2_mcnemar_one_sided_p_at_least_0.05": true,
+    "3_failed_batches_per_packet_at_most_18": true,
+    "4_zero_dirty_shots": true
+  },
+  "paired_mean_T_saving": 23.863924503326416,
+  "saving_standard_error": 0.4418022073154333,
+  "mean_T": {
+    "parent": 761119.9382610321,
+    "candidate": 761096.0743365288
+  }
+}

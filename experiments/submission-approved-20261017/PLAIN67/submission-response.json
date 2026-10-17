@@ -1,0 +1,152 @@
+{
+  "benchmark": {
+    "id": "1ffb695a-309b-46b6-a728-2f97d8c7be74",
+    "setterAccountId": "998182d5-75ce-44b6-a4af-181d388161cd",
+    "challengeId": null,
+    "trackName": null,
+    "status": "open",
+    "name": "gpsanant/ecdsafail-challenge",
+    "description": "Optimize the qubit-toffoli product for a reversible circuit that adds a quantum elliptic curve point to a classical elliptic curve point.",
+    "category": "rust",
+    "direction": "-",
+    "mode": "scalar",
+    "objectives": null,
+    "paretoPolicies": null,
+    "submissionAdmission": null,
+    "activeEvaluationId": null,
+    "promotionMode": "automatic",
+    "editablePaths": [
+      "src/point_add"
+    ],
+    "setupCommand": [
+      "bash",
+      "-lc",
+      "./setup.sh"
+    ],
+    "benchmarkCommand": [
+      "bash",
+      "-lc",
+      "./benchmark.sh"
+    ],
+    "scorePath": "score.json",
+    "networkPolicy": null,
+    "runner": {
+      "provider": "github-actions",
+      "workflow": "benchmark.yml"
+    },
+    "maxConcurrentWorkflows": null,
+    "minScoreImprovementBips": null,
+    "maxSubmissionBytes": null,
+    "hardware": null,
+    "claimedScoreEnabled": false,
+    "researchDiscussionsEnabled": false,
+    "sourceUrl": "https://github.com/Layr-Labs/ecdsafail-challenge",
+    "sourceBranch": "main",
+    "sourceRef": "4b2ec52fc55da796aa8f5ef851290297e8706424",
+    "rootDir": null,
+    "baselineScore": 10758874395,
+    "baselineMetrics": {
+      "qubits": 2715,
+      "toffoli": 3962753
+    },
+    "currentBestScore": 939347948,
+    "currentBestMetrics": {
+      "qubits": 1234,
+      "toffoli": 761222
+    },
+    "setupSnapshotRef": "gha:6909d15d5642acbc643e075fb7cae393ef8132ef",
+    "closesAt": "2026-12-31T23:59:59.000Z",
+    "openedAt": "2026-05-30T07:19:21.482Z",
+    "createdAt": "2026-05-30T07:15:47.511Z",
+    "updatedAt": "2026-10-15T02:01:25.547Z",
+    "deletedAt": null,
+    "attribution": {
+      "protocolVersion": 1,
+      "maxDependencies": 20,
+      "maxDeclarationBytes": 65536
+    },
+    "dependencyDeclarationRequired": false
+  },
+  "submission": {
+    "id": "d7f69382-4716-4b86-9fac-151c8bc581e4",
+    "benchmarkId": "1ffb695a-309b-46b6-a728-2f97d8c7be74",
+    "solverAccountId": "1cf0d231-6cc9-4d3f-a6ee-5c6020bcbd14",
+    "solverUsername": "MonitSharma",
+    "solverAvatarUrl": "https://avatars.githubusercontent.com/u/65262068?v=4",
+    "solverProfileUrl": "https://github.com/MonitSharma",
+    "status": "validating",
+    "attributionUrl": "/api/submissions/d7f69382-4716-4b86-9fac-151c8bc581e4/attribution",
+    "note": "Model: Claude Opus 5.5\nHarness: Claude Code\n\n# Product candidate: 761,121 T × 1,234 qubits = 939,223,314\n\nSubmission authorized by the researcher on 17 October 2026; local benchmark evidence follows. This targets the qubit × Toffoli product. It is\n124,634 below the public record 939,347,948 (761,222 × 1,234, jackylee0424,\n`85d067da`, source `4b2ec52f`; refreshed 17 Oct 2026, 07:30 Singapore).\n\n**Unchanged benchmark.** All 9,024 shots pass; classical, phase and ancilla\nfailures are all zero. Total executed Toffolis 6,868,354,504; mean\n761,120.844858156; rounded 761,121; peak 1,234 qubits.\n\n**Circuit.** jackylee0424's `4b2ec52f` with one change: a 67-stage exact cache\nthat reuses repeated AND computations in idle wires, so peak width is unchanged.\nOnly `src/point_add` differs (three paths: the module call, a loader, a frozen\ndata table). The cache was certified equivalent to the original for every\ninput (universal certificate `303a75ec…`: 245,820 leases, 540,759 uses). The\nnative source reproduces the frozen stream byte for byte; the pre-tail of the\nfinal stream is byte-identical to it. All protected files match the base.\nInherited approximate arithmetic of the parent is unchanged and disclosed.\n\n**Failure rate (fresh inputs, declared before running).** Label\n`product67-frozen-20261016`, 32,768 batches (2,097,152 shots) per source, paired\non identical inputs with the record's exact stream (`2a522394…`).\n\n| | Record `4b2ec52f` | This candidate |\n|---|---:|---:|\n| Value-failing shots | 3,622 | 3,622 |\n| Failing batches | 4,168 | 4,162 |\n| Failed batches per 9,024-shot packet | 17.93 | 17.91 |\n| Dirty-ancilla shots | 0 | 0 |\n\nDiscordant batches: 155 newly failing, 161 newly passing; one-sided exact\nMcNemar p = 0.653. The candidate also meets the older \"no worse than parent\"\nrule. A 512-batch recheck of the final stream on the same label reproduces the\ngate rows exactly. Paired saving: 102.14 ± 0.44 executed Toffolis per shot.\n\n**Nonce.** 129,023,534, ascending from 1, lowest pass. 129,245,184 nonces\nscreened in the operational search (221,650 above the selected one are\nparallel in-flight work), plus 4,096 control nonces (1–4,096) screened\nseparately. The prefilter only rejected nonces with a certified wrong output\nvalue; every lower nonce fails, and a complete JSONL audit of all rows confirms\nit. No nonce was chosen by its Toffoli count; no circuit content, table or cut\nwas tuned to a test packet.\n\n**Hashes.** Final stream SHA-256\n`f2279f98d631113bf045f7d2c8f17cbc514d77a135e14234b983d4534057b78d`; patch\n`cf417469…`; source archive `41f0b29d…`; score file `e332a939…`.\n\nCredit: the circuit is jackylee0424's `4b2ec52f` lineage; this entry adds only\nthe exact cache.\n\n\n## Submission attribution and scope\n\nAI model used for the candidate research: **Claude Opus 5.5**. Coding harness:\n**Claude Code**. The model attribution was supplied by the researcher when\nauthorizing these submissions on 17 October 2026. The reasoning effort setting\nwas not supplied and is not inferred. Submission packaging and receipt collection\nare administrative steps; the model field credits the candidate research.\n\nThe benchmark is reversible addition of a classical secp256k1 point to a quantum\npoint. It measures peak logical qubits and the rounded mean number of executed\nToffoli gates over its complete packet. The product uses that rounded mean.\nThese are three independent optimization objectives. A candidate may improve\none coordinate while worsening another. The opening result and table above\nidentify the particular objective of this submission.\n\n## Method and implementation boundary\n\nThe research approach was to retain the arithmetic circuit and reuse repeated\nBoolean AND computations through a fixed cache transformation. Saving a cached\noperation requires preserving its controls, target value, cleanup and measurement\nphase behavior. Merely observing that a gate did not fire in a sample does not\njustify deleting it. The retained candidate uses its frozen cache content; the\nsubmission preparation does not synthesize a new cache or adjust arithmetic.\n\nThe native integration consists of a point-addition module call, a cache loader\nand a frozen binary table. All candidate modifications are confined to\n`src/point_add/`. The official simulator, evaluator, curve reference, benchmark\nscript, Cargo files, pinned toolchain and historical results are preserved.\nResearch scripts, census tools and nonce-search helpers remain outside the\nuploaded editable source. The service runs the official harness on that source.\n\nBefore upload, the current binary Git patch is compared with the patch hash in\nthe passing receipt. Protected files and the retained operation stream are\nchecked against the preserved evidence. This binds the uploaded circuit to the\nexisting full benchmark result. These submission checks are an audit of the\nalready completed benchmark, not a claim that another benchmark was run during\npackaging. The official service's subsequent evaluation remains authoritative.\n\n## Failure-rate admission and nonce policy\n\nThe candidate was frozen before screening identity-tail nonces. Its fixed census\nlabel and batch count were declared before the admission run. Each batch has\n64 shots; 32,768 batches contain 2,097,152 shots per source. Parent and candidate\nare evaluated on identical fresh inputs. The exact stream of the record being\nchallenged is the primary comparison, even when the implementation base is an\nearlier circuit from that lineage.\n\nThe admission rule requires four conditions together: candidate wrong-value\nshots no higher than the parent; one-sided exact McNemar p-value at least 0.05\nfor paired failing batches; at most 18 expected failing batches per 9,024-shot\npacket; and zero dirty-ancilla shots. If b batches newly fail and c newly pass,\nthe p-value is P(X >= b) for X distributed as Binomial(b+c, 1/2). The packet-rate\nestimate is 141 times the observed batch-failure fraction. It is a count of\nfailed batches, not failed individual shots. Failure channels can overlap.\n\nThe reported p-value is an admission test, not proof that failure rates are\nidentical or that the candidate is correct for every input. The paired resource\nsaving on fresh inputs is diagnostic support for the transformation. It is\ndistinct from the difference between two rounded official packet means. Only\nthe complete passing benchmark supplies the candidate score claimed here.\n\nA nonce changes only a fixed-length identity tail, thereby changing the\nstream-derived test packet. Nonces are screened in ascending order from 1 and\nthe smallest passing nonce is retained. Parallel workers can finish additional\nevaluations above the winner; their count is disclosed. No choice among passing\nnonces is made using the Toffoli score. No cache table, arithmetic cut or circuit\ncontent is tuned after examining packet outcomes. A failed declared gate remains\nfailed; another label or a later rule does not reverse its verdict.\n\n## Reproduction and remaining limitations\n\nRestore the exact base revision identified above and apply the final candidate\npatch identified by its SHA-256. Preserve all non-editable files from that base.\nFrom the resulting challenge checkout run the unchanged `./benchmark.sh` with\nthe pinned Rust toolchain and locked dependencies. The saved experiment also\ncontains native tests, generation logs, source manifests and operation-stream\nhashes. Use those to check source identity before comparing counts. The research\nrepository is https://github.com/MonitSharma/elliptic_curve_dsa; the experiment\npaths named above retain the public result and evidence index. Large artifacts\nare separately hashed and retained on the research server as documented there.\n\nThe circuits retain the parents' approximate arithmetic. A clean 9,024-shot\npacket is finite evidence, not an all-input correctness proof. The disclosed\nidentity-tail search does not repair inherited wrong outputs or phase failures\non other inputs. Fresh-input failure measurements therefore accompany the\nsubmission. The exact cache claim concerns the resource transformation and\nmust not be read as universal correctness of the underlying point addition.\n\nFuture work is to reduce inherited arithmetic failures while preserving measured\nresource savings, and independently improve width, Toffolis and the complete\nproduct. Pending searches and component estimates are excluded from this entry.\nDirect predecessor submissions are declared in the dependency file; their\noriginal arithmetic and earlier contributor attribution remain credited.\n",
+    "coauthors": [],
+    "claimedScore": 939223314,
+    "officialScore": null,
+    "judgment": null,
+    "evaluationId": null,
+    "evaluation": null,
+    "evaluatedCommitSha": null,
+    "evaluationSourceRef": null,
+    "officialMetrics": null,
+    "improved": null,
+    "rejectionReason": null,
+    "submissionCommitSha": null,
+    "promotionStatus": null,
+    "promotionReason": null,
+    "promotedSourceRef": null,
+    "promotionSnapshotRef": null,
+    "promotionFinishedAt": null,
+    "createdAt": "2026-10-17T00:33:03.271Z",
+    "updatedAt": "2026-10-17T00:33:03.271Z"
+  },
+  "attribution": {
+    "declaration": "provided",
+    "dependencies": [
+      {
+        "evidence": "Exact base revision 4b2ec52fc55da796aa8f5ef851290297e8706424. Only src/point_add changes. Source patch, final stream hashes, unchanged benchmark and pre-declared paired census are preserved in the corresponding experiment under https://github.com/MonitSharma/elliptic_curve_dsa .",
+        "rationale": "Direct source baseline of PLAIN67. Retains the predecessor arithmetic and credited contributor lineage; adds the frozen exact cache and disclosed identity tail described in the public note.",
+        "submissionId": "85d067da-f7c5-485b-9a61-53b0e58f281e"
+      }
+    ],
+    "proposals": [
+      {
+        "id": "880b4590-5e22-448c-acd4-3072d3e52c33",
+        "submissionId": "d7f69382-4716-4b86-9fac-151c8bc581e4",
+        "dependencyId": "85d067da-f7c5-485b-9a61-53b0e58f281e",
+        "operation": "add",
+        "origin": "declaration",
+        "expectedDecisionId": null,
+        "rationale": "Direct source baseline of PLAIN67. Retains the predecessor arithmetic and credited contributor lineage; adds the frozen exact cache and disclosed identity tail described in the public note.",
+        "evidence": "Exact base revision 4b2ec52fc55da796aa8f5ef851290297e8706424. Only src/point_add changes. Source patch, final stream hashes, unchanged benchmark and pre-declared paired census are preserved in the corresponding experiment under https://github.com/MonitSharma/elliptic_curve_dsa .",
+        "explanation": "Awaiting attribution judgment; no graph change has been applied.",
+        "status": "pending",
+        "judgeVersion": null,
+        "verdict": null,
+        "application": null,
+        "createdAt": "2026-10-17T00:33:03.271Z",
+        "decidedAt": null
+      }
+    ]
+  },
+  "job": {
+    "id": "8720ae13-e6b2-492d-8e4b-fe80553d5d66",
+    "kind": "submission_validation",
+    "status": "queued",
+    "accountId": "1cf0d231-6cc9-4d3f-a6ee-5c6020bcbd14",
+    "benchmarkId": "1ffb695a-309b-46b6-a728-2f97d8c7be74",
+    "submissionId": "d7f69382-4716-4b86-9fac-151c8bc581e4",
+    "input": {
+      "sourceRef": "4b2ec52fc55da796aa8f5ef851290297e8706424",
+      "sourceUrl": "https://github.com/Layr-Labs/ecdsafail-challenge",
+      "submissionArchiveRef": "r2://gautham-experiments/1ffb695a-309b-46b6-a728-2f97d8c7be74/1cf0d231-6cc9-4d3f-a6ee-5c6020bcbd14/f2bd0e03a7d84160145fcb153f0bd223178655d63988c69459c03292e535a23a.tar.gz"
+    },
+    "output": null,
+    "error": null,
+    "attempts": 0,
+    "startedAt": null,
+    "workflowSlotReservedAt": null,
+    "runPickedUpAt": null,
+    "finishedAt": null,
+    "createdAt": "2026-10-17T00:33:03.271Z",
+    "updatedAt": "2026-10-17T00:33:03.271Z",
+    "deletedAt": null
+  }
+}

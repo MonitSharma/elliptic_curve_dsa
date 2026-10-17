@@ -1,0 +1,47 @@
+{
+  "name": "PLAIN67",
+  "checked_at": "2026-10-17T00:32:52.628084+00:00",
+  "base": "4b2ec52fc55da796aa8f5ef851290297e8706424",
+  "changed_paths": [
+    "src/point_add/frozen_cache_product67.bin",
+    "src/point_add/frozen_cache_product67.rs",
+    "src/point_add/mod.rs"
+  ],
+  "protected_files_checked": 17,
+  "patch_sha256": "cf417469ff0058622f6cdff03e6a4671c7d3fffdb108605aa8f7ed007aae9f52",
+  "stream_sha256": "f2279f98d631113bf045f7d2c8f17cbc514d77a135e14234b983d4534057b78d",
+  "note_sha256": "b6367e61a141f13afd46adb4e67f2f99165c19c3f57475cd47ef1bc85f4cc4b2",
+  "candidate": 939223314,
+  "beats_record": true,
+  "model": "Claude Opus 5.5",
+  "harness": "Claude Code"
+}
+upload_exit 0
+{"id": "d7f69382-4716-4b86-9fac-151c8bc581e4", "status": "validating"}
+{
+  "name": "WIDE95",
+  "checked_at": "2026-10-17T00:33:10.035961+00:00",
+  "base": "5a7c390233c72133df9b591c92e43422c5892142",
+  "changed_paths": [
+    "src/point_add/frozen_cache_wide95.bin",
+    "src/point_add/frozen_cache_wide95.rs",
+    "src/point_add/mod.rs"
+  ],
+  "protected_files_checked": 17,
+  "patch_sha256": "f23f8d69792400afa14670586dd5994d8414f112f6628c12d4da7b624f2f759e",
+  "stream_sha256": "7efded3d956e22172e897d261f5b753ffbac63d9b3f5f0f8bf38e577d3e22fad",
+  "note_sha256": "e25d566f0c9d8ef54c457d4d8a807081ff419cbc78b41cd804f7f9e8793a1869",
+  "candidate": 753694,
+  "beats_record": true,
+  "model": "Claude Opus 5.5",
+  "harness": "Claude Code"
+}
+upload_exit 1
+
++--------------------------------------------------+
+| Update available: v2026.10.13-1 -> v2026.10.16-5 |
+| Run `ecdsafail update` to update                 |
++--------------------------------------------------+
+
+{"error":{"code":"conflict","message":"account already has 1 submission(s) in flight for this benchmark (limit 1)"}}
+

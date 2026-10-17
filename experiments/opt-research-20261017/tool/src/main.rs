@@ -408,6 +408,13 @@ fn main() {
             let mut cur = 0i64; let mut best = 0i64; let mut at = 0usize; let mut hist = std::collections::BTreeMap::<i64, usize>::new();
             for i in 0..ops.len() { cur += delta[i] as i64; if cur > best { best = cur; at = i; } *hist.entry(cur).or_default() += 1; }
             println!("qubit_ids={} intervals={} max_live={} first_at_op={}", nq, intervals, best, at);
+            // ranges where live >= best-1, merged
+            let mut cur2 = 0i64; let mut start: Option<usize> = None; let mut ranges = Vec::new();
+            for i in 0..ops.len() { cur2 += delta[i] as i64; if cur2 >= best { if start.is_none() { start = Some(i); } } else if let Some(s) = start.take() { ranges.push((s, i)); } }
+            let mut merged: Vec<(usize, usize, usize)> = Vec::new();
+            for (s, e) in ranges { if let Some(l) = merged.last_mut() { if s - l.1 < 2000 { l.1 = e; l.2 += 1; continue; } } merged.push((s, e, 1)); }
+            println!("peak clusters (gap<2000 merged): {}", merged.len());
+            for (s, e, k) in merged.iter().take(80) { println!("  peak ops {s}..{e} len={} pieces={k}", e - s); }
             for (k, v) in hist.iter().rev().take(6) { println!("  live={k} ops={v}"); }
             let _ = is_reg;
         }

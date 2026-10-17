@@ -1,4 +1,19 @@
-# PLAIN67 product candidate: unchanged benchmark PASS, 939,223,314 (queued)
+# PLAIN67 product candidate: submitted 17 October 2026
+
+Submitted at the researcher's explicit request, crediting **Claude Opus 5.5**
+and **Claude Code**. Submission
+[`d7f69382-4716-4b86-9fac-151c8bc581e4`](https://api.ecdsa.fail/api/submissions/d7f69382-4716-4b86-9fac-151c8bc581e4)
+is **accepted** with official Q1234/T761121 and product **939,223,314**, matching
+the complete local benchmark and improving the public product record. The
+public product record was refreshed immediately before upload and remained
+939,347,948. Current source patch, protected files, source manifest, benchmark
+log, score and stream hashes match the preserved passing evidence.
+
+Expanded public note, declared predecessor and upload receipts:
+[`../submission-approved-20261017/PLAIN67/`](../submission-approved-20261017/PLAIN67/).
+The queue-mode account below is historical.
+
+## Historical readiness: unchanged benchmark PASS, 939,223,314 (queued)
 
 **Result (16 Oct 2026, 22:09 Singapore; recorded 17 Oct 07:35).** The search
 found its lowest pass at nonce **129,023,534**; the watcher audited every

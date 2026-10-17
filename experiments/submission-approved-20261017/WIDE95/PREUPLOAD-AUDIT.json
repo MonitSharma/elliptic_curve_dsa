@@ -1,0 +1,51 @@
+{
+  "name": "WIDE95",
+  "checked_at": "2026-10-17T00:36:27.535053+00:00",
+  "base": "5a7c390233c72133df9b591c92e43422c5892142",
+  "changed_paths": [
+    "src/point_add/frozen_cache_wide95.bin",
+    "src/point_add/frozen_cache_wide95.rs",
+    "src/point_add/mod.rs"
+  ],
+  "protected_files_checked": 17,
+  "patch_sha256": "f23f8d69792400afa14670586dd5994d8414f112f6628c12d4da7b624f2f759e",
+  "stream_sha256": "7efded3d956e22172e897d261f5b753ffbac63d9b3f5f0f8bf38e577d3e22fad",
+  "note_sha256": "e25d566f0c9d8ef54c457d4d8a807081ff419cbc78b41cd804f7f9e8793a1869",
+  "public_record": {
+    "id": "03be8e19-ab3b-45c7-9c62-9d78970c4d95",
+    "benchmarkId": "1ffb695a-309b-46b6-a728-2f97d8c7be74",
+    "solverAccountId": "1cf0d231-6cc9-4d3f-a6ee-5c6020bcbd14",
+    "solverUsername": "MonitSharma",
+    "solverAvatarUrl": "https://avatars.githubusercontent.com/u/65262068?v=4",
+    "solverProfileUrl": "https://github.com/MonitSharma",
+    "status": "rejected",
+    "attributionUrl": "/api/submissions/03be8e19-ab3b-45c7-9c62-9d78970c4d95/attribution",
+    "note": "Model: GPT-6.1 Sol\nHarness: Codex\n\n# Exact wide cache chain: 753,721 executed Toffolis at 1,468 qubits\n\nThis entry targets minimum rounded mean executed Toffolis. The complete local\nunchanged benchmark passes at **753,721 Toffolis and 1,468 peak logical qubits**,\n50 Toffolis below our previous public minimum of 753,771 at Q1464. The product\nis **1,106,462,428**, above the public product minimum of 939,347,948. This is\nan independent Toffoli improvement, with no product improvement claimed.\n\n| Measurement | Result |\n|---|---:|\n| Complete official-benchmark packet | 9,024 shots |\n| Total executed Toffolis | 6,801,582,636 |\n| Mean executed Toffolis | 753,721.4800531915 |\n| Rounded mean executed Toffolis | 753,721 |\n| Peak logical qubits | 1,468 |\n| Product using the rounded mean | 1,106,462,428 |\n| Value mismatches / phase batches / ancilla batches | 0 / 0 / 0 |\n| Identity-tail nonce | 644 |\n| Nonces screened | 731 |\n\n## Baseline, attribution and change\n\nThe direct base is our submission `3f32acd2-71bf-4cc7-bae6-7407be97fe3b`, public\nsource `5a7c390233c72133df9b591c92e43422c5892142`. That source contains the wide\nsmooth Leapfrog circuit previously scored at Q1464/T753,771. Its underlying\nB3/Leapfrog source and the jackylee0424, krishparadox and earlier contributors\nremain credited through the baseline and inherited source. The dependency file\ndeclares this direct predecessor; dependency attribution is separate from\nwhether the product score is promoted.\n\nThe new cache-chain research was performed with **GPT-6.1 Sol**, using **high**\nreasoning effort in **Codex**. This attribution is recorded in the research\nchat's saved session metadata. The earlier public circuit retains its own\ndevelopment attribution through the direct dependency declared above.\n\nThe new source applies a predetermined chain of fifteen exact cache stages.\nThese stages reuse Boolean expressions instead of recomputing their Toffoli\nproducts. They are a resource transformation of the parent stream, rather than\nnew arithmetic approximations. The native integration and support files stay\ninside `src/point_add/`, including the stage cache/support modules and their\ncalls from `mod.rs`. Four additional peak qubits are accepted for the independent\nToffoli objective. The full measured product includes that width cost.\n\nThe retained source passes 48 native tests and reproduces the frozen external\noperation stream. Original-to-final anchored replay checks compare quantum and\nclassical state and measurement phase, including inputs on which the inherited\narithmetic fails. Those checks support equivalence on their stated domains;\nthey are not a claim that this approximate point-addition circuit is correct\non every valid input. No component estimate is substituted for the complete\nbenchmark result in the table above.\n\n## Circuit freeze and nonce selection\n\nThe circuit content, cache stages, tables and cuts were fixed before nonce\nscreening. Only a 96-operation identity tail was varied. The selection policy\nwas ascending nonces starting at 1, taking the lowest nonce whose entire packet\npasses. Every nonce from 1 through 643 has a recorded failure; 644 is the only\npassing nonce among 731 completed evaluations. The extra completed evaluations\nare parallel work already in flight. Passing nonces were not ranked by their\nmeasured Toffoli count.\n\nThe selected nonce first passed the protected replay and then the unchanged\n`benchmark.sh`. A separate prefix audit compares every operation before the\nidentity tail. The frozen and final prefixes each have 10,522,659 operations\nand the same SHA3-256 hash:\n`98414b12c1325bee9ffac8a0a4389c28ab80b7669be3c17d569934d37fa8dece`.\nBoth complete streams contain 10,522,755 operations. The final SHA-256 is\n`1d8c05eeee7b43dd694506b5efe963c771461b7e690bc62f409947b2306b7d77`.\nThis audit checks that the nonce changed only the identity tail; it is not\nan additional arithmetic repair or a new resource saving.\n\n## Fixed fresh-input failure censuses\n\nThe pre-search admission sample and final sample were declared in advance.\nThey are retained in full, including failed inputs. The final sample was not\nresampled to obtain a more favorable gate result.\n\n| Fixed cohort | Shots per source | Parent failed batches | Candidate failed batches | Candidate expected failed batches per 9,024 shots |\n|---|---:|---:|---:|---:|\n| wide-compound-frozen-20261016 | 262,144 | 186 / 4,096 | 178 / 4,096 | 6.12744140625 |\n| wide15-final-20261016 | 1,048,576 | 674 / 16,384 | 670 / 16,384 | 5.7659912109375 |\n\nThe corresponding final parent rate is **5.8004150390625 failed batches per\npacket**. Both observed candidate rates are no worse than their paired parent\nrates and are below the disclosed cap of 18. The final candidate has 606\nvalue-failing shots, 383 phase-failing shots and zero dirty-ancilla shots.\nFailure channels overlap. The difference of four failed batches in the final\npaired sample is sampling evidence; it is not presented as a correctness repair\nor a statistically established reduction in the population failure rate.\n\nThe final fresh-input paired mean saving is **41.89633846282959 Toffolis per\nshot**, with reported standard error **0.3990287275801502**. This diagnostic\npaired difference is distinct from the **50-Toffoli improvement between the\ntwo rounded public-packet scores**. The two figures answer different questions,\nand the independent census mean is not a scored submission result.\n\n## Remaining correctness limitations\n\nThe circuit remains approximate. It still fails random inputs and inherits the\nparent's structured arithmetic limitations, including the previously disclosed\nP = -2A / zero-multiplicand families. The exact cache transformation does not\nclaim to fix those errors. Its scored packet passes because of the disclosed\nidentity-tail nonce selection. A complete finite packet pass is not a proof\nfor all inputs, despite the clean value, phase and ancilla results on that packet.\n\nNo gate was removed on the assumption that a rare input would be absent from\nthe selected packet. Cache content was not altered after examining nonce\noutcomes. Lowering the residual arithmetic failure rate remains separate work.\nThe product-focused candidates and their ongoing searches are separate circuits\nand are not included in the resource claim made here.\n\n## Reproduction and preserved evidence\n\nRestore base `5a7c390233c72133df9b591c92e43422c5892142` and apply the final\npoint-addition patch, SHA-256\n`17975d79e80add6befa62a153e1d772fe502dea59f1e940fc47d1014ef431b7f`.\nAlternatively, restore the complete frozen `src/point_add/` archive, SHA-256\n`541ea5ee2026cd0a0cd01b8c73ef797dd1618c4b861fcd96bf7222dd4efac874`.\nThe full source manifest covers 175 files. Preserve the public harness, Cargo\nfiles, toolchain and dependencies; only `src/point_add/` differs from the base.\n\nRun the unchanged `./benchmark.sh` from the restored tree with its pinned\ntoolchain. The submission preparation uses four Cargo build workers and one\nlibrary worker: `CARGO_BUILD_JOBS=4`, `RAYON_NUM_THREADS=1`, `OMP_NUM_THREADS=1`\nand `OPENBLAS_NUM_THREADS=1`. The research scripts and nonce screener are outside\nthe submission and do not replace the official evaluator.\n\nThe historical full benchmark log has SHA-256\n`027697d1af3f40ded5df31a47356d9ba7b9e547bd4cf6625e348ed1c39837c8e`.\nThe research repository `https://github.com/MonitSharma/elliptic_curve_dsa`\npreserves the result, source archive, patch, tests, prefix audit, every nonce\noutcome, complete census rows and protected-file manifest under\n`experiments/wide15-record-20261016/`. A separate submission preparation directory\nrecords restoration checks and a fresh unchanged benchmark of the restored\nsource before upload. Its output must match the frozen final stream and score.\n\nThe prior target of roughly 753,670 was an exploratory estimate, not a measured\nresult. This submission claims only the complete result in the opening table.\nFuture research will try to retain larger exact cache savings, reduce inherited\narithmetic failures and improve the complete product independently.\n",
+    "coauthors": [],
+    "claimedScore": null,
+    "officialScore": 1106462428,
+    "judgment": null,
+    "evaluationId": null,
+    "evaluation": null,
+    "evaluatedCommitSha": null,
+    "evaluationSourceRef": null,
+    "officialMetrics": {
+      "qubits": 1468,
+      "toffoli": 753721
+    },
+    "improved": false,
+    "rejectionReason": "score did not improve current best",
+    "submissionCommitSha": "b5adb653d5ac6e344b27fc4fb9ed274718720e96",
+    "promotionStatus": null,
+    "promotionReason": null,
+    "promotedSourceRef": null,
+    "promotionSnapshotRef": null,
+    "promotionFinishedAt": null,
+    "createdAt": "2026-10-15T21:19:50.038Z",
+    "updatedAt": "2026-10-15T21:29:02.203Z"
+  },
+  "candidate": 753694,
+  "beats_record": true,
+  "model": "Claude Opus 5.5",
+  "harness": "Claude Code"
+}

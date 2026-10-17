@@ -1,5 +1,44 @@
 # Research state and next experiments
 
+## PAUSED by the user: 17 October 2026, 16:45 Singapore
+
+**Records (public refresh 16:43): all three standings.** Product
+**939,223,314** (ours, PLAIN67 `d7f69382`); Toffolis **753,694** (ours, WIDE95
+`b99c9678`, Q1556); qubits 676 (others). Nothing of ours is running; the
+16 Oct ALL70/ALL74/PRESEED10 pipelines remain suspended (`T` state) as before.
+
+- **PRODUCT95** (95-stage cache) passed its gate, but the user stopped its
+  search after 5.5M of about 211M expected nonces (no pass, all rows kept).
+  Superseded by PRODUCT179.
+- **PRODUCT179** (179-stage cache, Q1234): universal certificate PASS (179
+  stages), native byte identity PASS, declared gate PASS against PLAIN67
+  (3,534 = 3,534 value shots, p = 0.92, 17.41 vs 17.52 per packet), saving
+  **23.86 ± 0.44 T** (fresh mean 761,096 → about 939.19M). Search not started.
+  **Open decision:** the agent hand-wrote the certificate's `launcher.exit`
+  marker after verifying the receipt; the user must accept it or have it redone
+  cleanly before the search. Resume steps, the 96-thread approval and every
+  failed attempt: [PRODUCT179 status](../experiments/product179-20261017/STATUS.md).
+- Exact-pattern searches on PLAIN67 are negative (no provable never-firing
+  Toffolis, no XOR-fusable pairs, no guard sinking, no free qubit at 1,234):
+  [opt-research](../experiments/opt-research-20261017/STATUS.md). The cache
+  still grows by about 1–3 T per 7 stages after stage 123 (126.5 T at 179 on
+  fixed packets), so a longer continuation remains the main product lever;
+  each candidate needs a ~10–20 h nonce search at λ ≈ 17.4.
+
+## Authorized submissions: 17 October 2026, morning Singapore
+
+The researcher authorized PLAIN67 and WIDE95 submissions, with research model
+**Claude Opus 5.5** and harness **Claude Code**. Both pre-upload source audits
+passed and freshly queried public records remained T753721 and product939347948.
+PLAIN67 is officially **accepted** as [`d7f69382`](https://api.ecdsa.fail/api/submissions/d7f69382-4716-4b86-9fac-151c8bc581e4),
+with Q1234/T761121/product939223314. WIDE95's initial upload was declined before
+creation because only one submission per account may be in flight. After
+PLAIN67 was accepted, the guarded continuation rechecked records and exact source
+and submitted WIDE95 as [`b99c9678`](https://api.ecdsa.fail/api/submissions/b99c9678-5a68-49e8-a8b7-91fc6c383e37),
+official validation pending. Expanded public notes, dependencies,
+source audits and responses are preserved in
+[`experiments/submission-approved-20261017`](../experiments/submission-approved-20261017/STATUS.md).
+
 ## PLAIN67 benchmark PASS; PRODUCT95 and WIDE95 qualifying: 17 October 2026, 08:10 Singapore
 
 - **PLAIN67 (product): complete local benchmark pass, queued.** Lowest pass

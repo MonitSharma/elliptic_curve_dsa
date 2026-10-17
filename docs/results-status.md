@@ -1,5 +1,11 @@
 # Results and submission status
 
+**17 Oct 16:45 — paused. Official: product 939,223,314 (PLAIN67, ours) and
+Toffolis 753,694 (WIDE95, ours).** PRODUCT179 (179-stage cache) has passed
+certificate, native identity and its declared gate (−23.86 T vs PLAIN67); no
+nonce search or benchmark yet, so no score. PRODUCT95's search was stopped by
+the user without a pass. See `experiments/product179-20261017/STATUS.md`.
+
 **09:40 — PLAIN67 is the next product candidate; search running.** It passes
 the new statistical failure-rate gate (`AGENTS.md`) on its pre-declared
 cohort and saves 102.14 ± 0.44 T per shot at Q1234 (diagnostic). Its lowest-pass
