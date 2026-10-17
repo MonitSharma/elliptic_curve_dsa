@@ -1,5 +1,28 @@
 # Agent handoff: start here
 
+## Latest: 17 October 2026, 08:30 Singapore — two queued records, PRODUCT95 searching
+
+- **Ready, queued for the user (not submitted):**
+  - PLAIN67 product: **761,121 × 1,234 = 939,223,314** (beats 939,347,948).
+    Candidate tree `/home/hclau/ecdsa_research/plain67-final-20261016/candidate`;
+    note `experiments/plain67-final-20261016/SUBMISSION-NOTE.md`.
+  - WIDE95 Toffoli: **753,694 T** at Q1556 (beats our 753,721). Candidate tree
+    `/home/hclau/ecdsa_research/wide95-native-20261017/candidate`; note
+    `experiments/wide95-20261017/SUBMISSION-NOTE.md`.
+  Refresh the public records before submitting either one.
+- **Running:** PRODUCT95 ascending search
+  (`plain95-operational-20261017`, started 08:19:49, 48 h cap, 4 × 14
+  threads). Gate PASS vs both the record and PLAIN67 (10.6 T below PLAIN67).
+  Watcher `plain95-final-20261017/watch.sh` audits, freezes, benchmarks and
+  writes `WATCH_RESULT.json`. **Do not stop or restart it.**
+- **Running:** product cache continuation 96–123
+  (`product-exact-20261015/product-to123-rank-20261017`, declared before
+  generation). If its checkpoints show a real saving, qualify it like PRODUCT95
+  (universal certificate, native port, declared gate vs the then-current record).
+- **Negative this session:** `experiments/opt-research-20261017` (no provable
+  never-firing Toffolis, no sinkable guards, no free qubit at Q1234).
+
+
 ## Latest: 16 October 2026, 09:40 Singapore — PLAIN67 product search running
 
 - **Rule change (user, 16 Oct):** the failure-rate gate is now statistical
