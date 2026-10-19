@@ -1,0 +1,21 @@
+     Locking 247 packages to highest compatible versions
+      Adding generic-array v0.14.7 (available: v0.14.9)
+      Adding sha3 v0.10.9 (available: v0.11.0)
+   Compiling classical_factors_wide v0.1.0 (/home/hclau/ecdsa_research/product-classical-factors-wide-20261019)
+error[E0753]: expected outer doc comment
+ --> proof/../table.rs:1:1
+  |
+1 | //! Fixed 512-bit exact truth tables; unused rows are always zero.
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2 | #[derive(Clone,Copy,Debug,PartialEq,Eq,Hash)]
+3 | struct Table([u64;8]);
+  | ---------------------- the inner doc comment doesn't annotate this struct
+  |
+help: to annotate the struct, change the doc comment from inner to outer style
+  |
+1 - //! Fixed 512-bit exact truth tables; unused rows are always zero.
+1 + /// Fixed 512-bit exact truth tables; unused rows are always zero.
+  |
+
+For more information about this error, try `rustc --explain E0753`.
+error: could not compile `classical_factors_wide` (bin "classical_factors_wide" test) due to 1 previous error

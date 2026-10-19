@@ -1,0 +1,17 @@
+[package]
+name="classical_twelve_proof"
+version="0.1.0"
+edition="2021"
+[dependencies]
+quantum_ecc={path="/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline"}
+sha3="0.10"
+serde_json="1"
+zstd="0.13"
+[[bin]]
+name="classical_twelve_proof"
+path="refresh_factors.rs"
+[[bin]]
+name="classical_twelve_edits"
+path="verify_edits.rs"
+[profile.release]
+opt-level=3
