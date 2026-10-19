@@ -1,0 +1,8 @@
+{
+  "status": "GLOBAL_RESOURCE_CHECK_BEFORE_ONE_CPU_AFFINITY",
+  "old_directory": "/home/hclau/ecdsa_research/product-linear-witness-controls-20261020",
+  "old_run_exit": 1,
+  "compiler_or_tests_started_in_old_attempt": false,
+  "source_circuit_and_primitive_tests_unchanged": true,
+  "why": "Profile compares global load to available affinity. Pinning the Python parent first reduced its inherited affinity to one CPU, making the global capacity guard refuse before compilation. Run the unchanged guard before pinning actual compile/test work to one CPU. Old source/descriptor/failed log preserved unchanged."
+}

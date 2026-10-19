@@ -106,5 +106,17 @@
     ],
     "log": "disabled.log",
     "pair_witness_mode": "0"
+  },
+  {
+    "argv": [
+      "/usr/bin/time",
+      "-v",
+      "./anf.bin",
+      "/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/product-copy-cache-20261019/copy-cache.ops.bin",
+      "witness",
+      "d343ca717c726c9136505edb1ba3602a58f7bfe063151d8a9e82b4f39d71a6a5"
+    ],
+    "log": "witness.log",
+    "pair_witness_mode": "1"
   }
 ]

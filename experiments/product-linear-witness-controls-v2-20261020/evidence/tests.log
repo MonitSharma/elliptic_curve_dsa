@@ -1,0 +1,35 @@
+
+running 30 tests
+test large_tests::degree_fallback_replaces_whole_result_with_distinct_unknowns ... ok
+test large_tests::thirteen_variable_sparse_products_match8192_scalar_assignments ... ok
+test linear_tests::bounded_queries_drop_opportunities_without_atoms_or_assumptions ... ok
+test linear_tests::exhaustive_small_linear_values_and_mutations_never_use_stale_rows ... ok
+test linear_tests::guarded_linear_replacement_retains_condition ... ok
+test linear_tests::invalidating_one_wire_removes_all_and_only_dependent_rows ... ok
+test linear_tests::reset_and_measurement_invalidate_old_support ... ok
+test linear_tests::swap_tracks_current_wire_provenance ... ok
+test linear_tests::target_is_excluded_from_its_own_linear_product ... ok
+test linear_tests::three_wire_product_and_complement_preserve_every_input ... ok
+test pair_tests::guarded_pair_keeps_classical_condition ... ok
+test pair_tests::mutation_reset_and_measurement_invalidate_index ... ok
+test pair_tests::pair_and_complement_preserve_all_boundary_inputs ... ok
+test pair_tests::pure_query_matches_brute_force_and_does_not_cut ... ok
+test pair_tests::swap_updates_both_pair_indices ... ok
+test pair_tests::target_cannot_be_a_pair_member ... ok
+test tests::arbitrary_input_not_assumed_zero ... ok
+test tests::complementary_product_zero ... ok
+test tests::conditional_reset_preserves_old_branch ... ok
+test tests::distributivity ... ok
+test tests::exhaustive_polynomial_arithmetic ... ok
+test tests::nonlinear_complement_removes_product ... ok
+test tests::term_limit_creates_fresh_unknown ... ok
+test witness_tests::arbitrary_mutation_invalidates_a_stale_witness ... ok
+test witness_tests::condition_snapshots_and_guarded_writes_preserve_index_values ... ok
+test witness_tests::exact_and_complemented_current_wire_products_preserve_every_basis_input ... ok
+test witness_tests::measurement_and_reset_remove_the_old_product_witness ... ok
+test witness_tests::oversized_complement_query_does_not_mutate_the_algebra ... ok
+test witness_tests::swap_reindexes_both_physical_wires ... ok
+test witness_tests::target_is_never_its_own_product_witness ... ok
+
+test result: ok. 30 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
