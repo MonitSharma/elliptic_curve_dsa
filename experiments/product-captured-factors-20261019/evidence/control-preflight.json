@@ -1,0 +1,44 @@
+{
+  "at_unix": 1792410045.2906835,
+  "hostname": "LHC-104-070",
+  "memory_available_bytes": 263425949696,
+  "load_average": [
+    74.30712890625,
+    76.55810546875,
+    76.61083984375
+  ],
+  "active_search_workers": [
+    602363,
+    602364,
+    602365,
+    602367
+  ],
+  "search_slots_including_worker_mains": 60,
+  "other_recorded_job_slots": 2,
+  "own_job_slots": 1,
+  "total_reserved_research_slots": 63,
+  "registered_jobs": [
+    {
+      "directory": "parent4-final-sat-v2-20261019",
+      "pidfile": "watch.pid",
+      "pid": 1183677,
+      "reserved_slots": 0,
+      "tree": [
+        1183677
+      ]
+    },
+    {
+      "directory": "product-captured-factors-20261019",
+      "pidfile": "control.pid",
+      "pid": 1193979,
+      "reserved_slots": 2,
+      "tree": [
+        1193979,
+        1193981,
+        1193982
+      ]
+    }
+  ],
+  "unknown_active_research": [],
+  "process_snapshot": "4163824 RNl    18 1721 python\n4149887 RNl    18 1712 python\n 602363 R       1 1118 value_prefilter\n 602365 Sl      3 1116 value_prefilter\n 602364 R       1 1115 value_prefilter\n 602367 R       1 1110 value_prefilter\n1193983 R       1  700 ps\n1193981 S       1 57.6 python3\n3777359 S+      1  0.5 python\n3025376 Sl    150  0.0 codex\n 602362 S       1  0.0 python3\n 640729 Z       1  0.0 product_paired_\n 640877 Z       1  0.0 product_paired_\n1183677 Ss      1  0.0 python3\n 641577 Z       1  0.0 product_paired_\n 595533 T       1  0.0 python3\n 595631 T       1  0.0 python3\n 633807 T       1  0.0 python3\n3027597 Sl     18  0.0 codex-code-mode\n 595518 Ts      1  0.0 bash\n 595519 Ts      1  0.0 bash\n3733223 Ss      1  0.0 tmux: server\n3644093 Ss      1  0.0 systemd\n 606954 Ts      1  0.0 bash\n 572494 Ts      1  0.0 bash\n 627572 Ts      1  0.0 bash\n1529806 Ss      1  0.0 dbus-daemon\n3025361 Sl      7  0.0 node\n 595517 Ts      1  0.0 bash\n 602346 Ss      1  0.0 bash\n 640728 T       1  0.0 time\n 640876 T       1  0.0 time\n 641576 T       1  0.0 time\n 641802 T       1  0.0 sleep\n 641963 T       1  0.0 sleep\n 641964 T       1  0.0 sleep\n1193979 Ss      1  0.0 bash\n3644095 S       1  0.0 (sd-pam)\n3777358 Ss+     1  0.0 bash\n4149884 Ss      1  0.0 sh\n4149885 SN      1  0.0 bash\n4163821 Ss      1  0.0 sh\n4163822 SN      1  0.0 bash\n"
+}

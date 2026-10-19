@@ -1,0 +1,22 @@
+     Locking 247 packages to highest compatible versions
+      Adding generic-array v0.14.7 (available: v0.14.9)
+      Adding sha3 v0.10.9 (available: v0.11.0)
+   Compiling guard_schedule v0.1.0 (/home/hclau/ecdsa_research/product-guard-schedule-20261019)
+    Finished `release` profile [optimized] target(s) in 12.36s
+     Running unittests guard_schedule.rs (/home/hclau/ecdsa_research/product-order-20261019/target/release/deps/guard_schedule-26fb6319807be48b)
+
+running 11 tests
+test tests::aliasing_a_captured_guard_to_its_mutable_source_is_rejected - should panic ... ok
+test tests::all_measurements_and_resets_share_one_order_chain ... ok
+test tests::direct_copy_macro_truth_table ... ok
+test tests::duplicate_or_missing_nodes_are_rejected ... ok
+test tests::immutable_capture_is_reused_until_a_classical_write_epoch ... ok
+test tests::macro_condition_read_cannot_cross_source_bit_write ... ok
+test tests::macro_output_must_precede_its_guarded_user ... ok
+test tests::macro_truth_tables_include_false_parent_and_false_direct_guard ... ok
+test tests::phase_target_dependency_is_preserved ... ok
+test tests::root_negative_phase_can_cross_independent_quantum_toggle ... ok
+test tests::nested_mutated_direct_inactive_and_phase_guards_preserve_full_transcripts ... ok
+
+test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+

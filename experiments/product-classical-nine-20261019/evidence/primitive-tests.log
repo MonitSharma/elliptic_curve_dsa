@@ -1,0 +1,15 @@
+     Locking 247 packages to highest compatible versions
+      Adding generic-array v0.14.7 (available: v0.14.9)
+      Adding sha3 v0.10.9 (available: v0.11.0)
+   Compiling classical_nine_research v0.1.0 (/home/hclau/ecdsa_research/product-classical-nine-20261019)
+    Finished `release` profile [optimized] target(s) in 10.32s
+     Running unittests research.rs (/home/hclau/ecdsa_research/product-order-20261019/target/release/deps/classical_nine_research-9b702da910a6a746)
+
+running 4 tests
+test classical_xor_control::tests::exhaustive_dirty_target_phase_and_rng_control ... ok
+test classical_xor_control::tests::source_binding_includes_all_gate_fields ... ok
+test classical_xor_control::tests::source_binding_rejects_changed_wire - should panic ... ok
+test classical_xor_control::tests::source_binding_rejects_missing_gate - should panic ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

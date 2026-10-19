@@ -1,0 +1,11 @@
+   Compiling classical_nine_research v0.1.0 (/home/hclau/ecdsa_research/product-classical-nine-20261019)
+warning: unused import: `QubitId`
+ --> classical_xor_control.rs:4:53
+  |
+4 | use crate::circuit::{Op, OperationType as K, BitId, QubitId};
+  |                                                     ^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `classical_nine_research` (bin "classical_nine_research") generated 1 warning (run `cargo fix --bin "classical_nine_research" -p classical_nine_research` to apply 1 suggestion)
+    Finished `release` profile [optimized] target(s) in 2.89s

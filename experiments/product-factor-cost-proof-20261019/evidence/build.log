@@ -1,0 +1,14 @@
+     Locking 247 packages to highest compatible versions
+      Adding generic-array v0.14.7 (available: v0.14.9)
+      Adding sha3 v0.10.9 (available: v0.11.0)
+   Compiling factor_cost_proof v0.1.0 (/home/hclau/ecdsa_research/product-factor-cost-proof-20261019)
+warning: unused import: `QubitId`
+ --> guard_prefix.rs:3:50
+  |
+3 | use quantum_ecc::circuit::{Op,OperationType as K,QubitId};
+  |                                                  ^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `factor_cost_proof` (bin "factor_cost_proof") generated 1 warning (run `cargo fix --bin "factor_cost_proof" -p factor_cost_proof` to apply 1 suggestion)
+    Finished `release` profile [optimized] target(s) in 12.61s

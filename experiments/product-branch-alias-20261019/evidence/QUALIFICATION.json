@@ -1,0 +1,29 @@
+{
+  "status": "ALIAS_PROBE_OUTPUT_AND_ALL_EXISTING_FIELDS_IDENTICAL",
+  "output_full_sha3_256": "82963f42fe238661b3207685fb9998f4862ee7193d9110a9c4fcc3753fae39d0",
+  "probe": {
+    "capped_states": 0,
+    "diagnostic_support_cuts": 0,
+    "examples": [
+      {
+        "capped": false,
+        "certified_pair": null,
+        "conditional_roles": 0,
+        "op": 1444984,
+        "pairs_examined": 0
+      }
+    ],
+    "first_uncertified_full_width_state": {
+      "conditional_roles": [],
+      "op": 1444984,
+      "pairs_examined": 0,
+      "reason": "No pair certified disjoint by unchanged strong support bounds; not a physical-width lower bound.",
+      "universal_support_roles": 1234
+    },
+    "pair_cap": 32768,
+    "pair_queries": 0,
+    "state_cap": 256,
+    "states_examined": 1,
+    "status": "READ_ONLY_DISJOINT_SUPPORT_DIAGNOSTIC_NOT_A_SCORE"
+  }
+}

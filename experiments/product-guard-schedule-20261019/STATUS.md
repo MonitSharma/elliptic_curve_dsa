@@ -1,5 +1,26 @@
 # Materialized classical guards for lower quantum width
 
+Completed physical-RNG negative,19 October2026. Source run1072460 and full
+integration1077789 both exited0. All11 primitive/converter/dependency controls
+pass. Universal epoch-conjunction audit checks all15,970,779 non-scope source
+operations and1,721,350 fresh single-assignment predicate bits. No original
+non-guard operation field is changed. The emitted classical width is1,776,346;
+original classical width was54,996. These are classical bits, not logical qubits.
+
+The scheduler moves17,689,735 of17,692,129 atomic nodes, retaining the complete
+global R/Hmr order. It finishes in75.21s at7,347,420KiB peakRSS. Output is
+20,598,497 primitive operations, SHA3-256
+08ed8de0fa9786a4133cf3b72c99de9ef8b0389c1a149c9832f3f8324e71e4d7.
+Complete strong-support allocation remainsQ1234. All512 full protected raw-input
+shots match original outputs, phase, original classical bits, executed Toffolis
+and physical-RNG continuation after conversion; every fresh bit also matches
+after reordering and allocation. This is integration evidence, not a scored
+benchmark or statistical failure gate. No new gate or nonce has run.
+
+The separately declared composition with independent measurement ordering and
+stronger clean-event priorities is ../product-guard-mrfree-20261019. The frozen
+parent4 search and final watcher remain unchanged. Do not rerun this negative.
+
 Prospective declaration, 19 October 2026, 16:42 Singapore. No source screen,
 candidate, statistical gate or nonce search has run in this experiment yet.
 Parent: exact public 9dc3798c / source 0c3a0751, compressed stream SHA256
@@ -33,3 +54,14 @@ as fences, allow conditional Neg as a classical-read phase operation, keep a
 single R/Hmr event chain, and use a compact graph/workspace to avoid allocation
 cost proportional to every old scope. Build with one job while the 56-thread
 parent4 search runs; screen on one core, up to32GiB memory after resource checks.
+
+## Completed negative result
+
+Source-bound scheduling leaves Q1234. All11 local controls and512 complete
+protected physical-RNG transcripts pass. The universal guard audit covers
+15970779 original non-scope operations;1721350 fresh predicate bits permit
+17689735 node movements without changing executed Toffolis. Output raw SHA3
+08ed8de0fa9786a4133cf3b72c99de9ef8b0389c1a149c9832f3f8324e71e4d7.
+Both run and control exited0. The verified archive contains38 files, SHA256
+0e14b2eac6146cc14af6ef26f832ac5425baeb0b43f351a990f40f8d69efb7d2.
+No width improvement, gate, nonce search or scored resource result is claimed.

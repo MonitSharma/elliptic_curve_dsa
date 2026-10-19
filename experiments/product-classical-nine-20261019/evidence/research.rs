@@ -1,0 +1,6 @@
+mod io;
+pub use quantum_ecc::{circuit,sim};
+mod classical_xor_control;
+use sha3::{Digest,Sha3_256};
+fn hash(v:&[circuit::Op])->String{let mut h=Sha3_256::new();for o in v{for x in [o.kind as u64,o.q_control2.0,o.q_control1.0,o.q_target.0,o.c_target.0,o.c_condition.0,o.r_target.0]{h.update(x.to_le_bytes());}}format!("{:x}",h.finalize())}
+fn main(){let r=std::path::PathBuf::from(std::env::args().nth(1).unwrap());let source=r.parent().unwrap().join("product-classical-factors-refresh-20261019/parent4.ops.bin");let mut v=io::load_ops(source.to_str().unwrap());assert_eq!(hash(&v),"f64a9d8c59cdc89e9b683988da84eb34fa78c5a884f0324ce824e4c07a00fa53");let tail=v.split_off(v.len()-96);let mut out=classical_xor_control::run(v);out.extend(tail);let h=hash(&out);io::save_ops(r.join("research.ops.bin").to_str().unwrap(),&out);let receipt=serde_json::json!({"status":"SOURCE_BOUND_NINTH_EXACT_CLASSICAL_REWRITE_NOT_A_SCORE","output_count":out.len(),"output_full_sha3_256":h,"additional_executed_Toffolis_removed_per_shot":1,"extra_qubits":0,"extra_classical_bits":0,"R_Hmr_and_physical_RNG_order_unchanged":true});std::fs::write(r.join("RESEARCH.json"),serde_json::to_string_pretty(&receipt).unwrap()).unwrap();println!("{}",receipt);}

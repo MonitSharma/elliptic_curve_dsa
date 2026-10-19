@@ -1,0 +1,66 @@
+   Compiling guard_mrfree v0.1.0 (/home/hclau/ecdsa_research/product-guard-mrfree-20261019)
+warning: field `mr` is never read
+  --> guard_mrfree.rs:46:78
+   |
+46 | #[derive(Clone)]struct Access{read:Vec<usize>,write:Vec<usize>,qs:Vec<usize>,mr:bool}
+   |                        ------ field in this struct                           ^^
+   |
+   = note: `Access` has a derived impl for the trait `Clone`, but this is intentionally ignored during dead code analysis
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `guard_mrfree` (bin "guard_mrfree" test) generated 1 warning
+warning: function `zero_quantum_controls_do_not_remove_a_scored_Toffoli` should have a snake case name
+   --> tight_annotated.rs:116:12
+    |
+116 |  #[test]fn zero_quantum_controls_do_not_remove_a_scored_Toffoli(){let mut ccx=op(K::CCX,2,0);ccx.q_control2=QubitId(3);let v=vec![q...
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: convert the identifier to snake case: `zero_quantum_controls_do_not_remove_a_scored_toffoli`
+    |
+    = note: `#[warn(non_snake_case)]` (part of `#[warn(nonstandard_style)]`) on by default
+
+warning: `guard_mrfree` (bin "guard_strong_annotated" test) generated 1 warning
+    Finished `release` profile [optimized] target(s) in 11.86s
+     Running unittests guard_mapped_trace.rs (/home/hclau/ecdsa_research/product-order-20261019/target/release/deps/guard_mapped_trace-74f3e5689d7129b3)
+
+running 4 tests
+test tests::empty_map_retains_continuation ... ok
+test tests::event_words_and_final_continuation_are_preserved ... ok
+test tests::duplicate_event_is_rejected - should panic ... ok
+test tests::out_of_range_event_is_rejected - should panic ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests guard_mrfree.rs (/home/hclau/ecdsa_research/product-order-20261019/target/release/deps/guard_mrfree-6353beab925bcb8e)
+
+running 11 tests
+test tests::direct_copy_macro_truth_table ... ok
+test tests::aliasing_a_captured_guard_to_its_mutable_source_is_rejected - should panic ... ok
+test tests::duplicate_or_missing_nodes_are_rejected ... ok
+test tests::independent_measurements_and_resets_may_exchange_with_an_outcome_map ... ok
+test tests::immutable_capture_is_reused_until_a_classical_write_epoch ... ok
+test tests::macro_condition_read_cannot_cross_source_bit_write ... ok
+test tests::macro_output_must_precede_its_guarded_user ... ok
+test tests::macro_truth_tables_include_false_parent_and_false_direct_guard ... ok
+test tests::phase_target_dependency_is_preserved ... ok
+test tests::root_negative_phase_can_cross_independent_quantum_toggle ... ok
+test tests::nested_mutated_direct_inactive_and_phase_guards_preserve_full_transcripts ... ok
+
+test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests tight_annotated.rs (/home/hclau/ecdsa_research/product-order-20261019/target/release/deps/guard_strong_annotated-100c1eff4d1a1c47)
+
+running 12 tests
+test tests::boolean_constructors_exhaustive_truth_tables ... ok
+test tests::different_reset_guard_does_not_free_a_dirty_branch ... ok
+test tests::nested_guard_reset_kills_the_entire_support ... ok
+test tests::late_register_annotations_are_inputs_from_op_zero ... ok
+test tests::overflow_is_unknown_true_never_false ... ok
+test tests::captured_guard_survives_mutation_and_frees_a_lane ... ok
+test tests::zero_measurements_and_resets_are_retained_even_when_inactive ... ok
+test tests::zero_quantum_controls_do_not_remove_a_scored_Toffoli ... ok
+test tight_controls::negated_conjunction_conflict_is_recognized ... ok
+test tight_controls::conditional_swap_transfers_the_dirty_support_to_the_other_branch ... ok
+test tight_controls::complementary_resets_prove_clean_without_an_unconditional_reset ... ok
+test tests::support_rules_are_sound_for_all_two_variable_functions ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.11s
+

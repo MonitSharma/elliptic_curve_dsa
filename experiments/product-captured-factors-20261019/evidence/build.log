@@ -1,0 +1,77 @@
+   Compiling captured_factors v0.1.0 (/home/hclau/ecdsa_research/product-captured-factors-20261019)
+warning: struct `Access` is never constructed
+  --> capture_only.rs:46:24
+   |
+46 | #[derive(Clone)]struct Access{read:Vec<usize>,write:Vec<usize>,qs:Vec<usize>,mr:bool}
+   |                        ^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `barrier` is never used
+  --> capture_only.rs:47:4
+   |
+47 | fn barrier(n:&Node)->bool{matches!(n.item,Item::Gate(o) if metadata(o.kind)||o.kind==K::DebugPrint)}
+   |    ^^^^^^^
+
+warning: function `access` is never used
+  --> capture_only.rs:48:4
+   |
+48 | fn access(n:&Node,nq:usize)->Access{let(mut read,mut write,mut qs,mut mr)=(vec![],vec![],vec![],false);match n.item{
+   |    ^^^^^^
+
+warning: struct `Clean` is never constructed
+  --> capture_only.rs:57:8
+   |
+57 | struct Clean{starts:Vec<u32>,roles:Vec<usize>}
+   |        ^^^^^
+
+warning: associated items `get`, `empty`, and `load` are never used
+  --> capture_only.rs:58:15
+   |
+58 | impl Clean{fn get(&self,i:usize)->&[usize]{&self.roles[self.starts[i]as usize..self.starts[i+1]as usize]}
+   | ----------    ^^^
+   | |
+   | associated items in this implementation
+59 |  fn empty(n:usize)->Self{Self{starts:vec![0;n+1],roles:vec![]}}
+   |     ^^^^^
+60 |  fn load(path:&str,v:&[Op])->Self{let raw=std::fs::read(path).unwrap();assert_eq!(&raw[..8],b"GRCLEAN1");let w=|i:usize|u64::from_le...
+   |     ^^^^
+
+warning: function `closes` is never used
+  --> capture_only.rs:62:4
+   |
+62 | fn closes<'a>(n:&Node,c:&'a Clean)->&'a[usize]{match n.item{Item::Gate(_)=>c.get(n.origin),Item::And{..}=>&[]}}
+   |    ^^^^^^
+
+warning: function `priority` is never used
+  --> capture_only.rs:63:4
+   |
+63 | fn priority(a:&Access,live:&[bool],closed:&[usize])->i32{a.qs.iter().filter(|&&q|!live[q]).count()as i32-closed.iter().filter(|&&q|l...
+   |    ^^^^^^^^
+
+warning: function `segment` is never used
+  --> capture_only.rs:64:4
+   |
+64 | fn segment(nodes:&[Node],offset:usize,nq:usize,slots:usize,live:&mut[bool],c:&Clean)->Vec<usize>{let n=nodes.len();if n==0{return ve...
+   |    ^^^^^^^
+
+warning: function `schedule` is never used
+  --> capture_only.rs:73:4
+   |
+73 | fn schedule(v:&[Op],nodes:&[Node],nb:usize,c:&Clean)->Vec<usize>{let(nq,_)=dims(v);let mut live=vec![false;nq];for o in v{if o.kind=...
+   |    ^^^^^^^^
+
+warning: function `verify` is never used
+  --> capture_only.rs:74:4
+   |
+74 | fn verify(nodes:&[Node],p:&[usize],nq:usize,nb:usize)->bool{if p.len()!=nodes.len(){return false;}let mut pos=vec![usize::MAX;p.len(...
+   |    ^^^^^^
+
+warning: function `unused_legacy_main` is never used
+  --> capture_only.rs:78:4
+   |
+78 | fn unused_legacy_main(){let a:Vec<_>=std::env::args().collect();assert_eq!(a.len(),4);let mut v=io::load_ops(&a[1]);let full_hash=ha...
+   |    ^^^^^^^^^^^^^^^^^^
+
+warning: `captured_factors` (bin "capture_only") generated 11 warnings
+    Finished `release` profile [optimized] target(s) in 2.70s

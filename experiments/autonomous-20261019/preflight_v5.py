@@ -1,0 +1,68 @@
+"""Admit known recorded jobs; account for the corrected final verifier."""
+import hashlib,json,os,socket,subprocess,time
+from pathlib import Path
+ws=Path('/home/hclau/ecdsa_research');s=ws/'parent4-operational-sat-20261019'
+assert socket.gethostname()=='LHC-104-070'
+stream=ws/'product-pareto-20261019/parent/ops.bin'
+assert hashlib.file_digest(stream.open('rb'),'sha256').hexdigest()=='99edb1d39f94c40752cb1fa2581dd2b13fe17696c486f542b8d43c1af1974683'
+def live(pid):
+    p=Path(f'/proc/{pid}/status')
+    return p.exists() and not next(x.split()[1] for x in p.read_text().splitlines() if x.startswith('State:')).startswith('Z')
+def parent(pid):return int(next(x.split()[1] for x in Path(f'/proc/{pid}/status').read_text().splitlines() if x.startswith('PPid:')))
+table=[tuple(map(int,x.split())) for x in subprocess.check_output(['ps','-e','-o','pid=,ppid='],text=True).splitlines()]
+def descendants(pid):
+    found={pid}
+    while True:
+        n=len(found);found.update(p for p,pp in table if pp in found)
+        if len(found)==n:return found
+allowed=set();pid=os.getpid()
+while pid>1:allowed.add(pid);pid=parent(pid)
+workers={int((s/f'worker{i}.pid').read_text()) for i in range(4)};active_workers=[]
+for p in workers:
+    if live(p):
+        assert Path(f'/proc/{p}/cwd').resolve()==s
+        assert b'value_prefilter' in Path(f'/proc/{p}/cmdline').read_bytes()
+        active_workers.append(p);allowed.update([p,parent(p)])
+shell=int((s/'search.pid').read_text())
+if live(shell):assert Path(f'/proc/{shell}/cwd').resolve()==s;allowed.add(shell)
+registered=[];extra_slots=0
+for directory,pidfile,slots in [
+ ('parent4-final-sat-20261019','watch.pid',0),('parent4-final-sat-v2-20261019','watch.pid',0),
+ ('parent4-final-sat-v2-20261019','final.pid',8),
+ ('product-classical-factors-refresh-20261019','run.pid',1),
+ ('product-classical-factors-refresh-20261019','control.pid',2),
+ ('product-captured-factors-20261019','run.pid',1),
+ ('product-captured-factors-20261019','control.pid',2),
+ ('product-captured-factors-native-20261019','run.pid',1),
+ ('product-classical-factors-native-20261019','run.pid',1),
+ ('product-classical-type-probe-20261019','run.pid',1),
+]:
+    root=ws/directory;record=root/pidfile
+    if not record.exists():continue
+    p=int(record.read_text())
+    if not live(p):continue
+    cwd=Path(f'/proc/{p}/cwd').resolve()
+    if cwd!=root and root not in cwd.parents:continue
+    command=Path(f'/proc/{p}/cmdline').read_bytes().split(b'\0')
+    expected={'run.pid':b'run.sh','control.pid':b'run-control.sh','watch.pid':b'watch.py','final.pid':b'run-final.sh'}[pidfile]
+    if expected not in command:continue
+    members=descendants(p);allowed.update(members)
+    if p not in descendants(os.getpid()) and p!=os.getpid():extra_slots+=slots
+    registered.append({'directory':directory,'pidfile':pidfile,'pid':p,'reserved_slots':slots,'tree':sorted(members)})
+processes=subprocess.check_output(['ps','-u','hclau','-o','pid=,stat=,nlwp=,%cpu=,comm=','--sort=-%cpu'],text=True)
+unknown=[]
+for line in processes.splitlines():
+    p,state,threads,cpu,command=line.split(maxsplit=4)
+    if state.startswith(('T','Z')) or int(p) in allowed:continue
+    try:cwd=Path(f'/proc/{p}/cwd').resolve()
+    except OSError:continue
+    if str(cwd).startswith(str(ws)):unknown.append({'pid':int(p),'cwd':str(cwd),'command':command})
+available=int(next(x.split()[1] for x in Path('/proc/meminfo').read_text().splitlines() if x.startswith('MemAvailable:')))*1024
+own_slots=int(os.environ.get('RESEARCH_SLOTS','1'));reserved=15*len(active_workers)+extra_slots+own_slots
+record={'at_unix':time.time(),'hostname':socket.gethostname(),'memory_available_bytes':available,'load_average':os.getloadavg(),
+        'active_search_workers':active_workers,'search_slots_including_worker_mains':15*len(active_workers),
+        'other_recorded_job_slots':extra_slots,'own_job_slots':own_slots,'total_reserved_research_slots':reserved,
+        'registered_jobs':registered,'unknown_active_research':unknown,'process_snapshot':processes}
+print(json.dumps(record,indent=2),flush=True)
+assert not unknown and reserved<=64 and available>192*1024**3
+assert os.getloadavg()[0]<len(os.sched_getaffinity(0))-8

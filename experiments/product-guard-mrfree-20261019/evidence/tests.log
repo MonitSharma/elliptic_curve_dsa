@@ -1,0 +1,31 @@
+     Locking 247 packages to highest compatible versions
+      Adding generic-array v0.14.7 (available: v0.14.9)
+      Adding sha3 v0.10.9 (available: v0.11.0)
+   Compiling guard_mrfree v0.1.0 (/home/hclau/ecdsa_research/product-guard-mrfree-20261019)
+warning: function `zero_quantum_controls_do_not_remove_a_scored_Toffoli` should have a snake case name
+   --> tight_annotated.rs:116:12
+    |
+116 |  #[test]fn zero_quantum_controls_do_not_remove_a_scored_Toffoli(){let mut ccx=op(K::CCX,2,0);ccx.q_control2=QubitId(3);let v=vec![q...
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: convert the identifier to snake case: `zero_quantum_controls_do_not_remove_a_scored_toffoli`
+    |
+    = note: `#[warn(non_snake_case)]` (part of `#[warn(nonstandard_style)]`) on by default
+
+warning: `guard_mrfree` (bin "guard_strong_annotated" test) generated 1 warning
+error: this file contains an unclosed delimiter
+   --> guard_mrfree.rs:99:3
+    |
+ 82 | #[cfg(test)]mod tests{
+    |                      - unclosed delimiter
+...
+ 88 |  #[test]fn nested_mutated_direct_inactive_and_phase_guards_preserve_full_transcripts(){let v=fixture();let(n,nb)=materialize(&v);audit_conversion(&v,&n,nb);let flat=flatten(&n,&(0..n.len()).collect::<Vec<_>>());let p=schedule(&v,&n,nb,&Clean::empty(v.len()));assert!(verify(&n,&p,4,nb));let ordered=flatten(&n,&p);for qi in 0..4{for ci in 0..8{for seed in 0..8{let...
+    |                                                                                       -                                                                                                                                                                                                                                                 -              -                - this delimiter might not be properly closed...
+    |                                                                                       |                                                                                                                                                                                                                                                 |              |
+    |                                                                                       |                                                                                                                                                                                                                                                 |              unclosed delimiter
+    |                                                                                       unclosed delimiter                                                                                                                                                                                                                                unclosed delimiter
+...
+ 99 | }
+    | -^
+    | |
+    | ...as it matches this but it has different indentation
+
+error: could not compile `guard_mrfree` (bin "guard_mrfree" test) due to 1 previous error

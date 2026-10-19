@@ -1,0 +1,20 @@
+     Locking 247 packages to highest compatible versions
+      Adding generic-array v0.14.7 (available: v0.14.9)
+      Adding sha3 v0.10.9 (available: v0.11.0)
+   Compiling two_target v0.1.0 (/home/hclau/ecdsa_research/product-two-target-20261019)
+    Finished `release` profile [optimized] target(s) in 2.00s
+     Running unittests two_target.rs (/home/hclau/ecdsa_research/product-order-20261019/target/release/deps/two_target-0cd9d960c01d4847)
+
+running 9 tests
+test tests::consumed_pair_is_not_reused ... ok
+test tests::control_write_blocks_pair ... ok
+test tests::different_direct_conditions_do_not_pair ... ok
+test tests::direct_guard_write_blocks_pair ... ok
+test tests::dirty_donor_read_blocks_its_encoding ... ok
+test tests::metadata_fence_blocks_pair ... ok
+test tests::original_gap_limit_is_enforced ... ok
+test tests::target_read_blocks_moving_the_second_toggle ... ok
+test tests::dirty_target_identity_all_basis_values_flags_and_phase ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
