@@ -1,0 +1,91 @@
+fn bind_transfer(){
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/PUBLIC-PARENT-TRANSFER.json","244dc4a86004873f6727d0be0c221fe0bcb382efbc074ce86bbe482a75bdf71d");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/VERIFIED-EXTENSION-PROOFS.json","f64b7c1861fd240d72d09e5d8e4ad909cbc8edf1f12584a0246227e10a290de2");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/verify_extension.rs","904a1f0209b4dd4dfff7dfaa77a691c302caa5bc00bae36f4f13cf149e4250c4");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/target/release/verify_extension","2978b0da09d7e58842b56ee1c0876e64ba5dc83156eb62a0256f74e5fb6644fe");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/export.rs","948576d93ed78c1e076cfaa4696866befd1048e9438bf967a02cc0b91e941abd");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/prove.py","1c4d6b0d74ca892e8e1714f8641d54a88ef939d2dcaf83d58402ae2fbb28e55a");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/prove_wide.py","715574f7e942df9034eecde9828635352be577c0aa1d730a7c41d77c4fe8553a");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/prove_zero.py","eb1b16f557e0d9db3dc1a3f360bfd303ce3c74b089b255fd387cea6f9a45ef77");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/replay_one.py","65c7299e894adfdeac154f1a0c11ee6e39466681005400044d22d1fcc475df28");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/validate_zero.py","7b00434a104f0c614e61bc56dc5daae1c514b5d71fa5860298040c6ae83a0f1d");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/ZERO-MUTATION-CONTROLS.json","6165b120ecf0242020c6a991d26c6dc63ec5cad627aaec3afecd63b50aa65866");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/zero-8192-result.json","e35a88330ba4e74673ee3cfdab2dfcb8f8e77df4c15bdb3717e1b8738445604e");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/zero-8192-replay.json","9ce2083ece1dcfa961440f62ad3fa7ac5aac029fffe9ebc7d21e08494da913de");
+ sha_check("/home/hclau/ecdsa_research/product-pareto-20261019/parent4-native.json","c6ca579c5e0aedec51250966e54813bc4d98a63613b1386420a3ed503e1ddfa2");
+ sha_check("/home/hclau/ecdsa_research/product-pareto-20261019/NATIVE-PILOT.json","ff705710671597eb8f702d3bdf7dae6929121a39b224c37500184762957a6975");
+ sha_check("/home/hclau/ecdsa_research/product-pareto-20261019/parent-unwrapped.json","f02d90f24c80eb2407c13607812427aa64bd815f649e6dbe4dc5b71fcbdda9d1");
+ sha_check("/home/hclau/ecdsa_research/product-pareto-20261019/parent-unwrapped-retained.json","25ce62fac97ae574127054a4f400ffd993727763f4e68fe1562c6d11b289da75");
+ sha_check("/home/hclau/ecdsa_research/product-pareto-20261019/unwrap.rs","9517e5f283c3f5bc550480546020be664762bbaf2c246285151ae26c589b1239");
+ sha_check("/home/hclau/ecdsa_research/product-pareto-20261019/scan.rs","31db26bc572b4f2c010adc7506a9ca5c35eae70683810d41e2c5ff9a06b09728");
+ sha_check("/home/hclau/ecdsa_research/product-pareto-20261019/target/release/product_pareto_unwrap","0fae81b6af0ee0cee3fa2e226b606a834078b78baca3fb1c5a5cdde54dd0c40e");
+ sha_check("/home/hclau/ecdsa_research/product-pareto-20261019/target/release/product_pareto_exact_v3","8677bcf3a32927e6ebfeeed111d9cf984533ffde1108dca2310f01a70f662c64");
+ sha_check("/home/hclau/ecdsa_research/product-pareto-20261019/parent4-qualification/RESULT.json","31dd83d15f190d8e8da3df22ef0c84634245235fa42ec4bfe602fec24b0a335c");
+ sha_check("/home/hclau/ecdsa_research/product-pareto-20261019/parent4-qualification/point-add-source.json","92eac29d9183d0d1dc46b559d1528afb11cc90adac51f33ccd0f2df1380335f6");
+ sha_check("/home/hclau/ecdsa_research/product-pareto-20261019/parent4-qualification/protected-files.json","1cb434bf197309c0fac974f20846ecc23564e8b852496daad6375c1f021fc02e");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/boundary-01.json","370a0ba8e7102ff16e7f8fcdbcfbb27913156dadbb7bec5f0fa5712fab5f575d");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/seeded-lease-01-result.json","0c9dc2b39ea2682f9b04b45f97dd845597ee7391470a263ab31fe9c868230d7c");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/boundary-02.json","4482eb56ee061769fbc1e9b4598457e9a6c86aa285bc172a5a310618f761e601");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/wide-02-1024-result.json","1766596bee5e3ac6668d4e77e4116de771936ffdb36d1d4f780e7b57c6589d6b");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/boundary-03.json","811d5d87b08fa621e3f33ae85b45b74613f00b14b0f113ceb934506a95a3d4a7");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/seeded-lease-03-result.json","3352a4c56dfa525ad2ccd7257b1ceef3fbae60116b9c06d17097f89faa26ff5b");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/boundary-04.json","730c330881b14918a75b81ada4d62b1f636d442172b3c6e4b83e86e01399844d");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/seeded-lease-04-result.json","0defacd8d07f90f1e228fcde2ac7b32939a84f5ee1aadcf17e6d165171e8a246");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/boundary-05.json","578784353553d383898eb080cb5d2ab86c7650926e561a59d8051d2632824cdc");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/seeded-lease-05-result.json","7946c6edfe58dda5579dbbecda8257c04545d45c32f87b603b1895464d9edbb8");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/boundary-06.json","75cebe386cb290ae0f1706344ca618af62d5cb11d7bbfefe9b92b686b6dd07d8");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/seeded-lease-06-result.json","0366d8bc9607cbfd188471d01d1c9605e024329d56e09c72ddc0c668aca0bee2");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/boundary-07.json","0e61cb1afa71cc6e248ff653be842cb8e5ae712ab7e499cb8a0e97bf07ce51f7");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/seeded-lease-07-result.json","960d0577c727607e9eca6bea7a1cafce087689f5cc7a80b2ccad41dec84376d2");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/boundary-08.json","7040716d9a2a713bce0dbd615caaa21cbf991327abb0ea411ef653491ba585c8");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/seeded-lease-08-result.json","c5d12a29e997b72bbac793daf97e15cb6ca4f13e819a22c8c29b3d930825d657");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/boundary-09.json","841652a490639cb02c633dca9471bcaaf7face36af1725423e38ed188774199b");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/seeded-lease-09-result.json","e5a9f327e414c7b4c0abe91e0e688c151b56f9eb23aba49e6a33320d7a5e7778");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/boundary-10.json","9f71a502885680ea9d4253f2b1861d15efafea2ca43de60c3410aee785229b46");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/seeded-lease-10-result.json","3f575831acf97193e7cd8fcd7b8db33c14aac6cb90bc1c6fdc674a3a6916cd6d");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/boundary-11.json","70ec09d868e1f8c8c570c138b493f1c2d6d6d6fd8570ad482560e407e18f3085");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/seeded-lease-11-result.json","459f20a928cc0badc9876905d84933d2d73e3a227428ad007cd38b3431945ba0");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/boundary-12.json","b0cfe5e3e241f909dea3b209c03c01a308230f65f4b7dd014c8b3f8a884878d8");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/seeded-lease-12-result.json","50ea777da2f27a96415503f14f4d3476f6361ae848f7709b63dfacd993ad4dbb");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/boundary-13.json","0664acfce37220ac295739287dcb4c1fd80bbd7ec00c325910aa1d1839a03947");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/seeded-lease-13-result.json","75e27624955fe3b5019763fee888d37587791971e90788635e08a74046c8ba07");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/boundary-14.json","d802171c755e08dca02ffabe3fe950188c3790d79e664ee68df8bffb2292f9a0");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/seeded-lease-14-result.json","bc9bbe29200768071ada91a948f34a3e0cacb1995c08f7a1fbe639fa2d49c806");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/boundary-15.json","be271191e9a2d4c109f8a7414d2812a47ad5e44e9cf7dbf28f879406725f99dc");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/seeded-lease-15-result.json","433334d33c2933342ed5719a06167874babfec6ec3e46282148e3f12232bdf60");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/boundary-16.json","93d2f8e278661f9a209c05f615789af440f9f3de1e86595468d7314bc73ecba4");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/seeded-lease-16-result.json","99b8a1efbfe6063da72076c1a5cb361f511b064e206f91ad50f9c116a25743cd");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/boundary-17.json","9aac30e97bf0eb4d48ddca256d24e69b6d71d31211f108ce17b77c4d7c233b35");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/seeded-lease-17-result.json","87390665afff1c43c9b8b4d1879f990d9f2ff0bd7c9ad3153de0b73060d2a1a9");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/boundary-18.json","bd7c363006e5d3593295a62a29b8fbf3278c19a3b6f1c1f95916f427211da574");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/seeded-lease-18-result.json","0b38d2f864c5cfadf9d1cd847db0c72642765065a230d2c5fb7fa9d9637ad26e");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/boundary-19.json","f500854f9c04ecfe7691fba8066fd3fe0fef150bba78a12a374cf2d6a5e1bdb3");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/seeded-lease-19-result.json","7ab514596cb1290e65c0cb2952a986f018fa4f32c49df693023919bb66f3af61");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/boundary-20.json","3f46fc8ce17b7cb55cc6975a4ce8b122daf4dcc81f1443c804954f81fe28d0b3");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/seeded-lease-20-result.json","f0968a4517d3c9386247f348bb27be19d63117e72edc3aa4a06d200941ca860b");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/boundary-21.json","5f9b2c88481096eaffe435b472b91327fba8819089584b4f7df95b740b7538fe");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/seeded-lease-21-result.json","3ec8566ee449873536129cdaa6bb1b1cbac4a3aa14440ae7d4a6e86e47ac736a");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/boundary-22.json","292095c7cc8b8eb09801c7c5a7ecd265fbae98445ed986eb43fc25e8f47a809b");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/seeded-lease-22-result.json","4b0ecc7a2e0ac3ccb72851844d10ec8ad021349566165f4461f07d8ba9ef8e0e");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/boundary-23.json","a5f4fcffd9d66e0e23256ae6bb5d1c5bf621825d35784dc16c3e6fca6d284bad");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/seeded-lease-23-result.json","dbcd483d7242f068fd03a6f595da6fe61d9c619afd5465027bb4e9307c9ed6ec");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/boundary-24.json","e3a055b192946a517adeddd97de7b1009a64edf5f0fd19cebca3307ff68836b9");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/seeded-lease-24-result.json","08b6c4c8cbf0393e125a09ecaa3fabf6602fcaa599a6e8a78be99e9f4c7a477b");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/boundary-25.json","758ce761a3a2f3f79ceddcb735b06549fa25ae8adff102053ab722c35bd5d319");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/seeded-lease-25-result.json","ea430d38e3a110b728b075d1ef0c199a4511978529b6781182cd94540aff97cb");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/boundary-26.json","08dc374808d30fd192eb4937579f4ada9f3dc227021d4144f940ddf1041afbe8");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/seeded-lease-26-result.json","69fa3065d87faee900d199ccfb57fb3ef24d871591fe0033368ea4519bb8773d");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/boundary-27.json","86d7aaada50300c32039779b1fc0f9b146a24aa3201be0a60d38e3b6071f2238");
+ sha_check("/home/hclau/ecdsa_research/product-parent-sat-20261019/seeded-lease-27-result.json","bebfaa2ee189dafbc381cc25d2609c562d92ff752e604e0e66cc83d896b9a78c");
+
+ let root="/home/hclau/ecdsa_research/product-exact-20261015/cache-certificate67-20261016";
+ for(name,sha)in [
+ ("CACHE_EQUIVALENCE_CERTIFICATE.json","303a75ec86a4da8c3a4008646e1b8257768fa40e198f0b7172eeafd19408c7c6"),
+ ("PER_INPUT_MASK_TRANSFER.json","d774c492b94f1c6ca458cc42de82d6dbee90a316f7d80c9dc6ee32eb1fe5201f"),
+ ("PER_INPUT_MASK_TRANSFER.md","5914f683bb5df08d21f94d79663c6239a84715e27b2eac7e18ce1fcafaee0167")]{sha_check(&format!("{root}/{name}"),sha);}
+ eprintln!("TRANSFER_BINDING original2a522394 candidate268aefe2 universal67stage perinput-bit; bounded validation only");
+}
+fn check_candidate_seeds(ops:&[Op],prefix:&Shake256,tail:&[Op]){
+ for nonce in [1,2,17,255]{let mut actual=ops[..ops.len()-TAIL].to_vec();actual.extend(nonce_tail(tail,nonce));let mut reference=fiat_shamir_seed(&actual);let mut h=prefix.clone();for op in nonce_tail(tail,nonce){h.update(&record49(&op));}let mut candidate=h.finalize_xof();let mut a=[0u8;4096];let mut b=[0u8;4096];XofReader::read(&mut reference,&mut a);XofReader::read(&mut candidate,&mut b);assert_eq!(a,b,"candidate own Fiat prefix/tail mismatch nonce{nonce}");}
+ eprintln!("CANDIDATE_OWN_FIAT_PROTECTED_4096_BYTE_CONTROLS_PASS nonces=1,2,17,255");
+}

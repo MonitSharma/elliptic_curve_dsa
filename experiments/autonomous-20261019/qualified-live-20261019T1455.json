@@ -1,0 +1,169 @@
+{
+  "at_utc": "2026-10-19T14:50:50.444116+00:00",
+  "profile": {
+    "at_unix": 1792421450.4157023,
+    "hostname": "LHC-104-070",
+    "memory_available_bytes": 261687291904,
+    "load_average": [
+      78.74755859375,
+      65.279296875,
+      68.34228515625
+    ],
+    "active_search_workers": [
+      1703064,
+      1703065,
+      1703067,
+      1703068
+    ],
+    "active_search_roots": [
+      {
+        "directory": "/home/hclau/ecdsa_research/product-classical-nine-operational-20261019",
+        "workers": [
+          1703064,
+          1703065,
+          1703067,
+          1703068
+        ],
+        "reserved_slots": 60
+      }
+    ],
+    "search_slots_including_worker_mains": 60,
+    "other_recorded_job_slots": 3,
+    "own_job_slots": 1,
+    "total_reserved_research_slots": 64,
+    "registered_jobs": [
+      {
+        "directory": "product-classical-twelve-native-20261019",
+        "pidfile": "gate.pid",
+        "pid": 1704998,
+        "reserved_slots": 3,
+        "tree": [
+          1704998,
+          1705026,
+          1705372
+        ]
+      },
+      {
+        "directory": "classical9-final-20261019",
+        "pidfile": "watch.pid",
+        "pid": 1697009,
+        "reserved_slots": 0,
+        "tree": [
+          1697009
+        ]
+      }
+    ],
+    "unknown_active_research": [],
+    "process_snapshot": "4163824 RNl    18 1707 python\n4149887 RNl    18 1699 python\n1703065 Sl     15 1055 value_prefilter\n1703064 Sl     15 1052 value_prefilter\n1703068 R       1 1049 value_prefilter\n1703067 R       1 1023 value_prefilter\n1705372 Sl      3  195 simd_census_v2\n1714139 S       1 66.6 python3\n1714138 Ss      1 14.2 python3\n3777359 S+      1  0.5 python\n1705026 S       1  0.5 python3\n1703063 S       1  0.1 python3\n3025376 Sl    150  0.0 codex\n 640729 Z       1  0.0 product_paired_\n 640877 Z       1  0.0 product_paired_\n1697009 Ss      1  0.0 python3\n 641577 Z       1  0.0 product_paired_\n 595533 T       1  0.0 python3\n 595631 T       1  0.0 python3\n 633807 T       1  0.0 python3\n3027597 Sl     18  0.0 codex-code-mode\n 595518 Ts      1  0.0 bash\n 595519 Ts      1  0.0 bash\n3733223 Ss      1  0.0 tmux: server\n3644093 Ss      1  0.0 systemd\n 606954 Ts      1  0.0 bash\n 572494 Ts      1  0.0 bash\n 627572 Ts      1  0.0 bash\n1529806 Ss      1  0.0 dbus-daemon\n3025361 Sl      7  0.0 node\n 595517 Ts      1  0.0 bash\n 640728 T       1  0.0 time\n 640876 T       1  0.0 time\n 641576 T       1  0.0 time\n 641802 T       1  0.0 sleep\n 641963 T       1  0.0 sleep\n 641964 T       1  0.0 sleep\n1703053 Ss      1  0.0 bash\n1704998 Ss      1  0.0 bash\n1714137 S       1  0.0 sshd\n1714141 R       1  0.0 ps\n3644095 S       1  0.0 (sd-pam)\n3777358 Ss+     1  0.0 bash\n4149884 Ss      1  0.0 sh\n4149885 SN      1  0.0 bash\n4163821 Ss      1  0.0 sh\n4163822 SN      1  0.0 bash\n"
+  },
+  "run": {
+    "status": "STARTED_ASCENDING_SOURCE_FROZEN_SEARCH",
+    "started_utc": "2026-10-19T14:46:55.500941+00:00",
+    "workers": 4,
+    "threads_each": 14,
+    "lookahead": 4096,
+    "count_cap_each": 134217728,
+    "wall_limit_hours": 48,
+    "candidate_sha256": "76271c7d66785b62ec4077ec241e80d3645841ba898cf8b633c377099da687c1",
+    "acceptance_sha256": "0bf11d329455b2ec2582085435853454b220540d67c2c76b80da56eca44645f4",
+    "executable_sha256": "e6971995f1d56d1bb3011eee74efed437ad01f4540d8acaebc066da5f7b34d9d",
+    "submission_mode": "queue",
+    "search_from": 1,
+    "preliminary_control": "lane0 nonces 1..4096 (CONTROL.json), repeated from 1 in the search"
+  },
+  "workers": [
+    {
+      "lane": 0,
+      "pid": 1703064,
+      "alive": true,
+      "executable": "/home/hclau/ecdsa_research/product-classical-nine-operational-20261019/tool/target/release/value_prefilter",
+      "cwd": "/home/hclau/ecdsa_research/product-classical-nine-operational-20261019",
+      "threads": 15,
+      "progress": {
+        "count": 4096,
+        "cumulative_worker_rows": 143360,
+        "first": 557057,
+        "lane": 0,
+        "last": 561152,
+        "status": "COMPLETE_WINDOW_ALL_ROWS_RECORDED"
+      }
+    },
+    {
+      "lane": 1,
+      "pid": 1703065,
+      "alive": true,
+      "executable": "/home/hclau/ecdsa_research/product-classical-nine-operational-20261019/tool/target/release/value_prefilter",
+      "cwd": "/home/hclau/ecdsa_research/product-classical-nine-operational-20261019",
+      "threads": 15,
+      "progress": {
+        "count": 4096,
+        "cumulative_worker_rows": 143360,
+        "first": 561153,
+        "lane": 1,
+        "last": 565248,
+        "status": "COMPLETE_WINDOW_ALL_ROWS_RECORDED"
+      }
+    },
+    {
+      "lane": 2,
+      "pid": 1703067,
+      "alive": true,
+      "executable": "/home/hclau/ecdsa_research/product-classical-nine-operational-20261019/tool/target/release/value_prefilter",
+      "cwd": "/home/hclau/ecdsa_research/product-classical-nine-operational-20261019",
+      "threads": 1,
+      "progress": {
+        "count": 4096,
+        "cumulative_worker_rows": 135168,
+        "first": 532481,
+        "lane": 2,
+        "last": 536576,
+        "status": "COMPLETE_WINDOW_ALL_ROWS_RECORDED"
+      }
+    },
+    {
+      "lane": 3,
+      "pid": 1703068,
+      "alive": true,
+      "executable": "/home/hclau/ecdsa_research/product-classical-nine-operational-20261019/tool/target/release/value_prefilter",
+      "cwd": "/home/hclau/ecdsa_research/product-classical-nine-operational-20261019",
+      "threads": 1,
+      "progress": {
+        "count": 4096,
+        "cumulative_worker_rows": 143360,
+        "first": 569345,
+        "lane": 3,
+        "last": 573440,
+        "status": "COMPLETE_WINDOW_ALL_ROWS_RECORDED"
+      }
+    }
+  ],
+  "completed_window_rows_reported": 565248,
+  "passing_nonce_files": 0,
+  "search_exit": null,
+  "gate12": {
+    "manager_pid": 1704998,
+    "declaration_sha256": "7367b25b1dc7027ba9877cdfd147d6cb72e07162acc6e4c4835ecfba005280ea",
+    "declared_at_utc": "2026-10-19T14:47:49.256568+00:00",
+    "label": "pareto-parent4-classical12-gate-20261019-v1",
+    "batch_count": 262144,
+    "shots_per_batch": 64,
+    "public_parent_id": "9dc3798c-93e0-4da4-a6a9-37586737c4af",
+    "streams": {
+      "parent": {
+        "path": "/home/hclau/ecdsa_research/product-pareto-20261019/parent/ops.bin",
+        "sha256": "99edb1d39f94c40752cb1fa2581dd2b13fe17696c486f542b8d43c1af1974683"
+      },
+      "candidate": {
+        "path": "/home/hclau/ecdsa_research/product-classical-twelve-native-20261019/candidate/ops.bin",
+        "sha256": "17c767f514ca98ad02d4da9e5b1dbedf67189e5c70b7b15916adc0f0c2f0a7f7"
+      }
+    },
+    "gate_exit": null
+  },
+  "finalizer": {
+    "watch_pid": 1697009,
+    "watch_source_sha256": "6c48b88abaf432f639f3e43b6b65e759e70c1a3b9ae99ea27e05f70cddb84884",
+    "runtime_binding_sha256": "1a6e228347034316e394ead077ab04496348646527c15dcbf299b328b02d0d0e"
+  },
+  "scope": "Read-only live process and completed-window checkpoint. No terminal coverage audit or scored record."
+}

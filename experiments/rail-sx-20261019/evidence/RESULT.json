@@ -1,0 +1,32 @@
+{
+  "status": "EXACT_SX_AND_ADVISORY_FLAGS_VERIFIED",
+  "primitive_cases": 287100,
+  "widths": "all1..319",
+  "invalid_widths_rejected": true,
+  "reference_population": 262144,
+  "edge_inputs": 517,
+  "partial_vectors_and_changed_table_match": true,
+  "times_seconds": {
+    "frozen": [
+      1.460728356614709,
+      1.7870825547724962,
+      2.0429879929870367,
+      2.298032585531473,
+      1.8132070824503899
+    ],
+    "specialized": [
+      2.9088068045675755,
+      3.3537281174212694,
+      3.341576147824526,
+      3.0410406310111284,
+      3.238325459882617
+    ]
+  },
+  "median_seconds": {
+    "frozen": 1.8132070824503899,
+    "specialized": 3.238325459882617
+  },
+  "advisory_only_speedup": 0.5599212015323856,
+  "library_sha256": "a6fada807fc29f79161297a711440bdf4f1e2edd43b9b4c8344e29ed98911549",
+  "scope": "Synthetic public-input kernel diagnostic. No circuit change, nonce, record, active runtime replacement or operational qualification."
+}

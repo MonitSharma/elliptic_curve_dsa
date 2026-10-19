@@ -1,0 +1,30 @@
+{
+  "status": "DISABLED_PREFIX_ROWS_IDENTICAL_AFTER_EXACT_ADVISORY_CHANGE",
+  "timing_nonces_per_trial": 512,
+  "threads": 1,
+  "times_seconds": {
+    "frozen": [
+      10.644892,
+      10.639353,
+      9.424488
+    ],
+    "branch": [
+      10.136203,
+      11.78731,
+      9.822423
+    ]
+  },
+  "median_seconds": {
+    "frozen": 10.639353,
+    "branch": 10.136203
+  },
+  "end_to_end_prefix_speedup": 1.0496389032461169,
+  "all_rows_match_qualified_parent4_prefix": true,
+  "partial_zeroMR_and_scalar_advisory_shadow": true,
+  "own_Fiat_prefix_controls_pass": true,
+  "baseline_binary_unchanged": true,
+  "new_binary_sha256": "e78e33939e498e1b0d22c3386c6a37bf35aaf5e0d1355b98b2b9b84517f5a8f0",
+  "authoritative_rejection": false,
+  "nonce_selected": null,
+  "scope": "Runtime-only diagnostic on the already gate-eligible frozen parent4 source. No new circuit, statistical gate, score or operational runtime acceptance. Full new-source qualification remains mandatory before production use."
+}

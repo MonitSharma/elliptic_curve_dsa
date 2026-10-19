@@ -12,7 +12,7 @@ cleanup() {
 }
 trap cleanup EXIT
 export RESEARCH_SLOTS=3
-python3 ../autonomous-20261019/preflight_v11.py > final-preflight.json
+python3 ../autonomous-20261019/preflight_v13.py > final-preflight.json
 ulimit -v 50331648
 . /home/hclau/.cargo/env
 export CARGO_BUILD_JOBS=1 RAYON_NUM_THREADS=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1

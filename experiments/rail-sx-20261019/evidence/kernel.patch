@@ -1,0 +1,21 @@
+--- frozen/rail8_masks.c
++++ research/specialized.c
+@@ -342,7 +342,17 @@
+ {UINT64_C(18446744073709551615),UINT64_C(18446744073709551615),UINT64_C(18446744073709551615),UINT64_C(18446744073709551615),UINT64_C(4611686018427387903)},
+ {UINT64_C(18446744073709551615),UINT64_C(18446744073709551615),UINT64_C(18446744073709551615),UINT64_C(18446744073709551615),UINT64_C(9223372036854775807)},
+ };
+-static inline I sx(I a,unsigned w){M sign=bit(a,w-1);V fill=_mm512_movm_epi64(sign);a.l[0]=_mm512_ternarylogic_epi64(a.l[0],fill,cn(width_masks[w][0]),0xe4);a.l[1]=_mm512_ternarylogic_epi64(a.l[1],fill,cn(width_masks[w][1]),0xe4);a.l[2]=_mm512_ternarylogic_epi64(a.l[2],fill,cn(width_masks[w][2]),0xe4);a.l[3]=_mm512_ternarylogic_epi64(a.l[3],fill,cn(width_masks[w][3]),0xe4);a.l[4]=_mm512_ternarylogic_epi64(a.l[4],fill,cn(width_masks[w][4]),0xe4);return a;}
++static inline I sx(I a,unsigned w){
++ unsigned k,top;
++ if(w>256){k=4;top=320;}else if(w>192){k=3;top=256;}
++ else if(w>128){k=2;top=192;}else if(w>64){k=1;top=128;}
++ else{k=0;top=64;}
++ V shift=cn(top-w);
++ V v=_mm512_srav_epi64(_mm512_sllv_epi64(a.l[k],shift),shift);
++ a.l[k]=v;V fill=_mm512_srai_epi64(v,63);
++ for(unsigned j=k+1;j<5;j++)a.l[j]=fill;
++ return a;
++}
+ static inline unsigned window_low(unsigned tick,unsigned anchor,unsigned *k){unsigned length=22;if(tick>=1)length=13;if(tick>=6)length=17;if(tick>=11)length=22;if(tick>=90)length=19;if(tick>=100)length=17;if(tick>=112)length=15;if(tick>=118)length=13;if(tick>=124)length=11;*k=length-2;return anchor>*k?anchor-*k:0;}
+ static inline V window(I a,unsigned width,unsigned low,unsigned k){if(width-1<=low)return zero();M sign=negative(a);V flip=_mm512_movm_epi64(sign);unsigned limb=low/64,off=low%64;V raw=X(limb_at(a,limb),flip);V v=_mm512_srlv_epi64(raw,cn(off));if(limb<4)v=O(v,_mm512_sllv_epi64(X(limb_at(a,limb+1),flip),cn(64-off)));unsigned count=k+2;if(count>width-1-low)count=width-1-low;return A(v,cn((UINT64_C(1)<<count)-1));}
+ static inline Choice choice(I t,I b,unsigned tw,unsigned bw,unsigned tick,unsigned anchor,int has_before,I before,M forced,int has_old_source,M old_source){

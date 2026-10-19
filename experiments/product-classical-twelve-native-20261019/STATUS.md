@@ -25,3 +25,5 @@ proofs and its own final fresh gate before any screening. One build/core,
 Native twelve-static-reduction prototype reproduces raw2ef31475... byte for byte,180 source files and17 protected unchanged. All18 primitive/table/source controls pass. Source frozen before classical9 verdict; no nonce or official benchmark. Independent gate plan fixed before valid-point pilot; its machine-readable final declaration/census has not started.
 
 Full cycle handoff: [research plan](../../docs/research-plan.md). All finished evidence archives have been verified locally; no record is claimed.
+
+22:51 qualified-cycle checkpoint: see [current handoff](../../docs/AGENT_HANDOFF.md). All completed-cycle evidence hashes verified locally. No new scored record.

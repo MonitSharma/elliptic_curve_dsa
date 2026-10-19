@@ -1,0 +1,9 @@
+{
+  "status": "BUILD_ADMISSION_FAILED_ON_UNREGISTERED_OWN_WAITING_MANAGER_BEFORE_BUILD_OR_NONCE",
+  "old_build_pid": 1397604,
+  "stopped_waiting_pid": 1397605,
+  "source_bindings_verified_before_stop": true,
+  "candidate_and_gate_untouched": true,
+  "nonce_shots_executed": 0,
+  "fix": "Build uses preflight_v9, which registers this exact waiting manager at zero slots. All previous admission checks remain enabled."
+}

@@ -44,3 +44,5 @@ not a rerun of a declared gate. The source and inherited nonce are unchanged.
 No identity-tail nonce has been screened on this source and no official
 benchmark has run. The pre-gate evidence archive intentionally excludes live
 census rows; preserve final gate evidence separately when it is terminal.
+
+22:51 qualified-cycle checkpoint: see [current handoff](../../docs/AGENT_HANDOFF.md). All completed-cycle evidence hashes verified locally. No new scored record.

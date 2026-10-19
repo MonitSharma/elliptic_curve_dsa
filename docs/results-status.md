@@ -1,5 +1,80 @@
 # Results and submission status
 
+## 19 October,22:51: classical9 qualified; ascending production search live
+
+No new scored Q×T record. Public record freshly checked at22:46 and22:47:
+9dc3798c/source0c3a0751, Q1234/T761096/product939192464. No README plots
+changed. The complete unchanged benchmark and lowest-pass audit remain due.
+
+Classical9's single final gate PASSED: label
+pareto-parent4-classical9-gate-20261019-v1,262144 batches of64 shots per
+stream,16777216 fresh shots/source against exact public stream99edb1d3….
+Candidate/parent value-failing shots28580/28580, failed batches33080/33111,
+dirty0/0; discordant b2899/c2930, exact one-sided p0.6624391134495834;
+candidate failed batches per141-batch packet17.792816162109375 <=18.
+Paired saving11.477635025978088 T, SE0.20292626375024952, is diagnostic,
+not a scored record. Full524288 rows are in gate-evidence.tar.gz,
+SHA256d5470d08855ddff1cf408168085505982a2db9c62b72b58817baf02681d24a85.
+Every member hash is verified locally; independent row/count/statistical
+and four-rule audits pass. Never relabel, extend or re-judge this verdict.
+The initial CRLF shell failure occurred before declaration/any shot and is
+preserved separately. The successful v2 wrapper ran the sole declared gate.
+
+Disabled runtime qualification exited0: own seed-byte checks1,2,17,255,
+full9024 q/c/phase/physical-RNG controls,128/partial11 zero-MR shadows and
+six4096-row baseline/threaded prefixes pass. Operational build/ordering,
+source-bound mask transfer, acceptance, cost gate and4096-row control pass.
+Operational binary e6971995f1d56d1bb3011eee74efed437ad01f4540d8acaebc066da5f7b34d9d;
+acceptance0bf11d329455b2ec2582085435853454b220540d67c2c76b80da56eca44645f4.
+Candidate stream76271c7d66785b62ec4077ec241e80d3645841ba898cf8b633c377099da687c1
+and frozen175-file archive2932b6cf… remain unchanged. There were28950
+repeated preliminary row attempts, all within1..4096; extra nonce1/full9024
+and seed-byte reference checks must also be disclosed in the final note.
+No diagnostic or production nonce may be selected by Toffoli count.
+
+Old parent4 search stopped cleanly between complete windows at22:41, exit0,
+all four worker exits0, no certified/pass file. Controller reports64499712
+completed rows; no full old JSONL audit is claimed. Every terminal log/row
+file is preserved server-side with immutable hashes in retirement/TERMINAL.
+Old final watcher ended NO_FINALIZATION. Never delete the old proof/runtime
+paths: the new acceptance and transfer chain still bind them.
+
+Classical9 production started22:46:55, shell1703053/coordinator1703063,
+workers1703064/65/67/68;4×14 computation threads,60 reserved slots, from1,
+4096-row windows,48h cap,134217728 rows/lane. It uses the qualified baseline
+dispatch and the original advisory/scalar libraries. No pass at the22:50
+actual-process checkpoint; live counters are provisional. Runtime-bound
+queue-only finalizer1697009 is live, complete path/hash and six corruption
+controls pass. Its auditor SHA47e8c89c308a15026a4da85310829f8a35188149716fcc6fb349adcac5d27ba1.
+Actual bound server source has been downloaded; do NOT run prepare_recipe.py
+or overwrite any live watched file. All lower logs, native selected-tail
+reproduction,512 tail-invariance controls and unchanged benchmark are still
+mandatory. A failed final score never licenses another nonce for lower T.
+
+The separately frozen classical12 source's sole final gate started22:47:49,
+manager1704998/analysis1705026: label
+pareto-parent4-classical12-gate-20261019-v1,262144×64/source, exact refreshed
+public parent9dc3798c. See GATE-DECLARATION.json. No verdict or12-source nonce
+screen exists. Its extra1.0034 component T saving and pre-gate proof do not
+qualify it. Do not restart/relabel/extend; require its own final gate,
+runtime/cost/control acceptance before any nonce. Latest preflight_v13
+reserves60 search+3 gate+1 spare=64 and recognizes actual new-search paths.
+~244GiB available; unrelated chemistry/QOB jobs remain untouched.
+
+Exact sign-extension helper passes287100 primitive cases and262144 advisory
+flags, and improves the isolated kernel1.173×. Complete-prefix timings are
+mixed (2/3 pairs slower), so no production port. Scalar windows20/22/24
+match655360 public pairs each but all new variants are slower than the
+frozen backend. Keep original libraries; all negative/source/log evidence
+is archived. Completed qualification, accepted launch inputs, bound finalizer
+and retirement archives (92/61/20/8 files) plus27 scalar files are locally
+hash-verified. Preserve Q692 and every failed/pending historical experiment.
+
+Next: keep the one9 search and one12 census running. Check actual terminal
+receipts, not observation timeouts. Continue independent exact source work
+with at most the one available core. No uploader; only queue a fully passing
+product improvement with nonce, census, all attempts and provenance.
+
 ## 19 October,21:35: further exact factors natively reproduced and proved
 
 No new scored Q×T record. Official API refresh21:18 still gives9dc3798c,

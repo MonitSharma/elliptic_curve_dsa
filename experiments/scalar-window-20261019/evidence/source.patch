@@ -1,0 +1,11 @@
+--- frozen/scalar_batch.c
++++ research/scalar_extended.c
+@@ -44,7 +44,7 @@
+ static secp256k1_ge_storage *public_fixed_table;
+ static unsigned public_fixed_window,public_fixed_rows,public_fixed_stride;
+ int scalar_fast_fixed_init(unsigned window){
+- if(window<8||window>20||public_fixed_table)return 0;
++ if(window<8||window>24||public_fixed_table)return 0;
+  public_fixed_window=window;public_fixed_rows=(256+window-1)/window;public_fixed_stride=1u<<window;
+  public_fixed_table=malloc((size_t)public_fixed_rows*public_fixed_stride*sizeof(*public_fixed_table));
+  secp256k1_gej *work=malloc((size_t)public_fixed_stride*sizeof(*work));

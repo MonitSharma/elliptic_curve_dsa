@@ -2,8 +2,8 @@
 from pathlib import Path
 import collections, hashlib, json, sys
 
-ACCEPTANCE='UNBOUND_NOT_ACCEPTED'
-BINARY='UNBOUND_NOT_ACCEPTED'
+ACCEPTANCE='0bf11d329455b2ec2582085435853454b220540d67c2c76b80da56eca44645f4'
+BINARY='e6971995f1d56d1bb3011eee74efed437ad01f4540d8acaebc066da5f7b34d9d'
 
 def require(condition,message):
     if not condition:raise ValueError(message)
@@ -112,7 +112,7 @@ def audit(root):
     total=sum(lane['rows'] for lane in lanes)
     require(terminal['screened_unique_completed_rows']==total,'terminal count mismatch')
     require(not passes or complete,'lower nonce prefix incomplete')
-    result={'status':'LOWEST_PASS_COMPLETE_JSONL_AUDIT_PASS' if complete else 'NO_PASS_COMPLETE_JSONL_AUDIT_PASS','lowest_full_protected_pass':best,'complete_global_prefix':prefix,'operational_unique_nonces':total,'operational_overrun_above_lowest':total-best if best is not None else None,'lanes':lanes,'runtime_artifacts_rehashed':artifacts,'audit_source_sha256':hash_file(Path(__file__)),'final_benchmark_required':True,'existing_predeclared_gate_must_not_be_repeated':True,'preliminary_control':run['preliminary_control'],'preliminary_repeated_attempt_accounting':'Lane-0 control screened nonces 1..4096 once before launch (CONTROL.json); disclose separately, never add to the operational unique count','submission_mode':'queue','score':None}
+    result={'status':'LOWEST_PASS_COMPLETE_JSONL_AUDIT_PASS' if complete else 'NO_PASS_COMPLETE_JSONL_AUDIT_PASS','lowest_full_protected_pass':best,'complete_global_prefix':prefix,'operational_unique_nonces':total,'operational_overrun_above_lowest':total-best if best is not None else None,'lanes':lanes,'runtime_artifacts_rehashed':artifacts,'audit_source_sha256':hash_file(Path(__file__)),'final_benchmark_required':True,'existing_predeclared_gate_must_not_be_repeated':True,'preliminary_control':run['preliminary_control'],'preliminary_repeated_attempt_accounting':'Disabled qualification recorded24854 rows (2x128+2x11+6x4096), then operational control4096 rows:28950 repeated row attempts over unique1..4096. Production repeats from1. Seed-byte controls1,2,17,255 and nonce1 full-state replay are reference checks. Disclose separately; never add repeats to operational unique count.','submission_mode':'queue','score':None}
     return result
 
 if __name__=='__main__':

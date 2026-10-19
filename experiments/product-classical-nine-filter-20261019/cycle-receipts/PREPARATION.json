@@ -1,0 +1,98 @@
+{
+  "status": "SOURCE_BOUND_DISABLED_FILTER_BUILD_ONLY_NO_NONCE_TESTS_YET",
+  "candidate_stream_sha256": "76271c7d66785b62ec4077ec241e80d3645841ba898cf8b633c377099da687c1",
+  "original_filter": "/home/hclau/ecdsa_research/product-parent-sat-20261019/parent4-filter",
+  "files": {
+    "Cargo.toml": {
+      "sha256": "c0e5bb7ba6d4299e5f0e9206a4b22c1ab48b07fee7b6892fe112f5221d7035bf",
+      "scope": "identical to qualified disabled parent4 filter"
+    },
+    "Cargo.lock": {
+      "sha256": "0cdd430d442689523e00c08c0d1e21ec71e72fee0f2349bb048cc1334bedeff4",
+      "scope": "identical to qualified disabled parent4 filter"
+    },
+    "src/transfer.rs": {
+      "sha256": "92a85f1e0b635c4fdeaaa0b5fe8e101f4e4d90c0a8f9c761e3f38272a7ec6a26",
+      "scope": "append exact transfer bindings only"
+    },
+    "src/official.rs": {
+      "sha256": "7401f33071d78932db1ad323922d7a058fbb455c4f0635c204d677b2af21521e",
+      "scope": "identical to qualified disabled parent4 filter"
+    },
+    "src/rail_fast_ffi.rs": {
+      "sha256": "9632bd4e87792d6fa0d990f5e3c8d424f7992aeda816c8fc95204ea66b7565c3",
+      "scope": "identical to qualified disabled parent4 filter"
+    },
+    "src/main.rs": {
+      "sha256": "ed5172301706d2147bdbf5792d84c018427be316c8bfcea2a5ab63be2d58f00a",
+      "scope": "identical to qualified disabled parent4 filter"
+    },
+    "src/baseline_body.rs": {
+      "sha256": "2eaba78cab2b37dc964ec04bce7da751e91a33b066a82e53367dab3fd65777ab",
+      "scope": "identical to qualified disabled parent4 filter"
+    },
+    "src/rail_advisory.rs": {
+      "sha256": "2ebcf9a43c2fc153d36906cd2edac94c164ef7b540898e7a4328d35a0f1f0027",
+      "scope": "identical to qualified disabled parent4 filter"
+    },
+    "src/early.rs": {
+      "sha256": "e7151df4b3ea32d02b47334ba6618c5034d9e992df32d925256c8ff822262daa",
+      "scope": "identical to qualified disabled parent4 filter"
+    },
+    "src/packed_body.rs": {
+      "sha256": "83536dbbc776c537735b5e19697e26f13f27e5114cffc3f3f8f3b66ab4bcbac2",
+      "scope": "candidate hash/opcount only"
+    },
+    "src/fast_sim_wide.rs": {
+      "sha256": "0082e2cf935fbe02bc61277342d1625d0f676a8628c05c5a7b63f10d41b89674",
+      "scope": "identical to qualified disabled parent4 filter"
+    },
+    "src/masks.rs": {
+      "sha256": "5c9eb4c0a6c8da2a9cc4cdfb2ea7f3462a88ec853c90d58765f5a6922664a06b",
+      "scope": "identical to qualified disabled parent4 filter"
+    },
+    "src/simd_screen_ffi_wide.rs": {
+      "sha256": "e821e59d994d1496aecabb1353ca1838b3b00ab5fc5d0b14d299fbf6151afca2",
+      "scope": "identical to qualified disabled parent4 filter"
+    },
+    "src/fast_curve_c.rs": {
+      "sha256": "a20dfc90601d6d90d6695f1e8b1b6026fb6e4b8602dc73eb853d3bcbf8f2b56e",
+      "scope": "identical to qualified disabled parent4 filter"
+    }
+  },
+  "additional_proof_artifacts": {
+    "/home/hclau/ecdsa_research/parent4-operational-sat-20261019/ACCEPTANCE.json": "4e3b1ce9a4f36ec1a781a5e304776a79831d6b70ff82fc248f7bb5e0c92b7ec9",
+    "/home/hclau/ecdsa_research/product-classical-control-expression-20261019/EXPRESSION.json": "e7da6830d81498cef19ed831cdd1ae9c74dc9667e4c520c8a319799a9b7491a5",
+    "/home/hclau/ecdsa_research/product-classical-control-expression-20261019/expression.rs": "d49610830973f37d1979bceaf8420f6996f980e7a40abeed945986aa9ed4a096",
+    "/home/hclau/ecdsa_research/product-classical-control-expression-20261019/guard_prefix.rs": "d759665549605aadb7189eabc780fb9f73e95137651ca263ca6990490cd75a1f",
+    "/home/hclau/ecdsa_research/product-classical-factors-native-20261019/NATIVE-RECEIPT.json": "5ff35c624de6cf316d8a7d10eb4a6c15768fccaebdbeb645dde63fdb18c56590",
+    "/home/hclau/ecdsa_research/product-classical-factors-refresh-20261019/CONTROL-parent4.json": "052109e2509aeebe75d311d222be0b6eb606207be34b0558ff6d872b96eaf351",
+    "/home/hclau/ecdsa_research/product-classical-nine-20261019/CONTROL-nine.json": "fcbd4e0e9021f0190eb2bb3a4c0035c15adafd75b7c500c5fe2d7b20925b2da6",
+    "/home/hclau/ecdsa_research/product-classical-nine-20261019/NATIVE-RECEIPT.json": "202e32b491778bd5e3c22816729abbaed1b9ba8096a5a13be979545c3bbeb7e6",
+    "/home/hclau/ecdsa_research/product-classical-nine-20261019/SOURCE_FREEZE.json": "14150337ba46840a4df8eac558501f15a05c48f826b271115e7ffe46e72eb664",
+    "/home/hclau/ecdsa_research/product-classical-nine-20261019/candidate/ops.bin": "76271c7d66785b62ec4077ec241e80d3645841ba898cf8b633c377099da687c1",
+    "/home/hclau/ecdsa_research/product-classical-nine-20261019/classical_xor_control.rs": "1273c5a6ed5b890b872c2c0379008bf2c5c02a9b4e106a7fb2e8bfd3ea722917",
+    "/home/hclau/ecdsa_research/product-classical-nine-proof-20261019/AUDIT.json": "3ff2ee2f87da5651b4db2f47e25d154895b53b25a3c96458b32a39c1d631bdbc",
+    "/home/hclau/ecdsa_research/product-classical-nine-proof-20261019/EDIT-AUDIT.json": "e9ca3d86d56ae400e854b62774d1e199472dc3e5c72f7ce8c4dc141ab13c77b2",
+    "/home/hclau/ecdsa_research/product-classical-nine-proof-20261019/INSTRUMENTATION.json": "bf2ee39449598f3c703ed0459840768812a9af26dd21391ed428f44603e95c83",
+    "/home/hclau/ecdsa_research/product-classical-nine-proof-20261019/PROOF.json": "2110ba944908790763e5c5a9ae7c0c20bd63333b903ce17d9f564a0ada7b6fda",
+    "/home/hclau/ecdsa_research/product-classical-nine-proof-20261019/SEMANTICS.md": "a55287c166842bd3be10591e4c7ce5ca9635adc9f8f245c2b7b168904c090124",
+    "/home/hclau/ecdsa_research/product-classical-nine-proof-20261019/TRANSFER.json": "0ac5ad93277bcbfd8b874dcedf2edf2e94cd814d3273f70749164148c788f467",
+    "/home/hclau/ecdsa_research/product-classical-nine-proof-20261019/factor-00.smt2.gz": "1d1fd6096a67c4da302c273209a3a02e78b31d5f81b2395715f1c17a09545a42",
+    "/home/hclau/ecdsa_research/product-classical-nine-proof-20261019/factor-01.smt2.gz": "26583f04817a340b6a5ec5b3b02e087b8de5b93267378eddec34eacb2e3d37fd",
+    "/home/hclau/ecdsa_research/product-classical-nine-proof-20261019/factor-02.smt2.gz": "16b12161964824a55378e5b5bd7bcff501471910ceef491c1a11e9cca35325f6",
+    "/home/hclau/ecdsa_research/product-classical-nine-proof-20261019/factor-03.smt2.gz": "83ce601d71ccb52d81c9bb8b12baa749f3c607310e187d07a2644eaad4781da5",
+    "/home/hclau/ecdsa_research/product-classical-nine-proof-20261019/factor-04.smt2.gz": "abae8950714df75eb7456981adb7ebfd3fd89953ed63c824d2f080c318bb8c4c",
+    "/home/hclau/ecdsa_research/product-classical-nine-proof-20261019/factor-05.smt2.gz": "b8ce25b8a3e767dce0dfdee0e9cbd68982271c5c3e633e966f7a7984348df444",
+    "/home/hclau/ecdsa_research/product-classical-nine-proof-20261019/factor-06.smt2.gz": "5f06da2a54cdf258fca202a88cf8677a9a5f7bee8f17b3b45b1eb0a30cfd970d",
+    "/home/hclau/ecdsa_research/product-classical-nine-proof-20261019/factor-07.smt2.gz": "b0fb46317efe59d47259f32cbc0cf5d4bf8729c1c4de6eddc5d2028fd954f2fc",
+    "/home/hclau/ecdsa_research/product-classical-nine-proof-20261019/ninth-xor.smt2.gz": "cbf7fc01dedf0f9444009ccf83d140cf31f6763b8b33fe1abbd570ff418eaf1b",
+    "/home/hclau/ecdsa_research/product-classical-nine-proof-20261019/proof/classical_factors_xor.rs": "cd808d150d2a35823d10dcfbb61a51beabd0c0e3a7c2bf0a1cda7cad83ce3527",
+    "/home/hclau/ecdsa_research/product-classical-nine-proof-20261019/prove.py": "a47e7659aeb43c78369890a150ceeba00cea2ef20b2c08aba1eeb3022bd84f0d",
+    "/home/hclau/ecdsa_research/product-classical-nine-proof-20261019/transfer.py": "c42c2a2e6616e3ca8664e52be29ac7f826b5a65261b7a1badade7a2247986e22",
+    "/home/hclau/ecdsa_research/product-classical-nine-proof-20261019/verify_edits.rs": "f4e7907f6efaf9f5d0bc044ae1d6f9b6c82c89c99ceb6587f2fb9c3ad2a04ce2",
+    "/home/hclau/ecdsa_research/product-classical-type-probe-20261019/after-eight.json": "e7e6398277f18920dda92386d5b9db343c1aa9a42b33b94ab1b38e85a2240ff7"
+  },
+  "authoritative_rejection": false,
+  "gate_required_before_validation": true
+}

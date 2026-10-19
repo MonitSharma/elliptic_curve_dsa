@@ -22,3 +22,5 @@ no uploader and no choosing another nonce for a lower resource score.
 
 This directory is a prepared research recipe. Source preparation, build,
 acceptance, control and production have not executed as part of this recipe.
+
+22:51 qualified-cycle checkpoint: see [current handoff](../../docs/AGENT_HANDOFF.md). All completed-cycle evidence hashes verified locally. No new scored record.

@@ -24,3 +24,5 @@ files, and all six terminal-log corruption controls pass. These checks are
 archived and verified locally; complete gate/runtime readiness remains pending.
 Do not rerun prepare_recipe.py after binding or launching a watcher: it writes
 the deliberately unbound auditor template. Keep the final watched files fixed.
+
+22:51 qualified-cycle checkpoint: see [current handoff](../../docs/AGENT_HANDOFF.md). All completed-cycle evidence hashes verified locally. No new scored record.

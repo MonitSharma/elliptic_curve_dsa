@@ -1,0 +1,23 @@
+{
+  "status": "CLEAN_BETWEEN_WINDOW_STOP_REQUESTED",
+  "at_utc": "2026-10-19T14:41:46.651831+00:00",
+  "reason": "Superseded by the genuinely lower-Toffoli frozen classical9 circuit after all source/gate/runtime/cost/prefix checks pass",
+  "new_acceptance_sha256": "0bf11d329455b2ec2582085435853454b220540d67c2c76b80da56eca44645f4",
+  "new_control_sha256": "13ac088b895a1b68af65046da82b7b63958257d712def7ec723eeef17cb80bfc",
+  "old_source_and_runtime_unchanged": true,
+  "old_logs_preserved": true,
+  "no_process_kill_or_source_edit": true,
+  "verified_state": {
+    "hostname": "LHC-104-070",
+    "candidate_head": "0c3a0751ab66bd9144358d67563bcb79201cf636",
+    "candidate_branch": "",
+    "candidate_status": " M src/point_add/mod.rs\n?? src/point_add/retained_product_pareto.rs\n",
+    "worker_pids_verified": [
+      602363,
+      602364,
+      602365,
+      602367
+    ]
+  },
+  "remaining": "Wait for old search.exit and terminal summary. If any pass appears, preserve/resolve it before launching the replacement."
+}

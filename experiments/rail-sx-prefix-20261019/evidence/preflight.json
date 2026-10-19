@@ -1,0 +1,53 @@
+{
+  "at_unix": 1792417835.4989867,
+  "hostname": "LHC-104-070",
+  "memory_available_bytes": 260978417664,
+  "load_average": [
+    77.75634765625,
+    78.6240234375,
+    78.736328125
+  ],
+  "active_search_workers": [
+    602363,
+    602364,
+    602365,
+    602367
+  ],
+  "search_slots_including_worker_mains": 60,
+  "other_recorded_job_slots": 3,
+  "own_job_slots": 1,
+  "total_reserved_research_slots": 64,
+  "registered_jobs": [
+    {
+      "directory": "parent4-final-sat-v2-20261019",
+      "pidfile": "watch.pid",
+      "pid": 1183677,
+      "reserved_slots": 0,
+      "tree": [
+        1183677
+      ]
+    },
+    {
+      "directory": "product-classical-nine-20261019",
+      "pidfile": "gate-v2.pid",
+      "pid": 1377879,
+      "reserved_slots": 3,
+      "tree": [
+        1377879,
+        1377884,
+        1493271
+      ]
+    },
+    {
+      "directory": "product-classical-nine-filter-20261019",
+      "pidfile": "watch.pid",
+      "pid": 1401461,
+      "reserved_slots": 0,
+      "tree": [
+        1401461
+      ]
+    }
+  ],
+  "unknown_active_research": [],
+  "process_snapshot": "4163824 RNl    18 1710 python\n4149887 RNl    18 1702 python\n 602364 Sl     15 1116 value_prefilter\n 602365 Sl     15 1115 value_prefilter\n 602363 Sl     15 1115 value_prefilter\n 602367 Sl     15 1113 value_prefilter\n1557299 R       1  900 ps\n1493271 Sl      3  199 simd_census_v2\n1557297 S       1 71.7 python3\n3777359 S+      1  0.5 python\n3025376 Sl    150  0.0 codex\n 602362 S       1  0.0 python3\n 640729 Z       1  0.0 product_paired_\n 640877 Z       1  0.0 product_paired_\n1377884 S       1  0.0 python3\n 641577 Z       1  0.0 product_paired_\n1401461 Ss      1  0.0 python3\n 595533 T       1  0.0 python3\n 595631 T       1  0.0 python3\n1183677 Ss      1  0.0 python3\n 633807 T       1  0.0 python3\n3027597 Sl     18  0.0 codex-code-mode\n 595518 Ts      1  0.0 bash\n 595519 Ts      1  0.0 bash\n3733223 Ss      1  0.0 tmux: server\n3644093 Ss      1  0.0 systemd\n 606954 Ts      1  0.0 bash\n 572494 Ts      1  0.0 bash\n 627572 Ts      1  0.0 bash\n1529806 Ss      1  0.0 dbus-daemon\n3025361 Sl      7  0.0 node\n 595517 Ts      1  0.0 bash\n 602346 Ss      1  0.0 bash\n 640728 T       1  0.0 time\n 640876 T       1  0.0 time\n 641576 T       1  0.0 time\n 641802 T       1  0.0 sleep\n 641963 T       1  0.0 sleep\n 641964 T       1  0.0 sleep\n1344064 S       1  0.0 sshd\n1377879 Ss      1  0.0 bash\n1557296 Ss      1  0.0 bash\n3644095 S       1  0.0 (sd-pam)\n3777358 Ss+     1  0.0 bash\n4149884 Ss      1  0.0 sh\n4149885 SN      1  0.0 bash\n4163821 Ss      1  0.0 sh\n4163822 SN      1  0.0 bash\n"
+}
