@@ -1,0 +1,50 @@
+{
+  "status": "FINITE_BETWEEN_WINDOW_STOP_REQUESTED",
+  "at_utc": "2026-10-19T16:58:17.648695+00:00",
+  "reason": "A genuinely lower-T finished source passed its own gate and runtime controls; replace only if old search terminates without a pass.",
+  "cutoff": 21577728,
+  "stable_progress": [
+    {
+      "count": 4096,
+      "cumulative_worker_rows": 5271552,
+      "first": 21069825,
+      "lane": 0,
+      "last": 21073920,
+      "status": "COMPLETE_WINDOW_ALL_ROWS_RECORDED"
+    },
+    {
+      "count": 4096,
+      "cumulative_worker_rows": 5337088,
+      "first": 21336065,
+      "lane": 1,
+      "last": 21340160,
+      "status": "COMPLETE_WINDOW_ALL_ROWS_RECORDED"
+    },
+    {
+      "count": 4096,
+      "cumulative_worker_rows": 5271552,
+      "first": 21078017,
+      "lane": 2,
+      "last": 21082112,
+      "status": "COMPLETE_WINDOW_ALL_ROWS_RECORDED"
+    },
+    {
+      "count": 4096,
+      "cumulative_worker_rows": 5386240,
+      "first": 21540865,
+      "lane": 3,
+      "last": 21544960,
+      "status": "COMPLETE_WINDOW_ALL_ROWS_RECORDED"
+    }
+  ],
+  "worker_pids": [
+    1703064,
+    1703065,
+    1703067,
+    1703068
+  ],
+  "coordinator_pid": 1703063,
+  "new_acceptance_sha256": "5c25049df477ecd3bfa82e6059866dfda211af5085d1944e01ffabd48b93d5ff",
+  "new_control_sha256": "f6c98918da00e20b6bd253ec8df488dba8c6a5b4ba5f2571178197d6a24fead6",
+  "scope": "Only these own research processes paused briefly and resumed; chemistry untouched. Every in-flight pass lies below finite cutoff. All logs/source retained. Any arriving pass goes to existing lowest-prefix auditor."
+}

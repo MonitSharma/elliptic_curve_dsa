@@ -1,0 +1,23 @@
+test_changed_product_is_detected (__main__.Tests.test_changed_product_is_detected) ... ok
+test_dirty_consumer_is_detected (__main__.Tests.test_dirty_consumer_is_detected) ... ok
+test_dirty_storage_is_detected (__main__.Tests.test_dirty_storage_is_detected) ... ok
+test_good_all_state_phase_rng (__main__.Tests.test_good_all_state_phase_rng) ... ok
+test_missing_cache_cleanup_is_detected (__main__.Tests.test_missing_cache_cleanup_is_detected) ... ok
+test_phase_only_storage_touch_is_detected (__main__.Tests.test_phase_only_storage_touch_is_detected) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.073s
+
+OK
+{
+  "verdict": "unsat",
+  "seconds": 0.01600000000325963,
+  "quantum_wires_compared": 568,
+  "classical_bits_compared": 6,
+  "phase_compared": true,
+  "physical_draw_count_each": 770,
+  "arbitrary_boundary_and_rng_variables": 1344,
+  "solver_version": "5.1.0",
+  "scope": "All boundary basis values and every physical RNG assignment, including global phase. SAT at an unseeded window may be an unreachable boundary; it is not a failed circuit gate.",
+  "saved_smt2_replayed": true
+}

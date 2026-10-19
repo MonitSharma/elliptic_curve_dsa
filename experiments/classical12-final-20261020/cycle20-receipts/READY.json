@@ -1,0 +1,21 @@
+{
+  "status": "SOURCE12_ALL_NATIVE_RUNTIME_GATE_PATHS_AND_AUDITOR_CONTROLS_PASS",
+  "source_files": {
+    "audit-terminal.py": "c95db4102bbd6a313ec3abcd72916edf54950501cc3c9a518aea7ca65fb984a0",
+    "run-final.sh": "3acf35c7b8ba82d6bdf8a99f288d13372254d0a5d8723ed9758564ae8354e404",
+    "launch_watch.py": "3c5ff68022814683b5e97b113772dd7665893271ed028c849771d540a69c6569",
+    "test_paths.py": "2164c69d0a365f413d42a3349b20756973ea0ea92d4ee6d929bfc3e018cc5923",
+    "test_audit.py": "48d1af23e300eeb2ddd5582438c33fe0f4b1ed638f45364187f800dcd8393efc",
+    "watch.py": "15cdd1aef0e521327c1d5fe0b82b4ff96b0c29feec533d8d01ca017e0d18276b",
+    "finalize.py": "701a0fe64a394d81276edabcfbe197bccf476439ab3bcf1eb230b86926e25d2c"
+  },
+  "binding": {
+    "status": "RUNTIME_PINNED_AFTER_OWN_PREFIX_CONTROL",
+    "acceptance_sha256": "5c25049df477ecd3bfa82e6059866dfda211af5085d1944e01ffabd48b93d5ff",
+    "binary_sha256": "16939cd728cd31e60901aa04faffe2abbeb6bfab0105b0f031820282a02934ea",
+    "auditor_sha256": "c95db4102bbd6a313ec3abcd72916edf54950501cc3c9a518aea7ca65fb984a0",
+    "complete_path_audit_required_before_watch": true
+  },
+  "changes_from_reviewed_source9": "Only source-specific constants/paths/labels and classical_wide native tests; final shell stays root via candidate subshell.",
+  "selection": "Ascending from1, lowest complete protected pass, no T selection; queue only."
+}

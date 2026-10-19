@@ -1,0 +1,135 @@
+{
+  "at_unix": 1792429458.3799152,
+  "hostname": "LHC-104-070",
+  "memory_available_bytes": 262974439424,
+  "load_average": [
+    60.4228515625,
+    61.65283203125,
+    70.56298828125
+  ],
+  "active_search_workers": [
+    2070218,
+    2070219,
+    2070220,
+    2070222
+  ],
+  "active_search_roots": [
+    {
+      "directory": "/home/hclau/ecdsa_research/product-classical-twelve-operational-20261019",
+      "workers": [
+        2070218,
+        2070219,
+        2070220,
+        2070222
+      ],
+      "reserved_slots": 60
+    }
+  ],
+  "search_slots_including_worker_mains": 60,
+  "other_recorded_job_slots": 3,
+  "own_job_slots": 1,
+  "total_reserved_research_slots": 64,
+  "registered_jobs": [
+    {
+      "directory": "classical12-final-20261020",
+      "pidfile": "watch.pid",
+      "pid": 2059372,
+      "reserved_slots": 0,
+      "tree": [
+        2059372
+      ],
+      "descriptor_sha256": "0d079c8200cff72bbee4dc7852c3d47d0d8d26bf024d23bfe88c00d1ba6d66e9"
+    },
+    {
+      "directory": "product-copy-cache-filter-20261020",
+      "pidfile": "build.pid",
+      "pid": 2073174,
+      "reserved_slots": 1,
+      "tree": [
+        2073174,
+        2073175,
+        2073176
+      ],
+      "descriptor_sha256": "2bf1e402a5b7affd9ec52fae981ccb612bbfcdb7adf9df805979abe9f9cb434a"
+    },
+    {
+      "directory": "product-copy-cache-native-20261020",
+      "pidfile": "gate.pid",
+      "pid": 2037534,
+      "reserved_slots": 3,
+      "tree": [
+        2037534,
+        2037609,
+        2037765
+      ],
+      "descriptor_sha256": "8f97a37e1cb21c419a4d8784a816ec5e154aadd1bed681243c2930c0ddd9f837"
+    }
+  ],
+  "dynamic_descriptors": [
+    {
+      "path": "/home/hclau/ecdsa_research/resource-registry-20261020/classical12-final-20261020-final.json",
+      "sha256": "a86ba3a7222377fbe0b0c56e620afd2c0f166aabce952f6469b439569354b343",
+      "active_pid": null,
+      "slots": 3,
+      "kind": "compute"
+    },
+    {
+      "path": "/home/hclau/ecdsa_research/resource-registry-20261020/classical12-final-20261020-watch.json",
+      "sha256": "0d079c8200cff72bbee4dc7852c3d47d0d8d26bf024d23bfe88c00d1ba6d66e9",
+      "active_pid": 2059372,
+      "slots": 0,
+      "kind": "idle"
+    },
+    {
+      "path": "/home/hclau/ecdsa_research/resource-registry-20261020/classical9-final-v3-20261020-final.json",
+      "sha256": "767980dd7d19d08f8f0888cd50f5fac0ce8b6d763a1040c745a9711601476ab3",
+      "active_pid": null,
+      "slots": 3,
+      "kind": "compute"
+    },
+    {
+      "path": "/home/hclau/ecdsa_research/resource-registry-20261020/classical9-final-v3-20261020-watch.json",
+      "sha256": "4835fb3c812069f6519cd7dac6af81b62854f00893ef1c0ec3789e3323459dbd",
+      "active_pid": null,
+      "slots": 0,
+      "kind": "idle"
+    },
+    {
+      "path": "/home/hclau/ecdsa_research/resource-registry-20261020/classical9-retirement-20261020-run.json",
+      "sha256": "1cd52cddf4491c9e8e49d702decbd458a2158e9d014063110a21a461d8c6c902",
+      "active_pid": null,
+      "slots": 1,
+      "kind": "compute"
+    },
+    {
+      "path": "/home/hclau/ecdsa_research/resource-registry-20261020/product-classical-twelve-gate-audit-20261020-run.json",
+      "sha256": "55e916f730169cafa9187db51f955cf551467e8e75946a9370e67d1b2c16fb62",
+      "active_pid": null,
+      "slots": 1,
+      "kind": "compute"
+    },
+    {
+      "path": "/home/hclau/ecdsa_research/resource-registry-20261020/product-copy-cache-filter-20261020-build.json",
+      "sha256": "2bf1e402a5b7affd9ec52fae981ccb612bbfcdb7adf9df805979abe9f9cb434a",
+      "active_pid": 2073174,
+      "slots": 1,
+      "kind": "compute"
+    },
+    {
+      "path": "/home/hclau/ecdsa_research/resource-registry-20261020/product-copy-cache-native-20261020-gate.json",
+      "sha256": "8f97a37e1cb21c419a4d8784a816ec5e154aadd1bed681243c2930c0ddd9f837",
+      "active_pid": 2037534,
+      "slots": 3,
+      "kind": "compute"
+    },
+    {
+      "path": "/home/hclau/ecdsa_research/resource-registry-20261020/product-copy-cache-native-20261020-run.json",
+      "sha256": "23b886177e1775f72aa5ba2d7d763d7be058917e453b3c2d7beaa5ac95ddfd7a",
+      "active_pid": null,
+      "slots": 1,
+      "kind": "compute"
+    }
+  ],
+  "unknown_active_research": [],
+  "process_snapshot": "4163824 RNl    18 1699 python\n4149887 RNl    18 1692 python\n2070218 Sl     15  860 value_prefilter\n2070222 R       1  846 value_prefilter\n2070219 Sl     15  841 value_prefilter\n2070220 Sl     15  818 value_prefilter\n2073177 R       1  800 ps\n2037765 Sl      3  198 simd_census_v2\n2073175 S       1 64.2 python3\n3777359 S+      1  0.5 python\n2070217 S       1  0.3 python3\n2037609 S       1  0.1 python3\n3025376 Sl    150  0.0 codex\n 640729 Z       1  0.0 product_paired_\n 640877 Z       1  0.0 product_paired_\n2059372 Ss      1  0.0 python3\n 641577 Z       1  0.0 product_paired_\n 595533 T       1  0.0 python3\n 595631 T       1  0.0 python3\n 633807 T       1  0.0 python3\n3027597 Sl     18  0.0 codex-code-mode\n 595518 Ts      1  0.0 bash\n 595519 Ts      1  0.0 bash\n3733223 Ss      1  0.0 tmux: server\n3644093 Ss      1  0.0 systemd\n 606954 Ts      1  0.0 bash\n 572494 Ts      1  0.0 bash\n 627572 Ts      1  0.0 bash\n1529806 Ss      1  0.0 dbus-daemon\n3025361 Sl      7  0.0 node\n 595517 Ts      1  0.0 bash\n 640728 T       1  0.0 time\n 640876 T       1  0.0 time\n 641576 T       1  0.0 time\n 641802 T       1  0.0 sleep\n 641963 T       1  0.0 sleep\n 641964 T       1  0.0 sleep\n1806066 S       1  0.0 sshd\n2037534 Ss      1  0.0 bash\n2070201 Ss      1  0.0 bash\n2073174 Ss      1  0.0 bash\n3644095 S       1  0.0 (sd-pam)\n3777358 Ss+     1  0.0 bash\n4149884 Ss      1  0.0 sh\n4149885 SN      1  0.0 bash\n4163821 Ss      1  0.0 sh\n4163822 SN      1  0.0 bash\n"
+}

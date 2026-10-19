@@ -1,0 +1,21 @@
+
+running 16 tests
+test large_tests::degree_fallback_replaces_whole_result_with_distinct_unknowns ... ok
+test large_tests::thirteen_variable_sparse_products_match8192_scalar_assignments ... ok
+test tests::arbitrary_input_not_assumed_zero ... ok
+test tests::complementary_product_zero ... ok
+test tests::conditional_reset_preserves_old_branch ... ok
+test tests::distributivity ... ok
+test tests::exhaustive_polynomial_arithmetic ... ok
+test tests::nonlinear_complement_removes_product ... ok
+test tests::term_limit_creates_fresh_unknown ... ok
+test witness_tests::arbitrary_mutation_invalidates_a_stale_witness ... ok
+test witness_tests::condition_snapshots_and_guarded_writes_preserve_index_values ... ok
+test witness_tests::exact_and_complemented_current_wire_products_preserve_every_basis_input ... ok
+test witness_tests::measurement_and_reset_remove_the_old_product_witness ... ok
+test witness_tests::oversized_complement_query_does_not_mutate_the_algebra ... ok
+test witness_tests::swap_reindexes_both_physical_wires ... ok
+test witness_tests::target_is_never_its_own_product_witness ... ok
+
+test result: ok. 16 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+

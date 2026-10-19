@@ -1,0 +1,121 @@
+{
+  "status": "RETIRED_NO_PASS_ALL_TERMINAL_ROWS_INDEPENDENTLY_AUDITED",
+  "at_utc": "2026-10-19T17:03:08.712489+00:00",
+  "old_terminal": {
+    "status": "STOPPED_NO_CERTIFIED_PASS",
+    "best_full_protected_pass": null,
+    "lowest_prefix_window_completion": false,
+    "requires_complete_jsonl_row_audit": true,
+    "worker_exit_codes": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "progress": [
+      {
+        "count": 4096,
+        "cumulative_worker_rows": 5394432,
+        "first": 21561345,
+        "lane": 0,
+        "last": 21565440,
+        "status": "COMPLETE_WINDOW_ALL_ROWS_RECORDED"
+      },
+      {
+        "count": 4096,
+        "cumulative_worker_rows": 5394432,
+        "first": 21565441,
+        "lane": 1,
+        "last": 21569536,
+        "status": "COMPLETE_WINDOW_ALL_ROWS_RECORDED"
+      },
+      {
+        "count": 4096,
+        "cumulative_worker_rows": 5394432,
+        "first": 21569537,
+        "lane": 2,
+        "last": 21573632,
+        "status": "COMPLETE_WINDOW_ALL_ROWS_RECORDED"
+      },
+      {
+        "count": 4096,
+        "cumulative_worker_rows": 5394432,
+        "first": 21573633,
+        "lane": 3,
+        "last": 21577728,
+        "status": "COMPLETE_WINDOW_ALL_ROWS_RECORDED"
+      }
+    ],
+    "screened_unique_completed_rows": 21577728,
+    "wall_seconds": 8050.912685168907,
+    "deadline_stop": false,
+    "score": null,
+    "submission_mode": "queue"
+  },
+  "complete_jsonl_audit_sha256": "49b89c8df38f12a22692801fd899feaa90384ae8a250324c66c6f33f271085d7",
+  "auditor_sha256": "47e8c89c308a15026a4da85310829f8a35188149716fcc6fb349adcac5d27ba1",
+  "complete_global_prefix": 21577728,
+  "files_retained_on_server": [
+    "/home/hclau/ecdsa_research/product-classical-nine-operational-20261019/worker0.jsonl",
+    "/home/hclau/ecdsa_research/product-classical-nine-operational-20261019/worker1.jsonl",
+    "/home/hclau/ecdsa_research/product-classical-nine-operational-20261019/worker2.jsonl",
+    "/home/hclau/ecdsa_research/product-classical-nine-operational-20261019/worker3.jsonl"
+  ],
+  "watcher_terminal": {
+    "status": "NO_FINALIZATION",
+    "search": {
+      "status": "STOPPED_NO_CERTIFIED_PASS",
+      "best_full_protected_pass": null,
+      "lowest_prefix_window_completion": false,
+      "requires_complete_jsonl_row_audit": true,
+      "worker_exit_codes": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "progress": [
+        {
+          "count": 4096,
+          "cumulative_worker_rows": 5394432,
+          "first": 21561345,
+          "lane": 0,
+          "last": 21565440,
+          "status": "COMPLETE_WINDOW_ALL_ROWS_RECORDED"
+        },
+        {
+          "count": 4096,
+          "cumulative_worker_rows": 5394432,
+          "first": 21565441,
+          "lane": 1,
+          "last": 21569536,
+          "status": "COMPLETE_WINDOW_ALL_ROWS_RECORDED"
+        },
+        {
+          "count": 4096,
+          "cumulative_worker_rows": 5394432,
+          "first": 21569537,
+          "lane": 2,
+          "last": 21573632,
+          "status": "COMPLETE_WINDOW_ALL_ROWS_RECORDED"
+        },
+        {
+          "count": 4096,
+          "cumulative_worker_rows": 5394432,
+          "first": 21573633,
+          "lane": 3,
+          "last": 21577728,
+          "status": "COMPLETE_WINDOW_ALL_ROWS_RECORDED"
+        }
+      ],
+      "screened_unique_completed_rows": 21577728,
+      "wall_seconds": 8050.912685168907,
+      "deadline_stop": false,
+      "score": null,
+      "submission_mode": "queue"
+    },
+    "submission_mode": "queue"
+  },
+  "replacement_from_nonce": 1,
+  "no_scored_result": true
+}

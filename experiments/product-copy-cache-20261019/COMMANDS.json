@@ -118,5 +118,17 @@
     ],
     "log": "copy-cache.log",
     "witness_mode": "1"
+  },
+  {
+    "argv": [
+      "/usr/bin/time",
+      "-v",
+      "./trace.bin",
+      "/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/product-classical-closure-20261019/input.ops.bin",
+      "copy-cache.ops.bin",
+      "CONTROL.json"
+    ],
+    "log": "control.log",
+    "witness_mode": "1"
   }
 ]

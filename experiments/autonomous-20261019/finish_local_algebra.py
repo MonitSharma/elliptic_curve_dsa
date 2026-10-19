@@ -3,7 +3,7 @@ import hashlib,io,json,sys,tarfile
 from datetime import datetime,timezone
 from pathlib import Path
 ws=Path(__file__).resolve().parent.parent;name=sys.argv[1]
-assert name in ['product-classical-closure-20261019','product-classical-cap11-20261019','product-anf256-20261019','product-anf-witness-20261019'];r=ws/name
+assert name in ['product-classical-closure-20261019','product-classical-cap11-20261019','product-anf256-20261019','product-anf-witness-20261019','product-copy-cache-20261019'];r=ws/name
 assert (r/'run.exit').read_text().strip()=='0'
 sha=lambda p:hashlib.file_digest(p.open('rb'),'sha256').hexdigest()
 if name=='product-classical-closure-20261019':
@@ -17,6 +17,13 @@ elif name=='product-classical-cap11-20261019':
         assert result['control']['status']=='PROTECTED_SIMULATOR_CLASSICAL_FACTOR_FULL_TRANSCRIPT_CONTROL_PASS'
         saved=result['control']['saved_executed_Toffolis_total_on_512_control_shots']
         note=f'All7 primitive/exhaustive2048-row tests and cap9 complete-hash control pass. Cap11 source changes;512 full quantum/classical/phase/physical-RNG controls pass, total executed T saved={saved}. This is finite component/source evidence, not a statistical gate or scored record. No native candidate or nonce. Two pre-compiler admissions are preserved with complete original source hashes.'
+elif name=='product-copy-cache-20261019':
+    result=json.loads((r/'RESULT.json').read_text())
+    assert result['status']=='REVERSIBLE_COPY_CACHE_SOURCE_SCREEN_COMPLETED' and result['cache_pairs']==1
+    assert result['disabled_complete_report_and_stream_identical']
+    assert result['control']['status']=='PROTECTED_SIMULATOR_CLASSICAL_FACTOR_FULL_TRANSCRIPT_CONTROL_PASS'
+    assert result['control']['saved_executed_Toffolis_total_on_512_control_shots']==512
+    note='All17 primitive controls and complete disabled report/stream reproduction pass. One unconditional reversible AND copy-cache pair saves exactly512 executed Toffolis across512 raw full q/c/phase/physical-RNG transcript controls, Q1234 unchanged. Finished frozen source is further independently proved and natively reproduced in separate experiments. Component/source evidence only; no scored benchmark or nonce selected here.'
 else:
     result=json.loads((r/'RESULT.json').read_text());src=result['source'];same=src['input_sha3_256']==src['output_sha3_256']
     if name=='product-anf256-20261019':

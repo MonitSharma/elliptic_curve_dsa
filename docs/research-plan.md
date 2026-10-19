@@ -1,5 +1,101 @@
 # Research state and next experiments
 
+## 20 October,01:07: qualified classical12 search live; cache proof and own census
+
+No new scored Q×T record. The refreshed public product parent remains
+9dc3798c (Q1234,T761096,product939192464), exact stream99edb1d3….
+The full unchanged benchmark remains required; census means and component
+savings below are diagnostics, never scored results or README plot points.
+
+Classical12's sole declared gate PASS: label
+pareto-parent4-classical12-gate-20261019-v1,262144 batches of64 per source.
+Value-failing shots28574=28574; failed batches33148 candidate/33203 parent;
+dirty0; newly failing2912/newly passing2967; exact one-sided McNemar
+p0.767413091467709. Candidate failed batches per9024-shot packet
+17.829391479492188. Paired mean T saving12.515501320362091 with
+SE0.20282412390091184. Independent complete524288-row audit verified all
+four originally declared inequalities, uniqueness, stream hashes and exact
+integer binomial tail. Gate archive362c7bc0…/17 members verified locally.
+This is the final verdict; do not relabel, extend or rerun the gate.
+
+Own-source disabled runtime qualification PASS (binary9b51c648…): seeds
+1,2,17,255,full9024 q/c/phase/physical-RNG,zero-MR128+partial and all six
+4096-row trials. The source-bound operational build16939cd7… and4096-prefix
+control PASS. Acceptance5c25049d…; prefix rows e2b53b35…; preliminary
+28950 repeated row attempts disclosed separately from production uniques.
+An initial operational admission was refused before preparation/build/nonce
+because a native builder's leader had changed cwd. Exact failed admission
+and repair receipt are preserved; the successful retry changed no circuit,
+gate or runtime semantics. New job leaders remain at root, child compiler
+work uses subshells. Never overwrite active scripts or profile15/helper.
+
+Old classical9 was retired using a finite complete-cycle boundary. Only its
+four verified workers and coordinator were briefly paused/resumed to cover
+every in-flight possible pass before publishing the stop marker. All exited0.
+The unchanged reviewed auditor read every21,577,728 terminal JSONL row,
+proved exact unique global coverage1..21577728, and confirmed no pass and
+matching pass files. Every log is retained on server with complete SHA256s.
+Old queue finalizer1929977 ended NO_FINALIZATION. No historical result lost,
+no T-based nonce selection, no chemistry process touched.
+
+New classical12 search started2026-10-19T17:03:15UTC from1, shell2070201,
+workers2070218/2070219/2070220/2070222.4x14 compute plus mains,60 slots;
+look4096,134217728 per-lane cap,48h limit, qualified baseline dispatch.
+At01:06 it reported397312 completed rows, no pass; counters provisional.
+Queue-only watcher2059372 in classical12-final-20261020 is ready: six
+auditor corruption controls and all native/runtime/gate input paths PASS.
+Auditor c95db410…; final shell3acf35c7… binds immutable profile15/helper,
+checks classical_wide too, keeps leader cwd root, restores historical
+results.tsv even on failure. It requires a complete lower-prefix row audit,
+native selected-tail reproduction,512 tail-invariance controls on existing
+gate inputs and unchanged official benchmark. No uploader and no later nonce
+selection for T. Preserve all source9/source12 runtime/proof dependencies.
+
+The new unconditional reversible copy-cache circuit is frozen and natively
+reproduced:182 source files/protected17 unchanged,23 native tests PASS,
+archive0c6f2f12…, compressed stream26dc60ee…, raw d343ca71…,
+17889637 ops. Research primitive17 controls and complete disabled-stream
+reproduction PASS. Independent source-bound4675-op proof compares568 q,
+6 c,phase and770 physical draws for1344 arbitrary boundary/RNG variables:
+UNSAT, saved theorem and independent server replay PASS. Complete global
+edit/frame/ABI/storage audit and six proof corruption controls PASS.
+Theorem certifies exactly1 additional executed T saved on every shot,
+Q unchanged;512 protected raw transcript controls observe512 saved with
+equal complete q/c/phase/physical-RNG. This is a component result, not a
+full point-addition score. Full native/proof archives and every member hash
+are verified locally; old failed verdicts and Q692 remain preserved.
+
+Copy-cache's OWN sole final census is LIVE, declared16:49:23UTC before runs,
+label pareto-parent4-copy-cache-gate-20261020-v1,262144x64 per source,
+freshly refreshed exact public9dc parent. Shell2037534/manager2037609,
+parent SIMD child2037765;3 reserved slots. No verdict yet: never relabel,
+extend or screen new-source nonces before its PASS. Disabled source-bound
+copy-cache runtime port build PASS,1m55s,binary5233f115…: only hash/opcount and exact final-
+state proof bindings changed from qualified12. Its idle waiter2074877 waits
+for this gate PASS and both actual managers terminal before own validation;
+build/qualification descriptors are immutable, qualification remains disabled
+for authoritative rejection/nonce selection. No production switch to cache.
+
+Resource profile15 c850285e… and helper7484340a… are unchanged. Reviewed
+source-hashed descriptors admit future jobs without editing a live profile.
+9 registry controls PASS; unknown jobs and over-capacity launches still refuse.
+Search60+census3+at most1 build/observation fits64. Idle watchers reserve0.
+The chemistry/QOB jobs are untouched. Current source12 search and copy-cache
+gate must continue unchanged; do not restart on a tool observation timeout.
+
+One new LOCAL source screen is live: product-copy-cache-witness-20261020,
+WSL shell444,one core/12GiB. Exact unchanged previously tested interpreter,
+16 controls PASS, new frozen cache input only (raw d343ca71…), fixed
+cap256/degree12/current-wire witnesses. The new held product may enable
+another exact reduction. No compiler/packet/circuit tuning, gate or nonce;
+raw full-state controls required if output changes. Do not repeat earlier
+negative cap11/ANF256/witness scans on the original source12 input.
+
+Next: keep source12 production/finalizer, finish the one local new-input
+screen, inspect the copy-cache gate once terminal, then its one own-source
+runtime qualification. A failed gate is final. Preserve/push all evidence
+before any future qualified source transition; benchmark required for record.
+
 ## 19 October,23:49: reviewed coordinator transition; reversible cache research live
 
 No new scored Q×T record. The same frozen qualified classical9 search is

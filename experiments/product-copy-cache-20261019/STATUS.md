@@ -35,3 +35,7 @@ native src/point_add-only reproduction and their own final statistical gate.
 One local Ubuntu core/12GiB, portable verified compiler, dedicated nohup,
 PID/exit/log and exact source/stream hashes. Launch only after the prior
 current-wire witness experiment is authoritatively terminal.
+
+## Completed local experiment
+
+All17 primitive controls and complete disabled report/stream reproduction pass. One unconditional reversible AND copy-cache pair saves exactly512 executed Toffolis across512 raw full q/c/phase/physical-RNG transcript controls, Q1234 unchanged. Finished frozen source is further independently proved and natively reproduced in separate experiments. Component/source evidence only; no scored benchmark or nonce selected here.

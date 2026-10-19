@@ -1,0 +1,3 @@
+# Qualified classical12 operational port, no production launch
+
+Both the sole final262144-batch gate and complete disabled runtime qualification PASS. Clone the reviewed parent4 operational implementation with only candidate hash/opcount and appended exact qualification/proof bindings changed. Test ordering, build, accept the cost gate and compare the first4096 operational rows with this source own qualified prefix. Preserve every artifact. No new production search may start here until complete prefix control, fresh record/resources and an explicit clean transition preserving the current9 search. No nonce selected by Toffoli; queue only.

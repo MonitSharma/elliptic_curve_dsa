@@ -1,0 +1,46 @@
+{
+  "status": "FAILURE_GATE_PASS",
+  "label": "pareto-parent4-classical12-gate-20261019-v1",
+  "batches": 262144,
+  "shots_each": 16777216,
+  "rules": {
+    "value_not_above_parent": true,
+    "paired_mcnemar_p_at_least_005": true,
+    "failed_batches_per_packet_at_most_18": true,
+    "zero_dirty_shots": true
+  },
+  "failed_batches": {
+    "parent": 33203,
+    "candidate": 33148
+  },
+  "value_shots": {
+    "parent": 28574,
+    "candidate": 28574
+  },
+  "dirty_shots": {
+    "parent": 0,
+    "candidate": 0
+  },
+  "newly_failing_b": 2912,
+  "newly_passing_c": 2967,
+  "mcnemar_one_sided_p": 0.767413091467709,
+  "failed_batches_per_packet": {
+    "parent": 17.85897445678711,
+    "candidate": 17.829391479492188
+  },
+  "paired_mean_toffoli_saving": 12.515501320362091,
+  "saving_standard_error": 0.20282412390091184,
+  "mean_toffoli": {
+    "parent": 761093.3347750306,
+    "candidate": 761080.8192737103
+  },
+  "census_sha256": {
+    "parent": "9e17ab78a7e0183960e86bd1f5e76db0bf1bf2611127b207996827ae7f2ee3c7",
+    "candidate": "feed8a774574f0963d719ce90d1bf1a0e5ed9fd553caa14ef02de65943aacd56"
+  },
+  "stream_sha256": {
+    "parent": "99edb1d39f94c40752cb1fa2581dd2b13fe17696c486f542b8d43c1af1974683",
+    "candidate": "17c767f514ca98ad02d4da9e5b1dbedf67189e5c70b7b15916adc0f0c2f0a7f7"
+  },
+  "no_official_benchmark_or_nonce_search": true
+}

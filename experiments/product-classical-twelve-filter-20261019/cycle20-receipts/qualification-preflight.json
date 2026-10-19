@@ -1,0 +1,68 @@
+{
+  "at_unix": 1792426041.6684747,
+  "hostname": "LHC-104-070",
+  "memory_available_bytes": 263456407552,
+  "load_average": [
+    79.62060546875,
+    78.29052734375,
+    78.48486328125
+  ],
+  "active_search_workers": [
+    1703064,
+    1703065,
+    1703067,
+    1703068
+  ],
+  "active_search_roots": [
+    {
+      "directory": "/home/hclau/ecdsa_research/product-classical-nine-operational-20261019",
+      "workers": [
+        1703064,
+        1703065,
+        1703067,
+        1703068
+      ],
+      "reserved_slots": 60
+    }
+  ],
+  "search_slots_including_worker_mains": 60,
+  "other_recorded_job_slots": 0,
+  "own_job_slots": 3,
+  "total_reserved_research_slots": 63,
+  "registered_jobs": [
+    {
+      "directory": "product-classical-twelve-filter-20261019",
+      "pidfile": "watch.pid",
+      "pid": 1820167,
+      "reserved_slots": 0,
+      "tree": [
+        1820167,
+        1919103,
+        1919104,
+        1919147
+      ]
+    },
+    {
+      "directory": "product-classical-twelve-filter-20261019",
+      "pidfile": "qualification.pid",
+      "pid": 1919103,
+      "reserved_slots": 3,
+      "tree": [
+        1919103,
+        1919104,
+        1919147
+      ]
+    },
+    {
+      "directory": "classical9-final-v2-20261019",
+      "pidfile": "watch.pid",
+      "pid": 1806159,
+      "reserved_slots": 0,
+      "tree": [
+        1806159
+      ]
+    }
+  ],
+  "unknown_active_research": [],
+  "process_snapshot": "4163824 RNl    18 1702 python\n4149887 RNl    18 1695 python\n1703065 Sl     15 1121 value_prefilter\n1703068 Sl     15 1118 value_prefilter\n1703067 Sl     15 1117 value_prefilter\n1703064 Sl     15 1109 value_prefilter\n1919104 S       1 60.9 python3\n3777359 S+      1  0.5 python\n1703063 S       1  0.0 python3\n3025376 Sl    150  0.0 codex\n 640729 Z       1  0.0 product_paired_\n 640877 Z       1  0.0 product_paired_\n 641577 Z       1  0.0 product_paired_\n1820167 Ss      1  0.0 python3\n 595533 T       1  0.0 python3\n 595631 T       1  0.0 python3\n1806159 Ss      1  0.0 python3\n 633807 T       1  0.0 python3\n3027597 Sl     18  0.0 codex-code-mode\n 595518 Ts      1  0.0 bash\n 595519 Ts      1  0.0 bash\n3733223 Ss      1  0.0 tmux: server\n3644093 Ss      1  0.0 systemd\n 606954 Ts      1  0.0 bash\n 572494 Ts      1  0.0 bash\n 627572 Ts      1  0.0 bash\n1529806 Ss      1  0.0 dbus-daemon\n3025361 Sl      7  0.0 node\n1919148 R       1  0.0 ps\n 595517 Ts      1  0.0 bash\n 640728 T       1  0.0 time\n 640876 T       1  0.0 time\n 641576 T       1  0.0 time\n 641802 T       1  0.0 sleep\n 641963 T       1  0.0 sleep\n 641964 T       1  0.0 sleep\n1703053 Ss      1  0.0 bash\n1806066 S       1  0.0 sshd\n1919103 Ss      1  0.0 bash\n3644095 S       1  0.0 (sd-pam)\n3777358 Ss+     1  0.0 bash\n4149884 Ss      1  0.0 sh\n4149885 SN      1  0.0 bash\n4163821 Ss      1  0.0 sh\n4163822 SN      1  0.0 bash\n"
+}
