@@ -1,0 +1,87 @@
+{
+  "at_utc": "2026-10-19T15:25:19.439285+00:00",
+  "status": "OLD_IDLE_WATCHER_RETIRED_NEW_QUEUE_FINALIZER_LIVE",
+  "old_pid": 1697009,
+  "old_source_files_preserved": {
+    "audit-terminal.py": "47e8c89c308a15026a4da85310829f8a35188149716fcc6fb349adcac5d27ba1",
+    "run-final.sh": "0d479eb6eee52b8c54e3e2ea4c129567d1a6f3eda3e093fe088677d2cde5af92",
+    "launch_watch.py": "f925a28e719e609d36e4fd6e9aa2d4d353300dad998ff87b593761d60a568ffb",
+    "test_paths.py": "906df12827f5ac5454d528f02bd0e3a1066e82f1b8f9ec2afe4eac33585ef40d",
+    "test_audit.py": "48d1af23e300eeb2ddd5582438c33fe0f4b1ed638f45364187f800dcd8393efc",
+    "watch.py": "322716beaef1bc482d30841e0c9493191c54e3e195a3c9f5d2a4e5aa2ffcac31",
+    "bind_runtime.py": "521c4bd778dc5d1a50ad60a9cc5ab31eadf0c236badc713b4588489eabbd0be9",
+    "finalize.py": "c0d604b1f11567bd88c398f3cd910a3680c0e8d1c97dc0c5c6f7cb273a56c415",
+    "configure_before_binding.py": "79c6a0dbdc62c0aba24388675429106419c83488dc05056b6c0d19b3be3666ab",
+    "prepare_recipe.py": "5ceec8e387caf33444d17bd8e37840192beb12bc3b9c817659fbff48a9ddd906"
+  },
+  "profile": {
+    "at_unix": 1792423519.4287014,
+    "hostname": "LHC-104-070",
+    "memory_available_bytes": 261296046080,
+    "load_average": [
+      76.34423828125,
+      77.8447265625,
+      77.20166015625
+    ],
+    "active_search_workers": [
+      1703064,
+      1703065,
+      1703067,
+      1703068
+    ],
+    "active_search_roots": [
+      {
+        "directory": "/home/hclau/ecdsa_research/product-classical-nine-operational-20261019",
+        "workers": [
+          1703064,
+          1703065,
+          1703067,
+          1703068
+        ],
+        "reserved_slots": 60
+      }
+    ],
+    "search_slots_including_worker_mains": 60,
+    "other_recorded_job_slots": 3,
+    "own_job_slots": 1,
+    "total_reserved_research_slots": 64,
+    "registered_jobs": [
+      {
+        "directory": "product-classical-twelve-native-20261019",
+        "pidfile": "gate.pid",
+        "pid": 1704998,
+        "reserved_slots": 3,
+        "tree": [
+          1704998,
+          1705026,
+          1705372
+        ]
+      },
+      {
+        "directory": "classical9-final-20261019",
+        "pidfile": "watch.pid",
+        "pid": 1697009,
+        "reserved_slots": 0,
+        "tree": [
+          1697009
+        ]
+      }
+    ],
+    "unknown_active_research": [],
+    "process_snapshot": "4163824 RNl    18 1704 python\n4149887 RNl    18 1697 python\n1703065 Sl     15 1118 value_prefilter\n1703068 Sl     15 1114 value_prefilter\n1703067 Sl     15 1106 value_prefilter\n1703064 Sl     15 1103 value_prefilter\n1705372 Sl      3  199 simd_census_v2\n1806153 S       1 62.5 python3\n1806152 Ss      1 13.3 python3\n3777359 S+      1  0.5 python\n1705026 S       1  0.0 python3\n1703063 S       1  0.0 python3\n3025376 Sl    150  0.0 codex\n 640729 Z       1  0.0 product_paired_\n 640877 Z       1  0.0 product_paired_\n 641577 Z       1  0.0 product_paired_\n1697009 Ss      1  0.0 python3\n 595533 T       1  0.0 python3\n 595631 T       1  0.0 python3\n 633807 T       1  0.0 python3\n3027597 Sl     18  0.0 codex-code-mode\n 595518 Ts      1  0.0 bash\n 595519 Ts      1  0.0 bash\n3733223 Ss      1  0.0 tmux: server\n3644093 Ss      1  0.0 systemd\n 606954 Ts      1  0.0 bash\n 572494 Ts      1  0.0 bash\n 627572 Ts      1  0.0 bash\n1529806 Ss      1  0.0 dbus-daemon\n3025361 Sl      7  0.0 node\n 595517 Ts      1  0.0 bash\n 640728 T       1  0.0 time\n 640876 T       1  0.0 time\n 641576 T       1  0.0 time\n 641802 T       1  0.0 sleep\n 641963 T       1  0.0 sleep\n 641964 T       1  0.0 sleep\n1703053 Ss      1  0.0 bash\n1704998 Ss      1  0.0 bash\n1806066 S       1  0.0 sshd\n1806155 R       1  0.0 ps\n3644095 S       1  0.0 (sd-pam)\n3777358 Ss+     1  0.0 bash\n4149884 Ss      1  0.0 sh\n4149885 SN      1  0.0 bash\n4163821 Ss      1  0.0 sh\n4163822 SN      1  0.0 bash\n"
+  },
+  "circuit_changed": false,
+  "search_changed": false,
+  "reason": "New explicit registry permits forthcoming source12 runtime validation while retaining the entire frozen source9 search/finalization path.",
+  "new_pid": 1806159,
+  "old_source_unchanged": true,
+  "new_source_files": {
+    "audit-terminal.py": "47e8c89c308a15026a4da85310829f8a35188149716fcc6fb349adcac5d27ba1",
+    "run-final.sh": "4f041ea703b22c31d3e35affdf15574e3fef54ac2b56c8369a63ad694df1794b",
+    "launch_watch.py": "f925a28e719e609d36e4fd6e9aa2d4d353300dad998ff87b593761d60a568ffb",
+    "test_paths.py": "906df12827f5ac5454d528f02bd0e3a1066e82f1b8f9ec2afe4eac33585ef40d",
+    "test_audit.py": "48d1af23e300eeb2ddd5582438c33fe0f4b1ed638f45364187f800dcd8393efc",
+    "watch.py": "322716beaef1bc482d30841e0c9493191c54e3e195a3c9f5d2a4e5aa2ffcac31",
+    "finalize.py": "c0d604b1f11567bd88c398f3cd910a3680c0e8d1c97dc0c5c6f7cb273a56c415"
+  }
+}

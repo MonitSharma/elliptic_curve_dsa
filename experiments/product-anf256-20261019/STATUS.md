@@ -20,3 +20,7 @@ statistical gate or benchmark is authorized on the research output.
 One local Ubuntu compute core,12GiB address-space limit, dedicated nohup
 log/PID/exit, exact portable compiler/dependency bindings. All server jobs,
 frozen candidates and the runtime-bound finalizer remain unchanged.
+
+## Completed local experiment
+
+All9 primitive/polynomial controls pass. Fixed256-term/degree12 full source screen finishes with0 sites and identical complete17,889,635-op raw hash.460.56s elapsed, peak RSS2159772KiB.2,510,716 abstraction cuts are safe fresh whole-result fallbacks, not assumed zeros. No native candidate, gate, nonce or score.

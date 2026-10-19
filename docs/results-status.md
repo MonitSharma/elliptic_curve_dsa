@@ -1,5 +1,73 @@
 # Results and submission status
 
+## 19 October,23:49: reviewed coordinator transition; reversible cache research live
+
+No new scored Q×T record. The same frozen qualified classical9 search is
+unchanged: at23:48 it reported9916416 completed-window rows, no pass,
+2676/s. Counters remain provisional until the complete terminal audit.
+Do not restart it or select nonces by T. The sole classical12 gate is on
+its candidate half, child1811283 under1705026/1704998. Parent262144 rows
+finished at23:27. At23:48 candidate was live after1281s. No verdict yet;
+do not relabel, extend, rerun or screen12-source nonces before its PASS.
+
+The active queue-only finalizer is now classical9-final-v2-20261019,
+watcher1806159. Old idle1697009 was intentionally retired after six corruption
+and complete native/runtime/gate path controls passed on the new copy.
+An own-PID stop/recheck prevented an audit-start race; no active audit or
+benchmark was stopped. Old watched source remains byte-identical, preserved
+with the transition receipt. Bound auditor47e8c89c…/native preparation/watch
+code is unchanged. Only final-shell root and read-only resource registry
+changed. Do not resume old1697009 or overwrite either watched source.
+preflight_v14.py (e7a8879b…) registers the new watcher and forthcoming12
+runtime jobs; immutable preflight_v13 and the source9 search are unchanged.
+18-file new-coordinator archive1cc3120f… is locally hash-verified.
+
+The source-bound DISABLED classical12 runtime port build1817294 exited0
+after2m00s. Binary9b51c64844b296b74db7e0d5597cec624369a33546e445cfc4279efe6cae0fb7.
+Only candidate hash/opcount and appended exact transfer bindings differ
+from the fully passing disabled9 tool. Native180-file/protected17 manifest,
+full certificate chain, generated validation source and every other tool
+file are bound. Idle waiter1820167 is live and source-hashed. No new-source
+nonce tests, authoritative rejection or production change. It waits for the
+existing12 gate PASS and actual gate/build manager exit, then runs the same
+own-seed/full9024/q-c-phase-physical-RNG/zero-MR/4096-prefix controls. Any
+build/gate failure is a final refusal, not a rerun. Its38-file archive
+50479152… is verified locally. During the full64-slot build an extra1-slot
+observation was refused; no additional workload started. With build finished,
+60 search+3 census+1 spare fits64 again. Chemistry/QOB is unchanged.
+
+Two further local algebra screens are finished and sealed. ANF256/degree12
+passes9 controls, full17889635-op raw stream identical,0 sites,460.56s.
+Current-wire product indexing passes16 controls and disabled entire-report/
+stream reproduction; enabled full source also has0 sites and identical raw
+2ef31475… (525.06s). Do not repeat these fixed negative scans. Every source,
+test/log and archive member hash is preserved; no prototype/record from them.
+
+New local research: product-copy-cache-20261019, WSL shell449.17 controls
+pass, including arbitrary first target, equal products on different controls,
+Hmr phase, dirty-consumer refusal, no-idle/phase-touch refusal, disjoint cache
+intervals and ABI exclusion. Fixed256-term/degree12 algebra on frozen12 input.
+Reroute a first unconditional AND into an existing idle zero ancilla and
+copy its value to the original target; a later equal-product CCX into a
+provably clean target becomes two CNOTs, clearing the held ancilla. Predicts
+one saved T per selected pair with no extra R/Hmr/q/c. This is a hypothesis
+until the full source and512 q/c/phase/physical-RNG controls pass, then still
+requires independent source certificates/native reproduction/own final gate.
+No nonce or score. Disabled full-stream control is currently running; use the
+same run.exit/RESULT.json and actual process, never re-launch on observation
+timeout. Progress-log 'sites' counts old scalar rewrites, not cache pairs;
+the final copy_cache_pairs/RESULT are authoritative for that screen.
+One local core/12GiB, no concurrent local compute until terminal. The initial
+nested-shell driver-preparation command failed before Python/launcher/compiler/
+scan; saved-file preparation fixed it and is recorded. Source is immutable
+while this job runs: do not rerun prepare.py/prepare_driver.py.
+
+Next: keep the one qualified search and declared12 gate. Inspect the one local
+cache experiment and existing12 waiter. A positive cache needs the complete
+protected integration result before any native proposal. Never call static
+or component counts scored records. Preserve all old failure verdicts,Q692,
+dirty user README/plots/submodules and every old runtime/proof path.
+
 ## 19 October,23:13: local algebra controls finished; larger sparse scan live
 
 Qualified classical9 production remains unchanged and live. At23:12 its
