@@ -1,5 +1,21 @@
 # ECDSA.fail · Pareto-leading circuit research
 
+## New local benchmark · 20 October 2026, 02:11 SGT
+
+The complete unchanged benchmark passes at **1,234 qubits ×
+761,077 rounded mean executed Toffolis =
+939,169,018**, improving the freshly verified public product by
+**23,446 (0.00250%)**.
+All 9,024 shots pass. This is a **local reproduction, queued for review**;
+it has not been uploaded or officially evaluated. The frozen circuit passed
+its independent failure-rate gate; lowest passing nonce 7,614,812 after full
+accounting of 7,811,072 production nonces. Inherited approximate arithmetic
+remains, so finite-packet success is not a universal correctness claim.
+
+[Source, statistical census and complete nonce accounting](experiments/classical12-final-20261020/SUBMISSION-NOTE.md) ·
+[Independent local verification](experiments/classical12-final-20261020/LOCAL-FINAL-VERIFICATION.json) ·
+[Complete evidence bundle](experiments/classical12-final-20261020/final-evidence.tar.gz)
+
 **MonitSharma holds the lowest qubit–Toffoli product and the lowest Toffoli count
 on [ECDSA.fail](https://ecdsa.fail/), with four points on the current Pareto frontier.**
 This repository contains secp256k1 point-addition research, three optimization

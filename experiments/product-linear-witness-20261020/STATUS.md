@@ -14,3 +14,7 @@ No new width, reset or measurement. Existing22 and8 new independent tests;
 complete disabled-mode report/hash control and512 protected transcript shots
 on changed source. Universal source-bound proofs/native reproduction/own gate
 remain required for any positive result. One local CPU/12GiB, serial jobs.
+
+## Completed local experiment
+
+All30 primitive/exhaustive/provenance/index controls and complete pair-baseline report/stream reproduction pass. Fixed sparse current-wire linear scan completes with0 sites and identical whole raw d343ca71 output. Completed negative: no additional reduction, native candidate, gate, nonce or score. Its cache parent separately failed its final statistical gate; no statistical verdict transfers or changes here. Preserve exact sources, every failure and binary/input/output hashes; do not repeat this fixed scan.

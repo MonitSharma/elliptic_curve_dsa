@@ -3,7 +3,7 @@ import hashlib,io,json,sys,tarfile
 from datetime import datetime,timezone
 from pathlib import Path
 ws=Path(__file__).resolve().parent.parent;name=sys.argv[1]
-assert name in ['product-classical-closure-20261019','product-classical-cap11-20261019','product-anf256-20261019','product-anf-witness-20261019','product-copy-cache-20261019','product-copy-cache-witness-20261020'];r=ws/name
+assert name in ['product-classical-closure-20261019','product-classical-cap11-20261019','product-anf256-20261019','product-anf-witness-20261019','product-copy-cache-20261019','product-copy-cache-witness-20261020','product-pair-witness-20261020','product-linear-witness-20261020'];r=ws/name
 assert (r/'run.exit').read_text().strip()=='0'
 sha=lambda p:hashlib.file_digest(p.open('rb'),'sha256').hexdigest()
 if name=='product-classical-closure-20261019':
@@ -17,6 +17,18 @@ elif name=='product-classical-cap11-20261019':
         assert result['control']['status']=='PROTECTED_SIMULATOR_CLASSICAL_FACTOR_FULL_TRANSCRIPT_CONTROL_PASS'
         saved=result['control']['saved_executed_Toffolis_total_on_512_control_shots']
         note=f'All7 primitive/exhaustive2048-row tests and cap9 complete-hash control pass. Cap11 source changes;512 full quantum/classical/phase/physical-RNG controls pass, total executed T saved={saved}. This is finite component/source evidence, not a statistical gate or scored record. No native candidate or nonce. Two pre-compiler admissions are preserved with complete original source hashes.'
+elif name=='product-linear-witness-20261020':
+    result=json.loads((r/'RESULT.json').read_text())
+    assert result['status']=='EXACT_LINEAR_CURRENT_WIRE_PRODUCT_SOURCE_SCREEN_COMPLETED'
+    assert result['disabled_complete_report_and_stream_identical'] and not result['additional_change_beyond_pair_baseline']
+    assert result['linear_witness_sites']==0 and result['source']['input_sha3_256']==result['source']['output_sha3_256']
+    note='All30 primitive/exhaustive/provenance/index controls and complete pair-baseline report/stream reproduction pass. Fixed sparse current-wire linear scan completes with0 sites and identical whole raw d343ca71 output. Completed negative: no additional reduction, native candidate, gate, nonce or score. Its cache parent separately failed its final statistical gate; no statistical verdict transfers or changes here. Preserve exact sources, every failure and binary/input/output hashes; do not repeat this fixed scan.'
+elif name=='product-pair-witness-20261020':
+    result=json.loads((r/'RESULT.json').read_text())
+    assert result['status']=='EXACT_TWO_WIRE_XOR_PRODUCT_SOURCE_SCREEN_COMPLETED'
+    assert result['disabled_complete_report_and_stream_identical'] and result['pair_witness_sites']==0
+    assert result['source']['input_sha3_256']==result['source']['output_sha3_256']
+    note='All22 primitive/exhaustive/index controls and complete disabled report/stream reproduction pass. Fixed rare-monomial complete pair-query scan on frozen cache input finishes with0 pair sites and identical full raw d343ca71 output. Completed negative: no additional T saving, new native proposal, gate, nonce or score. Preserve exact sources/binary/input/output hashes and do not repeat this fixed screen.'
 elif name=='product-copy-cache-witness-20261020':
     result=json.loads((r/'RESULT.json').read_text())
     assert result['status']=='EXACT_WITNESS_ON_NEW_COPY_CACHE_INPUT_COMPLETED' and not result['changed']

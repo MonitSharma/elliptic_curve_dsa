@@ -1,0 +1,180 @@
+{
+  "at_unix": 1792433138.712981,
+  "hostname": "LHC-104-070",
+  "memory_available_bytes": 458904379392,
+  "load_average": [
+    35.77734375,
+    35.6220703125,
+    44.3486328125
+  ],
+  "active_search_workers": [],
+  "active_search_roots": [],
+  "search_slots_including_worker_mains": 0,
+  "other_recorded_job_slots": 3,
+  "own_job_slots": 1,
+  "total_reserved_research_slots": 4,
+  "registered_jobs": [
+    {
+      "directory": "classical12-final-20261020",
+      "pidfile": "final.pid",
+      "pid": 2202497,
+      "reserved_slots": 3,
+      "tree": [
+        2202497,
+        2202527,
+        2208052,
+        2211625
+      ],
+      "descriptor_sha256": "a86ba3a7222377fbe0b0c56e620afd2c0f166aabce952f6469b439569354b343"
+    },
+    {
+      "directory": "classical12-final-20261020",
+      "pidfile": "watch.pid",
+      "pid": 2059372,
+      "reserved_slots": 0,
+      "tree": [
+        2059372,
+        2202497,
+        2202527,
+        2208052,
+        2211625
+      ],
+      "descriptor_sha256": "0d079c8200cff72bbee4dc7852c3d47d0d8d26bf024d23bfe88c00d1ba6d66e9"
+    },
+    {
+      "directory": "product-copy-cache-gate-audit-20261020",
+      "pidfile": "run.pid",
+      "pid": 2211730,
+      "reserved_slots": 1,
+      "tree": [
+        2211730,
+        2211731,
+        2211732
+      ],
+      "descriptor_sha256": "48bc1a1d5b4e2f7a10938cfd87d5585cef23f649f7fc45d273b9c9c659b830b6"
+    }
+  ],
+  "dynamic_descriptors": [
+    {
+      "path": "/home/hclau/ecdsa_research/resource-registry-20261020/classical12-final-20261020-final.json",
+      "sha256": "a86ba3a7222377fbe0b0c56e620afd2c0f166aabce952f6469b439569354b343",
+      "active_pid": 2202497,
+      "slots": 3,
+      "kind": "compute"
+    },
+    {
+      "path": "/home/hclau/ecdsa_research/resource-registry-20261020/classical12-final-20261020-watch.json",
+      "sha256": "0d079c8200cff72bbee4dc7852c3d47d0d8d26bf024d23bfe88c00d1ba6d66e9",
+      "active_pid": 2059372,
+      "slots": 0,
+      "kind": "idle"
+    },
+    {
+      "path": "/home/hclau/ecdsa_research/resource-registry-20261020/classical9-final-v3-20261020-final.json",
+      "sha256": "767980dd7d19d08f8f0888cd50f5fac0ce8b6d763a1040c745a9711601476ab3",
+      "active_pid": null,
+      "slots": 3,
+      "kind": "compute"
+    },
+    {
+      "path": "/home/hclau/ecdsa_research/resource-registry-20261020/classical9-final-v3-20261020-watch.json",
+      "sha256": "4835fb3c812069f6519cd7dac6af81b62854f00893ef1c0ec3789e3323459dbd",
+      "active_pid": null,
+      "slots": 0,
+      "kind": "idle"
+    },
+    {
+      "path": "/home/hclau/ecdsa_research/resource-registry-20261020/classical9-retirement-20261020-run.json",
+      "sha256": "1cd52cddf4491c9e8e49d702decbd458a2158e9d014063110a21a461d8c6c902",
+      "active_pid": null,
+      "slots": 1,
+      "kind": "compute"
+    },
+    {
+      "path": "/home/hclau/ecdsa_research/resource-registry-20261020/product-classical-twelve-gate-audit-20261020-run.json",
+      "sha256": "55e916f730169cafa9187db51f955cf551467e8e75946a9370e67d1b2c16fb62",
+      "active_pid": null,
+      "slots": 1,
+      "kind": "compute"
+    },
+    {
+      "path": "/home/hclau/ecdsa_research/resource-registry-20261020/product-clean-lease-probe-20261020-run.json",
+      "sha256": "4df593f056e0412cc9b8b46080d2f1301a0eca3d1a30a477d9c1312991bf4692",
+      "active_pid": null,
+      "slots": 1,
+      "kind": "compute"
+    },
+    {
+      "path": "/home/hclau/ecdsa_research/resource-registry-20261020/product-copy-cache-filter-20261020-build.json",
+      "sha256": "2bf1e402a5b7affd9ec52fae981ccb612bbfcdb7adf9df805979abe9f9cb434a",
+      "active_pid": null,
+      "slots": 1,
+      "kind": "compute"
+    },
+    {
+      "path": "/home/hclau/ecdsa_research/resource-registry-20261020/product-copy-cache-filter-20261020-qualification.json",
+      "sha256": "3b264ff9d8bf94765575ee890521afd89b7a2766c68c6ee4b20c8b7ed27bddeb",
+      "active_pid": null,
+      "slots": 3,
+      "kind": "compute"
+    },
+    {
+      "path": "/home/hclau/ecdsa_research/resource-registry-20261020/product-copy-cache-filter-20261020-watch.json",
+      "sha256": "50bcb9b0c10eac79e3e95a5d6aa85602ad27633040da6309c85d08a040edec8c",
+      "active_pid": null,
+      "slots": 0,
+      "kind": "idle"
+    },
+    {
+      "path": "/home/hclau/ecdsa_research/resource-registry-20261020/product-copy-cache-gate-audit-20261020-run.json",
+      "sha256": "48bc1a1d5b4e2f7a10938cfd87d5585cef23f649f7fc45d273b9c9c659b830b6",
+      "active_pid": 2211730,
+      "slots": 1,
+      "kind": "compute"
+    },
+    {
+      "path": "/home/hclau/ecdsa_research/resource-registry-20261020/product-copy-cache-native-20261020-gate.json",
+      "sha256": "8f97a37e1cb21c419a4d8784a816ec5e154aadd1bed681243c2930c0ddd9f837",
+      "active_pid": null,
+      "slots": 3,
+      "kind": "compute"
+    },
+    {
+      "path": "/home/hclau/ecdsa_research/resource-registry-20261020/product-copy-cache-native-20261020-run.json",
+      "sha256": "23b886177e1775f72aa5ba2d7d763d7be058917e453b3c2d7beaa5ac95ddfd7a",
+      "active_pid": null,
+      "slots": 1,
+      "kind": "compute"
+    },
+    {
+      "path": "/home/hclau/ecdsa_research/resource-registry-20261020/product-lease-footprint-20261020-run.json",
+      "sha256": "7026f3fdae3aaf9e1b81b1191a1bfbf40a224bb5a03011d46acaba30f8f66612",
+      "active_pid": null,
+      "slots": 1,
+      "kind": "compute"
+    },
+    {
+      "path": "/home/hclau/ecdsa_research/resource-registry-20261020/product-linear-witness-controls-20261020-run.json",
+      "sha256": "e79576351c2a05f1b1b92ce96330cd38f3b3b17d776da1ac87679f59ea9b95e7",
+      "active_pid": null,
+      "slots": 1,
+      "kind": "compute"
+    },
+    {
+      "path": "/home/hclau/ecdsa_research/resource-registry-20261020/product-linear-witness-controls-v2-20261020-run.json",
+      "sha256": "9565897883b01234328b01ca297925d90c38c53e6ed85cac7a0c4ddaa33f8893",
+      "active_pid": null,
+      "slots": 1,
+      "kind": "compute"
+    },
+    {
+      "path": "/home/hclau/ecdsa_research/resource-registry-20261020/product-peak-parity-probe-20261020-run.json",
+      "sha256": "b8b16375c6828db8519f0720be5af6c2eecb2924ea4094aa778840a67b28fb19",
+      "active_pid": null,
+      "slots": 1,
+      "kind": "compute"
+    }
+  ],
+  "unknown_active_research": [],
+  "process_snapshot": "2204577 RNl    18 1569 python\n2202397 RNl    18 1557 python\n2211625 R       1  100 eval_circuit\n2211731 S       1 22.0 python3\n3777359 S+      1  0.5 python\n3025376 Sl    150  0.0 codex\n 640729 Z       1  0.0 product_paired_\n 640877 Z       1  0.0 product_paired_\n 641577 Z       1  0.0 product_paired_\n 595533 T       1  0.0 python3\n 595631 T       1  0.0 python3\n2208052 S       1  0.0 bash\n2059372 Ss      1  0.0 python3\n 633807 T       1  0.0 python3\n3027597 Sl     18  0.0 codex-code-mode\n 595518 Ts      1  0.0 bash\n 595519 Ts      1  0.0 bash\n3733223 Ss      1  0.0 tmux: server\n3644093 Ss      1  0.0 systemd\n 606954 Ts      1  0.0 bash\n 572494 Ts      1  0.0 bash\n 627572 Ts      1  0.0 bash\n1529806 Ss      1  0.0 dbus-daemon\n3025361 Sl      7  0.0 node\n 595517 Ts      1  0.0 bash\n 640728 T       1  0.0 time\n 640876 T       1  0.0 time\n 641576 T       1  0.0 time\n 641802 T       1  0.0 sleep\n 641963 T       1  0.0 sleep\n 641964 T       1  0.0 sleep\n2202394 Ss      1  0.0 sh\n2202395 SN      1  0.0 bash\n2202497 Ss      1  0.0 bash\n2202527 S       1  0.0 bash\n2204574 Ss      1  0.0 sh\n2204575 SN      1  0.0 bash\n2211730 Ss      1  0.0 bash\n2211733 R       1  0.0 ps\n3644095 S       1  0.0 (sd-pam)\n3777358 Ss+     1  0.0 bash\n"
+}

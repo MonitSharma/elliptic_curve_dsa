@@ -1,5 +1,15 @@
 # Prospective temporary ancilla compression for product
 
+Preparatory diagnostics completed20 October: the full lexical footprint and
+strong clean-boundary probe are preserved in their separate experiments.
+At the fixed first full-width state, cap256/degree12 universal ANF gives full
+rank1233 among non-high wires, independently replayed with the opposite pivot
+order. No free parity donor is certified by that method. This is not a physical
+width lower bound. No lease was implemented; do not repeat those fixed scans
+or treat this plan as a ready quantum-width candidate. A new certificate or
+arithmetic construction is needed. The separately qualified classical12
+circuit achieved the complete measured product improvement.
+
 Prepared 20 October 2026, 01:29 SGT. **Plan only: no implementation, source
 screen, circuit, gate, nonce or resource result.**
 
