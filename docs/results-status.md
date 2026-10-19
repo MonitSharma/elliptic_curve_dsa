@@ -1,5 +1,37 @@
 # Results and submission status
 
+## 20 October,01:13: first cache follow-up negative; exact XOR-pair controls pass
+
+No new scored record. Source12 production/finalizer and the sole cache census
+continue unchanged. At01:12 source12 reported1421312 completed-window rows,
+no pass, about2554/s; only a complete terminal audit certifies nonce coverage.
+The previous01:07 entry contains every actual PID/source/gate/runtime binding.
+Checkpoint ad638dc9 is pushed. The initial combined commit/push approval was
+refused; read-only verification found the explicit origin-main push instruction
+in the user-referenced AUTONOMOUS_PROMPT.md and confirmed matching remote HEAD,
+repository destination and no staged workflows/user edits. Reversible commit
+and authorized fast-forward push then passed review. No blocked publication.
+
+product-copy-cache-witness-20261020 finished0: unchanged tested interpreter,
+16 controls, fixed cache input raw d343ca71…, full output identical,0 sites.
+Completed archive and every member verified. No additional saving or candidate;
+do not repeat this exact new-input screen. All old negative/failed evidence stays.
+
+New LOCAL product-pair-witness-20261020 is live, WSL shell442/Python444,
+one core/12GiB. All22 primitive/exhaustive/index/corruption controls PASS.
+The new method proves P=wireU XOR wireV, optionally complemented, by a live
+monomial inverse index and pure symmetric difference. Every valid pair must
+contain the chosen nonconstant product term in exactly one member; enumeration
+uses that term's complete current-wire set. Queries allocate no abstraction
+atoms or cuts, exclude target/controls, keep original classical guards and add
+no R/Hmr/q. CCX becomes two CX plus optional X. This is a source hypothesis.
+Whole-source disabled-mode report/hash reproduction is currently running;
+enabled fixed cap256/degree12 scan follows only if it passes, then512 raw
+q/c/phase/physical-RNG controls if changed. Frozen source/22 tests/build logs
+and binary hashes are sealed in controls-source.tar.gz, every member verified.
+No native proposal, statistical gate, source-specific nonce or scored count.
+Do not edit/relaunch the running source; use existing RESULT/run.exit/PID.
+
 ## 20 October,01:07: qualified classical12 search live; cache proof and own census
 
 No new scored Q×T record. The refreshed public product parent remains

@@ -3,7 +3,7 @@ import hashlib,io,json,sys,tarfile
 from datetime import datetime,timezone
 from pathlib import Path
 ws=Path(__file__).resolve().parent.parent;name=sys.argv[1]
-assert name in ['product-classical-closure-20261019','product-classical-cap11-20261019','product-anf256-20261019','product-anf-witness-20261019','product-copy-cache-20261019'];r=ws/name
+assert name in ['product-classical-closure-20261019','product-classical-cap11-20261019','product-anf256-20261019','product-anf-witness-20261019','product-copy-cache-20261019','product-copy-cache-witness-20261020'];r=ws/name
 assert (r/'run.exit').read_text().strip()=='0'
 sha=lambda p:hashlib.file_digest(p.open('rb'),'sha256').hexdigest()
 if name=='product-classical-closure-20261019':
@@ -17,6 +17,11 @@ elif name=='product-classical-cap11-20261019':
         assert result['control']['status']=='PROTECTED_SIMULATOR_CLASSICAL_FACTOR_FULL_TRANSCRIPT_CONTROL_PASS'
         saved=result['control']['saved_executed_Toffolis_total_on_512_control_shots']
         note=f'All7 primitive/exhaustive2048-row tests and cap9 complete-hash control pass. Cap11 source changes;512 full quantum/classical/phase/physical-RNG controls pass, total executed T saved={saved}. This is finite component/source evidence, not a statistical gate or scored record. No native candidate or nonce. Two pre-compiler admissions are preserved with complete original source hashes.'
+elif name=='product-copy-cache-witness-20261020':
+    result=json.loads((r/'RESULT.json').read_text())
+    assert result['status']=='EXACT_WITNESS_ON_NEW_COPY_CACHE_INPUT_COMPLETED' and not result['changed']
+    assert result['current_wire_witness_sites']==0 and result['source']['input_sha3_256']==result['source']['output_sha3_256']
+    note='Exact previously tested interpreter on the new frozen copy-cache source passes16 primitive controls and completes with0 witness sites and identical whole raw d343ca71… output. New-input-only negative result: no additional reduction, native proposal, gate, nonce or score. Prior binary/source hashes and complete input/output hashes retained; do not repeat this same screen.'
 elif name=='product-copy-cache-20261019':
     result=json.loads((r/'RESULT.json').read_text())
     assert result['status']=='REVERSIBLE_COPY_CACHE_SOURCE_SCREEN_COMPLETED' and result['cache_pairs']==1
