@@ -1,0 +1,35 @@
+{
+  "status": "FOUR_LOCAL_BOOLEAN_LEMMAS_UNSAT_AND_MISSING_CZ_CONTROL_SAT",
+  "solver": "5.1.0",
+  "queries": [
+    {
+      "name": "borrowed_maj_contains_exact_carry",
+      "result": "unsat",
+      "query_sha256": "0ac29d8f71d0a02696ea3181047d2ab4369ca2e053110394626ca4ff7be08f21"
+    },
+    {
+      "name": "borrowed_uma_restores_source_and_carry_and_writes_sum",
+      "result": "unsat",
+      "query_sha256": "044031f8453f8c08ae9fb7bd1b5b67739a279b31b3b05c22819963e3bff1ffa6"
+    },
+    {
+      "name": "measured_gidney_carry_contains_exact_majority",
+      "result": "unsat",
+      "query_sha256": "de7d4f83ca810a2e27266bec12a7a4108cd3715b8cb0f77436b9c4c2c2a30a0d"
+    },
+    {
+      "name": "measured_and_phase_correction_cancels_for_every_outcome",
+      "result": "unsat",
+      "query_sha256": "682b4fbc06fba27b0436b0d7e13840dede689105161e0fdf9e83d88428f3e310"
+    }
+  ],
+  "negative_missing_cz": "[b = False,\n incoming_carry = True,\n a = False,\n measurement_outcome = True]",
+  "induction_argument": [
+    "Exclusive pivot materialization is an invertible CNOT basis change, because no selected pivot appears in another row or aliases target/carry-in.",
+    "Every borrowed MAJ stores the exact next carry. Every ordinary measured stage stores the same carry on a fresh wire.",
+    "Reverse order restores the following carry before its predecessor is processed. The borrowed UMA restores both source and incoming carry while writing the correct sum.",
+    "A measured AND is cleared only after removing its incoming-carry XOR. Its CZ applies the identical measurement phase and cancels it.",
+    "Final inverse basis change restores every source/control wire. The top sum uses the existing direct CCX identity."
+  ],
+  "scope": "Local gate lemmas and a written induction argument, not a machine-checked proof of arbitrary Rust control flow or complete point addition."
+}

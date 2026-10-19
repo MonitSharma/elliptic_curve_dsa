@@ -1,0 +1,121 @@
+{
+  "sealed_at_utc": "2026-10-19T23:27:26.018286+00:00",
+  "source_base": "90e777ea8242faa0acb2462c5cb5be7c318a2d64",
+  "protected_files_checked": 17,
+  "source_freeze_sha256": "9b72a9baed0e7b7dd69cf72607e294773bffd8a1267e0c6e7a8ac600f99d0d9f",
+  "result": {
+    "status": "RAW_ADMISSION_COMPLETE_NO_SCORE",
+    "cases": [
+      {
+        "capacity": 1234,
+        "bridge": false,
+        "exit": 0,
+        "seconds": 4.25496244430542,
+        "builder_totals": [
+          "HEO_TOTAL native=810068 expected=762230.8 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+        ],
+        "uses": 0,
+        "case": "cap1234-bridge0",
+        "stream_sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b",
+        "stream_bytes": 38777871
+      },
+      {
+        "capacity": 1234,
+        "bridge": true,
+        "exit": 0,
+        "seconds": 4.476548910140991,
+        "builder_totals": [
+          "HEO_TOTAL native=813803 expected=766463.8 peak=1234 peak_op=1443984 peak_phase=divide qubits_touched=1234"
+        ],
+        "uses": 214,
+        "case": "cap1234-bridge1",
+        "stream_sha256": "bf8ff5afcca0653d93d2f871cdfca36e5230d23ae17aac599efa4f8218987ed7",
+        "stream_bytes": 37973379
+      },
+      {
+        "capacity": 1233,
+        "bridge": true,
+        "exit": 101,
+        "seconds": 0.3687610626220703,
+        "builder_totals": [],
+        "uses": 131,
+        "case": "cap1233-bridge1",
+        "failure_lines": [
+          "thread 'main' (2353910) panicked at src/bin/../point_add/y15_onefold.rs:630:5:",
+          "\tCommand being timed: \"/home/hclau/ecdsa_research/breakthrough-parity-cap-20261020/observer/target/release/build_circuit\""
+        ]
+      },
+      {
+        "capacity": 1230,
+        "bridge": true,
+        "exit": 101,
+        "seconds": 0.35960841178894043,
+        "builder_totals": [],
+        "uses": 140,
+        "case": "cap1230-bridge1",
+        "failure_lines": [
+          "thread 'main' (2353912) panicked at src/bin/../point_add/y15_onefold.rs:630:5:",
+          "\tCommand being timed: \"/home/hclau/ecdsa_research/breakthrough-parity-cap-20261020/observer/target/release/build_circuit\""
+        ]
+      },
+      {
+        "capacity": 1226,
+        "bridge": true,
+        "exit": 101,
+        "seconds": 0.357083797454834,
+        "builder_totals": [],
+        "uses": 150,
+        "case": "cap1226-bridge1",
+        "failure_lines": [
+          "thread 'main' (2353914) panicked at src/bin/../point_add/y15_onefold.rs:630:5:",
+          "\tCommand being timed: \"/home/hclau/ecdsa_research/breakthrough-parity-cap-20261020/observer/target/release/build_circuit\""
+        ]
+      },
+      {
+        "capacity": 1224,
+        "bridge": true,
+        "exit": 101,
+        "seconds": 0.34625697135925293,
+        "builder_totals": [],
+        "uses": 154,
+        "case": "cap1224-bridge1",
+        "failure_lines": [
+          "thread 'main' (2353988) panicked at src/bin/../point_add/y15_onefold.rs:630:5:",
+          "\tCommand being timed: \"/home/hclau/ecdsa_research/breakthrough-parity-cap-20261020/observer/target/release/build_circuit\""
+        ]
+      },
+      {
+        "capacity": 1200,
+        "bridge": true,
+        "exit": 101,
+        "seconds": 0.3037443161010742,
+        "builder_totals": [],
+        "uses": 112,
+        "case": "cap1200-bridge1",
+        "failure_lines": [
+          "thread 'main' (2353990) panicked at src/bin/../point_add/y15_onefold.rs:630:5:",
+          "\tCommand being timed: \"/home/hclau/ecdsa_research/breakthrough-parity-cap-20261020/observer/target/release/build_circuit\""
+        ]
+      }
+    ],
+    "scope": "Native generation and builder diagnostics only, no complete optimized result or final statistical gate."
+  },
+  "streams_retained_on_server": {
+    "/home/hclau/ecdsa_research/breakthrough-parity-cap-20261020/cap1234-bridge1/ops.bin": {
+      "sha256": "bf8ff5afcca0653d93d2f871cdfca36e5230d23ae17aac599efa4f8218987ed7",
+      "bytes": 37973379
+    },
+    "/home/hclau/ecdsa_research/breakthrough-parity-cap-20261020/cap1234-bridge0/ops.bin": {
+      "sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b",
+      "bytes": 38777871
+    },
+    "/home/hclau/ecdsa_research/breakthrough-parity-cap-20261020/observer/ops.bin": {
+      "sha256": "bf8ff5afcca0653d93d2f871cdfca36e5230d23ae17aac599efa4f8218987ed7",
+      "bytes": 37973379
+    }
+  },
+  "no_final_gate_nonce_or_scored_result": true,
+  "binaries": {
+    "/home/hclau/ecdsa_research/breakthrough-parity-cap-20261020/observer/target/release/deps/build_circuit-96cdcfa2d1d068c7": "6c960647e97a70cbd295228301c7b77a51f87aff8c3561baba69c16f8e52a20d"
+  }
+}

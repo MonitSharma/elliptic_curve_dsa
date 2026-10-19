@@ -1,0 +1,155 @@
+{
+  "status": "SEVEN_CARRY_SCHEDULE_MODEL",
+  "plan": [
+    7,
+    6,
+    6,
+    5,
+    5,
+    4,
+    4,
+    3,
+    3,
+    2,
+    2,
+    3
+  ],
+  "early_drop_chunks": [
+    0,
+    2,
+    4,
+    6,
+    8
+  ],
+  "bits": 50,
+  "modeled_owned_carry_peak": 7,
+  "scope": "Allocation model for the existing exact ladder_drop, excluding fixed core and linear-form helper allocation. Native test required; no full point-add score.",
+  "rows": [
+    {
+      "stage": "forward",
+      "chunk": 0,
+      "held_before": 0,
+      "ladder_owned": 7,
+      "live_peak": 7
+    },
+    {
+      "stage": "forward",
+      "chunk": 1,
+      "held_before": 1,
+      "ladder_owned": 6,
+      "live_peak": 7
+    },
+    {
+      "stage": "forward",
+      "chunk": 2,
+      "held_before": 1,
+      "ladder_owned": 6,
+      "live_peak": 7
+    },
+    {
+      "stage": "forward",
+      "chunk": 3,
+      "held_before": 2,
+      "ladder_owned": 5,
+      "live_peak": 7
+    },
+    {
+      "stage": "forward",
+      "chunk": 4,
+      "held_before": 2,
+      "ladder_owned": 5,
+      "live_peak": 7
+    },
+    {
+      "stage": "forward",
+      "chunk": 5,
+      "held_before": 3,
+      "ladder_owned": 4,
+      "live_peak": 7
+    },
+    {
+      "stage": "forward",
+      "chunk": 6,
+      "held_before": 3,
+      "ladder_owned": 4,
+      "live_peak": 7
+    },
+    {
+      "stage": "forward",
+      "chunk": 7,
+      "held_before": 4,
+      "ladder_owned": 3,
+      "live_peak": 7
+    },
+    {
+      "stage": "forward",
+      "chunk": 8,
+      "held_before": 4,
+      "ladder_owned": 3,
+      "live_peak": 7
+    },
+    {
+      "stage": "forward",
+      "chunk": 9,
+      "held_before": 5,
+      "ladder_owned": 2,
+      "live_peak": 7
+    },
+    {
+      "stage": "forward",
+      "chunk": 10,
+      "held_before": 5,
+      "ladder_owned": 2,
+      "live_peak": 7
+    },
+    {
+      "stage": "forward",
+      "chunk": 11,
+      "held_before": 6,
+      "ladder_owned": 1,
+      "live_peak": 7
+    },
+    {
+      "stage": "erase",
+      "chunk": 10,
+      "other_held": 5,
+      "maximum_extra": 1,
+      "live_peak": 6
+    },
+    {
+      "stage": "erase",
+      "chunk": 9,
+      "other_held": 4,
+      "maximum_extra": 3,
+      "live_peak": 7
+    },
+    {
+      "stage": "erase",
+      "chunk": 7,
+      "other_held": 3,
+      "maximum_extra": 4,
+      "live_peak": 7
+    },
+    {
+      "stage": "erase",
+      "chunk": 5,
+      "other_held": 2,
+      "maximum_extra": 5,
+      "live_peak": 7
+    },
+    {
+      "stage": "erase",
+      "chunk": 3,
+      "other_held": 1,
+      "maximum_extra": 6,
+      "live_peak": 7
+    },
+    {
+      "stage": "erase",
+      "chunk": 1,
+      "other_held": 0,
+      "maximum_extra": 7,
+      "live_peak": 7
+    }
+  ]
+}

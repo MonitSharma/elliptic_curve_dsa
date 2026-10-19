@@ -1,0 +1,22 @@
+{
+  "sealed_at_utc": "2026-10-19T23:13:40.157621+00:00",
+  "source_base": "90e777ea8242faa0acb2462c5cb5be7c318a2d64",
+  "protected_files_checked": 17,
+  "source_freeze_sha256": "22ed6945d462e6908ac1e3ba005ef877e3d80cc13010e2c7ceb556c1380145ed",
+  "result": {
+    "status": "NATIVE_PARITY_SOURCE_BRIDGE_COMPONENT_PASS",
+    "tests": 3,
+    "small_basis_evaluations": 523776,
+    "some_small_bridge_patterns_duplicate": true,
+    "physical_rng_phase_basis_states": 64,
+    "exact_inverse_checked": true,
+    "unsafe_admission_emits_zero_ops": true,
+    "local_boolean_smt_unsat": 4,
+    "missing_cz_negative_control": "SAT",
+    "scope": "Component only; one clean carry saved per extra CCX. No complete point-add record."
+  },
+  "no_final_gate_nonce_or_score": true,
+  "binaries": {
+    "/home/hclau/ecdsa_research/breakthrough-parity-bridge-20261020/primitive/target/release/deps/build_circuit-0c12d1b03f2fe721": "10b0e2b0b96b701e8980cb663820f8e6e591756e4bf696b6c5966b2bcbc4c20e"
+  }
+}

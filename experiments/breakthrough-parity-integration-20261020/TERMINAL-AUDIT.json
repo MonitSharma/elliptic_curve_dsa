@@ -1,0 +1,50 @@
+{
+  "sealed_at_utc": "2026-10-19T23:27:23.213595+00:00",
+  "source_base": "90e777ea8242faa0acb2462c5cb5be7c318a2d64",
+  "protected_files_checked": 17,
+  "source_freeze_sha256": "ddbcc08a4c73253b76a6fef96c9d8ceb06d1cb0b8b2c93a2742ac92bf4bab5de",
+  "result": {
+    "status": "PAIRED_RAW_DIAGNOSTIC_COMPLETE_NO_FINAL_GATE_VERDICT",
+    "label": "breakthrough-parity-integration-raw-v1",
+    "batches": 512,
+    "shots_per_source": 32768,
+    "summaries": {
+      "parent": {
+        "mean_executed_toffoli": 762225.9371948242,
+        "value_failing_shots": 52,
+        "phase_failing_shots": 38,
+        "dirty_shots": 0,
+        "failed_batches": 62,
+        "rows_sha256": "73aedae7621163a7698cdd4e60762daffbac791e22ace4147cc9d41b9d766cf6"
+      },
+      "candidate": {
+        "mean_executed_toffoli": 767335.1469726562,
+        "value_failing_shots": 52,
+        "phase_failing_shots": 43,
+        "dirty_shots": 0,
+        "failed_batches": 61,
+        "rows_sha256": "cbce260fd76a276ad0543aa541c8d425c8d18e7d00f0e5bfe5ea6836bae68cdb"
+      },
+      "comparison": {
+        "candidate_minus_parent_mean_toffoli": 5109.209777832031,
+        "paired_batch_mean_standard_error": 4.303788761771309
+      }
+    },
+    "parent_stream_sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b",
+    "candidate_stream_sha256": "8038bd69cc584c17326f65f4d1941048e3683081de02cf482bb95b4b492adc7a",
+    "replay_binary_sha256": "790e92266ea67ec54ef701b2deed76fe8d0b766b411ca9eab877f82ae2c11a66",
+    "protected_scalar_verified_batches_per_source": 8,
+    "scope": "Raw arithmetic only. These are diagnostic counts including failed inputs; no complete optimized QxT record or final statistical gate/nonce search."
+  },
+  "streams_retained_on_server": {
+    "/home/hclau/ecdsa_research/breakthrough-parity-integration-20261020/observer/ops.bin": {
+      "sha256": "8038bd69cc584c17326f65f4d1941048e3683081de02cf482bb95b4b492adc7a",
+      "bytes": 38637483
+    }
+  },
+  "no_final_gate_nonce_or_scored_result": true,
+  "binaries": {
+    "/home/hclau/ecdsa_research/breakthrough-parity-integration-20261020/observer/target/release/deps/build_circuit-96cdcfa2d1d068c7": "4166dc7d165717e09d108935cedacaece5fdd6c7189ea0e99e8c4bfe5f13bb13",
+    "/home/hclau/ecdsa_research/breakthrough-parity-integration-20261020/observer/target/release/deps/build_circuit-0c12d1b03f2fe721": "6802b77665b0d0a2dbfa2fbb5ee849634f3150756500a306a4898f76d40ec3fb"
+  }
+}

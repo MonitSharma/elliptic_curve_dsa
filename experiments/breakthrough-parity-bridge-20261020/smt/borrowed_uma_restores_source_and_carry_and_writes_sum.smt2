@@ -1,0 +1,15 @@
+; benchmark generated from python API
+(set-info :status unknown)
+(declare-fun incoming_carry () Bool)
+(declare-fun b () Bool)
+(declare-fun a () Bool)
+(assert
+ (let (($x14 (xor incoming_carry a)))
+(let (($x13 (xor b a)))
+(let (($x15 (and $x13 $x14)))
+(let (($x16 (xor a $x15)))
+(let (($x17 (xor $x16 $x15)))
+(let (($x18 (xor $x14 $x17)))
+(let (($x19 (xor $x13 $x18)))
+(or (and (distinct $x17 a) true) (and (distinct $x18 incoming_carry) true) (and (distinct $x19 (xor a (xor b incoming_carry))) true))))))))))
+(check-sat)

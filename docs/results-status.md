@@ -1,5 +1,32 @@
 # Results and submission status
 
+## 20 October 2026, 07:33 SGT: exact carry borrowing and seven-carry fold
+
+No new complete resource record or final gate. Official d9ae2845 remains the
+accepted parent Q1234/T761077/product939169018. All historical verdicts stand.
+
+Source-exclusive parity carry borrowing passes3 native tests and four local
+Boolean lemmas; a paused variant with explicit consumer read/restoration
+contract passes3 tests. Byte-identical source audit finds133 borrowable carry
+positions at the first peak. Raw plain-only integration preserves the same52
+value-failing shot identities and zero dirty shots on512 paired batches, but
+keeps globalQ1234 and adds5109 diagnostic T. The peak moves into paused logic.
+It is not a product improvement. Lower raw source-borrowing caps all fail the
+Y15 fixed fold-storage planner. Protected17 and original streams are preserved.
+
+New exact fifty-bit fold schedule uses7 carry wires versus8 in native tests,
+at emitted componentCCX130 versus113;65536 common affine inputs per plan pass
+value/phase/ancilla checks. Configured cap1233 now generates, but actualglobal
+peak is1237 in square. Caps1232/1230 still fail. No generated count is a score.
+All six terminal archives23/22/40/47/35/39 members verify locally.
+
+Active: breakthrough-fold-square-20261020 supervisor2361166. Keep original
+square chunk planning while borrowing source pivots to enforce the global
+width. Native carryout extension and prior controls run before caps1234/1233;
+baseline must remain exact13f6. Then inspect full ownership and actual replay
+cost before any final source/census declaration. New submissions remain queued.
+Run log: experiments/autorun-20261020-breakthrough/LOG.md.
+
 ## 20 October 2026, 07:07 SGT: direct payload costs and cofactor budget
 
 No new complete resource record. Fresh1685-submission snapshot at23:06UTC

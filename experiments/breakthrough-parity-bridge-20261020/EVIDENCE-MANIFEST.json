@@ -1,0 +1,48 @@
+{
+  "files": {
+    "LOCAL-LEMMAS.json": "2909d2259fbc8a823b5fa1b0167936388772604db7489e160ae9a1c8a327d76e",
+    "NATIVE-RESULT.json": "486b2092df2a824a37408f47d13d0d2081866760092ee3c16e71a11b82d1a58a",
+    "SOURCE_FREEZE.json": "22ed6945d462e6908ac1e3ba005ef877e3d80cc13010e2c7ceb556c1380145ed",
+    "TERMINAL-AUDIT.json": "0687833843d6683a88e0e7a3e63e26245447a89712fb155de0a6451e207a4249",
+    "added-source/parity_bridge.rs": "fc8b96138b65f4ebf962c9648aa74ef76c00b1b05a32f87095186d39caf50e10",
+    "launch.py": "6bbcd926aff34806a020328e5823b8f0be9fc299c396f8f7fb286fe689655887",
+    "nohup.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "parity_bridge.rs": "fc8b96138b65f4ebf962c9648aa74ef76c00b1b05a32f87095186d39caf50e10",
+    "prepare.log": "68486bc28d475b600ced96cce21ab5b547aa35ec778f3a1889f0bed157a37d5c",
+    "prepare.py": "b02cbb32f48c306fc2120ca8c69976178c1eadc6d5b842bf964efd47802b7522",
+    "proof.log": "2909d2259fbc8a823b5fa1b0167936388772604db7489e160ae9a1c8a327d76e",
+    "proof.py": "1b8108bb37d2bb0888d3cac3363391dbc71a21ac6b60af2669ab742ed9808d76",
+    "run.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "run.pid": "ba363fd3e8d0bb9fd649f6dbac1d3cc060168a60e337c83877b13061c4302b40",
+    "run.sh": "4f852ded6ebb279580730dd5185f74bafab9d6f54079768a54a9425e7ea5e770",
+    "smt/borrowed_maj_contains_exact_carry.smt2": "e91e8a515e405341ea08470b58c3c0bf471bda2cb11b38a614e7f252cffc3999",
+    "smt/borrowed_uma_restores_source_and_carry_and_writes_sum.smt2": "a8a378fe5ee39af24bc3445b083802a137d0e5900f8630a7e07898a44a1b58a6",
+    "smt/measured_and_phase_correction_cancels_for_every_outcome.smt2": "487f7526811ad64332c24c63c0393f1d937c40602d9b406a714b6e98746475b8",
+    "smt/measured_gidney_carry_contains_exact_majority.smt2": "01298d7fe198b67cfb6cf06cb318b17ff883019639dcc7cd9b64d06ff59a0c9c",
+    "smt/negative_missing_cz.smt2": "766c7ce65a31e0fdc6b77f960a06beea5dcb697ba2b534a284d641e386f807f8",
+    "source.patch": "ad6e47219e2b07afdb892ea140536c668cacfa94d6a768b7543fbe847c30819f",
+    "tests.log": "34bfe1c69283a898b44171357d3ada2106d53928a766172cf3acfd11240b34c6"
+  },
+  "terminal_audit": {
+    "sealed_at_utc": "2026-10-19T23:13:40.157621+00:00",
+    "source_base": "90e777ea8242faa0acb2462c5cb5be7c318a2d64",
+    "protected_files_checked": 17,
+    "source_freeze_sha256": "22ed6945d462e6908ac1e3ba005ef877e3d80cc13010e2c7ceb556c1380145ed",
+    "result": {
+      "status": "NATIVE_PARITY_SOURCE_BRIDGE_COMPONENT_PASS",
+      "tests": 3,
+      "small_basis_evaluations": 523776,
+      "some_small_bridge_patterns_duplicate": true,
+      "physical_rng_phase_basis_states": 64,
+      "exact_inverse_checked": true,
+      "unsafe_admission_emits_zero_ops": true,
+      "local_boolean_smt_unsat": 4,
+      "missing_cz_negative_control": "SAT",
+      "scope": "Component only; one clean carry saved per extra CCX. No complete point-add record."
+    },
+    "no_final_gate_nonce_or_score": true,
+    "binaries": {
+      "/home/hclau/ecdsa_research/breakthrough-parity-bridge-20261020/primitive/target/release/deps/build_circuit-0c12d1b03f2fe721": "10b0e2b0b96b701e8980cb663820f8e6e591756e4bf696b6c5966b2bcbc4c20e"
+    }
+  }
+}
