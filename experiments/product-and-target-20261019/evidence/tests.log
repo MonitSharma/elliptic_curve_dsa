@@ -1,0 +1,17 @@
+     Locking 247 packages to highest compatible versions
+      Adding generic-array v0.14.7 (available: v0.14.9)
+      Adding sha3 v0.10.9 (available: v0.11.0)
+   Compiling and_target v0.1.0 (/home/hclau/ecdsa_research/product-and-target-20261019)
+    Finished `release` profile [optimized] target(s) in 2.02s
+     Running unittests and_target.rs (/home/hclau/ecdsa_research/product-order-20261019/target/release/deps/and_target-6a6481a333d463a1)
+
+running 6 tests
+test tests::dirty_temporary_is_not_accepted ... ok
+test tests::fanout_into_control_is_not_accepted ... ok
+test tests::guarded_constructor_is_not_accepted ... ok
+test tests::later_cleanup_bit_reader_is_not_accepted ... ok
+test tests::registered_cleanup_bit_is_not_accepted ... ok
+test tests::arbitrary_dirty_outputs_and_both_outcomes_preserve_values_phase_and_continuation ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

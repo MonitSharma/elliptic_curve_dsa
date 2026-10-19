@@ -1,0 +1,29 @@
+   Compiling and_target_loose v0.1.0 (/home/hclau/ecdsa_research/product-and-target-loose-20261019)
+    Finished `release` profile [optimized] target(s) in 1.86s
+     Running unittests and_target.rs (/home/hclau/ecdsa_research/product-order-20261019/target/release/deps/and_target_loose-38e150e533b5c1e3)
+
+running 10 tests
+test tests::fanout_into_control_is_not_accepted ... ok
+test tests::dirty_temporary_is_not_accepted ... ok
+test tests::guarded_constructor_is_not_accepted ... ok
+test tests::independent_intervening_operations_are_retained ... ok
+test tests::intervening_control_writer_is_rejected ... ok
+test tests::intervening_target_reader_is_rejected ... ok
+test tests::intervening_target_writer_is_rejected ... ok
+test tests::later_cleanup_bit_reader_is_not_accepted ... ok
+test tests::registered_cleanup_bit_is_not_accepted ... ok
+test tests::arbitrary_dirty_outputs_and_both_outcomes_preserve_values_phase_and_continuation ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests subsequence_trace.rs (/home/hclau/ecdsa_research/product-order-20261019/target/release/deps/and_target_loose_control-fc176895d412b84b)
+
+running 5 tests
+test tests::out_of_range_event_rejected - should panic ... ok
+test tests::duplicate_event_rejected - should panic ... ok
+test tests::reordered_event_rejected - should panic ... ok
+test tests::subsequence_preserves_whole_event_words_and_final_continuation ... ok
+test tests::zero_remaining_events_keep_continuation ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

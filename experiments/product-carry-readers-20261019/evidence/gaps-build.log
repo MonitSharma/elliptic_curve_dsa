@@ -1,0 +1,73 @@
+   Compiling carry_read_scan v0.1.0 (/home/hclau/ecdsa_research/product-carry-readers-20261019)
+warning: constant `NO` is never used
+ --> detector.rs:5:7
+  |
+5 | const NO:u64=u64::MAX;
+  |       ^^
+  |
+  = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: struct `Hold` is never constructed
+ --> detector.rs:7:8
+  |
+7 | struct Hold { start:usize,end:usize,a:u64,b:u64,c:u64,t:u64,bit:u64,compact:bool,reverse_length:usize }
+  |        ^^^^
+
+warning: methods `forward_len`, `reverse_len`, and `measurement_offset` are never used
+ --> detector.rs:8:15
+  |
+8 | impl Hold {fn forward_len(&self)->usize{if self.compact{4}else{6}}fn reverse_len(&self)->usize{self.reverse_length}fn measurement_offset(&s...
+  | ---------     ^^^^^^^^^^^                                            ^^^^^^^^^^^                                      ^^^^^^^^^^^^^^^^^^
+  | |
+  | methods in this implementation
+
+warning: function `cx` is never used
+ --> detector.rs:9:4
+  |
+9 | fn cx(o:&Op,c:u64,t:u64)->bool {o.kind==K::CX&&o.q_control1.0==c&&o.q_target.0==t&&o.c_condition.0==NO}
+  |    ^^
+
+warning: function `pair` is never used
+  --> detector.rs:10:4
+   |
+10 | fn pair(o:&Op,k:K,a:u64,b:u64)->bool {o.kind==k&&((o.q_control1.0==a&&o.q_control2.0==b)||(o.q_control1.0==b&&o.q_control2.0==a))}
+   |    ^^^^
+
+warning: function `opening` is never used
+  --> detector.rs:11:4
+   |
+11 | fn opening(v:&[Op],i:usize)->Option<Hold>{
+   |    ^^^^^^^
+
+warning: function `closing` is never used
+  --> detector.rs:19:4
+   |
+19 | fn closing(v:&[Op],i:usize,s:&Hold)->Option<(u64,usize)>{
+   |    ^^^^^^^
+
+warning: function `qubits` is never used
+  --> detector.rs:31:4
+   |
+31 | fn qubits(o:&Op)->impl Iterator<Item=u64>{[o.q_control2.0,o.q_control1.0,o.q_target.0].into_iter().filter(|&x|x!=NO)}
+   |    ^^^^^^
+
+warning: function `discover` is never used
+  --> detector.rs:32:4
+   |
+32 | fn discover(v:&[Op],minimum:u64)->Vec<Hold>{
+   |    ^^^^^^^^
+
+warning: function `gate` is never used
+  --> detector.rs:80:4
+   |
+80 | fn gate(k:K,a:u64,b:u64,t:u64)->Op{let mut o=Op::empty();o.kind=k;o.q_target=QubitId(t);o.q_control1=QubitId(a);if k==K::CCX{o.q_con...
+   |    ^^^^
+
+warning: function `resolve` is never used
+  --> detector.rs:81:4
+   |
+81 | fn resolve(mut q:u64,m:&HashMap<u64,u64>)->u64{let mut n=0;while let Some(&p)=m.get(&q){q=p;n+=1;assert!(n<=m.len());}q}
+   |    ^^^^^^^
+
+warning: `carry_read_scan` (bin "carry_inspect_gaps") generated 11 warnings
+    Finished `release` profile [optimized] target(s) in 1.35s

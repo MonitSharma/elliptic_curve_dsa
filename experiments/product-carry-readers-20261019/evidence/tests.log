@@ -1,0 +1,25 @@
+     Locking 247 packages to highest compatible versions
+      Adding generic-array v0.14.7 (available: v0.14.9)
+      Adding sha3 v0.10.9 (available: v0.11.0)
+   Compiling carry_read_scan v0.1.0 (/home/hclau/ecdsa_research/product-carry-readers-20261019)
+warning: function `resolve` is never used
+  --> detector.rs:81:4
+   |
+81 | fn resolve(mut q:u64,m:&HashMap<u64,u64>)->u64{let mut n=0;while let Some(&p)=m.get(&q){q=p;n+=1;assert!(n<=m.len());}q}
+   |    ^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `carry_read_scan` (bin "carry_read_scan" test) generated 1 warning
+    Finished `release` profile [optimized] target(s) in 12.29s
+     Running unittests scan.rs (/home/hclau/ecdsa_research/product-order-20261019/target/release/deps/carry_read_scan-2a0d4d44f4a76bf1)
+
+running 5 tests
+test tests::a_body_operand_write_blocks_discovery ... ok
+test tests::later_private_measurement_reader_is_rejected ... ok
+test tests::registered_classical_cleanup_destination_is_rejected ... ok
+test tests::unsupported_cubic_xor_query_rejects ... ok
+test tests::complete_capsules_preserve_values_phase_registered_bits_and_rng_continuation ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

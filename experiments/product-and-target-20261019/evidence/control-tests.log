@@ -1,0 +1,13 @@
+   Compiling and_target v0.1.0 (/home/hclau/ecdsa_research/product-and-target-20261019)
+    Finished `release` profile [optimized] target(s) in 0.46s
+     Running unittests subsequence_trace.rs (/home/hclau/ecdsa_research/product-order-20261019/target/release/deps/and_target_control-d37765f8873b8461)
+
+running 5 tests
+test tests::duplicate_event_rejected - should panic ... ok
+test tests::out_of_range_event_rejected - should panic ... ok
+test tests::reordered_event_rejected - should panic ... ok
+test tests::subsequence_preserves_whole_event_words_and_final_continuation ... ok
+test tests::zero_remaining_events_keep_continuation ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

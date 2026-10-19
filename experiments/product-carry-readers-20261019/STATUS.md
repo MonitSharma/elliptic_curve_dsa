@@ -1,5 +1,29 @@
 # Carry borrowing with exact read-only operand queries
 
+Completed structural negative,19 October: run995501, profile1008320 and gap
+inspection all exited0. Six decoder truth tables, five full capsule/proof
+controls, twelve instrumented allocator controls and seven cover controls pass.
+The scanner admits279,356 cells, only19 with operand reads. Costs are1 for
+279,337 cells,2 for18 and4 forone. No complete candidate was emitted.
+
+The instrumented strong-support allocator exactly reproduces every existing
+report field and output hash82963f42fe238661b3207685fb9998f4862ee7193d9110a9c4fcc3753fae39d0.
+It finds3,112 full-width regions. Even without the conservative all-top entry
+filter,839 regions have no eligible disjoint capsule cover; no complete cover
+exists. The all-top filter admits278,812 cells and gives the same negative.
+This rules out this declared cover method on these peaks, not all arithmetic
+representations. No statistical gate, nonce or scored resource result follows.
+
+The scan's tentative save_end extends beyond the old measurement. cover.py
+corrects this conservatively: only start+2 through the original Hmr inclusive
+is counted, since the old carry may already be free after measurement. No
+candidate used the tentative longer interval. Seven controls include this case.
+Original scan Cargo bytes are retained as Cargo-scan.toml; the later profile
+manifest is Cargo-profile.toml. Earlier SOURCE receipts remain immutable.
+
+First uncovered peaks contain temporary AND fanouts. Their separate exact
+dirty-output absorption experiment is in ../product-and-target-20261019.
+
 Prospective declaration, 19 October 2026, 18:15 Singapore. No circuit screen,
 candidate, statistical gate or nonce search has run in this directory.
 Parent: public9dc3798c/source0c3a0751, compressed stream SHA256
