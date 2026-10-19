@@ -1,0 +1,80 @@
+{
+  "status": "UNBOUNDED_INTEGER_DECODER_PROOFS_PASS",
+  "solver_version": "5.1.0",
+  "queries": [
+    {
+      "name": "forced-000",
+      "verdict": "unsat",
+      "smt_sha256": "e8ae1b449c0876b33d813132d4b7a0e9e3e0869ed76d9b6789ebd7e2721c1637"
+    },
+    {
+      "name": "forced-001",
+      "verdict": "unsat",
+      "smt_sha256": "d083012d5f6a7ddf2ded67aa96732c03757ecfc866d34e6e2d5f6f95d4f05e5b"
+    },
+    {
+      "name": "forced-010",
+      "verdict": "unsat",
+      "smt_sha256": "305e2f71d9e9cc524e899bceffa16f3331459dd19fbad7785bd327d53c74c05e"
+    },
+    {
+      "name": "forced-011",
+      "verdict": "unsat",
+      "smt_sha256": "e1e4eb0ba7621638b33a97959fab83a6dcf2df5b6467d5c5fabc541ab2c21f04"
+    },
+    {
+      "name": "forced-100",
+      "verdict": "unsat",
+      "smt_sha256": "2dbb2bdc9913a7773dfe279dc83ba2e6eeb45b4d6158abbd2cb8f208b6da7d13"
+    },
+    {
+      "name": "forced-101",
+      "verdict": "unsat",
+      "smt_sha256": "2ab50b43aff956b1e1a876bd1e72566f4dcd9bacb35f6aea784810673351b976"
+    },
+    {
+      "name": "forced-110",
+      "verdict": "unsat",
+      "smt_sha256": "0945d510ba11cba965877e633474221bf6f95701a41c79eef91f75bb4a227fe0"
+    },
+    {
+      "name": "forced-111",
+      "verdict": "unsat",
+      "smt_sha256": "2a453a83c2ed486b5b0044018c7290eb1fe5aa65d2db86d9f81ec02bd94383dc"
+    },
+    {
+      "name": "exponent-3",
+      "verdict": "unsat",
+      "smt_sha256": "11ce8efdd615c9c6868d784ea9c039a4b1917df0f25d1f69f528e76cef571b99"
+    },
+    {
+      "name": "exponent-4",
+      "verdict": "unsat",
+      "smt_sha256": "1a538786ae6a7bcd334fa6aa259c0d5e16169fa9dd26132117e96018ad4e942b"
+    },
+    {
+      "name": "exponent-5",
+      "verdict": "unsat",
+      "smt_sha256": "d5e387520ebcc6f2210bd2f66cf17a77405fa0e9a74e1d6f3b23a1ac662c847d"
+    },
+    {
+      "name": "exponent-6",
+      "verdict": "unsat",
+      "smt_sha256": "ed9c60ce8944d6658943fa9d1ff6e5d32b97e7ada80e6f1f7c9c6d38327d029e"
+    },
+    {
+      "name": "odd-cofactor-after-update",
+      "verdict": "unsat",
+      "smt_sha256": "f713aa6d2eb4af68a0550e3529d89f6c2798d6881d6248cff7196c386bf57e7e"
+    },
+    {
+      "name": "first-step-admission-is-necessary",
+      "verdict": "sat",
+      "smt_sha256": "dad19a76ff4c8aed067d052c1288d082d43816433ac3521d4a93869b2f033332",
+      "witness": "[j = 0]"
+    }
+  ],
+  "positive_queries_unsat": 13,
+  "negative_control_sat": true,
+  "scope": "C divisible8, D odd, e3..6; supports the native codec admission. No allocation bound, complete circuit, endpoint, normalization or phase theorem for surrounding arithmetic."
+}

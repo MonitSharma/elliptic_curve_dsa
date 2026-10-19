@@ -1,0 +1,58 @@
+{
+  "status": "DIAGNOSTIC_EXECUTED_COST_PROFILE_NOT_A_NEW_SCORE",
+  "at_utc": "2026-10-19T21:47:26.820265+00:00",
+  "label": "breakthrough-cost-profile-20261020-v1",
+  "batches": 512,
+  "shots": 32768,
+  "mean_executed_toffoli": 761079.4195861816,
+  "phases": [
+    {
+      "phase": "init",
+      "mean_executed_toffoli": 0.0,
+      "standard_error": 0.0,
+      "fraction_of_total": 0.0
+    },
+    {
+      "phase": "coord_y_sub",
+      "mean_executed_toffoli": 316.10601806640625,
+      "standard_error": 0.04944480064240789,
+      "fraction_of_total": 0.0004153390696575151
+    },
+    {
+      "phase": "divide",
+      "mean_executed_toffoli": 358252.4966430664,
+      "standard_error": 2.0897313964726494,
+      "fraction_of_total": 0.4707163108389627
+    },
+    {
+      "phase": "square",
+      "mean_executed_toffoli": 39491.01123046875,
+      "standard_error": 0.3628443122423813,
+      "fraction_of_total": 0.05188816070199484
+    },
+    {
+      "phase": "multiply",
+      "mean_executed_toffoli": 362703.7903137207,
+      "standard_error": 2.516123116867585,
+      "fraction_of_total": 0.47656496941006765
+    },
+    {
+      "phase": "coord_y_sub_final",
+      "mean_executed_toffoli": 316.015380859375,
+      "standard_error": 0.05073116852868188,
+      "fraction_of_total": 0.00041521997931727103
+    },
+    {
+      "phase": "identity_tail",
+      "mean_executed_toffoli": 0.0,
+      "standard_error": 0.0,
+      "fraction_of_total": 0.0
+    }
+  ],
+  "value_failing_shots": 62,
+  "phase_failing_shots": 38,
+  "dirty_shots": 0,
+  "failed_batches": 65,
+  "all_512_rows_match_unchanged_original_replay": true,
+  "all_region_sums_match_exact_executed_totals": true
+}

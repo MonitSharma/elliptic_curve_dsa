@@ -1,0 +1,99 @@
+{
+  "status": "EXACT_INTEGER_COFACToR_AND_DECODER_FEASIBILITY_ONLY_NO_CIRCUIT_RESULT",
+  "at_utc": "2026-10-19T21:31:48.317958+00:00",
+  "label": "breakthrough-integer-cofactor-v1",
+  "samples": 4096,
+  "exhaustive_decoder_controls": 67584,
+  "seconds": 3.547577381134033,
+  "metrics": {
+    "ticks": {
+      "mean": 124.206298828125,
+      "min": 110,
+      "max": 140
+    },
+    "retained_history_bits": {
+      "mean": 128.206298828125,
+      "min": 114,
+      "max": 144
+    },
+    "old_five_bit_history_bits": {
+      "mean": 621.031494140625,
+      "min": 550,
+      "max": 700
+    },
+    "maximum_combined_rail_cofactor_history_dimensions": {
+      "mean": 688.066162109375,
+      "min": 641,
+      "max": 797
+    },
+    "maximum_single_cofactor_bits": {
+      "mean": 272.9384765625,
+      "min": 257,
+      "max": 320
+    },
+    "total_halving_exponent": {
+      "mean": 521.16259765625,
+      "min": 474,
+      "max": 573
+    }
+  },
+  "all_inverse_and_determinant_and_modular_scale_checks_passed": true,
+  "example_trace": [
+    {
+      "tick": 0,
+      "e": 3,
+      "q": 7,
+      "history_bits_retained_this_tick": 5,
+      "signed_rail_dimensions": [
+        255,
+        256
+      ],
+      "signed_cofactor_dimensions": [
+        5,
+        5
+      ]
+    },
+    {
+      "tick": 1,
+      "e": 5,
+      "q": -1,
+      "history_bits_retained_this_tick": 1,
+      "signed_rail_dimensions": [
+        255,
+        249
+      ],
+      "signed_cofactor_dimensions": [
+        10,
+        2
+      ]
+    },
+    {
+      "tick": 2,
+      "e": 4,
+      "q": -1,
+      "history_bits_retained_this_tick": 1,
+      "signed_rail_dimensions": [
+        251,
+        249
+      ],
+      "signed_cofactor_dimensions": [
+        10,
+        6
+      ]
+    }
+  ],
+  "identities": {
+    "cofactor_update": "C_new=C+q*D; D_new=2^e*D; q=7-2*s0-4*s1-8*s3; e=3+k1+2*k2",
+    "admission": "C divisible8, D odd after the first macro-step",
+    "forced_decoder": "s0=1 xor C_new[1] xor D[1]; s1=1 xor C_new[2] xor D[2]",
+    "shift_decoder": "e=v2(D_new), restricted3..6; reversible Boolean decoder uses bits3..5",
+    "retained": "Only s3 remains after reconstructible signs and exponent bits are erased"
+  },
+  "unresolved": [
+    "No native reversible update circuit or measurement-phase proof yet.",
+    "Integer magnitude/space maxima are samples, not universal allocation bounds.",
+    "A fixed-iteration endpoint and exceptional final-tick treatment must be proved.",
+    "Final variable-power-of-two normalization and complete multiply/cleanup costs must be included.",
+    "This does not implement the incumbent truncated W1 window or payload."
+  ]
+}

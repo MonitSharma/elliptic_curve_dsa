@@ -1,0 +1,45 @@
+{
+  "baseline_submission": "d9ae2845-b2d8-4535-8a54-6a9803fdfb19",
+  "baseline_score": 939169018,
+  "status": "RESEARCH_TARGETS_ONLY_NOT_IMPLEMENTED_OR_SCORED",
+  "main_goal": "complete product below 800000000 with the statistical correctness gate preserved",
+  "illustrative_targets": [
+    {
+      "qubits": 1234,
+      "rounded_mean_executed_toffoli": 645000,
+      "product": 795930000,
+      "reduction_percent": 15.251676243008264
+    },
+    {
+      "qubits": 1100,
+      "rounded_mean_executed_toffoli": 720000,
+      "product": 792000000,
+      "reduction_percent": 15.670131273431764
+    },
+    {
+      "qubits": 1000,
+      "rounded_mean_executed_toffoli": 760000,
+      "product": 760000000,
+      "reduction_percent": 19.07739869672745
+    }
+  ],
+  "one_added_qubit_break_even_saving_toffolis": 616.2566801619433,
+  "toffoli_gap_to_current_best_percent": 1.0624417765876515,
+  "initial_hypotheses": [
+    {
+      "priority": 1,
+      "direction": "Change GCD/inversion and payload interface plus live workspace schedule",
+      "first_evidence_required": "Source-bound measured executed-Toffoli and live-width breakdown; whole-region model includes compute, cleanup, phase repair and final affine output."
+    },
+    {
+      "priority": 2,
+      "direction": "Co-design multiplication, modular reduction and its consumer to avoid materializing intermediate correction words",
+      "first_evidence_required": "Exhaustive small-width value/phase controls, valid-input arithmetic identity and complete region cost at unchanged width. Existing fixed-output lower bounds do not bound a changed interface."
+    },
+    {
+      "priority": 3,
+      "direction": "Repair inherited arithmetic failures at competitive total resource cost",
+      "first_evidence_required": "Paired failure localization and analytically justified repair conditions; no additional approximate cuts."
+    }
+  ]
+}

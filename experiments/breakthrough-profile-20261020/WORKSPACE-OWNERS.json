@@ -1,0 +1,53 @@
+{
+  "status": "ADMITTED_BASELINE_FIRST_PEAK_OWNER_REPORT",
+  "peak_active": 1234,
+  "phase": "divide",
+  "groups": [
+    {
+      "count": 256,
+      "phase": "divide",
+      "caller": "src/bin/../point_add/leapfrog.rs:6370"
+    },
+    {
+      "count": 256,
+      "phase": "init",
+      "caller": "src/bin/../point_add/mod.rs:229"
+    },
+    {
+      "count": 191,
+      "phase": "init",
+      "caller": "src/bin/../point_add/mod.rs:228"
+    },
+    {
+      "count": 190,
+      "phase": "divide",
+      "caller": "src/bin/../point_add/leapfrog.rs:3537"
+    },
+    {
+      "count": 134,
+      "phase": "divide",
+      "caller": "src/bin/../point_add/leapfrog.rs:2062"
+    },
+    {
+      "count": 123,
+      "phase": "divide",
+      "caller": "src/bin/../point_add/leapfrog.rs:4050"
+    },
+    {
+      "count": 42,
+      "phase": "divide",
+      "caller": "src/bin/../point_add/leapfrog.rs:4062"
+    },
+    {
+      "count": 41,
+      "phase": "divide",
+      "caller": "src/bin/../point_add/leapfrog.rs:4031"
+    },
+    {
+      "count": 1,
+      "phase": "divide",
+      "caller": "src/bin/../point_add/leapfrog.rs:1145"
+    }
+  ],
+  "scope": "Build-time live ownership; not a lower bound or a reduced-width circuit."
+}

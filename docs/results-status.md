@@ -1,5 +1,38 @@
 # Results and submission status
 
+## 20 October 2026, 05:59 SGT: structural research checkpoint
+
+No new complete point-add result. Official d9ae2845 remains the public product
+leader at Q1234/T761077/product939169018 on the fresh1684-submission snapshot.
+The accepted circuit and every earlier final gate verdict remain unchanged.
+
+The source-identical baseline audit is complete: division47.07% and
+multiplication47.66% of actual executed Toffolis; all512 diagnostic rows agree
+exactly with the original replay. First-peak ownership includes206 history
+and134 carry qubits. All65 archived members verify locally. Lower raw
+capacities1200/1168/1136/1104 fail generation; their51-member evidence and
+initial tooling failures are preserved. None of these is a scored improvement.
+
+An integer adjoint-cofactor interface now has13 unbounded decoder proofs and
+a native14-Toffoli four-flag eraser. Its full bounded-word signed update,
+variable shift and inverse pass6 native tests, including131072 exhaustive
+adder inputs and measurement-phase controls. This is a component only:
+cofactor growth and final normalization may consume the apparent saving.
+Never use model maxima as new allocation cuts. Native28/18-member archives
+are verified locally; the initial compile failure is preserved.
+
+Active next step: breakthrough-subphase-20261020 repair-v2 under2311292,
+source-preserving raw rail/payload attribution. Check run-v2.exit, do not
+restart an observation timeout. Then compare the complete mandatory cofactor
+cost (proved width, endpoint, normalization, multiplication and cleanup) with
+the measured payload budget. Derive a real allocation bound or pivot; no
+candidate/gate/nonce is authorized by component success. New submissions queue.
+
+Run log: experiments/autorun-20261020-breakthrough/LOG.md. Detailed status and
+evidence: breakthrough-profile-, breakthrough-cap-cost-,
+breakthrough-cofactor-history-, breakthrough-cofactor-update-20261020.
+Preserve pre-existing user edits, Q692, and every failed or frozen experiment.
+
 ## Official product result · 20 October 2026
 
 Official submission [d9ae2845](https://api.ecdsa.fail/api/submissions/d9ae2845-b2d8-4535-8a54-6a9803fdfb19) is **accepted** at

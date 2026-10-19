@@ -1,0 +1,164 @@
+{
+  "status": "INTEGER_FEASIBILITY_ONLY_NOT_A_QUANTUM_RESOURCE_ESTIMATE",
+  "label": "breakthrough-forcedwalk-integer-v1",
+  "samples": 4096,
+  "started_at_utc": "2026-10-19T21:25:38.172995+00:00",
+  "variants": {
+    "forced1": {
+      "small_exhaustive_inputs": 504,
+      "seconds": 1.6105682849884033,
+      "metrics": {
+        "ticks": {
+          "mean": 619.6494140625,
+          "max": 713,
+          "min": 553,
+          "stdev": 21.77691622435725
+        },
+        "half_steps": {
+          "mean": 619.6494140625,
+          "max": 713,
+          "min": 553,
+          "stdev": 21.77691622435725
+        },
+        "history_bits": {
+          "mean": 619.6494140625,
+          "max": 713,
+          "min": 553,
+          "stdev": 21.77691622435725
+        },
+        "peak_history_plus_signed_rails": {
+          "mean": 625.09619140625,
+          "max": 718,
+          "min": 559,
+          "stdev": 21.607748014493787
+        }
+      }
+    },
+    "forced2": {
+      "small_exhaustive_inputs": 504,
+      "seconds": 1.294846534729004,
+      "metrics": {
+        "ticks": {
+          "mean": 325.673583984375,
+          "max": 375,
+          "min": 283,
+          "stdev": 13.0676139840044
+        },
+        "half_steps": {
+          "mean": 651.34716796875,
+          "max": 750,
+          "min": 566,
+          "stdev": 26.1352279680088
+        },
+        "history_bits": {
+          "mean": 651.34716796875,
+          "max": 750,
+          "min": 566,
+          "stdev": 26.1352279680088
+        },
+        "peak_history_plus_signed_rails": {
+          "mean": 656.27392578125,
+          "max": 758,
+          "min": 574,
+          "stdev": 25.999918546286597
+        }
+      }
+    },
+    "forced3": {
+      "small_exhaustive_inputs": 504,
+      "seconds": 1.4706542491912842,
+      "metrics": {
+        "ticks": {
+          "mean": 240.63525390625,
+          "max": 291,
+          "min": 204,
+          "stdev": 11.233312891536247
+        },
+        "half_steps": {
+          "mean": 721.90576171875,
+          "max": 873,
+          "min": 612,
+          "stdev": 33.699938674608745
+        },
+        "history_bits": {
+          "mean": 721.90576171875,
+          "max": 873,
+          "min": 612,
+          "stdev": 33.699938674608745
+        },
+        "peak_history_plus_signed_rails": {
+          "mean": 726.33056640625,
+          "max": 877,
+          "min": 616,
+          "stdev": 33.61893186149979
+        }
+      }
+    },
+    "forced4": {
+      "small_exhaustive_inputs": 504,
+      "seconds": 1.59852933883667,
+      "metrics": {
+        "ticks": {
+          "mean": 206.546875,
+          "max": 246,
+          "min": 166,
+          "stdev": 11.21107293206838
+        },
+        "half_steps": {
+          "mean": 826.1875,
+          "max": 984,
+          "min": 664,
+          "stdev": 44.84429172827352
+        },
+        "history_bits": {
+          "mean": 826.1875,
+          "max": 984,
+          "min": 664,
+          "stdev": 44.84429172827352
+        },
+        "peak_history_plus_signed_rails": {
+          "mean": 830.40771484375,
+          "max": 988,
+          "min": 670,
+          "stdev": 44.777761127892525
+        }
+      }
+    },
+    "adaptive_generic": {
+      "small_exhaustive_inputs": 504,
+      "seconds": 1.164261817932129,
+      "metrics": {
+        "ticks": {
+          "mean": 124.126708984375,
+          "max": 140,
+          "min": 110,
+          "stdev": 4.110180874639087
+        },
+        "half_steps": {
+          "mean": 520.542724609375,
+          "max": 573,
+          "min": 467,
+          "stdev": 14.448633476105195
+        },
+        "history_bits": {
+          "mean": 620.633544921875,
+          "max": 700,
+          "min": 550,
+          "stdev": 20.550904373195436
+        },
+        "peak_history_plus_signed_rails": {
+          "mean": 624.791259765625,
+          "max": 704,
+          "min": 554,
+          "stdev": 20.482414668369433
+        }
+      }
+    }
+  },
+  "limitations": [
+    "All bits counted are classical model dimensions, not physical qubits.",
+    "No payload arithmetic, quantum phase, cleanup, endpoint circuit or fixed iteration circuit exists.",
+    "Sample maxima must never be installed as new approximate circuit cuts.",
+    "Full-precision comparison differs from the incumbent window rule."
+  ]
+}
