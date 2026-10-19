@@ -1,5 +1,34 @@
 # Agent handoff: start here
 
+## 20 October 2026, 07:07 SGT: direct payload costs and cofactor budget
+
+No new complete resource record. Fresh1685-submission snapshot at23:06UTC
+keeps product d9ae2845 at Q1234/T761077/product939169018 and Toffoli752991
+atQ1863. The public width minimum is now672 (5764884a/sourcebcbe0b65).
+Earlier snapshots and all gate verdicts remain unchanged.
+
+Raw subphase observer/refinement completed0. Its overlapping pacc labels are
+not pure gate families; use the new byte-identical direct-membership profile.
+All512 rows match the unchanged raw circuit and eight scalar controls pass.
+Payload costs182507/186736 diagnostic Toffolis for divide/multiply, including
+51952/52334 in actual rotations. These raw observations are not scored results.
+Legacy51/direct26-member archives verify locally; all17 protected files match.
+
+Cofactor rotation transfer passes8 unique native tests:16-bit component86 CCX
+versus93, with8160 small-word cases and full RNG phase controls. Its19-member
+evidence verifies. Conservative unrestricted-control equal-word storage still
+costs320136 ordinary cofactor CCX including inverse at illustrative138 ticks,
+with1004 coefficient wires alone. First exception, normalization, endpoints,
+coordinate multiplication and cleanup remain omitted. This specific plan is
+deprioritized; these are analytic partial budgets, not universal lower bounds
+or a new convergence schedule. No empirical maximum becomes a circuit cut.
+
+Next native component: breakthrough-parity-bridge-20261020, supervisor2342842,
+source-exclusive pivots for mixed Cuccaro/Gidney parity adders. Check run.exit,
+preserve failed tests, then assess availability at real tight source sites.
+No point-add integration or score yet; future ready submissions queue.
+Run log: experiments/autorun-20261020-breakthrough/LOG.md.
+
 ## 20 October 2026, 05:59 SGT: structural research checkpoint
 
 No new complete point-add result. Official d9ae2845 remains the public product

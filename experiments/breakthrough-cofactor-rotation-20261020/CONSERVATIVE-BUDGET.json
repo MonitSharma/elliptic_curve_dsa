@@ -1,0 +1,1129 @@
+{
+  "status": "CONSERVATIVE_INTEGRATION_PLAN_DEPRIORITIZED_NOT_AN_IMPOSSIBILITY_PROOF",
+  "horizon": 138,
+  "horizon_is_not_a_convergence_bound": true,
+  "bound_proof": "If |C|<=A and |D|<=B, all q in{+-1,+-3,+-5,+-7},e in3..6 satisfy |C+qD|<=A+7B and |2^eD|<=64B, including every signed-add intermediate. Induct from[2,1].",
+  "bound_domain": "Unrestricted ordinary component controls, broader than seeded GCD reachable states. A tighter proved reachable-state bound remains possible.",
+  "ordinary_forward_component_ccx_excluding_first_exception": 160068,
+  "ordinary_forward_plus_inverse_component_ccx_excluding_first_exception": 320136,
+  "at_last_tick_equal_width_cofactor_wires": 1004,
+  "existing_raw_payload_diagnostic_mean_toffoli": {
+    "divide": 182507.06253051758,
+    "multiply": 186735.64239501953
+  },
+  "decision": "Do not integrate this conservative equal-word plan into point addition. Its two-way cofactor arithmetic alone exceeds an existing raw payload pass, and the cofactor words alone already occupy1004 wires before live coordinates, rails, history and scratch.",
+  "omitted_costs": [
+    "First exceptional macro-step.",
+    "Complete GCD endpoint and a valid fixed horizon.",
+    "Final variable-power-of-two modular normalization.",
+    "Multiplication into the live coordinate and its cleanup.",
+    "All rail arithmetic, complete width and final optimized point-add measurement."
+  ],
+  "scope": "Analytic partial budget of one specified plan. No complete circuit, full resource lower bound, newly scored result, gate census or nonce search.",
+  "rows": [
+    {
+      "tick": 0,
+      "signed_equal_word_width": 9,
+      "target_bound": "9",
+      "source_bound": "64",
+      "reflection_pairs": 12,
+      "ordinary_component_ccx": 55
+    },
+    {
+      "tick": 1,
+      "signed_equal_word_width": 11,
+      "target_bound": "127",
+      "source_bound": "576",
+      "reflection_pairs": 15,
+      "ordinary_component_ccx": 64
+    },
+    {
+      "tick": 2,
+      "signed_equal_word_width": 14,
+      "target_bound": "1465",
+      "source_bound": "8128",
+      "reflection_pairs": 19,
+      "ordinary_component_ccx": 77
+    },
+    {
+      "tick": 3,
+      "signed_equal_word_width": 18,
+      "target_bound": "18383",
+      "source_bound": "93760",
+      "reflection_pairs": 25,
+      "ordinary_component_ccx": 95
+    },
+    {
+      "tick": 4,
+      "signed_equal_word_width": 22,
+      "target_bound": "222441",
+      "source_bound": "1176512",
+      "reflection_pairs": 31,
+      "ordinary_component_ccx": 113
+    },
+    {
+      "tick": 5,
+      "signed_equal_word_width": 25,
+      "target_bound": "2733599",
+      "source_bound": "14236224",
+      "reflection_pairs": 36,
+      "ordinary_component_ccx": 127
+    },
+    {
+      "tick": 6,
+      "signed_equal_word_width": 29,
+      "target_bound": "33371417",
+      "source_bound": "174950336",
+      "reflection_pairs": 42,
+      "ordinary_component_ccx": 145
+    },
+    {
+      "tick": 7,
+      "signed_equal_word_width": 32,
+      "target_bound": "408550255",
+      "source_bound": "2135770688",
+      "reflection_pairs": 46,
+      "ordinary_component_ccx": 158
+    },
+    {
+      "tick": 8,
+      "signed_equal_word_width": 36,
+      "target_bound": "4995622473",
+      "source_bound": "26147216320",
+      "reflection_pairs": 52,
+      "ordinary_component_ccx": 176
+    },
+    {
+      "tick": 9,
+      "signed_equal_word_width": 40,
+      "target_bound": "61116573631",
+      "source_bound": "319719838272",
+      "reflection_pairs": 58,
+      "ordinary_component_ccx": 194
+    },
+    {
+      "tick": 10,
+      "signed_equal_word_width": 43,
+      "target_bound": "747535853689",
+      "source_bound": "3911460712384",
+      "reflection_pairs": 63,
+      "ordinary_component_ccx": 208
+    },
+    {
+      "tick": 11,
+      "signed_equal_word_width": 47,
+      "target_bound": "9144211688207",
+      "source_bound": "47842294636096",
+      "reflection_pairs": 69,
+      "ordinary_component_ccx": 226
+    },
+    {
+      "tick": 12,
+      "signed_equal_word_width": 51,
+      "target_bound": "111851776453545",
+      "source_bound": "585229548045248",
+      "reflection_pairs": 75,
+      "ordinary_component_ccx": 244
+    },
+    {
+      "tick": 13,
+      "signed_equal_word_width": 54,
+      "target_bound": "1368191983220063",
+      "source_bound": "7158513693026880",
+      "reflection_pairs": 79,
+      "ordinary_component_ccx": 257
+    },
+    {
+      "tick": 14,
+      "signed_equal_word_width": 58,
+      "target_bound": "16735857575567321",
+      "source_bound": "87564286926084032",
+      "reflection_pairs": 85,
+      "ordinary_component_ccx": 275
+    },
+    {
+      "tick": 15,
+      "signed_equal_word_width": 61,
+      "target_bound": "204715289955055279",
+      "source_bound": "1071094884836308544",
+      "reflection_pairs": 90,
+      "ordinary_component_ccx": 289
+    },
+    {
+      "tick": 16,
+      "signed_equal_word_width": 65,
+      "target_bound": "2504101914521695497",
+      "source_bound": "13101778557123537856",
+      "reflection_pairs": 96,
+      "ordinary_component_ccx": 307
+    },
+    {
+      "tick": 17,
+      "signed_equal_word_width": 69,
+      "target_bound": "30630491958775406335",
+      "source_bound": "160262522529388511808",
+      "reflection_pairs": 102,
+      "ordinary_component_ccx": 325
+    },
+    {
+      "tick": 18,
+      "signed_equal_word_width": 72,
+      "target_bound": "374675966240816356153",
+      "source_bound": "1960351485361626005440",
+      "reflection_pairs": 106,
+      "ordinary_component_ccx": 338
+    },
+    {
+      "tick": 19,
+      "signed_equal_word_width": 76,
+      "target_bound": "4583083249047340498511",
+      "source_bound": "23979261839412246793792",
+      "reflection_pairs": 112,
+      "ordinary_component_ccx": 356
+    },
+    {
+      "tick": 20,
+      "signed_equal_word_width": 79,
+      "target_bound": "56060844582743630283369",
+      "source_bound": "293317327939029791904704",
+      "reflection_pairs": 117,
+      "ordinary_component_ccx": 370
+    },
+    {
+      "tick": 21,
+      "signed_equal_word_width": 83,
+      "target_bound": "685743240018235203888287",
+      "source_bound": "3587894053295592338135616",
+      "reflection_pairs": 123,
+      "ordinary_component_ccx": 388
+    },
+    {
+      "tick": 22,
+      "signed_equal_word_width": 87,
+      "target_bound": "8388096733423238765353625",
+      "source_bound": "43887567361167053048850368",
+      "reflection_pairs": 129,
+      "ordinary_component_ccx": 406
+    },
+    {
+      "tick": 23,
+      "signed_equal_word_width": 90,
+      "target_bound": "102604244495129724406325743",
+      "source_bound": "536838190939087280982632000",
+      "reflection_pairs": 133,
+      "ordinary_component_ccx": 419
+    },
+    {
+      "tick": 24,
+      "signed_equal_word_width": 94,
+      "target_bound": "1255067902404995351826912201",
+      "source_bound": "6566671647688302362004847552",
+      "reflection_pairs": 139,
+      "ordinary_component_ccx": 437
+    },
+    {
+      "tick": 25,
+      "signed_equal_word_width": 98,
+      "target_bound": "15352146964523269824793232959",
+      "source_bound": "80324345753919702516922380864",
+      "reflection_pairs": 145,
+      "ordinary_component_ccx": 455
+    },
+    {
+      "tick": 26,
+      "signed_equal_word_width": 101,
+      "target_bound": "187789374505582591290475011577",
+      "source_bound": "982537405729489268786766909376",
+      "reflection_pairs": 150,
+      "ordinary_component_ccx": 469
+    },
+    {
+      "tick": 27,
+      "signed_equal_word_width": 105,
+      "target_bound": "2297063027268567407820091990415",
+      "source_bound": "12018519968357285842590400740928",
+      "reflection_pairs": 156,
+      "ordinary_component_ccx": 487
+    },
+    {
+      "tick": 28,
+      "signed_equal_word_width": 108,
+      "target_bound": "28097961159237257697331044673833",
+      "source_bound": "147012033745188314100485887386560",
+      "reflection_pairs": 160,
+      "ordinary_component_ccx": 500
+    },
+    {
+      "tick": 29,
+      "signed_equal_word_width": 112,
+      "target_bound": "343697761859849117981803200103391",
+      "source_bound": "1798269514191184492629186859125312",
+      "reflection_pairs": 166,
+      "ordinary_component_ccx": 518
+    },
+    {
+      "tick": 30,
+      "signed_equal_word_width": 116,
+      "target_bound": "4204153847210128318501809259849049",
+      "source_bound": "21996656759030343550835404806617024",
+      "reflection_pairs": 172,
+      "ordinary_component_ccx": 536
+    },
+    {
+      "tick": 31,
+      "signed_equal_word_width": 119,
+      "target_bound": "51425733689501241780348069625560367",
+      "source_bound": "269065846221448212384115792630339136",
+      "reflection_pairs": 177,
+      "ordinary_component_ccx": 550
+    },
+    {
+      "tick": 32,
+      "signed_equal_word_width": 123,
+      "target_bound": "629045982047956904846552280009261705",
+      "source_bound": "3291246956128079473942276456035863488",
+      "reflection_pairs": 183,
+      "ordinary_component_ccx": 568
+    },
+    {
+      "tick": 33,
+      "signed_equal_word_width": 126,
+      "target_bound": "7694568830463777807868142416100695423",
+      "source_bound": "40258942851069241910179345920592749120",
+      "reflection_pairs": 187,
+      "ordinary_component_ccx": 581
+    },
+    {
+      "tick": 34,
+      "signed_equal_word_width": 130,
+      "target_bound": "94120924664315686565256342833297617081",
+      "source_bound": "492452405149681779703561114630444507072",
+      "reflection_pairs": 193,
+      "ordinary_component_ccx": 599
+    },
+    {
+      "tick": 35,
+      "signed_equal_word_width": 134,
+      "target_bound": "1151298877799891585660355514463527826639",
+      "source_bound": "6023739178516203940176405941331047493184",
+      "reflection_pairs": 199,
+      "ordinary_component_ccx": 617
+    },
+    {
+      "tick": 36,
+      "signed_equal_word_width": 137,
+      "target_bound": "14082831323115445039798894542575742279657",
+      "source_bound": "73683128179193061482262752925665780904896",
+      "reflection_pairs": 204,
+      "ordinary_component_ccx": 631
+    },
+    {
+      "tick": 37,
+      "signed_equal_word_width": 141,
+      "target_bound": "172262947441001176760855014723695976862495",
+      "source_bound": "901301204679388482547129250724847505898048",
+      "reflection_pairs": 210,
+      "ordinary_component_ccx": 649
+    },
+    {
+      "tick": 38,
+      "signed_equal_word_width": 144,
+      "target_bound": "2107141836766396719873114353790719343935513",
+      "source_bound": "11024828636224075312694720942316542519199680",
+      "reflection_pairs": 214,
+      "ordinary_component_ccx": 662
+    },
+    {
+      "tick": 39,
+      "signed_equal_word_width": 148,
+      "target_bound": "25774821493588852351806521418851577926748271",
+      "source_bound": "134857077553049390071879318642606038011872832",
+      "reflection_pairs": 220,
+      "ordinary_component_ccx": 680
+    },
+    {
+      "tick": 40,
+      "signed_equal_word_width": 152,
+      "target_bound": "315280828008171356534524968574567083499110729",
+      "source_bound": "1649588575589686550515617370806500987311889344",
+      "reflection_pairs": 226,
+      "ordinary_component_ccx": 698
+    },
+    {
+      "tick": 41,
+      "signed_equal_word_width": 155,
+      "target_bound": "3856554371646886046257292150828470571805664447",
+      "source_bound": "20177972992522966818209597988772293343943086656",
+      "reflection_pairs": 231,
+      "ordinary_component_ccx": 712
+    },
+    {
+      "tick": 42,
+      "signed_equal_word_width": 159,
+      "target_bound": "47173853594051169142010643044571587346582737785",
+      "source_bound": "246819479785400706960466697653022116595562524608",
+      "reflection_pairs": 237,
+      "ordinary_component_ccx": 730
+    },
+    {
+      "tick": 43,
+      "signed_equal_word_width": 163,
+      "target_bound": "577036454943758890954541198965023228021641689103",
+      "source_bound": "3019126630019274825088681154852581590181295218240",
+      "reflection_pairs": 243,
+      "ordinary_component_ccx": 748
+    },
+    {
+      "tick": 44,
+      "signed_equal_word_width": 166,
+      "target_bound": "7058381814625587061770469547607744186332787041961",
+      "source_bound": "36930333116400569021090636733761486593385068102592",
+      "reflection_pairs": 247,
+      "ordinary_component_ccx": 761
+    },
+    {
+      "tick": 45,
+      "signed_equal_word_width": 170,
+      "target_bound": "86339005818779678453483923567015695897714577396319",
+      "source_bound": "451736436136037571953310051046895627925298370685504",
+      "reflection_pairs": 253,
+      "ordinary_component_ccx": 779
+    },
+    {
+      "tick": 46,
+      "signed_equal_word_width": 173,
+      "target_bound": "1056109476867495321127697516016005499209300412459737",
+      "source_bound": "5525696372401899421022971108289004537453732953364416",
+      "reflection_pairs": 258,
+      "ordinary_component_ccx": 793
+    },
+    {
+      "tick": 47,
+      "signed_equal_word_width": 177,
+      "target_bound": "12918462710474366668916853720401043031918835840582575",
+      "source_bound": "67591006519519700552172641025024351949395226397423168",
+      "reflection_pairs": 264,
+      "ordinary_component_ccx": 811
+    },
+    {
+      "tick": 48,
+      "signed_equal_word_width": 181,
+      "target_bound": "158020245492840267234590617067831653172827077281501193",
+      "source_bound": "826781613470359466810678638105666754042805493797284800",
+      "reflection_pairs": 270,
+      "ordinary_component_ccx": 829
+    },
+    {
+      "tick": 49,
+      "signed_equal_word_width": 184,
+      "target_bound": "1932923331920241337452812957580488326252595034767793151",
+      "source_bound": "10113295711541777103013799492341225803060932946016076352",
+      "reflection_pairs": 274,
+      "ordinary_component_ccx": 842
+    },
+    {
+      "tick": 50,
+      "signed_equal_word_width": 188,
+      "target_bound": "23643759034983466465183490195404644086829098189390628409",
+      "source_bound": "123707093242895445596980029285151252880166082225138761664",
+      "reflection_pairs": 280,
+      "ordinary_component_ccx": 860
+    },
+    {
+      "tick": 51,
+      "signed_equal_word_width": 191,
+      "target_bound": "289213406487779710853264460652983761487969769550873160527",
+      "source_bound": "1513200578238941853771743372505897221557062284121000218176",
+      "reflection_pairs": 285,
+      "ordinary_component_ccx": 874
+    },
+    {
+      "tick": 52,
+      "signed_equal_word_width": 195,
+      "target_bound": "3537694423653399829744594597076783551972850670977112341865",
+      "source_bound": "18509658015217901494608925481790960735230065251255882273728",
+      "reflection_pairs": 291,
+      "ordinary_component_ccx": 892
+    },
+    {
+      "tick": 53,
+      "signed_equal_word_width": 199,
+      "target_bound": "43273518980791700302821087661328445599040019948095668666783",
+      "source_bound": "226412443113817589103654054212914147326262442942535189879360",
+      "reflection_pairs": 297,
+      "ordinary_component_ccx": 910
+    },
+    {
+      "tick": 54,
+      "signed_equal_word_width": 202,
+      "target_bound": "529327075979359491223401667842213266519542582579204870546841",
+      "source_bound": "2769505214770668819380549610325020518338561276678122794674112",
+      "reflection_pairs": 301,
+      "ordinary_component_ccx": 923
+    },
+    {
+      "tick": 55,
+      "signed_equal_word_width": 206,
+      "target_bound": "6474794746626185257944361285220513383975359354732556888501999",
+      "source_bound": "33876932862679007438297706741901649057250725285069111714997824",
+      "reflection_pairs": 307,
+      "ordinary_component_ccx": 941
+    },
+    {
+      "tick": 56,
+      "signed_equal_word_width": 210,
+      "target_bound": "79200496089062304243908235738445242745078240768197009934511817",
+      "source_bound": "414386863784075856508439122254112856574422998702883640864127936",
+      "reflection_pairs": 313,
+      "ordinary_component_ccx": 959
+    },
+    {
+      "tick": 57,
+      "signed_equal_word_width": 213,
+      "target_bound": "968790336407511986215796772423229555789970684080262710405710655",
+      "source_bound": "5068831749699987471610127087260495535685007409164608635808756288",
+      "reflection_pairs": 318,
+      "ordinary_component_ccx": 973
+    },
+    {
+      "tick": 58,
+      "signed_equal_word_width": 217,
+      "target_bound": "11850364104552571375120704494223102426214802197726447608648730873",
+      "source_bound": "62002581530080767117810993435086691570558123781136813465965481920",
+      "reflection_pairs": 324,
+      "ordinary_component_ccx": 991
+    },
+    {
+      "tick": 59,
+      "signed_equal_word_width": 220,
+      "target_bound": "144955130261948766743655924894648408554061739165221946726506598031",
+      "source_bound": "758423302691364568007725087630278555277747340654492646953518775872",
+      "reflection_pairs": 328,
+      "ordinary_component_ccx": 1004
+    },
+    {
+      "tick": 60,
+      "signed_equal_word_width": 224,
+      "target_bound": "1773109214525005935213316561892817415156179514811046274039064962089",
+      "source_bound": "9277128336764721071593979193257498147459951306574204590496422273984",
+      "reflection_pairs": 334,
+      "ordinary_component_ccx": 1022
+    },
+    {
+      "tick": 61,
+      "signed_equal_word_width": 228,
+      "target_bound": "21688892838439762618087195126507220053553207910251528508769877008607",
+      "source_bound": "113478989729600379853652259961140314569995488947906961538500157573696",
+      "reflection_pairs": 340,
+      "ordinary_component_ccx": 1040
+    },
+    {
+      "tick": 62,
+      "signed_equal_word_width": 231,
+      "target_bound": "265301239598678718180262625846690854944867944319667661099889296633945",
+      "source_bound": "1388089141660144807557580488096462083427405306256097824561272128550848",
+      "reflection_pairs": 345,
+      "ordinary_component_ccx": 1054
+    },
+    {
+      "tick": 63,
+      "signed_equal_word_width": 235,
+      "target_bound": "3245197818850895834819418869023298068041480916493771452260497204988463",
+      "source_bound": "16979279334315437963536808054188214716471548436458730310392914984572480",
+      "reflection_pairs": 351,
+      "ordinary_component_ccx": 1072
+    },
+    {
+      "tick": 64,
+      "signed_equal_word_width": 238,
+      "target_bound": "39695664066271708807272740137351301192761914851915130476216395419491721",
+      "source_bound": "207692660406457333428442807617491076354654778655601372944671821119261632",
+      "reflection_pairs": 355,
+      "ordinary_component_ccx": 1085
+    },
+    {
+      "tick": 65,
+      "signed_equal_word_width": 242,
+      "target_bound": "485562308870359295079351988578950184703988182619007286278186589055703679",
+      "source_bound": "2540522500241389363665455368790483276336762550522568350477849306847470144",
+      "reflection_pairs": 361,
+      "ordinary_component_ccx": 1103
+    },
+    {
+      "tick": 66,
+      "signed_equal_word_width": 246,
+      "target_bound": "5939458662333904429220919288843134569264679828855619354425155430237395897",
+      "source_bound": "31075987767702994885078527269052811821055243687616466321803941699565035456",
+      "reflection_pairs": 367,
+      "ordinary_component_ccx": 1121
+    },
+    {
+      "tick": 67,
+      "signed_equal_word_width": 249,
+      "target_bound": "72652198404040325889624962290954753805908002489605801802780029711226806735",
+      "source_bound": "380125354389369883470138834485960612432939509046759638683209947535193337408",
+      "reflection_pairs": 372,
+      "ordinary_component_ccx": 1135
+    },
+    {
+      "tick": 68,
+      "signed_equal_word_width": 253,
+      "target_bound": "888690743217652164697513570522643889074295526474000251302670155513780984553",
+      "source_bound": "4649740697858580856935997586621104243578112159334771315377921901518515631040",
+      "reflection_pairs": 378,
+      "ordinary_component_ccx": 1153
+    },
+    {
+      "tick": 69,
+      "signed_equal_word_width": 256,
+      "target_bound": "10870575900382146009818592580279611467098180844652773074496612990114982522911",
+      "source_bound": "56876207565929738540640868513449208900754913694336016083370889952881983011392",
+      "reflection_pairs": 382,
+      "ordinary_component_ccx": 1166
+    },
+    {
+      "tick": 70,
+      "signed_equal_word_width": 260,
+      "target_bound": "132970238868604760609371016575406489170442179606905427604847180883686860671769",
+      "source_bound": "695716857624457344628389925137895133894283574057777476767783231367358881466304",
+      "reflection_pairs": 388,
+      "ordinary_component_ccx": 1184
+    },
+    {
+      "tick": 71,
+      "signed_equal_word_width": 264,
+      "target_bound": "1626508529704690668893987041165740558087378831306115470001713497553166906168687",
+      "source_bound": "8510095287590704678999745060826015306908299494841947366710219576555959082993216",
+      "reflection_pairs": 394,
+      "ordinary_component_ccx": 1202
+    },
+    {
+      "tick": 72,
+      "signed_equal_word_width": 267,
+      "target_bound": "19895654995523539361257654348986199213519951313984755656722214059428127426174025",
+      "source_bound": "104096545901100202809215170634607395717592245203591390080109663843402681994795968",
+      "reflection_pairs": 399,
+      "ordinary_component_ccx": 1216
+    },
+    {
+      "tick": 73,
+      "signed_equal_word_width": 271,
+      "target_bound": "243366130869764978338018751077510790212231904401484679677165162259399573978014143",
+      "source_bound": "1273321919713506519120489878335116749665276884095024362030221699803400155275137600",
+      "reflection_pairs": 405,
+      "ordinary_component_ccx": 1234
+    },
+    {
+      "tick": 74,
+      "signed_equal_word_width": 275,
+      "target_bound": "2976884835801861367486621135877692281150900214905417119770377835619197173121236601",
+      "source_bound": "15575432375664958613633200068960690573582841881695019499338570384601572734592905152",
+      "reflection_pairs": 411,
+      "ordinary_component_ccx": 1252
+    },
+    {
+      "tick": 75,
+      "signed_equal_word_width": 278,
+      "target_bound": "36413626226277988186039548020104536541639143386032939337731215233935952946441561359",
+      "source_bound": "190520629491319127519143752696172305993657613753946695665304181479628619079759142464",
+      "reflection_pairs": 415,
+      "ordinary_component_ccx": 1265
+    },
+    {
+      "tick": 76,
+      "signed_equal_word_width": 282,
+      "target_bound": "445416013075265044821420588836904061785131617456177271029422688117180289704850071977",
+      "source_bound": "2330472078481791243906531073286690338664905176706108117614797774971900988572259926976",
+      "reflection_pairs": 421,
+      "ordinary_component_ccx": 1283
+    },
+    {
+      "tick": 77,
+      "signed_equal_word_width": 285,
+      "target_bound": "5448384170008646557656475195145018771160826498899349014820756591792163016506210430815",
+      "source_bound": "28506624836816962868570917685561859954248423517195345345883052039499538541110404606528",
+      "reflection_pairs": 426,
+      "ordinary_component_ccx": 1297
+    },
+    {
+      "tick": 78,
+      "signed_equal_word_width": 289,
+      "target_bound": "66645314026877488772166244051576991352374209009490788449628348182044679656653877622233",
+      "source_bound": "348696586880553379690014412489281201354292895929558336948528421874698433056397467572160",
+      "reflection_pairs": 432,
+      "ordinary_component_ccx": 1315
+    },
+    {
+      "tick": 79,
+      "signed_equal_word_width": 293,
+      "target_bound": "815213785068695801095178120850320140820912358995993856095926859149011190652974610927791",
+      "source_bound": "4265300097720159281418639619300927446551949376607410460776214283650859498025848167822912",
+      "reflection_pairs": 438,
+      "ordinary_component_ccx": 1333
+    },
+    {
+      "tick": 80,
+      "signed_equal_word_width": 296,
+      "target_bound": "9971796593201029889084886465253168432298335889579367453447702297693937832596670444317449",
+      "source_bound": "52173682244396531270091399734420489012538390975743606790139318985536716201790375099378624",
+      "reflection_pairs": 442,
+      "ordinary_component_ccx": 1346
+    },
+    {
+      "tick": 81,
+      "signed_equal_word_width": 300,
+      "target_bound": "121976258396803740493685604991192668038626742202799178964273235069394281029967068209600767",
+      "source_bound": "638194981964865912901432733776202779667093496933079517020652947052412021286186908436316736",
+      "reflection_pairs": 448,
+      "ordinary_component_ccx": 1364
+    },
+    {
+      "tick": 82,
+      "signed_equal_word_width": 303,
+      "target_bound": "1492028790742492096357231968714551455937480692352673769770565592538171988495956385903522105",
+      "source_bound": "7806480537395439391595878719436330754472111500979147453713487044441233985917892365414449088",
+      "reflection_pairs": 453,
+      "ordinary_component_ccx": 1378
+    },
+    {
+      "tick": 83,
+      "signed_equal_word_width": 307,
+      "target_bound": "18250682072592884066096502500438190946034476347447863842107446192208437905389587066739103823",
+      "source_bound": "95489842607519494166862845997731293179998764310571121265316197922443007263741208697825414720",
+      "reflection_pairs": 459,
+      "ordinary_component_ccx": 1396
+    },
+    {
+      "tick": 84,
+      "signed_equal_word_width": 311,
+      "target_bound": "223244617115669682629538363500798629802240098742706168160068321267902072601468318164999141481",
+      "source_bound": "1168043652645944580230176160028044220546206486236663285894876556301340025944933572271302644672",
+      "reflection_pairs": 465,
+      "ordinary_component_ccx": 1414
+    },
+    {
+      "tick": 85,
+      "signed_equal_word_width": 314,
+      "target_bound": "2730755972455632358636944704533634629161887177435606463015354805176654534155211799426296635039",
+      "source_bound": "14287655495402859688290455264051112307343366319533194762244372561145732646493972362559945054784",
+      "reflection_pairs": 469,
+      "ordinary_component_ccx": 1427
+    },
+    {
+      "tick": 86,
+      "signed_equal_word_width": 318,
+      "target_bound": "33402947302592286198749068195786554711476576561582440003351856197382314385580454958544021500057",
+      "source_bound": "174768382237160470952764461090152616266360779355878813632982707531305890185933555163282984642496",
+      "reflection_pairs": 475,
+      "ordinary_component_ccx": 1445
+    },
+    {
+      "tick": 87,
+      "signed_equal_word_width": 322,
+      "target_bound": "408589013355306474344007938460658499246696815286955893656445700912982090884996739873091135142895",
+      "source_bound": "2137788627365906316719940364530339501534500899941276160214518796632468120677149117346817376003648",
+      "reflection_pairs": 481,
+      "ordinary_component_ccx": 1463
+    },
+    {
+      "tick": 88,
+      "signed_equal_word_width": 325,
+      "target_bound": "4997911720853051637127995933754948996261378606949967415809638703023342756872126296458455322003913",
+      "source_bound": "26149696854739614358016508061482143951788596178365177194012524858430853816639791351877832649145280",
+      "reflection_pairs": 486,
+      "ordinary_component_ccx": 1477
+    },
+    {
+      "tick": 89,
+      "signed_equal_word_width": 329,
+      "target_bound": "61135078900710975817912479597766786925618246427014949104679995779594253114744675427087019903172671",
+      "source_bound": "319866350134595304776191739760316735760728230844797914611816876993493936439816082973341140608250432",
+      "reflection_pairs": 492,
+      "ordinary_component_ccx": 1495
+    },
+    {
+      "tick": 90,
+      "signed_equal_word_width": 332,
+      "target_bound": "747811902439572135501579096944684244240055955833902558344576847450653708243028810962950279930459129",
+      "source_bound": "3912645049645502452346398694257074363239567771328956742699519729894032199343659227333569273803050944",
+      "reflection_pairs": 496,
+      "ordinary_component_ccx": 1508
+    },
+    {
+      "tick": 91,
+      "signed_equal_word_width": 336,
+      "target_bound": "9147328366722507400857452372869864072919959462166274651111557662048608157044860904074221233316264847",
+      "source_bound": "47859961756132616672101062204459791631363581173369763734052918236841837327553843901628817915549384256",
+      "reflection_pairs": 502,
+      "ordinary_component_ccx": 1526
+    },
+    {
+      "tick": 92,
+      "signed_equal_word_width": 340,
+      "target_bound": "111891260323190168478103228814548840141803297408533686291833821871182094426867870230148366548763238185",
+      "source_bound": "585429015470240473654876951863671300666877405578641577671139690371110922050871097860750158932240950208",
+      "reflection_pairs": 508,
+      "ordinary_component_ccx": 1544
+    },
+    {
+      "tick": 93,
+      "signed_equal_word_width": 343,
+      "target_bound": "1368667837732571653001599553565513181659500487438377381713976443469385583038946189471788724773583617503",
+      "source_bound": "7161040660684170782598606644131125769075411034146155922677364599755654043319543694729495459120847243840",
+      "reflection_pairs": 513,
+      "ordinary_component_ccx": 1558
+    },
+    {
+      "tick": 94,
+      "signed_equal_word_width": 347,
+      "target_bound": "16741715524812172353609803519089718040691914446214797594675199704041353124592167021032016532535932566361",
+      "source_bound": "87594741614884585792102371428192843626208031196056152429694492382040677314492556126194478385509351520192",
+      "reflection_pairs": 519,
+      "ordinary_component_ccx": 1576
+    },
+    {
+      "tick": 95,
+      "signed_equal_word_width": 350,
+      "target_bound": "204786750288569792267370996061820869911051432319559735592420890310330149186637725273418594113260879484719",
+      "source_bound": "1071469793587979030631027425221741954604282524557747046059212781058646599973898689346049058082299684247104",
+      "reflection_pairs": 523,
+      "ordinary_component_ccx": 1589
+    },
+    {
+      "tick": 96,
+      "signed_equal_word_width": 354,
+      "target_bound": "2504977045607967576502624397654488043981642550794665195206159013230957644280362766259979216875125840640137",
+      "source_bound": "13106352018468466705111743747956535674307291668451823077914936979861129547944814417498790023248696287022016",
+      "reflection_pairs": 529,
+      "ordinary_component_ccx": 1607
+    },
+    {
+      "tick": 97,
+      "signed_equal_word_width": 358,
+      "target_bound": "30641191337724239740630114531537951982178789524014479444358050072477833057907353781318644541374577171502975",
+      "source_bound": "160318530918909924896167961449887234814825123250858572493194176846781289233943217040638669880008053800968768",
+      "reflection_pairs": 535,
+      "ordinary_component_ccx": 1625
+    },
+    {
+      "tick": 98,
+      "signed_equal_word_width": 361,
+      "target_bound": "374806870282979603080578763170652898690076649918959928603700527354126120639294693509869181669630094001489593",
+      "source_bound": "1961036245614351343400327330018428926859442529536926684438915204638581315706070642004393250647972938976190400",
+      "reflection_pairs": 540,
+      "ordinary_component_ccx": 1639
+    },
+    {
+      "tick": 99,
+      "signed_equal_word_width": 365,
+      "target_bound": "4584684337595208564964378672212999217689979078969646184664818896117464160181133496573477522335383596986617551",
+      "source_bound": "23987639698110694597157040842921785516164905594813435430636833750664071720914860384631627626856326016095333952",
+      "reflection_pairs": 546,
+      "ordinary_component_ccx": 1657
+    },
+    {
+      "tick": 100,
+      "signed_equal_word_width": 368,
+      "target_bound": "56080430061277154551907691548412780039994759147600958723290566023486320842182794860645970283204011195001656809",
+      "source_bound": "293419797606093348157720235021631949932158661054057355818548409351517706251592543780702561429464550207143523264",
+      "reflection_pairs": 550,
+      "ordinary_component_ccx": 1670
+    },
+    {
+      "tick": 101,
+      "signed_equal_word_width": 372,
+      "target_bound": "685982808035033430021074075860521410212121975087264066881582371515921952146872107805224353411892628572155120927",
+      "source_bound": "3589147523921737891322092259098417922559664585446461358290596225503124533899698871081342098125056716480106035776",
+      "reflection_pairs": 556,
+      "ordinary_component_ccx": 1688
+    },
+    {
+      "tick": 102,
+      "signed_equal_word_width": 376,
+      "target_bound": "8391027180166971901469610790122067794044518411057309826461672826114578198927803625717912572008305116485191882265",
+      "source_bound": "43902899714242139521348740855073370253575806405584900280421271777019004937399814899534358618361128228617927739328",
+      "reflection_pairs": 562,
+      "ordinary_component_ccx": 1706
+    },
+    {
+      "tick": 103,
+      "signed_equal_word_width": 379,
+      "target_bound": "102640089975410942831636016385927844811887435282986069065652981559821052329894440279559746622419264044014270915183",
+      "source_bound": "537025739530686201694055090567812338818849178307667828893547060871333004731379432045946404608531527455052280464960",
+      "reflection_pairs": 567,
+      "ordinary_component_ccx": 1720
+    },
+    {
+      "tick": 104,
+      "signed_equal_word_width": 383,
+      "target_bound": "1255506369358562801515507205269307252502061225288570312353117931790080371040640514002864630965466375763152176871241",
+      "source_bound": "6568965758426300341224705048699382067960795858111108420201790819828547349113244177891823783834832898816913338571712",
+      "reflection_pairs": 573,
+      "ordinary_component_ccx": 1738
+    },
+    {
+      "tick": 105,
+      "signed_equal_word_width": 387,
+      "target_bound": "15357510343936239951833255485584532835475224435131100606673616342359109946397727775911876200593097529158978576670399",
+      "source_bound": "80352407638948019296992461137235664160131918418468499990599547634565143746600992896183336381789848048841739319759424",
+      "reflection_pairs": 579,
+      "ordinary_component_ccx": 1756
+    },
+    {
+      "tick": 106,
+      "signed_equal_word_width": 390,
+      "target_bound": "187854980046501698959825249536327394008458489464386204237314862031078913371385087327566469785941530752954589356452217",
+      "source_bound": "982880662011919356917328351077410101470414363848390438827111445910983036569454577658360076837958241866174628906905536",
+      "reflection_pairs": 583,
+      "ordinary_component_ccx": 1769
+    },
+    {
+      "tick": 107,
+      "signed_equal_word_width": 394,
+      "target_bound": "2297865522337431249636105097831701859529623790099093868488315480128535430169150188951325365339548957136856754402071055",
+      "source_bound": "12022718722976108733428815970324953216541343325720717071188151169989050455768645588964254066300257968189093718812941888",
+      "reflection_pairs": 589,
+      "ordinary_component_ccx": 1787
+    },
+    {
+      "tick": 108,
+      "signed_equal_word_width": 397,
+      "target_bound": "28107777379338127480881551655146866233248709856414374150606359530888798466952696911623531623677100668147090999627439273",
+      "source_bound": "147063393429595599976710726261228919009895922566342007583252190728226267530825612092884823381731133256758832281732547520",
+      "reflection_pairs": 594,
+      "ordinary_component_ccx": 1801
+    },
+    {
+      "tick": 109,
+      "signed_equal_word_width": 401,
+      "target_bound": "343817835084962492342881587847256982642636891561242626637496707444447856799494490474249544747470837933788469279124622431",
+      "source_bound": "1798897752277640158776419305929399438927917430810519945638807009976883101884972602343906023915334442761413823976156113472",
+      "reflection_pairs": 600,
+      "ordinary_component_ccx": 1819
+    },
+    {
+      "tick": 110,
+      "signed_equal_word_width": 405,
+      "target_bound": "4205622597872377605176590420860198317426375671739218332101283962088018099481434035663652837147630308297933108930028470489",
+      "source_bound": "22004341445437599509944421622224446889128761059919528104799789276444662835167647390351970863838133627762462033863975835584",
+      "reflection_pairs": 606,
+      "ordinary_component_ccx": 1837
+    },
+    {
+      "tick": 111,
+      "signed_equal_word_width": 408,
+      "target_bound": "51443699630544242746180554568245835111113390762094056429508777011060789531537685639997540723871545785847993796374175129007",
+      "source_bound": "269159846263832166731301786935052692315288042991309973254482173573633158366811778282473781577448339731067718971521822111296",
+      "reflection_pairs": 610,
+      "ordinary_component_ccx": 1850
+    },
+    {
+      "tick": 112,
+      "signed_equal_word_width": 412,
+      "target_bound": "629265743677641865954565668912773538093081778325968368261043612651058685087575577762456566644549160232003675546141048014345",
+      "source_bound": "3292396776354831535755555492367733447111257008774019611488561728707890530018411880959842606327778930294271602967947208256448",
+      "reflection_pairs": 616,
+      "ordinary_component_ccx": 1868
+    },
+    {
+      "tick": 113,
+      "signed_equal_word_width": 415,
+      "target_bound": "7697256982098324597437515174757148213762829457055798189315867017265301325631440925297038572839623051918297331790934544356863",
+      "source_bound": "40273007595369079421092202810417506437957233812861975568706791209667755845604836976797220265251146254848235234953027072918080",
+      "reflection_pairs": 621,
+      "ordinary_component_ccx": 1882
+    },
+    {
+      "tick": 114,
+      "signed_equal_word_width": 419,
+      "target_bound": "94153806470057351603154809033717543934297040012252562893917860330524865125024923453876490275128507618276316557489568883416121",
+      "source_bound": "492624446854292774236000971184457485680821085251571084116215489104979284840412219219010468661735875322771029234619810838839232",
+      "reflection_pairs": 627,
+      "ordinary_component_ccx": 1900
+    },
+    {
+      "tick": 115,
+      "signed_equal_word_width": 423,
+      "target_bound": "1151701092144694235458084634420480293220900365337339024373640511418653340715586683396145900587635428650705245137046793022752079",
+      "source_bound": "6025843614083670502601907778157922811795010560784164025210743061153591368001595101048095377608224487569684259679332408538631744",
+      "reflection_pairs": 633,
+      "ordinary_component_ccx": 1918
+    },
+    {
+      "tick": 116,
+      "signed_equal_word_width": 426,
+      "target_bound": "14087751259096530150808500219101284864341313118145537195826226641084164753010701884821116681721672488124620975638659959697896297",
+      "source_bound": "73708869897260431069317416602910738766137623381589697559912992730793813805797547737353337637608667433645135688770994753456133056",
+      "reflection_pairs": 637,
+      "ordinary_component_ccx": 1931
+    },
+    {
+      "tick": 117,
+      "signed_equal_word_width": 430,
+      "target_bound": "172323128710936142124976918136619732816526815208608457930696579218382967076872460931101154409660374850517482518241614471341407135",
+      "source_bound": "901616080582177929651744014022482231317844039561314380532878505029386544192684920628551467630187039239975742440874237420665363008",
+      "reflection_pairs": 643,
+      "ordinary_component_ccx": 1949
+    },
+    {
+      "tick": 118,
+      "signed_equal_word_width": 433,
+      "target_bound": "2107877981558730924526582440978820361033531746021573586047754559558067313730792147146259548497809663193598120068565538720055212953",
+      "source_bound": "11028680237499913095998522760743662900257716173350941307564581069976509892919837499590473882218263990433118881167463326165850056640",
+      "reflection_pairs": 648,
+      "ordinary_component_ccx": 1963
+    },
+    {
+      "tick": 119,
+      "signed_equal_word_width": 437,
+      "target_bound": "25783826108411029567684599847595405427492438395501956409898862986882981089035382529614290721702931632788305721647422097206236547311",
+      "source_bound": "134904190819758779169701276222644503106146031745380709507056291811716308078770697417360611103859818444390279684388194478083533628992",
+      "reflection_pairs": 654,
+      "ordinary_component_ccx": 1981
+    },
+    {
+      "tick": 120,
+      "signed_equal_word_width": 441,
+      "target_bound": "315390973578635986143493475155812341098593100513894404376348332719897175702018375124660646155780339873908419735920149158527189460169",
+      "source_bound": "1650164870938305892331814390246105947359516057312125210233527231160510789698264481895314606188987624498451566185435014221199139027904",
+      "reflection_pairs": 660,
+      "ordinary_component_ccx": 1999
+    },
+    {
+      "tick": 121,
+      "signed_equal_word_width": 444,
+      "target_bound": "3857901685988757795336268716336792335049667760909386040867965560199791019612393107767939129279450003615810504336876058330889465249087",
+      "source_bound": "20185022309032703113183582409971989830309958432889241880086293294073419244929176007978281353969941751930138863098889546145740125450816",
+      "reflection_pairs": 664,
+      "ordinary_component_ccx": 2012
+    },
+    {
+      "tick": 122,
+      "signed_equal_word_width": 448,
+      "target_bound": "47190334110954007680537463424329536175657632759254944166162052215471956382215927762353855258926091777240812393457021954461966382194425",
+      "source_bound": "246905707903280498901521197845554709443178736698200706615549795852786625255193158897148104273884800231411872277560067733176925775941568",
+      "reflection_pairs": 670,
+      "ordinary_component_ccx": 2030
+    },
+    {
+      "tick": 123,
+      "signed_equal_word_width": 452,
+      "target_bound": "577238046679958552665283441815861462672782166012985315778684161361090319930704653233625091086367442672097559031759221414410690451302543",
+      "source_bound": "3020181383101056491554397659157090315242088496592316426634371341790205208461819376790646736571269873743411993181249405085565848460443200",
+      "reflection_pairs": 676,
+      "ordinary_component_ccx": 2048
+    },
+    {
+      "tick": 124,
+      "signed_equal_word_width": 455,
+      "target_bound": "7060847709860766360211381751868120553951563658683213637085160471317837447976751949426022374175841972448094906403563954986440681619561001",
+      "source_bound": "36943234987517347370578140276215133611058058624831060209835786327109780475565097806952005829527516331014243778032590170522284188883362752",
+      "reflection_pairs": 681,
+      "ordinary_component_ccx": 2062
+    },
+    {
+      "tick": 125,
+      "signed_equal_word_width": 459,
+      "target_bound": "86369168956542711892057812539291977488719004235613555669431909626334642611402361452934162448758410138150908122857537855427368960220289759",
+      "source_bound": "451894253431089047053528432119559715452900074155725672773450270164341596670512124763265431947253886236678074009828093119132203623651904064",
+      "reflection_pairs": 687,
+      "ordinary_component_ccx": 2080
+    },
+    {
+      "tick": 126,
+      "signed_equal_word_width": 462,
+      "target_bound": "1056478436126888030297933119894603557873933103805020562459473637548684094950328654933804569088562757203734430869830858107123786345193932377",
+      "source_bound": "5527626813218733561091700002514686559278016271079267562843642216085417127129751132987786396720538248841658119862882422747351613454098544576",
+      "reflection_pairs": 691,
+      "ordinary_component_ccx": 2093
+    },
+    {
+      "tick": 127,
+      "signed_equal_word_width": 466,
+      "target_bound": "12922975866106949773177231841776911464395547997714411500059957678926205791782051717524418380340477549267799135951698429497218117870456071215",
+      "source_bound": "67614619912120833939067719673254627703931718643521315997406312803115782076821033915763492421668016461039003575669174918855922326092411672128",
+      "reflection_pairs": 697,
+      "ordinary_component_ccx": 2111
+    },
+    {
+      "tick": 128,
+      "signed_equal_word_width": 470,
+      "target_bound": "158075450974869482351308342565693007954700554627522196497826016555599222619295395938434421084051359305913597527331063925336449151185604170633",
+      "source_bound": "827070455430844785483342837873722333721315071853722336003837291451277170674051309921562776341790563153139144700908699487821959543709188557760",
+      "reflection_pairs": 703,
+      "ordinary_component_ccx": 2129
+    },
+    {
+      "tick": 129,
+      "signed_equal_word_width": 473,
+      "target_bound": "1933598612254931161942501235833573389404218954246377711488619407340471729009119081490603723930150078294534327392226146965177103602008417752191",
+      "source_bound": "10116828862391646870483733924204352509100835496161420575860865059558350247634905340059802949379286995578470241749188091221532745675878666920512",
+      "reflection_pairs": 708,
+      "ordinary_component_ccx": 2143
+    },
+    {
+      "tick": 130,
+      "signed_equal_word_width": 477,
+      "target_bound": "23652019148176165004081242575039366234930368175886064556281200910941652350698738910494029016890337543640210533494771119977772470889937591185849",
+      "source_bound": "123750311184315594364320079093348696921870013071768173535271642069790190656583621215398638331529605010850196953102473405771334630528538736140224",
+      "reflection_pairs": 714,
+      "ordinary_component_ccx": 2161
+    },
+    {
+      "tick": 131,
+      "signed_equal_word_width": 480,
+      "target_bound": "289314445221548749392888777118624260566382590302970625429240048446381757111474793588856841449761967816331670687565871245615741926758101874441167",
+      "source_bound": "1513729225483274560261199524802519439035543563256708131601996858300265750444719290271617857080981602792973474143665351678577438136956005835894336",
+      "reflection_pairs": 718,
+      "ordinary_component_ccx": 2174
+    },
+    {
+      "tick": 132,
+      "signed_equal_word_width": 484,
+      "target_bound": "3538930342034115806011420964632889263000221695377502509606677197424938050225042845393615747229315377507295168956626450397887631624262718956982505",
+      "source_bound": "18516124494179119961144881735591952676248485779390120027471363100568432455134386789686837852784765940245226924004215759719407483312518519964234688",
+      "reflection_pairs": 724,
+      "ordinary_component_ccx": 2192
+    },
+    {
+      "tick": 133,
+      "signed_equal_word_width": 488,
+      "target_bound": "43288636888417930603224828488022177517250037647032637594718103482542998806709686707442148083389973582796293106700600912504620904682357552663112223",
+      "source_bound": "226491541890183411584730941736504912832014188504160160614827340635196035214402742105191407822676184160466890813224092825464808423952814013246880320",
+      "reflection_pairs": 730,
+      "ordinary_component_ccx": 2210
+    },
+    {
+      "tick": 134,
+      "signed_equal_word_width": 491,
+      "target_bound": "529512000109108925807304741152660155452764452033388623777854065012997026861370549057286444406405999240040942560128299212997154756729316881888665881",
+      "source_bound": "2770472760858747558606389023233419361104002409410088806061958622882751923629419949276297477336958309298962758828838458400295737899670883370439182272",
+      "reflection_pairs": 735,
+      "ordinary_component_ccx": 2224
+    },
+    {
+      "tick": 135,
+      "signed_equal_word_width": 495,
+      "target_bound": "6477056761622510039257522211302040449273353573643809172506937077973731111659013792677302588181800303979249356749736552891275821196776101543659843439",
+      "source_bound": "33888768006982971251667503433770249948976924930136871921782660160831809719127715139666332442009983951362620323848211149631817904430676280440874616384",
+      "reflection_pairs": 741,
+      "ordinary_component_ccx": 2242
+    },
+    {
+      "tick": 136,
+      "signed_equal_word_width": 499,
+      "target_bound": "79228165338340541526470158912884533093890399945643536129331219706647927500740811688407450559282586079217365821096367019870748652808108991246493520457",
+      "source_bound": "414531632743840642512481421523330588753494628713203787040443972990318791146176882731347365643635219454671958831983139385041652556593670498794229980096",
+      "reflection_pairs": 747,
+      "ordinary_component_ccx": 2260
+    },
+    {
+      "tick": 137,
+      "signed_equal_word_width": 502,
+      "target_bound": "969128790112224433197772533913522320410727428332708539945762510936854283651362564550199519558613322009193519579657708524136893126250433437519684623295",
+      "source_bound": "5070602581653794657694090170424610118008985596521186312277198061225467360047411948058076835794085509069911412550167489271727913779718975439775585309248",
+      "reflection_pairs": 751,
+      "ordinary_component_ccx": 2273
+    }
+  ]
+}

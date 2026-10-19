@@ -1,0 +1,20 @@
+{
+  "status": "BYTE_IDENTICAL_RAW_DIRECT_MEMBERSHIP_MAP",
+  "ops": 11263273,
+  "segments": 722,
+  "calls": {
+    "modular.rs:mod_addsub": 6,
+    "pingpong.rs:mod_halve": 1,
+    "leapfrog.rs:rot4": 276,
+    "y15_onefold.rs:fwd_tick": 136,
+    "leapfrog.rs:pay_fwd_tick": 47,
+    "leapfrog.rs:merged_fwd": 1,
+    "leapfrog.rs:n2_pay_fwd_last": 1,
+    "leapfrog.rs:merged_rev": 11,
+    "leapfrog.rs:n2_pay_rev_last": 1,
+    "pingpong.rs:double_add": 20,
+    "leapfrog.rs:pay_rev_tick": 81,
+    "y15_onefold.rs:rev_tick": 126
+  },
+  "scope": "Rotation means actual rot4 operations; payload means the listed explicit function union. Other includes rail arithmetic and residual setup/endpoints. No optimized complete-circuit resource claim."
+}

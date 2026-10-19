@@ -1,0 +1,51 @@
+{
+  "files": {
+    "DIRECT-DOMAIN-PROFILE.json": "978806b6a3163c5bee80bc4a2cbf6602367d3545043985bd7666281909b4689c",
+    "REPLAY-CONTROL.json": "64417a186158e469ec9ba4f989ac244ad13eecb8f83917753ba6f2d4513ad172",
+    "SEGMENTS.json": "f16f00ee6c9486a34fb3a552feaa11585dd1a1cebfc955cb35e06d5170250d3f",
+    "SOURCE_FREEZE.json": "ce24cb93c6420b1053ddc5e0e7aaac4ac9d04edd7dccb8d4ff4c8fb636461549",
+    "TERMINAL-AUDIT.json": "1dedd720788c2f904dfc2ccee010cf4091a078a36c640030e9a7eee1c05bb190",
+    "added-source/break_profile.rs": "a7e94c66704031f4f0810059f15ca1893ddc5e006a5b82b8c582c67228609515",
+    "build.log": "b376575befc2e0f612c2815d0dc569fabdc8b97b2331a44059e092cc12aaf15d",
+    "build.out": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "generate.log": "2e26fc0cafc7a89c656dd7c23053cb03ff3d8b76535300bf7da184dd41014a64",
+    "generate.out": "cab4b02a10748f1c267a12869dc76b3a605128238ef48e8f805b520776dec42d",
+    "launch.py": "6bbcd926aff34806a020328e5823b8f0be9fc299c396f8f7fb286fe689655887",
+    "nohup.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prepare.log": "68486bc28d475b600ced96cce21ab5b547aa35ec778f3a1889f0bed157a37d5c",
+    "prepare.py": "5fc9e3b99deed8e634b1a89528f92d28bbc8080774ab5a3c60c49a9faae8df11",
+    "region-census.jsonl": "7d893681a79ee265fe823be617b64384b1dd0a346d18bdced03aff7dd27b0cda",
+    "replay.err": "f00865a77724c069f500fffa448a773e6955f2bb8e709d68abec6accbfdddca3",
+    "replay.out": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "run.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "run.pid": "6bf849e3c91255015c6c4db35841e1104d18881ba414ad96a28534510668cb55",
+    "run.sh": "372401d50530c38c8853fb484ede326f09862bc992af9b2f14480a0c7a04dbc2",
+    "segment-map.tsv": "02959151c02aa53326a1ed438ec6fa95f348acff289bcf87dee2df118ae0ea2d",
+    "segments.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "segments.py": "6af8f36d4f8628db3cf9e5b3812a46df31be39d10baf34415adcd36d081a0fd2",
+    "source.patch": "e9c90aae6376144428a51f8e71625446b6941ee7dcb3e6cf9a68ed2b3c6f7b88",
+    "summarize.py": "a241d5d76c141c1d57060c79534fd105e3f7ae87e3341219804d7946e61823eb"
+  },
+  "terminal_audit": {
+    "status": "DIRECT_RAW_MEMBERSHIP_PROFILE_CONTROLS_PASS",
+    "sealed_at_utc": "2026-10-19T23:01:01.942352+00:00",
+    "source_base": "90e777ea8242faa0acb2462c5cb5be7c318a2d64",
+    "source_freeze_sha256": "ce24cb93c6420b1053ddc5e0e7aaac4ac9d04edd7dccb8d4ff4c8fb636461549",
+    "protected_files_checked": 17,
+    "result": {
+      "status": "ALL_512_ROWS_MATCH_PREVIOUS_FROZEN_RAW_STREAM",
+      "old_sha256": "4329c50f83d8ea13ea899685b411b01a16cb67d75bb68911d981fddcbef929fc",
+      "new_sha256": "7d893681a79ee265fe823be617b64384b1dd0a346d18bdced03aff7dd27b0cda",
+      "scope": "Same existing diagnostic inputs; no new final correctness census or candidate."
+    },
+    "streams_retained_on_server": {
+      "/home/hclau/ecdsa_research/breakthrough-domain-profile-20261020/observer/ops.bin": {
+        "sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b",
+        "bytes": 38777871
+      }
+    },
+    "no_candidate_gate_nonce_or_score": true,
+    "replay_binary_sha256": "242e46304f33cde75389e4a856d28f7a1c84332dd039a1bcece6205eec3a5ee9",
+    "unchanged_replay_tool_evidence_archive_sha256": "9a5d3d8785ba5a7c532a85af288f8d3a51bf9ece519e30b7f3cc58b6fcd72271"
+  }
+}
