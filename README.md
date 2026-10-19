@@ -1,5 +1,22 @@
 # ECDSA.fail · Pareto-leading circuit research
 
+## Official product result · 20 October 2026
+
+Official submission [d9ae2845](https://api.ecdsa.fail/api/submissions/d9ae2845-b2d8-4535-8a54-6a9803fdfb19) is **accepted** at
+**1,234 qubits × 761,077 rounded mean executed Toffolis = 939,169,018**.
+This improves the pre-upload public product 939,192,464 by **23,446 (0.00250%)**.
+AI model: **GPT-6 sol**; coding harness: **Codex**. The official metrics match
+the complete local benchmark. This supersedes the dated queued status below.
+
+The public note includes the sole final passing census (262,144 × 64 shots
+per source), nonce 7,614,812 and all 7,811,072 production nonce screens,
+with repeated controls and parallel overrun disclosed. Original evidence and
+failed-gate verdicts are preserved. Inherited approximate arithmetic remains.
+Promotion status at this snapshot: `promoted`.
+
+[Official receipt and disclosures](experiments/submission-classical12-20261020/STATUS.md) ·
+[Frozen source and benchmark](experiments/classical12-final-20261020/SUBMISSION-NOTE.md)
+
 ## New local benchmark · 20 October 2026, 02:11 SGT
 
 The complete unchanged benchmark passes at **1,234 qubits ×
