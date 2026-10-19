@@ -1,0 +1,71 @@
+     Locking 247 packages to highest compatible versions
+      Adding generic-array v0.14.7 (available: v0.14.9)
+      Adding sha3 v0.10.9 (available: v0.11.0)
+   Compiling order_combined v0.1.0 (/home/hclau/ecdsa_research/product-order-combined-20261019)
+warning: function `zero_quantum_controls_do_not_remove_a_scored_Toffoli` should have a snake case name
+   --> guard_annotated.rs:115:12
+    |
+115 |  #[test]fn zero_quantum_controls_do_not_remove_a_scored_Toffoli(){let mut ccx=op(K::CCX,2,0);ccx.q_control2=QubitId(3);let v=vec![q...
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: convert the identifier to snake case: `zero_quantum_controls_do_not_remove_a_scored_toffoli`
+    |
+    = note: `#[warn(non_snake_case)]` (part of `#[warn(nonstandard_style)]`) on by default
+
+warning: `order_combined` (bin "guard_annotated" test) generated 1 warning
+warning: function `hash` is never used
+  --> legacy.rs:62:4
+   |
+62 | fn hash(v:&[Op])->String{let mut h=Sha3_256::new();for o in v{for x in [o.kind as u64,o.q_control2.0,o.q_control1.0,o.q_target.0,o.c...
+   |    ^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `main` is never used
+  --> legacy.rs:63:4
+   |
+63 | fn main(){let a:Vec<_>=std::env::args().collect();assert_eq!(a.len(),3);let v=io::load_ops(&a[1]);let p=schedule(&v);assert!(verify(...
+   |    ^^^^
+
+warning: `order_combined` (bin "order_fast" test) generated 2 warnings
+    Finished `release` profile [optimized] target(s) in 16.24s
+     Running unittests guard_annotated.rs (/home/hclau/ecdsa_research/product-order-20261019/target/release/deps/guard_annotated-60828374272fdbf9)
+
+running 9 tests
+test tests::different_reset_guard_does_not_free_a_dirty_branch ... ok
+test tests::captured_guard_survives_mutation_and_frees_a_lane ... ok
+test tests::nested_guard_reset_kills_the_entire_support ... ok
+test tests::boolean_constructors_exhaustive_truth_tables ... ok
+test tests::late_register_annotations_are_inputs_from_op_zero ... ok
+test tests::overflow_is_unknown_true_never_false ... ok
+test tests::zero_quantum_controls_do_not_remove_a_scored_Toffoli ... ok
+test tests::zero_measurements_and_resets_are_retained_even_when_inactive ... ok
+test tests::support_rules_are_sound_for_all_two_variable_functions ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.14s
+
+     Running unittests order_fast.rs (/home/hclau/ecdsa_research/product-order-20261019/target/release/deps/order_fast-99f69d7f4bc6446c)
+
+running 21 tests
+test legacy::tests::advances_cleanup_over_independent_allocation ... ok
+test legacy::tests::duplicate_missing_and_out_of_range_rejected ... ok
+test legacy::tests::captured_guard_boundaries_are_fences ... ok
+test legacy::tests::classical_write_cannot_cross_condition_read ... ok
+test legacy::tests::original_measurement_order_is_global ... ok
+test legacy::tests::same_control_reads_can_commute ... ok
+test legacy::tests::reset_and_measurement_share_one_rng_chain ... ok
+test legacy::tests::target_phase_cannot_cross_toggle ... ok
+test legacy::tests::write_after_multiple_readers_waits_for_both ... ok
+test tests::advances_cleanup_over_independent_allocation ... ok
+test tests::captured_guard_boundaries_are_fences ... ok
+test tests::classical_write_cannot_cross_condition_read ... ok
+test tests::duplicate_missing_and_out_of_range_rejected ... ok
+test tests::original_measurement_order_is_global ... ok
+test tests::reset_and_measurement_share_one_rng_chain ... ok
+test tests::same_control_reads_can_commute ... ok
+test tests::target_phase_cannot_cross_toggle ... ok
+test tests::write_after_multiple_readers_waits_for_both ... ok
+test compact_controls::random_source_permutations_equal_legacy ... ok
+test tests::random_unitary_networks_preserve_all_basis_values_and_phases ... ok
+test legacy::tests::random_unitary_networks_preserve_all_basis_values_and_phases ... ok
+
+test result: ok. 21 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+

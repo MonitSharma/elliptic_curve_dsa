@@ -1,0 +1,32 @@
+     Locking 247 packages to highest compatible versions
+      Adding generic-array v0.14.7 (available: v0.14.9)
+      Adding sha3 v0.10.9 (available: v0.11.0)
+   Compiling support_tight v0.1.0 (/home/hclau/ecdsa_research/product-support-tight-20261019)
+warning: function `zero_quantum_controls_do_not_remove_a_scored_Toffoli` should have a snake case name
+   --> tight_color.rs:116:12
+    |
+116 |  #[test]fn zero_quantum_controls_do_not_remove_a_scored_Toffoli(){let mut ccx=op(K::CCX,2,0);ccx.q_control2=QubitId(3);let v=vec![q...
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: convert the identifier to snake case: `zero_quantum_controls_do_not_remove_a_scored_toffoli`
+    |
+    = note: `#[warn(non_snake_case)]` (part of `#[warn(nonstandard_style)]`) on by default
+
+warning: `support_tight` (bin "tight_color" test) generated 1 warning
+    Finished `release` profile [optimized] target(s) in 13.68s
+     Running unittests tight_color.rs (/home/hclau/ecdsa_research/product-order-20261019/target/release/deps/tight_color-1f453e2175c04918)
+
+running 12 tests
+test tests::boolean_constructors_exhaustive_truth_tables ... ok
+test tests::different_reset_guard_does_not_free_a_dirty_branch ... ok
+test tests::nested_guard_reset_kills_the_entire_support ... ok
+test tests::captured_guard_survives_mutation_and_frees_a_lane ... ok
+test tests::late_register_annotations_are_inputs_from_op_zero ... ok
+test tests::overflow_is_unknown_true_never_false ... ok
+test tests::zero_measurements_and_resets_are_retained_even_when_inactive ... ok
+test tight_controls::complementary_resets_prove_clean_without_an_unconditional_reset ... ok
+test tests::zero_quantum_controls_do_not_remove_a_scored_Toffoli ... ok
+test tight_controls::negated_conjunction_conflict_is_recognized ... ok
+test tight_controls::conditional_swap_transfers_the_dirty_support_to_the_other_branch ... ok
+test tests::support_rules_are_sound_for_all_two_variable_functions ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.12s
+

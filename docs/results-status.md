@@ -1,5 +1,33 @@
 # Results and submission status
 
+## 19 October, 18:20: qualified search continues; arithmetic reader work next
+
+Parent4 remains frozen with its original passing32768-batch gate and complete
+universal transfer/filter qualification. Ascending search PID602346 is active
+on four14-thread workers; at18:12 it reported20,602,880 complete-window nonce
+rows and no pass (live counters, not the terminal JSONL audit). Sustained rate
+is about2697/s, giving an uncertain20-hour expected wait rather than the earlier
+13-hour pilot extrapolation. Queue-only audit/native benchmark watcher610395
+waits for a complete lowest-prefix pass. No uploader is running.
+
+Completed exact scheduling, conditional-support and mapped-measurement methods
+all remain Q1234. Stronger supports prove258,577 conditional cleanups but do
+not lower the peak. Guard-cofactor pruning removes103 inactive Toffolis and
+zero executing Toffolis; it gives no product benefit. Full appropriate
+protected transcript controls pass. These are negative diagnostics, not new
+records; source, tests, logs, hashes and archived evidence are preserved.
+
+Next: exact carry borrowing with decoded read-only operand queries. Compact
+MAJ encodings give free linear readers for two operands. Six independent
+decoder truth-table controls pass locally; a source structural scan and full
+capsule phase controls are next. Use a conservative600-T whole-program budget
+for one qubit; never count a component as a full Q×T result. No new gate or
+nonce search has run for these new arithmetic ideas. Failed past gates stand.
+
+[Active search](../experiments/parent4-operational-sat-20261019/STATUS.md) ·
+[Completed research index](../experiments/autonomous-20261019/LOG.md) ·
+[Next arithmetic experiment](../experiments/product-carry-readers-20261019/STATUS.md).
+
 ## 19 October, 16:14: parent4 frozen search active; complete proof qualified
 
 All27 public-parent product identities plus the zero row now have universal

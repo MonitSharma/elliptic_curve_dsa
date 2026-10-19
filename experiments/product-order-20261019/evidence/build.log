@@ -1,0 +1,11 @@
+   Compiling product_order v0.1.0 (/home/hclau/ecdsa_research/product-order-20261019)
+warning: unused import: `HashSet`
+ --> dynamic_color.rs:5:41
+  |
+5 | use std::collections::{BTreeSet,HashMap,HashSet};
+  |                                         ^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `product_order` (bin "dynamic_color") generated 1 warning (run `cargo fix --bin "dynamic_color" -p product_order` to apply 1 suggestion)
+    Finished `release` profile [optimized] target(s) in 5.07s

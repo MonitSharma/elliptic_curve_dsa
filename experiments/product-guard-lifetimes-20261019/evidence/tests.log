@@ -1,0 +1,29 @@
+     Locking 247 packages to highest compatible versions
+      Adding generic-array v0.14.7 (available: v0.14.9)
+      Adding sha3 v0.10.9 (available: v0.11.0)
+   Compiling guard_lifetimes v0.1.0 (/home/hclau/ecdsa_research/product-guard-lifetimes-20261019)
+warning: function `zero_quantum_controls_do_not_remove_a_scored_Toffoli` should have a snake case name
+   --> guard_color.rs:115:12
+    |
+115 |  #[test]fn zero_quantum_controls_do_not_remove_a_scored_Toffoli(){let mut ccx=op(K::CCX,2,0);ccx.q_control2=QubitId(3);let v=vec![q...
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: convert the identifier to snake case: `zero_quantum_controls_do_not_remove_a_scored_toffoli`
+    |
+    = note: `#[warn(non_snake_case)]` (part of `#[warn(nonstandard_style)]`) on by default
+
+warning: `guard_lifetimes` (bin "guard_color" test) generated 1 warning
+    Finished `release` profile [optimized] target(s) in 13.14s
+     Running unittests guard_color.rs (/home/hclau/ecdsa_research/product-order-20261019/target/release/deps/guard_color-23eabec52485093f)
+
+running 9 tests
+test tests::different_reset_guard_does_not_free_a_dirty_branch ... ok
+test tests::captured_guard_survives_mutation_and_frees_a_lane ... ok
+test tests::boolean_constructors_exhaustive_truth_tables ... ok
+test tests::nested_guard_reset_kills_the_entire_support ... ok
+test tests::overflow_is_unknown_true_never_false ... ok
+test tests::late_register_annotations_are_inputs_from_op_zero ... ok
+test tests::zero_measurements_and_resets_are_retained_even_when_inactive ... ok
+test tests::zero_quantum_controls_do_not_remove_a_scored_Toffoli ... ok
+test tests::support_rules_are_sound_for_all_two_variable_functions ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.14s
+

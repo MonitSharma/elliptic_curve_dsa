@@ -1,0 +1,68 @@
+     Locking 247 packages to highest compatible versions
+      Adding generic-array v0.14.7 (available: v0.14.9)
+      Adding sha3 v0.10.9 (available: v0.11.0)
+   Compiling mr_order v0.1.0 (/home/hclau/ecdsa_research/product-mr-order-20261019)
+warning: field `mr` is never read
+ --> order_mrfree.rs:8:78
+  |
+8 | #[derive(Clone)]struct Access{read:Vec<usize>,write:Vec<usize>,qs:Vec<usize>,mr:bool}
+  |                        ------ field in this struct                           ^^
+  |
+  = note: `Access` has a derived impl for the trait `Clone`, but this is intentionally ignored during dead code analysis
+  = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `hash` is never used
+  --> legacy.rs:62:4
+   |
+62 | fn hash(v:&[Op])->String{let mut h=Sha3_256::new();for o in v{for x in [o.kind as u64,o.q_control2.0,o.q_control1.0,o.q_target.0,o.c...
+   |    ^^^^
+
+warning: function `main` is never used
+  --> legacy.rs:63:4
+   |
+63 | fn main(){let a:Vec<_>=std::env::args().collect();assert_eq!(a.len(),3);let v=io::load_ops(&a[1]);let p=schedule(&v);assert!(verify(...
+   |    ^^^^
+
+warning: `mr_order` (bin "order_mrfree" test) generated 3 warnings
+    Finished `release` profile [optimized] target(s) in 13.44s
+     Running unittests mapped_trace.rs (/home/hclau/ecdsa_research/product-order-20261019/target/release/deps/mapped_trace-d725646583d82838)
+
+running 5 tests
+test tests::disjoint_measurements_match_with_mapped_outcomes ... ok
+test tests::duplicate_map_rejected - should panic ... ok
+test tests::missing_map_rejected - should panic ... ok
+test tests::mapping_reorders_whole_words_and_preserves_continuation ... ok
+test tests::out_of_range_map_rejected - should panic ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests order_mrfree.rs (/home/hclau/ecdsa_research/product-order-20261019/target/release/deps/order_mrfree-d870797eb76aeaa5)
+
+running 24 tests
+test event_controls::event_labels_follow_the_full_permutation ... ok
+test event_controls::duplicate_event_is_rejected - should panic ... ok
+test event_controls::missing_event_is_rejected - should panic ... ok
+test legacy::tests::advances_cleanup_over_independent_allocation ... ok
+test legacy::tests::captured_guard_boundaries_are_fences ... ok
+test legacy::tests::classical_write_cannot_cross_condition_read ... ok
+test legacy::tests::duplicate_missing_and_out_of_range_rejected ... ok
+test legacy::tests::original_measurement_order_is_global ... ok
+test legacy::tests::reset_and_measurement_share_one_rng_chain ... ok
+test legacy::tests::same_control_reads_can_commute ... ok
+test legacy::tests::target_phase_cannot_cross_toggle ... ok
+test legacy::tests::write_after_multiple_readers_waits_for_both ... ok
+test tests::advances_cleanup_over_independent_allocation ... ok
+test tests::captured_guard_boundaries_are_fences ... ok
+test tests::classical_write_cannot_cross_condition_read ... ok
+test tests::duplicate_missing_and_out_of_range_rejected ... ok
+test tests::independent_measurement_labels_can_reorder ... ok
+test tests::independent_resets_can_reorder_with_an_event_bijection ... ok
+test tests::same_control_reads_can_commute ... ok
+test tests::target_phase_cannot_cross_toggle ... ok
+test tests::write_after_multiple_readers_waits_for_both ... ok
+test tests::random_unitary_networks_preserve_all_basis_values_and_phases ... ok
+test legacy::tests::random_unitary_networks_preserve_all_basis_values_and_phases ... ok
+test compact_controls::random_source_permutations_equal_legacy ... ok
+
+test result: ok. 24 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+

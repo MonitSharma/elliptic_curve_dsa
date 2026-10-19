@@ -1,0 +1,12 @@
+   Compiling mr_order v0.1.0 (/home/hclau/ecdsa_research/product-mr-order-20261019)
+warning: field `mr` is never read
+ --> order_mrfree.rs:8:78
+  |
+8 | #[derive(Clone)]struct Access{read:Vec<usize>,write:Vec<usize>,qs:Vec<usize>,mr:bool}
+  |                        ------ field in this struct                           ^^
+  |
+  = note: `Access` has a derived impl for the trait `Clone`, but this is intentionally ignored during dead code analysis
+  = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `mr_order` (bin "order_mrfree") generated 1 warning
+    Finished `release` profile [optimized] target(s) in 6.15s

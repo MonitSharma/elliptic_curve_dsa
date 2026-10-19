@@ -1,0 +1,41 @@
+   Compiling product_order v0.1.0 (/home/hclau/ecdsa_research/product-order-20261019)
+warning: unused import: `HashSet`
+ --> dynamic_color.rs:5:41
+  |
+5 | use std::collections::{BTreeSet,HashMap,HashSet};
+  |                                         ^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `product_order` (bin "dynamic_color" test) generated 1 warning (run `cargo fix --bin "dynamic_color" -p product_order --tests` to apply 1 suggestion)
+    Finished `release` profile [optimized] target(s) in 3.50s
+     Running unittests dynamic_color.rs (target/release/deps/dynamic_color-6ec2a20e7a514250)
+
+running 8 tests
+test tests::false_guard_measurements_and_resets_still_consume_rng ... ok
+test tests::certified_unitary_zero_ends_a_lifetime_without_adding_reset ... ok
+test tests::output_permutation_does_not_need_new_quantum_lane ... ok
+test tests::reset_of_zero_is_retained_for_rng_consumption ... ok
+test tests::unknown_reset_never_releases_a_lane ... ok
+test tests::zero_control_does_not_allocate_or_change_a_target ... ok
+test tests::zero_measurement_still_produces_a_random_classical_bit ... ok
+test tests::zero_register_lanes_can_be_reused_then_outputs_are_restored ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests order.rs (target/release/deps/order-d34be73d790dd13a)
+
+running 10 tests
+test tests::advances_cleanup_over_independent_allocation ... ok
+test tests::captured_guard_boundaries_are_fences ... ok
+test tests::classical_write_cannot_cross_condition_read ... ok
+test tests::duplicate_missing_and_out_of_range_rejected ... ok
+test tests::original_measurement_order_is_global ... ok
+test tests::reset_and_measurement_share_one_rng_chain ... ok
+test tests::same_control_reads_can_commute ... ok
+test tests::target_phase_cannot_cross_toggle ... ok
+test tests::write_after_multiple_readers_waits_for_both ... ok
+test tests::random_unitary_networks_preserve_all_basis_values_and_phases ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+

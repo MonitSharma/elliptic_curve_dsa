@@ -1,0 +1,17 @@
+[package]
+name="order_combined"
+version="0.1.0"
+edition="2021"
+[dependencies]
+quantum_ecc={path="/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline"}
+sha3="0.10"
+serde_json="1"
+zstd="0.13"
+[[bin]]
+name="order_fast"
+path="order_fast.rs"
+[[bin]]
+name="guard_annotated"
+path="guard_annotated.rs"
+[profile.release]
+opt-level=3

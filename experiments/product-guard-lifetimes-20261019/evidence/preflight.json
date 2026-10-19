@@ -1,0 +1,23 @@
+{
+  "at_unix": 1792400407.0109081,
+  "available_memory_bytes": 263797284864,
+  "load": [
+    76.30615234375,
+    77.548828125,
+    76.16064453125
+  ],
+  "process_snapshot": "4163824 RNl    18 1735 python\n4149887 RNl    18 1724 python\n 602365 Sl     15 1117 value_prefilter\n 602363 Sl     15 1117 value_prefilter\n 602364 Sl     15 1110 value_prefilter\n 602367 Sl     15 1102 value_prefilter\n 753611 R       1  700 ps\n 753582 S       1 83.3 python3\n3777359 S+      1  0.5 python\n3025376 Sl    150  0.0 codex\n 602362 S       1  0.0 python3\n 640729 Z       1  0.0 product_paired_\n 640877 Z       1  0.0 product_paired_\n 641577 Z       1  0.0 product_paired_\n 595533 T       1  0.0 python3\n 595631 T       1  0.0 python3\n 610395 Ss      1  0.0 python3\n 633807 T       1  0.0 python3\n3027597 Sl     18  0.0 codex-code-mode\n 595518 Ts      1  0.0 bash\n 595519 Ts      1  0.0 bash\n3733223 Ss      1  0.0 tmux: server\n 606954 Ts      1  0.0 bash\n3644093 Ss      1  0.0 systemd\n 572494 Ts      1  0.0 bash\n 627572 Ts      1  0.0 bash\n1529806 Ss      1  0.0 dbus-daemon\n3025361 Sl      7  0.0 node\n 589762 S       1  0.0 sshd\n 595517 Ts      1  0.0 bash\n 602346 Ss      1  0.0 bash\n 640728 T       1  0.0 time\n 640876 T       1  0.0 time\n 641576 T       1  0.0 time\n 641802 T       1  0.0 sleep\n 641963 T       1  0.0 sleep\n 641964 T       1  0.0 sleep\n 753581 Ss      1  0.0 bash\n3644095 S       1  0.0 (sd-pam)\n3777358 Ss+     1  0.0 bash\n4149884 Ss      1  0.0 sh\n4149885 SN      1  0.0 bash\n4163821 Ss      1  0.0 sh\n4163822 SN      1  0.0 bash\n",
+  "search_compute_threads": 56,
+  "search_worker_slots_including_waiting_mains": 60,
+  "build_jobs": 1,
+  "screen_threads": 1,
+  "known_idle_managers_and_ancestors": [
+    602346,
+    602362,
+    610395,
+    753581,
+    753582
+  ],
+  "unknown_active_research": [],
+  "admission_note": "Reserve worst-case worker slots rather than a transient /proc thread count; helper threads are repeatedly created/destroyed between windows."
+}
