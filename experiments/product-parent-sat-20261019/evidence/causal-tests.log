@@ -1,0 +1,13 @@
+   Compiling parent_sat_boundary v0.1.0 (/home/hclau/ecdsa_research/product-parent-sat-20261019)
+    Finished `release` profile [optimized] target(s) in 9.96s
+     Running unittests taint.rs (target/release/deps/taint-79550e205e9ad332)
+
+running 5 tests
+test tests::diagonal_phase_does_not_create_output_value_difference ... ok
+test tests::guaranteed_reset_stops_causal_value_difference ... ok
+test tests::measurement_resets_value_with_same_free_classical_outcome ... ok
+test tests::nonlinear_reader_propagates_possible_difference ... ok
+test tests::unknown_reset_never_stops_causal_difference ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

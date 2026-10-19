@@ -1,0 +1,40 @@
+   Compiling parent_sat_boundary v0.1.0 (/home/hclau/ecdsa_research/product-parent-sat-20261019)
+warning: struct `Episode` is never constructed
+  --> graph.rs:10:24
+   |
+10 | #[derive(Clone)]struct Episode {start:usize,fill:Op,value:E,reads:Vec<(usize,u64)>}
+   |                        ^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: struct `Finished` is never constructed
+  --> graph.rs:11:8
+   |
+11 | struct Finished {ep:Episode,end:usize,phase:Option<usize>,valid:bool}
+   |        ^^^^^^^^
+
+warning: struct `Unwrapper` is never constructed
+  --> graph.rs:12:8
+   |
+12 | struct Unwrapper {active:Vec<Option<Episode>>,finished:Vec<Finished>,bits:HashMap<u64,usize>,inputs:HashSet<u64>}
+   |        ^^^^^^^^^
+
+warning: methods `observe` and `metadata_read` are never used
+  --> graph.rs:14:5
+   |
+13 | impl Unwrapper {
+   | -------------- methods in this implementation
+14 |  fn observe(&mut self,i:usize,o:&Op,eff:&E,q:&[E],c:&[E],alg:&mut Algebra){
+   |     ^^^^^^^
+...
+45 |  fn metadata_read(&mut self,o:&Op){if let Some(&f)=self.bits.get(&o.c_condition.0){self.finished[f].valid=false;}}
+   |     ^^^^^^^^^^^^^
+
+warning: function `make` is never used
+  --> graph.rs:81:4
+   |
+81 | fn make(k:K,c2:u64,c1:u64,t:u64,ct:u64,cc:u64)->Op {
+   |    ^^^^
+
+warning: `parent_sat_boundary` (bin "graph") generated 5 warnings
+    Finished `release` profile [optimized] target(s) in 1.14s

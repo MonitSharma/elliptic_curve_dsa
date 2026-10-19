@@ -1,0 +1,39 @@
+{
+  "verdict": "sat",
+  "seconds": 0.006487701088190079,
+  "quantum_boundary_variables": 566,
+  "classical_variables": 5,
+  "boundary_atoms": [],
+  "expanded_relations": 0,
+  "iterations": 1,
+  "missing_frontier_definitions": 0,
+  "statistics": "(:conflicts          24\n :decisions          46\n :del-clause         4\n :elim-unconstrained 11\n :final-checks       2\n :max-memory         20.65\n :memory             20.12\n :minimized-lits     20\n :mk-bool-var        38\n :mk-clause          114\n :num-allocs         158083\n :num-checks         2\n :propagations       140\n :rlimit-count       14957\n :time               0.01)",
+  "reason_unknown": null,
+  "scope": "ARBITRARY_BOUNDARY_VALUE_PROOF_NOT_A_CENSUS",
+  "input": {
+    "lease": 2,
+    "first": 14243654,
+    "last": 14247262,
+    "initial_depth": 0,
+    "base_pre_tail_sha3_256": "c143e90580bb0c6f6a12996a50147c179c4fdfe3a50d8af85350bf9e6d755e04",
+    "raw_sha256": "059c44cc994f57574192c8e1c6946cb824d6fb39e05964ee67215fcec930cb4d",
+    "raw_file": "wide-02-16.raw",
+    "row": [
+      14243654,
+      14247262,
+      1102,
+      257,
+      1117,
+      576,
+      1117,
+      257,
+      202
+    ],
+    "statement": "Equality of the endpoint control products, over arbitrary boundary wires/flags and arbitrary measurement outcomes. Initial effective guards are true, separately certified by the global interpreter.",
+    "start": 14243638,
+    "lookback": 16
+  },
+  "z3_version": "5.1.0",
+  "driver_sha256": "715574f7e942df9034eecde9828635352be577c0aa1d730a7c41d77c4fe8553a",
+  "status": "INCONCLUSIVE_LOCAL_BOUNDARY"
+}

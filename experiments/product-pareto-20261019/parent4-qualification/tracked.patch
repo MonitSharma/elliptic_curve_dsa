@@ -1,0 +1,18 @@
+diff --git a/src/point_add/mod.rs b/src/point_add/mod.rs
+index b4453e79..682f8fe2 100755
+--- a/src/point_add/mod.rs
++++ b/src/point_add/mod.rs
+@@ -617,6 +617,7 @@ pub fn build() -> Vec<Op> {
+     ops = frozen_cache_product67::run(ops);
+     ops = retained_products::run(ops);
+     ops = zero_product::run(ops);
++    ops = retained_product_pareto::run(ops);
+     let nonce: u64 = required_env("TAIL_NONCE");
+     let mut x = Op::empty();
+     x.kind = OperationType::X;
+@@ -690,3 +691,5 @@ mod frozen_cache_product67;
+ 
+ mod retained_products;
+ mod zero_product;
++
++mod retained_product_pareto;

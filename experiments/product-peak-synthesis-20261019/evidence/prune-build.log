@@ -1,0 +1,11 @@
+   Compiling peak_synthesis v0.1.0 (/home/hclau/ecdsa_research/product-peak-synthesis-20261019)
+warning: unused import: `HashSet`
+ --> dynamic_color.rs:5:41
+  |
+5 | use std::collections::{BTreeSet,HashMap,HashSet};
+  |                                         ^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `peak_synthesis` (bin "dynamic_color") generated 1 warning (run `cargo fix --bin "dynamic_color" -p peak_synthesis` to apply 1 suggestion)
+    Finished `release` profile [optimized] target(s) in 1.14s

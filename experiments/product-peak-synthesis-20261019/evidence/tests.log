@@ -1,0 +1,110 @@
+     Locking 247 packages to highest compatible versions
+      Adding generic-array v0.14.7 (available: v0.14.9)
+      Adding sha3 v0.10.9 (available: v0.11.0)
+   Compiling typenum v1.20.1
+   Compiling libc v0.2.191
+   Compiling version_check v0.9.5
+   Compiling proc-macro2 v1.0.107
+   Compiling shlex v2.0.1
+   Compiling find-msvc-tools v0.1.14
+   Compiling generic-array v0.14.7
+   Compiling pkg-config v0.3.34
+   Compiling unicode-ident v1.0.27
+   Compiling quote v1.0.47
+   Compiling hybrid-array v0.4.15
+   Compiling cfg-if v1.0.5
+   Compiling jobserver v0.1.35
+   Compiling unicode-segmentation v1.13.3
+   Compiling syn v2.0.119
+   Compiling block-buffer v0.12.1
+   Compiling cc v1.8.0
+   Compiling convert_case v0.10.0
+   Compiling crypto-common v0.2.2
+   Compiling zstd-safe v7.3.0
+   Compiling paste v1.0.15
+   Compiling unicode-xid v0.2.6
+   Compiling digest v0.11.3
+   Compiling block-buffer v0.10.4
+   Compiling crypto-common v0.1.7
+   Compiling keccak v0.2.2
+   Compiling ruint-macro v1.2.1
+   Compiling foldhash v0.2.0
+   Compiling itoa v1.0.18
+   Compiling zmij v1.0.23
+   Compiling zstd-sys v2.1.2+zstd.1.5.7
+   Compiling serde_core v1.0.229
+   Compiling cpufeatures v0.2.17
+   Compiling const-hex v1.19.3
+   Compiling ruint v1.20.1
+   Compiling hashbrown v0.17.1
+   Compiling sha3 v0.11.0
+   Compiling digest v0.10.7
+   Compiling serde_json v1.0.154
+   Compiling bytes v1.12.1
+   Compiling derive_more-impl v2.1.1
+   Compiling keccak v0.1.6
+   Compiling sha3 v0.10.9
+   Compiling memchr v2.8.3
+   Compiling derive_more v2.1.1
+   Compiling alloy-primitives v1.7.3
+   Compiling zstd v0.13.3
+   Compiling quantum_ecc v0.1.0 (/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline)
+   Compiling peak_synthesis v0.1.0 (/home/hclau/ecdsa_research/product-peak-synthesis-20261019)
+warning: variable `exact_reductions_unconditional` is assigned to, but never used
+   --> recompute.rs:106:6
+    |
+106 |  let mut exact_reductions_unconditional=0;
+    |      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: consider using `_exact_reductions_unconditional` instead
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: value assigned to `exact_reductions_unconditional` is never read
+   --> recompute.rs:123:25
+    |
+123 |   if reducible&&always {exact_reductions_unconditional+=1;}
+    |                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: maybe it is overwritten before being read?
+    = note: `#[warn(unused_assignments)]` (part of `#[warn(unused)]`) on by default
+
+warning: `peak_synthesis` (bin "recompute" test) generated 2 warnings
+    Finished `release` profile [optimized] target(s) in 34.28s
+     Running unittests borrow.rs (target/release/deps/borrow-67f73e24e3c50066)
+
+running 11 tests
+test tests::carry_target_mutation_blocks_borrow ... ok
+test tests::compact_cell_preserves_values_and_every_phase ... ok
+test tests::compact_fast_cleanup_with_optional_reset_is_exact ... ok
+test tests::dirty_initial_carry_blocks_borrow ... ok
+test tests::exact_values_and_every_measurement_phase ... ok
+test tests::extra_classical_reader_blocks_borrow ... ok
+test tests::missing_reverse_toffoli_is_detected ... ok
+test tests::operand_read_blocks_borrow ... ok
+test tests::registered_carry_is_never_borrowed ... ok
+test tests::unconditional_bit_overwrite_allows_borrow ... ok
+test tests::nested_borrows_preserve_all_basis_values_and_phases ... ok
+
+test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests peak.rs (target/release/deps/peak-e5fcc788649e93a3)
+
+running 3 tests
+test tests::late_input_metadata_is_pinned_from_start ... ok
+test tests::unknown_reset_cannot_end_lifetime ... ok
+test tests::unconditional_reset_allows_reuse ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests recompute.rs (target/release/deps/recompute-6166561fd104caef)
+
+running 6 tests
+test tests::late_register_annotations_are_initial_inputs ... ok
+test tests::triple_and_complement ... ok
+test tests::truncation_is_fresh ... ok
+test tests::two_reads_are_retained_and_third_control_change_rejected ... ok
+test tests::unknown_guard_is_not_assumed_true ... ok
+test tests::unwrap_proves_only_isolated_repaired_measurements ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

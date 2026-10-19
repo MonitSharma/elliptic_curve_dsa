@@ -1,0 +1,119 @@
+   Compiling peak_synthesis v0.1.0 (/home/hclau/ecdsa_research/product-peak-synthesis-20261019)
+warning: unused import: `HashSet`
+ --> dynamic_color.rs:5:41
+  |
+5 | use std::collections::{BTreeSet,HashMap,HashSet};
+  |                                         ^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable `pairs` is assigned to, but never used
+   --> zero.rs:104:41
+    |
+104 |  let mut leases:Vec<[u64;9]>=vec![];let mut pairs=0;let mut dead=0;let mut unconditional=0;
+    |                                         ^^^^^^^^^
+    |
+    = note: consider using `_pairs` instead
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable `dead` is assigned to, but never used
+   --> zero.rs:104:57
+    |
+104 |  let mut leases:Vec<[u64;9]>=vec![];let mut pairs=0;let mut dead=0;let mut unconditional=0;
+    |                                                         ^^^^^^^^
+    |
+    = note: consider using `_dead` instead
+
+warning: variable `unconditional` is assigned to, but never used
+   --> zero.rs:104:72
+    |
+104 |  let mut leases:Vec<[u64;9]>=vec![];let mut pairs=0;let mut dead=0;let mut unconditional=0;
+    |                                                                        ^^^^^^^^^^^^^^^^^
+    |
+    = note: consider using `_unconditional` instead
+
+warning: variable `exact_reductions_unconditional` is assigned to, but never used
+   --> zero.rs:106:6
+    |
+106 |  let mut exact_reductions_unconditional=0;
+    |      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: consider using `_exact_reductions_unconditional` instead
+
+warning: value assigned to `pairs` is never read
+   --> zero.rs:128:5
+    |
+128 |     pairs+=1;
+    |     ^^^^^^^^
+    |
+    = help: maybe it is overwritten before being read?
+    = note: `#[warn(unused_assignments)]` (part of `#[warn(unused)]`) on by default
+
+warning: value assigned to `dead` is never read
+   --> zero.rs:115:21
+    |
+115 |   if eff.is_empty(){dead+=1;continue;}
+    |                     ^^^^^^^
+    |
+    = help: maybe it is overwritten before being read?
+
+warning: value assigned to `unconditional` is never read
+   --> zero.rs:126:4
+    |
+126 |    unconditional+=1;let key=Algebra::triple(&q[a],&q[b]);
+    |    ^^^^^^^^^^^^^^^^
+    |
+    = help: maybe it is overwritten before being read?
+
+warning: value assigned to `exact_reductions_unconditional` is never read
+   --> zero.rs:124:25
+    |
+124 |   if reducible&&always {exact_reductions_unconditional+=1;}
+    |                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: maybe it is overwritten before being read?
+
+warning: fields `start`, `fill`, `value`, and `reads` are never read
+  --> zero.rs:10:33
+   |
+10 | #[derive(Clone)]struct Episode {start:usize,fill:Op,value:E,reads:Vec<(usize,u64)>}
+   |                        -------  ^^^^^       ^^^^    ^^^^^   ^^^^^
+   |                        |
+   |                        fields in this struct
+   |
+   = note: `Episode` has a derived impl for the trait `Clone`, but this is intentionally ignored during dead code analysis
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: fields `ep`, `end`, and `phase` are never read
+  --> zero.rs:11:18
+   |
+11 | struct Finished {ep:Episode,end:usize,phase:Option<usize>,valid:bool}
+   |        --------  ^^         ^^^       ^^^^^
+   |        |
+   |        fields in this struct
+
+warning: fields `active` and `inputs` are never read
+  --> zero.rs:12:19
+   |
+12 | struct Unwrapper {active:Vec<Option<Episode>>,finished:Vec<Finished>,bits:HashMap<u64,usize>,inputs:HashSet<u64>}
+   |        ---------  ^^^^^^                                                                     ^^^^^^
+   |        |
+   |        fields in this struct
+
+warning: method `observe` is never used
+  --> zero.rs:14:5
+   |
+13 | impl Unwrapper {
+   | -------------- method in this implementation
+14 |  fn observe(&mut self,i:usize,o:&Op,eff:&E,q:&[E],c:&[E],alg:&mut Algebra){
+   |     ^^^^^^^
+
+warning: function `make` is never used
+  --> zero.rs:81:4
+   |
+81 | fn make(k:K,c2:u64,c1:u64,t:u64,ct:u64,cc:u64)->Op {
+   |    ^^^^
+
+warning: `peak_synthesis` (bin "zero") generated 13 warnings
+warning: `peak_synthesis` (bin "dynamic_color") generated 1 warning (run `cargo fix --bin "dynamic_color" -p peak_synthesis` to apply 1 suggestion)
+    Finished `release` profile [optimized] target(s) in 1.52s

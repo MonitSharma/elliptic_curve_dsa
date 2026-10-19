@@ -1,0 +1,32 @@
+{
+  "declared_at_utc": "2026-10-19T02:44:28.260826+00:00",
+  "label": "pareto-parent4-gate-20261019-v1",
+  "batch_count": 32768,
+  "shots_per_batch": 64,
+  "workers_per_stream": 16,
+  "public_parent": "9dc3798c-93e0-4da4-a6a9-37586737c4af",
+  "base_revision": "0c3a0751ab66bd9144358d67563bcb79201cf636",
+  "streams": {
+    "parent": {
+      "path": "/home/hclau/ecdsa_research/product-pareto-20261019/parent/ops.bin",
+      "sha256": "99edb1d39f94c40752cb1fa2581dd2b13fe17696c486f542b8d43c1af1974683"
+    },
+    "candidate": {
+      "path": "/home/hclau/ecdsa_research/product-pareto-20261019/candidate-parent4/ops.bin",
+      "sha256": "9f50f06098026882a57f5f6c436abaaf68be79be2fc7c6e33b8e884065195a3a"
+    }
+  },
+  "driver_sha256": "c3294002e1553c5ab35bc23eb2d5631654debceadb02e04b50f4c9fb025ee4b2",
+  "point_add_manifest_sha256": "92eac29d9183d0d1dc46b559d1528afb11cc90adac51f33ccd0f2df1380335f6",
+  "verdict_is_final": true,
+  "submission_authorized": true,
+  "model_attribution": "GPT-6 Astra",
+  "harness": "Codex",
+  "nonce_search_started": false,
+  "required_rules": [
+    "candidate value shots <= parent",
+    "one-sided exact McNemar p >= 0.05",
+    "141 * candidate failed batches / total <= 18",
+    "zero dirty shots"
+  ]
+}

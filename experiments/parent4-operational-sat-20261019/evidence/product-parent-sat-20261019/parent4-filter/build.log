@@ -1,0 +1,187 @@
+   Compiling version_check v0.9.5
+   Compiling typenum v1.19.0
+   Compiling zeroize v1.8.2
+   Compiling libc v0.2.185
+   Compiling proc-macro2 v1.0.106
+   Compiling generic-array v0.14.9
+   Compiling shlex v1.3.0
+   Compiling find-msvc-tools v0.1.9
+   Compiling unicode-ident v1.0.24
+   Compiling pkg-config v0.3.33
+   Compiling quote v1.0.45
+   Compiling jobserver v0.1.34
+   Compiling subtle v2.6.1
+   Compiling rand_core v0.6.4
+   Compiling cc v1.2.60
+   Compiling unicode-segmentation v1.13.2
+   Compiling syn v2.0.117
+   Compiling block-buffer v0.10.4
+   Compiling convert_case v0.10.0
+   Compiling crypto-common v0.1.6
+   Compiling cfg-if v1.0.4
+   Compiling zstd-safe v7.2.4
+   Compiling paste v1.0.15
+   Compiling const-oid v0.9.6
+   Compiling unicode-xid v0.2.6
+   Compiling der v0.7.10
+   Compiling digest v0.10.7
+   Compiling ff v0.13.1
+   Compiling zstd-sys v2.0.16+zstd.1.5.7
+   Compiling ruint-macro v1.2.1
+   Compiling foldhash v0.2.0
+   Compiling itoa v1.0.18
+   Compiling base16ct v0.2.0
+   Compiling cpufeatures v0.2.17
+   Compiling keccak v0.1.6
+   Compiling zmij v1.0.21
+   Compiling serde_core v1.0.228
+   Compiling sha3 v0.10.8
+   Compiling const-hex v1.18.1
+   Compiling sec1 v0.7.3
+   Compiling hashbrown v0.16.1
+   Compiling ruint v1.17.2
+   Compiling group v0.13.0
+   Compiling crypto-bigint v0.5.5
+   Compiling serde_json v1.0.149
+   Compiling derive_more-impl v2.1.1
+   Compiling bytes v1.11.1
+   Compiling rustc-hash v2.1.2
+   Compiling elliptic-curve v0.13.8
+   Compiling memchr v2.8.0
+   Compiling k256 v0.13.4
+   Compiling derive_more v2.1.1
+   Compiling alloy-primitives v1.5.7
+   Compiling zstd v0.13.3
+   Compiling quantum_ecc v0.1.0 (/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline)
+   Compiling value_prefilter v0.1.0 (/home/hclau/ecdsa_research/product-parent-sat-20261019/parent4-filter/tool)
+warning: multiple fields are never read
+  --> src/official.rs:5:5
+   |
+ 3 | struct SeedReport {
+   |        ---------- fields in this struct
+ 4 |     ok: bool,
+ 5 |     avg_cliff: f64,
+   |     ^^^^^^^^^
+ 6 |     avg_tof: f64,
+   |     ^^^^^^^
+ 7 |     tot_tof: u64,
+   |     ^^^^^^^
+ 8 |     tot_cliff: u64,
+   |     ^^^^^^^^^
+ 9 |     n_shots: usize,
+10 |     classical_failures: usize,
+   |     ^^^^^^^^^^^^^^^^^^
+11 |     phase_garbage_batches: usize,
+   |     ^^^^^^^^^^^^^^^^^^^^^
+12 |     ancilla_garbage_batches: usize,
+   |     ^^^^^^^^^^^^^^^^^^^^^^^
+13 |     fail_reason: Option<String>,
+   |     ^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: methods `qubit` and `qubit_mut` are never used
+  --> src/fast_sim_wide.rs:30:5
+   |
+27 | impl<'a> FastSimulator<'a> {
+   | -------------------------- methods in this implementation
+...
+30 |  fn qubit(&self,q:QubitId)->u64{self.qubits[q.0 as usize]}
+   |     ^^^^^
+31 |  fn qubit_mut(&mut self,q:QubitId)->&mut u64{&mut self.qubits[q.0 as usize]}
+   |     ^^^^^^^^^
+
+warning: struct `Letter` is never constructed
+  --> src/rail_advisory.rs:12:8
+   |
+12 | struct Letter { signs:[bool;2], forced:usize, choice:bool, extra:usize }
+   |        ^^^^^^
+
+warning: methods `add`, `half`, and `neg` are never used
+  --> src/rail_advisory.rs:25:22
+   |
+19 | impl RailAdvisory {
+   | ----------------- methods in this implementation
+...
+25 |  #[inline(always)]fn add(&self,a:U256,b:U256)->U256{let(s,over)=a.overflowing_add(b);if over{s+U256::from(4294968273u64)}else if s>=...
+   |                      ^^^
+26 |  #[inline(always)]fn sub(&self,a:U256,b:U256)->U256{if a>=b{a-b}else{self.p-(b-a)}}
+27 |  #[inline(always)]fn half(&self,a:U256)->U256{if a.bit(0){(a>>1)+(self.p>>1)+U256::from(1)}else{a>>1}}
+   |                      ^^^^
+28 |  #[inline(always)]fn neg(&self,a:U256)->U256{if a.is_zero(){a}else{self.p-a}}
+   |                      ^^^
+
+warning: multiple fields are never read
+ --> src/simd_screen_ffi_wide.rs:6:21
+  |
+6 | ...ct ExactBackend{combine:ShCombine,run:SimdRun,new:ShNew,clone:ShClone,free:ShFree,same:ShSame,different:ShDifferent,finalize:ShFinalize,squeeze:ShSqueeze,words:ShWords,select:Sh...
+  |       ------------ ^^^^^^^           ^^^                   ^^^^^                                 ^^^^^^^^^             ^^^^^^^^            ^^^^^^^           ^^^^^         ^^^^^^
+  |       |
+  |       fields in this struct
+
+warning: multiple associated items are never used
+  --> src/simd_screen_ffi_wide.rs:14:16
+   |
+14 | impl Shake8{fn combine(contexts:[*const c_void;8],lanes:[u32;8])->Self{let p=unsafe{(exact_backend().combine)(contexts.as_ptr(),lanes.as_ptr())};assert!(!p.is_null(),"SHAKE contexts differ in position/finalized status");Self(p)}fn new()->Self{let p=unsafe{(exact_backend().new)()};assert!(!p.is_null());Self(p)}fn copy(&self)->Self{let p=unsafe{(exact_backend().clone)(self.0)};assert!(!p.is_null());Self(p)}fn same(&mut self,b:&[u8]){assert_eq!(unsafe{(exact_backend().same)(self.0,b.as_ptr(),b.len())},0);}fn different(&mut self,b:&[u8],n:usize){assert_eq!(b.len(),n*8);assert_eq!(unsafe{(exact_backend().different)(self.0,b.as_ptr(),n,n)},0);}fn finalize(&mut self){assert_eq!(unsafe{(exact_backend().finalize)(self.0)},0);}fn squeeze(&mut self,n:usize)->Vec<u8>{let mut b=vec![0;n*8];assert_eq!(unsafe{(exact_backend().squeeze)(self.0,b.as_mut_ptr(),n,n)},0);b}fn words(&mut self,n:usize)->Vec<u64>{let mut b=vec![0;n*8];assert_eq!(unsafe{(exact_backend().words)(self.0,b.as_mut_ptr(),n)},0);b}fn select(&m...
+   | -----------    ^^^^^^^                                                                                                                                                                                                                                                                                                    ^^^^                                                                                                                                                                                                 ^^^^^^^^^                                                                                                                                 ^^^^^^^^                                                                         ^^^^^^^                                                                                                                                   ^^^^^                                                                                                                                ^^^^^^
+   | |
+   | associated items in this implementation
+
+warning: function `rail_suspect_many` is never used
+ --> src/rail_fast_ffi.rs:8:4
+  |
+8 | fn rail_suspect_many(model:&RailAdvisory,points:&[PointTriple])->bool{rail_flags(model,points).iter().any(|x|*x!=0)}
+  |    ^^^^^^^^^^^^^^^^^
+
+warning: struct `Packet` is never constructed
+ --> src/baseline_body.rs:4:8
+  |
+4 | struct Packet{keys:Vec<u8>,next:usize,batches:Vec<Vec<PointTriple>>}
+  |        ^^^^^^
+
+warning: method `ensure` is never used
+ --> src/baseline_body.rs:6:5
+  |
+5 | impl Packet{
+  | ----------- method in this implementation
+6 |  fn ensure(&mut self,batch:usize,curve:&FastCurveC)->bool{while self.batches.len()<=batch{let mut pts=Vec::with_capacity(64);while pt...
+  |     ^^^^^^
+
+warning: function `tail_nonce_of` is never used
+ --> src/baseline_body.rs:9:4
+  |
+9 | fn tail_nonce_of(tail:&[Op])->u64{(0..48).map(|b|(tail[2*b].q_target.0&1)<<b).sum()}
+  |    ^^^^^^^^^^^^^
+
+warning: function `exact_batch` is never used
+  --> src/baseline_body.rs:10:4
+   |
+10 | fn exact_batch(p:&Compact,packets:&[Packet],indices:[usize;8],active:[bool;8],regs:&[Vec<QubitOrBit>],nq:usize,nb:usize,rng:&[u64])-...
+   |    ^^^^^^^^^^^
+
+warning: struct `PreparedPacket` is never constructed
+  --> src/baseline_body.rs:19:8
+   |
+19 | struct PreparedPacket{packet:Packet,ctx:Arc<Shake8>,lane:usize,nonce:u64,selected:usize,hit:bool,prepsecs:f64}
+   |        ^^^^^^^^^^^^^^
+
+warning: function `prepare8` is never used
+  --> src/baseline_body.rs:20:4
+   |
+20 | fn prepare8(base:&Shake8,hash:&Shake256,tail:&[Op],nonces:[u64;8],valid:[bool;8],curve:&FastCurveC,model:&RailAdvisory)->Vec<Prepare...
+   |    ^^^^^^^^
+
+warning: function `confirm_bucket` is never used
+  --> src/baseline_body.rs:25:4
+   |
+25 | fn confirm_bucket(prefix:&Compact,mut prepared:Vec<PreparedPacket>,regs:&[Vec<QubitOrBit>],nq:usize,nb:usize,curve:&FastCurveC)->Vec...
+   |    ^^^^^^^^^^^^^^
+
+warning: function `baseline_main` is never used
+  --> src/baseline_body.rs:35:4
+   |
+35 | fn baseline_main(){let a:Vec<_>=std::env::args().collect();assert_eq!(a.len(),8,"OPS FIRST COUNT THREADS OUT MODEL_SOURCE LOOKAHEAD"...
+   |    ^^^^^^^^^^^^^
+
+warning: `value_prefilter` (bin "value_prefilter") generated 15 warnings
+    Finished `release` profile [optimized] target(s) in 29.35s

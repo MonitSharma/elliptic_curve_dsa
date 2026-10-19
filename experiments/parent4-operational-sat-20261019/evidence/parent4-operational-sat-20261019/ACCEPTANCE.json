@@ -1,0 +1,93 @@
+{
+  "status": "SOURCE_BOUND_MASK_TRANSFER_AND_RUNTIME_ACCEPTED_FOR_ASCENDING_SEARCH",
+  "accepted_utc": "2026-10-19T08:01:00.596583+00:00",
+  "candidate": "Frozen parent4 exact product-retention candidate",
+  "candidate_stream_sha256": "9f50f06098026882a57f5f6c436abaaf68be79be2fc7c6e33b8e884065195a3a",
+  "mask_sha256": "560c12d5044dd895a4ef32adc905cdde48a780a196b3b28a75951c7f27b4fe9d",
+  "operational_binary_sha256": "0a01214ee6c245a00d39031f5103470cc833f9f66b5120d702f48831ddf537aa",
+  "lowest_pass_from": 1,
+  "submission_mode": "queue",
+  "failure_gate_pass": true,
+  "failure_gate": {
+    "status": "FAILURE_GATE_PASS",
+    "label": "pareto-parent4-gate-20261019-v1",
+    "batches": 32768,
+    "shots_each": 2097152,
+    "rules": {
+      "value_not_above_parent": true,
+      "paired_mcnemar_p_at_least_005": true,
+      "failed_batches_per_packet_at_most_18": true,
+      "zero_dirty_shots": true
+    },
+    "failed_batches": {
+      "parent": 4171,
+      "candidate": 4149
+    },
+    "value_shots": {
+      "parent": 3619,
+      "candidate": 3619
+    },
+    "dirty_shots": {
+      "parent": 0,
+      "candidate": 0
+    },
+    "newly_failing_b": 350,
+    "newly_passing_c": 372,
+    "mcnemar_one_sided_p": 0.8039858338048244,
+    "failed_batches_per_packet": {
+      "parent": 17.947723388671875,
+      "candidate": 17.853057861328125
+    },
+    "paired_mean_toffoli_saving": 4.7487053871154785,
+    "saving_standard_error": 0.5749225868012509,
+    "mean_toffoli": {
+      "parent": 761093.9546027184,
+      "candidate": 761089.2058973312
+    },
+    "census_sha256": {
+      "parent": "55879a5eeaca1c6638fd91ab9c80ac54cbb035127ece3044da390822fa7ef92e",
+      "candidate": "731f9d3b82aa0c9a148707d12f2e38a1e4d6ed494aa6e2ddb0cde7ceb0d5c1bb"
+    },
+    "stream_sha256": {
+      "parent": "99edb1d39f94c40752cb1fa2581dd2b13fe17696c486f542b8d43c1af1974683",
+      "candidate": "9f50f06098026882a57f5f6c436abaaf68be79be2fc7c6e33b8e884065195a3a"
+    },
+    "no_official_benchmark_or_nonce_search": true
+  },
+  "cost_gate_pass": true,
+  "expected_nonces": 195057531.5339416,
+  "pilot_rate_nonces_per_thread_second": 76.19213722442015,
+  "expected_hours_at_56_threads_ideal_linear": 12.698781195550028,
+  "wall_limit_hours": 48,
+  "cost_estimate_scope": "New-candidate 2-thread median over three 4096-nonce trials; 56-thread linear scaling is an estimate, not a measured production rate.",
+  "qualified_prefix_rows_sha256": "6f2840b7973b600533c47191ccf65425e687fbde5758ef4e518bafb5c843884d",
+  "runtime_artifacts": {
+    "/home/hclau/ecdsa_research/product-exact-20261015/product-to67-rank-20261016/product-67-retained-1024-proxy.bin": "268aefe234ede5eaab723e34e214b91f0bd8cac9b0f95d9ee90e3bf3ae8c951d",
+    "/home/hclau/ecdsa_research/product-exact-20261015/cache-certificate67-20261016/CACHE_EQUIVALENCE_CERTIFICATE.json": "303a75ec86a4da8c3a4008646e1b8257768fa40e198f0b7172eeafd19408c7c6",
+    "/home/hclau/ecdsa_research/product-exact-20261015/cache-certificate67-20261016/PER_INPUT_MASK_TRANSFER.json": "d774c492b94f1c6ca458cc42de82d6dbee90a316f7d80c9dc6ee32eb1fe5201f",
+    "/home/hclau/ecdsa_research/prefilter-20261015/evidence/mr-mask-tip-v3.bin": "560c12d5044dd895a4ef32adc905cdde48a780a196b3b28a75951c7f27b4fe9d",
+    "/home/hclau/ecdsa_research/prefilter-20261015/evidence/mr-mask-tip-v3-fused.bin": "1ccbbfc4a45b8d359be9ce21eb4640c72bb9bfe9bffb35f5630c0d13da3f2f8a",
+    "/home/hclau/ecdsa_research/prefilter-20261015/libmask_fused.so": "dc8219ae84c21e244ec0e1b92a14e9d0705faf7ebced04a2663499a75a6af1a0",
+    "/home/hclau/ecdsa_research/scalar-fast-20261015/libscalar_fast_batch.so": "3bb2304219fb336795ea88d4bf81174883cdd33702f5975819b812c3dffca30f",
+    "/home/hclau/ecdsa_research/product-pareto-20261019/candidate-parent4/ops.bin": "9f50f06098026882a57f5f6c436abaaf68be79be2fc7c6e33b8e884065195a3a",
+    "/home/hclau/ecdsa_research/product-parent-sat-20261019/PUBLIC-PARENT-TRANSFER.json": "244dc4a86004873f6727d0be0c221fe0bcb382efbc074ce86bbe482a75bdf71d",
+    "/home/hclau/ecdsa_research/product-parent-sat-20261019/VERIFIED-EXTENSION-PROOFS.json": "f64b7c1861fd240d72d09e5d8e4ad909cbc8edf1f12584a0246227e10a290de2",
+    "/home/hclau/ecdsa_research/product-parent-sat-20261019/target/release/verify_extension": "2978b0da09d7e58842b56ee1c0876e64ba5dc83156eb62a0256f74e5fb6644fe",
+    "/home/hclau/ecdsa_research/product-pareto-20261019/parent4-qualification/RESULT.json": "31dd83d15f190d8e8da3df22ef0c84634245235fa42ec4bfe602fec24b0a335c",
+    "/home/hclau/ecdsa_research/product-pareto-20261019/parent4-qualification/point-add-source.json": "92eac29d9183d0d1dc46b559d1528afb11cc90adac51f33ccd0f2df1380335f6",
+    "/home/hclau/ecdsa_research/product-pareto-20261019/parent4-qualification/protected-files.json": "1cb434bf197309c0fac974f20846ecc23564e8b852496daad6375c1f021fc02e",
+    "/home/hclau/ecdsa_research/product-parent-sat-20261019/parent4-filter/RESULT.json": "fec91527cbde70f6bdca22a1b33185e1edfbd9d57c158aeb1839413e15518da2",
+    "/home/hclau/ecdsa_research/product-parent-sat-20261019/parent4-filter/tool/target/release/value_prefilter": "6c44acd035bd46be797a700b1bcb99eb2511a8327e031bdf33095b1009be405f",
+    "/home/hclau/ecdsa_research/product-parent-sat-20261019/parent4-filter/PREPARATION.json": "051abd4dad7ef67730178130612e6c7fd3a7dde4375d49441d231138057e7a7d",
+    "/home/hclau/ecdsa_research/parent4-operational-sat-20261019/TOOL_DIFF_AUDIT.json": "bf1c774869e4c6e5c5bc5c13698b7b5e480bd98cc173aa459abef844fff0cd15"
+  },
+  "derivation": "Reviewed PLAIN67 operational source, changed only in the qualified candidate hash/op count and transfer-artifact bindings; complete source comparison in TOOL_DIFF_AUDIT.json.",
+  "remaining_gates": [
+    "Operational rows equal qualified prefix 1..4096",
+    "Complete audit of every lower nonce before choosing first pass",
+    "Native pre-tail identity and unchanged official benchmark",
+    "Refresh public record and obey existing submission authorization"
+  ],
+  "score": null,
+  "existing_submission_authorization": "Parent4 only; GPT-6 Astra attribution; final eligibility remains mandatory"
+}

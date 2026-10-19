@@ -1,0 +1,21 @@
+   Compiling peak_synthesis v0.1.0 (/home/hclau/ecdsa_research/product-peak-synthesis-20261019)
+warning: unused import: `HashSet`
+ --> dynamic_color.rs:5:41
+  |
+5 | use std::collections::{BTreeSet,HashMap,HashSet};
+  |                                         ^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `peak_synthesis` (bin "dynamic_color" test) generated 1 warning (run `cargo fix --bin "dynamic_color" -p peak_synthesis --tests` to apply 1 suggestion)
+    Finished `release` profile [optimized] target(s) in 1.79s
+     Running unittests dynamic_color.rs (target/release/deps/dynamic_color-b589e407bfd46875)
+
+running 4 tests
+test tests::output_permutation_does_not_need_new_quantum_lane ... ok
+test tests::certified_unitary_zero_ends_a_lifetime_without_adding_reset ... ok
+test tests::unknown_reset_never_releases_a_lane ... ok
+test tests::zero_register_lanes_can_be_reused_then_outputs_are_restored ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

@@ -1,0 +1,119 @@
+   Compiling peak_synthesis v0.1.0 (/home/hclau/ecdsa_research/product-peak-synthesis-20261019)
+warning: unused import: `HashSet`
+ --> dynamic_color.rs:5:41
+  |
+5 | use std::collections::{BTreeSet,HashMap,HashSet};
+  |                                         ^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable `pairs` is assigned to, but never used
+   --> zero.rs:104:41
+    |
+104 |  let mut leases:Vec<[u64;9]>=vec![];let mut pairs=0;let mut dead=0;let mut unconditional=0;
+    |                                         ^^^^^^^^^
+    |
+    = note: consider using `_pairs` instead
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable `dead` is assigned to, but never used
+   --> zero.rs:104:57
+    |
+104 |  let mut leases:Vec<[u64;9]>=vec![];let mut pairs=0;let mut dead=0;let mut unconditional=0;
+    |                                                         ^^^^^^^^
+    |
+    = note: consider using `_dead` instead
+
+warning: variable `unconditional` is assigned to, but never used
+   --> zero.rs:104:72
+    |
+104 |  let mut leases:Vec<[u64;9]>=vec![];let mut pairs=0;let mut dead=0;let mut unconditional=0;
+    |                                                                        ^^^^^^^^^^^^^^^^^
+    |
+    = note: consider using `_unconditional` instead
+
+warning: variable `exact_reductions_unconditional` is assigned to, but never used
+   --> zero.rs:106:6
+    |
+106 |  let mut exact_reductions_unconditional=0;
+    |      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: consider using `_exact_reductions_unconditional` instead
+
+warning: value assigned to `pairs` is never read
+   --> zero.rs:128:5
+    |
+128 |     pairs+=1;
+    |     ^^^^^^^^
+    |
+    = help: maybe it is overwritten before being read?
+    = note: `#[warn(unused_assignments)]` (part of `#[warn(unused)]`) on by default
+
+warning: value assigned to `dead` is never read
+   --> zero.rs:115:21
+    |
+115 |   if eff.is_empty(){dead+=1;continue;}
+    |                     ^^^^^^^
+    |
+    = help: maybe it is overwritten before being read?
+
+warning: value assigned to `unconditional` is never read
+   --> zero.rs:126:4
+    |
+126 |    unconditional+=1;let key=Algebra::triple(&q[a],&q[b]);
+    |    ^^^^^^^^^^^^^^^^
+    |
+    = help: maybe it is overwritten before being read?
+
+warning: value assigned to `exact_reductions_unconditional` is never read
+   --> zero.rs:124:25
+    |
+124 |   if reducible&&always {exact_reductions_unconditional+=1;}
+    |                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: maybe it is overwritten before being read?
+
+warning: field `start` is never read
+  --> zero.rs:10:33
+   |
+10 | #[derive(Clone)]struct Episode {start:usize,fill:Op,value:E,reads:Vec<(usize,u64)>}
+   |                        -------  ^^^^^
+   |                        |
+   |                        field in this struct
+   |
+   = note: `Episode` has a derived impl for the trait `Clone`, but this is intentionally ignored during dead code analysis
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: field `end` is never read
+  --> zero.rs:11:29
+   |
+11 | struct Finished {ep:Episode,end:usize,phase:Option<usize>,valid:bool}
+   |        --------             ^^^
+   |        |
+   |        field in this struct
+
+warning: `peak_synthesis` (bin "zero" test) generated 10 warnings
+warning: `peak_synthesis` (bin "dynamic_color" test) generated 1 warning (run `cargo fix --bin "dynamic_color" -p peak_synthesis --tests` to apply 1 suggestion)
+    Finished `release` profile [optimized] target(s) in 13.33s
+     Running unittests dynamic_color.rs (target/release/deps/dynamic_color-b589e407bfd46875)
+
+running 4 tests
+test tests::certified_unitary_zero_ends_a_lifetime_without_adding_reset ... ok
+test tests::output_permutation_does_not_need_new_quantum_lane ... ok
+test tests::unknown_reset_never_releases_a_lane ... ok
+test tests::zero_register_lanes_can_be_reused_then_outputs_are_restored ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests zero.rs (target/release/deps/zero-41ab1437acd10872)
+
+running 6 tests
+test tests::late_register_annotations_are_initial_inputs ... ok
+test tests::triple_and_complement ... ok
+test tests::truncation_is_fresh ... ok
+test tests::two_reads_are_retained_and_third_control_change_rejected ... ok
+test tests::unknown_guard_is_not_assumed_true ... ok
+test tests::unwrap_proves_only_isolated_repaired_measurements ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

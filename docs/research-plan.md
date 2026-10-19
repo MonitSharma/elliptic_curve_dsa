@@ -1,5 +1,24 @@
 # Research state and next experiments
 
+## 19 October, 16:14: parent4 frozen search active; complete proof qualified
+
+All27 public-parent product identities plus the zero row now have universal
+source-bound SAT proofs and a passing full integration audit. The disabled
+filter passed its complete own-seed/full-state/physical-RNG/partial-batch
+qualification. The reviewed operational port passed source and prefix checks.
+The same parent4 source and single passing statistical gate remain frozen.
+
+Ascending search started16:05 Singapore, PID602346, four14-thread workers;
+48-hour cap. Queue-only terminal audit/native benchmark watcher PID610395
+will verify every lower nonce and unchanged benchmark on a pass. No scored
+result yet. Fresh public product is still939192464 (Q1234/T761096).
+An independent exact64-term Boolean-polynomial source screen is running on
+one core (PID624226); it does not modify the frozen candidate or search.
+
+[Active search](../experiments/parent4-operational-sat-20261019/STATUS.md) ·
+[Complete proof](../experiments/product-parent-sat-20261019/CHECKPOINT-1609.md) ·
+[Automatic final verification](../experiments/parent4-final-sat-20261019/STATUS.md).
+
 ## PAUSED by the user: 17 October 2026, 16:45 Singapore
 
 **Records (public refresh 16:43): all three standings.** Product

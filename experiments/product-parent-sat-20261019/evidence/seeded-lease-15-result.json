@@ -1,0 +1,34 @@
+{
+  "verdict": "unsat",
+  "seconds": 4.229240294545889,
+  "quantum_boundary_variables": 604,
+  "classical_variables": 2,
+  "statistics": "(:conflicts          326\n :decisions          8550\n :del-clause         6486\n :elim-unconstrained 12502\n :max-memory         125.19\n :memory             106.16\n :minimized-lits     168\n :mk-bool-var        23344\n :mk-clause          39318\n :num-allocs         12629822884.00\n :num-checks         2\n :propagations       85184\n :restarts           2\n :rlimit-count       7080095\n :time               4.23)",
+  "reason_unknown": null,
+  "scope": "ARBITRARY_BOUNDARY_VALUE_PROOF_NOT_A_CENSUS",
+  "input": {
+    "lease": 15,
+    "first": 16017583,
+    "last": 16024082,
+    "initial_depth": 0,
+    "base_pre_tail_sha3_256": "c143e90580bb0c6f6a12996a50147c179c4fdfe3a50d8af85350bf9e6d755e04",
+    "raw_sha256": "f8591eee57381a77ef4c11ff11ecdb1244bec7aa41dec5c7005beb5ccc984e2a",
+    "raw_file": "lease-15.raw",
+    "row": [
+      16017583,
+      16024082,
+      1226,
+      259,
+      724,
+      605,
+      724,
+      259,
+      1083
+    ],
+    "statement": "Equality of the endpoint control products, over arbitrary boundary wires/flags and arbitrary measurement outcomes. Initial effective guards are true, separately certified by the global interpreter."
+  },
+  "z3_version": "5.1.0",
+  "driver_sha256": "1c4d6b0d74ca892e8e1714f8641d54a88ef939d2dcaf83d58402ae2fbb28e55a",
+  "status": "UNIVERSAL_PRODUCT_EQUALITY_PASS",
+  "boundary_sha256": "be271191e9a2d4c109f8a7414d2812a47ad5e44e9cf7dbf28f879406725f99dc"
+}

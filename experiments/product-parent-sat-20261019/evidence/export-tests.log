@@ -1,0 +1,94 @@
+     Locking 247 packages to highest compatible versions
+      Adding generic-array v0.14.7 (available: v0.14.9)
+      Adding sha3 v0.10.9 (available: v0.11.0)
+   Compiling typenum v1.20.1
+   Compiling libc v0.2.191
+   Compiling shlex v2.0.1
+   Compiling proc-macro2 v1.0.107
+   Compiling find-msvc-tools v0.1.14
+   Compiling version_check v0.9.5
+   Compiling unicode-ident v1.0.27
+   Compiling generic-array v0.14.7
+   Compiling pkg-config v0.3.34
+   Compiling quote v1.0.47
+   Compiling hybrid-array v0.4.15
+   Compiling cfg-if v1.0.5
+   Compiling unicode-segmentation v1.13.3
+   Compiling jobserver v0.1.35
+   Compiling crypto-common v0.2.2
+   Compiling cc v1.8.0
+   Compiling convert_case v0.10.0
+   Compiling block-buffer v0.12.1
+   Compiling syn v2.0.119
+   Compiling paste v1.0.15
+   Compiling unicode-xid v0.2.6
+   Compiling zstd-safe v7.3.0
+   Compiling digest v0.11.3
+   Compiling crypto-common v0.1.7
+   Compiling block-buffer v0.10.4
+   Compiling keccak v0.2.2
+   Compiling foldhash v0.2.0
+   Compiling cpufeatures v0.2.17
+   Compiling itoa v1.0.18
+   Compiling serde_core v1.0.229
+   Compiling zmij v1.0.23
+   Compiling ruint-macro v1.2.1
+   Compiling zstd-sys v2.1.2+zstd.1.5.7
+   Compiling hashbrown v0.17.1
+   Compiling ruint v1.20.1
+   Compiling const-hex v1.19.3
+   Compiling sha3 v0.11.0
+   Compiling digest v0.10.7
+   Compiling keccak v0.1.6
+   Compiling bytes v1.12.1
+   Compiling serde_json v1.0.154
+   Compiling derive_more-impl v2.1.1
+   Compiling sha3 v0.10.9
+   Compiling memchr v2.8.3
+   Compiling derive_more v2.1.1
+   Compiling alloy-primitives v1.7.3
+   Compiling zstd v0.13.3
+   Compiling quantum_ecc v0.1.0 (/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline)
+   Compiling parent_sat_boundary v0.1.0 (/home/hclau/ecdsa_research/product-parent-sat-20261019)
+warning: field `start` is never read
+  --> export.rs:10:33
+   |
+10 | #[derive(Clone)]struct Episode {start:usize,fill:Op,value:E,reads:Vec<(usize,u64)>}
+   |                        -------  ^^^^^
+   |                        |
+   |                        field in this struct
+   |
+   = note: `Episode` has a derived impl for the trait `Clone`, but this is intentionally ignored during dead code analysis
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: field `end` is never read
+  --> export.rs:11:29
+   |
+11 | struct Finished {ep:Episode,end:usize,phase:Option<usize>,valid:bool}
+   |        --------             ^^^
+   |        |
+   |        field in this struct
+
+warning: method `metadata_read` is never used
+  --> export.rs:45:5
+   |
+13 | impl Unwrapper {
+   | -------------- method in this implementation
+...
+45 |  fn metadata_read(&mut self,o:&Op){if let Some(&f)=self.bits.get(&o.c_condition.0){self.finished[f].valid=false;}}
+   |     ^^^^^^^^^^^^^
+
+warning: `parent_sat_boundary` (bin "export" test) generated 3 warnings
+    Finished `release` profile [optimized] target(s) in 32.40s
+     Running unittests export.rs (target/release/deps/export-9aeb8335ae2d1e9c)
+
+running 6 tests
+test tests::late_register_annotations_are_initial_inputs ... ok
+test tests::triple_and_complement ... ok
+test tests::truncation_is_fresh ... ok
+test tests::two_reads_are_retained_and_third_control_change_rejected ... ok
+test tests::unknown_guard_is_not_assumed_true ... ok
+test tests::unwrap_proves_only_isolated_repaired_measurements ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
