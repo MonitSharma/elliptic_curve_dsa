@@ -1,5 +1,47 @@
 # Research state and next experiments
 
+## 19 October,23:13: local algebra controls finished; larger sparse scan live
+
+Qualified classical9 production remains unchanged and live. At23:12 its
+four workers reported4079616 completed-window rows, no pass, about2646/s.
+Counters remain provisional; the complete terminal audit is still required.
+Search shell1703053 and queue-only finalizer1697009 remain the active path.
+Classical12's single262144-batch final gate is still running, manager1704998,
+parent child1705372; no verdict or new-source nonce. Keep both jobs unchanged.
+No new scored record. See the previous qualified-cycle entry for every gate
+statistic, frozen stream/source, acceptance and finalizer binding.
+
+Independent local Ubuntu execution now works without consuming server slots:
+read-only existing compiler/release dependencies,115 member hashes verified,
+archive SHA256b166ab58d683971f955ca0ace7cb44da459eceebd8ae2516e2b32eb578b97129.
+Large runtime/input/executable files are ignored, retained locally with hashes;
+no package installed and no server compiler or chemistry/QOB job changed.
+
+Two local source experiments finished, both negative. Reapplying the tested
+cap9 factor pass to frozen classical12 gives identical complete raw2ef31475…
+in44.41s. A new2048-row/eleven-atom exact table port passes all7 primitive
+and exhaustive controls, reproduces the entire cap9 stream, then returns the
+same complete raw stream at cap11 (136.68s, peak RSS1990564KiB). It produces
+no new candidate or executed saving. Completed archives and all members are
+verified: cap11 archiveb8fd70d5…/83 files. Two pre-compiler admission failures
+(runtime verification not finished; ambiguous sha3 0.10/0.11) are preserved,
+including every original source hash. Launcher now requires verification;
+the explicit sha3-0.10.9 dependency matches the original research package.
+
+A different fixed source screen is running locally: product-anf256-20261019,
+WSL manager459/Python461/worker500 at23:12. Nine controls pass, including
+8192 exhaustive13-variable polynomial assignments and whole-result degree
+fallback. Fixed256 terms/degree12, one case on frozen classical12, input
+compressed17c767f5…/raw2ef31475…, one local core/12GiB cap, nohup/PID/exit
+and full source/command hashes. No gate, nonce or score. Inspect the same
+run.exit/RESULT.json and actual process; do not restart on an observation
+timeout. Any changed output requires512 complete raw state/phase/RNG controls
+and later universal/native qualification; static site counts are not records.
+Do not launch another local compute job until this one ends. Server capacity
+remains60 search+3 census+1 spare; bound preflight_v13 and watched source are
+immutable. New server job types require a reviewed registry/finalizer plan;
+use local research meanwhile. Preserve all failed and Q692 evidence.
+
 ## 19 October,22:51: classical9 qualified; ascending production search live
 
 No new scored Q×T record. Public record freshly checked at22:46 and22:47:

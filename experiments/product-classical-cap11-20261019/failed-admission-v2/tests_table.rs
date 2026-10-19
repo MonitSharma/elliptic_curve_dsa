@@ -1,0 +1,8 @@
+use super::*;
+fn from_fn(atoms:Vec<u64>,f:impl Fn(usize)->bool)->Truth{let mut t=Table::low(0);for row in 0..1usize<<atoms.len(){t.set(row,f(row)as u64);}Truth::canonical(atoms,t)}
+fn eval(t:&Truth,a:usize)->u64{let row=t.atoms.iter().enumerate().map(|(i,&id)|((a>>id)&1)<<i).sum();t.table.bit(row)}
+fn state()->Support{Support{qubits:vec![],bits:vec![],base_condition:Truth::constant(true),condition_stack:vec![],next_atom:100}}
+#[test]fn high2048_rows_reduce_only_inessential_variables(){let f=|r:usize|(r&1!=0&&r>>10&1!=0)^(r>>2&1!=0||r>>8&1==0);let t=from_fn((0..11).collect(),f);assert_eq!(t.atoms,vec![0,2,8,10]);for a in 0..2048{assert_eq!(eval(&t,a),f(a)as u64);}}
+#[test]fn complements_mask_all2048_rows_and_no_unused_bits(){let t=from_fn((0..11).collect(),|r|r.count_ones()%2==1);let n=t.complement();assert_eq!(n.complement(),t);assert!(t.complements(&n));for r in 0..2048{assert_eq!(eval(&n,r),1-eval(&t,r));}for count in 0..12{let m=Table::mask(count);for r in 0..2048{assert_eq!(m.bit(r),(r<(1usize<<count))as u64);}}}
+#[test]fn eleven_variable_and_xor_match_independent_scalar_values(){let a=from_fn(vec![0,2,4,6,8,10],|r|r.count_ones()%2==1);let b=from_fn(vec![1,3,5,7,9],|r|(r.wrapping_mul(19)^r>>1)&4!=0);let mut s=state();let x=s.xor(&a,&b);let y=s.and(&a,&b);for r in 0..2048{assert_eq!(eval(&x,r),eval(&a,r)^eval(&b,r));assert_eq!(eval(&y,r),eval(&a,r)&eval(&b,r));}}
+#[test]fn unsupported_whole_result_gets_fresh_distinct_atoms(){let a=from_fn((0..11).collect(),|r|r.count_ones()%2==1);let b=from_fn(vec![11],|r|r==1);let mut s=state();let x=s.combine(&a,&b,true);let y=s.combine(&a,&b,true);assert_eq!(x.atoms,vec![100]);assert_eq!(y.atoms,vec![101]);assert_ne!(x,y);assert!(!x.is_zero()&&!x.is_one());}

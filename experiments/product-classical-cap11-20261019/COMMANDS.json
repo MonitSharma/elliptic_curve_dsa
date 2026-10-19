@@ -1,0 +1,124 @@
+[
+  {
+    "argv": [
+      "/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/portable-rust-20261019/runtime/compiler/bin/rustc",
+      "--version",
+      "--verbose"
+    ],
+    "log": "compiler-version.log"
+  },
+  {
+    "argv": [
+      "/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/portable-rust-20261019/runtime/compiler/bin/rustc",
+      "--edition=2021",
+      "-C",
+      "opt-level=3",
+      "-C",
+      "codegen-units=1",
+      "-C",
+      "linker=/usr/bin/gcc",
+      "-C",
+      "link-arg=-fuse-ld=bfd",
+      "-L",
+      "dependency=/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/portable-rust-20261019/runtime/deps",
+      "--extern",
+      "quantum_ecc=/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/portable-rust-20261019/runtime/deps/libquantum_ecc-498f7d78f061d394.rlib",
+      "--extern",
+      "sha3=/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/portable-rust-20261019/runtime/deps/libsha3-3855b8dab8fa2d83.rlib",
+      "--extern",
+      "serde_json=/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/portable-rust-20261019/runtime/deps/libserde_json-b995eafd87a0a490.rlib",
+      "--extern",
+      "zstd=/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/portable-rust-20261019/runtime/deps/libzstd-1ad9956eacbc31cd.rlib",
+      "--test",
+      "refresh_factors.rs",
+      "-o",
+      "tests.bin"
+    ],
+    "log": "build-tests.log"
+  },
+  {
+    "argv": [
+      "./tests.bin",
+      "--test-threads=1"
+    ],
+    "log": "tests.log"
+  },
+  {
+    "argv": [
+      "/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/portable-rust-20261019/runtime/compiler/bin/rustc",
+      "--edition=2021",
+      "-C",
+      "opt-level=3",
+      "-C",
+      "codegen-units=1",
+      "-C",
+      "linker=/usr/bin/gcc",
+      "-C",
+      "link-arg=-fuse-ld=bfd",
+      "-L",
+      "dependency=/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/portable-rust-20261019/runtime/deps",
+      "--extern",
+      "quantum_ecc=/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/portable-rust-20261019/runtime/deps/libquantum_ecc-498f7d78f061d394.rlib",
+      "--extern",
+      "sha3=/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/portable-rust-20261019/runtime/deps/libsha3-3855b8dab8fa2d83.rlib",
+      "--extern",
+      "serde_json=/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/portable-rust-20261019/runtime/deps/libserde_json-b995eafd87a0a490.rlib",
+      "--extern",
+      "zstd=/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/portable-rust-20261019/runtime/deps/libzstd-1ad9956eacbc31cd.rlib",
+      "refresh_factors.rs",
+      "-o",
+      "factor.bin"
+    ],
+    "log": "build.log"
+  },
+  {
+    "argv": [
+      "/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/portable-rust-20261019/runtime/compiler/bin/rustc",
+      "--edition=2021",
+      "-C",
+      "opt-level=3",
+      "-C",
+      "codegen-units=1",
+      "-C",
+      "linker=/usr/bin/gcc",
+      "-C",
+      "link-arg=-fuse-ld=bfd",
+      "-L",
+      "dependency=/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/portable-rust-20261019/runtime/deps",
+      "--extern",
+      "quantum_ecc=/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/portable-rust-20261019/runtime/deps/libquantum_ecc-498f7d78f061d394.rlib",
+      "--extern",
+      "sha3=/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/portable-rust-20261019/runtime/deps/libsha3-3855b8dab8fa2d83.rlib",
+      "--extern",
+      "serde_json=/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/portable-rust-20261019/runtime/deps/libserde_json-b995eafd87a0a490.rlib",
+      "--extern",
+      "zstd=/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/portable-rust-20261019/runtime/deps/libzstd-1ad9956eacbc31cd.rlib",
+      "factor_trace.rs",
+      "-o",
+      "trace.bin"
+    ],
+    "log": "build-trace.log"
+  },
+  {
+    "argv": [
+      "/usr/bin/time",
+      "-v",
+      "./factor.bin",
+      "/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/product-classical-closure-20261019/input.ops.bin",
+      "compat9",
+      "2ef31475f03b40a72d5522d830717aef4c1675d0e1a061bf0bfed78ab7d2f265"
+    ],
+    "log": "compat9.log"
+  },
+  {
+    "argv": [
+      "/usr/bin/time",
+      "-v",
+      "./factor.bin",
+      "/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/product-classical-closure-20261019/input.ops.bin",
+      "cap11",
+      "2ef31475f03b40a72d5522d830717aef4c1675d0e1a061bf0bfed78ab7d2f265"
+    ],
+    "log": "cap11.log"
+  }
+]

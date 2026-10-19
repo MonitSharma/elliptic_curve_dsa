@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/product-classical-cap11-20261019/run_local.py", line 11, in <module>
+    matches=list(deps.glob('lib'+name+'-*.rlib'));assert len(matches)==1,(name,matches)
+                                                         ^^^^^^^^^^^^^^^
+AssertionError: ('sha3', [PosixPath('/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/portable-rust-20261019/runtime/deps/libsha3-3855b8dab8fa2d83.rlib'), PosixPath('/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/portable-rust-20261019/runtime/deps/libsha3-8d9738f960f48757.rlib')])
