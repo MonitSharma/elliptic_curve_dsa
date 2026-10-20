@@ -1,0 +1,1 @@
+Finalsource/native7/proof9/fullcanonicalbindings fixed beforefreshlabel witness-finished-development-20261020-v1,512x64/source,4workers/8protectedscalarbatches vs exactpublishedT2bd/63370be6. Preserveallpoint/phase/dirty/other/Toutcomes. No finalgate/nonce/score.

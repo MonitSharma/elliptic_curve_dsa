@@ -1,0 +1,113 @@
+{
+  "status": "DEVELOPMENT_COMPARISON_COMPLETE_PRESERVE_ALL_MISMATCHES",
+  "label": "exact-witness-resource-development-20261020-v1",
+  "batches": 512,
+  "summaries": {
+    "public2bd": {
+      "value_shots": 24,
+      "phase_shots": 13,
+      "dirty_shots": 0,
+      "failed_batches": 24,
+      "mean_executed_stream_toffoli": 747216.5507202148,
+      "rows_sha256": "dd340227780d4f8902c7571872a2d161dd267e8b296a7dc1b7252feabd8528f7"
+    },
+    "groups-safe28-d12": {
+      "value_shots": 24,
+      "phase_shots": 10,
+      "dirty_shots": 0,
+      "failed_batches": 24,
+      "mean_executed_stream_toffoli": 747447.3626098633,
+      "rows_sha256": "827c657372d2afbde47eddf02132f4a3663d60d6449f5076c97305c958a59147"
+    },
+    "ripple-d12": {
+      "value_shots": 24,
+      "phase_shots": 7,
+      "dirty_shots": 0,
+      "failed_batches": 24,
+      "mean_executed_stream_toffoli": 746472.4979553223,
+      "rows_sha256": "43dbf65ab2ca807123fb1b2f612f9a37b635534a055d1838006c57b587d63d34"
+    },
+    "ripple-d12-wide": {
+      "value_shots": 24,
+      "phase_shots": 7,
+      "dirty_shots": 0,
+      "failed_batches": 24,
+      "mean_executed_stream_toffoli": 746472.4979553223,
+      "rows_sha256": "43dbf65ab2ca807123fb1b2f612f9a37b635534a055d1838006c57b587d63d34"
+    },
+    "sharedsum-d12-wide": {
+      "value_shots": 24,
+      "phase_shots": 11,
+      "dirty_shots": 0,
+      "failed_batches": 24,
+      "mean_executed_stream_toffoli": 747320.8821105957,
+      "rows_sha256": "2c76518f6b6b3269ad5bfa5d065d5700c7ba49f1afb94b8a80c4a3a2231afe48"
+    },
+    "ripple-sharedsum-d12-wide": {
+      "value_shots": 24,
+      "phase_shots": 11,
+      "dirty_shots": 0,
+      "failed_batches": 24,
+      "mean_executed_stream_toffoli": 746345.4993591309,
+      "rows_sha256": "4677d738242511a5b5d0399363990b961f15689132668f3fe6ee98d277345946"
+    }
+  },
+  "comparisons": {
+    "groups-safe28-d12": {
+      "candidate_minus_parent_raw_toffoli": 230.8118896484375,
+      "paired_standard_error": 2.4820873082189174,
+      "new_failed_batches": 0,
+      "new_passing_batches": 0,
+      "new_value_failing_shots": [],
+      "new_value_passing_shots": [],
+      "different_target_lanes": [],
+      "different_other_lanes": [],
+      "target_differences_confined_to_both_value_failing": true
+    },
+    "ripple-d12": {
+      "candidate_minus_parent_raw_toffoli": -744.0527648925781,
+      "paired_standard_error": 2.5127324034396663,
+      "new_failed_batches": 0,
+      "new_passing_batches": 0,
+      "new_value_failing_shots": [],
+      "new_value_passing_shots": [],
+      "different_target_lanes": [],
+      "different_other_lanes": [],
+      "target_differences_confined_to_both_value_failing": true
+    },
+    "ripple-d12-wide": {
+      "candidate_minus_parent_raw_toffoli": -744.0527648925781,
+      "paired_standard_error": 2.5127324034396663,
+      "new_failed_batches": 0,
+      "new_passing_batches": 0,
+      "new_value_failing_shots": [],
+      "new_value_passing_shots": [],
+      "different_target_lanes": [],
+      "different_other_lanes": [],
+      "target_differences_confined_to_both_value_failing": true
+    },
+    "sharedsum-d12-wide": {
+      "candidate_minus_parent_raw_toffoli": 104.33139038085938,
+      "paired_standard_error": 2.5186512235281007,
+      "new_failed_batches": 0,
+      "new_passing_batches": 0,
+      "new_value_failing_shots": [],
+      "new_value_passing_shots": [],
+      "different_target_lanes": [],
+      "different_other_lanes": [],
+      "target_differences_confined_to_both_value_failing": true
+    },
+    "ripple-sharedsum-d12-wide": {
+      "candidate_minus_parent_raw_toffoli": -871.0513610839844,
+      "paired_standard_error": 2.617551450236299,
+      "new_failed_batches": 0,
+      "new_passing_batches": 0,
+      "new_value_failing_shots": [],
+      "new_value_passing_shots": [],
+      "different_target_lanes": [],
+      "different_other_lanes": [],
+      "target_differences_confined_to_both_value_failing": true
+    }
+  },
+  "scope": "Fresh full-output actual-resource development of predeclared exact full259 witness consolidation/sharedsum/cap grid. Five nativecomponent controls/group1 andall5fullsquarecaller units pass; exactf8c833control. All architecture choices/source frozen before inputs. Same strong precision/windows/rounds; resource caps may change replay chunks. Compare actual executedT, full outputs/phase/dirty; proxy is unreliable for OR-of-measurement guards. No finished candidate/finalgate/nonce/benchmark/score. Best exact resource architecture may later get regenerated cache and independent finalgate."
+}

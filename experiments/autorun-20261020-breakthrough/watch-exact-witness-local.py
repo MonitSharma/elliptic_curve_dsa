@@ -1,0 +1,28 @@
+"""Authorized local evidence verification, then one-shot challenge upload."""
+import hashlib,json,subprocess,sys,time
+from datetime import datetime,timezone
+from pathlib import Path
+a=Path(__file__).resolve().parent;root=a.parents[1];r=root/'experiments/breakthrough-exact-witness-final-20261020';remote='/home/hclau/ecdsa_research/breakthrough-exact-witness-final-20261020';sha=lambda p:hashlib.file_digest(p.open('rb'),'sha256').hexdigest()
+def run(args,name):
+ with(r/('local-'+name+'.log')).open('xb')as out:p=subprocess.Popen(args,cwd=root,stdout=out,stderr=subprocess.STDOUT);(r/('local-'+name+'.pid')).write_text(str(p.pid)+'\n');rc=p.wait()
+ (r/('local-'+name+'.exit')).write_text(str(rc)+'\n');assert rc==0,name
+try:
+ assert not(r/'LOCAL-WATCH-DECLARATION.json').exists();collector=a/'collect-exact-witness-final.py';frozen=sha(collector);(r/'LOCAL-WATCH-DECLARATION.json').write_text(json.dumps({'at_utc':datetime.now(timezone.utc).isoformat(),'collector_sha256':frozen,'policy':'Wait for complete lowest-pass benchmark/seal. Independently verify every immutable evidence/source member locally. Upload local verification receipt; execute prepared one-shot submit only after fresh public independentToffoli comparison. Never duplicate an uncertain upload, retry a failed gate or select another nonce by cost. Then read official outcome and verify every public source/protected Git-object byte. Automatic shared-main push remains prohibited/pending approval.'},indent=2)+'\n')
+ while True:
+  p=subprocess.run(['ssh','smu_server',f'if test -f {remote}/review.exit; then cat {remote}/review.exit; else echo WAITING; fi'],capture_output=True,text=True,timeout=60)
+  if p.returncode:raise RuntimeError('SSH read failed; preserve state and inspect before further work')
+  state=p.stdout.strip();assert state in['WAITING','0','1'],state
+  if state=='1':raise RuntimeError('Verification pipeline stopped; preserve gate/benchmark/packaging evidence and inspect before any upload')
+  if state=='0':break
+  time.sleep(30)
+ assert sha(collector)==frozen;run([sys.executable,str(collector)],'collection')
+ receipt=json.loads((r/'LOCAL-VERIFICATION.json').read_text());assert receipt['status']=='EVERY_FINAL_EVIDENCE_AND_SOURCE_MEMBER_VERIFIED_LOCALLY'and receipt['source_files']==205
+ run(['scp',str(r/'LOCAL-VERIFICATION.json'),'smu_server:'+remote+'/LOCAL-VERIFICATION.json'],'verification-receipt')
+ run(['ssh','smu_server','python3 '+remote+'/submit.py'],'submit')
+ # Upload has one-shot markers; any failure above is final for this watcher.
+ run(['ssh','smu_server','python3 '+remote+'/wait-official.py'],'official-check')
+ for name in['submission-response.json','submission-status.json','PUBLIC-SOURCE-VERIFICATION.json','OFFICIAL-RESULT.json','official-check.exit','PREUPLOAD-AUDIT.json','upload.exit','UPLOAD-STARTED.json']:
+  run(['scp','smu_server:'+remote+'/'+name,str(r/name)],'fetch-'+name.replace('.','-'))
+ (r/'local-watch.exit').write_text('0\n');print((r/'OFFICIAL-RESULT.json').read_text(),flush=True)
+except BaseException:
+ (r/'local-watch.exit').write_text('1\n');raise

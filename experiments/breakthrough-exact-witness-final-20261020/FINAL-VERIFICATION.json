@@ -1,0 +1,40 @@
+{
+  "status": "COMPLETE_LOCAL_REVIEW_PASS_READY_FOR_AUTO_SUBMISSION",
+  "at_utc": "2026-10-20T20:48:38.888506+00:00",
+  "source_revision": "feba56deec6e98e58901e06358841d246e63ad10",
+  "base": "28e443bcc2f3dc0793c6a416a496b07cfbeb4c4f",
+  "source_files": 205,
+  "protected_files_checked": 17,
+  "source_archive_sha256": "7fc8623d6d2375ba6d0e37756467a589d7e1fe018ea7108b7375c6d97c9970df",
+  "source_patch_sha256": "4364886c09641421a3b64ad33f0aa77711842bb4ea10a924de20f49abe829a1e",
+  "source_freeze_sha256": "66fe35e402ad81663140b4c5090f365d2afe6aeeb04eca8686a131f26d65cf4c",
+  "benchmark_result_sha256": "984ed2538ac46e3edd1f3fa7a176b841e671f52474ee7706c41230ffc86cd2ac",
+  "gate_declaration_sha256": "f0fe4a541d54da4dda2a2cfaa5904c35fd42a21ef52ce59f42320bbc1194b473",
+  "gate_result_sha256": "22ebf9cbb1503ab422c1575536f636fb9656952badfc273220161d1458823267",
+  "native_receipt": {
+    "stream_sha256": "131712cc9c79e9ffd3ac60c07d097a29b5252c03afa95c891c5ecdd603c60c2e",
+    "records_sha256": "2f0a66bd55120cbd3c3a3621b7de1803381d33259dda713d0499895d6b996382",
+    "pre_tail_sha256": "5e3a486921f678102ccfc48fb5e1dccc145d2fc406c0b1cf9bb60bc6685b2e9b",
+    "pre_tail_byte_identical_to_gated_source": true,
+    "nonce": 229,
+    "operations": 10995453
+  },
+  "qubits": 1464,
+  "rounded_mean_executed_toffoli": 746114,
+  "product": 1092310896,
+  "nonce": 229,
+  "production_screens": 256,
+  "highest_screened": 256,
+  "passes": [
+    229
+  ],
+  "additional_partial_packet_controls": "1..8 repeated in production;24 protected full-state scalar batches at0,70,140",
+  "selected_protected_packet_passed": true,
+  "unchanged_benchmark_passed_shots": 9024,
+  "historical_results_restored": true,
+  "tracked_changes_only_point_add": true,
+  "submission_mode": "auto",
+  "ai_model": "GPT-6 sol",
+  "coding_harness": "Codex",
+  "scope": "Complete unchanged benchmark of exactfull259 witness/sharedsum andfreshlyproven existing-wire caches on strong arithmetic. Targets independentT versus public2bd; no globalproduct claim."
+}

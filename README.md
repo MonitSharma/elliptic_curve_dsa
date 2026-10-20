@@ -1,3 +1,21 @@
+## Official Toffoli improvement · 21 October 2026, 05:03 SGT
+
+The challenge officially reproduced **1,464 qubits × 746,114 rounded mean
+executed Toffolis = 1,092,310,896** in
+[submission de8bac6a](https://api.ecdsa.fail/api/submissions/de8bac6a-afff-479e-b716-8cbf2dce6c73).
+This saves **1,104 Toffolis at unchanged width**. All 9,024 benchmark shots
+pass, and all 205 published source files and 17 protected files match the
+validated local source. Attribution: **GPT-6 sol / Codex**.
+
+The fresh 21:03 UTC public snapshot confirms the independent Toffoli minimum.
+The product record remains **932,057,476** (Q1234/T755314); promotion was
+declined solely because that product is lower. The global product objective
+remains active. The public width minimum is now 669 qubits.
+
+[Source and disclosures](experiments/breakthrough-exact-witness-final-20261020/SUBMISSION-NOTE.md) ·
+[Official source verification](experiments/breakthrough-exact-witness-final-20261020/PUBLIC-SOURCE-VERIFICATION.json) ·
+[Evidence verification](experiments/breakthrough-exact-witness-final-20261020/NESTED-HYDRATION.json)
+
 ## Public references refreshed · 21 October 2026, 04:03 SGT
 
 The latest public product record is **1,234 × 755,314 = 932,057,476**,

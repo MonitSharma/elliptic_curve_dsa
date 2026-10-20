@@ -1,3 +1,53 @@
+## 21 October 2026, 05:03 SGT: official T746114; exact product research continues
+
+Official submission de8bac6a-afff-479e-b716-8cbf2dce6c73 reproduces Q1464,
+T746114, product1092310896: 1104 fewer T at unchanged width. Public source
+bd6672a873f85953eb7c5197e9cf46982ce19708; local feba56deec6e98e58901e06358841d246e63ad10.
+All205 source/17protected Git-object bytes match;329 immutable evidence members
+and205source files locally verified;248nested files hydrated with all hashes.
+Official rejected solely because global product is lower. GPT-6 sol/Codex.
+Fresh21:03UTC1716records confirms Tminimum; product1829 Q1234/T755314/932057476;
+newwidth669/1df8/source4c1c3140. Global product goal remains ACTIVE.
+
+New exact full259 witness polynomial consolidates five full-width translations;
+no public59-bit truncation imported. Exact copied sharedsum and depth12 leaf,
+28bit wrap witness, full group/correction tails and prior windows remain.
+Five resource cases frozen before inputs; combined selected by actual meanT.
+V1 setup and V2 cached fault-switch failures preserved separately; V3 native
+controls pass with direct environment reads and fault-then-clean regression.
+Fresh230 existing-wire caches with9proof controls; finishedsource205files/native7.
+
+Sole final gate full259-witness-final-20261020-v1,32768x64/source, exactpublic2bd:
+value failures1131/1131 identicalIDs, dirty0, failed batches1169/1163, b8/c14,
+p=.9330997467041016, candidate5.004364013671875failed batches/packet. PASS final;
+never rerun/relabel/extend. Qualified ascending1..256 nonce search, lowestPASS229,
+onlyPASS229, overrun230..256;8extra partialnonce/24protected fullstate controls.
+Selected9024replay and unchanged9024benchmark PASS,totalT6732932893,
+mean746114.0173980496, rounded746114. Finalstream131712cc9c79e9ffd3ac60c07d097a29b5252c03afa95c891c5ecdd603c60c2e.
+Archive9735d309d166746eec10ff58de5318c0d1d37d750e50e6b2378530baa8226aca.
+One upload only, officialsource checkDONE; do not resubmit same result.
+
+Old superseded Q1233/acd0 finite search exhausted1..65536 withoutPASS. Its old
+gatePASS remains final; no continuation/benchmark/upload. All19evidence members
+verified locally; negative rows retained compressed. No reinterpretation.
+
+Verification-only dominance audit native15 and24full protected value comparisons
+PASS but all8fixtures have zero certified knownoutput bits; no useful filter.
+Boolean reset audit native17PASS, PID3143340: conservative possible-write Boolean
+conditions, soundstructural or bounded exhaustive <=10atom implication, no sampled
+identities. No quantum candidate/phase claim or nonce rejection. Source-bound
+filter may only reject a nonce using an EXACT wrongpoint witness. Prior negative
+audits retained; IR counts never scored. Product port prepared on new1829 parent:
+exact public bytecontrol, uncached cap1234 and exactcarry cap1233/r012; original
+boundtables preserved and OMITTED only in explicit research branches, never
+repointed. Own fresh proofs/gate/nonce/unchangedbenchmark required for submission.
+Transfer timedout; confirm serverdirectory/launch before retry.
+
+Automatic challenge submissions remain authorized for every complete verified
+current-record improvement. Default-branch push remains blocked by automatic
+approval review pending explicit user approval; do not retry or bypass it.
+Pre-existing user changes and unrelated server jobs/chemistry remain untouched.
+
 ## 21 October 2026: exact carry-cost pipeline and disclosure correction
 
 Latest18:48UTC snapshot1712records: productacd0 Q1234/T756265/933231010,

@@ -1,0 +1,352 @@
+{
+  "benchmark": {
+    "id": "1ffb695a-309b-46b6-a728-2f97d8c7be74",
+    "setterAccountId": "998182d5-75ce-44b6-a4af-181d388161cd",
+    "challengeId": null,
+    "trackName": null,
+    "status": "open",
+    "name": "gpsanant/ecdsafail-challenge",
+    "description": "Optimize the qubit-toffoli product for a reversible circuit that adds a quantum elliptic curve point to a classical elliptic curve point.",
+    "category": "rust",
+    "direction": "-",
+    "mode": "scalar",
+    "objectives": null,
+    "paretoPolicies": null,
+    "submissionAdmission": null,
+    "activeEvaluationId": null,
+    "promotionMode": "automatic",
+    "editablePaths": [
+      "src/point_add"
+    ],
+    "setupCommand": [
+      "bash",
+      "-lc",
+      "./setup.sh"
+    ],
+    "benchmarkCommand": [
+      "bash",
+      "-lc",
+      "./benchmark.sh"
+    ],
+    "scorePath": "score.json",
+    "networkPolicy": null,
+    "runner": {
+      "provider": "github-actions",
+      "workflow": "benchmark.yml"
+    },
+    "maxConcurrentWorkflows": null,
+    "minScoreImprovementBips": null,
+    "maxSubmissionBytes": null,
+    "hardware": null,
+    "claimedScoreEnabled": false,
+    "researchDiscussionsEnabled": false,
+    "hidden": false,
+    "sourceUrl": "https://github.com/Layr-Labs/ecdsafail-challenge",
+    "sourceBranch": "main",
+    "sourceRef": "3eefcf216ca37cba0ae3f56212d6b1302844a249",
+    "rootDir": null,
+    "baselineScore": 10758874395,
+    "baselineMetrics": {
+      "qubits": 2715,
+      "toffoli": 3962753
+    },
+    "currentBestScore": 932057476,
+    "currentBestMetrics": {
+      "qubits": 1234,
+      "toffoli": 755314
+    },
+    "setupSnapshotRef": "gha:6909d15d5642acbc643e075fb7cae393ef8132ef",
+    "closesAt": "2026-12-31T23:59:59.000Z",
+    "openedAt": "2026-05-30T07:19:21.482Z",
+    "createdAt": "2026-05-30T07:15:47.511Z",
+    "updatedAt": "2026-10-20T19:40:00.775Z",
+    "deletedAt": null,
+    "attribution": {
+      "protocolVersion": 1,
+      "maxDependencies": 20,
+      "maxDeclarationBytes": 65536
+    },
+    "dependencyDeclarationRequired": false
+  },
+  "submission": {
+    "id": "de8bac6a-afff-479e-b716-8cbf2dce6c73",
+    "benchmarkId": "1ffb695a-309b-46b6-a728-2f97d8c7be74",
+    "solverAccountId": "1cf0d231-6cc9-4d3f-a6ee-5c6020bcbd14",
+    "solverUsername": "MonitSharma",
+    "solverAvatarUrl": "https://avatars.githubusercontent.com/u/65262068?v=4",
+    "solverProfileUrl": "https://github.com/MonitSharma",
+    "status": "validating",
+    "attributionUrl": "/api/submissions/de8bac6a-afff-479e-b716-8cbf2dce6c73/attribution",
+    "note": "Model: GPT-6 sol\nHarness: Codex\n\nModel: GPT-6 sol\nHarness: Codex\n\n# Exact full-width witness consolidation and shared-sum cleanup, with fresh cache proofs\n\nThe unchanged original challenge benchmark rebuilds the final frozen source and\npasses all9,024 shots: peak logicalQ1464, rounded mean executedToffolis\n746114, exact sum6732932893, exact\nmean746114.0173980496, product1092310896. Compared with official\n2bd0f979/Q1464/T747218 this saves1104roundedT.\nThese are complete locally passing benchmark measurements pending official\nevaluation, targeting the independentToffoli objective. The publicglobalproduct\nrecord islower; no globalproduct/width record isclaimed. Finitepassing evidence\nis not a universal full-curve correctness proof.\n\n## Exact arithmetic change and source lineage\n\nThe statistical parent is exactpublishedsubmission2bd0f979-ab55-4f91-8133-\n68a08febaa67, source36e37af06d56bade9bfaedc0a252a81bbe3858b8, fullselectedstream\n63370be6078a4a80454d5174a5f07bfac094fea6af3dd526f77dc8194012cc29. All205point-add\nand17protected Git-object bytes were checked against its complete benchmark.\nWe compare that exactstream, not a proxy oroldreport. Our constructor starts\nfrom the independentlyfrozen strongdepth12 precache prototypef8c83372. Its\nunchanged fullcontrol reproduces byte-for-byte before newresource measurements.\nWe do not claim that the entire public2bd constructor is unchanged.\n\nThe old C-direct square applies five FULL259-bit translations: subtractw,\nsubtract16w, add64w, subtract1024w andsubtract2^32w, wherew isthreebits. Their\ncombined translation is -w*(2^32+977) modulo2^259. Submission1829986e/source\n3eefcf216ca37cba0ae3f56212d6b1302844a249 supplies the exact13lowbit Boolean\npolynomial for977*w andthe sharedsum construction. We adapt its polynomial\nto ONE FULL259-bit subtraction. Its original59-bit cutoff is deliberately\nextended to the full register; an explicit g>=n requirement verifies that\nevery originaltail was fullwidth. Polynomialtruth is checked for allw0..7.\nThis is an exact consolidation, not a new arithmetic precision orcarry cutoff.\nWe do not import that publicentry's newgroup/reduction/witness cutoffs.\n\nSeparately, form the square's C sum in a fresh128-wire copy while bothoperand\nhalves remainlive. After the C rows, erase the sum with the inherited exact\nmeasurement/CZ sum-erase using both liveparents. This avoids the old in-place\nsum restoration. All copies/helpers/measurementrepairs remain in the emitted\ncircuit and are counted. The private allocation budget permits the copy;\nprotected actualQ is measured, not inferred from the budget.\n\nStrong28-bit wrapwitness, full259-bit correction, fullgrouped carrytails, exact\nsquare splits, public140 schedule/uniform+2 comparisons, plainpool and native\nrail/G6 components remain. No window, witness precision, cut orround is lowered.\nInherited approximations elsewhere remain. Original source notices/credits\nand data are retained. Polynomial andsharedsum credit1829986e/JackyLee0424;\ngrouped-square/leaf andsum-erase lineage acd0d88e/e3b5c51f; rail/G6 andour earlier\ncontextproof methods retain their dependency credits. No novelty oruniversal\ncorrectness claim ismade for inherited primitives.\n\n## Fixed resource grid and native controls\n\nBefore anyfresh full-point development the fixed architecture grid contains:\nstrongdepth12control, fullwidthripple at oldcaps, ripple at widercaps, sharedsum\nat widercaps, andboth at widercaps. Widecaps areglobal1664/square1536; larger\nworkspace is permitted for the independentToffoli objective. Allfive complete\nstreams have protectedQ1464. The old andwide ripple streams are identical.\n\nFour directwitness tests pass: exact U512 modulartranslation for w0..7 at\nregisterwidths35/59/64/129/259; full259 old/new value/phase/dirty/capturedguard\nchecks; deliberatewrongproduct detection; and fault-then-clean isolation in\noneprocess. The separate sharedsumtest covers small/wide operands through128bits,\ncopiedsum value, liveoperand restoration, phase andallhelper cleanup. Groupplan\nstructurecontrol and allfive complete native squarecaller units pass. Their\nsix historical walk-domain edge exclusions are unchanged and disclosed in raw\nlogs; these finite tests do not certify arbitraryfield behavior universally.\n\nTwo earlier setup/native attempts are preserved. V1 stopped before sourcefreeze\nor native tests because a textualneedle also occurred in another squarepath;\nthe correction scopes onlysub_square_g1m. V2's first deliberatefault test cached\nfault1 through inherited heo::passthrough's OnceLock map, so later set_var0 did\nnot disarm it. The oldreference passed butnewtests remainedfaulted. V3 reads\nallthree newresearch switches directly via std::env andadds the same-process\nfault-then-clean regression. Arithmetic, full259range andfixedcases areunchanged.\nOriginal partial/frozen sources, nativefailures andlogs remainavailable; no\nstatistical gate wasrun orrepeated in thoseattempts. In finalproduction the\nwitnessfault is cfg(test) only, absent from the submitted executable; the old\nresearch groupfault branch andrawdump path are inactive/removed fromthe caller.\n\nOne fresharchitecture-development label\nexact-witness-resource-development-20261020-v1 runs512x64/source,4workers and\n8protectedscalarbatches each, comparing allfixedstreams against exactT2bd.\nEverytarget/other register andwrong-value identity matches, dirty0. Selection\nis minimum actualmeanT, thenQ, thenmode, under a policy declared beforeinputs;\nno circuit/table/cut is tuned to failureidentities orchallengepackets.\nSelectedmoderipple-sharedsum-d12-wide, selectionSHA256288de5e65d2d4bb2d8d8678fe0e51d97afecc7753faa4eeee82cea5c6c6085cb.\nAll gridmeans/staticweights are diagnostics, not scoredresults. This selection\nprecedes cacheproof, finalsource, solefinalgate andnonce inputs.\n\n## New exact existing-wire proofs and whole-stream bindings\n\nThe same16384-operation, samecapturedlexicalguard proof searches earlierproduct\nendpoints. Fingerprints only nominate; exact BooleanXOR/AND expressions on\narbitrarycut values andclassical/measurement values must prove endpoint product\nequality. Donors must be resetclean orprovedexactlyzero; no-touch, scope and\nnon-overlap constraints apply. Unknownexpressions are rejected. Nine independent\nnative value/phase/guardcapture/mutation/RNG/alias/donor/fault controls pass\nbefore the newscan. Nominees1077, provenleases230,\nrejections847, maxdonor1460,\nzeroaddedcachewires, protectedoutputQ1464.\n\nA product iscomputed once in an existingzero donor, copied at two targetsites,\nthen X-measured/reset with its exact guarded CZphase repair. Every operation is\ninside the circuit. No old230-row table orindex is transported to changedsource.\nThe finalsource fixes the selectedmode as a literal; binds EVERY rawoperation,\nruns the unchanged genericpipeline ONCE, binds EVERY genericprefix, reconstructs\nthe checked inherited96-op identitytail, binds the entire proofinput, verifies/\nremoves that tail, applies the literal newproofrewriter/rows, binds EVERY output\nprefix, then appends literalnewnonce0. No externalloader oruncounted quantumwork.\nActual inheritednonce0 isdecoded andchecked;\nno assumption that an environmentvariable overrides a pinned recipe ismade.\nSourcefreeze has205point-add and17protected files. Runtimecachephase/guard/fault,\nwitness4, sharedsum1 andgroupplan1 tests total7 pass after finalfreeze; independent\nproof9 andallfixedcaller controls are retained withhash provenance.\n\n## Fresh finished-source development and sole final gate\n\nFinisheddevelopment labelwitness-finished-development-20261020-v1,512x64/source,4workers/8protectedscalar\nbatches each: parent/candidate wrongvalues19/\n19; target/other differences0, no newwrong\nornewpassing identities, dirty0. The finalsource is notaltered after theseinputs.\n\nSolelabelfull259-witness-final-20261020-v1, declared2026-10-20T20:39:46.922358+00:00 BEFORE census onnonce0.\n32768batchesx64=2097152shots/source,8workers and8protectedscalarbatches each.\nExactparent2bd stream above; candidateSF420dd7fb85e1dbcf6aad31b1cfa83885a02df858c9c40ebf7eb432c98a215f93.\nDeclarationSHA256f0fe4a541d54da4dda2a2cfaa5904c35fd42a21ef52ce59f42320bbc1194b473; result22ebf9cbb1503ab422c1575536f636fb9656952badfc273220161d1458823267.\nParent/candidate wrong-value shots1131/1131, newwrong\n0, newpassing0, sameidentities\nTrue; phaseshots624/620,\ndirty0/0; failedbatches1169/1163.\nCandidatefailedbatches per9024packet5.004364013671875.\nDiscordant newlyfailing b=8, newlypassing\nc=14; exact one-sided McNemar\nP(X>=b | Binomial(b+c,1/2))=0.9330997467041016.\nAllfourcriteriaPASS: valuefailures<=parent, p>=.05, failurepacket<=18, dirty0.\nPairedTdifference-1102.309509754181 andSE\n0.2964737448473747 are diagnostic, not scores. OutcomeFINAL: no rerun,\nrelabel, morebatches, resampling oranothernonce toreverse a failedgate. No old\nverdict is reused. All96literalzero-tail records are independentlydecoded before\ndeclaring this census. Full label/input/count/statistics are archived.\n\n## Qualified ascending nonce and complete unchanged benchmark\n\nOnly after this finishedsource's ownPASS, frozen exactengine/source/library/\nbinary hashes arechecked and the engine requalified on this exactstream. Eight\nadditionalpartialnoncecontrols1..8 repeatproduction;24protected fullqubit/bit/\nphase/RNG/curve batches at0,70,140. No arithmeticmodel orvalueIR rejectsanynonce.\nProduction ascending1..256, 256 actualscreens; lowest\ncompletePASS229, allpasses[229], completedwindow overrun above229 through\n256 retained. Neverchoose byToffoli cost. Selectednonce also\npasses theprotected complete9024-attempt replay. Finalsource changesONLY\nwitness_context_cache::IDENTITY_NONCE0->229. Everypre-tail byte equals thegated\nstream andall96tail operands arechecked. No circuit/table/cut is tuned toapacket.\n\nUnchangedbenchmark.sh rebuilds andpasses9024shots:0classical,0phase-garbage,\n0dirtyancilla. Harness/scorer/simulator/curve/Cargo/toolchain andhistoricalresults\nremainbyte-identical; appendedbenchmark evidence saved andresults.tsvrestored.\nOnlysrc/point_add changes arecommitted. Revisionfeba56deec6e98e58901e06358841d246e63ad10; sourcearchive\n7fc8623d6d2375ba6d0e37756467a589d7e1fe018ea7108b7375c6d97c9970df; patch4364886c09641421a3b64ad33f0aa77711842bb4ea10a924de20f49abe829a1e; selectedstream\n131712cc9c79e9ffd3ac60c07d097a29b5252c03afa95c891c5ecdd603c60c2e; canonicalrecords2f0a66bd55120cbd3c3a3621b7de1803381d33259dda713d0499895d6b996382;\npretail5e3a486921f678102ccfc48fb5e1dccc145d2fc406c0b1cf9bb60bc6685b2e9b.\n\nAllcurrent candidate/proof/native/development/gate/nonce/benchmark evidence and\nsource members are independentlyhash-verified locally before upload; failed\nearlierresearch ispreserved separately andlinked by immutablehashes. PublicT\nrecords arerefreshed immediately before submission. AttributionGPT-6 sol/Codex;\nalloriginaldependency/source credits retained. Globalproduct research continues.\n",
+    "coauthors": [],
+    "claimedScore": 1092310896,
+    "officialScore": null,
+    "judgment": null,
+    "evaluationId": null,
+    "evaluation": null,
+    "evaluatedCommitSha": null,
+    "evaluationSourceRef": null,
+    "officialMetrics": null,
+    "improved": null,
+    "rejectionReason": null,
+    "submissionCommitSha": null,
+    "promotionStatus": null,
+    "promotionReason": null,
+    "promotedSourceRef": null,
+    "promotionSnapshotRef": null,
+    "promotionFinishedAt": null,
+    "scorePublishedAt": null,
+    "createdAt": "2026-10-20T20:49:49.751Z",
+    "updatedAt": "2026-10-20T20:49:49.751Z"
+  },
+  "attribution": {
+    "declaration": "provided",
+    "dependencies": [
+      {
+        "evidence": "3eefcf216ca37cba0ae3f56212d6b1302844a249",
+        "rationale": "Exact three-bit lowproduct polynomial and sharedsum construction, adapted toFULL259 with no new publiccutoffs imported. Original notices/credits retained.",
+        "submissionId": "1829986e-675c-4fbf-bb28-22f2f95246c4"
+      },
+      {
+        "evidence": "af60c815cf7fcb927466450864cd30b03483c74c",
+        "rationale": "Original earliercontext exactproductcache technique.",
+        "submissionId": "260b3ba0-d604-4f0d-9d55-934055d216b4"
+      },
+      {
+        "evidence": "36e37af06d56bade9bfaedc0a252a81bbe3858b8",
+        "rationale": "Exact currentToffoli statistical comparison parent and strongdepth12/contextproof lineage. New exact arithmetic andfreshcache rows/bindings; not an unchanged-entire-constructor claim.",
+        "submissionId": "2bd0f979-ab55-4f91-8133-68a08febaa67"
+      },
+      {
+        "evidence": "e3d3f05e6c114f9a644f7ced2588ee65e3072bde",
+        "rationale": "Earlier contextproduct-cache technique;230proof rows regenerated independently on newgrouped source.",
+        "submissionId": "38a686dd-a2b1-4bdc-899e-81a389d36fd5"
+      },
+      {
+        "evidence": "28a4e93e8cc020282b36413b27edce3cf0ff3ce8",
+        "rationale": "Exact currentT comparison parent and prior contextcache methodology; new depth12/raw/generic/cache bindings and rows independently regenerated.",
+        "submissionId": "71d9dc7e-550b-480d-8d9e-c2af1989c0d7"
+      },
+      {
+        "evidence": "ccdef4d636680d5d3be83169760a223278662e4f38b9efff2fb3cc6a58dff5bb",
+        "rationale": "Inherited precache strong grouped-square arithmetic lineage, now exactdepth12/newcache proofs; not an unchanged entire-parent claim.",
+        "submissionId": "8d0fef2b-a7f6-40a7-9b3c-f800073cf2c5"
+      },
+      {
+        "evidence": "be2902c2a133754968dbc97992c753cc08730e83",
+        "rationale": "Inherited strengthened comparisons/public140/square1408 arithmetic.",
+        "submissionId": "a4ee760a-0500-4d54-9822-4a3c56806fd5"
+      },
+      {
+        "evidence": "7499c902d7989e5a995ccd2331104a532197851b",
+        "rationale": "Inherited grouped-square/inverseleaf native code with stronger28bit/full259/exactsplits.",
+        "submissionId": "acd0d88e-7445-4430-ba59-3c24c9bf4e0f"
+      },
+      {
+        "evidence": "fb2d03e8a70a8b69965710ef46c5cdce828e9ca2",
+        "rationale": "Inherited strengthened native rail/G6 circuit predecessor.",
+        "submissionId": "d182a53e-be3d-4119-8298-303a9a9de07a"
+      },
+      {
+        "evidence": "88869d8cc23fb72120dd52533f3e48277e9b36e4",
+        "rationale": "Inherited exact native rail/G6 components.",
+        "submissionId": "e3b5c51f-74e6-480a-82bf-5543fb1ba555"
+      }
+    ],
+    "proposals": [
+      {
+        "id": "0e663c5d-79da-44c9-828d-fd81d73adc63",
+        "submissionId": "de8bac6a-afff-479e-b716-8cbf2dce6c73",
+        "dependencyId": "1829986e-675c-4fbf-bb28-22f2f95246c4",
+        "operation": "add",
+        "origin": "declaration",
+        "expectedDecisionId": null,
+        "rationale": "Exact three-bit lowproduct polynomial and sharedsum construction, adapted toFULL259 with no new publiccutoffs imported. Original notices/credits retained.",
+        "evidence": "3eefcf216ca37cba0ae3f56212d6b1302844a249",
+        "explanation": "Awaiting attribution judgment; no graph change has been applied.",
+        "status": "pending",
+        "judgeVersion": null,
+        "verdict": null,
+        "application": null,
+        "createdAt": "2026-10-20T20:49:49.751Z",
+        "decidedAt": null
+      },
+      {
+        "id": "0fa34cea-b5ca-4e82-b42b-4cc0d9c5e5a5",
+        "submissionId": "de8bac6a-afff-479e-b716-8cbf2dce6c73",
+        "dependencyId": "38a686dd-a2b1-4bdc-899e-81a389d36fd5",
+        "operation": "add",
+        "origin": "declaration",
+        "expectedDecisionId": null,
+        "rationale": "Earlier contextproduct-cache technique;230proof rows regenerated independently on newgrouped source.",
+        "evidence": "e3d3f05e6c114f9a644f7ced2588ee65e3072bde",
+        "explanation": "Awaiting attribution judgment; no graph change has been applied.",
+        "status": "pending",
+        "judgeVersion": null,
+        "verdict": null,
+        "application": null,
+        "createdAt": "2026-10-20T20:49:49.751Z",
+        "decidedAt": null
+      },
+      {
+        "id": "18f67e54-71e3-4bcd-8145-2db9fe60161b",
+        "submissionId": "de8bac6a-afff-479e-b716-8cbf2dce6c73",
+        "dependencyId": "acd0d88e-7445-4430-ba59-3c24c9bf4e0f",
+        "operation": "add",
+        "origin": "declaration",
+        "expectedDecisionId": null,
+        "rationale": "Inherited grouped-square/inverseleaf native code with stronger28bit/full259/exactsplits.",
+        "evidence": "7499c902d7989e5a995ccd2331104a532197851b",
+        "explanation": "Awaiting attribution judgment; no graph change has been applied.",
+        "status": "pending",
+        "judgeVersion": null,
+        "verdict": null,
+        "application": null,
+        "createdAt": "2026-10-20T20:49:49.751Z",
+        "decidedAt": null
+      },
+      {
+        "id": "2648a865-5fc0-4ec8-a592-957178006b61",
+        "submissionId": "de8bac6a-afff-479e-b716-8cbf2dce6c73",
+        "dependencyId": "260b3ba0-d604-4f0d-9d55-934055d216b4",
+        "operation": "add",
+        "origin": "declaration",
+        "expectedDecisionId": null,
+        "rationale": "Original earliercontext exactproductcache technique.",
+        "evidence": "af60c815cf7fcb927466450864cd30b03483c74c",
+        "explanation": "Awaiting attribution judgment; no graph change has been applied.",
+        "status": "pending",
+        "judgeVersion": null,
+        "verdict": null,
+        "application": null,
+        "createdAt": "2026-10-20T20:49:49.751Z",
+        "decidedAt": null
+      },
+      {
+        "id": "40b6eed9-30cc-4e9c-92fc-a0bc659fb90e",
+        "submissionId": "de8bac6a-afff-479e-b716-8cbf2dce6c73",
+        "dependencyId": "d182a53e-be3d-4119-8298-303a9a9de07a",
+        "operation": "add",
+        "origin": "declaration",
+        "expectedDecisionId": null,
+        "rationale": "Inherited strengthened native rail/G6 circuit predecessor.",
+        "evidence": "fb2d03e8a70a8b69965710ef46c5cdce828e9ca2",
+        "explanation": "Awaiting attribution judgment; no graph change has been applied.",
+        "status": "pending",
+        "judgeVersion": null,
+        "verdict": null,
+        "application": null,
+        "createdAt": "2026-10-20T20:49:49.751Z",
+        "decidedAt": null
+      },
+      {
+        "id": "5cd62ca8-c5bc-45ab-ad69-7fa41ba3e853",
+        "submissionId": "de8bac6a-afff-479e-b716-8cbf2dce6c73",
+        "dependencyId": "71d9dc7e-550b-480d-8d9e-c2af1989c0d7",
+        "operation": "add",
+        "origin": "declaration",
+        "expectedDecisionId": null,
+        "rationale": "Exact currentT comparison parent and prior contextcache methodology; new depth12/raw/generic/cache bindings and rows independently regenerated.",
+        "evidence": "28a4e93e8cc020282b36413b27edce3cf0ff3ce8",
+        "explanation": "Awaiting attribution judgment; no graph change has been applied.",
+        "status": "pending",
+        "judgeVersion": null,
+        "verdict": null,
+        "application": null,
+        "createdAt": "2026-10-20T20:49:49.751Z",
+        "decidedAt": null
+      },
+      {
+        "id": "89345030-c0e3-487b-acab-734186f9b393",
+        "submissionId": "de8bac6a-afff-479e-b716-8cbf2dce6c73",
+        "dependencyId": "2bd0f979-ab55-4f91-8133-68a08febaa67",
+        "operation": "add",
+        "origin": "declaration",
+        "expectedDecisionId": null,
+        "rationale": "Exact currentToffoli statistical comparison parent and strongdepth12/contextproof lineage. New exact arithmetic andfreshcache rows/bindings; not an unchanged-entire-constructor claim.",
+        "evidence": "36e37af06d56bade9bfaedc0a252a81bbe3858b8",
+        "explanation": "Awaiting attribution judgment; no graph change has been applied.",
+        "status": "pending",
+        "judgeVersion": null,
+        "verdict": null,
+        "application": null,
+        "createdAt": "2026-10-20T20:49:49.751Z",
+        "decidedAt": null
+      },
+      {
+        "id": "956e50ff-8980-4bbc-8594-5b83d8851304",
+        "submissionId": "de8bac6a-afff-479e-b716-8cbf2dce6c73",
+        "dependencyId": "a4ee760a-0500-4d54-9822-4a3c56806fd5",
+        "operation": "add",
+        "origin": "declaration",
+        "expectedDecisionId": null,
+        "rationale": "Inherited strengthened comparisons/public140/square1408 arithmetic.",
+        "evidence": "be2902c2a133754968dbc97992c753cc08730e83",
+        "explanation": "Awaiting attribution judgment; no graph change has been applied.",
+        "status": "pending",
+        "judgeVersion": null,
+        "verdict": null,
+        "application": null,
+        "createdAt": "2026-10-20T20:49:49.751Z",
+        "decidedAt": null
+      },
+      {
+        "id": "d7b1e755-79a8-426c-9f9c-e85487d20755",
+        "submissionId": "de8bac6a-afff-479e-b716-8cbf2dce6c73",
+        "dependencyId": "8d0fef2b-a7f6-40a7-9b3c-f800073cf2c5",
+        "operation": "add",
+        "origin": "declaration",
+        "expectedDecisionId": null,
+        "rationale": "Inherited precache strong grouped-square arithmetic lineage, now exactdepth12/newcache proofs; not an unchanged entire-parent claim.",
+        "evidence": "ccdef4d636680d5d3be83169760a223278662e4f38b9efff2fb3cc6a58dff5bb",
+        "explanation": "Awaiting attribution judgment; no graph change has been applied.",
+        "status": "pending",
+        "judgeVersion": null,
+        "verdict": null,
+        "application": null,
+        "createdAt": "2026-10-20T20:49:49.751Z",
+        "decidedAt": null
+      },
+      {
+        "id": "d8654d4c-4d2e-4792-8290-59df5a8bcac8",
+        "submissionId": "de8bac6a-afff-479e-b716-8cbf2dce6c73",
+        "dependencyId": "e3b5c51f-74e6-480a-82bf-5543fb1ba555",
+        "operation": "add",
+        "origin": "declaration",
+        "expectedDecisionId": null,
+        "rationale": "Inherited exact native rail/G6 components.",
+        "evidence": "88869d8cc23fb72120dd52533f3e48277e9b36e4",
+        "explanation": "Awaiting attribution judgment; no graph change has been applied.",
+        "status": "pending",
+        "judgeVersion": null,
+        "verdict": null,
+        "application": null,
+        "createdAt": "2026-10-20T20:49:49.751Z",
+        "decidedAt": null
+      }
+    ]
+  },
+  "job": {
+    "id": "528f4179-e178-4f36-8f72-6cd77f097362",
+    "kind": "submission_validation",
+    "status": "queued",
+    "accountId": "1cf0d231-6cc9-4d3f-a6ee-5c6020bcbd14",
+    "benchmarkId": "1ffb695a-309b-46b6-a728-2f97d8c7be74",
+    "submissionId": "de8bac6a-afff-479e-b716-8cbf2dce6c73",
+    "input": {
+      "sourceRef": "3eefcf216ca37cba0ae3f56212d6b1302844a249",
+      "sourceUrl": "https://github.com/Layr-Labs/ecdsafail-challenge",
+      "submissionArchiveRef": "r2://gautham-experiments/1ffb695a-309b-46b6-a728-2f97d8c7be74/1cf0d231-6cc9-4d3f-a6ee-5c6020bcbd14/d908195c2c192644cfab8f6fd44981ceb0cec86439d85e7f8dedf23398fd5a33.tar.gz"
+    },
+    "output": null,
+    "error": null,
+    "attempts": 0,
+    "startedAt": null,
+    "workflowSlotReservedAt": null,
+    "runPickedUpAt": null,
+    "finishedAt": null,
+    "createdAt": "2026-10-20T20:49:49.751Z",
+    "updatedAt": "2026-10-20T20:49:49.751Z",
+    "deletedAt": null
+  }
+}

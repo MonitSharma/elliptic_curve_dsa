@@ -1,0 +1,45 @@
+{
+  "status": "FIXED_EXACT_ARCHITECTURE_SELECTED_BY_ACTUAL_RESOURCE_ONLY_NOT_SCORED",
+  "choices": [
+    {
+      "mode": "ripple-sharedsum-d12-wide",
+      "qubits": 1464,
+      "mean_executed_toffoli": 746345.4993591309,
+      "stream_sha256": "e13de5375c82f5f62a38ba0a6b30632412b2b2a7ab05c5508ceb7d968fd7a636"
+    },
+    {
+      "mode": "ripple-d12",
+      "qubits": 1464,
+      "mean_executed_toffoli": 746472.4979553223,
+      "stream_sha256": "894fbb1b8c96396ff8bca19353f539b783fa22998cf41ef29309ae042401551f"
+    },
+    {
+      "mode": "ripple-d12-wide",
+      "qubits": 1464,
+      "mean_executed_toffoli": 746472.4979553223,
+      "stream_sha256": "894fbb1b8c96396ff8bca19353f539b783fa22998cf41ef29309ae042401551f"
+    },
+    {
+      "mode": "sharedsum-d12-wide",
+      "qubits": 1464,
+      "mean_executed_toffoli": 747320.8821105957,
+      "stream_sha256": "816d680d6d5f961c5bbac78711f249fbececc409ed1f431cf5b5d5ece33c1882"
+    },
+    {
+      "mode": "groups-safe28-d12",
+      "qubits": 1464,
+      "mean_executed_toffoli": 747447.3626098633,
+      "stream_sha256": "f8c83372543408f90dfad942341a03fff81876878af53815bdb7a99f62f7dc84"
+    }
+  ],
+  "selected": {
+    "mode": "ripple-sharedsum-d12-wide",
+    "qubits": 1464,
+    "mean_executed_toffoli": 746345.4993591309,
+    "stream_sha256": "e13de5375c82f5f62a38ba0a6b30632412b2b2a7ab05c5508ceb7d968fd7a636"
+  },
+  "selection_policy": "minimum measured meanT, thenQ, thenmode; no candidate orcut tuning toinput failures. Alloutcomes preserved; no finalgate/nonce/score. Selected dirty/mismatched source must stop for diagnosis, never quietlychooseanother.",
+  "plan_sha256": "14776725910a21095dd50eb52dcdda0d49bb2ff74b0f32f5abf3533877edf235",
+  "diagnostic_sha256": "f4a3734f25bc3393401cedb09b95c8240ceb8a5a36d9ac5b1a2060e53a25c118",
+  "source_freeze_sha256": "856fc01e40ce9c971d7694aac788071e1d23a9ee37f847cdc38aaddbc05cc8f1"
+}

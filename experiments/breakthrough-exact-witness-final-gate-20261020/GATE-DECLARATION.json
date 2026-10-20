@@ -1,0 +1,63 @@
+{
+  "declared_at_utc": "2026-10-20T20:39:46.922358+00:00",
+  "label": "full259-witness-final-20261020-v1",
+  "batches": 32768,
+  "shots_per_batch": 64,
+  "shots_per_source": 2097152,
+  "first_batch": 0,
+  "workers_per_source": 8,
+  "protected_scalar_batches_per_source": 8,
+  "candidate_root": "/home/hclau/ecdsa_research/breakthrough-exact-witness-finished-20261020/candidate",
+  "candidate_source_freeze": "/home/hclau/ecdsa_research/breakthrough-exact-witness-finished-20261020/SOURCE-FREEZE.json",
+  "candidate_source_freeze_sha256": "420dd7fb85e1dbcf6aad31b1cfa83885a02df858c9c40ebf7eb432c98a215f93",
+  "candidate_stream": "/home/hclau/ecdsa_research/breakthrough-exact-witness-finished-20261020/candidate/ops.bin",
+  "candidate_stream_sha256": "7e845a154f3c92333a7fd4c3d9a4925a8b02979a51443be580dfcfe6e6d19192",
+  "candidate_qubits_from_protected_analyzer": 1464,
+  "identity_nonce": 0,
+  "parent_record": {
+    "id": "2bd0f979-ab55-4f91-8133-68a08febaa67",
+    "officialScore": 1093927152,
+    "officialMetrics": {
+      "qubits": 1464,
+      "toffoli": 747218
+    },
+    "submissionCommitSha": "36e37af06d56bade9bfaedc0a252a81bbe3858b8"
+  },
+  "public_refresh_at_utc": "2026-10-20T20:39:46.899985+00:00",
+  "public_records_sha256": "4e6b8efee81d34a9e2bfd1057b73928584dbd1cffe7809a062dd6fad376ef87e",
+  "parent_source_receipt_sha256": "0eae120e7bd41161ae8ed1cd39a821d9ad2787a74c2645ec666244a941d49722",
+  "parent_stream": "/home/hclau/ecdsa_research/breakthrough-depth12-final-20261020/candidate/ops.bin",
+  "parent_stream_sha256": "63370be6078a4a80454d5174a5f07bfac094fea6af3dd526f77dc8194012cc29",
+  "census_binary": "/home/hclau/ecdsa_research/simd-census-v2-20261016/bin/simd_census_v2",
+  "census_binary_sha256": "790e92266ea67ec54ef701b2deed76fe8d0b766b411ca9eab877f82ae2c11a66",
+  "protected_dependency_files": {
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/.github/workflows/benchmark.yml": "3b90200b03c72242cbaab4a8dd22eedcab97fb4ba5983980cf4d738130141162",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/.gitignore": "b9ca6f04c099c9f83bdfaec187be689580b57b1ca701dea5ab297c0500457658",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/Cargo.lock": "42ff16919e551891ad1b21821329b116d133194245a0e0734a33573dfe598e07",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/Cargo.toml": "3c80178b08d29a158abb29a7dcb8eefc67c66f60f2c3bd14483b65eeca0740dc",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/NOTICE": "fdfff837a1a85c14fc8854cfb2fa8a43b2ac58a6b8fcc50e56fe6c9d1293c58f",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/README.md": "ac644b8d227144c34245d913b5cbe6857da02faa10c885bf0ad3b14a5d9d6f7a",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/benchmark.json": "213c8e602881130991b9374d8f991acb2d2a7cc3618ec5f24d5e3cc27add06fb",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/benchmark.sh": "122a65431ad42a1bad5114af9e8f8301fe5cb08c01adaeee00799c9f0d0ed92a",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/results.tsv": "eea840222afd2424445550252f25795d63eb4bc3904b8c87f0213b5f22abc810",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/rust-toolchain": "92b454c1ccf330de9b94242f73bc3214370fb420d5152baeec12dc82ceef9dcc",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/setup.sh": "6efa1c41517f0cd94f1e7301aa5ccb2c488eef66466843668e44e09c5523d029",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/src/bin/build_circuit.rs": "ac013f1d851156a117c7d41ddb16cb5bb014ed4e6ed4679df143207b46852f33",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/src/bin/eval_circuit.rs": "b35314bc47a5f8eecbf60459e6c76c9b43aa034eeb9b7ec3421655d74f9e890b",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/src/circuit.rs": "ac2255f6bcb6895c9da2dfe21c3a051a0ef8fc4e0af9598634fec0035dbf35c6",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/src/lib.rs": "ebad13b0018b36bdcbcac0d0ca2b7b76a00a886eb4f93ff18e7ba321e76b0039",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/src/sim.rs": "f0c72f2a280cd68acee1dbf8282098f72d6b3bf4311e0abf96d122fe002256d7",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/src/weierstrass_elliptic_curve.rs": "ecfca15ee3b831c243fbea559ff4b8937be47fe591a4f14786ec2b9bfb30bded"
+  },
+  "criteria": {
+    "candidate_value_failing_shots_no_more_than_parent": true,
+    "one_sided_exact_mcnemar_p_minimum": 0.05,
+    "failed_batches_per_9024_shot_packet_maximum": 18,
+    "packet_batches": 141,
+    "dirty_ancilla_shots": 0
+  },
+  "verdict_policy": "Sole finalgate for fixed exactfull259witness/sharedsum plus newly proved zero-added-wire cache on strong grouped arithmetic. Exact currentT2bd parent. Native5components/group1/full5caller/proof9/runtime7 retained. Outcome final: no rerun/relabel/extension/nonce to reverse failure. Final source/cache fixed before fresh development; no prior gate verdict reused.",
+  "scope": "Selected fixed exact full259 witness consolidation/sharedsum architecture on strongwitness28/fullgroup tails/exactsplits/public140/uniform+2/native rail/G6. Exact8-value polynomial from public1829 extended from59tofull259 andguarded byoldg>=n. No new approximation/window/cut/round. Whole raw/generic/input/newcacheprefix bindings; new proof rows/no added cache wires; checked inherited identity tail/newliteral0. Production fault branch absent via cfg(test), research rawdump removed. Native5components/group1/full5caller retained; proof9 fresh; finishedruntime7 repeated. Ownfreshdevelopment/finalgate vs exactcurrentT2bd/qualifiednonce/unchanged9024benchmark required. No scored result.",
+  "development_plan_sha256": "78d6c85a2ad9c6c4d5c74d0c3cbeec0b219f62d399a63c52b73359418406ec23",
+  "development_result_sha256": "46cbfb005b3734bc34fe2d0bcf83a3f90f15d449b59f0b953a33c198c839b201"
+}

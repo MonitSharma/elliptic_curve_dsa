@@ -1,0 +1,37 @@
+{
+  "status": "DEVELOPMENT_COMPARISON_COMPLETE_PRESERVE_ALL_MISMATCHES",
+  "label": "witness-finished-development-20261020-v1",
+  "batches": 512,
+  "summaries": {
+    "public2bd": {
+      "value_shots": 19,
+      "phase_shots": 8,
+      "dirty_shots": 0,
+      "failed_batches": 17,
+      "mean_executed_stream_toffoli": 747217.9906311035,
+      "rows_sha256": "8d366a2a8fdef8ddad14e5cb35a014ee413f5bb3c228647b4a4f3448cddcecc3"
+    },
+    "witness": {
+      "value_shots": 19,
+      "phase_shots": 11,
+      "dirty_shots": 0,
+      "failed_batches": 17,
+      "mean_executed_stream_toffoli": 746114.361114502,
+      "rows_sha256": "4fd7a9c0811e740142783bfd44f36a9fc76bff96d4bbc8431ec725aa48fa00d4"
+    }
+  },
+  "comparisons": {
+    "witness": {
+      "candidate_minus_parent_raw_toffoli": -1103.6295166015625,
+      "paired_standard_error": 2.517690022919374,
+      "new_failed_batches": 0,
+      "new_passing_batches": 0,
+      "new_value_failing_shots": [],
+      "new_value_passing_shots": [],
+      "different_target_lanes": [],
+      "different_other_lanes": [],
+      "target_differences_confined_to_both_value_failing": true
+    }
+  },
+  "scope": "Fresh full-output development512x64/source on final selectedfull259witness/sharedsum/literal0/freshcache source, compared against exactpublishedT2bd Q1464/T747218. Native7/proof9 andwholebindings passed before inputs. No new approximatewindow/cut/precision/round. Preserve all output/value/phase/dirty mismatches. Not final-gated, nonce-screened, benchmarked or scored."
+}
