@@ -1,0 +1,46 @@
+{
+  "sealed_at_utc": "2026-10-20T01:53:36.865707+00:00",
+  "base": "90e777ea8242faa0acb2462c5cb5be7c318a2d64",
+  "protected_files_checked": 17,
+  "source_freeze_sha256": "107a1d6ac7e7162e31fc33ca632cb529c19f789b44079fa6b5cbbd1a468d79a4",
+  "result": {
+    "status": "RAW_ADMISSION_COMPLETE_NOT_SCORED",
+    "cases": [
+      {
+        "cap": 1234,
+        "exit": 0,
+        "seconds": 4.227675914764404,
+        "builder_totals": [
+          "HEO_TOTAL native=810068 expected=762230.8 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+        ],
+        "raw_sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b"
+      },
+      {
+        "cap": 1233,
+        "exit": 0,
+        "seconds": 4.5634377002716064,
+        "builder_totals": [
+          "HEO_TOTAL native=813235 expected=763838.2 peak=1234 peak_op=5834221 peak_phase=square qubits_touched=1234"
+        ],
+        "raw_sha256": "0bd52235bc2294d67fff45bb21e4f47c6559db09830e3e6654c42c85b5014c1a"
+      }
+    ]
+  },
+  "streams_retained_on_server": {
+    "/home/hclau/ecdsa_research/breakthrough-phase-pebble-plan7-20261020/cap1233/ops.bin": {
+      "sha256": "0bd52235bc2294d67fff45bb21e4f47c6559db09830e3e6654c42c85b5014c1a",
+      "bytes": 39218669,
+      "complete": true
+    },
+    "/home/hclau/ecdsa_research/breakthrough-phase-pebble-plan7-20261020/cap1234/ops.bin": {
+      "sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b",
+      "bytes": 38777871,
+      "complete": true
+    }
+  },
+  "native_binaries": {
+    "/home/hclau/ecdsa_research/breakthrough-phase-pebble-plan7-20261020/observer/target/release/deps/build_circuit-96cdcfa2d1d068c7": "b3efa5b21e41bc2f1cd57749937281e43995e044ea547ab016b07650d33b16a9",
+    "/home/hclau/ecdsa_research/breakthrough-phase-pebble-plan7-20261020/observer/target/release/deps/build_circuit-0c12d1b03f2fe721": "187a6f4a50af42bc236c431a4af06529b205c0feb88055ed1c3ccd4fab35ecb7"
+  },
+  "no_final_gate_nonce_or_scored_result": true
+}

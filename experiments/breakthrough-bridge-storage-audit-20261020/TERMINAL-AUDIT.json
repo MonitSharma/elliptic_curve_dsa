@@ -1,0 +1,126 @@
+{
+  "sealed_at_utc": "2026-10-20T01:38:39.027942+00:00",
+  "base": "90e777ea8242faa0acb2462c5cb5be7c318a2d64",
+  "protected_files_checked": 17,
+  "source_freeze_sha256": "e92d6c69ce8d09bfad3d5332108e8d663310f7b0dbcb16075ef7677f3305cf55",
+  "result": {
+    "status": "CONTROL_EXACT_SAME_FAILED_CANDIDATE_DIAGNOSED",
+    "cases": [
+      {
+        "hard": 1234,
+        "exit": 0,
+        "fresh_ids": [
+          "NEW_PHYSICAL_ID\tdivide\t1444634\t1234\t1233\tsrc/bin/../point_add/leapfrog.rs:2064:17\t[]\t[]"
+        ],
+        "last_lin_sites": [
+          "LIN_ALLOC_SITE\tmultiply\t10192889\t1232\tsrc/bin/../point_add/y15_onefold.rs:788:21",
+          "LIN_ALLOC_SITE\tmultiply\t10192895\t1233\tsrc/bin/../point_add/y15_onefold.rs:788:21",
+          "LIN_ALLOC_SITE\tmultiply\t10212722\t1232\tsrc/bin/../point_add/y15_onefold.rs:788:21",
+          "LIN_ALLOC_SITE\tmultiply\t10212728\t1233\tsrc/bin/../point_add/y15_onefold.rs:788:21",
+          "LIN_ALLOC_SITE\tmultiply\t10232555\t1232\tsrc/bin/../point_add/y15_onefold.rs:788:21",
+          "LIN_ALLOC_SITE\tmultiply\t10232561\t1233\tsrc/bin/../point_add/y15_onefold.rs:788:21",
+          "LIN_ALLOC_SITE\tmultiply\t10252388\t1232\tsrc/bin/../point_add/y15_onefold.rs:788:21",
+          "LIN_ALLOC_SITE\tmultiply\t10252394\t1233\tsrc/bin/../point_add/y15_onefold.rs:788:21",
+          "LIN_ALLOC_SITE\tmultiply\t10272221\t1232\tsrc/bin/../point_add/y15_onefold.rs:788:21",
+          "LIN_ALLOC_SITE\tmultiply\t10272227\t1233\tsrc/bin/../point_add/y15_onefold.rs:788:21",
+          "LIN_ALLOC_SITE\tmultiply\t11170346\t1232\tsrc/bin/../point_add/y15_onefold.rs:715:13",
+          "LIN_ALLOC_SITE\tmultiply\t11170412\t1233\tsrc/bin/../point_add/y15_onefold.rs:715:13"
+        ],
+        "last_chunks": [
+          "CHUNK_ADMISSION\tmultiply\t10053828\t1206\t30\t0\t1\t28\t1",
+          "CHUNK_ADMISSION\tmultiply\t10073661\t1206\t30\t0\t1\t28\t1",
+          "CHUNK_ADMISSION\tmultiply\t10093494\t1206\t30\t0\t1\t28\t1",
+          "CHUNK_ADMISSION\tmultiply\t10113327\t1206\t30\t0\t1\t28\t1",
+          "CHUNK_ADMISSION\tmultiply\t10133160\t1206\t30\t0\t1\t28\t1",
+          "CHUNK_ADMISSION\tmultiply\t10152993\t1206\t30\t0\t1\t28\t1",
+          "CHUNK_ADMISSION\tmultiply\t10172826\t1206\t30\t0\t1\t28\t1",
+          "CHUNK_ADMISSION\tmultiply\t10192659\t1206\t30\t0\t1\t28\t1",
+          "CHUNK_ADMISSION\tmultiply\t10212492\t1206\t30\t0\t1\t28\t1",
+          "CHUNK_ADMISSION\tmultiply\t10232325\t1206\t30\t0\t1\t28\t1",
+          "CHUNK_ADMISSION\tmultiply\t10252158\t1206\t30\t0\t1\t28\t1",
+          "CHUNK_ADMISSION\tmultiply\t10271991\t1206\t30\t0\t1\t28\t1"
+        ],
+        "last_modular_contracts": [
+          "MODULAR_CONTRACT\tmultiply\t8572541\t1149\t85\t1\t1\t0\t0\t0\t0\t0",
+          "MODULAR_CONTRACT\tmultiply\t8573624\t1149\t85\t1\t1\t0\t0\t0\t0\t0",
+          "MODULAR_CONTRACT\tmultiply\t8575219\t1149\t86\t1\t1\t0\t0\t0\t0\t0",
+          "MODULAR_CONTRACT\tmultiply\t8576070\t1150\t85\t1\t1\t0\t0\t0\t0\t0",
+          "MODULAR_CONTRACT\tmultiply\t8577153\t1150\t85\t1\t1\t0\t0\t0\t0\t0",
+          "MODULAR_CONTRACT\tmultiply\t8606264\t1148\t86\t1\t1\t0\t0\t0\t0\t0",
+          "MODULAR_CONTRACT\tmultiply\t8607115\t1149\t85\t1\t1\t0\t0\t0\t0\t0",
+          "MODULAR_CONTRACT\tmultiply\t8608198\t1149\t85\t1\t1\t0\t0\t0\t0\t0",
+          "MODULAR_CONTRACT\tmultiply\t8733193\t1150\t85\t1\t1\t0\t0\t0\t0\t0",
+          "MODULAR_CONTRACT\tmultiply\t8734276\t1150\t85\t1\t1\t0\t0\t0\t0\t0",
+          "MODULAR_CONTRACT\tmultiply\t8764804\t1149\t85\t1\t1\t0\t0\t0\t0\t0",
+          "MODULAR_CONTRACT\tmultiply\t8765887\t1149\t85\t1\t1\t0\t0\t0\t0\t0"
+        ],
+        "raw_sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b"
+      },
+      {
+        "hard": 1233,
+        "exit": 101,
+        "fresh_ids": [
+          "NEW_PHYSICAL_ID\tdivide\t4131640\t1234\t1233\tsrc/bin/../point_add/y15_onefold.rs:835:17\t[]\t[]"
+        ],
+        "last_lin_sites": [
+          "LIN_ALLOC_SITE\tdivide\t4135127\t1233\tsrc/bin/../point_add/y15_onefold.rs:835:17",
+          "LIN_ALLOC_SITE\tdivide\t4135315\t1232\tsrc/bin/../point_add/y15_onefold.rs:835:17",
+          "LIN_ALLOC_SITE\tdivide\t4135357\t1233\tsrc/bin/../point_add/y15_onefold.rs:835:17",
+          "LIN_ALLOC_SITE\tdivide\t4135482\t1233\tsrc/bin/../point_add/y15_onefold.rs:835:17",
+          "LIN_ALLOC_SITE\tdivide\t4135672\t1232\tsrc/bin/../point_add/leapfrog.rs:2871:17",
+          "LIN_ALLOC_SITE\tdivide\t4135882\t1232\tsrc/bin/../point_add/leapfrog.rs:2871:17",
+          "LIN_ALLOC_SITE\tdivide\t4136179\t1232\tsrc/bin/../point_add/leapfrog.rs:2871:17",
+          "LIN_ALLOC_SITE\tdivide\t4136563\t1232\tsrc/bin/../point_add/leapfrog.rs:2871:17",
+          "LIN_ALLOC_SITE\tdivide\t4137032\t1232\tsrc/bin/../point_add/leapfrog.rs:2871:17",
+          "LIN_ALLOC_SITE\tdivide\t4137568\t1232\tsrc/bin/../point_add/leapfrog.rs:2871:17",
+          "LIN_ALLOC_SITE\tdivide\t4138221\t1232\tsrc/bin/../point_add/leapfrog.rs:2871:17",
+          "LIN_ALLOC_SITE\tdivide\t4139033\t1232\tsrc/bin/../point_add/leapfrog.rs:2871:17"
+        ],
+        "last_chunks": [
+          "CHUNK_ADMISSION\tdivide\t4076178\t1226\t8\t1\t0\t8\t1",
+          "CHUNK_ADMISSION\tdivide\t4077025\t1227\t7\t1\t0\t7\t1",
+          "CHUNK_ADMISSION\tdivide\t4077782\t1228\t6\t1\t0\t6\t1",
+          "CHUNK_ADMISSION\tdivide\t4078403\t1229\t4\t1\t0\t4\t1",
+          "CHUNK_ADMISSION\tdivide\t4078798\t1230\t6\t0\t1\t4\t1",
+          "CHUNK_ADMISSION\tdivide\t4103682\t1224\t10\t1\t0\t10\t1",
+          "CHUNK_ADMISSION\tdivide\t4104210\t1225\t9\t1\t0\t9\t1",
+          "CHUNK_ADMISSION\tdivide\t4105113\t1226\t8\t1\t0\t8\t1",
+          "CHUNK_ADMISSION\tdivide\t4105922\t1227\t7\t1\t0\t7\t1",
+          "CHUNK_ADMISSION\tdivide\t4106648\t1228\t6\t1\t0\t6\t1",
+          "CHUNK_ADMISSION\tdivide\t4107241\t1229\t4\t1\t0\t4\t1",
+          "CHUNK_ADMISSION\tdivide\t4107618\t1230\t6\t0\t1\t4\t1"
+        ],
+        "last_modular_contracts": [
+          "MODULAR_CONTRACT\tdivide\t4101503\t1198\t37\t1\t1\t0\t0\t0\t0\t0",
+          "MODULAR_CONTRACT\tdivide\t4102269\t1198\t37\t1\t1\t0\t0\t0\t0\t0",
+          "MODULAR_CONTRACT\tdivide\t4118638\t1197\t37\t1\t1\t0\t0\t0\t0\t0",
+          "MODULAR_CONTRACT\tdivide\t4119193\t1197\t37\t1\t1\t0\t0\t0\t0\t0",
+          "MODULAR_CONTRACT\tdivide\t4119748\t1197\t37\t1\t1\t0\t0\t0\t0\t0",
+          "MODULAR_CONTRACT\tdivide\t4122450\t1197\t37\t1\t1\t0\t0\t0\t0\t0",
+          "MODULAR_CONTRACT\tdivide\t4122811\t1198\t37\t1\t1\t0\t0\t0\t0\t0",
+          "MODULAR_CONTRACT\tdivide\t4123553\t1198\t37\t1\t1\t0\t0\t0\t0\t0",
+          "MODULAR_CONTRACT\tdivide\t4124295\t1198\t37\t1\t1\t0\t0\t0\t0\t0",
+          "MODULAR_CONTRACT\tdivide\t4125037\t1198\t36\t1\t1\t0\t0\t0\t0\t0",
+          "MODULAR_CONTRACT\tdivide\t4125582\t1198\t36\t1\t1\t0\t0\t0\t0\t0",
+          "MODULAR_CONTRACT\tdivide\t4126127\t1198\t36\t1\t1\t0\t0\t0\t0\t0"
+        ],
+        "failed_debug_prefix_sha256": "f71a3031c22d345d737a49754f1aa008a1a74b189c1f8a78923d142699ad7beb",
+        "debug_prefix_incomplete": true
+      }
+    ],
+    "scope": "Native circuit-construction storage only. No packet inputs, arithmetic cut, resource record, final gate or nonce."
+  },
+  "streams_retained_on_server": {
+    "/home/hclau/ecdsa_research/breakthrough-bridge-storage-audit-20261020/observer/failure-prefix.ops.bin": {
+      "sha256": "f71a3031c22d345d737a49754f1aa008a1a74b189c1f8a78923d142699ad7beb",
+      "bytes": 12613228,
+      "complete": false,
+      "scope": "Failed debug prefix, never a scored circuit."
+    }
+  },
+  "native_binaries": {
+    "/home/hclau/ecdsa_research/breakthrough-bridge-storage-audit-20261020/observer/target/release/deps/build_circuit-96cdcfa2d1d068c7": "e5be8a68668438b8d5c058820309f698ab974e965c55a92bf6bead8e03f4f1db",
+    "/home/hclau/ecdsa_research/breakthrough-bridge-storage-audit-20261020/observer/target/release/deps/build_circuit-0c12d1b03f2fe721": "92d0fb980d4794162cb30e92eb0babb3847e9dc2257ffe1a2e8cead35175d058"
+  },
+  "no_final_gate_nonce_or_scored_result": true
+}

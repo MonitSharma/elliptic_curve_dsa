@@ -109,3 +109,42 @@ Public product parent: d9ae2845/source90e777ea, Q1234 T761077 product939169018. 
 - 2026-10-20T01:19:44.582340+00:00: phase-pebble checkpoint; native component/source evidence sealed, failed full-equivalence result preserved; modular2435977 active, no final gate/nonce. Existing user edits remain separate.
 
 - Modularphase integration native3+1+4+3 controlspass. Baseline1234exact13f6; hard1233 generation101 at Y42forward87: freepool addsfresh1233. No completecandidate or cost/score. Prospective metadataonlymodular-storage audit traces trueLin/carrycallers, chunkadmission andmodularcontracts, keepsconsistencyassertions, requiresfull13f6/samefailure. Copiesbuildcache withindependent reflink/copy (nohardlinks/no parentmutation). No arithmeticchange/inputpacket/finalgate/nonce.
+
+- Modularstorage audit complete0: control13f6 exact, samefailedt87; freshID1233 atdivideop2854641 active1234, bridge.rs43/free&avoidempty. Debugprefix26b9b0df incomplete retained. Prospective extra-bridge source: existingdirecthybridcount increasesonlybyactualshortfall, onlyunique sourcepivots acrossalla/distinctcin andcount<owned; preserveI50splitwrapper choices andallwindows/iterations. Native3+1+4+3 controls then1234exact13f6/1233. No arithmeticcut/packet/finalgate/nonce/score.
+
+- Extra-bridge preparev1 failed BEFORE creatingworktree/source: metadatafieldassert usedcolumns2:4 ratherthan3:5 foractive/qid. Preserveprepare/log/exit; v2 correctsonlythatcheck andexecutesoriginalprospectivepreparation. No nativecircuitorgateverdict existed. Parameterpolicy unchanged; no frozen-source repair.
+
+## Bridge storage audit, declared before execution
+Frozen bridge candidate failed at forward129 after earlier bridge allocation cleared. Metadata-only trace repeats exact1234 control13f6 and same1233 construction failure, records every newly allocated ID and source caller. No arithmetic sample, circuit policy change, gate or nonce. Keep failed source and unchanged assertions.
+
+## Native weighted chunk planner, declared before execution
+Component-only exact retained-boundary plus internal phase-pebble planner minimizes expected extra gate count times2. Test50-bit affine independent/shared rows and actual unmodified Y15 core rows, budgets8/9/10, alongside old plan8/9 on65536 fixed randomized inputs perconfiguration, plus inverse and per-measurement coefficient controls. Source and target disjoint, live cin, exact copied boundary comparison. No final gate, nonce, score or arithmetic cut.
+
+## Existing boundary-drop chunk adapter, declared before execution
+On frozen bridge source, preserve original plan8/9 chunks and boundary drops, but apply already tested exact phase chunk admission inside ladder_chunk too. Metadata locates first1234 allocation in that unadapted path. No old contract/allocator assertion removed. Test all retained native phase/selector/fusion/zero suites; exact1234 control and1233 generation. No correctness gate, nonce or score.
+
+Native weighted planner v1: two width assertions fail11>8; model-only testpasses. Retained chunk compare needs kept+width-1; omitted in v1. Preserve source/binary/log. Beforev2: add exact cleanup admission; budget8 nowinfeasiblefor thisfamily, tests9/10/old9/actualcore andRNG/inverse unchangedinputs. No finalgate/nonce.
+
+Boundary adapter: all3+1+4+3native tests pass; releasebuildpass. V1 controllerfails missingcaps metadata BEFORE either generation. V2 controlleruses alreadydeclared[1234,1233], samefrozen runtime/binary. Preserve KeyErrorlog andexit1.
+
+Boundary adapter exact1234 control, candidate stillfailsforward129 despite sixphasechunks admitted. Beforeexecution: metadata-only same frozenboundarysource audit exactfirstfreshID/caller; preservefailedassertion. No policychange/statisticalgate/nonce.
+
+Weighted nativev2 compilefails E0425: linecomment hid following m declaration; no v2nativecircuit. Preserve v2source/log, v3blockcomment repaironly before same declaredtests.
+
+Before phase-pebble plan7 integration: boundaryaudit exactfirstfreshID in original ladder_chunk, despite earlier internaldrops. Fixed shortchunks cannotadmitanotherphasepebble. Preserve oldwalk/eligibility and use already-native-tested Y28plan7 ONLY inside original recognizedplan8 when actualactive+8 exceeds hard1233 (orplan9->8 for actualactive+9>hard), assertionskeep. Fullnative oldplan7/8 affine fixture and retainedcomponents before exactcontrol/candidategeneration. No finalgate/nonce/score.
+
+Fresh publicsnapshot01:42:03UTC:1687entries; product54fc4f25 Q1234/T761052/product939138168 source3dee0cd6; width671 e587fd65 source8372f372; T752991 unchanged. Accepted d9ae remains historicalresult, currentrecordparentchanges. Beforepublicparentrebuild: immutablecheckout3dee, no sourcechanges,17protectedfiles, require publishedfullnativeSHA51671a28. No statisticalgate/nonce/candidate.
+
+Weightednativev3 passes3 tests,589824 fullcase/configurations including actualcore andinversecontrols. Reviewfinds140fixedmeasurementprobes omit some lateinverse draws. Preserve PASS with narrowercoverage; beforev4strengtheningtestonly, assertnr<512andprobe0..nr+1, runtime/planner unchanged. No score/gate/nonce.
+
+Before phase-predicate native component: pure carry-phase needs no targetsum, so earlyerase Cj after Cj+1 with no sumwrite; reverse erasureuses exacttwofulladderpair on original targets. Fuse terminaltwo stages; source rows/constants arbitrarydisjoint. Testallschedules n2..7, fourrowpatterns,bothsigns, enabled/mixed guards, allphysical RNGcoefficients/doubleapplication, exactpeak/draw/Stats counts. No sourceborrowing, arithmeticcuts, gate/nonce or recordclaim.
+
+Plan7 freshintegration completesrawsource0bd52235 butactualQ1234 at squareop5834221; builderexpected763838.2diagnostic (+1607.4), noncompetitive. Beforepaireddevrun: labelbreakthrough-phase-pebble-plan7-dev-v1,512batchesx64, originalSIMDcontrolplusoutput-v2 binaryadd4..,2workers,8protectedscalarcontrols/run. Compareallfourregisterhashesinclfailedinputs, exactvalueIDs/dirty/T/phase. Historicalraw13f6mechanismcontrol; currentrecord54fcwouldbe finalparent. No finalgate/nonce orscore.
+
+Plan7devreplayv1 originalSIMDparent512finishes; output-v2archivalcopy lacks executablebit, launcherPermissionError before parent/candidateobserver runs. Preserveallv1logs/rows. Beforev2: use actualCargoexecutablewithsameadd4SHA, SAMElabel/512/sourcehashes; separateattempt-v2outputs; repeatedoriginal512controlmustmatchv1everyfield. Infrastructurefix, no failedstatisticalverdict exists.
+
+Purephasepredicate3native testsPASS. Before cleanup-aware nativeplanner: integratepredicateonlyintestexecutorretainedcarryerase; costtimes4 includesphaseguardquarterweight for internalcleanupdrops. Exactprefixcapacity modeledforeachforward andcleanup. Restoretestedbudgets8/9/10 andold8/9 comparisons; actualcore/589824+caseconfigs, allmeasurementpositionswith512bound, inverse. No productionprefixchange, finalgate/nonce orrecord.
+
+Cleanup-aware nativeplanner passes3 plus3predicatecontrols; restores8carrybudget onactualcore. Beforefullsquarepeakaudit: metadataonly frozen0bdplan7source, control1234exact13f6/candidate1233exact0bd bothcomplete. RecordfirstnewID1233callerinsquareandcontracts; no circuitpolicychange, gate ornonce.
+
+Beforecleanupnativev2 fixture-onlycostcontrol: originaldeterministicmultiplication measurementwords correlate under nestedguards, so previousobservedcomponentmeansnot unbiasedcostestimates. Planner/circuit/prefixunchanged; 15fullconfigurationsx65536sameoriginalinputstates, independentfixedSHAKEmeasurementlabel weighted-phase-chunks-measurements-v2. Retainv1all3+3PASStests/probes, runfullfixturetestonlyv2. No statisticalgate/nonce orpoint-addscore.

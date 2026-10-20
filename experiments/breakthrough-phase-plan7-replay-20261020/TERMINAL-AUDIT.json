@@ -1,0 +1,130 @@
+{
+  "status": "FAILED_FULL_OUTPUT_EQUALITY_NONCOMPETITIVE",
+  "different_target_lanes": 11,
+  "different_output_batches": 11,
+  "all_target_differences_already_value_failing_in_both": true,
+  "candidate_source_freeze_sha256": "107a1d6ac7e7162e31fc33ca632cb529c19f789b44079fa6b5cbbd1a468d79a4",
+  "candidate_native_evidence_manifest_sha256": "3a1adf0b0b0ce41153487fa1602f9b77cc5e1025827235dc19e91bba59347814",
+  "original_parent_control_repeated_identically": true,
+  "result": {
+    "status": "PAIRED_RAW_DEVELOPMENT_COMPLETE",
+    "label": "breakthrough-phase-pebble-plan7-dev-v1",
+    "batches": 512,
+    "shots_per_source": 32768,
+    "all_original_parent_fields_match": true,
+    "all_four_final_register_hashes_match_including_failed_inputs": false,
+    "different_output_batches": [
+      29,
+      202,
+      210,
+      261,
+      337,
+      369,
+      383,
+      435,
+      452,
+      469,
+      470
+    ],
+    "different_target_lanes": [
+      {
+        "batch": 29,
+        "lane": 34,
+        "parent_value_fails": true,
+        "candidate_value_fails": true
+      },
+      {
+        "batch": 202,
+        "lane": 45,
+        "parent_value_fails": true,
+        "candidate_value_fails": true
+      },
+      {
+        "batch": 210,
+        "lane": 56,
+        "parent_value_fails": true,
+        "candidate_value_fails": true
+      },
+      {
+        "batch": 261,
+        "lane": 7,
+        "parent_value_fails": true,
+        "candidate_value_fails": true
+      },
+      {
+        "batch": 337,
+        "lane": 30,
+        "parent_value_fails": true,
+        "candidate_value_fails": true
+      },
+      {
+        "batch": 369,
+        "lane": 47,
+        "parent_value_fails": true,
+        "candidate_value_fails": true
+      },
+      {
+        "batch": 383,
+        "lane": 60,
+        "parent_value_fails": true,
+        "candidate_value_fails": true
+      },
+      {
+        "batch": 435,
+        "lane": 25,
+        "parent_value_fails": true,
+        "candidate_value_fails": true
+      },
+      {
+        "batch": 452,
+        "lane": 45,
+        "parent_value_fails": true,
+        "candidate_value_fails": true
+      },
+      {
+        "batch": 469,
+        "lane": 34,
+        "parent_value_fails": true,
+        "candidate_value_fails": true
+      },
+      {
+        "batch": 470,
+        "lane": 49,
+        "parent_value_fails": true,
+        "candidate_value_fails": true
+      }
+    ],
+    "different_other_lanes": [],
+    "value_failing_shot_identities_equal": true,
+    "candidate_minus_parent_raw_mean_toffoli": 1604.6967468261719,
+    "paired_standard_error": 4.344000669617043,
+    "summaries": {
+      "original-parent": {
+        "value_shots": 50,
+        "phase_shots": 50,
+        "dirty_shots": 0,
+        "failed_batches": 66,
+        "mean_executed_raw_toffoli": 762229.13671875,
+        "rows_sha256": "dce299754d62558851a0c4500b8986f963e117aa2c27fa25923fddfeaa1a725c"
+      },
+      "parent": {
+        "value_shots": 50,
+        "phase_shots": 50,
+        "dirty_shots": 0,
+        "failed_batches": 66,
+        "mean_executed_raw_toffoli": 762229.13671875,
+        "rows_sha256": "eafb169892352b9fe0ec3a3d1994ed9ea9c558f5ac299e115bf8cb11923d88f9"
+      },
+      "candidate": {
+        "value_shots": 50,
+        "phase_shots": 38,
+        "dirty_shots": 0,
+        "failed_batches": 59,
+        "mean_executed_raw_toffoli": 763833.8334655762,
+        "rows_sha256": "96c67e069202505ed2466833564ac3d6f79ae46ae8e562d5ac6c656deaea2ba8"
+      }
+    },
+    "scope": "Exact finite output observation and diagnostic raw cost; no all-input proof, complete resource score, final statistical gate, or nonce."
+  },
+  "scope": "Keep failed output-equivalence verdict. Cause not isolated; no universal proof, scored improvement, final gate or nonce."
+}

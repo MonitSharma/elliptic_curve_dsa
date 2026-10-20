@@ -1,0 +1,155 @@
+{
+  "files": {
+    ".gitignore": "857766081bf8333dc9b23405e9fbbc7f03f5372caf1fc7667585025e018bb022",
+    "BOUNDARY-STORAGE-AUDIT.json": "a0b056a79275f55253acf5c6131c1b8a8d1d559cd53926bc8cd8719131562b4c",
+    "SOURCE_FREEZE.json": "c15dc672bfd9f76b3ddf1fd8b5868048705f1870d43b410973ab6255ee13d0f1",
+    "TERMINAL-AUDIT.json": "ab795b5f54f1dbcfb07b589d302db264d2c0ab8a31322fcacf2a72636d11c6d9",
+    "build.log": "d62f86ded1791f1974d324171e22e71029fed18f0892e35d3f65eeb9564816c6",
+    "build.out": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cap1233.log": "e4b600e3f0361d9207abc9f2a3113ff3416a3d66dcec64d6eb234f29d2ef6312",
+    "cap1233.out": "08cc4d16b6e9a78d140418936a7fe32ffba9370c8b9308e880961d85e6cdbc41",
+    "cap1234.log": "2aa8e8c3d6505a5b9559cfd6a456da39baabdaee7391ae0967571863d9587291",
+    "cap1234.out": "cab4b02a10748f1c267a12869dc76b3a605128238ef48e8f805b520776dec42d",
+    "launch.py": "6bbcd926aff34806a020328e5823b8f0be9fc299c396f8f7fb286fe689655887",
+    "nohup.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "observe.log": "3c4194f1ff553d3cb4c48c9b4688600f51da1a83c87454b33426d4e21e0f3caa",
+    "observe.py": "c3f9663510084467f684f42b73a8b5e45db6194d2deee891697fca9a7f3cd947",
+    "prepare.log": "68486bc28d475b600ced96cce21ab5b547aa35ec778f3a1889f0bed157a37d5c",
+    "prepare.py": "9cbb0b0a024b1b8e2ce02b27c87b2c4ce0fa8f9044fc158f17b4c5ebc9f9b9ac",
+    "run.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "run.pid": "a68b24cfc44dcfb916982bf7e94c4f57186b387f040a43d1233f4fcbe1308f9d",
+    "run.sh": "0d155198496bf47e0b6b3d15bc335ec62e1016b4526b60bd3d29741657f3b475",
+    "source.patch": "b36fbb0c3ade6336d13f28352e1be497e1f1a05b76c0db688863cc270b4be9d7",
+    "added-source/break_profile.rs": "a7e94c66704031f4f0810059f15ca1893ddc5e006a5b82b8c582c67228609515",
+    "added-source/phase_fit.rs": "7a5e26ea94186d534775c3bdf06797267e0d3115d86b018deaf7bba9838a5bf4",
+    "added-source/phase_fusion.rs": "39bd1eed7dd29f5ea1516f60e6f205c07f210514dbb092dd6a9f9be652680f5a",
+    "added-source/phase_pebble.rs": "1049d511a14d98339d2c4e59c224b7d98238cf4aa9ad68c9053fce1511b78f1e",
+    "added-source/zero_carry.rs": "ea5fe10fa4017145776bdd45f8bb430ce25059650b77bcdbc0790b49f7bbcc90"
+  },
+  "terminal_audit": {
+    "sealed_at_utc": "2026-10-20T01:53:36.122174+00:00",
+    "base": "90e777ea8242faa0acb2462c5cb5be7c318a2d64",
+    "protected_files_checked": 17,
+    "source_freeze_sha256": "c15dc672bfd9f76b3ddf1fd8b5868048705f1870d43b410973ab6255ee13d0f1",
+    "result": {
+      "status": "CONTROL_EXACT_SAME_FAILED_CANDIDATE_DIAGNOSED",
+      "cases": [
+        {
+          "hard": 1234,
+          "exit": 0,
+          "fresh_ids": [
+            "NEW_PHYSICAL_ID\tdivide\t1444634\t1234\t1233\tsrc/bin/../point_add/leapfrog.rs:2064:17\t[]\t[]"
+          ],
+          "last_lin_sites": [
+            "LIN_ALLOC_SITE\tmultiply\t10192889\t1232\tsrc/bin/../point_add/y15_onefold.rs:788:21",
+            "LIN_ALLOC_SITE\tmultiply\t10192895\t1233\tsrc/bin/../point_add/y15_onefold.rs:788:21",
+            "LIN_ALLOC_SITE\tmultiply\t10212722\t1232\tsrc/bin/../point_add/y15_onefold.rs:788:21",
+            "LIN_ALLOC_SITE\tmultiply\t10212728\t1233\tsrc/bin/../point_add/y15_onefold.rs:788:21",
+            "LIN_ALLOC_SITE\tmultiply\t10232555\t1232\tsrc/bin/../point_add/y15_onefold.rs:788:21",
+            "LIN_ALLOC_SITE\tmultiply\t10232561\t1233\tsrc/bin/../point_add/y15_onefold.rs:788:21",
+            "LIN_ALLOC_SITE\tmultiply\t10252388\t1232\tsrc/bin/../point_add/y15_onefold.rs:788:21",
+            "LIN_ALLOC_SITE\tmultiply\t10252394\t1233\tsrc/bin/../point_add/y15_onefold.rs:788:21",
+            "LIN_ALLOC_SITE\tmultiply\t10272221\t1232\tsrc/bin/../point_add/y15_onefold.rs:788:21",
+            "LIN_ALLOC_SITE\tmultiply\t10272227\t1233\tsrc/bin/../point_add/y15_onefold.rs:788:21",
+            "LIN_ALLOC_SITE\tmultiply\t11170346\t1232\tsrc/bin/../point_add/y15_onefold.rs:715:13",
+            "LIN_ALLOC_SITE\tmultiply\t11170412\t1233\tsrc/bin/../point_add/y15_onefold.rs:715:13"
+          ],
+          "last_chunks": [
+            "CHUNK_ADMISSION\tmultiply\t10053828\t1206\t30\t0\t1\t28\t1",
+            "CHUNK_ADMISSION\tmultiply\t10073661\t1206\t30\t0\t1\t28\t1",
+            "CHUNK_ADMISSION\tmultiply\t10093494\t1206\t30\t0\t1\t28\t1",
+            "CHUNK_ADMISSION\tmultiply\t10113327\t1206\t30\t0\t1\t28\t1",
+            "CHUNK_ADMISSION\tmultiply\t10133160\t1206\t30\t0\t1\t28\t1",
+            "CHUNK_ADMISSION\tmultiply\t10152993\t1206\t30\t0\t1\t28\t1",
+            "CHUNK_ADMISSION\tmultiply\t10172826\t1206\t30\t0\t1\t28\t1",
+            "CHUNK_ADMISSION\tmultiply\t10192659\t1206\t30\t0\t1\t28\t1",
+            "CHUNK_ADMISSION\tmultiply\t10212492\t1206\t30\t0\t1\t28\t1",
+            "CHUNK_ADMISSION\tmultiply\t10232325\t1206\t30\t0\t1\t28\t1",
+            "CHUNK_ADMISSION\tmultiply\t10252158\t1206\t30\t0\t1\t28\t1",
+            "CHUNK_ADMISSION\tmultiply\t10271991\t1206\t30\t0\t1\t28\t1"
+          ],
+          "last_modular_contracts": [
+            "MODULAR_CONTRACT\tmultiply\t8572541\t1149\t85\t1\t1\t0\t0\t0\t0\t0",
+            "MODULAR_CONTRACT\tmultiply\t8573624\t1149\t85\t1\t1\t0\t0\t0\t0\t0",
+            "MODULAR_CONTRACT\tmultiply\t8575219\t1149\t86\t1\t1\t0\t0\t0\t0\t0",
+            "MODULAR_CONTRACT\tmultiply\t8576070\t1150\t85\t1\t1\t0\t0\t0\t0\t0",
+            "MODULAR_CONTRACT\tmultiply\t8577153\t1150\t85\t1\t1\t0\t0\t0\t0\t0",
+            "MODULAR_CONTRACT\tmultiply\t8606264\t1148\t86\t1\t1\t0\t0\t0\t0\t0",
+            "MODULAR_CONTRACT\tmultiply\t8607115\t1149\t85\t1\t1\t0\t0\t0\t0\t0",
+            "MODULAR_CONTRACT\tmultiply\t8608198\t1149\t85\t1\t1\t0\t0\t0\t0\t0",
+            "MODULAR_CONTRACT\tmultiply\t8733193\t1150\t85\t1\t1\t0\t0\t0\t0\t0",
+            "MODULAR_CONTRACT\tmultiply\t8734276\t1150\t85\t1\t1\t0\t0\t0\t0\t0",
+            "MODULAR_CONTRACT\tmultiply\t8764804\t1149\t85\t1\t1\t0\t0\t0\t0\t0",
+            "MODULAR_CONTRACT\tmultiply\t8765887\t1149\t85\t1\t1\t0\t0\t0\t0\t0"
+          ],
+          "raw_sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b"
+        },
+        {
+          "hard": 1233,
+          "exit": 101,
+          "fresh_ids": [
+            "NEW_PHYSICAL_ID\tdivide\t4135245\t1234\t1233\tsrc/bin/../point_add/y15_onefold.rs:837:17\t[]\t[]"
+          ],
+          "last_lin_sites": [
+            "LIN_ALLOC_SITE\tdivide\t4135245\t1233\tsrc/bin/../point_add/y15_onefold.rs:837:17",
+            "LIN_ALLOC_SITE\tdivide\t4135433\t1232\tsrc/bin/../point_add/y15_onefold.rs:837:17",
+            "LIN_ALLOC_SITE\tdivide\t4135475\t1233\tsrc/bin/../point_add/y15_onefold.rs:837:17",
+            "LIN_ALLOC_SITE\tdivide\t4135600\t1233\tsrc/bin/../point_add/y15_onefold.rs:837:17",
+            "LIN_ALLOC_SITE\tdivide\t4135790\t1232\tsrc/bin/../point_add/leapfrog.rs:2871:17",
+            "LIN_ALLOC_SITE\tdivide\t4136000\t1232\tsrc/bin/../point_add/leapfrog.rs:2871:17",
+            "LIN_ALLOC_SITE\tdivide\t4136297\t1232\tsrc/bin/../point_add/leapfrog.rs:2871:17",
+            "LIN_ALLOC_SITE\tdivide\t4136681\t1232\tsrc/bin/../point_add/leapfrog.rs:2871:17",
+            "LIN_ALLOC_SITE\tdivide\t4137150\t1232\tsrc/bin/../point_add/leapfrog.rs:2871:17",
+            "LIN_ALLOC_SITE\tdivide\t4137686\t1232\tsrc/bin/../point_add/leapfrog.rs:2871:17",
+            "LIN_ALLOC_SITE\tdivide\t4138339\t1232\tsrc/bin/../point_add/leapfrog.rs:2871:17",
+            "LIN_ALLOC_SITE\tdivide\t4139151\t1232\tsrc/bin/../point_add/leapfrog.rs:2871:17"
+          ],
+          "last_chunks": [
+            "CHUNK_ADMISSION\tdivide\t4106648\t1228\t6\t1\t0\t6\t1",
+            "CHUNK_ADMISSION\tdivide\t4107241\t1229\t4\t1\t0\t4\t1",
+            "CHUNK_ADMISSION\tdivide\t4107618\t1230\t6\t0\t1\t4\t1",
+            "CHUNK_ADMISSION\tdivide\t4131458\t1226\t8\t1\t0\t8\t1",
+            "CHUNK_ADMISSION\tdivide\t4132158\t1226\t8\t1\t0\t8\t1",
+            "CHUNK_ADMISSION\tdivide\t4132961\t1227\t7\t1\t0\t7\t1",
+            "CHUNK_ADMISSION\tdivide\t4133665\t1228\t6\t1\t0\t6\t1",
+            "CHUNK_ADMISSION\tdivide\t4134290\t1229\t5\t1\t0\t5\t1",
+            "CHUNK_ADMISSION\tdivide\t4134778\t1230\t4\t1\t0\t4\t1",
+            "CHUNK_ADMISSION\tdivide\t4135161\t1231\t3\t1\t0\t3\t1",
+            "CHUNK_ADMISSION\tdivide\t4135433\t1232\t2\t1\t0\t2\t1",
+            "CHUNK_ADMISSION\tdivide\t4135600\t1233\t3\t0\t1\t1\t1"
+          ],
+          "last_modular_contracts": [
+            "MODULAR_CONTRACT\tdivide\t4101503\t1198\t37\t1\t1\t0\t0\t0\t0\t0",
+            "MODULAR_CONTRACT\tdivide\t4102269\t1198\t37\t1\t1\t0\t0\t0\t0\t0",
+            "MODULAR_CONTRACT\tdivide\t4118638\t1197\t37\t1\t1\t0\t0\t0\t0\t0",
+            "MODULAR_CONTRACT\tdivide\t4119193\t1197\t37\t1\t1\t0\t0\t0\t0\t0",
+            "MODULAR_CONTRACT\tdivide\t4119748\t1197\t37\t1\t1\t0\t0\t0\t0\t0",
+            "MODULAR_CONTRACT\tdivide\t4122450\t1197\t37\t1\t1\t0\t0\t0\t0\t0",
+            "MODULAR_CONTRACT\tdivide\t4122811\t1198\t37\t1\t1\t0\t0\t0\t0\t0",
+            "MODULAR_CONTRACT\tdivide\t4123553\t1198\t37\t1\t1\t0\t0\t0\t0\t0",
+            "MODULAR_CONTRACT\tdivide\t4124295\t1198\t37\t1\t1\t0\t0\t0\t0\t0",
+            "MODULAR_CONTRACT\tdivide\t4125037\t1198\t36\t1\t1\t0\t0\t0\t0\t0",
+            "MODULAR_CONTRACT\tdivide\t4125582\t1198\t36\t1\t1\t0\t0\t0\t0\t0",
+            "MODULAR_CONTRACT\tdivide\t4126127\t1198\t36\t1\t1\t0\t0\t0\t0\t0"
+          ],
+          "failed_debug_prefix_sha256": "616f83950175b7804760873ee467b4945d9e80c74ae427275b2ee7077f514a3d",
+          "debug_prefix_incomplete": true
+        }
+      ],
+      "scope": "Native circuit-construction storage only. No packet inputs, arithmetic cut, resource record, final gate or nonce."
+    },
+    "streams_retained_on_server": {
+      "/home/hclau/ecdsa_research/breakthrough-boundary-storage-audit-20261020/observer/failure-prefix.ops.bin": {
+        "sha256": "616f83950175b7804760873ee467b4945d9e80c74ae427275b2ee7077f514a3d",
+        "bytes": 12613099,
+        "complete": false,
+        "scope": "Failed debug prefix, never a scored circuit."
+      }
+    },
+    "native_binaries": {
+      "/home/hclau/ecdsa_research/breakthrough-boundary-storage-audit-20261020/observer/target/release/deps/build_circuit-96cdcfa2d1d068c7": "50b83eba6444f6363d614d41107624fba543d72ebe53ea24e2eed60aed4cb9eb",
+      "/home/hclau/ecdsa_research/breakthrough-boundary-storage-audit-20261020/observer/target/release/deps/build_circuit-0c12d1b03f2fe721": "a430e6ade1b23b83afce2ea33fdbf484001ab9bf9494fafb3bbf244b2e329a0c"
+    },
+    "no_final_gate_nonce_or_scored_result": true
+  }
+}

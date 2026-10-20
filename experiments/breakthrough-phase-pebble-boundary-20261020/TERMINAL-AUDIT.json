@@ -1,0 +1,39 @@
+{
+  "sealed_at_utc": "2026-10-20T01:53:33.552932+00:00",
+  "base": "90e777ea8242faa0acb2462c5cb5be7c318a2d64",
+  "protected_files_checked": 17,
+  "source_freeze_sha256": "33739890a7a986e5886e47a8bb2d3c5c5dff88deb1f1a5cdbfabdc30af400024",
+  "result": {
+    "status": "RAW_ADMISSION_COMPLETE_NOT_SCORED",
+    "cases": [
+      {
+        "cap": 1234,
+        "exit": 0,
+        "seconds": 4.249714136123657,
+        "builder_totals": [
+          "HEO_TOTAL native=810068 expected=762230.8 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+        ],
+        "raw_sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b"
+      },
+      {
+        "cap": 1233,
+        "exit": 101,
+        "seconds": 0.4105403423309326,
+        "builder_totals": [],
+        "failure_tail": "198\t7.5\nPHASE_OPTIONAL\tdivide\t4123553\t4124106\t1198\t38\t1\t1\t[1]\nDIRTY_FRAGMENT\tcmp_lt_phase\t16\t4124108\t4124293\t1198\t1198\t7.5\nPHASE_OPTIONAL\tdivide\t4124295\t4124848\t1198\t38\t1\t1\t[1]\nDIRTY_FRAGMENT\tcmp_lt_phase\t16\t4124850\t4125035\t1198\t1198\t7.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t16\t4125395\t4125580\t1198\t1198\t7.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t16\t4125940\t4126125\t1198\t1198\t7.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t16\t4126485\t4126670\t1198\t1198\t7.5\nDIRTY_FRAGMENT\tchunked_add\t256\t4122450\t4126672\t1196\t1197\t304\nDIRTY_FRAGMENT\tcmp_lt_phase\t16\t4127853\t4128038\t1199\t1199\t7.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t16\t4128378\t4128563\t1199\t1199\t7.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t16\t4128903\t4129088\t1199\t1199\t7.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t16\t4129428\t4129613\t1199\t1199\t7.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t16\t4129953\t4130138\t1199\t1199\t7.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t16\t4130478\t4130663\t1199\t1199\t7.5\nDIRTY_FRAGMENT\tchunked_add\t238\t4127184\t4130665\t1197\t1198\t283\nPHASE_PEBBLE_CHUNK\tdivide\t4131458\t4132005\t8\t1\t[1]\nPHASE_PEBBLE_CHUNK\tdivide\t4132158\t4132961\t8\t1\t[1]\nPHASE_PEBBLE_CHUNK\tdivide\t4132961\t4133665\t7\t1\t[1]\nPHASE_PEBBLE_CHUNK\tdivide\t4133665\t4134290\t6\t1\t[1]\nPHASE_PEBBLE_CHUNK\tdivide\t4134290\t4134778\t5\t1\t[1]\nPHASE_PEBBLE_CHUNK\tdivide\t4134778\t4135161\t4\t1\t[1]\nDIRTY_FRAGMENT\tcmp_lt_phase\t16\t4140420\t4140605\t1213\t1213\t3.75\nDIRTY_FRAGMENT\tcmp_lt_phase\t16\t4141262\t4141447\t1213\t1213\t3.75\nDIRTY_FRAGMENT\tcmp_lt_phase\t16\t4142006\t4142191\t1196\t1196\t7.5\nNARROW_Y42 F 129 put back\n\nthread 'main' (2451068) panicked at src/bin/../point_add/builder.rs:343:9:\nassertion `left == right` failed: y42: the payload op changed the set of free wires\n  left: [167, 548, 567, 568, 1182, 1190, 1191, 1193, 1194, 1195, 1196, 1198, 1205, 1206, 1208, 1209, 1210, 1211, 1212, 1213, 1214, 1215, 1216, 1217, 1218, 1219, 1220, 1221, 1222, 1223, 1224, 1225, 1226, 1227, 1228, 1230, 1231, 1232, 1233]\n right: [167, 548, 567, 568, 1182, 1190, 1191, 1193, 1194, 1195, 1196, 1198, 1205, 1206, 1208, 1209, 1210, 1211, 1212, 1213, 1214, 1215, 1216, 1217, 1218, 1219, 1220, 1221, 1222, 1223, 1224, 1225, 1226, 1227, 1228, 1230, 1231, 1232]\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\nCommand exited with non-zero status 101\n\tCommand being timed: \"/home/hclau/ecdsa_research/breakthrough-phase-pebble-boundary-20261020/observer/target/release/build_circuit\"\n\tUser time (seconds): 0.19\n\tSystem time (seconds): 0.19\n\tPercent of CPU this job got: 100%\n\tElapsed (wall clock) time (h:mm:ss or m:ss): 0:00.39\n\tAverage shared text size (kbytes): 0\n\tAverage unshared data size (kbytes): 0\n\tAverage stack size (kbytes): 0\n\tAverage total size (kbytes): 0\n\tMaximum resident set size (kbytes): 230400\n\tAverage resident set size (kbytes): 0\n\tMajor (requiring I/O) page faults: 0\n\tMinor (reclaiming a frame) page faults: 57013\n\tVoluntary context switches: 1\n\tInvoluntary context switches: 1\n\tSwaps: 0\n\tFile system inputs: 0\n\tFile system outputs: 296\n\tSocket messages sent: 0\n\tSocket messages received: 0\n\tSignals delivered: 0\n\tPage size (bytes): 4096\n\tExit status: 101\n"
+      }
+    ]
+  },
+  "streams_retained_on_server": {
+    "/home/hclau/ecdsa_research/breakthrough-phase-pebble-boundary-20261020/cap1234/ops.bin": {
+      "sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b",
+      "bytes": 38777871,
+      "complete": true
+    }
+  },
+  "native_binaries": {
+    "/home/hclau/ecdsa_research/breakthrough-phase-pebble-boundary-20261020/observer/target/release/deps/build_circuit-96cdcfa2d1d068c7": "f133db0cda019ea67f5ba3b381997628bb7004b757473ce66a72ce6a83b56e9c",
+    "/home/hclau/ecdsa_research/breakthrough-phase-pebble-boundary-20261020/observer/target/release/deps/build_circuit-0c12d1b03f2fe721": "a430e6ade1b23b83afce2ea33fdbf484001ab9bf9494fafb3bbf244b2e329a0c"
+  },
+  "no_final_gate_nonce_or_scored_result": true
+}

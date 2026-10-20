@@ -1,0 +1,18 @@
+[
+  {
+    "cap": 1234,
+    "exit": 0,
+    "seconds": 4.264639854431152,
+    "builder_totals": [
+      "HEO_TOTAL native=810068 expected=762230.8 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+    ],
+    "raw_sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b"
+  },
+  {
+    "cap": 1233,
+    "exit": 101,
+    "seconds": 0.2892005443572998,
+    "builder_totals": [],
+    "failure_tail": "256\t2854564\t2857707\t1151\t1152\t279.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t2\t2859114\t2859131\t1155\t1155\t0.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t9\t2859135\t2859234\t1154\t1154\t4\nDIRTY_FRAGMENT\tcmp_lt_phase\t2\t2860050\t2860067\t1155\t1155\t0.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t20\t2860071\t2860304\t1154\t1154\t9.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t2\t2861120\t2861137\t1155\t1155\t0.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t20\t2861141\t2861374\t1154\t1154\t9.5\nDIRTY_FRAGMENT\tchunked_add\t255\t2858219\t2861376\t1152\t1153\t279.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t20\t2863437\t2863670\t1155\t1155\t9.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t20\t2864450\t2864683\t1155\t1155\t9.5\nDIRTY_FRAGMENT\tchunked_add\t234\t2861888\t2864685\t1153\t1154\t253\nPHASE_PEBBLE_CHUNK\tdivide\t2867243\t2870059\t27\t1\t[1]\nDIRTY_FRAGMENT\tcmp_lt_phase\t20\t2872636\t2872869\t1191\t1191\t9.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t20\t2873338\t2873571\t1171\t1171\t4.75\nDIRTY_FRAGMENT\tcmp_lt_phase\t20\t2873790\t2874023\t1152\t1152\t9.5\nNARROW_Y42 F 87 put back\n\nthread 'main' (2438538) panicked at src/bin/../point_add/builder.rs:343:9:\nassertion `left == right` failed: y42: the payload op changed the set of free wires\n  left: [131, 132, 528, 630, 631, 633, 634, 762, 1107, 1119, 1154, 1155, 1156, 1157, 1158, 1159, 1160, 1161, 1162, 1163, 1164, 1169, 1171, 1174, 1175, 1176, 1177, 1178, 1179, 1180, 1181, 1182, 1183, 1184, 1185, 1186, 1187, 1188, 1189, 1190, 1191, 1192, 1193, 1194, 1195, 1196, 1197, 1198, 1199, 1200, 1201, 1202, 1203, 1204, 1205, 1206, 1207, 1208, 1209, 1210, 1211, 1212, 1213, 1214, 1215, 1216, 1217, 1218, 1219, 1220, 1221, 1222, 1223, 1224, 1225, 1226, 1227, 1228, 1229, 1230, 1231, 1232, 1233]\n right: [131, 132, 528, 630, 631, 633, 634, 762, 1107, 1119, 1154, 1155, 1156, 1157, 1158, 1159, 1160, 1161, 1162, 1163, 1164, 1169, 1171, 1174, 1175, 1176, 1177, 1178, 1179, 1180, 1181, 1182, 1183, 1184, 1185, 1186, 1187, 1188, 1189, 1190, 1191, 1192, 1193, 1194, 1195, 1196, 1197, 1198, 1199, 1200, 1201, 1202, 1203, 1204, 1205, 1206, 1207, 1208, 1209, 1210, 1211, 1212, 1213, 1214, 1215, 1216, 1217, 1218, 1219, 1220, 1221, 1222, 1223, 1224, 1225, 1226, 1227, 1228, 1229, 1230, 1231, 1232]\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\nCommand exited with non-zero status 101\n\tCommand being timed: \"/home/hclau/ecdsa_research/breakthrough-phase-pebble-modular-20261020/observer/target/release/build_circuit\"\n\tUser time (seconds): 0.15\n\tSystem time (seconds): 0.11\n\tPercent of CPU this job got: 99%\n\tElapsed (wall clock) time (h:mm:ss or m:ss): 0:00.26\n\tAverage shared text size (kbytes): 0\n\tAverage unshared data size (kbytes): 0\n\tAverage stack size (kbytes): 0\n\tAverage total size (kbytes): 0\n\tMaximum resident set size (kbytes): 161280\n\tAverage resident set size (kbytes): 0\n\tMajor (requiring I/O) page faults: 0\n\tMinor (reclaiming a frame) page faults: 39665\n\tVoluntary context switches: 2\n\tInvoluntary context switches: 0\n\tSwaps: 0\n\tFile system inputs: 0\n\tFile system outputs: 152\n\tSocket messages sent: 0\n\tSocket messages received: 0\n\tSignals delivered: 0\n\tPage size (bytes): 4096\n\tExit status: 101\n"
+  }
+]

@@ -1,10 +1,6 @@
-# Metadata-only audit of the t87 storage failure
+# Research diagnostic, not a scored result
 
-Active supervisor2440557. Frozen modular integration arithmetic stays
-unchanged. Trace true Lin/carry callers, ordinary chunk admission, modular
-contracts and fresh physical IDs. The existing Y42 consistency assertion
-remains. Require complete control13f6 and the same failed candidate case;
-any dumped prefix is explicitly incomplete.
+Metadata only: full1234 baseline exact13f6 and same forward87 failure. Fresh physicalID1233, active1234, bridge.rs. Incomplete prefix26b9b0df is not a scored circuit.
 
-Build cache is copied independently with reflink/copy, preserving the parent
-artifacts. No benchmark inputs, arithmetic cut, final gate, nonce or score.
+Exact native source/test bundles and complete SHA manifests preserve outcomes.
+All17 protected files remain unchanged. Original failed verdicts stand.

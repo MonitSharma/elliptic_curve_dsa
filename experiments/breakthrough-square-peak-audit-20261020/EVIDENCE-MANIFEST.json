@@ -1,0 +1,147 @@
+{
+  "files": {
+    ".gitignore": "857766081bf8333dc9b23405e9fbbc7f03f5372caf1fc7667585025e018bb022",
+    "SOURCE_FREEZE.json": "b79524016dd49301bfed64f0c4346d5ee23c4fb15f0ac036aae6d9c0d182a098",
+    "SQUARE-PEAK-AUDIT.json": "2f1b85d2af80d4276c45878a6252cca14aa14064353276de9f93c57f4458b624",
+    "TERMINAL-AUDIT.json": "3229737d829af5836d02d8c18773dbcd95f0f508d290b542a7cc5a061259ad3f",
+    "build.log": "05f216de4ef63c9bdd38b951726484cd641069c19eb8c9552c6e5ccf239bf617",
+    "build.out": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cap1233.log": "d9ed864c6efa0dbaa85b3b754865f51873fb2c2061758828f9c72e25b17eb164",
+    "cap1233.out": "3bc43742e1d4d14bd3ae0109a636ee8620ff54c92ef3452b448ef1bc3190d257",
+    "cap1234.log": "a8760bafe6c05d35590325ef976d73ca694975afc777449f8843ad2f3db7973e",
+    "cap1234.out": "cab4b02a10748f1c267a12869dc76b3a605128238ef48e8f805b520776dec42d",
+    "launch.py": "6bbcd926aff34806a020328e5823b8f0be9fc299c396f8f7fb286fe689655887",
+    "nohup.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "observe.log": "5d63eb0e970187c69ece103c4208441ca8d6a02d560f3607211287f7a8e14ec0",
+    "observe.py": "f51e77c0f328557f59cd9e2c8f4ec77c6a559e05ecdba8b46a4126cef1a3564c",
+    "prepare.log": "68486bc28d475b600ced96cce21ab5b547aa35ec778f3a1889f0bed157a37d5c",
+    "prepare.py": "c5d5517e3a14221c63148d3c628d0a210046b8d6a0cea5882622f71344b5212e",
+    "run.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "run.pid": "4cd57be8b9b32c27989306ca27dd58066b49164729c89b93595daa39a88eba22",
+    "run.sh": "7bf0a3a2446889e0806254e474241d00f9119091e6bec2fba8e4453ceddc45d3",
+    "source.patch": "1265d063577de1eb14056f86f8e65423dc7cd7669f4f9db93764c796329e7c96",
+    "added-source/break_profile.rs": "a7e94c66704031f4f0810059f15ca1893ddc5e006a5b82b8c582c67228609515",
+    "added-source/phase_fit.rs": "7a5e26ea94186d534775c3bdf06797267e0d3115d86b018deaf7bba9838a5bf4",
+    "added-source/phase_fusion.rs": "39bd1eed7dd29f5ea1516f60e6f205c07f210514dbb092dd6a9f9be652680f5a",
+    "added-source/phase_pebble.rs": "1049d511a14d98339d2c4e59c224b7d98238cf4aa9ad68c9053fce1511b78f1e",
+    "added-source/zero_carry.rs": "ea5fe10fa4017145776bdd45f8bb430ce25059650b77bcdbc0790b49f7bbcc90"
+  },
+  "terminal_audit": {
+    "sealed_at_utc": "2026-10-20T02:04:10.428096+00:00",
+    "base": "90e777ea8242faa0acb2462c5cb5be7c318a2d64",
+    "protected_files_checked": 17,
+    "source_freeze_sha256": "b79524016dd49301bfed64f0c4346d5ee23c4fb15f0ac036aae6d9c0d182a098",
+    "result": {
+      "status": "BOTH_COMPLETE_RAW_STREAMS_EXACT_PEAK_CALLER_DIAGNOSED",
+      "cases": [
+        {
+          "hard": 1234,
+          "exit": 0,
+          "fresh_ids": [
+            "NEW_PHYSICAL_ID\tdivide\t1444634\t1234\t1233\tsrc/bin/../point_add/leapfrog.rs:2064:17\t[]\t[]"
+          ],
+          "last_lin_sites": [
+            "LIN_ALLOC_SITE\tmultiply\t10192889\t1232\tsrc/bin/../point_add/y15_onefold.rs:789:21",
+            "LIN_ALLOC_SITE\tmultiply\t10192895\t1233\tsrc/bin/../point_add/y15_onefold.rs:789:21",
+            "LIN_ALLOC_SITE\tmultiply\t10212722\t1232\tsrc/bin/../point_add/y15_onefold.rs:789:21",
+            "LIN_ALLOC_SITE\tmultiply\t10212728\t1233\tsrc/bin/../point_add/y15_onefold.rs:789:21",
+            "LIN_ALLOC_SITE\tmultiply\t10232555\t1232\tsrc/bin/../point_add/y15_onefold.rs:789:21",
+            "LIN_ALLOC_SITE\tmultiply\t10232561\t1233\tsrc/bin/../point_add/y15_onefold.rs:789:21",
+            "LIN_ALLOC_SITE\tmultiply\t10252388\t1232\tsrc/bin/../point_add/y15_onefold.rs:789:21",
+            "LIN_ALLOC_SITE\tmultiply\t10252394\t1233\tsrc/bin/../point_add/y15_onefold.rs:789:21",
+            "LIN_ALLOC_SITE\tmultiply\t10272221\t1232\tsrc/bin/../point_add/y15_onefold.rs:789:21",
+            "LIN_ALLOC_SITE\tmultiply\t10272227\t1233\tsrc/bin/../point_add/y15_onefold.rs:789:21",
+            "LIN_ALLOC_SITE\tmultiply\t11170346\t1232\tsrc/bin/../point_add/y15_onefold.rs:716:13",
+            "LIN_ALLOC_SITE\tmultiply\t11170412\t1233\tsrc/bin/../point_add/y15_onefold.rs:716:13"
+          ],
+          "last_chunks": [
+            "CHUNK_ADMISSION\tmultiply\t10053828\t1206\t30\t0\t1\t28\t1",
+            "CHUNK_ADMISSION\tmultiply\t10073661\t1206\t30\t0\t1\t28\t1",
+            "CHUNK_ADMISSION\tmultiply\t10093494\t1206\t30\t0\t1\t28\t1",
+            "CHUNK_ADMISSION\tmultiply\t10113327\t1206\t30\t0\t1\t28\t1",
+            "CHUNK_ADMISSION\tmultiply\t10133160\t1206\t30\t0\t1\t28\t1",
+            "CHUNK_ADMISSION\tmultiply\t10152993\t1206\t30\t0\t1\t28\t1",
+            "CHUNK_ADMISSION\tmultiply\t10172826\t1206\t30\t0\t1\t28\t1",
+            "CHUNK_ADMISSION\tmultiply\t10192659\t1206\t30\t0\t1\t28\t1",
+            "CHUNK_ADMISSION\tmultiply\t10212492\t1206\t30\t0\t1\t28\t1",
+            "CHUNK_ADMISSION\tmultiply\t10232325\t1206\t30\t0\t1\t28\t1",
+            "CHUNK_ADMISSION\tmultiply\t10252158\t1206\t30\t0\t1\t28\t1",
+            "CHUNK_ADMISSION\tmultiply\t10271991\t1206\t30\t0\t1\t28\t1"
+          ],
+          "last_modular_contracts": [
+            "MODULAR_CONTRACT\tmultiply\t8572541\t1149\t85\t1\t1\t0\t0\t0\t0\t0",
+            "MODULAR_CONTRACT\tmultiply\t8573624\t1149\t85\t1\t1\t0\t0\t0\t0\t0",
+            "MODULAR_CONTRACT\tmultiply\t8575219\t1149\t86\t1\t1\t0\t0\t0\t0\t0",
+            "MODULAR_CONTRACT\tmultiply\t8576070\t1150\t85\t1\t1\t0\t0\t0\t0\t0",
+            "MODULAR_CONTRACT\tmultiply\t8577153\t1150\t85\t1\t1\t0\t0\t0\t0\t0",
+            "MODULAR_CONTRACT\tmultiply\t8606264\t1148\t86\t1\t1\t0\t0\t0\t0\t0",
+            "MODULAR_CONTRACT\tmultiply\t8607115\t1149\t85\t1\t1\t0\t0\t0\t0\t0",
+            "MODULAR_CONTRACT\tmultiply\t8608198\t1149\t85\t1\t1\t0\t0\t0\t0\t0",
+            "MODULAR_CONTRACT\tmultiply\t8733193\t1150\t85\t1\t1\t0\t0\t0\t0\t0",
+            "MODULAR_CONTRACT\tmultiply\t8734276\t1150\t85\t1\t1\t0\t0\t0\t0\t0",
+            "MODULAR_CONTRACT\tmultiply\t8764804\t1149\t85\t1\t1\t0\t0\t0\t0\t0",
+            "MODULAR_CONTRACT\tmultiply\t8765887\t1149\t85\t1\t1\t0\t0\t0\t0\t0"
+          ],
+          "raw_sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b"
+        },
+        {
+          "hard": 1233,
+          "exit": 0,
+          "fresh_ids": [
+            "NEW_PHYSICAL_ID\tsquare\t5834221\t1234\t1233\tsrc/bin/../point_add/builder.rs:245:43\t[]\t[]"
+          ],
+          "last_lin_sites": [
+            "LIN_ALLOC_SITE\tmultiply\t8485184\t1232\tsrc/bin/../point_add/leapfrog.rs:2871:17",
+            "LIN_ALLOC_SITE\tmultiply\t8485926\t1232\tsrc/bin/../point_add/leapfrog.rs:2871:17",
+            "LIN_ALLOC_SITE\tmultiply\t8517092\t1232\tsrc/bin/../point_add/leapfrog.rs:2871:17",
+            "LIN_ALLOC_SITE\tmultiply\t8548428\t1232\tsrc/bin/../point_add/leapfrog.rs:2871:17",
+            "LIN_ALLOC_SITE\tmultiply\t8579934\t1232\tsrc/bin/../point_add/leapfrog.rs:2871:17",
+            "LIN_ALLOC_SITE\tmultiply\t8611588\t1232\tsrc/bin/../point_add/leapfrog.rs:2871:17",
+            "LIN_ALLOC_SITE\tmultiply\t8643378\t1232\tsrc/bin/../point_add/leapfrog.rs:2871:17",
+            "LIN_ALLOC_SITE\tmultiply\t8676985\t1232\tsrc/bin/../point_add/leapfrog.rs:2871:17",
+            "LIN_ALLOC_SITE\tmultiply\t8709925\t1232\tsrc/bin/../point_add/leapfrog.rs:2871:17",
+            "LIN_ALLOC_SITE\tmultiply\t8740522\t1232\tsrc/bin/../point_add/leapfrog.rs:2871:17",
+            "LIN_ALLOC_SITE\tmultiply\t11461890\t1232\tsrc/bin/../point_add/y15_onefold.rs:716:13",
+            "LIN_ALLOC_SITE\tmultiply\t11461956\t1233\tsrc/bin/../point_add/y15_onefold.rs:716:13"
+          ],
+          "last_chunks": [
+            "CHUNK_ADMISSION\tmultiply\t10345300\t1206\t30\t0\t1\t28\t1",
+            "CHUNK_ADMISSION\tmultiply\t10365139\t1206\t30\t0\t1\t28\t1",
+            "CHUNK_ADMISSION\tmultiply\t10384978\t1206\t30\t0\t1\t28\t1",
+            "CHUNK_ADMISSION\tmultiply\t10404817\t1206\t30\t0\t1\t28\t1",
+            "CHUNK_ADMISSION\tmultiply\t10424656\t1206\t30\t0\t1\t28\t1",
+            "CHUNK_ADMISSION\tmultiply\t10444495\t1206\t30\t0\t1\t28\t1",
+            "CHUNK_ADMISSION\tmultiply\t10464334\t1206\t30\t0\t1\t28\t1",
+            "CHUNK_ADMISSION\tmultiply\t10484173\t1206\t30\t0\t1\t28\t1",
+            "CHUNK_ADMISSION\tmultiply\t10504012\t1206\t30\t0\t1\t28\t1",
+            "CHUNK_ADMISSION\tmultiply\t10523851\t1206\t30\t0\t1\t28\t1",
+            "CHUNK_ADMISSION\tmultiply\t10543690\t1206\t30\t0\t1\t28\t1",
+            "CHUNK_ADMISSION\tmultiply\t10563529\t1206\t30\t0\t1\t28\t1"
+          ],
+          "last_modular_contracts": [
+            "MODULAR_CONTRACT\tmultiply\t8858090\t1149\t85\t1\t1\t0\t0\t0\t0\t0",
+            "MODULAR_CONTRACT\tmultiply\t8859173\t1149\t85\t1\t1\t0\t0\t0\t0\t0",
+            "MODULAR_CONTRACT\tmultiply\t8860768\t1149\t86\t1\t1\t0\t0\t0\t0\t0",
+            "MODULAR_CONTRACT\tmultiply\t8862047\t1150\t85\t1\t1\t0\t0\t0\t0\t0",
+            "MODULAR_CONTRACT\tmultiply\t8863557\t1150\t85\t1\t1\t0\t0\t0\t0\t0",
+            "MODULAR_CONTRACT\tmultiply\t8893567\t1148\t86\t1\t1\t0\t0\t0\t0\t0",
+            "MODULAR_CONTRACT\tmultiply\t8894418\t1149\t85\t1\t1\t0\t0\t0\t0\t0",
+            "MODULAR_CONTRACT\tmultiply\t8895501\t1149\t85\t1\t1\t0\t0\t0\t0\t0",
+            "MODULAR_CONTRACT\tmultiply\t9022434\t1150\t85\t1\t1\t0\t0\t0\t0\t0",
+            "MODULAR_CONTRACT\tmultiply\t9023944\t1150\t85\t1\t1\t0\t0\t0\t0\t0",
+            "MODULAR_CONTRACT\tmultiply\t9055396\t1149\t85\t1\t1\t0\t0\t0\t0\t0",
+            "MODULAR_CONTRACT\tmultiply\t9056479\t1149\t85\t1\t1\t0\t0\t0\t0\t0"
+          ],
+          "raw_sha256": "0bd52235bc2294d67fff45bb21e4f47c6559db09830e3e6654c42c85b5014c1a"
+        }
+      ],
+      "scope": "Native circuit-construction storage only. No packet inputs, arithmetic cut, resource record, final gate or nonce."
+    },
+    "streams_retained_on_server": {},
+    "native_binaries": {
+      "/home/hclau/ecdsa_research/breakthrough-square-peak-audit-20261020/observer/target/release/deps/build_circuit-96cdcfa2d1d068c7": "3a4596d66c9d3745d609982aa602b07b87d2d8c70a8219b8531335cd4da3cbe1",
+      "/home/hclau/ecdsa_research/breakthrough-square-peak-audit-20261020/observer/target/release/deps/build_circuit-0c12d1b03f2fe721": "187a6f4a50af42bc236c431a4af06529b205c0feb88055ed1c3ccd4fab35ecb7"
+    },
+    "no_final_gate_nonce_or_scored_result": true
+  }
+}

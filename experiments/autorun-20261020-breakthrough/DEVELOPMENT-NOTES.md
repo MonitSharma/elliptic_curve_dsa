@@ -1,3 +1,63 @@
+## 20 October, later cycle: cleanup-aware phase predicates
+
+Current public product changed at fresh01:42:03UTC snapshot1687 entries:
+54fc4f25/source3dee0cd6 Q1234/T761052/product939138168; width671 e587fd65,
+T752991 unchanged. Exact public parent51671a28 nativeSHA reproduced unchanged,
+all archive/source/protected17 bytes verify locally. Submitted and_cache.rs
+is a bound-table reader; its external discovery generator is not in that source.
+Future final gates must use the exact current public record, not historicald9ae.
+
+Modular candidate failedt87, source-exclusive extra existing bridge clears it,
+but fails t129. Metadata locates ordinaryY15 ladder_chunk. Applying the exact
+phase adapter there clears larger chunks but later narrow chunks cannot fit
+another nonadjacent drop. Source-local recognized oldplan8->nativeplan7 now
+builds fullraw0bd52235, actualpeak/touched1234 in squareop5834221, builder
+expected763838.2 (+1607.4 diagnostic). No new complete resource score.
+
+Plan7devlabel breakthrough-phase-pebble-plan7-dev-v1,512x64: full-output
+equality FAILED; exact target-lane count is in TERMINAL-AUDIT.
+All different targets already value-fail in both, same50 failing-shot IDs,
+otherregs equal, dirty0; phase50/38, failedbatches66/59. RawT+1604.696747,
+SE4.344. Cause unisolated; preserve failed verdict. V1 executable-permission
+launcher failure is separate; v2 samebytes/sameinputs observes mismatch;
+original SIMDparent fields match512/512,8 protectedscalar controls/run.
+
+Weighted nativev1 failed peak11>8: omitted retained-boundary phase cleanup
+space. Corrected9/10 family nativev3 passes3 tests; fixturev4 covers all RNG
+draw positions including inverse (oldfixed140 omitted lateinverse draws).
+No plain-family8 schedule under that cleanup restriction. Originalfailed
+model remains historical; its8-carry claim was not a native result.
+
+New purephasepredicate: no target sums are needed. Compute C_(j+1), erase
+nonadjacent C_j immediately with standard measuredrepair, and later erase
+C_(j+1) with phase_fusion::pair on ORIGINAL targetbits j-1,j and C_(j-1).
+No sumwrite/NOT needed, unlike the adder. Fused top phase plus d internaldrops
+uses n-2-d clean carries; rank1/2 extraCCZ under ownHMRbit perdrop. All data
+restore. Three native tests pass (allsmall admitted schedules, arbitrary
+rows/constants, signs, guards, allphysical RNGpositions/doubleapplication,
+exactStats/width/drawcounts). Native18member evidence verifies locally.
+
+Cleanup-aware weighted planner now passes3 planner plus3 predicate tests,
+full15configurationsx65536basis cases=983040 case/configurations, including
+actualcore formulas and oldplan8/9, plus allmeasurement/inverse controls.
+Budget8 is now feasible; uniformrank1 model extraT_x4=105, rank2=140;
+budget9=84/90,10=76/76. No7family plan, no general lowerbound. Eachnonfinal
+boundary repair costs original2*(w-1) in quarterT units; if fused, add
+2*(ranktop-1)+sum(internaldrop ranks). Adderinternaldrops cost2*rank in
+quarterT units. All forward AND cleanup prefix peaks are admitted.
+
+Active cleanupnativev2 fixture-onlycostcheck2465086: fixed independentSHAKE
+measurement words replace correlated deterministic multiplication words,
+same original basisinputs and frozenplanner/runtimeprefix; runfullfixture
+only. Originalv1PASS remains. Never interpret the earlier correlated means
+as unbiased statistical componentcosts. Nativecosts are not point-addscores.
+Active squarepeak metadataaudit2464031: require bothcomplete13f6/0bdstreams
+exact, recordtruefirstnewID source. Its inherited scope text still mentions
+a failedt129 source; actual assertions/results require complete0bd instead.
+
+Nine newer source/test bundles and40member negative replay archive verify
+locally. Existing17protectedfiles unchanged; no finalgate/nonce thiscycle.
+
 # Carry research: unresolved integration directions
 
 ## Later checkpoint: phase pebbling and modular adapter
@@ -119,3 +179,46 @@ known carry and retained-boundary contracts. The current modular adapter
 deliberately excludes all such calls. A configured cap is never a measured
 width: plan7 at configured1233 generated actual1237 in square; the first square
 adapter reduced that to actual1234, exposing a separate plain modular ripple.
+
+## Next exact terminal-output contract (not implemented)
+
+Squarepeak metadataaudit2464031 completed BOTHrawexact13f6/0bd. FirstnewID1233
+squareop5834221 active1234, bulkalloc. NearbyMODULAR_CONTRACT atsameop:
+active1108,width128,c0Full,c1Full,deferred0,known_output0,KNOWN_TERMINAL1,
+borrowed0,copy0. Thus excluded known_terminal:Option<bool> output promise.
+The inherited audit freeze scope text says failedsource but actualresult is
+bothcomplete; supplementaryclarify, do not reseal/wrongfailureassert.
+
+Read modular::terminal_step_known: it MEASURES originaltop, forces desired
+bit, and repairs phase as desired XOR add_top XORcarry_pen. Replacing it by
+ordinaryfulladder changes outputs on promise-violating inputs. Preserve this
+exact reset/phase channel in new phase_pebble::known_top, not just arithmetic
+under the promise. This may remove squarewidthpeak without deletingpromise.
+
+Somecin known_top algorithm: same plain m=n-2 forwardcarries/earlydrops, then
+HMRtop, set desired. Under topmeasurementbit apply desired XOR ones_top as
+constantphase, each row_top source Z, and MAJ(row_pen^one_pen,b_pen,ci_pen)
+as threeCliffordCZs (row_pen×b_pen,row_pen×ci_pen,b_pen×ci_pen, constants
+handledZ). No terminalCCX. Reversewrite allsumsexceptTOP, which staysforced.
+Internaldroprepair still original tested adder rule NOTsum atdropped target.
+Same ordinaryknown_top baseCCX n-2, HMR n-1; eachdrop extra rank/2T.
+Implement constantphase via neg(ci)=Zci Xci Zci Xci under condition.
+
+Zero cin wrapper: computeC1=firstrowANDb0, writeb0sum, callknown_top onupper
+word withC1, eraseC1 asfirstrow ANDNOTnewb0. Totalsn-2CCX,n-1HMR unchanged.
+Leadingempty false rows can trimexactly withhookoffset ascurrentzero adapter.
+Do not change copy/deferred/known-output/borrowed/c0/c1promisecontracts.
+
+Strong native contracttest: compare directly with original full
+modular::ripple_add_proved(...c0Full,c1Full,deferredNone,known_outputNone,
+known_terminalSome(desired),borrowedNone) on ALLarbitrarysmall basisinputs,
+including violatedtop promises. Paddingk=n,n-1,n-2; cinSome andNone; desired
+0/1; source/target restored anddirty0. Align SEMANTIC measurement outcomes
+rather than identical RNGpositions: originalorder top(draw0), thenCi with
+ordinal1+m-i (i=m..1). Newearlydrop Cj ordinal0..d-1 reads originalword
+1+m-j; topnewordinald readsoriginalword0; remainingreverseCi uses matching
+originalword1+m-i. Zero wrapper bottomC1 erasedlast mapsoriginalm. Compare
+all registers ANDphase for arbitrary measurementwords, allcoefficients,
+false/mixedguards. This validates same reset channel even offpromise, not
+merely outputcorrectness on promised arithmetic. Preserve nativeoriginal
+17files; adapter changesonlypoint_add source. No gate/nonce/score claim.
