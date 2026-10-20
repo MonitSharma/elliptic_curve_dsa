@@ -1,0 +1,45 @@
+{
+  "status": "COMPLETE_LOCAL_REPRODUCTION_REVIEW_PASS_QUEUED",
+  "at_utc": "2026-10-20T07:20:21.594417+00:00",
+  "source_revision": "1b550a0165a4578b041cebb5c2655f0a8a6cf844",
+  "base": "d45e76b3592a82f47c9fd3ef60741eb8c78caf7c",
+  "source_files": 194,
+  "protected_files_checked": 17,
+  "source_archive_sha256": "9f7284ed80c7747c24c7487e4425a025a1f7364cf94911e46672cd4b3f02cd77",
+  "source_patch_sha256": "900c352b626e5703896fcdfc9ca7487edf13c966257398ed91654d1d22fa5927",
+  "source_freeze_sha256": "d0e887e1562ee96aa7a2609ab5e7bb0313d96ec90a12de6a5f5f2a431d46aaf2",
+  "benchmark_result_sha256": "b184702d0c11b1442ccd6e68102b5942ccd224ddaca1994b0a4e2f4791b44ad3",
+  "gate_declaration_sha256": "af82e7cd842611c93302619ae06c4efabf0b88c2cb0e999b27e20b565f3b2e11",
+  "gate_result_sha256": "cbe20f76954dd0bd6359312bb37cad258f7d746aee99c7a7fc3be741a64426db",
+  "native_receipt": {
+    "stream_sha256": "77d43b25b1526603b8e496da5f514a1b397a849bdd6eb9511e11beb0536e3057",
+    "records_sha256": "00db935f7eb19d41e6d5b0dd160ece02c5ce397d8aa710e64da5cdef46255fb2",
+    "pre_tail_sha256": "67b99b791798a4ebfbf282f2734ca95bd4d91eaa9ba2b7102b3c4983b9e50db1",
+    "pre_tail_byte_identical_to_gated_source": true,
+    "nonce": 209,
+    "operations": 10553247
+  },
+  "nonce": 209,
+  "production_screens": 256,
+  "parallel_overrun": "210..256",
+  "partial_packet_control_nonces": "1..8 repeated in production,24 full-state scalar batches",
+  "selected_protected_packet_passed": true,
+  "unchanged_benchmark_passed_shots": 9024,
+  "historical_results_restored": true,
+  "tracked_changes_only_point_add": true,
+  "public_refresh_at_utc": "2026-10-20T07:20:10.998231+00:00",
+  "public_toffoli_parent": {
+    "id": "4045a75a-32a0-4d3c-b7ca-03b51dc12b25",
+    "officialScore": 1099730448,
+    "officialMetrics": {
+      "qubits": 1464,
+      "toffoli": 751182
+    },
+    "submissionCommitSha": "d45e76b3592a82f47c9fd3ef60741eb8c78caf7c"
+  },
+  "beats_refreshed_public_t": true,
+  "submission_mode": "queue",
+  "ai_model": "GPT-6 sol",
+  "coding_harness": "Codex",
+  "scope": "Complete local benchmark improves the independent T objective; not officially evaluated and not a global product record. Every earlier gate verdict and the independently official4045 result remain unchanged."
+}

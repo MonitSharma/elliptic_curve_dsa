@@ -1,0 +1,758 @@
+{
+  "status": "EXACT_BOOLEAN_STORAGE_MODEL_ONLY",
+  "basis_strategy": "previous",
+  "erase_strategy": "minimum",
+  "native_dag_sha256": "fd22d72380021c1df9fcd0b6813f59eccf3deaf43b3d560e180ceb6f284fb965",
+  "functions_sha256": "7c33a1bcfcbb628c38f47052da4f2ad4a53b17c06c9b2615819f11e4c32bb878",
+  "all16384_assignments_verified": true,
+  "original_prefix_helper_peak": 31,
+  "ideal_linear_projection_helper_peak": 22,
+  "greedy_quadratic_erasure_helper_peak": 26,
+  "quadratic_only_final_helpers": 24,
+  "final_helpers_after_cubic_attempt": 22,
+  "finishing_cubic_terms": 3,
+  "finishing": [
+    {
+      "function_mask": 67338240,
+      "phase_terms": [
+        [
+          229376
+        ],
+        [
+          8192,
+          16384,
+          34868294
+        ]
+      ],
+      "cubic_terms": 1
+    },
+    {
+      "function_mask": 229376,
+      "phase_terms": [
+        [
+          256
+        ],
+        [
+          512
+        ],
+        [
+          1024
+        ],
+        [
+          4096
+        ],
+        [
+          130
+        ],
+        [
+          98824
+        ],
+        [
+          1051654
+        ],
+        [
+          1284108
+        ],
+        [
+          128,
+          256
+        ],
+        [
+          128,
+          130
+        ],
+        [
+          128,
+          33028
+        ],
+        [
+          256,
+          33028
+        ],
+        [
+          128,
+          256,
+          130
+        ],
+        [
+          128,
+          130,
+          33028
+        ]
+      ],
+      "cubic_terms": 2
+    }
+  ],
+  "stages": [
+    {
+      "born": 1,
+      "ideal_retained_physical_wires": 15,
+      "before_erasure_physical_wires": 15,
+      "retained_physical_wires": 15,
+      "delayed_garbage": [],
+      "erasures": []
+    },
+    {
+      "born": 2,
+      "ideal_retained_physical_wires": 16,
+      "before_erasure_physical_wires": 16,
+      "retained_physical_wires": 16,
+      "delayed_garbage": [],
+      "erasures": []
+    },
+    {
+      "born": 3,
+      "ideal_retained_physical_wires": 17,
+      "before_erasure_physical_wires": 17,
+      "retained_physical_wires": 17,
+      "delayed_garbage": [],
+      "erasures": []
+    },
+    {
+      "born": 4,
+      "ideal_retained_physical_wires": 18,
+      "before_erasure_physical_wires": 18,
+      "retained_physical_wires": 18,
+      "delayed_garbage": [],
+      "erasures": []
+    },
+    {
+      "born": 5,
+      "ideal_retained_physical_wires": 19,
+      "before_erasure_physical_wires": 19,
+      "retained_physical_wires": 19,
+      "delayed_garbage": [],
+      "erasures": []
+    },
+    {
+      "born": 6,
+      "ideal_retained_physical_wires": 20,
+      "before_erasure_physical_wires": 20,
+      "retained_physical_wires": 20,
+      "delayed_garbage": [],
+      "erasures": []
+    },
+    {
+      "born": 7,
+      "ideal_retained_physical_wires": 20,
+      "before_erasure_physical_wires": 21,
+      "retained_physical_wires": 20,
+      "delayed_garbage": [],
+      "erasures": [
+        {
+          "function_mask": 6156,
+          "phase_terms": [
+            [
+              256
+            ],
+            [
+              1024
+            ],
+            [
+              2048
+            ],
+            [
+              4096
+            ],
+            [
+              130
+            ],
+            [
+              33028
+            ],
+            [
+              1051654
+            ],
+            [
+              2103308
+            ],
+            [
+              3149824
+            ],
+            [
+              128,
+              130
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "born": 8,
+      "ideal_retained_physical_wires": 20,
+      "before_erasure_physical_wires": 21,
+      "retained_physical_wires": 21,
+      "delayed_garbage": [
+        1284108
+      ],
+      "erasures": []
+    },
+    {
+      "born": 9,
+      "ideal_retained_physical_wires": 21,
+      "before_erasure_physical_wires": 22,
+      "retained_physical_wires": 22,
+      "delayed_garbage": [
+        1284108
+      ],
+      "erasures": []
+    },
+    {
+      "born": 10,
+      "ideal_retained_physical_wires": 22,
+      "before_erasure_physical_wires": 23,
+      "retained_physical_wires": 23,
+      "delayed_garbage": [
+        1284108
+      ],
+      "erasures": []
+    },
+    {
+      "born": 11,
+      "ideal_retained_physical_wires": 22,
+      "before_erasure_physical_wires": 24,
+      "retained_physical_wires": 23,
+      "delayed_garbage": [
+        1284108
+      ],
+      "erasures": [
+        {
+          "function_mask": 1313862,
+          "phase_terms": [
+            [
+              34868294
+            ],
+            [
+              33816576
+            ],
+            [
+              8617984
+            ],
+            [
+              229392,
+              8617984
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "born": 12,
+      "ideal_retained_physical_wires": 22,
+      "before_erasure_physical_wires": 24,
+      "retained_physical_wires": 23,
+      "delayed_garbage": [
+        1284108
+      ],
+      "erasures": [
+        {
+          "function_mask": 524288,
+          "phase_terms": [
+            [
+              8192,
+              16384
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "born": 13,
+      "ideal_retained_physical_wires": 22,
+      "before_erasure_physical_wires": 24,
+      "retained_physical_wires": 24,
+      "delayed_garbage": [
+        33816576,
+        1284108
+      ],
+      "erasures": []
+    },
+    {
+      "born": 14,
+      "ideal_retained_physical_wires": 22,
+      "before_erasure_physical_wires": 25,
+      "retained_physical_wires": 24,
+      "delayed_garbage": [
+        33816576,
+        1284108
+      ],
+      "erasures": [
+        {
+          "function_mask": 8617984,
+          "phase_terms": [
+            [
+              128
+            ],
+            [
+              1024
+            ],
+            [
+              2048
+            ],
+            [
+              4096
+            ],
+            [
+              130
+            ],
+            [
+              1051654
+            ],
+            [
+              2103308
+            ],
+            [
+              300124164
+            ],
+            [
+              17006592
+            ],
+            [
+              268435456
+            ],
+            [
+              1284108
+            ],
+            [
+              128,
+              2103308
+            ],
+            [
+              1024,
+              2103308
+            ],
+            [
+              2048,
+              13867020
+            ],
+            [
+              2048,
+              300124164
+            ],
+            [
+              2048,
+              17006592
+            ],
+            [
+              2048,
+              268435456
+            ],
+            [
+              2048,
+              1284108
+            ],
+            [
+              4096,
+              2103308
+            ],
+            [
+              4096,
+              13867020
+            ],
+            [
+              4096,
+              300124164
+            ],
+            [
+              4096,
+              17006592
+            ],
+            [
+              4096,
+              268435456
+            ],
+            [
+              4096,
+              1284108
+            ],
+            [
+              130,
+              2103308
+            ],
+            [
+              1051654,
+              2103308
+            ],
+            [
+              2103308,
+              13867020
+            ],
+            [
+              2103308,
+              300124164
+            ],
+            [
+              2103308,
+              17006592
+            ],
+            [
+              2103308,
+              268435456
+            ],
+            [
+              2103308,
+              1284108
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "born": 15,
+      "ideal_retained_physical_wires": 22,
+      "before_erasure_physical_wires": 25,
+      "retained_physical_wires": 24,
+      "delayed_garbage": [
+        33816576,
+        1284108
+      ],
+      "erasures": [
+        {
+          "function_mask": 17006592,
+          "phase_terms": [
+            [
+              603979776
+            ],
+            [
+              67338240
+            ],
+            [
+              536870912
+            ],
+            [
+              16384,
+              263202
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "born": 16,
+      "ideal_retained_physical_wires": 22,
+      "before_erasure_physical_wires": 25,
+      "retained_physical_wires": 25,
+      "delayed_garbage": [
+        67338240,
+        33816576,
+        1284108
+      ],
+      "erasures": []
+    },
+    {
+      "born": 17,
+      "ideal_retained_physical_wires": 22,
+      "before_erasure_physical_wires": 26,
+      "retained_physical_wires": 26,
+      "delayed_garbage": [
+        229376,
+        67338240,
+        33816576,
+        1284108
+      ],
+      "erasures": []
+    },
+    {
+      "born": 18,
+      "ideal_retained_physical_wires": 23,
+      "before_erasure_physical_wires": 27,
+      "retained_physical_wires": 27,
+      "delayed_garbage": [
+        229376,
+        67338240,
+        33816576,
+        1284108
+      ],
+      "erasures": []
+    },
+    {
+      "born": 19,
+      "ideal_retained_physical_wires": 24,
+      "before_erasure_physical_wires": 28,
+      "retained_physical_wires": 28,
+      "delayed_garbage": [
+        229376,
+        67338240,
+        33816576,
+        1284108
+      ],
+      "erasures": []
+    },
+    {
+      "born": 20,
+      "ideal_retained_physical_wires": 25,
+      "before_erasure_physical_wires": 29,
+      "retained_physical_wires": 29,
+      "delayed_garbage": [
+        229376,
+        67338240,
+        33816576,
+        1284108
+      ],
+      "erasures": []
+    },
+    {
+      "born": 21,
+      "ideal_retained_physical_wires": 26,
+      "before_erasure_physical_wires": 30,
+      "retained_physical_wires": 30,
+      "delayed_garbage": [
+        229376,
+        67338240,
+        33816576,
+        1284108
+      ],
+      "erasures": []
+    },
+    {
+      "born": 22,
+      "ideal_retained_physical_wires": 27,
+      "before_erasure_physical_wires": 31,
+      "retained_physical_wires": 31,
+      "delayed_garbage": [
+        229376,
+        67338240,
+        33816576,
+        1284108
+      ],
+      "erasures": []
+    },
+    {
+      "born": 23,
+      "ideal_retained_physical_wires": 28,
+      "before_erasure_physical_wires": 32,
+      "retained_physical_wires": 32,
+      "delayed_garbage": [
+        229376,
+        67338240,
+        33816576,
+        1284108
+      ],
+      "erasures": []
+    },
+    {
+      "born": 24,
+      "ideal_retained_physical_wires": 29,
+      "before_erasure_physical_wires": 33,
+      "retained_physical_wires": 33,
+      "delayed_garbage": [
+        229376,
+        67338240,
+        33816576,
+        1284108
+      ],
+      "erasures": []
+    },
+    {
+      "born": 25,
+      "ideal_retained_physical_wires": 30,
+      "before_erasure_physical_wires": 34,
+      "retained_physical_wires": 34,
+      "delayed_garbage": [
+        229376,
+        67338240,
+        33816576,
+        1284108
+      ],
+      "erasures": []
+    },
+    {
+      "born": 26,
+      "ideal_retained_physical_wires": 31,
+      "before_erasure_physical_wires": 35,
+      "retained_physical_wires": 35,
+      "delayed_garbage": [
+        229376,
+        67338240,
+        33816576,
+        1284108
+      ],
+      "erasures": []
+    },
+    {
+      "born": 27,
+      "ideal_retained_physical_wires": 32,
+      "before_erasure_physical_wires": 36,
+      "retained_physical_wires": 36,
+      "delayed_garbage": [
+        229376,
+        67338240,
+        33816576,
+        1284108
+      ],
+      "erasures": []
+    },
+    {
+      "born": 28,
+      "ideal_retained_physical_wires": 33,
+      "before_erasure_physical_wires": 37,
+      "retained_physical_wires": 37,
+      "delayed_garbage": [
+        229376,
+        67338240,
+        33816576,
+        1284108
+      ],
+      "erasures": []
+    },
+    {
+      "born": 29,
+      "ideal_retained_physical_wires": 34,
+      "before_erasure_physical_wires": 38,
+      "retained_physical_wires": 38,
+      "delayed_garbage": [
+        229376,
+        67338240,
+        33816576,
+        1284108
+      ],
+      "erasures": []
+    },
+    {
+      "born": 30,
+      "ideal_retained_physical_wires": 35,
+      "before_erasure_physical_wires": 39,
+      "retained_physical_wires": 39,
+      "delayed_garbage": [
+        229376,
+        67338240,
+        33816576,
+        1284108
+      ],
+      "erasures": []
+    },
+    {
+      "born": 31,
+      "ideal_retained_physical_wires": 34,
+      "before_erasure_physical_wires": 40,
+      "retained_physical_wires": 38,
+      "delayed_garbage": [
+        33816576,
+        1284108
+      ],
+      "erasures": [
+        {
+          "function_mask": 33504582930440,
+          "phase_terms": [
+            [
+              128
+            ],
+            [
+              1024
+            ],
+            [
+              130
+            ],
+            [
+              4297070604
+            ],
+            [
+              2205468856328
+            ],
+            [
+              68688955019272
+            ],
+            [
+              68706134888456
+            ],
+            [
+              68680368226304
+            ],
+            [
+              68703383425032
+            ],
+            [
+              33495391111172
+            ],
+            [
+              128,
+              68702913662984
+            ],
+            [
+              1024,
+              68702913662984
+            ],
+            [
+              130,
+              68702913662984
+            ],
+            [
+              1051654,
+              2062659094532
+            ]
+          ]
+        },
+        {
+          "function_mask": 33495391111172,
+          "phase_terms": [
+            [
+              1024
+            ],
+            [
+              130
+            ],
+            [
+              1051654
+            ],
+            [
+              4297070604
+            ],
+            [
+              33503511283716
+            ],
+            [
+              68688955019272
+            ],
+            [
+              68680368226304
+            ],
+            [
+              68703383425032
+            ],
+            [
+              68702913662984
+            ],
+            [
+              128,
+              1024
+            ],
+            [
+              128,
+              130
+            ],
+            [
+              128,
+              1051654
+            ],
+            [
+              256,
+              1024
+            ],
+            [
+              256,
+              130
+            ],
+            [
+              1024,
+              2048
+            ],
+            [
+              1024,
+              33028
+            ],
+            [
+              2048,
+              130
+            ],
+            [
+              130,
+              33028
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "seconds": 5.474728345870972,
+  "scope": "Native31-AND DAG and all fields/low sums match exact14-input truth functions. Linear projections and greedy phase-erasure model only; cubic finishing attempted explicitly. No native basis-change allocation, integrated arithmetic, complete benchmark, finalgate, nonce or scored gain."
+}

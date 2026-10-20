@@ -1,0 +1,8 @@
+import hashlib,json,subprocess
+from pathlib import Path
+ws=Path('/home/hclau/ecdsa_research');r=ws/'breakthrough-public140-parent-4045-20261020';old=ws/'breakthrough-public140-final-20261020';t=old/'candidate';f=json.loads((old/'SOURCE-FREEZE.json').read_text());revision='d45e76b3592a82f47c9fd3ef60741eb8c78caf7c';sha=lambda b:hashlib.sha256(b).hexdigest()
+def git(*a):return subprocess.check_output(['git','-C',str(t),*a])
+assert not(r/'PARENT-SOURCE-VERIFICATION.json').exists();assert git('cat-file','-t',revision).strip()==b'commit';paths=git('ls-tree','-r','--name-only',revision,'--','src/point_add/').decode().splitlines();assert set(paths)==set(f['source_files'])
+for p,h in{**f['source_files'],**f['protected_files']}.items():assert sha(git('show',revision+':'+p))==h,p
+ops=t/'ops.bin';assert sha(ops.read_bytes())=='dc6210044f475393b4c7901d6241bbd379a05a757ebaba1507acceab0c74966a'
+(r/'PARENT-SOURCE-VERIFICATION.json').write_text(json.dumps({'status':'PUBLIC_COMMIT_ALL_SOURCE_AND_PROTECTED_BYTES_EQUAL_VALIDATED_LOCAL_CANDIDATE','public_submission':'4045a75a-32a0-4d3c-b7ca-03b51dc12b25','public_source_revision':revision,'local_frozen_source_revision':'a70d1cb6ca6696b7894093f0ca435c5ab26ee586','source_files_checked':len(paths),'protected_files_checked':len(f['protected_files']),'source_archive_sha256':sha((old/'point-add-source.tar.gz').read_bytes()),'exact_parent_stream':str(ops),'exact_parent_stream_sha256':sha(ops.read_bytes()),'scope':'Public submitted commit compared as Git objects, without editing concurrent working checkout or notes. Original queue/source/gate receipts remain historical; new descendants must compare their final gate against this current parent.'},indent=2)+'\n');print((r/'PARENT-SOURCE-VERIFICATION.json').read_text())

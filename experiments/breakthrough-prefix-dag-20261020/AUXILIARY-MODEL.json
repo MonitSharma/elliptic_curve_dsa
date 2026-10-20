@@ -1,0 +1,39 @@
+{
+  "status": "FINITE_EXACT_AUXILIARY_MODEL_ONLY",
+  "model_sha256": "925caa32d641f098cab0458f410b29ee88dbae194da852a7d940ffd3f407e7f4",
+  "triple": [
+    8192,
+    16384,
+    34868294
+  ],
+  "pairs": [
+    {
+      "phase_factor_masks": [
+        8192,
+        16384
+      ],
+      "linear_in_full_original_function_space": true,
+      "native_coordinate_mask": 524288,
+      "residual_weight": 0
+    },
+    {
+      "phase_factor_masks": [
+        8192,
+        34868294
+      ],
+      "linear_in_full_original_function_space": false,
+      "native_coordinate_mask": null,
+      "residual_weight": 6144
+    },
+    {
+      "phase_factor_masks": [
+        16384,
+        34868294
+      ],
+      "linear_in_full_original_function_space": false,
+      "native_coordinate_mask": null,
+      "residual_weight": 4096
+    }
+  ],
+  "scope": "A matching auxiliary could be retained from the original function span without an extra AND, then erased by a quadratic phase. Scheduling, native synthesis and full circuit evidence remain pending."
+}

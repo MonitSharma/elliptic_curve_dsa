@@ -1,0 +1,38 @@
+{
+  "status": "FINISHED_NONCE0_NATIVE_RECORDS_REPRODUCE_EXACT_PROVER_NOT_YET_GATED",
+  "native_tests": 27,
+  "native_test_counts": [
+    1,
+    2,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    3,
+    1,
+    4,
+    3,
+    2,
+    3,
+    1,
+    1
+  ],
+  "stream_path": "/home/hclau/ecdsa_research/breakthrough-public140-exact154-20261020/candidate/ops.bin",
+  "native_stream_sha256": "7b165a67d95bdfadc274ddf303bf7a092c63d1d42bf223510e81d628be88fb3e",
+  "prover_framed_sha256": "4ea0a81d390ebc9e69c20b726276d268b31f02b1156fd0d0a7ffb189bef31dd6",
+  "framed_hashes_equal": false,
+  "canonical_records_equal": true,
+  "records": {
+    "operations": 10553247,
+    "record_sha256": "86b759a6315b09d7afe1d69c161c9838bf7ca7acfda4edf094e42a36df64c888",
+    "tail_sha256": "74bc9c285e17a284f8d53e4288b5d6c9073a8cd6a22ee348146da2e4578855f6"
+  },
+  "qubits": 1464,
+  "classical_bits": 2453,
+  "source_freeze_sha256": "6fddf1a9e7543416b123e2841f0fe94dc9600e91e985f9fd622516a354de5451",
+  "native_binary_sha256": "ea5dacf73995ceb25a5ea403c3190538fb26bfc74bb5c5f1279df33a42cabae5",
+  "correction": "Initial research runner incorrectly required framed equality: diagnostic io writer sets zstd window_log27; protected writer uses default. Original failure retained. Same native source, build/tests/generation; no rerun. Every uncompressed operation record matches.",
+  "scope": "Finished independent exact154 candidate; no final gate or nonce search yet. Compare fresh final gate against exact current official4045 parent."
+}

@@ -1,0 +1,43 @@
+{
+  "sealed_at_utc": "2026-10-20T07:28:37.332316+00:00",
+  "source_freeze_sha256": "db457d5ef2a19a4b77f5e1db321d61a29601d3b8072c23b6afc284511ebc861a",
+  "protected_source_checks": 17,
+  "test_counts": {
+    "tests.log": [
+      4
+    ]
+  },
+  "results": {
+    "RESULT.json": {
+      "status": "EXACT_EXTRA_DONOR_COMPONENT_AUDIT_ONLY",
+      "cases": [
+        {
+          "extra_donor_limit": 16,
+          "exit": 0,
+          "seconds": 442.52312421798706,
+          "binary_sha256": "ad830d5fc056c180ab97aba5843ea118f8964b7de43e890bf0fc3f068f715cbc",
+          "proposed": 2728,
+          "proven_leases": 154,
+          "diagnostic_depth_weight_saving": 154.0,
+          "output_sha256": "4ea0a81d390ebc9e69c20b726276d268b31f02b1156fd0d0a7ffb189bef31dd6"
+        },
+        {
+          "extra_donor_limit": 64,
+          "exit": 0,
+          "seconds": 442.74344635009766,
+          "binary_sha256": "ad830d5fc056c180ab97aba5843ea118f8964b7de43e890bf0fc3f068f715cbc",
+          "proposed": 2728,
+          "proven_leases": 154,
+          "diagnostic_depth_weight_saving": 154.0,
+          "output_sha256": "4ea0a81d390ebc9e69c20b726276d268b31f02b1156fd0d0a7ffb189bef31dd6"
+        }
+      ],
+      "scope": "New independent Toffoli research variant after completed queued Q1464 result. Extra initially-zero donors, conservative nonoverlap and exact arbitrary-cut lease proofs. No circuit content tuned to packets; old passing gate and nonce source untouched. Depth weights/allocator limits diagnostic, not resource records. New finished source, native integration and separate gate required before any future nonce screen."
+    }
+  },
+  "scope": "Native/component diagnostics retained separately from complete benchmarks. Every original failure remains. Raw source assertions, scope and stream provenance stay authoritative.",
+  "streams_retained_on_server": {
+    "extra64.ops.bin": "4ea0a81d390ebc9e69c20b726276d268b31f02b1156fd0d0a7ffb189bef31dd6",
+    "extra16.ops.bin": "4ea0a81d390ebc9e69c20b726276d268b31f02b1156fd0d0a7ffb189bef31dd6"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "sealed_at_utc": "2026-10-20T07:28:38.036094+00:00",
+  "source_freeze_sha256": "180627a941dda6c6fc9567c7daae0ff44cbe00071fa7d9be6147c96304735dec",
+  "protected_source_checks": 17,
+  "test_counts": {
+    "tests-v2.log": [
+      7
+    ]
+  },
+  "results": {
+    "RESULT-v2.json": {
+      "status": "EXACT_EXTRA_DONOR_COMPONENT_AUDIT_ONLY",
+      "cases": [
+        {
+          "extra_donor_limit": 16,
+          "exit": 0,
+          "seconds": 421.57883954048157,
+          "binary_sha256": "c14b9cdae02362a423516b951477c17d20d5982be7fb7fa0d237be288bb4892e",
+          "proposed": 2728,
+          "proven_leases": 154,
+          "diagnostic_depth_weight_saving": 154.0,
+          "output_sha256": "4ea0a81d390ebc9e69c20b726276d268b31f02b1156fd0d0a7ffb189bef31dd6"
+        },
+        {
+          "extra_donor_limit": 64,
+          "exit": 0,
+          "seconds": 419.2079632282257,
+          "binary_sha256": "c14b9cdae02362a423516b951477c17d20d5982be7fb7fa0d237be288bb4892e",
+          "proposed": 2728,
+          "proven_leases": 154,
+          "diagnostic_depth_weight_saving": 154.0,
+          "output_sha256": "4ea0a81d390ebc9e69c20b726276d268b31f02b1156fd0d0a7ffb189bef31dd6"
+        }
+      ],
+      "scope": "New independent Toffoli research variant after completed queued Q1464 result. Extra initially-zero donors, conservative nonoverlap and exact arbitrary-cut lease proofs. No circuit content tuned to packets; old passing gate and nonce source untouched. Depth weights/allocator limits diagnostic, not resource records. New finished source, native integration and separate gate required before any future nonce screen. Proof experiment prunes only backwards-irrelevant writes and unused lexical guard blocks; guard snapshots and all value/classical dependencies retained. Exact arbitrary-cut algebra unchanged; native agreement/fault controls precede scans."
+    }
+  },
+  "scope": "Native/component diagnostics retained separately from complete benchmarks. Every original failure remains. Raw source assertions, scope and stream provenance stay authoritative.",
+  "streams_retained_on_server": {
+    "extra64.ops.bin": "4ea0a81d390ebc9e69c20b726276d268b31f02b1156fd0d0a7ffb189bef31dd6",
+    "extra16.ops.bin": "4ea0a81d390ebc9e69c20b726276d268b31f02b1156fd0d0a7ffb189bef31dd6"
+  }
+}

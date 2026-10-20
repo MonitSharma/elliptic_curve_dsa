@@ -1,5 +1,69 @@
 # Results and submission status
 
+## 20 October 2026, 15:39 SGT: Q1464/T751027 complete local pass; native prefix27/full-fold work
+
+New complete unchanged benchmark: all9024 shots pass, Q1464, rounded mean
+T751027, exact mean751027.0876551418, total6777268439, product1099503528.
+Source1b550a0165a4578b041cebb5c2655f0a8a6cf844, stream77d43b25. All194 source
+members and117 final evidence members verify locally. Queue mode, no new
+upload. The preceding Q1464/T751182 result is now officially scored as4045a75a,
+public sourced45e76b3. API rejected only because product did not improve the
+incumbent; it remains the public T minimum. Public source193 files and17
+protected files match the previously validated locala70d1cb6 byte-for-byte.
+Fresh07:20:10UTC snapshot1690: T751182/Q1464, product939138168 atQ1234/T761052,
+width671. New local saves155 at unchanged width, not the global product record.
+The original queue/freeze receipts remain dated history; the concurrently
+edited old submission note is preserved separately from this checkpoint.
+
+Independent exact154 final gate: declared06:54:07.721292UTC, label
+public140-exact154-final-20261020-v1,32768x64 shots/source versus exact current
+official4045 streamdc621004. Frozen nonce0candidate7b165a67. Wrong-value shots
+1162/1162, identical failing shot IDs; phase668/634, dirty0/0; failed batches
+1193/1200. Candidate5.163574failed batches/packet. Paired b22/c15, exact
+one-sided McNemar p0.1620043000439182. All four criteria pass; the seven extra
+failed batches are disclosed. No rerun/relabel/extension/re-judging. Previous
+uniform2 gate was not reused for this independent circuit.
+
+Ascending nonce1..256: sole pass and lowest209; overrun210..256. Additional
+partial-packet controls1..8 repeat production and compare24 protected full
+qubit/classical/phase/RNG states plus curve/partial-mask checks. Selected full
+protected packet and unchanged benchmark both pass. Only the nonce literal
+changes after the gate, every pre-tail record matches, all17 protected files
+and historical results remain intact. GPT-6 sol/Codex research attribution.
+
+Exact lease discovery on public140 accepts154 arbitrary-cut proofs. Budgets16
+and64 generate identical output with no referenced width increase. Dependency
+pruning agrees exactly but does not speed the audit materially. Its first test
+wrongly expected an incomplete SymTriple algebra to prove a guarded identity;
+the full reference also rejects it. Failed fixture/source and corrected7 native
+controls are preserved. Initial native exact154 research runner compared zstd
+frames incorrectly. Diagnostic window27 differs from the protected writer;
+every uncompressed record matches. Original assertion failure retained, source
+and generation unchanged,27 controls pass. Complete benchmark is the result.
+
+Structural native result, separate from scored results: original31-helper
+prefix becomes peak27/final20 with the same31 ANDs,11 HMRs and Clifford phase
+repair. Protecting C1..C4 and TT until ordered cleanup removes the earlier
+one-cubic obstruction. Exact14-input models and generated716-CNOT basis
+schedule pass native16384 inputs,3 guards,15 measurement modes plus original
+control and missing-phase fault detection. Cleanup restores low sums in place
+with13 ANDs/31 HMRs (44 total core ANDs, versus42 for earlier loan construction).
+All42 independent measurement coefficients and guards pass. Complete forward
+fold matches the unmodified reference on six rooms28/29/30/31/33/35, all16384
+core assignments and independent upper words; no point-add record is claimed.
+The first quartic and alternative-basis models remain negative finite searches,
+not lower bounds. Metadata alias/list correction preserves original reports.
+
+Production integration passes29 native controls. Original hard1234 control is
+byte-exact13f6; raw hard1233 stream8e0d9a6f has diagnostic763799.2 and hard1232
+stream2e07eb5a has765396.1, both too costly. Hard1231 is rejected by the unchanged
+research parameter whitelist before circuit generation, not an arithmetic
+capacity verdict. A fixed new grid tests using this workspace at original
+global1234 width, with preflight minima28/29/30, to reduce surrounding carry
+shedding. No packet data or nonce enters any structural experiment. Preserve
+Q692 and all earlier failed-gate verdicts. The active substantial product
+objective remains unfinished; unrelated user edits and server jobs stay intact.
+
 ## 20 October 2026, 14:30 SGT: complete Q1464/T751182 local benchmark; queued
 
 All 9,024 shots pass the unchanged benchmark: Q1464, rounded mean executed

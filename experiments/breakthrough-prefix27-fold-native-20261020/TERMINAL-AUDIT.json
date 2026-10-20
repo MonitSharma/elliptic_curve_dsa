@@ -1,0 +1,46 @@
+{
+  "sealed_at_utc": "2026-10-20T07:28:43.989032+00:00",
+  "source_freeze_sha256": "6dd8fb46c7d590508d9f90dda24c089c9957517fd20480bf266f134e8ca89a60",
+  "protected_source_checks": 17,
+  "test_counts": {
+    "cleanup.log": [
+      1
+    ],
+    "full-fold.log": [
+      1
+    ],
+    "retained-control.log": [
+      2
+    ]
+  },
+  "results": {
+    "NATIVE-RESULT.json": {
+      "status": "NATIVE_COMPLETE_FOLD_COMPONENT_PASS_NOT_POINT_ADD_RECORD",
+      "native_tests": 4,
+      "counts": [
+        1,
+        1,
+        2
+      ],
+      "source_freeze_sha256": "6dd8fb46c7d590508d9f90dda24c089c9957517fd20480bf266f134e8ca89a60",
+      "full_fold_diagnostic_lines": [
+        "PREFIX27_FULL_FOLD room29 old_peak1250 new_peak1233 old_executed7037025 new_executed8409026 diagnostic_only=1",
+        "PREFIX27_FULL_FOLD room30 old_peak1250 new_peak1233 old_executed7003948 new_executed8173036 diagnostic_only=1",
+        "PREFIX27_FULL_FOLD room31 old_peak1250 new_peak1233 old_executed6968750 new_executed8135877 diagnostic_only=1",
+        "PREFIX27_FULL_FOLD room33 old_peak1250 new_peak1233 old_executed6896712 new_executed8065679 diagnostic_only=1",
+        "PREFIX27_FULL_FOLD room35 old_peak1250 new_peak1233 old_executed6823470 new_executed7988657 diagnostic_only=1"
+      ],
+      "scope": "Native prefix27 plus low-sum-preserving cleanup13AND, and complete forward fold at helper rooms28/29/30/31/33/35 against unmodified reference. Exact original ladder and fixed8/9drop plans. No point-add integration, finalgate, nonce or scored result."
+    }
+  },
+  "scope": "Native/component diagnostics retained separately from complete benchmarks. Every original failure remains. Raw source assertions, scope and stream provenance stay authoritative.",
+  "all_six_full_fold_diagnostic_lines": [
+    "PREFIX27_FULL_FOLD room28 old_peak1250 new_peak1233 old_executed7072640 new_executed9048863 diagnostic_only=1",
+    "PREFIX27_FULL_FOLD room29 old_peak1250 new_peak1233 old_executed7037025 new_executed8409026 diagnostic_only=1",
+    "PREFIX27_FULL_FOLD room30 old_peak1250 new_peak1233 old_executed7003948 new_executed8173036 diagnostic_only=1",
+    "PREFIX27_FULL_FOLD room31 old_peak1250 new_peak1233 old_executed6968750 new_executed8135877 diagnostic_only=1",
+    "PREFIX27_FULL_FOLD room33 old_peak1250 new_peak1233 old_executed6896712 new_executed8065679 diagnostic_only=1",
+    "PREFIX27_FULL_FOLD room35 old_peak1250 new_peak1233 old_executed6823470 new_executed7988657 diagnostic_only=1"
+  ],
+  "streams_retained_on_server": {}
+}

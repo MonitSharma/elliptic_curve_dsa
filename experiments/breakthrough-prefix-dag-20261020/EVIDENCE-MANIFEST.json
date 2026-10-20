@@ -1,0 +1,293 @@
+{
+  "files": {
+    "PREFIX-DAG.json": "fd22d72380021c1df9fcd0b6813f59eccf3deaf43b3d560e180ceb6f284fb965",
+    "SOURCE_FREEZE-v2.json": "70436744819b35ea484f3daff3b8a4bdbd2c15b8bd6550ee5ce97a4337539027",
+    "SOURCE_FREEZE.json": "c59a067e6beb04dcef28ba9324b88bec9d7e0adf6d64c30250e8d1384f1f3f9f",
+    "TERMINAL-AUDIT.json": "715b9aae08bc71930f0dde69be0e053cc38946edb3514f5a849c9638a06b321a",
+    "export-v2.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "export-v2.log": "2734d8311c433f3d161407849c2b0081e7477748a52ccf39ee123093c99e2f34",
+    "export-v2.pid": "61cdbd90482150189cc3ee33c4f5714b4b73f204d34ab3e886e02225c528dd8b",
+    "export.exit": "39b8dc3fc8b44765c8e6f1adee04c5b465e555ab791cc42d0d9e810d5b64297c",
+    "export.log": "b18beddfe82ee9695810dea8c8cb4d3420805a51e9bf8621ecc98aea1e7fc6e7",
+    "export.pid": "91a72e377870a618272e2b29ce3a4edc5ce0fc1c731346687b7b8c3c1268e76b",
+    "prefix-dag-test.rs": "5bc00c5f5c660c0fac3536a63e14dfbb00a6fd4ebfda98f36b63e3b5a9662b57",
+    "prepare-v2.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "prepare-v2.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prepare-v2.pid": "c7d23477136ce118e3cca0822bd07b38faa95a8cfec3fba4d0715f5b112a7716",
+    "prepare-v2.py": "4cd3525ccfe15ce99c8e0d2d1038f3eed29ab9b1c3b17a3a5af0a394a61dfb64",
+    "prepare.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "prepare.log": "68486bc28d475b600ced96cce21ab5b547aa35ec778f3a1889f0bed157a37d5c",
+    "prepare.pid": "c9aa28e757a6c3fcd235163242a6b0203890a16f3d986f582a05c34f1cbc3680",
+    "prepare.py": "03bdc5917ee5b8b454466236615f37a20e36a81e4df0a16800e7798a1dac5396",
+    "run-v2.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "run-v2.py": "a5bedcfd579cb686b2126abbcd2c89db0f9d3372003bb54469bf1f710745037f",
+    "run.exit": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+    "run.py": "9310c15fccaa27553614c8702119b9cea21e758983de77bf02612f9f5240ec1e",
+    "source-v2.patch": "48fb453e659a4b0fe3cbee2643f8874ab630d79cec4c0ef6c63ea19395a93abc",
+    "source.patch": "0f3f6e2561a3da726b34c1ab9f191931122f2717098ca489fc5da3d50a6ff9cd",
+    "supervisor-v2.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "supervisor-v2.pid": "cc4a26da983ef3242c8e08afd9b2d3ceab5063381b3e2bddec71ba7aba46b539",
+    "supervisor.log": "736acdb7fcc179b1e1aef7e3ce6554c8ecbb53de7523b656b5925e266ec93f4a",
+    "supervisor.pid": "405df9a8aa2aa60c6cd89a3f2a8a7752abdf5f8c7b894a2a15b534eebb0d36b9",
+    "y15-failed-import-v1.rs": "ef5171a25f7bc6719ca9fcc70588492a4e90a45d11dc311fa2d7a4d4fc754f29",
+    "added-source/core_loan_certificate.rs": "aab6bf889c8b99f9971dd2015fe4a89596d97070b83e5522c7e954084c8bf9d5",
+    "added-source/core_loan_transformed.dat": "62a48a5809dc6b5ad15cd577888c3febdb381254fbe1b6b52a74e3e9cbf06cb4",
+    "added-source/live_core_expected.dat": "de19162f99a33bc6489ae321c11ccebfd9c6480625074b3efa8caabe5d02ddd9"
+  },
+  "terminal_audit": {
+    "sealed_at_utc": "2026-10-20T07:28:41.004482+00:00",
+    "source_freeze_sha256": "70436744819b35ea484f3daff3b8a4bdbd2c15b8bd6550ee5ce97a4337539027",
+    "protected_source_checks": 17,
+    "test_counts": {
+      "export-v2.log": [
+        1
+      ]
+    },
+    "results": {
+      "PREFIX-DAG.json": {
+        "input_qubits": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63
+        ],
+        "gates": [
+          [
+            64,
+            128,
+            2
+          ],
+          [
+            65,
+            33024,
+            32772
+          ],
+          [
+            66,
+            98816,
+            98312
+          ],
+          [
+            67,
+            229376,
+            16
+          ],
+          [
+            68,
+            16384,
+            8192
+          ],
+          [
+            69,
+            2,
+            1024
+          ],
+          [
+            70,
+            1048580,
+            1050624
+          ],
+          [
+            71,
+            3145736,
+            3149824
+          ],
+          [
+            72,
+            229392,
+            548864
+          ],
+          [
+            73,
+            263202,
+            16384
+          ],
+          [
+            74,
+            263170,
+            262176
+          ],
+          [
+            75,
+            34868294,
+            524288
+          ],
+          [
+            76,
+            34868230,
+            33816640
+          ],
+          [
+            77,
+            8617984,
+            7569408
+          ],
+          [
+            78,
+            17006592,
+            268435456
+          ],
+          [
+            79,
+            67338240,
+            536870912
+          ],
+          [
+            80,
+            229376,
+            1073741824
+          ],
+          [
+            81,
+            1050628,
+            1026
+          ],
+          [
+            82,
+            2147483648,
+            1026
+          ],
+          [
+            83,
+            3221225472,
+            3149832
+          ],
+          [
+            84,
+            10737418240,
+            1051654
+          ],
+          [
+            85,
+            4296017924,
+            2104334
+          ],
+          [
+            86,
+            14911492,
+            68721580044
+          ],
+          [
+            87,
+            137740124160,
+            69005740036
+          ],
+          [
+            88,
+            412316860416,
+            619937792
+          ],
+          [
+            89,
+            963750396930,
+            285213698
+          ],
+          [
+            90,
+            2061585352708,
+            1074793478
+          ],
+          [
+            91,
+            2150633480,
+            2199025358860
+          ],
+          [
+            92,
+            6626063945736,
+            68734388228
+          ],
+          [
+            93,
+            6674380228612,
+            343598434308
+          ],
+          [
+            94,
+            33495391111172,
+            606083084
+          ]
+        ],
+        "helper_masks": [
+          32768,
+          98304,
+          229376,
+          262144,
+          524288,
+          1048576,
+          3145728,
+          7340032,
+          8388608,
+          16777216,
+          33816576,
+          67108864,
+          168034304,
+          268435456,
+          536870912,
+          1073741824,
+          2147483648,
+          4294967296,
+          8589934592,
+          17179869184,
+          34359738368,
+          68719476736,
+          137438953472,
+          274877906944,
+          549755813888,
+          1099511627776,
+          2199023255552,
+          4398046511104,
+          8796093022208,
+          17592186044416,
+          35184372088832
+        ],
+        "field_masks": [
+          1026,
+          1051654,
+          4297070604,
+          68733343756,
+          206458554372,
+          412920840192,
+          964035609602,
+          2062659094532,
+          2205468856328,
+          6702311376900,
+          15539492847616,
+          33503511283716,
+          68688955019272,
+          68706134888456,
+          68706134889482,
+          68714725873676,
+          68680368226304,
+          68703977738248,
+          68704272617480,
+          68703383425032,
+          68702913662984
+        ],
+        "low_sum_masks": [
+          130,
+          33028,
+          98824,
+          229392,
+          263202,
+          34868294
+        ],
+        "c6_mask": 168034304,
+        "operations": 353,
+        "scope": "Native prefix metadata only, not a circuit optimization or score"
+      }
+    },
+    "scope": "Native/component diagnostics retained separately from complete benchmarks. Every original failure remains. Raw source assertions, scope and stream provenance stay authoritative.",
+    "streams_retained_on_server": {}
+  }
+}

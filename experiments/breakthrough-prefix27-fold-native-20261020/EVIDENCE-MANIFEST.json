@@ -1,0 +1,76 @@
+{
+  "files": {
+    "CLEANUP-GENERATION.json": "ddb2891566792bb0ca12fab96263c86255c5facb84bf8d20e992ee394c601219",
+    "FULL-FOLD-GENERATION.json": "0ca3e51ea5359211dba7b9b9bddb1ca3ad0fa7a5b7eecbb1064e085fd06a05f6",
+    "NATIVE-RESULT.json": "adf0e7449d42701328932750dac2c1daf015abd3c928e5267f83bcb432b45378",
+    "SOURCE_FREEZE.json": "6dd8fb46c7d590508d9f90dda24c089c9957517fd20480bf266f134e8ca89a60",
+    "TERMINAL-AUDIT.json": "a0f03aa50298d4356cf7374e10af2336789a245b8389eda24a3839bbf56fcab8",
+    "cleanup-tests.rs": "dead810b0f6714f385550fa70a26439bd39e95f1c07a3e8f359647f13c118c6a",
+    "cleanup.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "cleanup.log": "6c48aa62b3d8142f02a379357af2ea329df0a8633e1c8d15c2abb3d218664398",
+    "cleanup.pid": "a19a2af19cd9367e02ed40161ee30dc5b3dbd850fb59b042569668d1d66e8d8a",
+    "full-fold.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "full-fold.log": "72350b299de8d87ec27d87e288ef782b4791e9a54f2340ca13258d387c9dfcfd",
+    "full-fold.pid": "9b789fbeea92a5344f38bea144c50f75af7cd884e7a498282d3187df72a8d8a2",
+    "native-cleanup.rs": "94e20168f8e8f1b73bd9bf996f30ca61d50a68ad1ce56aabc7aabf2fff4cc8c7",
+    "native-full-fold.rs": "33ba580c9b562a55297e242da41b75fde1fedc0da8980fa0c0897dd3c1eec880",
+    "prepare.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "prepare.log": "68486bc28d475b600ced96cce21ab5b547aa35ec778f3a1889f0bed157a37d5c",
+    "prepare.pid": "fa6e716a8efeadc6ccca044b81949b6a6b6330da9f4662094afd8dd8a5a7563c",
+    "prepare.py": "93fcb5b359fc7b076d56eaf97f3f6c9ba179654b4c6909d0c242e0267d83f23d",
+    "retained-control.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "retained-control.log": "ab637e86aa4b5c70c9ee297526e070c3f62cc7f1803c965953f00af6058a6dc2",
+    "retained-control.pid": "99be3b9cb9cda4110d43b2f1cf1f59313c98874ecb56256ad76c02bd39e5fa0d",
+    "run.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "run.py": "401cf6a82473faa591bdcae0e66fb18ccd51f8332f7a132686cad9c2ea759305",
+    "source.patch": "854f6cbbe99c3db140b754b07e64566aabd483e7b8b2c3eabc11d90180c5b97f",
+    "supervisor.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "supervisor.pid": "c748b7c8d3122e3eaa5eb1a8346872a64ae6f9a8d8d2f5e3459a85268e9dcccd"
+  },
+  "terminal_audit": {
+    "sealed_at_utc": "2026-10-20T07:28:43.989032+00:00",
+    "source_freeze_sha256": "6dd8fb46c7d590508d9f90dda24c089c9957517fd20480bf266f134e8ca89a60",
+    "protected_source_checks": 17,
+    "test_counts": {
+      "cleanup.log": [
+        1
+      ],
+      "full-fold.log": [
+        1
+      ],
+      "retained-control.log": [
+        2
+      ]
+    },
+    "results": {
+      "NATIVE-RESULT.json": {
+        "status": "NATIVE_COMPLETE_FOLD_COMPONENT_PASS_NOT_POINT_ADD_RECORD",
+        "native_tests": 4,
+        "counts": [
+          1,
+          1,
+          2
+        ],
+        "source_freeze_sha256": "6dd8fb46c7d590508d9f90dda24c089c9957517fd20480bf266f134e8ca89a60",
+        "full_fold_diagnostic_lines": [
+          "PREFIX27_FULL_FOLD room29 old_peak1250 new_peak1233 old_executed7037025 new_executed8409026 diagnostic_only=1",
+          "PREFIX27_FULL_FOLD room30 old_peak1250 new_peak1233 old_executed7003948 new_executed8173036 diagnostic_only=1",
+          "PREFIX27_FULL_FOLD room31 old_peak1250 new_peak1233 old_executed6968750 new_executed8135877 diagnostic_only=1",
+          "PREFIX27_FULL_FOLD room33 old_peak1250 new_peak1233 old_executed6896712 new_executed8065679 diagnostic_only=1",
+          "PREFIX27_FULL_FOLD room35 old_peak1250 new_peak1233 old_executed6823470 new_executed7988657 diagnostic_only=1"
+        ],
+        "scope": "Native prefix27 plus low-sum-preserving cleanup13AND, and complete forward fold at helper rooms28/29/30/31/33/35 against unmodified reference. Exact original ladder and fixed8/9drop plans. No point-add integration, finalgate, nonce or scored result."
+      }
+    },
+    "scope": "Native/component diagnostics retained separately from complete benchmarks. Every original failure remains. Raw source assertions, scope and stream provenance stay authoritative.",
+    "all_six_full_fold_diagnostic_lines": [
+      "PREFIX27_FULL_FOLD room28 old_peak1250 new_peak1233 old_executed7072640 new_executed9048863 diagnostic_only=1",
+      "PREFIX27_FULL_FOLD room29 old_peak1250 new_peak1233 old_executed7037025 new_executed8409026 diagnostic_only=1",
+      "PREFIX27_FULL_FOLD room30 old_peak1250 new_peak1233 old_executed7003948 new_executed8173036 diagnostic_only=1",
+      "PREFIX27_FULL_FOLD room31 old_peak1250 new_peak1233 old_executed6968750 new_executed8135877 diagnostic_only=1",
+      "PREFIX27_FULL_FOLD room33 old_peak1250 new_peak1233 old_executed6896712 new_executed8065679 diagnostic_only=1",
+      "PREFIX27_FULL_FOLD room35 old_peak1250 new_peak1233 old_executed6823470 new_executed7988657 diagnostic_only=1"
+    ],
+    "streams_retained_on_server": {}
+  }
+}

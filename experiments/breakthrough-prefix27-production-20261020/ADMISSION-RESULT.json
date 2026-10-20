@@ -1,0 +1,68 @@
+{
+  "status": "PRODUCTION_RAW_ADMISSION_NOT_SCORED",
+  "native_test_counts": [
+    2,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    3,
+    1,
+    4,
+    3,
+    2,
+    3,
+    1,
+    1
+  ],
+  "cases": [
+    {
+      "cap": 1234,
+      "global_cap": 1234,
+      "exit": 0,
+      "seconds": 4.2402989864349365,
+      "builder_totals": [
+        "HEO_TOTAL native=810068 expected=762230.8 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+      ],
+      "prefix27_calls": 0,
+      "raw_sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b"
+    },
+    {
+      "cap": 1233,
+      "global_cap": 1234,
+      "exit": 0,
+      "seconds": 4.592031955718994,
+      "builder_totals": [
+        "HEO_TOTAL native=812763 expected=763799.2 peak=1233 peak_op=1444643 peak_phase=divide qubits_touched=1233"
+      ],
+      "prefix27_calls": 37,
+      "raw_sha256": "8e0d9a6f57f56d3a857ab230e223438f796fd42b229e3ee113d3e5cf5a293715"
+    },
+    {
+      "cap": 1232,
+      "global_cap": 1234,
+      "exit": 0,
+      "seconds": 4.6085286140441895,
+      "builder_totals": [
+        "HEO_TOTAL native=815895 expected=765396.1 peak=1232 peak_op=1444652 peak_phase=divide qubits_touched=1232"
+      ],
+      "prefix27_calls": 37,
+      "raw_sha256": "2e07eb5adc35ed542af7804401614075be901e73150109bfa1aa76a32dcc44c7"
+    },
+    {
+      "cap": 1231,
+      "global_cap": 1234,
+      "exit": 101,
+      "seconds": 0.011224031448364258,
+      "builder_totals": [],
+      "prefix27_calls": 0,
+      "failure_tail": "=== quantum_ecc: build_circuit (untrusted stage) ===\n\n-- building circuit --\n\nthread 'main' (2653319) panicked at src/bin/../point_add/mod.rs:505:111:\nassertion failed: [\"1234\", \"1233\", \"1232\"].contains(&hard.as_str())\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n"
+    }
+  ],
+  "scope": "Production integration of independently native-verified27-helper prefix and13AND cleanup; exact full forward fold rooms28..35. Original global replay cap1234, physical cap1234/1233/1232/1231 fixed grid. Supported fin0 and fin1 nonTTM with noESH only. Preflight actual exactfold minimum28, all original assertions retained and new wholefold peak assertion added. Baseline1234 must stay exact13f6. No final gate/nonce/scored result."
+}

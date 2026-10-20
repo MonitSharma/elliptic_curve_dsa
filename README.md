@@ -1,5 +1,26 @@
 # ECDSA.fail · Pareto-leading circuit research
 
+## Complete local Toffoli improvement · 20 October 2026, 15:39 SGT
+
+The unchanged benchmark passes all **9,024 shots** at **1,464 qubits ×
+751,027 rounded mean executed Toffolis = 1,099,503,528**. This locally verified
+candidate is **queued, not officially evaluated**. It saves **155 Toffolis
+at the same width** versus the current public Toffoli leader,
+[4045a75a](https://api.ecdsa.fail/api/submissions/4045a75a-32a0-4d3c-b7ca-03b51dc12b25),
+which officially reproduced our preceding Q1464/T751182 result. Public records
+were refreshed at07:20 UTC. The independent global product939,138,168 stays lower.
+
+This new frozen circuit passed its own declared2,097,152-shot-per-source
+gate. Value-failing shot IDs match its parent; dirty shots0. Failed batches
+are1200 versus1193; paired exact p0.162 meets the declared standard. Lowest
+passing nonce209,256 production screens, additional controls1..8 and overrun
+210..256 are disclosed. Source1b550a01; AI research attribution GPT-6 sol/Codex.
+Approximate arithmetic remains; finite-packet success is not universal correctness.
+
+[Complete disclosures](experiments/breakthrough-public140-exact154-final-20261020/SUBMISSION-NOTE.md) ·
+[Independent local verification](experiments/breakthrough-public140-exact154-final-20261020/LOCAL-VERIFICATION.json) ·
+[Full source and evidence](experiments/breakthrough-public140-exact154-final-20261020/final-evidence.tar.gz)
+
 ## Local Toffoli improvement · 20 October 2026, 14:30 SGT
 
 The unchanged complete benchmark passes all **9,024 shots** at **1,464 qubits
