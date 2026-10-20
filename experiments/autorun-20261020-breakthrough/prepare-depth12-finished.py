@@ -1,0 +1,33 @@
+from pathlib import Path
+import ast,shutil
+a=Path(__file__).parent;old=a.parent/'breakthrough-groups-context-finished-20261020';r=a.parent/'breakthrough-depth12-finished-20261020';r.mkdir(exist_ok=False)
+for n in ['.gitattributes','.gitignore','cache-tests.rs']:shutil.copyfile(old/n,r/n)
+(r/'base-runtime.rs').write_text('''use crate::circuit::{Op,OperationType as K,QubitId};use sha3::{Digest,Sha3_256};
+fn bind(ops:&[Op],count:usize,want:&str){assert_eq!(ops.len(),count);let mut h=Sha3_256::new();for o in ops{for v in[o.kind as u64,o.q_control2.0,o.q_control1.0,o.q_target.0,o.c_target.0,o.c_condition.0,o.r_target.0]{h.update(v.to_le_bytes());}}assert_eq!(format!("{:x}",h.finalize()),want,"Complete depth12 raw/generic binding");}
+pub(super)fn run(ops:Vec<Op>)->Vec<Op>{bind(&ops,__RAW_COUNT__,"__RAW_HASH__");let mut ops=super::breakthrough_generic::run(ops);bind(&ops,__PREFIX_COUNT__,"__PREFIX_HASH__");for bit in 0..48{let mut o=Op::empty();o.kind=K::X;o.q_target=QubitId((__OLD_NONCE__u64>>bit)&1);o.validate();ops.extend([o,o]);}ops}
+''')
+s=(old/'run.py').read_text().replace('breakthrough-groups-safe-context16-20261020','breakthrough-depth12-context-20261020').replace('breakthrough-groups-safe-final-20261020','breakthrough-grouped-exact-resource-grid-v2-20261020')
+s=s.replace("parent/'candidate/ops.bin'","parent/'groups-safe28-d12/ops.bin'").replace("parent/'candidate/target'","parent/'observer/target'").replace("parent/'candidate'/","parent/'observer'/").replace('ccdef4d636680d5d3be83169760a223278662e4f38b9efff2fb3cc6a58dff5bb','f8c83372543408f90dfad942341a03fff81876878af53815bdb7a99f62f7dc84').replace('==10981008','').replace("a['output_qubits']<=1480","a['output_qubits']==1464").replace('x[2]<1480','x[2]<1464').replace('nq<=1480','nq<=1464').replace("st['qubits_protected_analyzer']<=1480","st['qubits_protected_analyzer']==1464").replace("'extra_quantum_wires':16","'extra_quantum_wires':0").replace('groups_context_cache','depth12_context_cache').replace('8d0fef2b-a7f6-40a7-9b3c-f800073cf2c5','71d9dc7e-550b-480d-8d9e-c2af1989c0d7')
+needle="body=path.read_bytes();needle=b'pub fn build() -> Vec<Op> {';";assert s.count(needle)==1
+extra="""body=path.read_bytes();mode=b'let square_mode=std::env::var("GROUPED_SQUARE_RESEARCH").expect("Declared grouped-square case");';assert body.count(mode)==1;body=body.replace(mode,b'let square_mode="groups-safe28-d12".to_owned();');entry=b'    exact_native_port::run(ops)';assert body.count(entry)==1;body=body.replace(entry,b'    depth12_resource_base::run(ops)');body+=b'\\nmod depth12_resource_base;\\n';rawfile=parent/'groups-safe28-d12/raw.ops.bin';assert sha(rawfile)=='519806f725616045938c6e75db30efe094f49df3467a218399a8636ec022a19b';rawcount,rawhash,_,_=hashes(rawfile);base_runtime=(r/'base-runtime.rs').read_text().replace('__RAW_COUNT__',str(rawcount)).replace('__RAW_HASH__',rawhash).replace('__PREFIX_COUNT__',str(count-96)).replace('__PREFIX_HASH__',inputhash).replace('__OLD_NONCE__',str(oldnonce));(t/'src/point_add/depth12_resource_base.rs').write_text(base_runtime);chain='src/point_add/sqc/chain_groups.rs';public_chain=subprocess.check_output(['git','-C',str(ws/'toffoli'),'show','7499c902d7989e5a995ccd2331104a532197851b:'+chain]);assert hashlib.sha256(public_chain).hexdigest()==pfsource['upstream_public_files'][chain];group_tests=(parent/'group-tests.rs').read_bytes();assert (parent/'observer'/chain).read_bytes().endswith(group_tests);(t/chain).write_bytes(public_chain+b'\\n'+group_tests);needle=b'pub fn build() -> Vec<Op> {';"""
+s=s.replace(needle,extra).replace("if path!='src/point_add/mod.rs'","if path not in ['src/point_add/mod.rs','src/point_add/sqc/chain_groups.rs']")
+needle="'identity_nonce':0,'public_parent'";assert s.count(needle)==1;s=s.replace(needle,"'identity_nonce':0,'fixed_resource_mode':'groups-safe28-d12','constructor_raw_count':rawcount,'constructor_raw_sha3':rawhash,'constructor_output_prefix_sha3':inputhash,'constructor_source_freeze_sha256':sha(parent/'SOURCE-FREEZE.json'),'public_parent'")
+needle="counts==['1'];run(['/home/hclau/.cargo/bin/cargo','+1.93.0','build'";assert s.count(needle)==1;s=s.replace(needle,"counts==['1'];run(['/home/hclau/.cargo/bin/cargo','+1.93.0','test','--release','--bin','build_circuit','grouped_plan_shape_tests','--','--nocapture','--test-threads=1'],'group-plan-tests',env=env);assert 'test result: ok. 1 passed; 0 failed;'in(r/'group-plan-tests.log').read_text();run(['/home/hclau/.cargo/bin/cargo','+1.93.0','build'")
+s=s.replace("'native_tests':1","'native_tests':2");oldscope='Entire officially reproducedT747453 grouped-safe parent constructor and all boundpasses unchanged; fullparent/input/cacheoutput canonical bindings; independently exactcontextzero productleases,16 additional donor wires for independentT objective, same literal exactproof rewritebody, checked historicalnonce282 tail removed, nonce0. No new approximation/window/cut/precision or generic repass. Own freshdevelopment/finalgate/nonce/benchmark required.';assert oldscope in s;s=s.replace(oldscope,'Fixed exact depth12 on unchanged strong witness28/full259tail/exactsplits/public140/uniform+2/native rail/G6. Full raw/generic input/output bindings, no research raw dump or fault branch, freshly proved existing-wire cache table and no added quantum wires, checked inherited identity tail normalized to finalnonce0. Native34/proof9 retained and runtimecache/groupplan2 repeated. Own fresh full-output development/finalgate against exact currentT71, qualifiednonce and unchangedbenchmark required. No scored result.')
+ast.parse(s);(r/'run.py').write_text(s)
+(r/'PLAN.md').write_text('''# Freeze exact depth12 plus freshly regenerated context caches
+
+Selected exact depth12 by predeclared full-output actual-resource development:
+all point outputs/valueIDs/otherwires matchcurrent71, no dirty;5.878 fewermeanT
+versusprecached8. No new approximate window/witness/round. Depend on fresh fixed
+depth12 zero-wire cache proof/native9, not old230 rows. Copy frozen fullconstructor,
+fix literaldepth12 mode, restore originalpublic chain function/remove deliberate
+researchfault branch, add boundraw/generic-once runtime without rawdump, then
+boundfreshcache runtime. Bind every raw, generic, complete input and cacheprefix
+record; check/remove inherited tail andappend literalnew0. All17protected bytes.
+Repeat nativecache runtime phase/guard/fault and groupedstructural controls before
+generation/actualQ. Prior34/proof9 retained with sourcehash provenance. A new
+fresh full-output development and sole final32768x64/source gate against exact
+currentT71 must pass before qualifiedascendingnonce/full9024benchmark/localreview
+and automatic officialsubmission. No record from component or proxy counts.
+''');print(r)

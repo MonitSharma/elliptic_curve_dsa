@@ -1,0 +1,1 @@
+Fresh depth12-context-development-20261020-v1,512x64/source, fourworkers/eightprotectedscalarbatches each, final bound depth12/newcache/literal0 vs exactcurrent71 stream278802f0. Source/native2/proof9/inherited34 fixed before fresh inputs; full outputs/phase/dirty/T retained. Not a finalgate/nonce/benchmark/score.

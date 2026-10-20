@@ -1,0 +1,258 @@
+diff --git a/src/point_add/compare.rs b/src/point_add/compare.rs
+index 9629f976..9784efee 100755
+--- a/src/point_add/compare.rs
++++ b/src/point_add/compare.rs
+@@ -27,6 +27,7 @@ pub(crate) fn cmp_lt_phase(circ: &mut Builder, u: &[QubitId], v: &[QubitId], bor
+ /// (a register loaded from classical data). The first carry `u0' & (v0 ^ u0') = u0' & !v0` is then a
+ /// CX plus a classically conditioned CX: one Toffoli less, same predicate, same measurements.
+ pub(crate) fn cmp_lt_phase_v0(circ: &mut Builder, u: &[QubitId], v: &[QubitId], borrow_in: Option<QubitId>, v0cl: Option<crate::circuit::BitId>) {
++    if v0cl.is_none() && super::leapfrog::C35_PADS.with(|p|p.get())==0 && super::phase_compare_compact::try_run(circ,u,v,borrow_in){return;}
+     if super::dirty_boundary_probe::try_tail(circ,u,v,borrow_in){return;}
+     if super::constant_templates::square_compare(circ,u,v,borrow_in){return;}
+     let _dirty_trace=super::dirty_boundary_probe::Trace::new(circ,"cmp_lt_phase",u.len());
+diff --git a/src/point_add/mod.rs b/src/point_add/mod.rs
+index 335625e4..c76ff211 100755
+--- a/src/point_add/mod.rs
++++ b/src/point_add/mod.rs
+@@ -502,7 +502,8 @@ fn clear_process_env() {
+ /// Leapfrog branch: the submission build emits the Leapfrog point add (see [`leapfrog::install_recipe`]).
+ const LEAPFROG_SUBMISSION: bool = true;
+ 
+-pub fn build() -> Vec<Op> {
++fn native_context_parent_build() -> Vec<Op> {
++    let mode="cap1233-r012".to_owned();let config=match mode.as_str(){"public"=>None,"cap1234-t21"=>Some((1234,21)),"cap1234-t28"=>Some((1234,28)),"cap1233-t21"=>Some((1233,21)),"cap1233-rmin"=>Some((1233,21)),"cap1233-r1"=>Some((1233,21)),"cap1233-r2"=>Some((1233,21)),"cap1233-r9"=>Some((1233,21)),"cap1233-r000"=>Some((1233,21)),"cap1233-r001"=>Some((1233,21)),"cap1233-r002"=>Some((1233,21)),"cap1233-r011"=>Some((1233,21)),"cap1233-r012"=>Some((1233,21)),"cap1232-t21"=>Some((1232,21)),"cap1233-t28"=>Some((1233,28)),_=>panic!("Undeclared width/precision research")};
+     clear_process_env();
+     install_skywalk_submission_recipe();
+     std::env::set_var("EXACT_PAIR_CARRY", "1");
+@@ -511,6 +512,9 @@ pub fn build() -> Vec<Op> {
+     }
+     if std::env::var_os("SKYWALK_SQUARE_HIGH_PROBE").is_some(){square::high_probe();std::process::exit(0);}
+     if std::env::var_os("SKYWALK_MODDIV_ADAPTER_PROBE").is_some(){moddiv_adapter::probe();std::process::exit(0);}
++    std::env::set_var("STACK_LOAN128_RESEARCH",if config.is_some(){"1"}else{"0"});
++    std::env::set_var("STACK_DROP130_RESEARCH",if config.is_some_and(|(cap,_)|cap<1234){"1"}else{"0"});std::env::set_var("STACK_REVERSE_DROP_PROFILE",mode.strip_prefix("cap1233-").unwrap_or("t21"));
++    if let Some((cap,top))=config{std::env::set_var("HEO_PIN_PP_WALK_MAX_QUBITS",cap.to_string());std::env::set_var("PEBBLE_HARD_CAP",cap.to_string());std::env::set_var("LF_SQUARE_CAP",cap.to_string());std::env::set_var("SQC_T",top.to_string());std::env::set_var("TAIL_NONCE","0");std::env::set_var("EXACT_CMP_COMPACT","1");}else{std::env::set_var("EXACT_CMP_COMPACT","0");}
+     let mut ops = build_point_add();
+     // Effort-8 INT / B7b (`HEO_EMIT_ONLY=1`, research overlay only): stop after emission (the HEO phase report and
+     // K3B_CELL traces are complete here), skipping the simplifier chain and the ops.bin write. Sweep instrument.
+@@ -637,3 +641,8 @@ mod frozen_cache_product67;
+ 
+ mod retained_products;
+ mod zero_product;
++
++mod phase_compare_compact;
++
++mod public_best_drop_cache;
++pub fn build()->Vec<Op>{public_best_drop_cache::run(native_context_parent_build())}
+diff --git a/src/point_add/phase_compare_compact.rs b/src/point_add/phase_compare_compact.rs
+new file mode 100644
+index 00000000..6ccd81f0
+--- /dev/null
++++ b/src/point_add/phase_compare_compact.rs
+@@ -0,0 +1,65 @@
++//! Exact phase comparator with adaptive measured-prefix / reversible-tail carries.
++//! MAJ(a,b,c): CX(a,b), CX(a,c), CCX(c,b,a); inverse restores all operands.
++//! Each omitted measured carry costs one extra native Toffoli. No precision cut.
++use super::Builder;
++use crate::circuit::QubitId;
++pub(super) fn enabled()->bool{std::env::var("EXACT_CMP_COMPACT").is_ok_and(|v|v=="1")}
++pub(super) fn max_saving(n:usize)->usize{if n<3{0}else{n-2}}
++pub(super) fn try_run(c:&mut Builder,u:&[QubitId],v:&[QubitId],p:Option<QubitId>)->bool{
++ if !enabled()||u.len()<3{return false;}
++ let cap=super::pingpong::walk_max_qubits();
++ if c.active_qubits() as usize+u.len()-1<=cap{return false;}
++ let cuts=c.active_qubits() as usize+u.len()-1-cap;assert!(cuts<=max_saving(u.len()),"compact comparison exceeds proved terminal expansion budget");
++ run(c,u,v,p,false,cuts);true
++}
++fn run(c:&mut Builder,u:&[QubitId],v:&[QubitId],p:Option<QubitId>,fault:bool,cuts:usize){
++ let n=u.len();assert_eq!(n,v.len());assert!(n>=3);
++ let mut set=std::collections::BTreeSet::new();assert!(u.iter().chain(v).all(|q|set.insert(q.0)),"comparison operands must be disjoint");
++ assert!(!p.is_some_and(|q|u.contains(&q)),"seed cannot alias accumulator");
++ if p==Some(v[0]){super::compare::cmp_lt_phase_v0(c,&u[1..],&v[1..],p,None);return;}
++ assert!((1..=max_saving(n)).contains(&cuts));let operand_seed=p.is_some_and(|q|v[1..].contains(&q));let last=n-1;let m=n-1-cuts;
++ let carries=c.alloc_qubits(m);c.x_all(u);
++ c.cx(u[0],v[0]);let first=p.map_or(u[0],|q|{c.cx(u[0],q);q});
++ c.ccx(first,v[0],carries[0]);if operand_seed{c.cx(u[0],p.unwrap());}c.cx(carries[0],u[0]);
++ for i in 1..m{c.cx(u[i],v[i]);c.cx(u[i],u[i-1]);c.ccx(u[i-1],v[i],carries[i]);c.cx(carries[i],u[i]);}
++ // Exact in-place MAJ suffix stores carries in operand wires, then reverses.
++ for i in m..last{c.cx(u[i],v[i]);c.cx(u[i],u[i-1]);c.ccx(u[i-1],v[i],u[i]);}
++ c.cz(u[last],v[last]);c.cz(u[last],u[last-1]);if !fault{c.cz(v[last],u[last-1]);}
++ for i in (m..last).rev(){c.ccx(u[i-1],v[i],u[i]);c.cx(u[i],u[i-1]);c.cx(u[i],v[i]);}
++ for i in (1..m).rev(){c.cx(carries[i],u[i]);let bit=c.alloc_bit();c.hmr(carries[i],bit);c.cz_if(u[i-1],v[i],bit);c.free_bit(bit);c.cx(u[i],u[i-1]);c.cx(u[i],v[i]);}
++ c.cx(carries[0],u[0]);let bit=c.alloc_bit();c.hmr(carries[0],bit);
++ if let Some(q)=p{if operand_seed{c.cx(u[0],q);}c.cz_if(q,v[0],bit);c.cx(u[0],q);}else{c.cz_if(u[0],v[0],bit);}
++ c.free_bit(bit);c.cx(u[0],v[0]);
++ // Preserve the total measurement draw count before returning to the caller.
++ // Every carry is now zero. The dummy HMR has identically zero phase.
++ // Each omitted carry removes its HMR and its release-time R draw.
++ for _ in 0..2*cuts{let bit=c.alloc_bit();c.hmr(carries[0],bit);c.free_bit(bit);}c.free_vec(&carries);c.x_all(u);
++}
++
++#[cfg(test)]mod compact_compare_tests{
++ use super::*;use crate::circuit::{analyze_ops,Op,OperationType};use crate::sim::Simulator;
++ use sha3::{Shake256,digest::{Update,ExtendableOutput,XofReader}};
++ struct Words{bytes:Vec<u8>,pos:usize}impl XofReader for Words{fn read(&mut self,b:&mut[u8]){b.copy_from_slice(&self.bytes[self.pos..self.pos+b.len()]);self.pos+=b.len();}}
++ thread_local!{static CUTS:std::cell::Cell<usize>=const{std::cell::Cell::new(1)};}
++ fn draws(ops:&[Op])->usize{ops.iter().filter(|o|matches!(o.kind,OperationType::Hmr|OperationType::R)).count()}
++ fn build(n:usize,seed:isize,new:bool,fault:bool)->(Vec<Op>,Vec<QubitId>,Vec<QubitId>,Option<QubitId>,crate::circuit::BitId,u32){
++  let mut c=Builder::new();let u=c.alloc_qubits(n);let v=c.alloc_qubits(n);let p=if seed== -2{None}else if seed== -1{Some(c.alloc_qubit())}else{Some(v[seed as usize])};let all:Vec<_>=u.iter().chain(&v).copied().chain(if seed== -1{p}else{None}).collect();c.declare_qubit_register(&all);let guard=c.alloc_bit();c.push_condition(guard);
++  std::env::remove_var("EXACT_CMP_COMPACT");std::env::set_var("PEBBLE_HARD_CAP","1536");
++  let(_,peak)=c.r3_peak(|c|{if new{run(c,&u,&v,p,fault,CUTS.with(|x|x.get()))}else{super::super::compare::cmp_lt_phase_v0(c,&u,&v,p,None)}});c.pop_condition();(c.take_ops(),u,v,p,guard,peak)
++ }
++ fn fixture(n:usize,seed:isize,guard:u64,probe:Option<usize>,fault:bool){
++  let old=build(n,seed,false,false);let new=build(n,seed,true,fault);assert_eq!(old.1,new.1);assert_eq!(old.2,new.2);assert_eq!(old.3,new.3);assert!(new.5<old.5,"n{n} seed{seed} old{} new{}",old.5,new.5);assert_eq!(draws(&old.0),draws(&new.0));
++  let(nq,nb,_,_)=analyze_ops(old.0.iter().chain(&new.0));let bits=2*n+usize::from(seed== -1);let starts:Vec<_>=if probe.is_some(){vec![37]}else if n<=6{(0..1usize<<bits).step_by(64).collect()}else{(0..128).map(|j|j*64).collect()};
++  for start in starts{let mut initial=vec![0u64;nq as usize];let mut input=Shake256::default();input.update(b"compact-phase-compare-input-v1");input.update(&(n as u64).to_le_bytes());input.update(&(start as u64).to_le_bytes());let mut rd=input.finalize_xof();for q in old.1.iter().chain(&old.2).copied().chain(if seed== -1{old.3}else{None}){let mut b=[0u8;8];rd.read(&mut b);initial[q.0 as usize]=u64::from_le_bytes(b);}
++   if n<=6{for lane in 0..64{let value=start+lane;for(i,q)in old.1.iter().chain(&old.2).copied().chain(if seed== -1{old.3}else{None}).enumerate(){if value>>i&1!=0{initial[q.0 as usize]|=1u64<<lane;}else{initial[q.0 as usize]&=!(1u64<<lane);}}}}
++   let mut expected=0u64;for lane in 0..64{let mut carry=old.3.map_or(0,|q|initial[q.0 as usize]>>lane&1);for i in 0..n{let a=1^(initial[old.1[i].0 as usize]>>lane&1);let b=initial[old.2[i].0 as usize]>>lane&1;carry=(a&b)^(a&carry)^(b&carry);}expected|=carry<<lane;}expected&=guard;
++   for (idx,item) in [&old,&new].iter().enumerate(){let count=draws(&item.0);let mut bytes=vec![0u8;count*8];let mut h=Shake256::default();h.update(b"compact-phase-compare-measurements-v1");h.update(&(start as u64).to_le_bytes());h.finalize_xof().read(&mut bytes);if let Some(p)=probe{for j in 0..count{bytes[j*8..j*8+8].copy_from_slice(&(if p==j||p==count{u64::MAX}else{0u64}).to_le_bytes());}}
++    let mut rng=Words{bytes,pos:0};let mut sim=Simulator::new(nq as usize,nb as usize,&mut rng);sim.qubits.copy_from_slice(&initial);sim.bits[item.4.0 as usize]=guard;sim.apply_iter(item.0.iter());assert_eq!(sim.qubits,initial,"all operand and helper lanes must restore");assert_eq!(sim.bits[item.4.0 as usize],guard);assert_eq!(sim.phase,expected,"native compact phase contract n{n} seed{seed} start{start} new{} probe{probe:?}",idx==1);drop(sim);assert_eq!(rng.pos,count*8);
++   }
++  }
++ }
++ #[test]fn exhaustive_phase_values_and_restoration_with_one_less_carry(){for n in 3..=6{for cuts in 1..=max_saving(n){CUTS.with(|x|x.set(cuts));for seed in [-2,-1,1,(n-1)as isize]{for guard in [u64::MAX,0xAA55C39F0678D12B,0]{fixture(n,seed,guard,None,false);}}}}}
++ #[test]fn wide_arbitrary_operands_alias_seeds_and_measurement_outcomes(){for n in [8,22,56,128,256]{for cuts in 1..=max_saving(n){CUTS.with(|x|x.set(cuts));for seed in [-2,-1,1,(n-1)as isize]{fixture(n,seed,0x9A65F0C387124BED,None,false);}}}for cuts in 1..=3{CUTS.with(|x|x.set(cuts));for seed in [-2,-1,1,5]{let count=draws(&build(6,seed,false,false).0);for p in 0..count+2{fixture(6,seed,u64::MAX,Some(p),false);}}}}
++ #[test]#[should_panic(expected="native compact phase contract")]fn omitted_cubic_phase_is_detected(){CUTS.with(|x|x.set(1));fixture(4,-1,u64::MAX,None,true);}
++ #[test]#[should_panic(expected="seed cannot alias accumulator")]fn accumulator_alias_is_rejected(){let mut c=Builder::new();let u=c.alloc_qubits(4);let v=c.alloc_qubits(4);run(&mut c,&u,&v,Some(u[0]),false,1);}
++}
+diff --git a/src/point_add/public_best_drop_cache.rs b/src/point_add/public_best_drop_cache.rs
+new file mode 100644
+index 00000000..a14f8df9
+--- /dev/null
++++ b/src/point_add/public_best_drop_cache.rs
+@@ -0,0 +1,24 @@
++use crate::circuit::{Op,OperationType as K,QubitId,BitId,analyze_ops};use sha3::{Digest,Sha3_256};use std::collections::HashMap;
++pub(super)const IDENTITY_NONCE:u64=0;
++const LEASES:&[[u64;9]]=&[[5390621,5391307,20,818,708,809,811,708,3],[5390696,5391613,23,746,2,792,792,746,1198],[5391606,5391623,0,708,718,553,746,553,198],[5407885,5407923,817,763,814,1222,763,814,1219],[5390761,5437833,1225,746,819,2,746,819,209],[7815454,7819264,209,256,520,1211,520,256,194],[8103896,8107500,1134,520,258,179,258,520,194],[8130277,8133874,1134,256,1025,176,1025,256,194],[8343847,8347141,519,256,1025,767,1025,256,1208],[8370654,8373941,519,520,258,176,258,520,1208],[8397520,8400800,519,256,1025,691,1025,256,1208],[8553575,8564283,519,256,520,648,520,256,188],[8581351,8592059,519,520,256,153,256,520,781],[8585113,8592108,1192,520,257,185,257,520,193],[8609354,8620062,519,256,520,645,520,256,1096],[8613116,8620111,808,256,1104,851,1104,256,1221],[8637559,8648267,519,520,256,150,256,520,173],[8641321,8648316,808,520,257,166,257,520,668],[8665955,8676663,519,256,520,642,520,256,767],[8669717,8676712,808,256,1104,678,1104,256,188],[8694527,8705235,519,520,256,147,256,520,176],[8698289,8705284,808,520,257,1222,257,520,781],[8723319,8734027,167,256,520,639,520,256,691],[8727081,8734076,519,256,1104,1224,1104,256,1096],[8907479,8910498,519,256,1025,156,1025,256,182],[8937597,8940616,519,520,258,639,258,520,1143],[8968363,8971382,808,256,1025,648,1025,256,851],[9115335,9125344,1192,520,256,125,256,520,734],[9146637,9156646,1134,256,520,618,520,256,165],[9150166,9156695,1192,256,1104,125,1104,256,170],[9178193,9188206,1134,520,256,122,256,520,1167],[9181722,9188255,1192,520,257,618,257,520,1220],[9209876,9219889,1132,256,520,615,520,256,1113],[9213405,9219938,1134,256,1104,122,1104,256,734],[9277077,9283576,1192,259,1027,621,1027,259,1224],[9295916,9302415,1192,1026,260,150,260,1026,767],[9314755,9321254,1192,259,1027,1113,1027,259,612],[9333594,9340093,1192,1026,260,128,260,1026,651],[9352433,9358932,1192,259,1027,642,1027,259,1111],[9371272,9377771,1192,1026,260,654,260,1026,144],[9390111,9396610,1192,259,1027,621,1027,259,138],[9408950,9415449,1192,1026,260,150,260,1026,119],[9427789,9434288,1192,259,1027,1113,1027,259,159],[9446628,9453127,1192,1026,260,128,260,1026,1220],[9465467,9471966,1192,259,1027,642,1027,259,1224],[9484306,9490805,1192,1026,260,654,260,1026,767],[9503145,9509644,1192,259,1027,621,1027,259,612],[9521984,9528483,1192,1026,260,150,260,1026,651],[9540823,9547322,1192,259,1027,1113,1027,259,1111],[9559662,9566161,1192,1026,260,128,260,1026,144],[9578501,9585000,1192,259,1027,642,1027,259,138],[9597340,9603839,1192,1026,260,654,260,1026,119],[9616179,9622678,1192,259,1027,621,1027,259,159],[9635018,9641517,1192,1026,260,150,260,1026,1220],[9653857,9660356,1192,259,1027,1113,1027,259,1224],[9672696,9679195,1192,1026,260,128,260,1026,767],[9691535,9698034,1192,259,1027,642,1027,259,612],[9710374,9716873,1192,1026,260,654,260,1026,651],[9729213,9735712,1192,259,1027,621,1027,259,1111],[9748052,9754551,1192,1026,260,150,260,1026,144],[9766891,9773390,1192,259,1027,1113,1027,259,138],[9785730,9792229,1192,1026,260,128,260,1026,119],[9804569,9811068,1192,259,1027,642,1027,259,159],[9823408,9829907,1192,1026,260,654,260,1026,1220],[9842247,9848746,1192,259,1027,621,1027,259,1224],[9861086,9867585,1192,1026,260,150,260,1026,767],[9879925,9886424,1192,259,1027,1113,1027,259,612],[9898764,9905263,1192,1026,260,128,260,1026,651],[9917603,9924102,1192,259,1027,642,1027,259,1111],[9936442,9942941,1192,1026,260,654,260,1026,144],[9955281,9961780,1192,259,1027,621,1027,259,138],[9974120,9980619,1192,1026,260,150,260,1026,119],[9992959,9999458,1192,259,1027,1113,1027,259,159],[10011798,10018297,1192,1026,260,128,260,1026,1220],[10030637,10037136,1192,259,1027,642,1027,259,1224],[10049476,10055975,1192,1026,260,654,260,1026,767],[10068315,10074814,1192,259,1027,621,1027,259,612],[10087154,10093653,1192,1026,260,150,260,1026,651],[10105993,10112492,1192,259,1027,1113,1027,259,1111],[10124832,10131331,1192,1026,260,128,260,1026,144],[10143671,10150170,1192,259,1027,642,1027,259,138],[10162510,10169009,1192,1026,260,654,260,1026,119],[10181349,10187848,1192,259,1027,621,1027,259,159],[10200188,10206687,1192,1026,260,150,260,1026,1220],[10219027,10225526,1192,259,1027,1113,1027,259,1224],[10237866,10244365,1192,1026,260,128,260,1026,767],[10256705,10263204,1192,259,1027,642,1027,259,612],[10275544,10282043,1192,1026,260,654,260,1026,651],[10294383,10300882,1192,259,1027,621,1027,259,1111],[10313222,10319721,1192,1026,260,150,260,1026,144],[10332061,10338560,1192,259,1027,1113,1027,259,138],[10350900,10357399,1192,1026,260,128,260,1026,119],[10369739,10376238,1192,259,1027,642,1027,259,159],[10388578,10395077,1192,1026,260,654,260,1026,1220],[10407417,10413916,1192,259,1027,621,1027,259,1224],[10426256,10432755,1192,1026,260,150,260,1026,767],[10445095,10451594,1192,259,1027,1113,1027,259,612],[10463934,10470433,1192,1026,260,128,260,1026,651],[10482773,10489272,1192,259,1027,642,1027,259,1111],[10501612,10508111,1192,1026,260,654,260,1026,144],[10520451,10526950,1192,259,1027,621,1027,259,138],[10539290,10545789,1192,1026,260,150,260,1026,119],[10558129,10564628,1192,259,1027,1113,1027,259,159],[10576968,10583467,1192,1026,260,128,260,1026,1220],[10595807,10602306,1192,259,1027,642,1027,259,1224],[10614646,10621145,1192,1026,260,654,260,1026,767],[10633485,10639984,1192,259,1027,621,1027,259,612],[10652324,10658823,1192,1026,260,150,260,1026,651],[10671163,10677662,1192,259,1027,1113,1027,259,1111],[11598040,11657596,1134,1032,1184,1038,1039,1184,659],[11598724,11657892,1031,4,1042,659,4,1042,213],[11598115,11657902,1192,1200,2,1049,1049,1200,1195],[11674174,11674212,167,650,3,179,650,3,1152]];
++fn make(k:K,c2:u64,c1:u64,t:u64,ct:u64,cc:u64)->Op {
++ let mut o=Op::empty();o.kind=k;o.q_control2=QubitId(c2);o.q_control1=QubitId(c1);o.q_target=QubitId(t);o.c_target=BitId(ct);o.c_condition=BitId(cc);o.validate();o
++}
++fn rewrite_ops(ops:Vec<Op>,leases:&[[u64;9]],nb:usize)->Vec<Op>{
++ let no=u64::MAX;let starts:HashMap<_,_>=leases.iter().map(|s|(s[0]as usize,s)).collect();let ends:HashMap<_,_>=leases.iter().map(|s|(s[1]as usize,s)).collect();let mut rewritten=Vec::with_capacity(ops.len()+leases.len()*5);
++ for(i,o)in ops.into_iter().enumerate(){if let Some(s)=starts.get(&i){let mut fill=o;fill.q_target=QubitId(s[2]);rewritten.push(fill);rewritten.push(make(K::CX,no,s[2],s[5],no,o.c_condition.0));}else if let Some(s)=ends.get(&i){
++  if o.c_condition.0!=no{rewritten.push(make(K::PushCondition,no,no,no,no,o.c_condition.0));}
++  rewritten.push(make(K::CX,no,s[2],s[8],no,no));rewritten.push(make(K::Hmr,no,no,s[2],nb as u64,no));rewritten.push(make(K::CZ,no,s[6],s[7],no,nb as u64));
++  if o.c_condition.0!=no{rewritten.push(make(K::PopCondition,no,no,no,no,no));}
++ }else{rewritten.push(o);}}
++ rewritten
++}
++
++fn bind(ops:&[Op],count:usize,want:&str){assert_eq!(ops.len(),count);let mut h=Sha3_256::new();for o in ops{for v in[o.kind as u64,o.q_control2.0,o.q_control1.0,o.q_target.0,o.c_target.0,o.c_condition.0,o.r_target.0]{h.update(v.to_le_bytes());}}assert_eq!(format!("{:x}",h.finalize()),want,"Complete canonical source binding");}
++pub(super)fn run(mut ops:Vec<Op>)->Vec<Op>{bind(&ops,11717869,"2f6e993dc4ef85fed9aeed651eddeae8cf797c1ee5fd38b5f5159a182e926464");let end=ops.len()-96;for(bit,pair)in ops[end..].chunks_exact(2).enumerate(){for o in pair{assert_eq!(o.kind,K::X);assert_eq!(o.q_target.0,(1052246623534u64>>bit)&1);}}ops.truncate(end);bind(&ops,11717773,"351ec4049d1cf11b4cfa4b72bb85665bc658a7afb78c0bc91cae8a99c2275a14");let(_,nb,_,_)=analyze_ops(ops.iter());let mut ops=rewrite_ops(ops,LEASES,nb as usize);bind(&ops,11718112,"f79b7792a1a891216a2b88a2710ab5347d170796df2e5757618b7e16dc4edac8");let(nq,nb,_,_)=analyze_ops(ops.iter());assert!(nq<=1233);eprintln!("NATIVE_CONTEXT_CACHE leases={} nq={} nb={} output_ops={} diagnostic_only=1",LEASES.len(),nq,nb,ops.len());assert!(IDENTITY_NONCE<(1u64<<48));for bit in 0..48{let mut o=Op::empty();o.kind=K::X;o.q_target=QubitId((IDENTITY_NONCE>>bit)&1);o.validate();ops.extend([o,o]);}ops}
++
++#[cfg(test)]mod cache_tests{
++use super::*;use crate::sim::Simulator;use sha3::digest::XofReader;
++struct Fixed(u8);impl XofReader for Fixed{fn read(&mut self,out:&mut[u8]){out.fill(self.0);}}
++#[test]fn complete_guarded_cache_preserves_phase_values_cleanup_cost_and_existing_width(){let n=u64::MAX;let mut caught=0;for inner in[false,true]{for mutate in[false,true]{let mut ops=vec![make(K::R,n,n,4,n,n),make(K::PushCondition,n,n,n,n,0)];let first=ops.len();ops.push(make(K::CCX,0,1,2,n,if inner{1}else{n}));if mutate{ops.push(make(K::BitInvert,n,n,n,0,n));}ops.extend([make(K::CX,n,0,1,n,n),make(K::X,n,n,1,n,n)]);let last=ops.len();ops.push(make(K::CCX,0,1,3,n,if inner{1}else{n}));ops.push(make(K::PopCondition,n,n,n,n,n));let f=ops[first];let l=ops[last];let lease=[first as u64,last as u64,4,f.q_control2.0,f.q_control1.0,f.q_target.0,l.q_control2.0,l.q_control1.0,l.q_target.0];let out=rewrite_ops(ops.clone(),&[lease],2);let faulty:Vec<_>=out.iter().filter(|o|o.kind!=K::CZ).copied().collect();assert!(out.iter().flat_map(|o|[o.q_control2.0,o.q_control1.0,o.q_target.0]).all(|q|q==n||q<5));for word in[0u8,255,0xa5,0x5a]{let mut ra=Fixed(word);let mut rb=Fixed(word);let mut rf=Fixed(word);let mut a=Simulator::new(5,3,&mut ra);let mut b=Simulator::new(5,3,&mut rb);let mut bad=Simulator::new(5,3,&mut rf);for lane in 0..64{for q in 0..4{a.qubits[q]|=((lane>>q&1)as u64)<<lane;}a.bits[0]|=((lane>>4&1)as u64)<<lane;a.bits[1]|=((lane>>5&1)as u64)<<lane;}b.qubits.clone_from(&a.qubits);bad.qubits.clone_from(&a.qubits);b.bits.clone_from(&a.bits);bad.bits.clone_from(&a.bits);let eff=a.bits[0]&if inner{a.bits[1]}else{u64::MAX};a.apply_iter(ops.iter());b.apply_iter(out.iter());bad.apply_iter(faulty.iter());assert_eq!(a.qubits,b.qubits);assert_eq!(a.phase,b.phase);assert_eq!(a.bits[..2],b.bits[..2]);assert_eq!(a.stats.toffoli_gates-b.stats.toffoli_gates,eff.count_ones()as u64);caught+=u64::from(a.phase!=bad.phase);}}}assert!(caught>0);}
++}
+diff --git a/src/point_add/y15_onefold.rs b/src/point_add/y15_onefold.rs
+index c4681f26..9622ba77 100755
+--- a/src/point_add/y15_onefold.rs
++++ b/src/point_add/y15_onefold.rs
+@@ -25,7 +25,7 @@ fn reverse_loan_selected(rev:bool,t:usize)->bool {rev && (124..=126).contains(&t
+ // Measure and regenerate the carry while the payload ladder uses its wire.
+ thread_local! { static LOAN_ACTIVE: std::cell::Cell<bool> = const {std::cell::Cell::new(false)}; }
+ // round-11 retune: forward loans from tick 129 (tick 128 without its loan: -0.3 by the builder, exact)
+-fn carry_loan_selected(rev:bool,t:usize)->bool {CONSUMER_LOANS && !rev && (129..137).contains(&t)}
++fn carry_loan_selected(rev:bool,t:usize)->bool {let first=if std::env::var("STACK_LOAN128_RESEARCH").is_ok_and(|v|v=="1"){128}else{129};CONSUMER_LOANS && !rev && (first..137).contains(&t)}
+ fn carry_loan_on()->bool {LOAN_ACTIVE.with(|x|x.get())}
+ 
+ // Consumer carry loans are enabled for the selected payload ticks.
+@@ -412,6 +412,8 @@ const Y28_DROP_FWD: &[(usize, usize, usize)] = if super::C35_DROPS { &[(129, 130
+ /// instead of the drop ladder; exact both ways: -8.0 by the builder (the pin gains the same -8.0).
+ const Y28_DROP_REV: &[(usize, usize, usize)] = &[(126, 127, 1)];
+ fn y28_drop(t: usize, rev: bool) -> usize {
++    if rev&&std::env::var("STACK_DROP130_RESEARCH").is_ok_and(|v|v=="1"){if let Some(d)=public_reverse_drop_profile(&std::env::var("STACK_REVERSE_DROP_PROFILE").unwrap_or_default(),t){return d;}}
++    if ((!rev&&(130..137).contains(&t))||(rev&&(124..127).contains(&t)))&&std::env::var("STACK_DROP130_RESEARCH").is_ok_and(|v|v=="1"){return 3;}
+     // N2 (research patch): SL_N2_DROP / SL_N2_MDROP batch ticks run the dropped-carry ladder (None elsewhere)
+     if let Some(n) = super::n2_drop(t, rev) {
+         return n;
+@@ -440,6 +442,7 @@ fn y28_pads(t: usize, rev: bool) -> usize {
+ /// The ladder's plans on bits [6, 56) for budgets 9 and 8 with the 0-based chunks whose kept carry is dropped
+ /// (experiments/y28-loop/s2/ladder_drop.py: the cheapest of each kind).
+ const Y28_PLAN9: ([usize; 10], [usize; 1]) = ([4, 8, 8, 7, 6, 5, 4, 3, 2, 3], [0]);
++const Y28_PLAN7: ([usize;12],[usize;5])=([7,6,6,5,5,4,4,3,3,2,2,3],[0,2,4,6,8]);
+ const Y28_PLAN8: ([usize; 10], [usize; 2]) = ([7, 7, 7, 6, 6, 5, 4, 3, 2, 3], [0, 2]);
+ /// y15-pack: with Y15_CORE_V2, Y15_KEEP_LOW and Y15_REV_COPY all on, the way a reverse tick-pass gets W's low bits is
+ /// chosen by its room (the walk cap less the wires live when the tick's body starts): the adds' kept carries (no AND,
+@@ -1600,6 +1603,7 @@ fn fold_plan_d(c: &Builder, mw: usize, what: &str, drop: usize) -> (Vec<usize>,
+     let nbits = mw - 6;
+     let lean45 = Y15_LEAN45 && merged_plan(nbits - 1, budget).is_none() && merged_plan(nbits, budget).is_none();
+     let budget = budget + 2 * usize::from(lean45);
++    if std::env::var("STACK_DROP130_RESEARCH").is_ok_and(|v|v=="1") && nbits==50 && budget==7 && drop>=3 && merged_plan(nbits-1,budget).is_none() && merged_plan(nbits,budget).is_none(){assert_eq!(Y28_PLAN7.0.iter().sum::<usize>(),50);return(Y28_PLAN7.0.to_vec(),lean45,Y28_PLAN7.1.to_vec());}
+     if drop > 0 && merged_plan(nbits - 1, budget).is_none() && merged_plan(nbits, budget).is_none() {
+         assert!(nbits == 50 && budget + drop >= 10 && (8..=9).contains(&budget), "y28: the {what} fold's ladder with {drop} dropped carries does not fit: budget {budget}, active {}, cap {}", c.active_qubits(), cells::cap());
+         return if budget == 9 { (Y28_PLAN9.0.to_vec(), lean45, Y28_PLAN9.1.to_vec()) } else { (Y28_PLAN8.0.to_vec(), lean45, Y28_PLAN8.1.to_vec()) };
+@@ -2481,7 +2485,7 @@ fn body(c: &mut Builder, t: usize, s: [QubitId; 3], k1: QubitId, k2: QubitId, b:
+             fixed,
+             room_now,
+             cells::cap().saturating_sub(a_start as usize + live_m),
+-            if swap01 { kk1 + Y15_GUARD + kk1 - 1 } else { k0 + Y15_GUARD + k0 - 1 + if close { kwin + Y20_G2 } else { 0 } },
++            if swap01 { kk1 + Y15_GUARD + kk1 - 1 - if super::super::phase_compare_compact::enabled(){super::super::phase_compare_compact::max_saving(kk1)}else{0} } else { k0 + Y15_GUARD + k0 - 1 - if super::super::phase_compare_compact::enabled(){super::super::phase_compare_compact::max_saving(k0)}else{0} + if close { kwin + Y20_G2 } else { 0 } },
+             (N - 4).saturating_sub(sp2),
+             fmax,
+             tops_max,
+@@ -4567,3 +4571,64 @@ fn rt0_letter_erase(c: &mut Builder, r1: &[QubitId], r0v: &[Lin], letter: &[Qubi
+ /// chain is read by m1's Z alone, so it is built and erased only when m1's bit is set as well: a quarter of a Toffoli
+ /// a pass. Exact (the same measurements in the same order). false: built on every shot with m0's bit set.
+ const Y36_TOP_M1: bool = true;
++
++#[cfg(test)]mod stack_plan7_port_tests{
++    use super::*;
++    use crate::circuit::{analyze_ops,OperationType};
++    use crate::sim::Simulator;
++    use sha3::{Shake256,digest::{Update,ExtendableOutput,XofReader}};
++    struct Words{data:Vec<u8>,pos:usize}
++    impl XofReader for Words{fn read(&mut self,b:&mut[u8]){let end=self.pos+b.len();assert!(end<=self.data.len());b.copy_from_slice(&self.data[self.pos..end]);self.pos=end;}}
++    fn rng(words:&[u64])->Words{Words{data:words.iter().flat_map(|w|w.to_le_bytes()).collect(),pos:0}}
++    fn put<R:XofReader>(s:&mut Simulator<'_,R>,q:QubitId,lane:usize,bit:u64){if bit&1!=0{s.qubits[q.0 as usize]|=1u64<<lane;}}
++
++    #[test]fn plan7_and_plan8_full_fifty_bit_affine_addition_and_phase(){
++        let mut input_hash=Shake256::default();input_hash.update(b"exact-plan7-native-control-v1");let mut input=input_hash.finalize_xof();
++        let cases:Vec<_>=(0..65536).map(|_|{let mut b=[0u8;24];input.read(&mut b);(u64::from_le_bytes(b[..8].try_into().unwrap()),u64::from_le_bytes(b[8..16].try_into().unwrap()),b[16]&1,b[17]&1)}).collect();
++        for (plan,drops,wanted_peak)in[(Y28_PLAN8.0.to_vec(),Y28_PLAN8.1.to_vec(),8usize),(Y28_PLAN7.0.to_vec(),Y28_PLAN7.1.to_vec(),7usize)]{
++            let mut b=Builder::new();let source=b.alloc_qubits(56);let target=b.alloc_qubits(56);let cin=b.alloc_qubit();let sign=b.alloc_qubit();
++            let add:Vec<Lin>=source.iter().enumerate().map(|(i,&q)|{
++                let mut v=l(q);if i%3==0{v=v.x(&l(sign));}if i%5==0{v=v.x(&Lin::k(true));}v
++            }).collect();
++            let active=b.active_qubits();let((),peak)=b.r3_peak(|b|ladder_drop(b,&target,&add,6,cin,&plan,&drops));
++            assert_eq!(peak as usize,active as usize+wanted_peak);
++            let ops=b.take_ops();let(nq,nb,_,_)=analyze_ops(ops.iter());
++            let nr=ops.iter().filter(|o|matches!(o.kind,OperationType::R|OperationType::Hmr)).count();
++            eprintln!("PLAN7_COMPONENT budget={wanted_peak} physical_peak={peak} ops={} rng={nr} emitted_ccx={}",ops.len(),ops.iter().filter(|o|o.kind==OperationType::CCX).count());
++            for(first,chunk)in cases.chunks(64).enumerate(){
++                let words:Vec<_>=(0..nr).map(|j|0xD1B54A32D192ED03u64.wrapping_mul((first+j+1)as u64).rotate_left((j%64)as u32)).collect();let mut random=rng(&words);
++                let mut s=Simulator::new(nq as usize,nb as usize,&mut random);
++                for(lane,&(a,t,c,sg))in chunk.iter().enumerate(){for i in 0..56{put(&mut s,source[i],lane,a>>i);put(&mut s,target[i],lane,t>>i);}put(&mut s,cin,lane,c as u64);put(&mut s,sign,lane,sg as u64);}
++                let original=s.qubits.clone();s.apply_iter(ops.iter());
++                for(lane,&(a,t,c,sg))in chunk.iter().enumerate(){let mut aa=0u64;for i in 6..56{let bit=(a>>i&1)^u64::from(i%3==0&&sg!=0)^u64::from(i%5==0);aa|=bit<<(i-6);}
++                    let expected=(((t>>6)+aa+c as u64)&((1u64<<50)-1))<<6|(t&63);
++                    for i in 0..56{assert_eq!(s.qubits[target[i].0 as usize]>>lane&1,expected>>i&1);}
++                }
++                for i in 0..nq as usize{if !target.iter().any(|q|q.0 as usize==i){assert_eq!(s.qubits[i],original[i]);}}assert_eq!(s.phase,0);
++            }
++        }
++    }
++
++    #[test]#[should_panic(expected="a dropped carry needs")]
++    fn adjacent_drops_are_rejected_by_existing_contract(){
++        let mut b=Builder::new();let a=b.alloc_qubits(56);let target=b.alloc_qubits(56);let cin=b.alloc_qubit();
++        let terms:Vec<_>=a.iter().map(|&q|l(q)).collect();ladder_drop(&mut b,&target,&terms,6,cin,&Y28_PLAN7.0,&[0,1]);
++    }
++}
++
++
++#[cfg(test)]mod stack_plan7_admission_tests{
++ use super::*;use crate::circuit::{analyze_ops,OperationType};use crate::sim::Simulator;use sha3::digest::XofReader;
++ struct Fixed(u8);impl XofReader for Fixed{fn read(&mut self,out:&mut[u8]){out.fill(self.0);}}
++ #[test]fn explicit_seven_budget_case_is_admitted_without_weakening_old_contract(){std::env::set_var("STACK_DROP130_RESEARCH","1");let mut c=Builder::new();let cap=cells::cap();let _=c.alloc_qubits(cap-5);let(p,lean,d)=fold_plan_d(&c,56,"forward",3);assert!(lean);assert_eq!(p,Y28_PLAN7.0);assert_eq!(d,Y28_PLAN7.1);std::env::remove_var("STACK_DROP130_RESEARCH");}
++ #[test]fn missing_phase_repair_in_seven_wire_plan_is_detected(){let mut b=Builder::new();let a=b.alloc_qubits(56);let target=b.alloc_qubits(56);let cin=b.alloc_qubit();let add:Vec<_>=a.iter().map(|&q|l(q)).collect();ladder_drop(&mut b,&target,&add,6,cin,&Y28_PLAN7.0,&Y28_PLAN7.1);let ops=b.take_ops();let faulty:Vec<_>=ops.iter().filter(|o|!matches!(o.kind,OperationType::Z|OperationType::CZ)).copied().collect();let(nq,nb,_,_)=analyze_ops(ops.iter());let mut caught=0;for word in[0u8,255,0xa5,0x5a]{let mut ra=Fixed(word);let mut rb=Fixed(word);let mut s=Simulator::new(nq as usize,nb as usize,&mut ra);let mut f=Simulator::new(nq as usize,nb as usize,&mut rb);for(i,q)in a.iter().chain(&target).copied().chain([cin]).enumerate(){s.qubits[q.0 as usize]=0x9e3779b97f4a7c15u64.wrapping_mul((i+1)as u64).rotate_left((i%64)as u32);}f.qubits.clone_from(&s.qubits);s.apply_iter(ops.iter());f.apply_iter(faulty.iter());assert_eq!(s.phase,0);assert_eq!(s.qubits,f.qubits);caught+=u64::from(f.phase!=0);}assert!(caught>0);}
++}
++
++fn public_reverse_drop_profile(profile:&str,t:usize)->Option<usize>{if !(124..127).contains(&t){return None;}let values=match profile{"rmin"=>[1,2,3],"r1"=>[0,1,3],"r2"=>[0,2,3],"r9"=>[1,2,2],"r000"=>[0,0,0],"r001"=>[0,0,1],"r002"=>[0,0,2],"r011"=>[0,1,1],"r012"=>[0,1,2],_=>return None};Some(values[t-124])}
++#[cfg(test)]mod public_reverse_drop_policy_tests{use super::*;
++ #[test]fn only_declared_reverse_profiles_change_and_keep_original_forward_policy(){
++  std::env::remove_var("STACK_DROP130_RESEARCH");std::env::remove_var("STACK_REVERSE_DROP_PROFILE");let base:Vec<_>=(0..145).flat_map(|t|[y28_drop(t,false),y28_drop(t,true)]).collect();
++  for on in[false,true]{for(profile,values)in[("t21",None),("rmin",Some([1,2,3])),("r1",Some([0,1,3])),("r2",Some([0,2,3])),("r9",Some([1,2,2])),("r000",Some([0,0,0])),("r001",Some([0,0,1])),("r002",Some([0,0,2])),("r011",Some([0,1,1])),("r012",Some([0,1,2]))]{std::env::set_var("STACK_DROP130_RESEARCH",if on{"1"}else{"0"});std::env::set_var("STACK_REVERSE_DROP_PROFILE",profile);for t in 0..145{for rev in[false,true]{let expected=if on&&rev&&(124..127).contains(&t)&&values.is_some(){values.unwrap()[t-124]}else if on&&((!rev&&(130..137).contains(&t))||(rev&&(124..127).contains(&t))){3}else{base[2*t+usize::from(rev)]};assert_eq!(y28_drop(t,rev),expected);}}}}
++  std::env::remove_var("STACK_DROP130_RESEARCH");std::env::remove_var("STACK_REVERSE_DROP_PROFILE");
++ }
++}

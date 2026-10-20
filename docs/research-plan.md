@@ -1,3 +1,63 @@
+## 21 October 2026, 03:27 SGT: official T747218; product gate passes
+
+Auto-submission2bd0f979 officially reproduces Q1464/T747218/product1093927152,
+8 fewer Toffolis at unchangedQ. Publicsource36e37af0, localf9cd2058; all205source
+and17protected Git-object bytes match. All380evidence/205source members verified
+locally; immutablearchive7b91243a, sourcearchive43484f5f. Fresh19:27UTC1713records
+confirms independentT minimum, product933231010/acd0 andwidth670/e2 unchanged.
+Globalproduct objective remains ACTIVE. Auto-submit each complete verified new
+current-record improvement asGPT-6sol/Codex. No default-branch push authorization.
+
+Fixed resource grid before freshinputs: depth12 chosen by actual resource means;
+depth16 had no further measured benefit, square1536/walk1664 exactoldstream.
+Grouped-depth8 strengthened prototype is control, not unchanged71constructor.
+Production exactdepth12/full259correction/witness28; no reduced correctness cut.
+Native34/fullsquarecaller/fault controls, then230fresh existing-wire cache leases,
+9proofcontrols, fullinput/newoutputcanonical bindings, literalnonce0,205source.
+Finalgate depth12-context-final-20261020-v1,32768x64/source PASS against exact71:
+wrongvalues1135/1135 identicalIDs,dirty0,failed1170/1172,b9/c7,p.4018096924,
+5.04309082failedbatches/packet,pairedT-4.08189249,SE.2986605. Verdict final.
+Lowestnonce41,64ascending screens1..64,solepass41,overrun42..64;8extra partial
+controls1..8 repeat production,24protectedfullstate/RNG/curve batches,selected
+9024replay andunchanged9024benchmarkPASS,total6742892429. Stream63370be6.
+Officialstatus rejected solely because globalproduct islower, independentT
+metrics reproduced. Development inheritedscope prose oldnumericT isdisclosed;
+actualparent71/hash andfinal source/gate are authoritative. No archive rewrite.
+
+Product candidate Q1233 now has its OWN final statistical PASS, not a score:
+public-best-drop-product-final-20261020-v1,131072x64=8388608shots/source,declared
+19:00:35.220516UTC against exact publicacd0/3d7c94f1. Values14105/14105 sameIDs,
+dirty0,failed16438/16484,b1612/c1566,p.2123667109,17.73257446/packet<=18.
+MeanTdiagnostic756850.1572 vsparent756259.1151; extraT permitted foronefewerQ.
+Gate remains final: never relabel/rerun/extend. SFb2a01786/stream61927788,177source/
+17protected. Exact static r012=[0,1,2] resource profile selected before freshpoint
+inputs;9proofcontrols/113leases. Checked historicalnonce1052246623534 removed,
+literal0 appended; central PROTOTYPE-TAIL-CORRECTION.md remains authoritative.
+
+Initial nonce launcher requested32workers; exactengine rejects above16 BEFORE
+qualification or anyscreen. Originalfailure preserved,zero completedscreens.
+V2PID3045633/engine3046104,16workers,ascending1..65536/64windows;8partialcontrols
+and24protectedfullstate/RNG/curve batches PASS. Over22000exact screens, noPASS
+atcheckpoint. LowestcompletePASS only, no resourcebasednonce selection. Ifprefix
+exhausts continue ascending with originalsource/gate and disclose everyprefix.
+Only afterfullpacketPASS may unchanged benchmark determine a product result;
+then localarchive/sourceverification, freshpublicrecords, automaticupload.
+
+Verification-only valueIR native7 PASS; guarded-write dominance/capturedSSA/
+value liveness/cancellation reduces dependencies but still10110live RNG defs
+onproduct,2465onT71 after32rounds. These are NOT quantum resource counts, no
+nonce screened/rejected withIR. Extended auditv2PID3067406 native8 PASS adds
+read/writecommutation and2048round bound; currentfullaudit running. Any future
+filter must separately qualify exactprotected finalpointvalues andoriginalFS;
+fullstate/phase/dirty replay andunchanged benchmark remain mandatory.
+
+Cycle9sixfronts266 andcycle10sevenfronts217 members independentlyverifiedlocally.
+Depth12 nestedgrid/proof/dev/gate/search evidence hydrated through immutable
+manifestchecks. Preserve alloriginalfailures, protectedharness anduser edits.
+Serverchemistry/unrelatedQOBjobs untouched; serverresource inventory notexported.
+Automaticapprovalreview rejected sharedmainpush pendingexplicituserapproval;
+do not bypass/retry. Localcommits andauthorizedchallengeuploads continue.
+
 ## 21 October 2026: exact carry-cost pipeline and disclosure correction
 
 Latest18:48UTC snapshot1712records: productacd0 Q1234/T756265/933231010,

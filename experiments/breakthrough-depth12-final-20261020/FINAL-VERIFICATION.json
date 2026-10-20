@@ -1,0 +1,40 @@
+{
+  "status": "COMPLETE_LOCAL_REVIEW_PASS_READY_FOR_AUTO_SUBMISSION",
+  "at_utc": "2026-10-20T19:17:17.774132+00:00",
+  "source_revision": "f9cd2058cf3c7ff735fa9eabad7ed57cc3af7639",
+  "base": "28e443bcc2f3dc0793c6a416a496b07cfbeb4c4f",
+  "source_files": 205,
+  "protected_files_checked": 17,
+  "source_archive_sha256": "43484f5f655a01826ff3db34820e39671266a9533529a37524d863f382292cb4",
+  "source_patch_sha256": "0b341b0d5410ebbc3f9e835e5bb6ec673250dae7766a7ddef24d674dbf6148f6",
+  "source_freeze_sha256": "83889509ee2d0be0c9b828a57a4abf490db66fa0c20c0f2f923aeec6558f7190",
+  "benchmark_result_sha256": "b6e3ae1843dbcbfc241257d82aa829ba2e671679e9dae70ee9afe3386f5578c5",
+  "gate_declaration_sha256": "e1b0fbca71313f1ebf5660ed04d0b87eccb08482be39a4ffc7bcad3738655337",
+  "gate_result_sha256": "685f64078fe168a08c427b0aaca951a60c8b529f2144b72e6b1b1abfc705543c",
+  "native_receipt": {
+    "stream_sha256": "63370be6078a4a80454d5174a5f07bfac094fea6af3dd526f77dc8194012cc29",
+    "records_sha256": "e02e6ed27f86c62888426aafd14943adb9ada40e10a51889d91a90a6a68254b7",
+    "pre_tail_sha256": "335bc074650a97c597a18558eb10ce01b40eb2bffbcc52a99e079313a15524a9",
+    "pre_tail_byte_identical_to_gated_source": true,
+    "nonce": 41,
+    "operations": 11003186
+  },
+  "qubits": 1464,
+  "rounded_mean_executed_toffoli": 747218,
+  "product": 1093927152,
+  "nonce": 41,
+  "production_screens": 64,
+  "highest_screened": 64,
+  "passes": [
+    41
+  ],
+  "additional_partial_packet_controls": "1..8 repeated in production;24 protected full-state scalar batches at0,70,140",
+  "selected_protected_packet_passed": true,
+  "unchanged_benchmark_passed_shots": 9024,
+  "historical_results_restored": true,
+  "tracked_changes_only_point_add": true,
+  "submission_mode": "auto",
+  "ai_model": "GPT-6 sol",
+  "coding_harness": "Codex",
+  "scope": "Complete unchanged benchmark of exactdepth12 plus freshly proved230existing-wire caches on strong grouped arithmetic; Q1464. Targets independentT versus current71, no globalproduct claim."
+}

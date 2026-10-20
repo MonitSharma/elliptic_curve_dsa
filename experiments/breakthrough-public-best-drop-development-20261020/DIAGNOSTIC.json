@@ -1,0 +1,140 @@
+{
+  "status": "DEVELOPMENT_COMPARISON_COMPLETE_PRESERVE_ALL_MISMATCHES",
+  "label": "public-best-drop-development-20261020-v1",
+  "batches": 512,
+  "summaries": {
+    "publicacd0": {
+      "value_shots": 54,
+      "phase_shots": 41,
+      "dirty_shots": 0,
+      "failed_batches": 67,
+      "mean_executed_stream_toffoli": 756256.8605041504,
+      "rows_sha256": "9e583f9f0250a4da9b0c13278b26060fa9cb08495c0c81655c1390b43b604525"
+    },
+    "bestdrop": {
+      "value_shots": 54,
+      "phase_shots": 37,
+      "dirty_shots": 0,
+      "failed_batches": 63,
+      "mean_executed_stream_toffoli": 756842.4579467773,
+      "rows_sha256": "fed776d8b37d022ce2c99b88fe6b9f0a44657220978ce9839b3be8791226a099"
+    }
+  },
+  "comparisons": {
+    "bestdrop": {
+      "candidate_minus_parent_raw_toffoli": 585.5974426269531,
+      "paired_standard_error": 4.541664607327787,
+      "new_failed_batches": 4,
+      "new_passing_batches": 8,
+      "new_value_failing_shots": [],
+      "new_value_passing_shots": [],
+      "different_target_lanes": [
+        {
+          "batch": 13,
+          "lane": 11,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 26,
+          "lane": 8,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 128,
+          "lane": 11,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 153,
+          "lane": 48,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 171,
+          "lane": 12,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 214,
+          "lane": 49,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 227,
+          "lane": 32,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 228,
+          "lane": 18,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 320,
+          "lane": 55,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 321,
+          "lane": 32,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 327,
+          "lane": 2,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 340,
+          "lane": 35,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 352,
+          "lane": 39,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 397,
+          "lane": 55,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 441,
+          "lane": 38,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 484,
+          "lane": 39,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 491,
+          "lane": 27,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        }
+      ],
+      "different_other_lanes": [],
+      "target_differences_confined_to_both_value_failing": true
+    }
+  },
+  "scope": "Fresh full-output development on final resource-selected fixed exact carry schedule and newly proved cache. Source/profile/cache selected before inputs solely by fixed-grid static resources. Parent exactpublicacd0. Preserve full wrongoutput/phase/dirty differences. Not finalgate/nonce/benchmark/score."
+}

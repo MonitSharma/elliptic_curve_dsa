@@ -1,0 +1,274 @@
+warning: unused doc comment
+   --> src/bin/../point_add/pingpong.rs:116:1
+    |
+116 | /// K3b pricing instrument: `K3B_EXTRA_ROOM=k` as a CELL pin raises the cap by k inside that cell only.
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ rustdoc does not generate documentation for macro invocations
+    |
+    = help: to document an item produced by a macro, the macro must produce the documentation as part of its expansion
+    = note: `#[warn(unused_doc_comments)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused doc comment
+    --> src/bin/../point_add/pingpong.rs:3996:1
+     |
+3996 | / /// y15-core: a carry-in for the next [`chunked_add`]'s first chunk, as (low, wire): the caller has already added
+3997 | | /// positions [0, low) (sums written, carries kept) and the first chunk's ripple runs on [low, hi) with this carry-in.
+3998 | | /// The chunk plan and the boundary compares are those of the plain add. Unset (the default) changes nothing.
+     | |_------------------------------------------------------------------------------------------------------------^
+     |   |
+     |   rustdoc does not generate documentation for macro invocations
+     |
+     = help: to document an item produced by a macro, the macro must produce the documentation as part of its expansion
+
+warning: unused import: `f_slice`
+  --> src/bin/../point_add/pingpong.rs:56:22
+   |
+56 |     add_f_window, f, f_slice, ripple_add, ripple_add_lent,
+   |                      ^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `fold_guard`
+  --> src/bin/../point_add/pingpong.rs:59:32
+   |
+59 | use super::{env_flag, env_raw, fold_guard, pinned_env, required_env, Builder, N, SECP256K1_P};
+   |                                ^^^^^^^^^^
+
+warning: unused doc comment
+   --> src/bin/../point_add/heo.rs:99:1
+    |
+ 99 | / /// `HEO_PIN_<name>` overrides a pinned head setting. None when the overlay is off.
+100 | | /// K3b: per-cell pin overrides (set by `heo_carry` around one payload cell). Consulted before `HEO_PIN_*`.
+    | |_----------------------------------------------------------------------------------------------------------^
+    |   |
+    |   rustdoc does not generate documentation for macro invocations
+    |
+    = help: to document an item produced by a macro, the macro must produce the documentation as part of its expansion
+
+warning: unused doc comment
+   --> src/bin/../point_add/heo_carry.rs:313:1
+    |
+313 | /// Run `body`, booking its Toffoli under `comp` and its window peak under `(label, t)`.
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ rustdoc does not generate documentation for macro invocations
+    |
+    = help: to document an item produced by a macro, the macro must produce the documentation as part of its expansion
+
+warning: unused import: `AtomicUsize`
+    --> src/bin/../point_add/heo_carry.rs:1879:29
+     |
+1879 |     use std::sync::atomic::{AtomicUsize, Ordering};
+     |                             ^^^^^^^^^^^
+
+warning: unused doc comment
+   --> src/bin/../point_add/square.rs:680:1
+    |
+680 | / /// Recursion policy: a sum half of at least this many bits is split again
+681 | | /// instead of squared triangularly. `B(m) = m(m-1)/2 + 4m - 3` for the base
+682 | | /// case against `K(m) = B(a) + B(b) + B(b+1) + a + 7b + 1` for one split puts
+683 | | /// the break-even near 60 bits; the tree-wide peak, not the count, is what
+684 | | /// bounds how deep this may go, so it is a pinned knob rather than a constant.
+    | |_------------------------------------------------------------------------------^
+    |   |
+    |   rustdoc does not generate documentation for macro invocations
+    |
+    = help: to document an item produced by a macro, the macro must produce the documentation as part of its expansion
+
+warning: unused doc comment
+   --> src/bin/../point_add/square.rs:686:1
+    |
+686 | / /// Same policy for the low half `a`, whose split leaves `a` itself modified
+687 | | /// until the inverse -- so `a` must be consumed (into `t = a + b`) before its
+688 | | /// split is built. Disabled by pinning it above any half width (>= 129).
+    | |_------------------------------------------------------------------------^
+    |   |
+    |   rustdoc does not generate documentation for macro invocations
+    |
+    = help: to document an item produced by a macro, the macro must produce the documentation as part of its expansion
+
+warning: unused import: `f_slice`
+  --> src/bin/../point_add/j_fuse.rs:24:39
+   |
+24 | use super::modular::{add_f_window, f, f_slice, ripple_add};
+   |                                       ^^^^^^^
+
+warning: unused variable: `room`
+  --> src/bin/../point_add/joint_lowfold.rs:24:9
+   |
+24 |     let room=walk_max_qubits().saturating_sub(circ.active_qubits()as usize);
+   |         ^^^^ help: if this is intentional, prefix it with an underscore: `_room`
+   |
+   = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `loans`
+  --> src/bin/../point_add/joint_lowfold.rs:25:9
+   |
+25 |     let loans=REPLAY_SIGN_LOANS.with(|s|s.get());
+   |         ^^^^^ help: if this is intentional, prefix it with an underscore: `_loans`
+
+warning: unused variable: `loans`
+  --> src/bin/../point_add/retained_prebias.rs:12:6
+   |
+12 |  let loans=REPLAY_SIGN_LOANS.with(|s|s.get());
+   |      ^^^^^ help: if this is intentional, prefix it with an underscore: `_loans`
+
+warning: variable does not need to be mutable
+    --> src/bin/../point_add/leapfrog.rs:7544:25
+     |
+7544 |                     let mut pick = |mode: u64, r64: &mut dyn FnMut() -> u64| -> U256 {
+     |                         ----^^^^
+     |                         |
+     |                         help: remove this `mut`
+     |
+     = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable does not need to be mutable
+    --> src/bin/../point_add/leapfrog.rs:7661:17
+     |
+7661 |             let mut run = |ops: &[crate::circuit::Op], xof_tag: &[u8]| -> (Vec<bool>, Vec<bool>, u64) {
+     |                 ----^^^
+     |                 |
+     |                 help: remove this `mut`
+
+warning: unused variable: `p`
+   --> src/bin/../point_add/heo_carry.rs:244:104
+    |
+244 |             cell_windows: std::env::var("HEO_CELL_WINDOWS").ok().filter(|p| !p.trim().is_empty()).map(|p| {
+    |                                                                                                        ^ help: if this is intentional, prefix it with an underscore: `_p`
+
+warning: unused variable: `p`
+   --> src/bin/../point_add/heo_carry.rs:236:103
+    |
+236 |             proxy_esw: std::env::var("HEO_PROXY_ENVELOPE").ok().filter(|p| !p.trim().is_empty()).map(|p| {
+    |                                                                                                       ^ help: if this is intentional, prefix it with an underscore: `_p`
+
+warning: unused variable: `p`
+    --> src/bin/../point_add/heo_carry.rs:1890:74
+     |
+1890 |     let ovr = OVR.get_or_init(|| std::env::var("K3B_CELL_OVR").ok().map(|p| {
+     |                                                                          ^ help: if this is intentional, prefix it with an underscore: `_p`
+
+warning: unused variable: `path`
+   --> src/bin/../point_add/heo.rs:195:13
+    |
+195 |         let path = std::env::var("HEO_ENVELOPE").expect("HEO_WALK needs HEO_ENVELOPE=<path to `esw ead` lines>");
+    |             ^^^^ help: if this is intentional, prefix it with an underscore: `_path`
+
+warning: unused variable: `path`
+   --> src/bin/../point_add/heo.rs:230:16
+    |
+230 |             Ok(path) => {
+    |                ^^^^ help: if this is intentional, prefix it with an underscore: `_path`
+
+warning: variable does not need to be mutable
+   --> src/bin/../point_add/mod.rs:529:9
+    |
+529 |     let mut ops = build_point_add();
+    |         ----^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+  --> src/bin/../point_add/phase_pebble.rs:68:13
+   |
+68 |         let mut execute=|c:&mut Builder|{
+   |             ----^^^^^^^
+   |             |
+   |             help: remove this `mut`
+
+warning: variable does not need to be mutable
+  --> src/bin/../point_add/zero_carry.rs:29:91
+   |
+29 | ...   let ones:Vec<_>=(0..n).map(|i|pattern==2&&i%3==0||pattern==3&&i==1).collect();let mut execute=|c:&mut Builder|{assert!(add(c,&targe...
+   |                                                                                         ----^^^^^^^
+   |                                                                                         |
+   |                                                                                         help: remove this `mut`
+
+warning: `quantum_ecc` (bin "build_circuit" test) generated 23 warnings (run `cargo fix --bin "build_circuit" -p quantum_ecc --tests` to apply 17 suggestions)
+    Finished `release` profile [optimized] target(s) in 0.10s
+     Running unittests src/bin/build_circuit.rs (target/release/deps/build_circuit-0c12d1b03f2fe721)
+
+running 1 test
+test point_add::square::g3_tests::g3_square_unit ... HEO_OVERLAY env G3_SQ_EXACT_SPLIT=1
+HEO_OVERLAY env GO_B3_A=0
+HEO_OVERLAY pin SQ_SPARSE_CORRECTION=1
+DIRTY_DIRECT_PLAN	6611	63	770	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	6611	7471	770	770	62
+HEO_OVERLAY env GO_KEEP_SUM=1
+DIRTY_DIRECT_PLAN	14338	63	802	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	14338	15198	802	802	62
+DIRTY_DIRECT_PLAN	22314	65	868	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	22314	23202	868	868	64
+HEO_OVERLAY env GO_B2=1
+HEO_OVERLAY pin SQ_ASM_TAIL=18
+FLAT_BANK	producer_end	64	25552	866	[769, 830, 829, 828, 827, 826, 825, 824, 823, 822, 821, 820, 819, 818, 817, 816, 815, 814, 813, 812, 811, 810, 809, 808, 807, 806, 805, 804, 803, 802, 801]
+HIGH_EARLY	producer_end	64	25552	866	799	862	320	321	352	353	768	[]
+HEO_OVERLAY env SQ_HIGH_EARLY_LOAN=3
+FLAT_BANK	erased	64	25562	864	[769, 830, 829, 828, 827, 826, 825, 824, 823, 822, 821, 820, 819, 818, 817, 816, 815, 814, 813, 812, 811, 810, 809, 808, 807, 806, 805, 804, 803, 802, 801]
+HIGH_EARLY	erased	64	25562	864	799	862	320	321	352	353	768	[]
+FLAT_BANK	source_restored	64	25875	833	[]
+HIGH_EARLY	source_restored	64	25875	833	799	862	320	321	352	353	768	[]
+HEO_OVERLAY env GO_B1=1
+DIRTY_DIRECT_PLAN	33118	63	836	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	33118	33978	836	836	62
+DIRTY_DIRECT_PLAN	40969	63	838	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	40969	41829	838	838	62
+DIRTY_DIRECT_PLAN	48945	65	904	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	48945	49833	904	904	64
+DIRTY_DIRECT_PLAN	59232	65	1033	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	59232	60120	1033	1033	64
+DIRTY_DIRECT_PLAN	67119	63	1035	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	67119	67979	1035	1035	62
+DIRTY_DIRECT_PLAN	75546	67	1103	0	0	65	[67]
+DIRTY_FRAGMENT	direct_add_phase_transport	67	75546	76462	1103	1103	66
+HEO_OVERLAY pin SQ_LEND_RETAINED_ANDS=4
+HEO_OVERLAY pin FOLD_GUARD=20
+HEO_OVERLAY pin ERASE_COMPARE=20
+DIRTY_FRAGMENT	cmp_lt_phase	20	86556	86787	1090	1090	9.5
+HEO_OVERLAY pin PP_J_WCIN=1
+DIRTY_FRAGMENT	cmp_lt_phase	20	95523	95754	1090	1090	9.5
+FLAT_BANK	inverse_sum_ready	64	258868	866	[899, 905, 906, 907, 908, 909, 910, 911, 912, 913, 914, 915, 916, 917, 918, 919, 920, 921, 922, 923, 924, 925, 926, 927, 928, 929, 930, 866, 867, 1030, 830]
+HIGH_EARLY	inverse_sum_ready	64	258868	866	799	862	320	321	352	353	768	[]
+FLAT_BANK	repaid	64	258875	866	[899, 905, 906, 907, 908, 909, 910, 911, 912, 913, 914, 915, 916, 917, 918, 919, 920, 921, 922, 923, 924, 925, 926, 927, 928, 929, 930, 866, 867, 1030, 830]
+HIGH_EARLY	repaid	64	258875	866	799	862	320	321	352	353	768	[]
+FLAT_BANK	inverse_cross_ready	64	258875	866	[899, 905, 906, 907, 908, 909, 910, 911, 912, 913, 914, 915, 916, 917, 918, 919, 920, 921, 922, 923, 924, 925, 926, 927, 928, 929, 930, 866, 867, 1030, 830]
+HIGH_EARLY	inverse_cross_ready	64	258875	866	799	862	320	321	352	353	768	[]
+DIRTY_DIRECT_PLAN	356030	55	574	0	0	53	[55]
+DIRTY_FRAGMENT	direct_add_phase_transport	55	356030	356778	574	574	54
+HEO_OVERLAY env GO_B3_B=0
+DIRTY_DIRECT_PLAN	631057	63	770	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	631057	631917	770	770	62
+DIRTY_DIRECT_PLAN	638784	63	802	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	638784	639644	802	802	62
+DIRTY_DIRECT_PLAN	646760	65	868	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	646760	647648	868	868	64
+FLAT_BANK	producer_end	64	649998	866	[830, 864, 863, 798, 797, 796, 795, 794, 793, 792, 791, 790, 789, 788, 787, 786, 785, 784, 783, 782, 781, 780, 779, 778, 777, 776, 775, 774, 773, 772, 770]
+HIGH_EARLY	producer_end	64	649998	866	768	861	448	449	480	481	1030	[]
+FLAT_BANK	erased	64	650008	864	[830, 864, 863, 798, 797, 796, 795, 794, 793, 792, 791, 790, 789, 788, 787, 786, 785, 784, 783, 782, 781, 780, 779, 778, 777, 776, 775, 774, 773, 772, 770]
+HIGH_EARLY	erased	64	650008	864	768	861	448	449	480	481	1030	[]
+FLAT_BANK	source_restored	64	650321	833	[]
+HIGH_EARLY	source_restored	64	650321	833	768	861	448	449	480	481	1030	[]
+DIRTY_DIRECT_PLAN	657564	63	836	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	657564	658424	836	836	62
+DIRTY_DIRECT_PLAN	665415	63	838	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	665415	666275	838	838	62
+DIRTY_DIRECT_PLAN	673391	65	904	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	673391	674279	904	904	64
+DIRTY_DIRECT_PLAN	683678	65	1033	0	0	63	[65]
+DIRTY_FRAGMENT	direct_add_phase_transport	65	683678	684566	1033	1033	64
+DIRTY_DIRECT_PLAN	691565	63	1035	0	0	61	[63]
+DIRTY_FRAGMENT	direct_add_phase_transport	63	691565	692425	1035	1035	62
+DIRTY_DIRECT_PLAN	699992	67	1103	0	0	65	[67]
+DIRTY_FRAGMENT	direct_add_phase_transport	67	699992	700908	1103	1103	66
+DIRTY_FRAGMENT	cmp_lt_phase	20	717424	717655	1090	1090	9.5
+DIRTY_FRAGMENT	cmp_lt_phase	20	720643	720874	1090	1090	9.5
+FLAT_BANK	inverse_sum_ready	64	883988	866	[900, 1000, 1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009, 1010, 1011, 1012, 1013, 1014, 1015, 1016, 1017, 1018, 1019, 1020, 1021, 1022, 1023, 1024, 1025, 901, 828, 829, 864]
+HIGH_EARLY	inverse_sum_ready	64	883988	866	768	861	448	449	480	481	1030	[]
+FLAT_BANK	repaid	64	883995	866	[900, 1000, 1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009, 1010, 1011, 1012, 1013, 1014, 1015, 1016, 1017, 1018, 1019, 1020, 1021, 1022, 1023, 1024, 1025, 901, 828, 829, 864]
+HIGH_EARLY	repaid	64	883995	866	768	861	448	449	480	481	1030	[]
+FLAT_BANK	inverse_cross_ready	64	883995	866	[900, 1000, 1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009, 1010, 1011, 1012, 1013, 1014, 1015, 1016, 1017, 1018, 1019, 1020, 1021, 1022, 1023, 1024, 1025, 901, 828, 829, 864]
+HIGH_EARLY	inverse_cross_ready	64	883995	866	768	861	448	449	480	481	1030	[]
+DEFER_SQ kept=0 applied=0
+G3_UT pins=PEBBLE_HARD_CAP=1664;SQC_G1M=1;SQC_T=28;SQC_G=259;SQC_LEAF_D=8;GROUP_JUNCTION_FAULT=0;G3_SQ_EXACT_SPLIT=1 cap=Some(1408) wires=1345 T/shot=38454 shots=1024 out_bad(-off)=0 out_bad(+off)=1024 y_bad=0 phase_bad=0 ancilla_bad_batches=0 offset_zero=false
+ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 62 filtered out; finished in 0.32s
+

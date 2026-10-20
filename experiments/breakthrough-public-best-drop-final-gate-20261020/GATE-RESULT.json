@@ -1,0 +1,50 @@
+{
+  "verdict": "FAILURE_RATE_GATE_PASS",
+  "label": "public-best-drop-product-final-20261020-v1",
+  "batches": 131072,
+  "shots_per_source": 8388608,
+  "seconds": 210.16540265083313,
+  "checks": {
+    "value_shots_no_more_than_parent": true,
+    "paired_exact_mcnemar_not_significantly_worse": true,
+    "failed_batches_per_packet_at_most18": true,
+    "zero_dirty_ancilla_shots": true
+  },
+  "summaries": {
+    "parent": {
+      "batches": 131072,
+      "shots": 8388608,
+      "value_shots": 14105,
+      "phase_shots": 10545,
+      "dirty_shots": 0,
+      "failed_batches": 16438,
+      "mean_executed_toffoli": 756259.1150658131,
+      "rows_sha256": "326ed79a9d42ffd8f42f19595adbd22ecefbc674104403eec60a6f14ee56de61",
+      "failed_batches_per_9024_packet": 17.683090209960938
+    },
+    "candidate": {
+      "batches": 131072,
+      "shots": 8388608,
+      "value_shots": 14105,
+      "phase_shots": 10429,
+      "dirty_shots": 0,
+      "failed_batches": 16484,
+      "mean_executed_toffoli": 756850.1571853161,
+      "rows_sha256": "75fc6f8580294d9e08be168db29bc968dd2ea6b06a3144a987c5905e96f55f0d",
+      "failed_batches_per_9024_packet": 17.732574462890625
+    }
+  },
+  "newly_failing_batches_b": 1612,
+  "newly_passing_batches_c": 1566,
+  "one_sided_exact_mcnemar_p": 0.21236671086177147,
+  "value_failing_shot_identities_equal": true,
+  "new_value_failing_shots": 0,
+  "new_value_passing_shots": 0,
+  "candidate_minus_parent_mean_executed_toffoli": 591.0421195030212,
+  "paired_standard_error": 0.28235552738999814,
+  "declaration_sha256": "9a6311bd5a331f398adb4b1d1bc7b8840aaaab030d94af74199a69dcf3e57006",
+  "candidate_source_freeze_sha256": "b2a01786b4f990d569646668fc7d988da9df0cd2b619e744a9b5247b2781cee5",
+  "candidate_stream_sha256": "6192778816154b713a714446b3e7d28165a649460173a3e3f17d9de06fa7bb96",
+  "parent_stream_sha256": "3d7c94f1dea887dd2d4ff13326e350756350cc1044d396444c3f820f8bfad827",
+  "scope": "Final declared gate verdict. No source, label, batch or nonce changes permitted to reverse failure. Resource means diagnostic; no official benchmark score. Nonce screening may start only on PASS."
+}

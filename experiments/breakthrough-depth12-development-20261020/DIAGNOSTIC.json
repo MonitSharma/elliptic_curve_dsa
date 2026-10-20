@@ -1,0 +1,37 @@
+{
+  "status": "DEVELOPMENT_COMPARISON_COMPLETE_PRESERVE_ALL_MISMATCHES",
+  "label": "depth12-context-development-20261020-v1",
+  "batches": 512,
+  "summaries": {
+    "public71": {
+      "value_shots": 21,
+      "phase_shots": 10,
+      "dirty_shots": 0,
+      "failed_batches": 22,
+      "mean_executed_stream_toffoli": 747224.6458129883,
+      "rows_sha256": "3db9866e192a7ddef2318b4f15261b4ba59022568893c39afe953c52b56c11f9"
+    },
+    "depth12": {
+      "value_shots": 21,
+      "phase_shots": 11,
+      "dirty_shots": 0,
+      "failed_batches": 21,
+      "mean_executed_stream_toffoli": 747218.169128418,
+      "rows_sha256": "97aedee71a7a65dab7712efd32f9d570a13e31c58d451027bd0dd88f9dec4030"
+    }
+  },
+  "comparisons": {
+    "depth12": {
+      "candidate_minus_parent_raw_toffoli": -6.4766845703125,
+      "paired_standard_error": 2.296559189175036,
+      "new_failed_batches": 0,
+      "new_passing_batches": 1,
+      "new_value_failing_shots": [],
+      "new_value_passing_shots": [],
+      "different_target_lanes": [],
+      "different_other_lanes": [],
+      "target_differences_confined_to_both_value_failing": true
+    }
+  },
+  "scope": "Fresh full-output development512x64/source, fixedexactdepth12 on complete officialT747453 grouped-safe parent. Preserve all output/value/phase/dirty mismatches. Not final-gated, nonce-screened, benchmarked or scored."
+}

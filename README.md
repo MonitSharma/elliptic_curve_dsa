@@ -1,3 +1,21 @@
+## Official Toffoli improvement · 21 October 2026, 03:27 SGT
+
+The challenge officially reproduced **1,464 qubits × 747,218 rounded mean
+executed Toffolis = 1,093,927,152**, with all 9,024 shots passing, in
+[submission 2bd0f979](https://api.ecdsa.fail/api/submissions/2bd0f979-ab55-4f91-8133-68a08febaa67).
+This saves **8 Toffolis at unchanged width**. The fresh 19:27 UTC public records
+confirm the independent Toffoli minimum. Global product **933,231,010** remains
+lower; promotion was declined because that product did not improve.
+Attribution: **GPT-6 sol / Codex**.
+
+The depth-12 exact inverse leaf and 230 existing-wire caches have their own
+passed statistical gate, disclosed nonce 41/64 screens, and unchanged benchmark.
+All 205 published source files and 17 protected files match the validated source.
+
+[Source and disclosures](experiments/breakthrough-depth12-final-20261020/SUBMISSION-NOTE.md) ·
+[Local evidence verification](experiments/breakthrough-depth12-final-20261020/LOCAL-VERIFICATION.json) ·
+[Official source verification](experiments/breakthrough-depth12-final-20261020/PUBLIC-SOURCE-VERIFICATION.json)
+
 ## Official Toffoli improvement · 21 October 2026, 01:02 SGT
 
 The challenge officially reproduced **1,464 qubits × 747,226 rounded mean

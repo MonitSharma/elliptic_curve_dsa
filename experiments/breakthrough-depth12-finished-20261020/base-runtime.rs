@@ -1,0 +1,3 @@
+use crate::circuit::{Op,OperationType as K,QubitId};use sha3::{Digest,Sha3_256};
+fn bind(ops:&[Op],count:usize,want:&str){assert_eq!(ops.len(),count);let mut h=Sha3_256::new();for o in ops{for v in[o.kind as u64,o.q_control2.0,o.q_control1.0,o.q_target.0,o.c_target.0,o.c_condition.0,o.r_target.0]{h.update(v.to_le_bytes());}}assert_eq!(format!("{:x}",h.finalize()),want,"Complete depth12 raw/generic binding");}
+pub(super)fn run(ops:Vec<Op>)->Vec<Op>{bind(&ops,__RAW_COUNT__,"__RAW_HASH__");let mut ops=super::breakthrough_generic::run(ops);bind(&ops,__PREFIX_COUNT__,"__PREFIX_HASH__");for bit in 0..48{let mut o=Op::empty();o.kind=K::X;o.q_target=QubitId((__OLD_NONCE__u64>>bit)&1);o.validate();ops.extend([o,o]);}ops}
