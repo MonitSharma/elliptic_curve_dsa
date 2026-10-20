@@ -1,0 +1,7 @@
+from pathlib import Path
+r=Path(__file__).resolve().parent
+(r/'QUALIFICATION-ATTEMPT-FAILURE.txt').write_text('First qualification attempted an overbroad assertion that conflicting unit clauses also take the parser-only UNSAT path. They instead go through verify(), printing VERIFIED and returning0. Frozen logs/source retained. V2 classifies the exact zero-variable parser path separately; no source/certificate/gate change.\n')
+s=(r/'qualify.py').read_text();s=s.replace("cnf=r/(name+'.cnf')","cnf=r/('v2-'+name+'.cnf')").replace("proof=r/(name+'.drat')","proof=r/('v2-'+name+'.drat')").replace("r/(name+'.log')","r/('v2-'+name+'.log')")
+s=s.replace("assert p.returncode==1\n if name=='satisfiable_negative':assert not results[name]['verified']and not results[name]['trivial_unsat']\n else:assert results[name]['verified']and results[name]['trivial_unsat']", "if name=='satisfiable_negative':assert p.returncode==1 and not results[name]['verified']and not results[name]['trivial_unsat']\n elif name=='trivial_zero_variables':assert p.returncode==1 and results[name]['verified']and results[name]['trivial_unsat']\n else:assert p.returncode==0 and results[name]['verified']and not results[name]['trivial_unsat']")
+s=s.replace('Both trivial positivecontrols reproduce this; SAT+invalidproof also returns1 but never VERIFIED.','Zero-variable positivecontrol reproduces this; contradictory units verify normally with exit0. SAT+invalidproof returns1 but never VERIFIED.')
+exec(compile(s,str(r/'qualify.py'),'exec'))

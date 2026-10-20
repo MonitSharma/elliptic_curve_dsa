@@ -1,0 +1,27 @@
+{
+  "status": "PARSE_TIME_UNSAT_EXIT_STATUS_BEHAVIOR_QUALIFIED_WITH_POSITIVE_AND_NEGATIVE_CONTROLS",
+  "checker_source_sha256": "d834b649f437e091597f5347f259b9f681087f89ca0844d0cee250a1a1a0c2ee",
+  "checker_binary_sha256": "7c3a20e9d34bc78def63b4a05d9839dec3697d1e150e28def354adeec9ab716a",
+  "controls": {
+    "trivial_zero_variables": {
+      "exit": 1,
+      "trivial_unsat": true,
+      "verified": true,
+      "log_sha256": "5a1f288f737310da5fda2fdde02f5ef1a2f9d21109cd554c2220038558d1d244"
+    },
+    "trivial_conflicting_units": {
+      "exit": 0,
+      "trivial_unsat": false,
+      "verified": true,
+      "log_sha256": "143aa9398ff93885aa701311607bf4cab59d9d12b1500982a14fd033db12f6a7"
+    },
+    "satisfiable_negative": {
+      "exit": 1,
+      "trivial_unsat": false,
+      "verified": false,
+      "log_sha256": "777a249bf1f2e150749dc5e6f9622cfe5b2f9a2c595dded38dcb80944ac91df3"
+    }
+  },
+  "original_fixed_input_check_sha256": "499a155512160f5592900047e549745012b6ee35afc032e2d058de68f0edc308",
+  "scope": "Unchanged official checker leaves sts=ERROR when parseReturnValue is UNSAT, prints trivial UNSAT/s VERIFIED but returns1. Zero-variable positivecontrol reproduces this; contradictory units verify normally with exit0. SAT+invalidproof returns1 but never VERIFIED. Original RESULT.json preserves drat_checker_verified=false under earlier strict0 rule. Independent zero-variable CNF contradiction proof alreadyPASS. No old timeout/solver/gate verdict is upgraded, no nonce screened/rejected."
+}

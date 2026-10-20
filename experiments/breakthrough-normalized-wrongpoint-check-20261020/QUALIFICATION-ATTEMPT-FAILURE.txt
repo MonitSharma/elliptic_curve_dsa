@@ -1,0 +1,1 @@
+First qualification attempted an overbroad assertion that conflicting unit clauses also take the parser-only UNSAT path. They instead go through verify(), printing VERIFIED and returning0. Frozen logs/source retained. V2 classifies the exact zero-variable parser path separately; no source/certificate/gate change.

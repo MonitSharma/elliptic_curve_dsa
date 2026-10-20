@@ -1,0 +1,17 @@
+   Compiling product_pareto_exact v0.1.0 (/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-value-normalized-aig-v2-20261020/local-tool)
+warning: function `compile` is never used
+  --> audit.rs:49:4
+   |
+49 | fn compile(ops:&[Op],unknown_quantum:&[usize])->Program{let(_,nb,_,_)=analyze_ops(ops.iter());compile_known(ops,...
+   |    ^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `curve_abstract_audit` is never used
+   --> audit.rs:111:4
+    |
+111 | fn curve_abstract_audit(p:&Program,ops:&[Op],outputs:&[usize])->serde_json::Value{
+    |    ^^^^^^^^^^^^^^^^^^^^
+
+warning: `product_pareto_exact` (bin "value_normalized_aig_audit") generated 2 warnings
+    Finished `release` profile [optimized] target(s) in 3.51s

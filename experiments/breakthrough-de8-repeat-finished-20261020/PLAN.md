@@ -1,0 +1,3 @@
+# Frozen exact cache/repeat candidate final pipeline
+
+Exact two additional cache holds on full officialde8 stream, then second unchanged generic pipeline. Parent and cache-output canonical bindings retained. Parameterize ONLY existing final zero identity tail; generated nonce0 must byte-reproduce the already developed stream. No arithmetic/cut/window/round change. Source206/protected17 frozen before native8 and NEW finished development. Own sole finalgate vs current exactde8, ascendingqualifiednonce and unchangedbenchmark required; automatic challenge submission after independent evidence/source review.

@@ -1,0 +1,33 @@
+// Exact semantic keys for small classical Boolean supports. Large functions
+// remain opaque symbols of their actual immutable expressions; no sampling.
+#[derive(Clone,Debug,PartialEq,Eq,Hash)]struct SemTruth{atoms:Vec<u32>,table:u64}
+impl SemTruth{
+ fn mask(n:usize)->u64{if n==6{u64::MAX}else{(1u64<<(1usize<<n))-1}}
+ fn complement(&self)->Self{Self{atoms:self.atoms.clone(),table:self.table^Self::mask(self.atoms.len())}}
+ fn shrink(mut self)->Self{let mut bit=0;while bit<self.atoms.len(){let n=self.atoms.len();let step=1usize<<bit;let independent=(0..1usize<<n).filter(|r|r&step==0).all(|r|(self.table>>r)&1==(self.table>>(r|step))&1);if independent{let mut out=0u64;for row in 0..1usize<<(n-1){let old=(row&(step-1))|((row&!(step-1))<<1);out|=((self.table>>old)&1)<<row;}self.atoms.remove(bit);self.table=out;}else{bit+=1;}}self}
+ fn key(&self)->(Self,u32){let neg=(self.table&1)as u32;if neg==0{(self.clone(),0)}else{(self.complement(),1)}}
+}
+impl Expr{
+ fn semantic(&self,v:u32)->SemTruth{if v<=1{return SemTruth{atoms:vec![],table:v as u64};}let t=&self.truths[(v/2-1)as usize];if v&1==0{t.clone()}else{t.complement()}}
+ fn combine_semantic(&self,k:u8,a:u32,b:u32)->Option<SemTruth>{let a=self.semantic(a);let b=self.semantic(b);let mut atoms=a.atoms.clone();atoms.extend_from_slice(&b.atoms);atoms.sort_unstable();atoms.dedup();if atoms.len()>6{return None;}let ap:Vec<_>=a.atoms.iter().map(|v|atoms.binary_search(v).unwrap()).collect();let bp:Vec<_>=b.atoms.iter().map(|v|atoms.binary_search(v).unwrap()).collect();let project=|row:usize,positions:&[usize]|positions.iter().enumerate().fold(0usize,|v,(i,&bit)|v|(((row>>bit)&1)<<i));let mut table=0;for row in 0..1usize<<atoms.len(){let av=(a.table>>project(row,&ap))&1;let bv=(b.table>>project(row,&bp))&1;table|=(if k==1{av&bv}else{av^bv})<<row;}Some(SemTruth{atoms,table}.shrink())}
+ fn semantic_node(&mut self,k:u8,a:u32,b:u32)->u32{let summary=self.combine_semantic(k,a,b);if let Some(t)=&summary{if t.atoms.is_empty(){return(t.table&1)as u32;}let(key,neg)=t.key();if let Some(&v)=self.canonical.get(&key){return v^neg;}}let id=self.atom();*self.nodes.last_mut().unwrap()=(k,a,b);if let Some(t)=summary{let(key,neg)=t.key();*self.truths.last_mut().unwrap()=t;self.canonical.insert(key,id^neg);}id}
+}
+
+#[derive(Default)]struct Expr{restricting:bool,truths:Vec<SemTruth>,canonical:HashMap<SemTruth,u32>,nodes:Vec<(u8,u32,u32)>,implications:HashMap<(u32,u32),bool>,next:u32,and:HashMap<(u32,u32),u32>,xor:HashMap<(u32,u32),u32>}
+impl Expr{
+ fn atom(&mut self)->u32{self.next+=2;self.nodes.push((0,0,0));let t=SemTruth{atoms:vec![self.next],table:2};self.truths.push(t.clone());self.canonical.insert(t,self.next);self.next}
+ fn and(&mut self,mut a:u32,mut b:u32)->u32{if a==0||b==0{return 0;}if a==1{return b;}if b==1||a==b{return a;}if a==b^1{return 0;}if a>b{std::mem::swap(&mut a,&mut b);}if let Some(&v)=self.and.get(&(a,b)){return v;}if !self.restricting{self.restricting=true;let mut result=None;if let Some(v)=self.cofactor(b,a,6){if v!=b{result=Some(self.and(a,v));}}if result.is_none(){if let Some(v)=self.cofactor(a,b,6){if v!=a{result=Some(self.and(b,v));}}}self.restricting=false;if let Some(v)=result{self.and.insert((a,b),v);return v;}}let v=self.semantic_node(1,a,b);self.and.insert((a,b),v);v}
+ fn or(&mut self,a:u32,b:u32)->u32{self.and(a^1,b^1)^1}
+ fn xor(&mut self,mut a:u32,mut b:u32)->u32{if a==0{return b;}if b==0{return a;}if a==1{return b^1;}if b==1{return a^1;}if a==b{return 0;}if a==b^1{return 1;}let neg=(a^b)&1;a&=!1;b&=!1;if a>b{std::mem::swap(&mut a,&mut b);}if let Some(&v)=self.xor.get(&(a,b)){return v^neg;}let v=self.semantic_node(2,a,b);self.xor.insert((a,b),v);v^neg}
+ fn ite(&mut self,g:u32,new:u32,old:u32)->u32{if g==0||new==old{return old;}if g==1{return new;}if old==0{return self.and(g,new);}if new==0{return self.and(g^1,old);}if old==1{return self.or(g^1,new);}if new==1{return self.or(g,old);}if new==old^1{return self.xor(g,old);}let a=self.and(g,new);let b=self.and(g^1,old);self.or(a,b)}
+}
+impl Expr{
+ fn quick_implies(&self,a:u32,b:u32,depth:usize)->bool{if a==0||b==1||a==b{return true;}if depth==0||a<=1||b==0{return false;}let an=self.nodes[(a/2-1)as usize];if an.0==1{if a&1==0{if self.quick_implies(an.1,b,depth-1)||self.quick_implies(an.2,b,depth-1){return true;}}else if self.quick_implies(an.1^1,b,depth-1)&&self.quick_implies(an.2^1,b,depth-1){return true;}}let bn=self.nodes[(b/2-1)as usize];if bn.0==1{if b&1==0{return self.quick_implies(a,bn.1,depth-1)&&self.quick_implies(a,bn.2,depth-1);}return self.quick_implies(a,bn.1^1,depth-1)||self.quick_implies(a,bn.2^1,depth-1);}false}
+ fn implies(&mut self,a:u32,b:u32)->bool{if self.quick_implies(a,b,12){return true;}if let Some(&v)=self.implications.get(&(a,b)){return v;}let root=self.and(a,b^1);let answer=self.zero_truth_table(root);self.implications.insert((a,b),answer);answer}
+ fn zero_truth_table(&self,root:u32)->bool{if root<=1{return root==0;}let mut pending=vec![root&!1];let mut visited=BTreeSet::new();let mut atoms=BTreeSet::new();while let Some(id)=pending.pop(){if id<=1||!visited.insert(id){continue;}if visited.len()>4096{return false;}let(k,a,b)=self.nodes[(id/2-1)as usize];if k==0{atoms.insert(id);if atoms.len()>10{return false;}}else{pending.push(a&!1);pending.push(b&!1);}}
+  let ord:HashMap<_,_>=atoms.into_iter().enumerate().map(|(i,v)|(v,i)).collect();let cases=1usize<<ord.len();let words=cases.div_ceil(64);let mut table:HashMap<u32,Vec<u64>>=HashMap::new();let get=|lit:u32,table:&HashMap<u32,Vec<u64>>,j:usize|if lit<=1{if lit==1{u64::MAX}else{0}}else{let v=table[&(lit&!1)][j];if lit&1!=0{!v}else{v}};
+  for id in visited{let(k,a,b)=self.nodes[(id/2-1)as usize];let mut row=vec![0;words];if k==0{let shift=ord[&id];for assignment in 0..cases{row[assignment/64]|=(((assignment>>shift)&1)as u64)<<(assignment%64);}}else{for j in 0..words{let x=get(a,&table,j);let y=get(b,&table,j);row[j]=if k==1{x&y}else{x^y};}}table.insert(id,row);}
+  let last_mask=if cases<64{(1u64<<cases)-1}else{u64::MAX};(0..words).all(|j|get(root,&table,j)&if j+1==words{last_mask}else{u64::MAX}==0)
+ }
+}
+impl Expr{fn cofactor(&mut self,expression:u32,assumed:u32,depth:usize)->Option<u32>{if expression==assumed{return Some(1);}if expression==assumed^1{return Some(0);}if expression<=1||depth==0{return None;}let(k,a,b)=self.nodes[(expression/2-1)as usize];if k==0{return None;}let left=self.cofactor(a,assumed,depth-1);let right=self.cofactor(b,assumed,depth-1);if left.is_none()&&right.is_none(){return None;}let a=left.unwrap_or(a);let b=right.unwrap_or(b);let value=if k==1{self.and(a,b)}else{self.xor(a,b)};Some(value^(expression&1))}}

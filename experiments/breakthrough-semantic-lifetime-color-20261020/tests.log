@@ -1,0 +1,55 @@
+   Compiling product_pareto_exact v0.1.0 (/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-semantic-lifetime-color-20261020/local-tool)
+warning: field `implications` is never read
+  --> discover.rs:21:125
+   |
+21 | ...ct Expr{restricting:bool,truths:Vec<SemTruth>,canonical:HashMap<SemTruth,u32>,nodes:Vec<(u8,u32,u32)>,implications:Ha...
+   |       ---- field in this struct                                                                          ^^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: methods `quick_implies`, `implies`, and `zero_truth_table` are never used
+  --> discover.rs:30:5
+   |
+29 | impl Expr{
+   | --------- methods in this implementation
+30 |  fn quick_implies(&self,a:u32,b:u32,depth:usize)->bool{if a==0||b==1||a==b{return true;}if depth==0||a<=1||b==0{...
+   |     ^^^^^^^^^^^^^
+31 |  fn implies(&mut self,a:u32,b:u32)->bool{if self.quick_implies(a,b,12){return true;}if let Some(&v)=self.implica...
+   |     ^^^^^^^
+32 |  fn zero_truth_table(&self,root:u32)->bool{if root<=1{return root==0;}let mut pending=vec![root&!1];let mut visi...
+   |     ^^^^^^^^^^^^^^^^
+
+warning: `product_pareto_exact` (bin "global_prefix_simplify" test) generated 2 warnings
+    Finished `release` profile [optimized] target(s) in 2.64s
+     Running unittests discover.rs (/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-value-guard-fusion-audit-20261020/local-tool/target/release/deps/global_prefix_simplify-16da2a91c6c3a753)
+
+running 7 tests
+SEMANTIC_COLOR_PROGRESS op=0test semantic_algebra_controls::distributivity_and_unused_support_are_exact ...  peak=4ok
+ current=4test semantic_algebra_controls::above_six_atom_cofactor_has_disabled_negative_control ... ok semantic_nodes=6
+
+SEMANTIC_COLOR_PROGRESS op=0test semantic_color_tests::live_dirty_helper_is_never_loaned_to_another_logical_wire ... ok peak=4
+ current=4 semantic_nodes=6
+SEMANTIC_COLOR_PROGRESS op=0test semantic_color_tests::exact_uncompute_frees_helper_before_reset ... ok peak=4
+ current=4 semantic_nodes=6
+SEMANTIC_COLOR_PROGRESS op=0test semantic_color_tests::conditional_semantic_reset_and_classical_mutation_keep_absolute_phase ... ok peak=4
+ current=4 semantic_nodes=6
+SEMANTIC_COLOR_PROGRESS op=0 peak=4 current=4 semantic_nodes=6
+SEMANTIC_COLOR_PROGRESS op=0 peak=4 current=4 semantic_nodes=6
+SEMANTIC_COLOR_PROGRESS op=0 peak=4 current=4 semantic_nodes=6
+SEMANTIC_COLOR_PROGRESS op=0 peak=4 current=4 semantic_nodes=6
+SEMANTIC_COLOR_PROGRESS op=0 peak=4 current=4 semantic_nodes=6
+SEMANTIC_COLOR_PROGRESS op=0 peak=4 current=4 semantic_nodes=6
+SEMANTIC_COLOR_PROGRESS op=0 peak=4 current=4 semantic_nodes=6
+SEMANTIC_COLOR_PROGRESS op=0 peak=4 current=4 semantic_nodes=6
+SEMANTIC_COLOR_PROGRESS op=0 peak=4 current=4 semantic_nodes=6
+SEMANTIC_COLOR_PROGRESS op=0 peak=4 current=4 semantic_nodes=6
+SEMANTIC_COLOR_PROGRESS op=0 peak=4 current=4 semantic_nodes=6
+SEMANTIC_COLOR_PROGRESS op=0 peak=4 current=4 semantic_nodes=6
+SEMANTIC_COLOR_PROGRESS op=0 peak=4 current=4 semantic_nodes=6
+SEMANTIC_COLOR_PROGRESS op=0 peak=4 current=4 semantic_nodes=6
+SEMANTIC_COLOR_PROGRESS op=0 peak=4 current=4 semantic_nodes=6
+test semantic_color_tests::randomized_complete_protected_phase_values_classical_rng_and_executed_counts ... ok
+test semantic_algebra_controls::complete_six_atom_expression_truths_match_original_functions ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 4.49s
+

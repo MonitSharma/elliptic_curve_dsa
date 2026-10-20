@@ -1,0 +1,21 @@
+import hashlib,json,math,statistics,subprocess
+from pathlib import Path
+r=Path(__file__).resolve().parent;ws=r.parent;f=json.loads((r/'PLAN.json').read_text());sha=lambda p:hashlib.file_digest(p.open('rb'),'sha256').hexdigest();candidate=ws/'breakthrough-de8-generic-repeat-v3-20261020';cf=json.loads((candidate/'SOURCE-FREEZE.json').read_text());tf=json.loads((r/'SOURCE-FREEZE.json').read_text());exe=ws/'breakthrough-public1829-local-development-v2-20261020/local-tool/target/release/product_paired_diagnostic'
+assert all(sha(r/'local-tool'/p)==h for p,h in tf['tool_source_files'].items());deps=ws/'breakthrough-value-guard-fusion-audit-20261020/local-protected';assert all(sha(deps/p)==h for p,h in tf['protected_files'].items());assert all(sha(candidate/'candidate'/p)==h for p,h in {**cf['source_files'],**cf['protected_files']}.items());paths={'official_de8':ws/'breakthrough-local-de8-replay-20261020/candidate/ops.bin','generic':candidate/'candidate/ops.bin'};assert all(sha(paths[n])==h for n,h in f['streams'].items());(r/'REPLAY-FREEZE.json').write_text(json.dumps({'plan_sha256':sha(r/'PLAN.json'),'tool_source_freeze_sha256':sha(r/'SOURCE-FREEZE.json'),'binary_sha256':sha(exe),'streams':{n:{'path':str(p),'sha256':sha(p)}for n,p in paths.items()},'scope':f['scope']},indent=2)+'\n');records={}
+for name,path in paths.items():
+ with(r/(name+'.out')).open('xb')as out,(r/(name+'.err')).open('xb')as err:
+  p=subprocess.Popen([str(exe),str(path),f['label'],'0',str(f['batches']),str(f['workers']),str(r/(name+'.jsonl')),str(f['protected_scalar_batches'])],stdout=out,stderr=err);(r/(name+'.pid')).write_text(str(p.pid)+'\n');rc=p.wait()
+ (r/(name+'.exit')).write_text(str(rc)+'\n')
+ if rc:(r/'run.exit').write_text(str(rc)+'\n');raise SystemExit(rc)
+ rows=[json.loads(l)for l in(r/(name+'.jsonl')).read_text().splitlines()];assert len(rows)==f['batches']and[x['batch']for x in rows]==list(range(f['batches']));records[name]=rows
+summaries={n:{'value_shots':sum(x['value_shots']for x in rows),'phase_shots':sum(x['phase_shots']for x in rows),'dirty_shots':sum(x['dirty_shots']for x in rows),'failed_batches':sum(bool(x['failures'])for x in rows),'mean_executed_stream_toffoli':sum(x['toffoli']for x in rows)/(64*f['batches']),'rows_sha256':sha(r/(n+'.jsonl'))}for n,rows in records.items()};comparisons={};parent=records['official_de8']
+for name,rows in records.items():
+ if name=='official_de8':continue
+ delta=[(b['toffoli']-a['toffoli'])/64 for a,b in zip(parent,rows)];batches_b=sum(not a['failures']and bool(b['failures'])for a,b in zip(parent,rows));batches_c=sum(bool(a['failures'])and not b['failures']for a,b in zip(parent,rows));diff=[];other=[];newvalue=[];lostvalue=[]
+ for a,b in zip(parent,rows):
+  af={x['lane']for x in a['failures']if x['value']};bf={x['lane']for x in b['failures']if x['value']};newvalue.extend([[a['batch'],lane]for lane in sorted(bf-af)]);lostvalue.extend([[a['batch'],lane]for lane in sorted(af-bf)])
+  for lane in range(64):
+   if a['target_lane_hashes'][lane]!=b['target_lane_hashes'][lane]:diff.append({'batch':a['batch'],'lane':lane,'parent_value_fails':lane in af,'candidate_value_fails':lane in bf})
+   if a['other_lane_hashes'][lane]!=b['other_lane_hashes'][lane]:other.append([a['batch'],lane])
+ comparisons[name]={'candidate_minus_parent_raw_toffoli':statistics.mean(delta),'paired_standard_error':statistics.stdev(delta)/len(delta)**.5,'new_failed_batches':batches_b,'new_passing_batches':batches_c,'new_value_failing_shots':newvalue,'new_value_passing_shots':lostvalue,'different_target_lanes':diff,'different_other_lanes':other,'target_differences_confined_to_both_value_failing':all(x['parent_value_fails']and x['candidate_value_fails']for x in diff)}
+result={'status':'DEVELOPMENT_COMPARISON_COMPLETE_PRESERVE_ALL_MISMATCHES','label':f['label'],'batches':f['batches'],'summaries':summaries,'comparisons':comparisons,'scope':f['scope']};(r/'DIAGNOSTIC.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps({'status':result['status'],'summaries':summaries,'differences':{n:{'targets':len(c['different_target_lanes']),'other':len(c['different_other_lanes']),'new_value_failing':len(c['new_value_failing_shots']),'new_value_passing':len(c['new_value_passing_shots'])}for n,c in comparisons.items()}}),flush=True);(r/'run.exit').write_text('0\n')

@@ -629,3 +629,46 @@ Windows text/binary patch setupfailures retained; none ran pointinputs/gates.
 Any competitive finalsource needs own frozen gate against current exactparent,
 ascendinglowestpassingnonce and unchangedbenchmark before automatic submission.
 
+
+## 21 October 2026: fixed-input value proof and final exact-cache pipeline
+
+New verifier result on frozen OLD6192 source/first preserved failure only:
+native29 and27 fullprotected value comparisons PASS. Complete exact semantic/
+cofactor normalization makes scalarAIG only310nodes (all original CRNG atoms),
+ALL512output literals constant.234bits disagree with protectedP+A reference.
+CNF shrinks3,134,968variables/12,016,490clauses to ZEROvariables/234emptyclauses.
+Independent syntactic contradiction checker/positive+SATnegative controls PASS.
+0.070431857seconds scalarbuild. This is one source/input certificate, NOT a
+general filter, a new statistical gate or a quantumresource record. No nonce
+screened/rejected. NumericIR cache30,432,349bytes retained locally, SHA188c0947...
+
+Unchanged DRAT checker also prints trivialUNSAT/sVERIFIED but returns1 because
+parse-timeUNSAT leaves its sts=ERROR; pinned source and separate positive/
+negative controls qualify that exact behavior. Contradictoryunits return0/
+VERIFIED normally; SAT+invalidproof returns1/NOTVERIFIED. Original strict0report
+kept; separate qualification explains branch. Initial overbroad exit assumption
+failure retained. Earlier513MBproof/900sTIMEOUT remains UNCHECKED, not upgraded.
+
+Exact semantic fullprefix native12: public1829 oneCCXtoCX/proxy0.5; de8 three
+zeroCCX/proxy3. Stronger semantic lifetime color native7/fullbothparents passes
+every logical/physical/phase/classical/RNG/executedcount control but peak stays
+1234/1464 despite additional zero releases. These are component diagnostics.
+
+Second2cache+repeatedgeneric source206/protected17 complete nonce0 stream915423,
+canonicalcf941. Native guardedcache1PASS, prior independentproof9. Fresh paired
+development512x64/8fullprotected batches each: means746117.3225097656 vs
+746107.1288757324, delta-10.193634033203125 SE2.3659088412059086. Same13value and
+8phase shots/12failedbatches, dirty0, NOtarget orother-registerhash differences.
+These means are diagnostic, NOT scores. No READMEplot or officialupload.
+
+Finished source parameterizes ONLY zero identity tail and must regenerate
+EXACTsame frame. Server detached source ddaa047c5c6f2ef4cd79d918c3f49b53ada81c22,
+native8PASS. nohupPID3204403 official1.93generation in progress. Then NEWfinished
+512development, sole finalgate labelcache-repeat-generic-final-20261020-v1/
+32768x64 versus exactde8; outcomeFINAL. OnlyPASS permits qualifiedascending
+1..65536/lowestnonce and unchangedbenchmark. Independentlocal evidence/source/
+freshpublicrecord review before authorized automatic GPT-6sol/Codex upload.
+Global product goal ACTIVE; latest officialT still746114/Q1464/de8. Approved
+41f769ec push completed; newer research commits remain local. Chemistry and
+unrelated workloads untouched. No local longjobs remain at this checkpoint.
+

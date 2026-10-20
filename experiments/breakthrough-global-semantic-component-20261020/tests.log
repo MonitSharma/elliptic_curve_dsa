@@ -1,0 +1,77 @@
+   Compiling product_pareto_exact v0.1.0 (/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-global-semantic-component-20261020/local-tool)
+warning: unused variable: `max_products`
+  --> discover.rs:54:54
+   |
+54 | fn global_prefix_simplify_limits(ops:&[Op],cap:usize,max_products:usize)->(Vec<Op>,serde_json::Value){
+   |                                                      ^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_max_products`
+   |
+   = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: field `implications` is never read
+  --> discover.rs:21:125
+   |
+21 | ...ct Expr{restricting:bool,truths:Vec<SemTruth>,canonical:HashMap<SemTruth,u32>,nodes:Vec<(u8,u32,u32)>,implications:Ha...
+   |       ---- field in this struct                                                                          ^^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: methods `quick_implies`, `implies`, and `zero_truth_table` are never used
+  --> discover.rs:30:5
+   |
+29 | impl Expr{
+   | --------- methods in this implementation
+30 |  fn quick_implies(&self,a:u32,b:u32,depth:usize)->bool{if a==0||b==1||a==b{return true;}if depth==0||a<=1||b==0{...
+   |     ^^^^^^^^^^^^^
+31 |  fn implies(&mut self,a:u32,b:u32)->bool{if self.quick_implies(a,b,12){return true;}if let Some(&v)=self.implica...
+   |     ^^^^^^^
+32 |  fn zero_truth_table(&self,root:u32)->bool{if root<=1{return root==0;}let mut pending=vec![root&!1];let mut visi...
+   |     ^^^^^^^^^^^^^^^^
+
+warning: `product_pareto_exact` (bin "global_prefix_simplify" test) generated 3 warnings (run `cargo fix --bin "global_prefix_simplify" -p product_pareto_exact --tests` to apply 1 suggestion)
+    Finished `release` profile [optimized] target(s) in 4.52s
+     Running unittests discover.rs (/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-value-guard-fusion-audit-20261020/local-tool/target/release/deps/global_prefix_simplify-16da2a91c6c3a753)
+
+running 12 tests
+GLOBAL_PREFIX_PROGRESS op=0test semantic_algebra_controls::above_six_atom_cofactor_has_disabled_negative_control ... ok products=7
+ opaque_truncations=0 replacements={test semantic_algebra_controls::distributivity_and_unused_support_are_exact ... ok}
+
+GLOBAL_PREFIX_PROGRESS op=test global_prefix_tests::registered_input_declared_late_is_never_assumed_zero ... ok0 products=
+6 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=6 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0test global_prefix_tests::global_classical_alias_complement_and_fresh_measurement_keep_guards_phase_and_rng ...  products=6ok
+ opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=6 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=6 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0test global_prefix_tests::global_zero_and_linear_controls_preserve_all_basis_phase_values_and_count ... ok products=6
+ opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0test global_prefix_tests::opaque_limits_stay_sound_and_missing_classical_guard_is_detected ...  products=ok6 opaque_truncations=0 replacements=
+{}
+GLOBAL_PREFIX_PROGRESS op=0test global_prefix_tests::phase_product_relation_can_remove_one_t_without_sampling ... ok products=6
+ opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=6 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0test global_prefix_tests::independent_registered_phase_controls_are_not_lowered ...  products=6ok
+ opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=6 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=test global_prefix_tests::phase_lowerings_keep_absolute_phase_and_all_original_guards ... ok0 products=
+6 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=6 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=6 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=6 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=6 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=6 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=6 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=6 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=6 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0test global_prefix_tests::phase_classical_alias_complement_and_mutation_preserve_rng_and_phase ... ok products=6
+ opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=6 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=6 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=6 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=6 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=6 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=6 opaque_truncations=0 replacements={}
+test global_prefix_tests::forgetting_product_keys_only_loses_precision_and_preserves_full_protected_semantics ... ok
+test semantic_algebra_controls::complete_six_atom_expression_truths_match_original_functions ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 4.36s
+

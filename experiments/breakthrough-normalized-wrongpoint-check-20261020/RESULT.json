@@ -1,0 +1,30 @@
+{
+  "status": "SOURCE_BOUND_FIXED_INPUT_WRONGPOINT_CERTIFICATE",
+  "at_utc": "2026-10-20T23:20:52.824029+00:00",
+  "fixture": {
+    "batch": 0,
+    "k1": "0x9256d891926a48be975519fcae64b39a5618f4962b5b213145f6e7af25669f80",
+    "k2": "0x87a7991c7cdc0b66b93b957fccb3e4fde71ed9051113e5eddb8ba15bf48dbca3",
+    "lane": 34
+  },
+  "source_stream_sha256": "6192778816154b713a714446b3e7d28165a649460173a3e3f17d9de06fa7bb96",
+  "source_freeze_sha256": "3e497a976dac197c015eea950593f8c957bc674ea0ff2273e79aa3380d539257",
+  "audit_result_sha256": "6271701e8a4aeff00ec2ab356de13d5adf9e378076425bd340e802570937e72a",
+  "native_controls": 29,
+  "full_protected_value_comparisons": 27,
+  "exact_boolean_nodes": 310,
+  "build_seconds": 0.070431857,
+  "reachable_output_cnf_variables": 0,
+  "constant_wrong_output_bits": 234,
+  "independent_zero_variable_cnf_check": "PASS; contains234 empty clauses; empty SAT-formula negativecontrol passes",
+  "drat_checker_verified": false,
+  "drat_checker_exit": 1,
+  "drat_checker_seconds": 0.11272103599999994,
+  "cnf_sha256": "ae9accae9bfe784998c98b67cd9f49a14bc6f1081362d32a839ae84568f8b19d",
+  "proof_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+  "checker_sha256": "7c3a20e9d34bc78def63b4a05d9839dec3697d1e150e28def354adeec9ab716a",
+  "numeric_ir_cache_sha256": "188c0947af7e7c6fb02bef415c26efd94209aeb873d500fc2cb8ecf872c56807",
+  "nonce_screens": 0,
+  "nonce_rejections": 0,
+  "scope": "One previously frozen old6192 source and first preserved input only. Exact Boolean source interpretation makes all output literals constants despite arbitrary original measurement outcomes. Independent syntactic zero-variable CNF check certifies contradiction; external checker outcome separately disclosed. This is a fixed-input verifier result, not a general walk filter, a new gate verdict or a quantum resource record. No production nonce skipped."
+}

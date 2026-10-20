@@ -1,0 +1,37 @@
+{
+  "status": "DEVELOPMENT_COMPARISON_COMPLETE_PRESERVE_ALL_MISMATCHES",
+  "label": "de8-two-cache-generic-development-20261020-v1",
+  "batches": 512,
+  "summaries": {
+    "official_de8": {
+      "value_shots": 13,
+      "phase_shots": 8,
+      "dirty_shots": 0,
+      "failed_batches": 12,
+      "mean_executed_stream_toffoli": 746117.3225097656,
+      "rows_sha256": "bd9bf20a7b17d844836dc121ace6f113372e16a4b189494adcdfbdb566541066"
+    },
+    "generic": {
+      "value_shots": 13,
+      "phase_shots": 8,
+      "dirty_shots": 0,
+      "failed_batches": 12,
+      "mean_executed_stream_toffoli": 746107.1288757324,
+      "rows_sha256": "eb437c0bf0ebc88011819c70f354c2f778646e7055ad79ac621ed057cd4c3328"
+    }
+  },
+  "comparisons": {
+    "generic": {
+      "candidate_minus_parent_raw_toffoli": -10.193634033203125,
+      "paired_standard_error": 2.3659088412059086,
+      "new_failed_batches": 0,
+      "new_passing_batches": 0,
+      "new_value_failing_shots": [],
+      "new_value_passing_shots": [],
+      "different_target_lanes": [],
+      "different_other_lanes": [],
+      "target_differences_confined_to_both_value_failing": true
+    }
+  },
+  "scope": "Fresh actual-resource development of fixed206file second-cache/generic source against exact officialde8. UNCHANGED previously qualified AVX2 observer source and existing binary; native qualification retained,8full protected scalar state/RNG/T batches repeated per source.512x64 per source, no finalgate/nonce/benchmark/score."
+}
