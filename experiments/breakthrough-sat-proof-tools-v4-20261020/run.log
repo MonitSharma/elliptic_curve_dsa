@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-sat-proof-tools-v4-20261020/run.py", line 19, in <module>
+    kissat=repos/'kissat';drat=repos/'drat-trim';run(['runuser','-u','nobody','--',str(kissat/'build/tissat'),'-j2','solve','kitten'],'tests-kissat-solving-kernels',kissat/'build',timeout=300);run(['make','-j2'],'build-drat',drat,timeout=180);solver=kissat/'build/kissat';checker=drat/'drat-trim';assert solver.is_file()and checker.is_file()
+                                                                                                                                                                                                 ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-sat-proof-tools-v4-20261020/run.py", line 12, in run
+    (r/(name+'.exit')).write_text(str(code)+'\n');assert code in expected,(name,code);return code,time.monotonic()-start
+                                                         ^^^^^^^^^^^^^^^^
+AssertionError: ('build-drat', 2)
+Traceback (most recent call last):
+  File "/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-sat-proof-tools-v4-20261020/run.py", line 19, in <module>
+    kissat=repos/'kissat';drat=repos/'drat-trim';run(['runuser','-u','nobody','--',str(kissat/'build/tissat'),'-j2','solve','kitten'],'tests-kissat-solving-kernels',kissat/'build',timeout=300);run(['make','-j2'],'build-drat',drat,timeout=180);solver=kissat/'build/kissat';checker=drat/'drat-trim';assert solver.is_file()and checker.is_file()
+                                                                                                                                                                                                 ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-sat-proof-tools-v4-20261020/run.py", line 12, in run
+    (r/(name+'.exit')).write_text(str(code)+'\n');assert code in expected,(name,code);return code,time.monotonic()-start
+                                                         ^^^^^^^^^^^^^^^^
+AssertionError: ('build-drat', 2)

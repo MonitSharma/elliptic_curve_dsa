@@ -1,0 +1,335 @@
+make -C "/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-sat-proof-tools-v3-20261020/tool-repos/kissat/build"
+make[1]: Entering directory '/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-sat-proof-tools-v3-20261020/tool-repos/kissat/build'
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/allocate.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/analyze.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/ands.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/arena.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/assign.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/averages.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/backbone.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/backtrack.c
+../scripts/generate-build-header.sh > build.h
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/bump.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/check.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/classify.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/clause.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/collect.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/colors.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/compact.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/config.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/congruence.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/decide.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/deduce.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/definition.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/dense.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/dump.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/eliminate.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/equivalences.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/error.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/extend.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/factor.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/fastel.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/file.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/flags.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/format.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/forward.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/gates.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/heap.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/ifthenelse.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/import.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/internal.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/kimits.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/kitten.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/krite.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/learn.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/logging.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/lucky.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/minimize.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/mode.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/options.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/phases.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/preprocess.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/print.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/probe.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/profile.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/promote.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/proof.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/propbeyond.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/propdense.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/propinitially.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/proprobe.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/propsearch.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/queue.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/reduce.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/reluctant.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/reorder.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/rephase.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/report.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/resize.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/resolve.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/resources.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/restart.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/search.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/shrink.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/smooth.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/sort.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/statistics.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/strengthen.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/substitute.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/sweep.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/terminate.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/tiers.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/trail.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/transitive.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/utilities.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/vector.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/vivify.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/walk.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/warmup.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/watch.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/weaken.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/main.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/application.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/handle.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/parse.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../src/witness.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -I../build -c ../test/test.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../test/testadd.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../test/testallocate.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../test/testapplication.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../test/testarena.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../test/testarray.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../test/testbump.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../test/testceil.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../test/testcollect.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../test/testconfig.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../test/testcoverage.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../test/testdivert.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../test/testdump.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../test/testendianness.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../test/testerror.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../test/testfifo.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../test/testfile.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../test/testformat.c
+../test/testfile.c: In function ‘test_file_readable’:
+../test/testfile.c:43:22: warning: ‘~’ on a boolean expression [-Wbool-operation]
+   43 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:53:3: note: in expansion of macro ‘READABLE’
+   53 |   READABLE (false, "non-existing-file");
+      |   ^~~~~~~~
+../test/testfile.c:43:22: note: did you mean to use logical not?
+   43 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:53:3: note: in expansion of macro ‘READABLE’
+   53 |   READABLE (false, "non-existing-file");
+      |   ^~~~~~~~
+../test/testfile.c:43:22: warning: ‘~’ on a boolean expression [-Wbool-operation]
+   43 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:54:3: note: in expansion of macro ‘READABLE’
+   54 |   READABLE (true, "tissat");
+      |   ^~~~~~~~
+../test/testfile.c:43:22: note: did you mean to use logical not?
+   43 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:54:3: note: in expansion of macro ‘READABLE’
+   54 |   READABLE (true, "tissat");
+      |   ^~~~~~~~
+../test/testfile.c:43:22: warning: ‘~’ on a boolean expression [-Wbool-operation]
+   43 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:55:3: note: in expansion of macro ‘READABLE’
+   55 |   READABLE (true, ".");
+      |   ^~~~~~~~
+../test/testfile.c:43:22: note: did you mean to use logical not?
+   43 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:55:3: note: in expansion of macro ‘READABLE’
+   55 |   READABLE (true, ".");
+      |   ^~~~~~~~
+../test/testfile.c:43:22: warning: ‘~’ on a boolean expression [-Wbool-operation]
+   43 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:57:5: note: in expansion of macro ‘READABLE’
+   57 |     READABLE (false, "/etc/shadow");
+      |     ^~~~~~~~
+../test/testfile.c:43:22: note: did you mean to use logical not?
+   43 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:57:5: note: in expansion of macro ‘READABLE’
+   57 |     READABLE (false, "/etc/shadow");
+      |     ^~~~~~~~
+../test/testfile.c:43:22: warning: ‘~’ on a boolean expression [-Wbool-operation]
+   43 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:59:5: note: in expansion of macro ‘READABLE’
+   59 |     READABLE (true, "/dev/null");
+      |     ^~~~~~~~
+../test/testfile.c:43:22: note: did you mean to use logical not?
+   43 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:59:5: note: in expansion of macro ‘READABLE’
+   59 |     READABLE (true, "/dev/null");
+      |     ^~~~~~~~
+../test/testfile.c: In function ‘test_file_writable’:
+../test/testfile.c:69:22: warning: ‘~’ on a boolean expression [-Wbool-operation]
+   69 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:79:3: note: in expansion of macro ‘WRITABLE’
+   79 |   WRITABLE (true, "../test/file/writable");
+      |   ^~~~~~~~
+../test/testfile.c:69:22: note: did you mean to use logical not?
+   69 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:79:3: note: in expansion of macro ‘WRITABLE’
+   79 |   WRITABLE (true, "../test/file/writable");
+      |   ^~~~~~~~
+../test/testfile.c:69:22: warning: ‘~’ on a boolean expression [-Wbool-operation]
+   69 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:81:5: note: in expansion of macro ‘WRITABLE’
+   81 |     WRITABLE (true, "/dev/null");
+      |     ^~~~~~~~
+../test/testfile.c:69:22: note: did you mean to use logical not?
+   69 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:81:5: note: in expansion of macro ‘WRITABLE’
+   81 |     WRITABLE (true, "/dev/null");
+      |     ^~~~~~~~
+../test/testfile.c:69:22: warning: ‘~’ on a boolean expression [-Wbool-operation]
+   69 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:82:3: note: in expansion of macro ‘WRITABLE’
+   82 |   WRITABLE (false, "");
+      |   ^~~~~~~~
+../test/testfile.c:69:22: note: did you mean to use logical not?
+   69 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:82:3: note: in expansion of macro ‘WRITABLE’
+   82 |   WRITABLE (false, "");
+      |   ^~~~~~~~
+../test/testfile.c:69:22: warning: ‘~’ on a boolean expression [-Wbool-operation]
+   69 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:83:3: note: in expansion of macro ‘WRITABLE’
+   83 |   WRITABLE (true, "non-existing-file");
+      |   ^~~~~~~~
+../test/testfile.c:69:22: note: did you mean to use logical not?
+   69 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:83:3: note: in expansion of macro ‘WRITABLE’
+   83 |   WRITABLE (true, "non-existing-file");
+      |   ^~~~~~~~
+../test/testfile.c:69:22: warning: ‘~’ on a boolean expression [-Wbool-operation]
+   69 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:84:3: note: in expansion of macro ‘WRITABLE’
+   84 |   WRITABLE (false, ".");
+      |   ^~~~~~~~
+../test/testfile.c:69:22: note: did you mean to use logical not?
+   69 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:84:3: note: in expansion of macro ‘WRITABLE’
+   84 |   WRITABLE (false, ".");
+      |   ^~~~~~~~
+../test/testfile.c:69:22: warning: ‘~’ on a boolean expression [-Wbool-operation]
+   69 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:85:3: note: in expansion of macro ‘WRITABLE’
+   85 |   WRITABLE (false, "/");
+      |   ^~~~~~~~
+../test/testfile.c:69:22: note: did you mean to use logical not?
+   69 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:85:3: note: in expansion of macro ‘WRITABLE’
+   85 |   WRITABLE (false, "/");
+      |   ^~~~~~~~
+../test/testfile.c:69:22: warning: ‘~’ on a boolean expression [-Wbool-operation]
+   69 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:86:3: note: in expansion of macro ‘WRITABLE’
+   86 |   WRITABLE (false, "tissat/test");
+      |   ^~~~~~~~
+../test/testfile.c:69:22: note: did you mean to use logical not?
+   69 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:86:3: note: in expansion of macro ‘WRITABLE’
+   86 |   WRITABLE (false, "tissat/test");
+      |   ^~~~~~~~
+../test/testfile.c:69:22: warning: ‘~’ on a boolean expression [-Wbool-operation]
+   69 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:87:3: note: in expansion of macro ‘WRITABLE’
+   87 |   WRITABLE (true, "../test/file/non-existing");
+      |   ^~~~~~~~
+../test/testfile.c:69:22: note: did you mean to use logical not?
+   69 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:87:3: note: in expansion of macro ‘WRITABLE’
+   87 |   WRITABLE (true, "../test/file/non-existing");
+      |   ^~~~~~~~
+../test/testfile.c:69:22: warning: ‘~’ on a boolean expression [-Wbool-operation]
+   69 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:88:3: note: in expansion of macro ‘WRITABLE’
+   88 |   WRITABLE (false, "/kissat-test-file-writable");
+      |   ^~~~~~~~
+../test/testfile.c:69:22: note: did you mean to use logical not?
+   69 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:88:3: note: in expansion of macro ‘WRITABLE’
+   88 |   WRITABLE (false, "/kissat-test-file-writable");
+      |   ^~~~~~~~
+../test/testfile.c:69:22: warning: ‘~’ on a boolean expression [-Wbool-operation]
+   69 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:89:3: note: in expansion of macro ‘WRITABLE’
+   89 |   WRITABLE (false, "non-existing-directory/file-in-non-existing-directory");
+      |   ^~~~~~~~
+../test/testfile.c:69:22: note: did you mean to use logical not?
+   69 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:89:3: note: in expansion of macro ‘WRITABLE’
+   89 |   WRITABLE (false, "non-existing-directory/file-in-non-existing-directory");
+      |   ^~~~~~~~
+../test/testfile.c:69:22: warning: ‘~’ on a boolean expression [-Wbool-operation]
+   69 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:91:5: note: in expansion of macro ‘WRITABLE’
+   91 |     WRITABLE (false, "/etc/passwd");
+      |     ^~~~~~~~
+../test/testfile.c:69:22: note: did you mean to use logical not?
+   69 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:91:5: note: in expansion of macro ‘WRITABLE’
+   91 |     WRITABLE (false, "/etc/passwd");
+      |     ^~~~~~~~
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../test/testheap.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../test/testinit.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -DKITTEN -c ../test/testkitten.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../test/testmain.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../test/testmessages.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../test/testoptions.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../test/testparse.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../test/testprove.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../test/testqueue.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../test/testrandom.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../test/testrank.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../test/testreferences.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../test/testreluctant.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../test/testscheduler.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../test/testsizes.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../test/testsolve.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../test/testsort.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../test/teststack.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../test/testterminate.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../test/testusage.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../test/testutilities.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -c ../test/testvector.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS  -DSTAND_ALONE_KITTEN -o kitten ../src/kitten.c
+gcc -W -Wall -ggdb3 -DEMBEDDED -DLOGGING -DMETRICS -I../build -c ../src/build.c
+ar rc libkissat.a allocate.o analyze.o ands.o arena.o assign.o averages.o backbone.o backtrack.o build.o bump.o check.o classify.o clause.o collect.o colors.o compact.o config.o congruence.o decide.o deduce.o definition.o dense.o dump.o eliminate.o equivalences.o error.o extend.o factor.o fastel.o file.o flags.o format.o forward.o gates.o heap.o ifthenelse.o import.o internal.o kimits.o kitten.o krite.o learn.o logging.o lucky.o minimize.o mode.o options.o phases.o preprocess.o print.o probe.o profile.o promote.o proof.o propbeyond.o propdense.o propinitially.o proprobe.o propsearch.o queue.o reduce.o reluctant.o reorder.o rephase.o report.o resize.o resolve.o resources.o restart.o search.o shrink.o smooth.o sort.o statistics.o strengthen.o substitute.o sweep.o terminate.o tiers.o trail.o transitive.o utilities.o vector.o vivify.o walk.o warmup.o watch.o weaken.o
+gcc -o kissat main.o application.o handle.o parse.o witness.o libkissat.a -lm
+gcc -o tissat test.o application.o handle.o parse.o witness.o testadd.o testallocate.o testapplication.o testarena.o testarray.o testbump.o testceil.o testcollect.o testconfig.o testcoverage.o testdivert.o testdump.o testendianness.o testerror.o testfifo.o testfile.o testformat.o testheap.o testinit.o testkitten.o testmain.o testmessages.o testoptions.o testparse.o testprove.o testqueue.o testrandom.o testrank.o testreferences.o testreluctant.o testscheduler.o testsizes.o testsolve.o testsort.o teststack.o testterminate.o testusage.o testutilities.o testvector.o libkissat.a -lm
+make[1]: Leaving directory '/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-sat-proof-tools-v3-20261020/tool-repos/kissat/build'

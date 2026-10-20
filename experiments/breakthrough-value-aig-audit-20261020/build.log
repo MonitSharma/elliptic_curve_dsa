@@ -1,0 +1,68 @@
+   Compiling product_pareto_exact v0.1.0 (/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-value-aig-audit-20261020/local-tool)
+warning: unused import: `XofReader`
+  --> audit.rs:96:114
+   |
+96 |  use quantum_ecc::sim::Simulator;use quantum_ecc::circuit::QubitOrBit;use sha3::digest::{Update,ExtendableOutput,XofReader};
+   |                                                                                                                  ^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable does not need to be mutable
+  --> audit.rs:97:231
+   |
+97 | ...alue-known-failure-source-audit-20261020-v1");let mut xof=h.finalize_xof();let mut noise=0xa8d7135f23649b01u64;let mut rows=vec![...
+   |                                                      ----^^^
+   |                                                      |
+   |                                                      help: remove this `mut`
+   |
+   = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `xof`
+  --> audit.rs:97:231
+   |
+97 | ...ce-audit-20261020-v1");let mut xof=h.finalize_xof();let mut noise=0xa8d7135f23649b01u64;let mut rows=vec![];let fixtures:Vec<serd...
+   |                               ^^^^^^^ help: if this is intentional, prefix it with an underscore: `_xof`
+   |
+   = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: field `source` is never read
+  --> audit.rs:10:75
+   |
+10 | #[derive(Clone,Copy,Debug)]struct Node{k:u8,a:u32,b:u32,t:u32,g:u32,r:u32,source:u32}
+   |                                   ---- field in this struct               ^^^^^^
+   |
+   = note: `Node` has derived impls for the traits `Debug` and `Clone`, but these are intentionally ignored during dead code analysis
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: field `inputs` is never read
+  --> audit.rs:11:64
+   |
+11 | struct Program{symbols:Vec<u32>,expr:Expr,guard_exprs:Vec<u32>,inputs:Vec<usize>,nodes:Vec<Node>,guards:Vec<Vec<u32>>,nq:usize,nb:us...
+   |        ------- field in this struct                            ^^^^^^
+
+warning: function `compile` is never used
+  --> audit.rs:33:4
+   |
+33 | fn compile(ops:&[Op],unknown_quantum:&[usize])->Program{let(_,nb,_,_)=analyze_ops(ops.iter());compile_known(ops,unknown_quantum,&(0....
+   |    ^^^^^^^
+
+warning: function `normalize_resets` is never used
+  --> audit.rs:79:4
+   |
+79 | fn normalize_resets(p:&mut Program)->usize{let mut may=vec![0u32;p.nq];for &q in &p.inputs{may[q]=1;}let mut changed=0;
+   |    ^^^^^^^^^^^^^^^^
+
+warning: function `optimize` is never used
+  --> audit.rs:82:4
+   |
+82 | fn optimize(p:&mut Program,outputs:&[usize])->Vec<(usize,usize,usize)>{let mut rounds=vec![];for round in 0..2048{let d=normalize_re...
+   |    ^^^^^^^^
+
+warning: function `curve_abstract_audit` is never used
+  --> audit.rs:95:4
+   |
+95 | fn curve_abstract_audit(p:&Program,ops:&[Op],outputs:&[usize])->serde_json::Value{
+   |    ^^^^^^^^^^^^^^^^^^^^
+
+warning: `product_pareto_exact` (bin "value_aig_audit") generated 9 warnings (run `cargo fix --bin "value_aig_audit" -p product_pareto_exact` to apply 3 suggestions)
+    Finished `release` profile [optimized] target(s) in 3.38s

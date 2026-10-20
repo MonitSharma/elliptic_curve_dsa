@@ -1,0 +1,59 @@
+TISSAT Tester for KISSAT
+
+Copyright (c) 2021-2024 Armin Biere University of Freiburg
+Copyright (c) 2019-2021 Armin Biere Johannes Kepler University Linz
+
+Version 4.0.4 8af8e56f174b778aef3aa45af9f739b2a5f492c2
+gcc (Ubuntu 15.2.0-16ubuntu1) 15.2.0 -W -Wall -O3 -DNDEBUG
+Wed Oct 21 05:49:18 +08 2026 Linux MONITSHARMAZYP3D 6.18.33.2-microsoft-standard-WSL2 x86_64
+
+Use '-h' to print usage (i.e., how to use patterns).
+Changed to '/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-sat-proof-tools-20261020/tool-repos/kissat/build' directory.
+Parallel execution using at most 2 processes (due to '-j2').
+Job execution progress reporting disabled (enable with '-p').
+
+Found '../test' directory (running test cases that need '../test' too).
+Did not find 'drabt' executable.
+Did not find 'drat-trim' executable.
+Did not find 'dpr-trim' executable.
+
+Install either 'drat-trim' or 'drabt' to check proofs too!
+
+No compression tests for non POSIX configuration.
+
+Scheduled 4 jobs through 'tissat_schedule_error'.
+Scheduled 1 jobs through 'tissat_schedule_utilities'.
+Scheduled 1 jobs through 'tissat_schedule_endianness'.
+Scheduled 3 jobs through 'tissat_schedule_ceil'.
+Scheduled 1 jobs through 'tissat_schedule_format'.
+Scheduled 2 jobs through 'tissat_schedule_references'.
+Scheduled 1 jobs through 'tissat_schedule_reluctant'.
+Scheduled 2 jobs through 'tissat_schedule_random'.
+Scheduled 1 jobs through 'tissat_schedule_queue'.
+Scheduled 3 jobs through 'tissat_schedule_allocate'.
+Scheduled 1 jobs through 'tissat_schedule_array'.
+Scheduled 2 jobs through 'tissat_schedule_stack'.
+Scheduled 1 jobs through 'tissat_schedule_fifo'.
+Scheduled 4 jobs through 'tissat_schedule_arena'.
+Scheduled 3 jobs through 'tissat_schedule_heap'.
+Scheduled 2 jobs through 'tissat_schedule_vector'.
+Scheduled 2 jobs through 'tissat_schedule_rank'.
+Scheduled 2 jobs through 'tissat_schedule_sort'.
+Scheduled 1 jobs through 'tissat_schedule_bump'.
+Scheduled 4 jobs through 'tissat_schedule_options'.
+Scheduled 2 jobs through 'tissat_schedule_config'.
+Scheduled 5 jobs through 'tissat_schedule_init'.
+Scheduled 1 jobs through 'tissat_schedule_add'.
+Scheduled 4 jobs through 'tissat_schedule_file'.
+Scheduled 2 jobs through 'tissat_schedule_parse'.
+Scheduled 46 jobs through 'tissat_schedule_usage'.
+Scheduled 6 jobs through 'tissat_schedule_main'.
+Scheduled 1 jobs through 'tissat_schedule_collect'.
+Scheduled 2 jobs through 'tissat_schedule_kitten'.
+Scheduled 714 jobs through 'tissat_schedule_solve'.
+Scheduled 45 jobs through 'tissat_schedule_coverage'.
+Scheduled 0 jobs through 'tissat_schedule_terminate'.
+
+Running 869 jobs in parallel using up to 2 processes.
+tissat: fatal error: child exited with '20' but expected signal '2' (SIGINT)
+tissat: unexpected signal: Caught signal '6' (SIGABRT) in function 'test_main_SIGINT'

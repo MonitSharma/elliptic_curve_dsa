@@ -1,0 +1,22 @@
+Traceback (most recent call last):
+  File "C:\Users\monitsharma\Downloads\elliptic_curve_dsa\experiments\autorun-20261020-breakthrough\solve-value-aig.py", line 13, in <module>
+    s=z3.Solver();s.set(timeout=60000);start=time.monotonic();s.from_file(str(r/'wrongpoint.cnf'));parse=time.monotonic()-start;start=time.monotonic();verdict=s.check();result={'status':str(verdict).upper()+'_FIXED_SOURCE_INPUT_CNF','z3_version':z3.get_version_string(),'parse_seconds':parse,'solver_seconds':time.monotonic()-start,'memory_limit_MiB':2048,'solver_timeout_ms':60000,'controls':controls,'statistics':str(s.statistics()),'reason_unknown':s.reason_unknown()if verdict==z3.unknown else None,'scope':'One frozen source/input only; UNSAT is a wrongpoint proof under the qualified exact Boolean encoding, SAT/UNKNOWN inconclusive. No quantum resource result, no nonce screened/rejected, not a general failure model.'};(r/'SOLVER-WORKER-RESULT.json').write_text(json.dumps(result,indent=2)+'\n')
+                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\monitsharma\Downloads\elliptic_curve_dsa\.venv-research\Lib\site-packages\z3\z3.py", line 7869, in from_file
+    Z3_solver_from_file(self.ctx.ref(), self.solver, filename)
+  File "C:\Users\monitsharma\Downloads\elliptic_curve_dsa\.venv-research\Lib\site-packages\z3\z3core.py", line 4339, in Z3_solver_from_file
+    _elems.Check(a0)
+  File "C:\Users\monitsharma\Downloads\elliptic_curve_dsa\.venv-research\Lib\site-packages\z3\z3core.py", line 1629, in Check
+    raise self.Exception(self.get_error_message(ctx, err))
+z3.z3types.Z3Exception: b'out of memory'
+Traceback (most recent call last):
+  File "C:\Users\monitsharma\Downloads\elliptic_curve_dsa\experiments\autorun-20261020-breakthrough\solve-value-aig.py", line 13, in <module>
+    s=z3.Solver();s.set(timeout=60000);start=time.monotonic();s.from_file(str(r/'wrongpoint.cnf'));parse=time.monotonic()-start;start=time.monotonic();verdict=s.check();result={'status':str(verdict).upper()+'_FIXED_SOURCE_INPUT_CNF','z3_version':z3.get_version_string(),'parse_seconds':parse,'solver_seconds':time.monotonic()-start,'memory_limit_MiB':2048,'solver_timeout_ms':60000,'controls':controls,'statistics':str(s.statistics()),'reason_unknown':s.reason_unknown()if verdict==z3.unknown else None,'scope':'One frozen source/input only; UNSAT is a wrongpoint proof under the qualified exact Boolean encoding, SAT/UNKNOWN inconclusive. No quantum resource result, no nonce screened/rejected, not a general failure model.'};(r/'SOLVER-WORKER-RESULT.json').write_text(json.dumps(result,indent=2)+'\n')
+                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\monitsharma\Downloads\elliptic_curve_dsa\.venv-research\Lib\site-packages\z3\z3.py", line 7869, in from_file
+    Z3_solver_from_file(self.ctx.ref(), self.solver, filename)
+  File "C:\Users\monitsharma\Downloads\elliptic_curve_dsa\.venv-research\Lib\site-packages\z3\z3core.py", line 4339, in Z3_solver_from_file
+    _elems.Check(a0)
+  File "C:\Users\monitsharma\Downloads\elliptic_curve_dsa\.venv-research\Lib\site-packages\z3\z3core.py", line 1629, in Check
+    raise self.Exception(self.get_error_message(ctx, err))
+z3.z3types.Z3Exception: b'out of memory'

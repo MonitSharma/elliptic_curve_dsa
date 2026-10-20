@@ -1,0 +1,105 @@
+{
+  "abstract_audit": {
+    "arbitrary_registered_initial_inputs": "allzero/allone/six fixed-label pseudorandom64lane inputs, helperszero; no curve correctness claim",
+    "cases": [
+      {
+        "abstract_seconds": 0.024668334,
+        "case": 0,
+        "known_output_bits": 0,
+        "protected_concrete_rng_patterns": 3,
+        "total_output_bits": 32768
+      },
+      {
+        "abstract_seconds": 0.020560499,
+        "case": 1,
+        "known_output_bits": 0,
+        "protected_concrete_rng_patterns": 3,
+        "total_output_bits": 32768
+      },
+      {
+        "abstract_seconds": 0.022607488,
+        "case": 2,
+        "known_output_bits": 0,
+        "protected_concrete_rng_patterns": 3,
+        "total_output_bits": 32768
+      },
+      {
+        "abstract_seconds": 0.021706812,
+        "case": 3,
+        "known_output_bits": 0,
+        "protected_concrete_rng_patterns": 3,
+        "total_output_bits": 32768
+      },
+      {
+        "abstract_seconds": 0.021116786,
+        "case": 4,
+        "known_output_bits": 0,
+        "protected_concrete_rng_patterns": 3,
+        "total_output_bits": 32768
+      },
+      {
+        "abstract_seconds": 0.022439238,
+        "case": 5,
+        "known_output_bits": 0,
+        "protected_concrete_rng_patterns": 3,
+        "total_output_bits": 32768
+      },
+      {
+        "abstract_seconds": 0.023303207,
+        "case": 6,
+        "known_output_bits": 0,
+        "protected_concrete_rng_patterns": 3,
+        "total_output_bits": 32768
+      },
+      {
+        "abstract_seconds": 0.025340144,
+        "case": 7,
+        "known_output_bits": 0,
+        "protected_concrete_rng_patterns": 3,
+        "total_output_bits": 32768
+      }
+    ],
+    "label": "value-guard-fusion-source-audit-20261020-v1",
+    "nonce_screens": 0,
+    "protected_fullstream_comparisons": 24,
+    "scope": "Three-valued overapproximation of all measurement outcomes, verified against full protected finalpoint values for three concrete RNG patterns per case. Only known output bits can support separately qualified wrongpoint witnesses; no acceptance or phase/dirty certificate. Audit inputs are not challenge packets or a statistical failure gate. No scored counts or submitted quantum circuit."
+  },
+  "captured_guard_rows": 619077,
+  "certified_global_zero_resets": 862907,
+  "classical_ssa_versions": 632205,
+  "curve_audit": {
+    "Boolean_nodes": 3881075,
+    "build_seconds": 0.550112193,
+    "cnf_clauses": 12016490,
+    "cnf_variables": 3134968,
+    "constant_wrong_bits": 0,
+    "fixture": {
+      "batch": 0,
+      "k1": "0x9256d891926a48be975519fcae64b39a5618f4962b5b213145f6e7af25669f80",
+      "k2": "0x87a7991c7cdc0b66b93b957fccb3e4fde71ed9051113e5eddb8ba15bf48dbca3",
+      "lane": 34
+    },
+    "nonce_screens": 0,
+    "protected_fullstream_comparisons": 3,
+    "scope": "CNF is exact frozen source value model on one preserved failing input, with all original RNG bits existential. SAT means inconclusive; UNSAT would certify wrong point on this input only. No sampling-based rejection, no nonce selected/rejected or gate rerun.",
+    "status": "EXACT_FIXED_SOURCE_INPUT_BOOLEAN_CNF_EXPORTED_NOT_YET_SOLVED"
+  },
+  "exact_implication_cache_entries": 1531,
+  "final_value_nodes": 7963710,
+  "guard_boolean_nodes": 956396,
+  "initial_value_nodes": 11342448,
+  "live_random_measurement_definitions": 23025,
+  "original_operations": 11718208,
+  "original_rng_words": 867553,
+  "outputs": 512,
+  "remaining_value_ccx_nodes": 794128,
+  "rounds": [
+    [
+      1485357,
+      1893381,
+      7963710
+    ]
+  ],
+  "scope": "Captured SSA guard clauses and guarded-write dominance certify resets as globally zero under helper-zero initial state. Values-only IR liveness and read/write-commuting equal-guard self-inverse cancellation. Phase deliberately omitted, so IR counts are NEVER quantum resource scores. No nonce rejected or candidate changed; full protected qualification required before any future rejection filter.",
+  "status": "VERIFICATION_ONLY_VALUE_IR_AUDIT_NOT_A_QUANTUM_CANDIDATE_OR_NONCE_SCREEN"
+}

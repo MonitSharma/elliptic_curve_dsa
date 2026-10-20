@@ -1,3 +1,55 @@
+## 21 October 2026: complete local product development; exact proof research
+
+Fresh21:49UTC1716publicrecords unchanged: our officialde8 Q1464/T746114 remains
+independentT minimum; globalproduct1829 Q1234/T755314/932057476, width669/1df8.
+Global product goal ACTIVE. No new benchmark, finalgate, nonce or submission.
+
+Portable local public1829 exactworkspace gridV4 complete, native9PASS, public
+stream16567 byteexact. FailedV2 variants stopped at protected source-table hash
+checks because clear_process_env removed the selector; original failures saved.
+V4 passes explicitbool, never changes/disables bindings; publicfalse path exact.
+IntermediateV3 adapter setup stopped before native/input tests; preserved.
+Fresh existingwire context proofs native9PASS:115leases atQ1234,114atQ1233,
+zero added wires; old public tables never transported. Lifetime/color read-only
+audit finds no extra width gain on any of the3streams, not an emitted candidate.
+
+Actual development public1829-workspace-cache-local-avx2-development-20261020-v1,
+512x64/source,2workers/8fullprotected scalarbatches each: parent755308.7080383301,
+cachedQ1234 755341.0234680176, cachedQ1233 756053.1765136719. DIAGNOSTIC means,
+NOT scores. Bothnoncompetitive; Q1233needs <=755926.5823195,~126.6T lower.
+All54valuefail shots sameIDs/dirty0; phase42/40/41; failedbatches63/65/63;
+Q1233 has18target differences ONLY on jointlybad values, nootherregisterdiff.
+No finalgate/nonce/benchmark/upload for theseprototypes. Preserve every mismatch.
+LocalAVX512 predecessor NOTLAUNCHED (host12700K hasAVX2/noAVX512 andnoremote libs).
+PortableAVX2 twohalves/eightword ABI passes3072basis/RNGlanes with EVERY protected
+wire/bit/phase/RNG/T; originalcompactcontrol alsoPASS. Protected Rust curve/SHAKE
+replace externalserverlibraries. All17protected bytes unchanged.
+
+Guardfusion native20/24wholevalue controlsPASS,321rounds reduce liveRNG to5690;
+no knownoutputbits on8arbitraryfixtures. New validcurve audit native21 and120
+wholeprotected comparisons passes,32fixed64shot validcurve fixtures also zero
+knownbits. BoundedANFv3 native24/30controls finishes~8.49mmonomials, no certificate;
+earlier2m/8m budget misses preserved. Same128oldfailure fixtures wrongunderall3
+patterns and EVERY sampledoutputbit invariant; sample invariance isNOTa proof.
+
+ExactscalarBoolean AIG on FIRST frozen oldfailure:3881075nodes,3134968CNFvars,
+12016490clauses;0.550112193secbuild. Native23/27wholeprotected controlsPASS;
+actual signedCNF encoder additionally exhaustive24native controls. Z3parse2GiB
+limit hitsOOM, INCONCLUSIVE; no wrongpoint certificate ornonce use. Isolated
+officialKissat/DRATsources frozen witharchives/wholehashes. Fullsuitefailures
+rootpermissions andtoo-fastSIGINTtiming retained, never claimedpass. Solving/
+kitten716tests PASS; DRATstrictC99build failed missing_DEFAULT_SOURCE, separate
+V5 compilesunchanged checkerwiththatfeaturemacro. Require independent valid/
+invalidproof controls and VERIFIED DRAT before any proofclaim. Source/input
+unchanged, no gateverdict rerun. V5 early detachedWSL launch died BEFORE any
+freeze/computation; Windows hiddenforeground WSLclient23564 nowholdsjobalive.
+Use a foregroundclient forfuture local longjobs; detachedWSL shell mayterminate.
+
+SSH smu_server remains unreachable; remoteBoolean audit3143340 lastnative17PASS,
+finalstatus unknown. No remotejob stopped orrestarted. Chemistry untouched.
+Defaultbranchpush remains blocked byautomaticapprovalreview pending explicit
+approval; no bypass. Allowned evidence savedlocally, user edits preserved.
+
 ## 21 October 2026: local research continues through server outage
 
 Official de8bac6a Q1464/T746114 remains the latest verified result in our

@@ -1,0 +1,165 @@
+{
+  "status": "DEVELOPMENT_COMPARISON_COMPLETE_PRESERVE_ALL_MISMATCHES",
+  "label": "public1829-workspace-cache-local-avx2-development-20261020-v1",
+  "batches": 512,
+  "summaries": {
+    "public1829": {
+      "value_shots": 54,
+      "phase_shots": 42,
+      "dirty_shots": 0,
+      "failed_batches": 63,
+      "mean_executed_stream_toffoli": 755308.7080383301,
+      "rows_sha256": "a6568e5c4a6e0000e30f5307de4a1733ab484fb5cd0d26575052f373ffadc7c1"
+    },
+    "cap1234": {
+      "value_shots": 54,
+      "phase_shots": 40,
+      "dirty_shots": 0,
+      "failed_batches": 65,
+      "mean_executed_stream_toffoli": 755341.0234680176,
+      "rows_sha256": "c39edc1d68e5bf707dd36e2a2b2e732be9fdae05071dd67a813c5c5c4ca40d38"
+    },
+    "cap1233": {
+      "value_shots": 54,
+      "phase_shots": 41,
+      "dirty_shots": 0,
+      "failed_batches": 63,
+      "mean_executed_stream_toffoli": 756053.1765136719,
+      "rows_sha256": "ec1a1b47fbb712616092619350799f06bdec1fc587f7f5ee29a62b5c7492cdc0"
+    }
+  },
+  "comparisons": {
+    "cap1234": {
+      "candidate_minus_parent_raw_toffoli": 32.3154296875,
+      "paired_standard_error": 4.417194283623287,
+      "new_failed_batches": 5,
+      "new_passing_batches": 3,
+      "new_value_failing_shots": [],
+      "new_value_passing_shots": [],
+      "different_target_lanes": [],
+      "different_other_lanes": [],
+      "target_differences_confined_to_both_value_failing": true
+    },
+    "cap1233": {
+      "candidate_minus_parent_raw_toffoli": 744.4684753417969,
+      "paired_standard_error": 4.5678521926316815,
+      "new_failed_batches": 4,
+      "new_passing_batches": 4,
+      "new_value_failing_shots": [],
+      "new_value_passing_shots": [],
+      "different_target_lanes": [
+        {
+          "batch": 25,
+          "lane": 49,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 59,
+          "lane": 37,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 89,
+          "lane": 36,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 105,
+          "lane": 32,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 112,
+          "lane": 54,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 147,
+          "lane": 8,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 156,
+          "lane": 10,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 174,
+          "lane": 54,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 198,
+          "lane": 25,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 296,
+          "lane": 47,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 304,
+          "lane": 58,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 363,
+          "lane": 33,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 377,
+          "lane": 2,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 416,
+          "lane": 47,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 493,
+          "lane": 63,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 500,
+          "lane": 12,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 502,
+          "lane": 24,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 502,
+          "lane": 30,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        }
+      ],
+      "different_other_lanes": [],
+      "target_differences_confined_to_both_value_failing": true
+    }
+  },
+  "scope": "Fresh full-output actual-resource DEVELOPMENT only on all3 fixed newpublic/cache streams. Native9constructor and9freshcontext proof controls passed before inputs. Public16567 exact, protected17 unchanged. Preserve every mismatch/value/phase/dirty outcome. No finished source, finalgate, nonce or quantum record. Portable AVX2 kernel with explicit opcode/guard/RNG/phase/T exhaustive-basis control; all field arithmetic and SHAKE now protected Rust routines, no server shared libraries. Prepared AVX512 predecessor never launched or consumed inputs."
+}

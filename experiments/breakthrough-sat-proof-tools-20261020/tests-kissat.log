@@ -1,0 +1,305 @@
+make -C "/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-sat-proof-tools-20261020/tool-repos/kissat/build" test
+make[1]: Entering directory '/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-sat-proof-tools-20261020/tool-repos/kissat/build'
+../scripts/generate-build-header.sh > build.h
+gcc -W -Wall -O3 -DNDEBUG -c ../test/testadd.c
+gcc -W -Wall -O3 -DNDEBUG -c ../test/testallocate.c
+gcc -W -Wall -O3 -DNDEBUG -c ../test/testapplication.c
+gcc -W -Wall -O3 -DNDEBUG -c ../test/testarena.c
+gcc -W -Wall -O3 -DNDEBUG -c ../test/testarray.c
+gcc -W -Wall -O3 -DNDEBUG -c ../test/testbump.c
+gcc -W -Wall -O3 -DNDEBUG -c ../test/testceil.c
+gcc -W -Wall -O3 -DNDEBUG -c ../test/testcollect.c
+gcc -W -Wall -O3 -DNDEBUG -c ../test/testconfig.c
+gcc -W -Wall -O3 -DNDEBUG -c ../test/testcoverage.c
+gcc -W -Wall -O3 -DNDEBUG -c ../test/testdivert.c
+gcc -W -Wall -O3 -DNDEBUG -c ../test/testdump.c
+gcc -W -Wall -O3 -DNDEBUG -c ../test/testendianness.c
+gcc -W -Wall -O3 -DNDEBUG -c ../test/testerror.c
+gcc -W -Wall -O3 -DNDEBUG -c ../test/testfifo.c
+gcc -W -Wall -O3 -DNDEBUG -c ../test/testfile.c
+gcc -W -Wall -O3 -DNDEBUG -c ../test/testformat.c
+../test/testfile.c: In function ‘test_file_readable’:
+../test/testfile.c:43:22: warning: ‘~’ on a boolean expression [-Wbool-operation]
+   43 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:53:3: note: in expansion of macro ‘READABLE’
+   53 |   READABLE (false, "non-existing-file");
+      |   ^~~~~~~~
+../test/testfile.c:43:22: note: did you mean to use logical not?
+   43 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:53:3: note: in expansion of macro ‘READABLE’
+   53 |   READABLE (false, "non-existing-file");
+      |   ^~~~~~~~
+../test/testfile.c:43:22: warning: ‘~’ on a boolean expression [-Wbool-operation]
+   43 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:54:3: note: in expansion of macro ‘READABLE’
+   54 |   READABLE (true, "tissat");
+      |   ^~~~~~~~
+../test/testfile.c:43:22: note: did you mean to use logical not?
+   43 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:54:3: note: in expansion of macro ‘READABLE’
+   54 |   READABLE (true, "tissat");
+      |   ^~~~~~~~
+../test/testfile.c:43:22: warning: ‘~’ on a boolean expression [-Wbool-operation]
+   43 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:55:3: note: in expansion of macro ‘READABLE’
+   55 |   READABLE (true, ".");
+      |   ^~~~~~~~
+../test/testfile.c:43:22: note: did you mean to use logical not?
+   43 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:55:3: note: in expansion of macro ‘READABLE’
+   55 |   READABLE (true, ".");
+      |   ^~~~~~~~
+../test/testfile.c:43:22: warning: ‘~’ on a boolean expression [-Wbool-operation]
+   43 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:57:5: note: in expansion of macro ‘READABLE’
+   57 |     READABLE (false, "/etc/shadow");
+      |     ^~~~~~~~
+../test/testfile.c:43:22: note: did you mean to use logical not?
+   43 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:57:5: note: in expansion of macro ‘READABLE’
+   57 |     READABLE (false, "/etc/shadow");
+      |     ^~~~~~~~
+../test/testfile.c:43:22: warning: ‘~’ on a boolean expression [-Wbool-operation]
+   43 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:59:5: note: in expansion of macro ‘READABLE’
+   59 |     READABLE (true, "/dev/null");
+      |     ^~~~~~~~
+../test/testfile.c:43:22: note: did you mean to use logical not?
+   43 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:59:5: note: in expansion of macro ‘READABLE’
+   59 |     READABLE (true, "/dev/null");
+      |     ^~~~~~~~
+../test/testfile.c: In function ‘test_file_writable’:
+../test/testfile.c:69:22: warning: ‘~’ on a boolean expression [-Wbool-operation]
+   69 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:79:3: note: in expansion of macro ‘WRITABLE’
+   79 |   WRITABLE (true, "../test/file/writable");
+      |   ^~~~~~~~
+../test/testfile.c:69:22: note: did you mean to use logical not?
+   69 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:79:3: note: in expansion of macro ‘WRITABLE’
+   79 |   WRITABLE (true, "../test/file/writable");
+      |   ^~~~~~~~
+../test/testfile.c:69:22: warning: ‘~’ on a boolean expression [-Wbool-operation]
+   69 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:81:5: note: in expansion of macro ‘WRITABLE’
+   81 |     WRITABLE (true, "/dev/null");
+      |     ^~~~~~~~
+../test/testfile.c:69:22: note: did you mean to use logical not?
+   69 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:81:5: note: in expansion of macro ‘WRITABLE’
+   81 |     WRITABLE (true, "/dev/null");
+      |     ^~~~~~~~
+../test/testfile.c:69:22: warning: ‘~’ on a boolean expression [-Wbool-operation]
+   69 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:82:3: note: in expansion of macro ‘WRITABLE’
+   82 |   WRITABLE (false, "");
+      |   ^~~~~~~~
+../test/testfile.c:69:22: note: did you mean to use logical not?
+   69 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:82:3: note: in expansion of macro ‘WRITABLE’
+   82 |   WRITABLE (false, "");
+      |   ^~~~~~~~
+../test/testfile.c:69:22: warning: ‘~’ on a boolean expression [-Wbool-operation]
+   69 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:83:3: note: in expansion of macro ‘WRITABLE’
+   83 |   WRITABLE (true, "non-existing-file");
+      |   ^~~~~~~~
+../test/testfile.c:69:22: note: did you mean to use logical not?
+   69 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:83:3: note: in expansion of macro ‘WRITABLE’
+   83 |   WRITABLE (true, "non-existing-file");
+      |   ^~~~~~~~
+../test/testfile.c:69:22: warning: ‘~’ on a boolean expression [-Wbool-operation]
+   69 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:84:3: note: in expansion of macro ‘WRITABLE’
+   84 |   WRITABLE (false, ".");
+      |   ^~~~~~~~
+../test/testfile.c:69:22: note: did you mean to use logical not?
+   69 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:84:3: note: in expansion of macro ‘WRITABLE’
+   84 |   WRITABLE (false, ".");
+      |   ^~~~~~~~
+../test/testfile.c:69:22: warning: ‘~’ on a boolean expression [-Wbool-operation]
+   69 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:85:3: note: in expansion of macro ‘WRITABLE’
+   85 |   WRITABLE (false, "/");
+      |   ^~~~~~~~
+../test/testfile.c:69:22: note: did you mean to use logical not?
+   69 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:85:3: note: in expansion of macro ‘WRITABLE’
+   85 |   WRITABLE (false, "/");
+      |   ^~~~~~~~
+../test/testfile.c:69:22: warning: ‘~’ on a boolean expression [-Wbool-operation]
+   69 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:86:3: note: in expansion of macro ‘WRITABLE’
+   86 |   WRITABLE (false, "tissat/test");
+      |   ^~~~~~~~
+../test/testfile.c:69:22: note: did you mean to use logical not?
+   69 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:86:3: note: in expansion of macro ‘WRITABLE’
+   86 |   WRITABLE (false, "tissat/test");
+      |   ^~~~~~~~
+../test/testfile.c:69:22: warning: ‘~’ on a boolean expression [-Wbool-operation]
+   69 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:87:3: note: in expansion of macro ‘WRITABLE’
+   87 |   WRITABLE (true, "../test/file/non-existing");
+      |   ^~~~~~~~
+../test/testfile.c:69:22: note: did you mean to use logical not?
+   69 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:87:3: note: in expansion of macro ‘WRITABLE’
+   87 |   WRITABLE (true, "../test/file/non-existing");
+      |   ^~~~~~~~
+../test/testfile.c:69:22: warning: ‘~’ on a boolean expression [-Wbool-operation]
+   69 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:88:3: note: in expansion of macro ‘WRITABLE’
+   88 |   WRITABLE (false, "/kissat-test-file-writable");
+      |   ^~~~~~~~
+../test/testfile.c:69:22: note: did you mean to use logical not?
+   69 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:88:3: note: in expansion of macro ‘WRITABLE’
+   88 |   WRITABLE (false, "/kissat-test-file-writable");
+      |   ^~~~~~~~
+../test/testfile.c:69:22: warning: ‘~’ on a boolean expression [-Wbool-operation]
+   69 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:89:3: note: in expansion of macro ‘WRITABLE’
+   89 |   WRITABLE (false, "non-existing-directory/file-in-non-existing-directory");
+      |   ^~~~~~~~
+../test/testfile.c:69:22: note: did you mean to use logical not?
+   69 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:89:3: note: in expansion of macro ‘WRITABLE’
+   89 |   WRITABLE (false, "non-existing-directory/file-in-non-existing-directory");
+      |   ^~~~~~~~
+../test/testfile.c:69:22: warning: ‘~’ on a boolean expression [-Wbool-operation]
+   69 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:91:5: note: in expansion of macro ‘WRITABLE’
+   91 |     WRITABLE (false, "/etc/passwd");
+      |     ^~~~~~~~
+../test/testfile.c:69:22: note: did you mean to use logical not?
+   69 |     else if (!RES && ~EXPECTED) \
+      |                      ^
+../test/testfile.c:91:5: note: in expansion of macro ‘WRITABLE’
+   91 |     WRITABLE (false, "/etc/passwd");
+      |     ^~~~~~~~
+gcc -W -Wall -O3 -DNDEBUG -c ../test/testheap.c
+gcc -W -Wall -O3 -DNDEBUG -c ../test/testinit.c
+gcc -W -Wall -O3 -DNDEBUG -c ../test/testkitten.c
+gcc -W -Wall -O3 -DNDEBUG -c ../test/testmain.c
+gcc -W -Wall -O3 -DNDEBUG -c ../test/testmessages.c
+gcc -W -Wall -O3 -DNDEBUG -c ../test/testoptions.c
+gcc -W -Wall -O3 -DNDEBUG -c ../test/testparse.c
+gcc -W -Wall -O3 -DNDEBUG -c ../test/testprove.c
+gcc -W -Wall -O3 -DNDEBUG -c ../test/testqueue.c
+gcc -W -Wall -O3 -DNDEBUG -c ../test/testrandom.c
+gcc -W -Wall -O3 -DNDEBUG -c ../test/testrank.c
+gcc -W -Wall -O3 -DNDEBUG -c ../test/testreferences.c
+gcc -W -Wall -O3 -DNDEBUG -c ../test/testreluctant.c
+gcc -W -Wall -O3 -DNDEBUG -c ../test/testscheduler.c
+gcc -W -Wall -O3 -DNDEBUG -c ../test/testsizes.c
+gcc -W -Wall -O3 -DNDEBUG -c ../test/testsolve.c
+gcc -W -Wall -O3 -DNDEBUG -c ../test/testsort.c
+gcc -W -Wall -O3 -DNDEBUG -c ../test/teststack.c
+gcc -W -Wall -O3 -DNDEBUG -c ../test/testterminate.c
+gcc -W -Wall -O3 -DNDEBUG -c ../test/testusage.c
+gcc -W -Wall -O3 -DNDEBUG -c ../test/testutilities.c
+gcc -W -Wall -O3 -DNDEBUG -c ../test/testvector.c
+gcc -W -Wall -O3 -DNDEBUG -I../build -c ../src/build.c
+gcc -W -Wall -O3 -DNDEBUG -I../build -c ../test/test.c
+ar rc libkissat.a allocate.o analyze.o ands.o arena.o assign.o averages.o backbone.o backtrack.o build.o bump.o check.o classify.o clause.o collect.o colors.o compact.o config.o congruence.o decide.o deduce.o definition.o dense.o dump.o eliminate.o equivalences.o error.o extend.o factor.o fastel.o file.o flags.o format.o forward.o gates.o heap.o ifthenelse.o import.o internal.o kimits.o kitten.o krite.o learn.o logging.o lucky.o minimize.o mode.o options.o phases.o preprocess.o print.o probe.o profile.o promote.o proof.o propbeyond.o propdense.o propinitially.o proprobe.o propsearch.o queue.o reduce.o reluctant.o reorder.o rephase.o report.o resize.o resolve.o resources.o restart.o search.o shrink.o smooth.o sort.o statistics.o strengthen.o substitute.o sweep.o terminate.o tiers.o trail.o transitive.o utilities.o vector.o vivify.o walk.o warmup.o watch.o weaken.o
+gcc -o kissat main.o application.o handle.o parse.o witness.o libkissat.a -lm
+gcc -o tissat test.o application.o handle.o parse.o witness.o testadd.o testallocate.o testapplication.o testarena.o testarray.o testbump.o testceil.o testcollect.o testconfig.o testcoverage.o testdivert.o testdump.o testendianness.o testerror.o testfifo.o testfile.o testformat.o testheap.o testinit.o testkitten.o testmain.o testmessages.o testoptions.o testparse.o testprove.o testqueue.o testrandom.o testrank.o testreferences.o testreluctant.o testscheduler.o testsizes.o testsolve.o testsort.o teststack.o testterminate.o testusage.o testutilities.o testvector.o libkissat.a -lm
+./tissat
+TISSAT Tester for KISSAT
+
+Copyright (c) 2021-2024 Armin Biere University of Freiburg
+Copyright (c) 2019-2021 Armin Biere Johannes Kepler University Linz
+
+Version 4.0.4 8af8e56f174b778aef3aa45af9f739b2a5f492c2
+gcc (Ubuntu 15.2.0-16ubuntu1) 15.2.0 -W -Wall -O3 -DNDEBUG
+Wed Oct 21 05:49:18 +08 2026 Linux MONITSHARMAZYP3D 6.18.33.2-microsoft-standard-WSL2 x86_64
+
+Use '-h' to print usage (i.e., how to use patterns).
+Changed to '/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-sat-proof-tools-20261020/tool-repos/kissat/build' directory.
+Parallel execution using at most 20 processes (by default).
+Job execution progress reporting disabled (enable with '-p').
+
+Found '../test' directory (running test cases that need '../test' too).
+Did not find 'drabt' executable.
+Did not find 'drat-trim' executable.
+Did not find 'dpr-trim' executable.
+
+Install either 'drat-trim' or 'drabt' to check proofs too!
+
+No compression tests for non POSIX configuration.
+
+Scheduled 4 jobs through 'tissat_schedule_error'.
+Scheduled 1 jobs through 'tissat_schedule_utilities'.
+Scheduled 1 jobs through 'tissat_schedule_endianness'.
+Scheduled 3 jobs through 'tissat_schedule_ceil'.
+Scheduled 1 jobs through 'tissat_schedule_format'.
+Scheduled 2 jobs through 'tissat_schedule_references'.
+Scheduled 1 jobs through 'tissat_schedule_reluctant'.
+Scheduled 2 jobs through 'tissat_schedule_random'.
+Scheduled 1 jobs through 'tissat_schedule_queue'.
+Scheduled 3 jobs through 'tissat_schedule_allocate'.
+Scheduled 1 jobs through 'tissat_schedule_array'.
+Scheduled 2 jobs through 'tissat_schedule_stack'.
+Scheduled 1 jobs through 'tissat_schedule_fifo'.
+Scheduled 4 jobs through 'tissat_schedule_arena'.
+Scheduled 3 jobs through 'tissat_schedule_heap'.
+Scheduled 2 jobs through 'tissat_schedule_vector'.
+Scheduled 2 jobs through 'tissat_schedule_rank'.
+Scheduled 2 jobs through 'tissat_schedule_sort'.
+Scheduled 1 jobs through 'tissat_schedule_bump'.
+Scheduled 4 jobs through 'tissat_schedule_options'.
+Scheduled 2 jobs through 'tissat_schedule_config'.
+Scheduled 5 jobs through 'tissat_schedule_init'.
+Scheduled 1 jobs through 'tissat_schedule_add'.
+Scheduled 4 jobs through 'tissat_schedule_file'.
+Scheduled 2 jobs through 'tissat_schedule_parse'.
+Scheduled 46 jobs through 'tissat_schedule_usage'.
+Scheduled 6 jobs through 'tissat_schedule_main'.
+Scheduled 1 jobs through 'tissat_schedule_collect'.
+Scheduled 2 jobs through 'tissat_schedule_kitten'.
+Scheduled 714 jobs through 'tissat_schedule_solve'.
+Scheduled 45 jobs through 'tissat_schedule_coverage'.
+Scheduled 0 jobs through 'tissat_schedule_terminate'.
+
+Running 869 jobs in parallel using up to 20 processes.
+tissat: fatal error: file '/etc/shadow' determined to be readable unexpectedly
+tissat: tissat: unexpected signalfatal error: Caught signal '6' (SIGABRT) : in function 'test_file_readable'
+file '/etc/passwd' determined to be writable unexpectedly
+make[1]: *** [makefile:31: test] Error 1
+make[1]: Leaving directory '/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-sat-proof-tools-20261020/tool-repos/kissat/build'
+make: *** [makefile:17: test] Error 2
