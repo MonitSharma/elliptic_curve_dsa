@@ -1,0 +1,56 @@
+{
+  "status": "DEVELOPMENT_COMPARISON_COMPLETE_PRESERVE_ALL_MISMATCHES",
+  "label": "public-e3-cache-live-development-20261020-v1",
+  "batches": 512,
+  "summaries": {
+    "publice3": {
+      "value_shots": 56,
+      "phase_shots": 36,
+      "dirty_shots": 0,
+      "failed_batches": 61,
+      "mean_executed_stream_toffoli": 756478.1940307617,
+      "rows_sha256": "d4550c92f93d85ad754430c3a4f28d4e9813a1e6197eaef218fdb2c158c87310"
+    },
+    "cache1234": {
+      "value_shots": 56,
+      "phase_shots": 34,
+      "dirty_shots": 0,
+      "failed_batches": 61,
+      "mean_executed_stream_toffoli": 756422.6255493164,
+      "rows_sha256": "703ca452d181c31ed619863de237ea6c4f82fed10e9f67a8183f1b896bca4087"
+    },
+    "live1234": {
+      "value_shots": 56,
+      "phase_shots": 34,
+      "dirty_shots": 0,
+      "failed_batches": 61,
+      "mean_executed_stream_toffoli": 756421.6264038086,
+      "rows_sha256": "2f030cd901fa09ba0d6322999737c3b5b678ccfd63762e01a18a67b8fb34ca0a"
+    }
+  },
+  "comparisons": {
+    "cache1234": {
+      "candidate_minus_parent_raw_toffoli": -55.5684814453125,
+      "paired_standard_error": 3.3274783901729394,
+      "new_failed_batches": 2,
+      "new_passing_batches": 2,
+      "new_value_failing_shots": [],
+      "new_value_passing_shots": [],
+      "different_target_lanes": [],
+      "different_other_lanes": [],
+      "target_differences_confined_to_both_value_failing": true
+    },
+    "live1234": {
+      "candidate_minus_parent_raw_toffoli": -56.567626953125,
+      "paired_standard_error": 3.3274849916194724,
+      "new_failed_batches": 2,
+      "new_passing_batches": 2,
+      "new_value_failing_shots": [],
+      "new_value_passing_shots": [],
+      "different_target_lanes": [],
+      "different_other_lanes": [],
+      "target_differences_confined_to_both_value_failing": true
+    }
+  },
+  "scope": "Fresh full-output development512x64/source, fixed completepublice3 plus53 exactexisting-wire cacheleases vs exactpublice3. Preserve all output/value/phase/dirty mismatches. Not final-gated, nonce-screened, benchmarked or scored."
+}

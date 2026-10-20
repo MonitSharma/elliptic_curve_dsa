@@ -1,0 +1,1214 @@
+diff --git a/src/point_add/exact_native_port.rs b/src/point_add/exact_native_port.rs
+new file mode 100644
+index 00000000..f27ebb58
+--- /dev/null
++++ b/src/point_add/exact_native_port.rs
+@@ -0,0 +1,2 @@
++use crate::circuit::{Op,OperationType,QubitId};
++pub(super)fn run(ops:Vec<Op>)->Vec<Op>{super::break_profile::save_ops("raw.ops.bin",&ops);let mut ops=super::breakthrough_generic::run(ops);for _ in 0..96{let mut o=Op::empty();o.kind=OperationType::X;o.q_target=QubitId(0);o.validate();ops.push(o);}ops}
+diff --git a/src/point_add/leapfrog.rs b/src/point_add/leapfrog.rs
+index 4d347770..5b9e45f0 100755
+--- a/src/point_add/leapfrog.rs
++++ b/src/point_add/leapfrog.rs
+@@ -547,6 +547,65 @@ thread_local! {
+     static Y28_HOOK: std::cell::Cell<Option<(usize, crate::circuit::BitId)>> = const { std::cell::Cell::new(None) };
+     /// (kept, applied) in this divide
+     static Y28_COUNT: std::cell::Cell<(usize, usize)> = const { std::cell::Cell::new((0, 0)) };
++    /// rail-strip R1: request / ladder flag / applied flag for the choice add's effective carry
++    static R1_REQ: std::cell::Cell<u8> = const { std::cell::Cell::new(0) };
++    static R1_LADDER: std::cell::Cell<u8> = const { std::cell::Cell::new(0) };
++    static R1_DONE: std::cell::Cell<bool> = const { std::cell::Cell::new(false) };
++    /// rail-strip: the R1 garbage form L = b1 ^ s3 handed to the next strip barrel
++    static SB_SP: std::cell::Cell<Option<(QubitId, QubitId)>> = const { std::cell::Cell::new(None) };
++    /// rail-strip EXT: next carry_out_xor's first carry: 1 = a0 ^ b0 (forward split under R1), 2 = b0 (reverse split)
++    static CMP_MODE: std::cell::Cell<u8> = const { std::cell::Cell::new(0) };
++}
++
++include!("strip_barrel.rs");
++include!("strip_small.rs");
++
++fn r1_on() -> bool {
++    !std::env::var("LF_R1").is_ok_and(|v| v == "0")
++}
++/// The kept bit's boundary waiting for the step now running, if any (y28_fetch without taking it).
++fn y28_peek_delta() -> Option<usize> {
++    if !y28_pending() {
++        return None;
++    }
++    let key = Y28_KEY.with(|k| k.get());
++    Y28_BITS.with(|b| b.borrow().get(&key).map(|v| v.0))
++}
++/// Will the reverse choice subtract (n wires, `room` free when it runs) take R1? Mirrors rail_add / capped_add.
++fn r1_rev_predict(n: usize, room: usize, pend: Option<usize>) -> bool {
++    if let Some(d) = pend {
++        return d >= 4 && n >= 3 && !std::env::var("LF_R1Y28").is_ok_and(|v| v == "0"); // the mirrored subtract is one whole ladder
++    }
++    if n <= 3 {
++        return false;
++    }
++    let off = std::env::var("LF_RAIL_SPLIT").is_ok_and(|v| v == "0");
++    let st = split_tight() as usize;
++    let deep = rail_capped() && !off && n - 3 > room && {
++        let delta = (n - room).saturating_sub(st);
++        delta + 3 > room || delta + 1 >= n
++    };
++    if deep {
++        return false;
++    }
++    if off || n - 3 <= room {
++        return true;
++    }
++    let delta = n - room - st;
++    delta + 3 > room || delta + 1 >= n || (delta >= 4 && !std::env::var("LF_R1SPLIT").is_ok_and(|v| v == "0"))
++}
++fn r1_rev_on() -> bool {
++    r1_on() && !std::env::var("LF_R1REV").is_ok_and(|v| v == "0")
++}
++
++/// [`fast_k_erase`] on the R1 reverse target X^ = X - 2 L [e >= 1]: wires 1, 2 read X ^ L wherever the letters'
++/// phase fix reads them (k2 = !x0 & !(x1 ^ L), k1 = !x0 ^ (k2 & (x2 ^ L))), so L is hosted on them around the fixes.
++fn fast_k_erase_g(c: &mut Builder, t: &[QubitId], k1: QubitId, k2: QubitId, l: &Lin) {
++    lin_xor_into(c, l, t[1]);
++    lin_xor_into(c, l, t[2]);
++    fast_k_erase(c, t, k1, k2);
++    lin_xor_into(c, l, t[2]);
++    lin_xor_into(c, l, t[1]);
+ }
+ fn y28_key(k: usize) {
+     Y28_KEY.with(|x| x.set(k));
+@@ -806,11 +865,22 @@ fn carry_out_xor(c: &mut Builder, a: &[QubitId], b: &[QubitId], cin: QubitId, ou
+     // Phase-only form: the top carry is never built. carry[n] = c ^ (a ^ c)(b ^ c) with c = carry[n - 1], so
+     // (-1)^(NOT carry[n]) is one CZ on the two operand wires (while they hold a ^ c, b ^ c) times (-1)^(NOT c).
+     let m = if out.is_none() && n >= 1 { n - 1 } else { n };
++    let mode = CMP_MODE.with(|x| x.replace(0));
++    assert!(mode == 0 || m >= 2, "rail-strip compare mode on a short compare");
+     let mut carry = vec![cin];
+     for i in 0..m {
+         let ci = carry[i];
++        if i == 0 && mode == 2 {
++            carry.push(b[0]); // the effective carry t1 (round11/rail-strip): exact from position delta >= 4 on
++            continue;
++        }
+         c.cx(ci, a[i]);
+         c.cx(ci, b[i]);
++        if i == 0 && mode == 1 {
++            c.cx(a[0], b[0]); // carry into position 1 = c1 - g = a0 ^ b0 on the R1 sum
++            carry.push(b[0]);
++            continue;
++        }
+         let t = and_new(c, a[i], b[i]);
+         c.cx(ci, t);
+         carry.push(t);
+@@ -833,8 +903,15 @@ fn carry_out_xor(c: &mut Builder, a: &[QubitId], b: &[QubitId], cin: QubitId, ou
+     }
+     for i in (0..m).rev() {
+         let (ci, t) = (carry[i], carry[i + 1]);
+-        c.cx(ci, t);
+-        and_erase(c, t, a[i], b[i]);
++        if i == 0 && mode == 2 {
++            continue;
++        }
++        if i == 0 && mode == 1 {
++            c.cx(a[0], b[0]);
++        } else {
++            c.cx(ci, t);
++            and_erase(c, t, a[i], b[i]);
++        }
+         c.cx(ci, a[i]);
+         c.cx(ci, b[i]);
+     }
+@@ -889,12 +966,23 @@ fn gidney_add_lean(c: &mut Builder, a: &[QubitId], b: &[QubitId], cin: Option<Qu
+     let mut carry: Vec<Option<QubitId>> = vec![None; n];
+     carry[0] = cin;
+     let mut y28h = Y28_HOOK.with(|x| x.take());
++    // rail-strip R1 (choice add only, cin = None): the carry into position 1 is taken as the complemented target bit
++    // b[0] itself; the sum is then off by 2g below the stripped bits only (round11/rail-strip), no AND for it
++    let r1m = R1_LADDER.with(|x| x.replace(0));
++    let r1 = r1m != 0;
++    assert!(!r1 || (cin.is_none() && n >= 3 && y28h.map_or(true, |h| h.0 >= 2)), "R1 ladder misuse");
+     for i in 0..n - 1 {
+         if let Some(ci) = carry[i] {
+             c.cx(ci, a[i]);
+             c.cx(ci, b[i]);
+         }
+-        if i + 2 == n {
++        if r1 && i == 0 {
++            if r1m == 2 {
++                c.cx(a[0], b[0]);
++                c.x(b[0]);
++            }
++            carry[1] = Some(b[0]);
++        } else if i + 2 == n {
+             c.ccx(a[i], b[i], b[n - 1]);
+             if let Some(ci) = carry[i] {
+                 c.cx(ci, b[n - 1]);
+@@ -911,12 +999,16 @@ fn gidney_add_lean(c: &mut Builder, a: &[QubitId], b: &[QubitId], cin: Option<Qu
+     assert!(y28h.is_none(), "y28: the kept bit's boundary carry is on no wire of this ladder");
+     c.cx(a[n - 1], b[n - 1]);
+     for i in (0..n - 1).rev() {
+-        if let Some(next) = carry[i + 1] {
++        if let Some(next) = carry[i + 1].filter(|_| !(r1 && i == 0)) {
+             if let Some(ci) = carry[i] {
+                 c.cx(ci, next);
+             }
+             and_erase(c, next, a[i], b[i]);
+         }
++        if r1m == 2 && i == 0 {
++            c.x(b[0]); // b[0] = a0 ^ b0: the position-0 sum already
++            continue;
++        }
+         c.cx(a[i], b[i]);
+         if let Some(ci) = carry[i] {
+             c.cx(ci, a[i]);
+@@ -933,7 +1025,14 @@ fn capped_add(c: &mut Builder, a: &[QubitId], b: &[QubitId], cin: Option<QubitId
+     let room = cells::cap().saturating_sub(c.active_qubits() as usize);
+     let off = std::env::var("LF_RAIL_SPLIT").is_ok_and(|v| v == "0");
+     // the lean ladder holds n - 2 carries (its top carry goes straight into the top sum wire)
+-    if off || n <= 3 || n - 2 <= room {
++    let r1req = R1_REQ.with(|x| x.replace(0));
++    // the R1 ladder holds one carry wire fewer (n - 3), so it stays whole one wire of room earlier
++    let r1fit = (r1req != 0 && cin.is_none() && n >= 3) as usize;
++    if off || n <= 3 || n - 2 - r1fit <= room {
++        if r1fit == 1 {
++            R1_LADDER.with(|x| x.set(r1req));
++            R1_DONE.with(|x| x.set(true));
++        }
+         gidney_add_lean(c, a, b, cin);
+         return;
+     }
+@@ -942,14 +1041,26 @@ fn capped_add(c: &mut Builder, a: &[QubitId], b: &[QubitId], cin: Option<QubitId
+         eprintln!("LF_SPLIT n={n} room={room} delta={delta}");
+     }
+     if delta + 3 > room || delta + 1 >= n {
++        if r1fit == 1 {
++            R1_LADDER.with(|x| x.set(r1req));
++            R1_DONE.with(|x| x.set(true));
++        }
+         gidney_add_lean(c, a, b, cin);
+         return;
+     }
++    // rail-strip EXT: R1 on the low ladder when the kept carry sits above every garbage bit (delta >= 4); its compare
++    // then takes a linear first carry (forward: a0 ^ b0 on the R1 sum; reverse: the effective carry b0)
++    let r1s = r1req != 0 && cin.is_none() && delta >= 4 && !std::env::var("LF_R1SPLIT").is_ok_and(|v| v == "0");
++    assert!(r1req != 2 || r1s, "R1 reverse: split with delta {delta} < 4 was not predicted");
+     let (za, cq) = (c.alloc_qubit(), c.alloc_qubit());
+     let mut al = a[..delta].to_vec();
+     al.push(za);
+     let mut bl = b[..delta].to_vec();
+     bl.push(cq);
++    if r1s {
++        R1_LADDER.with(|x| x.set(r1req));
++        R1_DONE.with(|x| x.set(true));
++    }
+     gidney_add_lean(c, &al, &bl, cin);
+     c.free(za);
+     gidney_add_lean(c, &a[delta..], &b[delta..], Some(cq));
+@@ -974,11 +1085,17 @@ fn capped_add(c: &mut Builder, a: &[QubitId], b: &[QubitId], cin: Option<QubitId
+         // y28: in the divide's fused pass the outcome is kept and its phase applied in the mirrored subtract
+         if !y28_store(delta, n, m) {
+             c.push_condition(m);
++            if r1s {
++                CMP_MODE.with(|x| x.set(r1req));
++            }
+             carry_out_xor(c, &a[..delta], &b[..delta], ncin, None);
+             c.pop_condition();
+             c.free_bit(m);
+         }
+     } else {
++        if r1s {
++            CMP_MODE.with(|x| x.set(r1req));
++        }
+         carry_out_xor(c, &a[..delta], &b[..delta], ncin, Some(cq));
+         c.x(cq);
+         c.free(cq);
+@@ -1100,8 +1217,16 @@ fn rail_capped() -> bool {
+ /// shared by every such position of the parity ladder); same split policy under the walk cap as the full-width add.
+ fn rail_add(c: &mut Builder, a: &[QubitId], b: &[QubitId], cin: Option<QubitId>) {
+     let n = b.len();
++    let r1req = R1_REQ.with(|x| x.replace(0));
+     let room = cells::cap().saturating_sub(c.active_qubits() as usize);
+     if let Some(h) = y28_fetch(n) {
++        if r1req == 2 {
++            // rail-strip EXT: the R1-reverse ladder's carries agree with the plain one's from position e + 1 on, so the
++            // kept bit's Z goes on the same carry (boundary >= 4)
++            assert!(h.0 >= 4 && a.len() >= b.len(), "R1 reverse: y28 boundary below 4");
++            R1_LADDER.with(|x| x.set(2));
++            R1_DONE.with(|x| x.set(true));
++        }
+         // y28: the mirrored subtract of a split forward add. It is one whole ladder here (the same gates as below),
+         // which holds the carry into the forward boundary on a wire: the kept outcome's phase goes on there.
+         assert!(n <= 3 || n - 2 <= room, "y28: the mirrored subtract must be one whole ladder");
+@@ -1120,13 +1245,15 @@ fn rail_add(c: &mut Builder, a: &[QubitId], b: &[QubitId], cin: Option<QubitId>)
+     let off = std::env::var("LF_RAIL_SPLIT").is_ok_and(|v| v == "0");
+     // LF_RAIL_CAPPED=1: an add whose two-way split does not fit either (n > ~2 room) goes through the recursive
+     // room-sized split of the fold ladders ([`lpa_capped`]) instead of a full-width ladder that overruns the cap
+-    let deep = rail_capped() && !off && n > 3 && n - 2 > room && {
++    let deep = rail_capped() && !off && n > 3 && n - 2 - (r1req != 0 && cin.is_none()) as usize > room && {
+         let delta = (n - room).saturating_sub(split_tight() as usize);
+         delta + 3 > room || delta + 1 >= n || (a.len() < n && delta >= a.len())
+     };
+     if a.len() >= b.len() && !deep {
++        R1_REQ.with(|x| x.set(r1req));
+         return capped_add(c, a, b, cin);
+     }
++    assert!(r1req != 2, "R1 reverse: predicted a whole lean add");
+     let sg = *a.last().unwrap();
+     let add: Vec<Vec<QubitId>> = (0..b.len()).map(|i| vec![if i < a.len() { a[i] } else { sg }]).collect();
+     if deep {
+@@ -1771,6 +1898,11 @@ fn lin_rail_barrel(c: &mut Builder, k1: QubitId, k2: QubitId, t: &[QubitId], inv
+ 
+ /// Rail barrel with the 3-Toffoli sign fill (h = k2 & sg -> t1, t0; h2 = k1 & h -> t2, t0; k1 & sg -> t0).
+ fn fast_rail_barrel(c: &mut Builder, k1: QubitId, k2: QubitId, t: &[QubitId], inverse: bool, drop0: bool) -> bool {
++    let sp = SB_SP.with(|x| x.take());
++    if strip_on() && sb_avail(t.len(), inverse, sp.is_some()) && (inverse || drop0) {
++        return strip_barrel(c, k1, k2, t, inverse, sp);
++    }
++    assert!(sp.is_none(), "R1 garbage reached a barrel that does not take it");
+     if !std::env::var("LF_RAILLIN").is_ok_and(|v| v == "0") {
+         return lin_rail_barrel(c, k1, k2, t, inverse, drop0);
+     }
+@@ -4135,10 +4267,13 @@ fn fwd_tick_fast(c: &mut Builder, wk: &mut Walk, t: usize, mut pay: Option<&mut
+     let q0 = pmark(c);
+     y28_key(t * 4 + 2);
+     if lr {
++        R1_REQ.with(|x| x.set((r1_on() && strip_on() && sb_avail(nb, false, true)) as u8));
+         fast_add_halve_choice_lr(c, s3, br, tr);
++        R1_REQ.with(|x| x.set(0));
+     } else {
+         fast_add_halve_choice(c, s3, br, tr);
+     }
++    let r1_done = R1_DONE.with(|x| x.replace(false));
+     y28_key(usize::MAX);
+     pacc(c, &format!("fwd{fk}.rail_choice"), q0);
+     if trim {
+@@ -4166,6 +4301,9 @@ fn fwd_tick_fast(c: &mut Builder, wk: &mut Walk, t: usize, mut pay: Option<&mut
+     pacc(c, &format!("fwd{fk}.pay_cell"), q0);
+     resize(c, tr, nb);
+     let q0 = pmark(c);
++    if r1_done {
++        SB_SP.with(|x| x.set(Some((br[0], s3))));
++    }
+     if fast_rail_barrel(c, k1, k2, tr, false, lr) {
+         tr.remove(0); // released inside the barrel
+     } else if lr {
+@@ -4431,16 +4569,38 @@ fn rev_tick_fast(c: &mut Builder, wk: &mut Walk, t: usize, mut pay: Option<&mut
+     if lr {
+         lr_restore(c, tr);
+     }
++    // rail-strip R1 reverse: predict that the choice step's subtract below is one whole lean ladder (no y28 bit, full
++    // source, fits the room it will see: tr grows to n2 - 1, k1 and k2 are released), then run the strip barrel's
++    // inverse onto X^ and the effective-carry ladder (asserted inside rail_add / capped_add)
++    let r1r = lr && r1_rev_on() && strip_on() && sb_avail(tr.len(), true, true) && br.len() >= n2 - 1 && {
++        y28_key(t * 4 + 2);
++        let pend = y28_peek_delta();
++        y28_key(usize::MAX);
++        let n = n2 - 1;
++        let act = (c.active_qubits() as usize + n.saturating_sub(tr.len())).saturating_sub(2);
++        let room = cells::cap().saturating_sub(act);
++        n >= tr.len() && r1_rev_predict(n, room, pend)
++    };
++    if r1r {
++        SB_SP.with(|x| x.set(Some((br[0], s3))));
++    }
+     fast_rail_barrel(c, k1, k2, tr, true, false);
+     pacc(c, &format!("rev{fk}.rail_barrel"), q0);
+     resize(c, tr, n2 - 1);
+     let q0 = pmark(c);
+-    fast_k_erase(c, tr, k1, k2);
++    if r1r {
++        fast_k_erase_g(c, tr, k1, k2, &Lin::of(&[br[0], s3]));
++    } else {
++        fast_k_erase(c, tr, k1, k2);
++    }
+     pacc(c, &format!("rev{fk}.k_erase"), q0);
+     let q0 = pmark(c);
+     y28_key(t * 4 + 2);
+     if lr {
++        R1_REQ.with(|x| x.set(if r1r { 2 } else { 0 }));
+         fast_double_sub_choice_lr(c, s3, br, tr);
++        R1_REQ.with(|x| x.set(0));
++        assert_eq!(R1_DONE.with(|x| x.replace(false)), r1r, "R1 reverse prediction");
+     } else {
+         fast_double_sub_choice(c, s3, br, tr);
+     }
+@@ -7768,3 +7928,23 @@ fn phase_pause_try(c:&mut Builder,acc:&[QubitId],rows:&[Vec<QubitId>],cin:Option
+     assert!(super::phase_pebble::with_pause(c,acc,rows,&vec![false;n],cin,&drops,&mut|c,i,q|y28_apply(c,&mut h,i,q),mid));
+     assert!(h.is_none(),"phase-pebble paused carry hook not consumed");eprintln!("PHASE_PEBBLE_PAUSED\t{}\t{before}\t{}\t{n}\t{need}\t{drops:?}",c.current_phase(),c.op_count());true
+ }
++
++
++#[cfg(test)]mod exact_strip_port_tests{
++ use super::*;use crate::sim::Simulator;use sha3::digest::XofReader;
++ struct Fixed(u8);impl XofReader for Fixed{fn read(&mut self,out:&mut[u8]){out.fill(self.0);}}
++ #[test]fn exact_strip_signed_all_inputs_phase_garbage_inverse_and_fault(){
++  let mut checked=0u64;let mut faults=0u64;std::env::remove_var("LF_STRIP");
++  for w in(4usize..=18).chain([25,26,31,32,63,64]){let mask=if w==64{u64::MAX}else{(1u64<<w)-1};let total=if w<=16{1usize<<w}else{4096};for inverse in[false,true]{for garbage in[false,true]{if !sb_avail(w,inverse,garbage){continue;}for combo in 0..if garbage{4}else{1}{
++   let mut c=Builder::new();let ks=c.alloc_qubits(2);let t=c.alloc_qubits(w);let aux=c.alloc_qubits(2);let dropped=strip_barrel(&mut c,ks[0],ks[1],&t,inverse,garbage.then_some((aux[0],aux[1])));assert_eq!(dropped,!inverse);let(nq,nb)=c.i13_dims();let ops=c.take_ops();let faulty:Vec<_>=ops.iter().filter(|o|!matches!(o.kind,crate::circuit::OperationType::CZ|crate::circuit::OperationType::Z)).copied().collect();
++   for begin in(0..total).step_by(64){for pattern in[0u8,255,0xa5,0x5a]{let mut rng=Fixed(pattern);let mut frng=Fixed(pattern);let mut s=Simulator::new(nq,nb,&mut rng);let mut f=Simulator::new(nq,nb,&mut frng);let mut expected=vec![0u64;nq];
++    for lane in 0..64{let index=(begin+lane)as u64;let mut x=if w<=16{index}else{index.wrapping_mul(0x9e3779b97f4a7c15).rotate_left((index%63)as u32)}&mask;if x&15==0{x^=1;}let k2=u64::from(x&3==0);let k1=u64::from(x&1==0)^(k2*((x>>2)&1));let e=(k1+2*k2)as usize;let sign=x>>(w-1)&1;let y=if e==0{x}else{(x>>e)|if sign==1{mask^(mask>>e)}else{0}};assert_eq!(y&1,1);let ell=((combo&1)^((combo>>1)&1))as u64;let garbage_x=if garbage&&e>0{x.wrapping_sub(2*ell)&mask}else{x};let input=if inverse{y}else{garbage_x};let output=if inverse{garbage_x}else{y};
++     for i in 0..w{s.qubits[t[i].0 as usize]|=((input>>i)&1)<<lane;expected[t[i].0 as usize]|=((if !inverse&&i==0{0}else{output>>i&1}))<<lane;}
++     for(i,value)in[k1,k2].into_iter().enumerate(){s.qubits[ks[i].0 as usize]|=value<<lane;expected[ks[i].0 as usize]|=value<<lane;}
++     for i in 0..2{let value=(combo>>i&1)as u64;s.qubits[aux[i].0 as usize]|=value<<lane;expected[aux[i].0 as usize]|=value<<lane;}
++    }
++    f.qubits.clone_from(&s.qubits);s.apply_iter(ops.iter());f.apply_iter(faulty.iter());assert_eq!(s.qubits,expected,"w={w} inverse={inverse} garbage={garbage} combo={combo} begin={begin} pattern={pattern}");assert_eq!(s.phase,0,"strip phase w={w} inverse={inverse} garbage={garbage} combo={combo} begin={begin} pattern={pattern}");faults+=u64::from(f.phase!=0);checked+=64;
++   }}
++  }}}}assert!(faults>0,"Missing phase repair must be detected");eprintln!("EXACT_STRIP_NATIVE checked={checked} phase_fault_batches={faults} exhaustive_widths=4..16 sampled_widths=17,18,25,26,31,32,63,64");
++ }
++}
+diff --git a/src/point_add/mod.rs b/src/point_add/mod.rs
+index ef96acb3..9699d102 100755
+--- a/src/point_add/mod.rs
++++ b/src/point_add/mod.rs
+@@ -500,7 +500,8 @@ fn clear_process_env() {
+ /// Leapfrog branch: the submission build emits the Leapfrog point add (see [`leapfrog::install_recipe`]).
+ const LEAPFROG_SUBMISSION: bool = true;
+ 
+-pub fn build() -> Vec<Op> {
++fn native_context_parent_build() -> Vec<Op> {
++    let mode="both".to_owned();assert!(["control","rail","g6","both"].contains(&mode.as_str()));
+     let profile="uniform-plus-two".to_owned();assert!(["original","uniform-plus-two"].contains(&profile.as_str()));
+     let pool="plain".to_owned();assert!(["shipped","plain"].contains(&pool.as_str()));
+     let schedule="public140".to_owned();assert!(["original138","public140"].contains(&schedule.as_str()));
+@@ -522,8 +523,9 @@ pub fn build() -> Vec<Op> {
+     if profile=="uniform-plus-two"{std::env::set_var("HEO_PIN_PP_CHUNK_SHAPE","64:2,38:2,25:-1,0:-3");}
+     std::env::set_var("RESEARCH_PLAIN_POOL",if pool=="plain"{"1"}else{"0"});
+     std::env::set_var("RESEARCH_WALK_SCHEDULE",&schedule);
++    std::env::set_var("LF_STRIP",if mode=="rail"||mode=="both"{"1"}else{"0"});std::env::set_var("LF_R1",if mode=="rail"||mode=="both"{"1"}else{"0"});std::env::set_var("EXACT_NATIVE_G6",if mode=="g6"||mode=="both"{"1"}else{"0"});
+     let mut ops = build_point_add();
+-    finished_square_pipeline::run(ops)
++    native_both_finished::run(ops)
+ }
+ 
+ 
+@@ -615,3 +617,10 @@ mod exact154_cache;
+ mod finished_square_pipeline;
+ 
+ mod square_lease_cache;
++
++mod exact_native_port;
++
++mod native_both_finished;
++
++mod native_context_cache;
++pub fn build()->Vec<Op>{native_context_cache::run(native_context_parent_build())}
+diff --git a/src/point_add/native_both_finished.rs b/src/point_add/native_both_finished.rs
+new file mode 100644
+index 00000000..0691aa5b
+--- /dev/null
++++ b/src/point_add/native_both_finished.rs
+@@ -0,0 +1,4 @@
++use crate::circuit::{Op,OperationType,QubitId};use sha3::{Digest,Sha3_256};
++pub(super)const IDENTITY_NONCE:u64=95;
++fn bind(ops:&[Op],count:usize,want:&str){assert_eq!(ops.len(),count,"Fixed both-port operation count");let mut h=Sha3_256::new();for o in ops{for v in[o.kind as u64,o.q_control2.0,o.q_control1.0,o.q_target.0,o.c_target.0,o.c_condition.0,o.r_target.0]{h.update(v.to_le_bytes());}}assert_eq!(format!("{:x}",h.finalize()),want,"Every canonical fixed both-port record");}
++pub(super)fn run(ops:Vec<Op>)->Vec<Op>{bind(&ops,10591703,"5c1a34e7ff8fa738530d2f497ffce4335587edbd26370e88d8665c19b9db3867");let mut ops=super::breakthrough_generic::run(ops);bind(&ops,10596932,"1f068b1622b378b0b85b6885aa698e389573d1c3981b333bbfe58d450e2f1f8e");assert!(IDENTITY_NONCE<(1u64<<48));for bit in 0..48{let mut o=Op::empty();o.kind=OperationType::X;o.q_target=QubitId((IDENTITY_NONCE>>bit)&1);o.validate();ops.extend([o,o]);}ops}
+diff --git a/src/point_add/strip_barrel.rs b/src/point_add/strip_barrel.rs
+new file mode 100644
+index 00000000..28d4a068
+--- /dev/null
++++ b/src/point_add/strip_barrel.rs
+@@ -0,0 +1,431 @@
++// ---- round11/rail-strip: strip barrel (R2) and its R1-garbage variant ----
++// Rotation of wires 0..w-2 by e = k1 + 2 k2 (the sign wire w-1 never moves) as three letter-controlled reflections
++// rho_1[k1], rho_0[k1^k2], rho_(w-3)[k2] of Z_(w-1); pair (0,1) of rho_1 is dropped (both ends hold known content
++// on k1 branches) and, forward, pair (0,w-3) of rho_(w-3) too. The sign fill is done by unconditional block CNOTs,
++// which commute with the controlled swaps and telescope across them, plus 1 (even w) / 2 (odd w) ANDs: 1.5w - 4
++// (even) / (3w - 7)/2 (odd) Toffoli forward against lin_rail_barrel's 1.5w - 3 / (3w - 5)/2. Patterns: tables
++// below, each checked gate by gate on all inputs for widths 10..26 (scripts/gen3.py). `sp = Some((b1, s3))`: the
++// input is the R1 target X^ = X - 2 L [e >= 1] with L = b1 ^ s3 (source bit 1 and the sign letter, both live).
++#[derive(Clone, Copy, PartialEq, Debug)]
++enum SbF { One, K1, K2, S, L, W0, A(u8) }
++#[derive(Clone, Copy, Debug)]
++enum SbE { Lo(i16), Mid(i16), Hi(i16) }
++#[derive(Clone, Copy, Debug)]
++enum SbT { One(i16), Blk(SbE, SbE) }
++struct SbPat {
++    ands: &'static [(&'static [SbF], &'static [SbF])],
++    ops: &'static [(u8, SbT, &'static [SbF])],
++    phase: &'static [(&'static [SbF], &'static [SbF])],
++}
++
++/// Smallest width the strip patterns were checked at (and whose low / middle / high regions do not overlap).
++const SB_MIN_W: usize = 12;
++
++fn strip_on() -> bool {
++    !std::env::var("LF_STRIP").is_ok_and(|v| v == "0")
++}
++
++/// Is there a checked strip for this width / direction / input (general w >= 12, or a per-width table)?
++fn sb_avail(w: usize, inverse: bool, garbage: bool) -> bool {
++    w >= SB_MIN_W || sb_small(w, inverse, garbage).is_some()
++}
++
++fn sb_pat(inverse: bool, garbage: bool, w: usize) -> &'static SbPat {
++    if w < SB_MIN_W {
++        return sb_small(w, inverse, garbage).expect("strip: no table for this width");
++    }
++    match (inverse, garbage, w % 2 == 0) {
++        (false, false, true) => &SB_FWD_EVEN,
++        (false, false, false) => &SB_FWD_ODD,
++        (false, true, true) => &SB_FWDG_EVEN,
++        (false, true, false) => &SB_FWDG_ODD,
++        (true, false, true) => &SB_REV_EVEN,
++        (true, false, false) => &SB_REV_ODD,
++        (true, true, true) => &SB_REVG_EVEN,
++        (true, true, false) => &SB_REVG_ODD,
++    }
++}
++
++fn sb_lin(fs: &[SbF], k1: QubitId, k2: QubitId, s: QubitId, l: &Lin, anc: &[QubitId]) -> Lin {
++    let mut out = Lin::default();
++    for f in fs {
++        let term = match *f {
++            SbF::One => Lin::k(true),
++            SbF::K1 => Lin::of(&[k1]),
++            SbF::K2 => Lin::of(&[k2]),
++            SbF::S => Lin::of(&[s]),
++            SbF::L => {
++                assert!(!l.w.is_empty(), "strip: L term without the R1 garbage");
++                l.clone()
++            }
++            SbF::A(i) => Lin::of(&[anc[i as usize]]),
++            SbF::W0 => panic!("strip: W0 inside a form"),
++        };
++        out = out.x(&term);
++    }
++    out
++}
++
++/// Strip barrel. Forward (`inverse = false`): X (or X^) on `t` -> Y, wire 0 measured away (returns true).
++/// Inverse: `t[0]` holds 1 (lr_restore) and Y on the rest -> X (or X^ when `sp` is given); returns false.
++fn strip_barrel(c: &mut Builder, k1: QubitId, k2: QubitId, t: &[QubitId], inverse: bool, sp: Option<(QubitId, QubitId)>) -> bool {
++    let w = t.len();
++    let pat = sb_pat(inverse, sp.is_some(), w);
++    let s = t[w - 1];
++    let l = sp.map(|(b, s3)| Lin::of(&[b, s3])).unwrap_or_default();
++    let mut anc: Vec<QubitId> = Vec::new();
++    let mut recs: Vec<(QubitId, Lin, Lin)> = Vec::new();
++    for (fa, fb) in pat.ands {
++        let (a, b) = (sb_lin(fa, k1, k2, s, &l, &anc), sb_lin(fb, k1, k2, s, &l, &anc));
++        let q = lin_and(c, &a, &b);
++        anc.push(q);
++        recs.push((q, a, b));
++    }
++    let m = w - 1;
++    let pos = |e: SbE| -> usize {
++        (match e { SbE::Lo(i) => i as i64, SbE::Mid(i) => (w / 2) as i64 + i as i64, SbE::Hi(i) => w as i64 + i as i64 }) as usize
++    };
++    let xs = [1usize, 0, w - 3];
++    let removed = |st: usize, a: usize, b: usize| (st == 0 && (a, b) == (0, 1)) || (!inverse && st == 2 && (a, b) == (0, w - 3));
++    let fill = |c: &mut Builder, bd: u8, anc: &[QubitId]| {
++        let mut list: Vec<(usize, &'static [SbF])> = Vec::new();
++        for &(b, tg, fs) in pat.ops.iter().filter(|o| o.0 == bd) {
++            let _ = b;
++            match tg {
++                SbT::One(p) => list.push((if p < 0 { (w as i64 + p as i64) as usize } else { p as usize }, fs)),
++                SbT::Blk(lo, hi) => (pos(lo)..=pos(hi)).for_each(|p| list.push((p, fs))),
++            }
++        }
++        // forward: the CNOTs from wire 0 (w0 = [e = 0]) run first; inverse: the exact reverse of the forward order
++        // (a per-width table may XOR into the sign wire at a boundary whose other fills read S)
++        list.sort_by_key(|(_, fs)| fs[0] != SbF::W0);
++        if inverse {
++            list.reverse();
++        }
++        for (p, fs) in list {
++            if fs[0] == SbF::W0 {
++                assert!(p != 0);
++                c.cx(t[0], t[p]);
++            } else {
++                lin_xor_into(c, &sb_lin(fs, k1, k2, s, &l, anc), t[p]);
++            }
++        }
++    };
++    let stage = |c: &mut Builder, st: usize| {
++        let pairs: Vec<(usize, usize)> = (0..m).filter_map(|i| { let j = (xs[st] + m - i % m) % m; (i < j).then_some((i, j)) }).collect();
++        if st == 1 {
++            c.cx(k1, k2);
++        }
++        let ctrl = if st == 0 { k1 } else { k2 };
++        for (a, b) in pairs {
++            if !removed(st, a, b) {
++                fredkin(c, ctrl, t[a], t[b]);
++            }
++        }
++        if st == 1 {
++            c.cx(k1, k2);
++        }
++    };
++    if !inverse {
++        for bd in 0..4u8 {
++            fill(c, bd, &anc);
++            if bd < 3 {
++                stage(c, bd as usize);
++            }
++        }
++        let mb = c.alloc_bit();
++        c.hmr(t[0], mb);
++        for (fa, fb) in pat.phase {
++            let (a, b) = (sb_lin(fa, k1, k2, s, &l, &anc), sb_lin(fb, k1, k2, s, &l, &anc));
++            if b.w.is_empty() && !b.one {
++                let h = a.w[0];
++                lin_on(c, &a, h);
++                c.z_if(h, mb);
++                lin_off(c, &a, h);
++            } else {
++                let (ha, hb) = lin_pair_on(c, &a, &b);
++                c.cz_if(ha, hb, mb);
++                lin_pair_off(c, &a, &b);
++            }
++        }
++        c.free_bit(mb);
++        c.release_clean(t[0]);
++    } else {
++        c.x(t[0]); // lr_restore left 1; the forward circuit ends with the preparable content below
++        for (fa, _) in pat.phase {
++            lin_xor_into(c, &sb_lin(fa, k1, k2, s, &l, &anc), t[0]);
++        }
++        for bd in (0..4u8).rev() {
++            if bd < 3 {
++                stage(c, bd as usize);
++            }
++            fill(c, bd, &anc);
++        }
++    }
++    for (q, a, b) in recs.into_iter().rev() {
++        lin_and_erase(c, q, &a, &b);
++    }
++    !inverse
++}
++
++// generated by round11/rail-strip/scripts/codegen.py from the exhaustively checked runs/pattern_*.json
++static SB_FWD_EVEN: SbPat = SbPat {
++    ands: &[(&[SbF::One, SbF::S], &[SbF::One, SbF::K1])],
++    ops: &[
++        (0, SbT::One(0), &[SbF::One]),
++        (0, SbT::One(0), &[SbF::K1]),
++        (0, SbT::One(0), &[SbF::K2]),
++        (0, SbT::One(0), &[SbF::S]),
++        (0, SbT::One(1), &[SbF::One]),
++        (0, SbT::One(1), &[SbF::K2]),
++        (0, SbT::One(1), &[SbF::W0]),
++        (0, SbT::One(2), &[SbF::One]),
++        (0, SbT::One(2), &[SbF::K1]),
++        (0, SbT::One(2), &[SbF::W0]),
++        (0, SbT::One(3), &[SbF::One]),
++        (0, SbT::One(3), &[SbF::K1]),
++        (0, SbT::One(3), &[SbF::K2]),
++        (0, SbT::One(3), &[SbF::W0]),
++        (0, SbT::Blk(SbE::Lo(0), SbE::Mid(-1)), &[SbF::One]),
++        (0, SbT::Blk(SbE::Lo(0), SbE::Mid(-1)), &[SbF::K1]),
++        (0, SbT::Blk(SbE::Lo(0), SbE::Mid(-1)), &[SbF::A(0)]),
++        (0, SbT::Blk(SbE::Lo(0), SbE::Mid(0)), &[SbF::One]),
++        (0, SbT::Blk(SbE::Lo(0), SbE::Mid(0)), &[SbF::K1]),
++        (0, SbT::Blk(SbE::Lo(0), SbE::Mid(0)), &[SbF::S]),
++        (0, SbT::Blk(SbE::Lo(0), SbE::Mid(0)), &[SbF::A(0)]),
++        (2, SbT::Blk(SbE::Lo(0), SbE::Mid(-2)), &[SbF::S]),
++        (2, SbT::Blk(SbE::Lo(0), SbE::Mid(-1)), &[SbF::S]),
++        (3, SbT::Blk(SbE::Lo(1), SbE::Mid(-2)), &[SbF::S]),
++    ],
++    phase: &[(&[SbF::K1], &[SbF::K2])],
++};
++
++static SB_FWD_ODD: SbPat = SbPat {
++    ands: &[(&[SbF::One, SbF::S], &[SbF::One, SbF::K2]), (&[SbF::One, SbF::S], &[SbF::One, SbF::K1])],
++    ops: &[
++        (0, SbT::One(0), &[SbF::One]),
++        (0, SbT::One(0), &[SbF::K1]),
++        (0, SbT::One(0), &[SbF::K2]),
++        (0, SbT::One(1), &[SbF::One]),
++        (0, SbT::One(1), &[SbF::K2]),
++        (0, SbT::One(1), &[SbF::S]),
++        (0, SbT::One(2), &[SbF::K1]),
++        (0, SbT::One(2), &[SbF::K2]),
++        (0, SbT::One(2), &[SbF::S]),
++        (0, SbT::One(2), &[SbF::W0]),
++        (0, SbT::One(3), &[SbF::One]),
++        (0, SbT::One(3), &[SbF::S]),
++        (0, SbT::One(3), &[SbF::A(1)]),
++        (2, SbT::One(1), &[SbF::A(0)]),
++        (2, SbT::One(2), &[SbF::A(0)]),
++    ],
++    phase: &[(&[SbF::K1], &[SbF::K2])],
++};
++
++static SB_FWDG_EVEN: SbPat = SbPat {
++    ands: &[(&[SbF::One, SbF::K1], &[SbF::One, SbF::K1, SbF::S, SbF::L])],
++    ops: &[
++        (0, SbT::One(0), &[SbF::One]),
++        (0, SbT::One(0), &[SbF::K1]),
++        (0, SbT::One(0), &[SbF::K2]),
++        (0, SbT::One(0), &[SbF::S, SbF::L]),
++        (0, SbT::One(1), &[SbF::One]),
++        (0, SbT::One(1), &[SbF::K2]),
++        (0, SbT::One(1), &[SbF::W0]),
++        (0, SbT::One(2), &[SbF::One]),
++        (0, SbT::One(2), &[SbF::K1]),
++        (0, SbT::One(2), &[SbF::W0]),
++        (0, SbT::One(3), &[SbF::One]),
++        (0, SbT::One(3), &[SbF::K1]),
++        (0, SbT::One(3), &[SbF::K2]),
++        (0, SbT::One(3), &[SbF::W0]),
++        (0, SbT::Blk(SbE::Lo(0), SbE::Mid(-1)), &[SbF::One]),
++        (0, SbT::Blk(SbE::Lo(0), SbE::Mid(-1)), &[SbF::K1]),
++        (0, SbT::Blk(SbE::Lo(0), SbE::Mid(-1)), &[SbF::A(0)]),
++        (0, SbT::Blk(SbE::Lo(0), SbE::Mid(0)), &[SbF::One]),
++        (0, SbT::Blk(SbE::Lo(0), SbE::Mid(0)), &[SbF::K1]),
++        (0, SbT::Blk(SbE::Lo(0), SbE::Mid(0)), &[SbF::S, SbF::L]),
++        (0, SbT::Blk(SbE::Lo(0), SbE::Mid(0)), &[SbF::A(0)]),
++        (2, SbT::Blk(SbE::Lo(0), SbE::Mid(-2)), &[SbF::S, SbF::L]),
++        (2, SbT::Blk(SbE::Lo(0), SbE::Mid(-1)), &[SbF::S, SbF::L]),
++        (3, SbT::Blk(SbE::Lo(1), SbE::Mid(-2)), &[SbF::S, SbF::L]),
++    ],
++    phase: &[(&[SbF::K1], &[SbF::K2])],
++};
++
++static SB_FWDG_ODD: SbPat = SbPat {
++    ands: &[(&[SbF::One, SbF::K2], &[SbF::One, SbF::K2, SbF::S, SbF::L]), (&[SbF::One, SbF::K1], &[SbF::One, SbF::K1, SbF::S, SbF::L])],
++    ops: &[
++        (0, SbT::One(0), &[SbF::One]),
++        (0, SbT::One(0), &[SbF::K1]),
++        (0, SbT::One(0), &[SbF::K2]),
++        (0, SbT::One(1), &[SbF::One]),
++        (0, SbT::One(1), &[SbF::K2]),
++        (0, SbT::One(1), &[SbF::S, SbF::L]),
++        (0, SbT::One(2), &[SbF::K1]),
++        (0, SbT::One(2), &[SbF::K2]),
++        (0, SbT::One(2), &[SbF::S, SbF::L]),
++        (0, SbT::One(2), &[SbF::W0]),
++        (0, SbT::One(3), &[SbF::One]),
++        (0, SbT::One(3), &[SbF::S, SbF::L]),
++        (0, SbT::One(3), &[SbF::A(1)]),
++        (2, SbT::One(1), &[SbF::A(0)]),
++        (2, SbT::One(2), &[SbF::A(0)]),
++    ],
++    phase: &[(&[SbF::K1], &[SbF::K2])],
++};
++
++static SB_REV_EVEN: SbPat = SbPat {
++    ands: &[(&[SbF::One, SbF::S], &[SbF::One, SbF::K1])],
++    ops: &[
++        (0, SbT::One(0), &[SbF::One]),
++        (0, SbT::One(0), &[SbF::K1]),
++        (0, SbT::One(0), &[SbF::K2]),
++        (0, SbT::One(0), &[SbF::S]),
++        (0, SbT::One(1), &[SbF::One]),
++        (0, SbT::One(1), &[SbF::K2]),
++        (0, SbT::One(1), &[SbF::W0]),
++        (0, SbT::One(2), &[SbF::A(0)]),
++        (0, SbT::One(2), &[SbF::W0]),
++        (0, SbT::One(3), &[SbF::K2]),
++        (0, SbT::One(3), &[SbF::S]),
++        (0, SbT::One(3), &[SbF::A(0)]),
++        (0, SbT::One(3), &[SbF::W0]),
++        (0, SbT::One(-3), &[SbF::One]),
++        (0, SbT::One(-3), &[SbF::K1]),
++        (0, SbT::One(-3), &[SbF::A(0)]),
++        (0, SbT::One(-2), &[SbF::K1]),
++        (0, SbT::One(-2), &[SbF::K2]),
++        (0, SbT::One(-2), &[SbF::S]),
++        (0, SbT::One(-2), &[SbF::A(0)]),
++        (0, SbT::One(-2), &[SbF::W0]),
++        (0, SbT::Blk(SbE::Lo(0), SbE::Mid(-1)), &[SbF::One]),
++        (0, SbT::Blk(SbE::Lo(0), SbE::Mid(-1)), &[SbF::K1]),
++        (0, SbT::Blk(SbE::Lo(0), SbE::Mid(-1)), &[SbF::A(0)]),
++        (0, SbT::Blk(SbE::Lo(0), SbE::Mid(0)), &[SbF::One]),
++        (0, SbT::Blk(SbE::Lo(0), SbE::Mid(0)), &[SbF::K1]),
++        (0, SbT::Blk(SbE::Lo(0), SbE::Mid(0)), &[SbF::S]),
++        (0, SbT::Blk(SbE::Lo(0), SbE::Mid(0)), &[SbF::A(0)]),
++        (2, SbT::One(2), &[SbF::S]),
++        (2, SbT::Blk(SbE::Lo(0), SbE::Mid(-2)), &[SbF::S]),
++        (2, SbT::Blk(SbE::Lo(0), SbE::Mid(-1)), &[SbF::S]),
++        (3, SbT::One(-3), &[SbF::K1]),
++        (3, SbT::One(-3), &[SbF::S]),
++        (3, SbT::Blk(SbE::Lo(1), SbE::Mid(-2)), &[SbF::S]),
++    ],
++    phase: &[],
++};
++
++static SB_REV_ODD: SbPat = SbPat {
++    ands: &[(&[SbF::One, SbF::S], &[SbF::One, SbF::K2]), (&[SbF::One, SbF::S], &[SbF::One, SbF::K1])],
++    ops: &[
++        (0, SbT::One(0), &[SbF::K1]),
++        (0, SbT::One(0), &[SbF::S]),
++        (0, SbT::One(0), &[SbF::A(0)]),
++        (0, SbT::One(1), &[SbF::One]),
++        (0, SbT::One(1), &[SbF::K2]),
++        (0, SbT::One(1), &[SbF::S]),
++        (0, SbT::One(2), &[SbF::One]),
++        (0, SbT::One(2), &[SbF::K2]),
++        (0, SbT::One(2), &[SbF::S]),
++        (0, SbT::One(2), &[SbF::A(1)]),
++        (0, SbT::One(3), &[SbF::One]),
++        (0, SbT::One(3), &[SbF::K1]),
++        (0, SbT::One(3), &[SbF::K2]),
++        (0, SbT::One(3), &[SbF::W0]),
++        (0, SbT::One(-2), &[SbF::One]),
++        (0, SbT::One(-2), &[SbF::K2]),
++        (0, SbT::One(-2), &[SbF::W0]),
++        (2, SbT::One(1), &[SbF::A(0)]),
++        (3, SbT::One(-3), &[SbF::K1]),
++    ],
++    phase: &[],
++};
++
++static SB_REVG_EVEN: SbPat = SbPat {
++    ands: &[(&[SbF::S, SbF::L], &[SbF::One, SbF::K1])],
++    ops: &[
++        (0, SbT::One(0), &[SbF::One]),
++        (0, SbT::One(0), &[SbF::K1]),
++        (0, SbT::One(0), &[SbF::K2]),
++        (0, SbT::One(0), &[SbF::L]),
++        (0, SbT::One(0), &[SbF::S]),
++        (0, SbT::One(1), &[SbF::One]),
++        (0, SbT::One(1), &[SbF::K2]),
++        (0, SbT::One(1), &[SbF::W0]),
++        (0, SbT::One(2), &[SbF::One]),
++        (0, SbT::One(2), &[SbF::K1]),
++        (0, SbT::One(2), &[SbF::A(0)]),
++        (0, SbT::One(2), &[SbF::W0]),
++        (0, SbT::One(3), &[SbF::One]),
++        (0, SbT::One(3), &[SbF::K1]),
++        (0, SbT::One(3), &[SbF::K2]),
++        (0, SbT::One(3), &[SbF::S]),
++        (0, SbT::One(3), &[SbF::A(0)]),
++        (0, SbT::One(3), &[SbF::W0]),
++        (0, SbT::One(-3), &[SbF::L]),
++        (0, SbT::One(-3), &[SbF::A(0)]),
++        (0, SbT::One(-2), &[SbF::One]),
++        (0, SbT::One(-2), &[SbF::K2]),
++        (0, SbT::One(-2), &[SbF::L]),
++        (0, SbT::One(-2), &[SbF::S]),
++        (0, SbT::One(-2), &[SbF::A(0)]),
++        (0, SbT::One(-2), &[SbF::W0]),
++        (0, SbT::Blk(SbE::Lo(0), SbE::Mid(-1)), &[SbF::A(0)]),
++        (0, SbT::Blk(SbE::Lo(0), SbE::Mid(0)), &[SbF::L]),
++        (0, SbT::Blk(SbE::Lo(0), SbE::Mid(0)), &[SbF::S]),
++        (0, SbT::Blk(SbE::Lo(0), SbE::Mid(0)), &[SbF::A(0)]),
++        (1, SbT::One(2), &[SbF::L]),
++        (1, SbT::One(3), &[SbF::L]),
++        (2, SbT::One(2), &[SbF::S]),
++        (2, SbT::Blk(SbE::Lo(0), SbE::Mid(-2)), &[SbF::L]),
++        (2, SbT::Blk(SbE::Lo(0), SbE::Mid(-2)), &[SbF::S]),
++        (2, SbT::Blk(SbE::Lo(0), SbE::Mid(-1)), &[SbF::L]),
++        (2, SbT::Blk(SbE::Lo(0), SbE::Mid(-1)), &[SbF::S]),
++        (3, SbT::One(-3), &[SbF::K1]),
++        (3, SbT::One(-3), &[SbF::S]),
++        (3, SbT::Blk(SbE::Lo(1), SbE::Mid(-2)), &[SbF::L]),
++        (3, SbT::Blk(SbE::Lo(1), SbE::Mid(-2)), &[SbF::S]),
++    ],
++    phase: &[],
++};
++
++static SB_REVG_ODD: SbPat = SbPat {
++    ands: &[(&[SbF::S, SbF::L], &[SbF::One, SbF::K2]), (&[SbF::S, SbF::L], &[SbF::One, SbF::K1])],
++    ops: &[
++        (0, SbT::One(0), &[SbF::One]),
++        (0, SbT::One(0), &[SbF::K1]),
++        (0, SbT::One(0), &[SbF::K2]),
++        (0, SbT::One(0), &[SbF::L]),
++        (0, SbT::One(0), &[SbF::S]),
++        (0, SbT::One(0), &[SbF::A(0)]),
++        (0, SbT::One(1), &[SbF::One]),
++        (0, SbT::One(1), &[SbF::K2]),
++        (0, SbT::One(1), &[SbF::L]),
++        (0, SbT::One(1), &[SbF::S]),
++        (0, SbT::One(1), &[SbF::W0]),
++        (0, SbT::One(2), &[SbF::One]),
++        (0, SbT::One(2), &[SbF::K1]),
++        (0, SbT::One(2), &[SbF::L]),
++        (0, SbT::One(2), &[SbF::S]),
++        (0, SbT::One(2), &[SbF::A(1)]),
++        (0, SbT::One(2), &[SbF::W0]),
++        (0, SbT::One(3), &[SbF::One]),
++        (0, SbT::One(3), &[SbF::K1]),
++        (0, SbT::One(3), &[SbF::K2]),
++        (0, SbT::One(3), &[SbF::L]),
++        (0, SbT::One(3), &[SbF::W0]),
++        (0, SbT::One(-3), &[SbF::L]),
++        (0, SbT::One(-2), &[SbF::One]),
++        (0, SbT::One(-2), &[SbF::K2]),
++        (0, SbT::One(-2), &[SbF::W0]),
++        (1, SbT::One(2), &[SbF::L]),
++        (1, SbT::One(3), &[SbF::L]),
++        (2, SbT::One(1), &[SbF::A(0)]),
++        (2, SbT::One(2), &[SbF::L]),
++        (3, SbT::One(-3), &[SbF::K1]),
++        (3, SbT::One(-3), &[SbF::L]),
++    ],
++    phase: &[],
++};
++
+diff --git a/src/point_add/strip_small.rs b/src/point_add/strip_small.rs
+new file mode 100644
+index 00000000..3b21f257
+--- /dev/null
++++ b/src/point_add/strip_small.rs
+@@ -0,0 +1,316 @@
++// generated by round11/rail-strip/scripts/codegen_small.py from runs/pattern_small.json (checked per width)
++static SB_W5_FWD: SbPat = SbPat {
++    ands: &[(&[SbF::One, SbF::S], &[SbF::One, SbF::K2]), (&[SbF::One, SbF::S], &[SbF::One, SbF::K1])],
++    ops: &[
++        (0, SbT::One(0), &[SbF::One]),
++        (0, SbT::One(0), &[SbF::K1]),
++        (0, SbT::One(0), &[SbF::K2]),
++        (0, SbT::One(1), &[SbF::One]),
++        (0, SbT::One(1), &[SbF::K2]),
++        (0, SbT::One(1), &[SbF::S]),
++        (0, SbT::One(2), &[SbF::K1]),
++        (0, SbT::One(2), &[SbF::K2]),
++        (0, SbT::One(2), &[SbF::S]),
++        (0, SbT::One(2), &[SbF::W0]),
++        (0, SbT::One(3), &[SbF::One]),
++        (0, SbT::One(3), &[SbF::S]),
++        (0, SbT::One(3), &[SbF::A(1)]),
++        (1, SbT::One(2), &[SbF::A(0)]),
++        (2, SbT::One(1), &[SbF::A(0)]),
++    ],
++    phase: &[(&[SbF::K1], &[SbF::K2])],
++};
++
++static SB_W5_REV: SbPat = SbPat {
++    ands: &[(&[SbF::One, SbF::S], &[SbF::One, SbF::K2]), (&[SbF::One, SbF::S], &[SbF::One, SbF::K1])],
++    ops: &[
++        (0, SbT::One(0), &[SbF::K1]),
++        (0, SbT::One(0), &[SbF::S]),
++        (0, SbT::One(0), &[SbF::A(0)]),
++        (0, SbT::One(1), &[SbF::One]),
++        (0, SbT::One(1), &[SbF::K2]),
++        (0, SbT::One(1), &[SbF::S]),
++        (0, SbT::One(2), &[SbF::One]),
++        (0, SbT::One(2), &[SbF::K2]),
++        (0, SbT::One(2), &[SbF::S]),
++        (0, SbT::One(2), &[SbF::A(1)]),
++        (0, SbT::One(3), &[SbF::K1]),
++        (2, SbT::One(1), &[SbF::A(0)]),
++        (3, SbT::One(2), &[SbF::K1]),
++    ],
++    phase: &[],
++};
++
++static SB_W5_REVG: SbPat = SbPat {
++    ands: &[(&[SbF::S, SbF::L], &[SbF::One, SbF::K2]), (&[SbF::S, SbF::L], &[SbF::One, SbF::K1])],
++    ops: &[
++        (0, SbT::One(1), &[SbF::K1]),
++        (0, SbT::One(1), &[SbF::L]),
++        (0, SbT::One(1), &[SbF::S]),
++        (0, SbT::One(2), &[SbF::L]),
++        (0, SbT::One(2), &[SbF::S]),
++        (0, SbT::One(3), &[SbF::K2]),
++        (1, SbT::One(0), &[SbF::S]),
++        (1, SbT::One(2), &[SbF::A(1)]),
++        (1, SbT::One(4), &[SbF::K2]),
++        (2, SbT::One(1), &[SbF::A(0)]),
++        (2, SbT::One(3), &[SbF::S]),
++        (3, SbT::One(1), &[SbF::K2]),
++        (3, SbT::One(3), &[SbF::S]),
++        (3, SbT::One(4), &[SbF::K2]),
++    ],
++    phase: &[(&[SbF::A(0)], &[]), (&[SbF::K1], &[]), (&[SbF::L], &[]), (&[SbF::One], &[])],
++};
++
++static SB_W7_FWD: SbPat = SbPat {
++    ands: &[(&[SbF::One, SbF::S], &[SbF::One, SbF::K2]), (&[SbF::One, SbF::S], &[SbF::One, SbF::K1])],
++    ops: &[
++        (0, SbT::One(0), &[SbF::One]),
++        (0, SbT::One(0), &[SbF::K1]),
++        (0, SbT::One(0), &[SbF::K2]),
++        (0, SbT::One(1), &[SbF::One]),
++        (0, SbT::One(1), &[SbF::K2]),
++        (0, SbT::One(1), &[SbF::S]),
++        (0, SbT::One(2), &[SbF::K1]),
++        (0, SbT::One(2), &[SbF::K2]),
++        (0, SbT::One(2), &[SbF::S]),
++        (0, SbT::One(2), &[SbF::W0]),
++        (0, SbT::One(3), &[SbF::One]),
++        (0, SbT::One(3), &[SbF::S]),
++        (0, SbT::One(3), &[SbF::A(1)]),
++        (2, SbT::One(1), &[SbF::A(0)]),
++        (2, SbT::One(2), &[SbF::A(0)]),
++    ],
++    phase: &[(&[SbF::K1], &[SbF::K2])],
++};
++
++static SB_W7_FWDG: SbPat = SbPat {
++    ands: &[(&[SbF::S, SbF::L], &[SbF::One, SbF::K2]), (&[SbF::S, SbF::L], &[SbF::One, SbF::K1])],
++    ops: &[
++        (0, SbT::One(0), &[SbF::One]),
++        (0, SbT::One(0), &[SbF::K1]),
++        (0, SbT::One(0), &[SbF::K2]),
++        (0, SbT::One(1), &[SbF::One]),
++        (0, SbT::One(1), &[SbF::K2]),
++        (0, SbT::One(1), &[SbF::L]),
++        (0, SbT::One(1), &[SbF::S]),
++        (0, SbT::One(1), &[SbF::W0]),
++        (0, SbT::One(2), &[SbF::One]),
++        (0, SbT::One(2), &[SbF::K1]),
++        (0, SbT::One(2), &[SbF::L]),
++        (0, SbT::One(2), &[SbF::S]),
++        (0, SbT::One(2), &[SbF::W0]),
++        (0, SbT::One(3), &[SbF::One]),
++        (0, SbT::One(3), &[SbF::K1]),
++        (0, SbT::One(3), &[SbF::K2]),
++        (0, SbT::One(3), &[SbF::L]),
++        (0, SbT::One(3), &[SbF::S]),
++        (0, SbT::One(3), &[SbF::W0]),
++        (0, SbT::One(3), &[SbF::A(1)]),
++        (2, SbT::One(1), &[SbF::A(0)]),
++        (2, SbT::One(2), &[SbF::A(0)]),
++    ],
++    phase: &[(&[SbF::K1], &[SbF::K2])],
++};
++
++static SB_W7_REV: SbPat = SbPat {
++    ands: &[(&[SbF::One, SbF::S], &[SbF::One, SbF::K2]), (&[SbF::One, SbF::S], &[SbF::One, SbF::K1])],
++    ops: &[
++        (0, SbT::One(0), &[SbF::K1]),
++        (0, SbT::One(0), &[SbF::S]),
++        (0, SbT::One(0), &[SbF::A(0)]),
++        (0, SbT::One(1), &[SbF::One]),
++        (0, SbT::One(1), &[SbF::K2]),
++        (0, SbT::One(1), &[SbF::S]),
++        (0, SbT::One(2), &[SbF::One]),
++        (0, SbT::One(2), &[SbF::K2]),
++        (0, SbT::One(2), &[SbF::S]),
++        (0, SbT::One(2), &[SbF::A(1)]),
++        (0, SbT::One(3), &[SbF::One]),
++        (0, SbT::One(3), &[SbF::K1]),
++        (0, SbT::One(3), &[SbF::K2]),
++        (0, SbT::One(3), &[SbF::W0]),
++        (0, SbT::One(5), &[SbF::One]),
++        (0, SbT::One(5), &[SbF::K2]),
++        (0, SbT::One(5), &[SbF::W0]),
++        (2, SbT::One(1), &[SbF::A(0)]),
++        (3, SbT::One(4), &[SbF::K1]),
++    ],
++    phase: &[],
++};
++
++static SB_W7_REVG: SbPat = SbPat {
++    ands: &[(&[SbF::S, SbF::L], &[SbF::One, SbF::K2]), (&[SbF::S, SbF::L], &[SbF::One, SbF::K1])],
++    ops: &[
++        (0, SbT::One(0), &[SbF::One]),
++        (0, SbT::One(0), &[SbF::K1]),
++        (0, SbT::One(0), &[SbF::K2]),
++        (0, SbT::One(0), &[SbF::L]),
++        (0, SbT::One(0), &[SbF::S]),
++        (0, SbT::One(0), &[SbF::A(0)]),
++        (0, SbT::One(1), &[SbF::One]),
++        (0, SbT::One(1), &[SbF::K2]),
++        (0, SbT::One(1), &[SbF::L]),
++        (0, SbT::One(1), &[SbF::S]),
++        (0, SbT::One(1), &[SbF::W0]),
++        (0, SbT::One(2), &[SbF::One]),
++        (0, SbT::One(2), &[SbF::K1]),
++        (0, SbT::One(2), &[SbF::L]),
++        (0, SbT::One(2), &[SbF::S]),
++        (0, SbT::One(2), &[SbF::W0]),
++        (0, SbT::One(2), &[SbF::A(1)]),
++        (0, SbT::One(3), &[SbF::One]),
++        (0, SbT::One(3), &[SbF::K1]),
++        (0, SbT::One(3), &[SbF::K2]),
++        (0, SbT::One(3), &[SbF::L]),
++        (0, SbT::One(3), &[SbF::W0]),
++        (0, SbT::One(4), &[SbF::L]),
++        (0, SbT::One(5), &[SbF::One]),
++        (0, SbT::One(5), &[SbF::K2]),
++        (0, SbT::One(5), &[SbF::W0]),
++        (1, SbT::One(2), &[SbF::L]),
++        (1, SbT::One(3), &[SbF::L]),
++        (2, SbT::One(1), &[SbF::A(0)]),
++        (2, SbT::One(2), &[SbF::L]),
++        (3, SbT::One(4), &[SbF::K1]),
++        (3, SbT::One(4), &[SbF::L]),
++    ],
++    phase: &[],
++};
++
++static SB_W9_FWD: SbPat = SbPat {
++    ands: &[(&[SbF::One, SbF::S], &[SbF::One, SbF::K2]), (&[SbF::One, SbF::S], &[SbF::One, SbF::K1])],
++    ops: &[
++        (0, SbT::One(0), &[SbF::One]),
++        (0, SbT::One(0), &[SbF::K1]),
++        (0, SbT::One(0), &[SbF::K2]),
++        (0, SbT::One(1), &[SbF::One]),
++        (0, SbT::One(1), &[SbF::K2]),
++        (0, SbT::One(1), &[SbF::S]),
++        (0, SbT::One(2), &[SbF::K1]),
++        (0, SbT::One(2), &[SbF::K2]),
++        (0, SbT::One(2), &[SbF::S]),
++        (0, SbT::One(2), &[SbF::W0]),
++        (0, SbT::One(3), &[SbF::One]),
++        (0, SbT::One(3), &[SbF::S]),
++        (0, SbT::One(3), &[SbF::A(1)]),
++        (2, SbT::One(1), &[SbF::A(0)]),
++        (2, SbT::One(2), &[SbF::A(0)]),
++    ],
++    phase: &[(&[SbF::K1], &[SbF::K2])],
++};
++
++static SB_W9_FWDG: SbPat = SbPat {
++    ands: &[(&[SbF::S, SbF::L], &[SbF::One, SbF::K2]), (&[SbF::S, SbF::L], &[SbF::One, SbF::K1])],
++    ops: &[
++        (0, SbT::One(0), &[SbF::One]),
++        (0, SbT::One(0), &[SbF::K1]),
++        (0, SbT::One(0), &[SbF::K2]),
++        (0, SbT::One(1), &[SbF::One]),
++        (0, SbT::One(1), &[SbF::K2]),
++        (0, SbT::One(1), &[SbF::L]),
++        (0, SbT::One(1), &[SbF::S]),
++        (0, SbT::One(1), &[SbF::W0]),
++        (0, SbT::One(2), &[SbF::One]),
++        (0, SbT::One(2), &[SbF::K1]),
++        (0, SbT::One(2), &[SbF::L]),
++        (0, SbT::One(2), &[SbF::S]),
++        (0, SbT::One(2), &[SbF::W0]),
++        (0, SbT::One(3), &[SbF::One]),
++        (0, SbT::One(3), &[SbF::K1]),
++        (0, SbT::One(3), &[SbF::K2]),
++        (0, SbT::One(3), &[SbF::L]),
++        (0, SbT::One(3), &[SbF::S]),
++        (0, SbT::One(3), &[SbF::W0]),
++        (0, SbT::One(3), &[SbF::A(1)]),
++        (2, SbT::One(1), &[SbF::A(0)]),
++        (2, SbT::One(2), &[SbF::A(0)]),
++    ],
++    phase: &[(&[SbF::K1], &[SbF::K2])],
++};
++
++static SB_W9_REV: SbPat = SbPat {
++    ands: &[(&[SbF::One, SbF::S], &[SbF::One, SbF::K2]), (&[SbF::One, SbF::S], &[SbF::One, SbF::K1])],
++    ops: &[
++        (0, SbT::One(0), &[SbF::K1]),
++        (0, SbT::One(0), &[SbF::S]),
++        (0, SbT::One(0), &[SbF::A(0)]),
++        (0, SbT::One(1), &[SbF::One]),
++        (0, SbT::One(1), &[SbF::K2]),
++        (0, SbT::One(1), &[SbF::S]),
++        (0, SbT::One(2), &[SbF::One]),
++        (0, SbT::One(2), &[SbF::K2]),
++        (0, SbT::One(2), &[SbF::S]),
++        (0, SbT::One(2), &[SbF::A(1)]),
++        (0, SbT::One(3), &[SbF::One]),
++        (0, SbT::One(3), &[SbF::K1]),
++        (0, SbT::One(3), &[SbF::K2]),
++        (0, SbT::One(3), &[SbF::W0]),
++        (0, SbT::One(7), &[SbF::One]),
++        (0, SbT::One(7), &[SbF::K2]),
++        (0, SbT::One(7), &[SbF::W0]),
++        (2, SbT::One(1), &[SbF::A(0)]),
++        (3, SbT::One(6), &[SbF::K1]),
++    ],
++    phase: &[],
++};
++
++static SB_W9_REVG: SbPat = SbPat {
++    ands: &[(&[SbF::S, SbF::L], &[SbF::One, SbF::K2]), (&[SbF::S, SbF::L], &[SbF::One, SbF::K1])],
++    ops: &[
++        (0, SbT::One(0), &[SbF::One]),
++        (0, SbT::One(0), &[SbF::K1]),
++        (0, SbT::One(0), &[SbF::K2]),
++        (0, SbT::One(0), &[SbF::L]),
++        (0, SbT::One(0), &[SbF::S]),
++        (0, SbT::One(0), &[SbF::A(0)]),
++        (0, SbT::One(1), &[SbF::One]),
++        (0, SbT::One(1), &[SbF::K2]),
++        (0, SbT::One(1), &[SbF::L]),
++        (0, SbT::One(1), &[SbF::S]),
++        (0, SbT::One(1), &[SbF::W0]),
++        (0, SbT::One(2), &[SbF::One]),
++        (0, SbT::One(2), &[SbF::K1]),
++        (0, SbT::One(2), &[SbF::L]),
++        (0, SbT::One(2), &[SbF::S]),
++        (0, SbT::One(2), &[SbF::W0]),
++        (0, SbT::One(2), &[SbF::A(1)]),
++        (0, SbT::One(3), &[SbF::One]),
++        (0, SbT::One(3), &[SbF::K1]),
++        (0, SbT::One(3), &[SbF::K2]),
++        (0, SbT::One(3), &[SbF::L]),
++        (0, SbT::One(3), &[SbF::W0]),
++        (0, SbT::One(6), &[SbF::L]),
++        (0, SbT::One(7), &[SbF::One]),
++        (0, SbT::One(7), &[SbF::K2]),
++        (0, SbT::One(7), &[SbF::W0]),
++        (1, SbT::One(2), &[SbF::L]),
++        (1, SbT::One(3), &[SbF::L]),
++        (2, SbT::One(1), &[SbF::A(0)]),
++        (2, SbT::One(2), &[SbF::L]),
++        (3, SbT::One(6), &[SbF::K1]),
++        (3, SbT::One(6), &[SbF::L]),
++    ],
++    phase: &[],
++};
++
++fn sb_small(w: usize, inverse: bool, garbage: bool) -> Option<&'static SbPat> {
++    if std::env::var("LF_STRIPSMALL").is_ok_and(|v| v == "0") {
++        return None;
++    }
++    match (w, inverse, garbage) {
++        (5, false, false) => Some(&SB_W5_FWD),
++        (5, true, false) => Some(&SB_W5_REV),
++        (5, true, true) => Some(&SB_W5_REVG),
++        (7, false, false) => Some(&SB_W7_FWD),
++        (7, false, true) => Some(&SB_W7_FWDG),
++        (7, true, false) => Some(&SB_W7_REV),
++        (7, true, true) => Some(&SB_W7_REVG),
++        (9, false, false) => Some(&SB_W9_FWD),
++        (9, false, true) => Some(&SB_W9_FWDG),
++        (9, true, false) => Some(&SB_W9_REV),
++        (9, true, true) => Some(&SB_W9_REVG),
++        _ => None,
++    }
++}
++
+diff --git a/src/point_add/y15_onefold.rs b/src/point_add/y15_onefold.rs
+index e9cd4e62..8ec273de 100755
+--- a/src/point_add/y15_onefold.rs
++++ b/src/point_add/y15_onefold.rs
+@@ -2849,6 +2849,38 @@ fn body(c: &mut Builder, t: usize, s: [QubitId; 3], k1: QubitId, k2: QubitId, b:
+                 lin_xor_into(c, &s1f(j - 1).x(&r[j - 1 - i0]), tg[j]);
+             }
+         };
++        let bit0=if std::env::var("EXACT_NATIVE_G6").is_ok_and(|v|v=="1"){
++        // G6' (round-10 gate, own copy): x257's fix without the chain.  Top-column identity (exact): with u = m0 =
++        // g0 ^ h1, the column sum at bit 255 gives h1 = MAJ(S'0[255], S'1[254], ~X1[255]) whenever g0 = h1, so
++        // x257 = S'1[255]*u ^ (1 ^ u)*MAJ(S'0[255], S'1[254], ~X1[255]); tg[N - 1] holds X1[255] here (open ripple).
++        // Its fix: CZ(S'1[255], m0), and Z * CZ(m0) on one MAJ wire (one Toffoli, measured erase).
++        c.push_condition(bitx);
++        for w in [b[N - 1], s[2], s[1]] {
++            c.cz(w, m0);
++        }
++        let (fx, fy) = (Lin::of(&[b[N - 1], s[2], s[0]]), Lin::of(&[b[N - 2], s[2], s[1]]));
++        let fc = Lin::of(&[tg[N - 1]]).x(&Lin::k(true));
++        let q = maj_wire(c, &fx, &fy, &fc);
++        c.cz(q, q);
++        c.cz(q, m0);
++        maj_wire_erase(c, q, &fx, &fy, &fc);
++        c.pop_condition();
++        let bit0 = c.alloc_bit();
++        c.hmr(m0, bit0);
++        c.release_clean(m0);
++        // m0 = g0 ^ h1 with its bit set, whatever x257's bit: the chain, a Z on its top (h1), g0's compare
++        c.push_condition(bit0);
++        let (rb, rrb) = chain(c);
++        let hb = rrb.last().expect("y21: the rebuilt chain is not empty").0;
++        c.cz(hb, hb);
++        cmp0(c, &rb);
++        unchain(c, rrb);
++        c.pop_condition();
++        e_m0 = c.expected_total();
++        c.free_bit(nbx);
++        c.free_bit(bitx);
++            bit0
++        }else{
+         // x257's bit set: the chain now. x257 = AND(S'1[255] ^ h1, g0 ^ h1) ^ h1, so its fix is a CZ of the two forms
+         // (the second is the wire m0) and a Z on h1: no Toffoli. Then m0 = g0
+         c.push_condition(bitx);
+@@ -2882,6 +2914,8 @@ fn body(c: &mut Builder, t: usize, s: [QubitId; 3], k1: QubitId, k2: QubitId, b:
+         e_m0 = c.expected_total();
+         c.free_bit(nbx);
+         c.free_bit(bitx);
++            bit0
++        };
+         c.free_bit(bit0);
+     } else if Y15_JOINT_M {
+         // m0 and m1 are measured together. m0's fix builds add 1's carries again on its window; one step more and the

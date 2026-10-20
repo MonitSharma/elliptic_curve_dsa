@@ -1,0 +1,40 @@
+{
+  "status": "COMPLETE_LOCAL_REVIEW_PASS_READY_FOR_AUTO_SUBMISSION",
+  "at_utc": "2026-10-20T16:26:41.757556+00:00",
+  "source_revision": "ab071cf30e06178dc91a1919f366a6823f37846c",
+  "base": "28e443bcc2f3dc0793c6a416a496b07cfbeb4c4f",
+  "source_files": 204,
+  "protected_files_checked": 17,
+  "source_archive_sha256": "6a657aec8cfa21f26b118f771cdd713806cb4f668db16a4b89c9b12b19dfe3fb",
+  "source_patch_sha256": "a453eb3929ee9bad026a06f7669792b1dbe2fa11709e1fb30911cbd9c166c3b0",
+  "source_freeze_sha256": "9bc146529255b835bcd2ca093c1e031a4702d2685f470a50cf210327842fddde",
+  "benchmark_result_sha256": "a639dd89999db2031b3393f4169039c029676be7e3ad4d9d997ff2cbb756fe13",
+  "gate_declaration_sha256": "8121e941e39ebedeee80cc2d16b64554b835193749c0964904ef23a1f919a78d",
+  "gate_result_sha256": "759d6c8edb657731dd2fbabccea22f5150178141559930ec1082c889e5459354",
+  "native_receipt": {
+    "stream_sha256": "ccdef4d636680d5d3be83169760a223278662e4f38b9efff2fb3cc6a58dff5bb",
+    "records_sha256": "b38843116f72543eb50bd743af32dc990e9c5bdf33e30632b8bb6f545ee6402e",
+    "pre_tail_sha256": "e7b65a3dce2f70bb56fa0c5d52dceb6fe10da4e987e28ade335eddb2c37c6ea7",
+    "pre_tail_byte_identical_to_gated_source": true,
+    "nonce": 282,
+    "operations": 10981008
+  },
+  "qubits": 1464,
+  "rounded_mean_executed_toffoli": 747453,
+  "product": 1094271192,
+  "nonce": 282,
+  "production_screens": 320,
+  "highest_screened": 320,
+  "passes": [
+    282
+  ],
+  "additional_partial_packet_controls": "1..8 repeated in production;24 protected full-state scalar batches at0,70,140",
+  "selected_protected_packet_passed": true,
+  "unchanged_benchmark_passed_shots": 9024,
+  "historical_results_restored": true,
+  "tracked_changes_only_point_add": true,
+  "submission_mode": "auto",
+  "ai_model": "GPT-6 sol",
+  "coding_harness": "Codex",
+  "scope": "Complete unchanged benchmark of full259-tail grouped square,28bit witness,exact capped splits and depth8 inverseleaf on strengthened nativeT circuit. IndependentT objective; no globalproduct claim."
+}

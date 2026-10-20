@@ -1,0 +1,37 @@
+{
+  "status": "DEVELOPMENT_COMPARISON_COMPLETE_PRESERVE_ALL_MISMATCHES",
+  "label": "native-context499-development-20261020-v1",
+  "batches": 512,
+  "summaries": {
+    "publicd182": {
+      "value_shots": 25,
+      "phase_shots": 12,
+      "dirty_shots": 0,
+      "failed_batches": 27,
+      "mean_executed_stream_toffoli": 748688.4473266602,
+      "rows_sha256": "a754dff1c82c8c27a8b6ab11292a308fea5c83b3adb13ad1690b6ef0f6f1c000"
+    },
+    "context499": {
+      "value_shots": 25,
+      "phase_shots": 16,
+      "dirty_shots": 0,
+      "failed_batches": 27,
+      "mean_executed_stream_toffoli": 748190.2594604492,
+      "rows_sha256": "cc3f46213043f3c8370458afacadfff542e550c7fb516e3c31f51d039315be5e"
+    }
+  },
+  "comparisons": {
+    "context499": {
+      "candidate_minus_parent_raw_toffoli": -498.1878662109375,
+      "paired_standard_error": 2.54424057900242,
+      "new_failed_batches": 0,
+      "new_passing_batches": 0,
+      "new_value_failing_shots": [],
+      "new_value_passing_shots": [],
+      "different_target_lanes": [],
+      "different_other_lanes": [],
+      "target_differences_confined_to_both_value_failing": true
+    }
+  },
+  "scope": "Fresh full-output development512x64/source, fixedexactcontext499 on complete officialT748691 parent. Preserve all output/value/phase/dirty mismatches. Not final-gated, nonce-screened, benchmarked or scored."
+}

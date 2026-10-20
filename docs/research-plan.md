@@ -1,3 +1,46 @@
+## 21 October 2026, 00:35 SGT: official Q1464/T747453; product goal active
+
+New auto-submission8d0fef2b officially reproduces Q1464/T747453/product1094271192,
+731 fewerT and16 fewerQ vs preceding38a686dd. Publicsourced289ee2b; all204source
+and17protected bytes verified against Git objects; localab071cf3. All324evidence
+and204source members independently verified. Officialpromotion rejected solely
+because globalproduct is lower. Fresh16:32UTC1710records confirms independentT
+minimum, globalproduct933231010/acd0 andwidth670/e2 unchanged. Never claimglobal
+product victory. Userauthorizes automatically submitting each verified improvement.
+
+Own grouped-safe finalgate PASS32768x64/source, labelgroups-safe28-full259-final-
+20261020-v1. Value1227parent/1216candidate,6newbad/17newpass,dirty0,failed1273/1255,
+b15/c33,p.997242399,5.400238failedbatches/packet; no rerun/relabel/extension.
+Qualifiedlowestnonce282 of320ascendingproduction screens (solepass282), overrun
+283..320,8extra partialcontrols1..8 repeated/24protectedfullstate batches,
+selected9024 replay PASS. Unchangedbenchmark9024 PASS,total6745013540,exactmean
+747452.7415780142. Streamccdef4d6,records b3884311,pretail e7b65a3d;finalarchive
+9fed794b,sourcearchive6a657aec,patcha453eb39. Sourceonlynonceconstant differs
+from gatednonce0dc1478. Strong28bit/full259tail/exactsplits/depth8 square/native
+rail/G6; six historical squareunit edge exclusions disclosed, no universal claim.
+
+Activewidth probe2948021: originalv1 equaldraw assertion failed before semantic
+comparisons; broadfaultshouldpanic falsely accepted samefixturefailure. Preserved.
+V2 twozeroHMRs replace omittedR+HMR; fault expects specificphasecontract. Native4
+PASS incl exhaustivebasis/phase/wide/guards/aliasseeds/RNG/width; inherited27 and
+squareunits pass. Fullcontrol/lowcap1234/1233 construction now running; measuredQ
+must be read, cap is not Q. New exact comparator expands final nestedMAJ and
+savesonecarry with+1nativeT onlywhenoldrouteexceeds cap. y16 cost formula reflects
+proved newhelpercount; original primitive/admission/precision guards preserved.
+
+Two independent exactcontext scans on official8d:2953122 zeroaddedQ and2953178
+16donors<=1480; exact arbitrarycut donorzero proof, fixed16384 same lexicalscope,
+9native controls before scans. Componentonly; any finishedcandidate needs fresh
+own finalgate versus exact currentrecord, qualifiednonce, unchangedbenchmark and
+localmember verification. Read CURRENT-ACTIVE.json and actual job logs.
+
+Eight completedresearchfronts275 members verified locally, including partial
+assemblysource archives/patches and e3 preflight supersededbeforedeclaration.
+Immutable finalarchives remain authoritative; nested evidence hydrated with
+manifest checks andlinks. Mainpush41f769ec blocked byautomaticapprovalreview;
+explicitapproval requested, no bypass. Localcommits/research/officialuploads
+continue. Preserve all preexistinguserdiffs/submodules andunrelatedserverjobs.
+
 ## 21 October 2026, 00:21 SGT: officialT748184; grouped square gate PASS
 
 Automatic submission38a686dd officially reproduces Q1480/T748184/product1107312320,

@@ -1,3 +1,22 @@
+## Official Toffoli improvement · 21 October 2026, 00:35 SGT
+
+The challenge officially reproduced **1,464 qubits × 747,453 rounded mean
+executed Toffolis = 1,094,271,192**, all9,024 shots passing, in
+[submission8d0fef2b](https://api.ecdsa.fail/api/submissions/8d0fef2b-a7f6-40a7-9b3c-f800073cf2c5).
+This saves **731 Toffolis and16 qubits** versus the preceding official result.
+The fresh16:32UTC public records confirm the independent Toffoli minimum.
+Global product933,231,010 remains lower; promotion was declined solely because
+that score did not improve. Attribution **GPT-6 sol / Codex**.
+
+The grouped square uses28-bit witnesses, full259-bit correction tails and exact
+capped splits on our strengthened arithmetic. Its own final statistical gate,
+lowestnonce282/320screens and complete unchanged benchmark are disclosed.
+Every published source/protected byte matches the locally validated source.
+
+[Source and disclosures](experiments/breakthrough-groups-safe-final-20261020/SUBMISSION-NOTE.md) ·
+[Local evidence verification](experiments/breakthrough-groups-safe-final-20261020/LOCAL-VERIFICATION.json) ·
+[Official source verification](experiments/breakthrough-groups-safe-final-20261020/PUBLIC-SOURCE-VERIFICATION.json)
+
 ## Official Toffoli improvement · 21 October 2026, 00:21 SGT
 
 The challenge officially reproduced **1,480 qubits × 748,184 rounded mean
