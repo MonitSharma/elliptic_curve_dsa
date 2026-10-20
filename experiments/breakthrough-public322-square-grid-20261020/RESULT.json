@@ -1,0 +1,84 @@
+{
+  "status": "RAW_SQUARE_WORKSPACE_GRID_NOT_SCORED",
+  "native_controls": 9,
+  "cases": [
+    {
+      "square_cap": 1234,
+      "exit": 0,
+      "seconds": 2.714022636413574,
+      "builder_totals": [
+        "HEO_TOTAL native=773124 expected=751710.2 peak=1536 peak_op=1443767 peak_phase=divide qubits_touched=1536"
+      ],
+      "raw_sha256": "1b034533e1f064638c3a141eecc997b672e372b7e3a830a6ea235049b99f4952",
+      "operations": 10547458,
+      "records_sha3_256": "68d39438e3a7dc3627edc9e5ce9f1e2a75fcf113bafbfd83e85e99a269843d8c"
+    },
+    {
+      "square_cap": 1264,
+      "exit": 0,
+      "seconds": 2.6674611568450928,
+      "builder_totals": [
+        "HEO_TOTAL native=773066 expected=751681.2 peak=1536 peak_op=1443767 peak_phase=divide qubits_touched=1536"
+      ],
+      "raw_sha256": "5f678f3c7a946c0c8806e9aae65b6bd4b7e6b07557f710f3ce6a664ea6a0fe9b",
+      "operations": 10545008,
+      "records_sha3_256": "d4228630605a4d012998b5369433c0ffacda0060e69a4a6f5468d13b29aa2827"
+    },
+    {
+      "square_cap": 1280,
+      "exit": 0,
+      "seconds": 2.9013681411743164,
+      "builder_totals": [
+        "HEO_TOTAL native=773066 expected=751681.2 peak=1536 peak_op=1443767 peak_phase=divide qubits_touched=1536"
+      ],
+      "raw_sha256": "7a5787c5cda0f9516530150a596211f6e4757ba8dc932d190d1c84874bda3d2c",
+      "operations": 10545008,
+      "records_sha3_256": "0d7eca94d8f438ee610d3de3b4e805b8bef441694c35cbc6674185b4b586b511"
+    },
+    {
+      "square_cap": 1344,
+      "exit": 0,
+      "seconds": 2.823484420776367,
+      "builder_totals": [
+        "HEO_TOTAL native=772916 expected=751606.2 peak=1536 peak_op=1443767 peak_phase=divide qubits_touched=1536"
+      ],
+      "raw_sha256": "4071a509fc102546123eb632ea7f8ae78fa163ced55a77f7e806cd7c7291eb61",
+      "operations": 10543208,
+      "records_sha3_256": "a8de970ac215486e5ea02cd9c4da67870183324ab87b884f5cae12a8fef5578a"
+    },
+    {
+      "square_cap": 1408,
+      "exit": 0,
+      "seconds": 2.7276134490966797,
+      "builder_totals": [
+        "HEO_TOTAL native=772904 expected=751600.2 peak=1536 peak_op=1443767 peak_phase=divide qubits_touched=1536"
+      ],
+      "raw_sha256": "62c25f615411b8cbf6de5e51442a9e1da9e5ec56f887b5fd465e5b1cff61d5f0",
+      "operations": 10543037,
+      "records_sha3_256": "18f7fc00af40daeda201761064a6ce33a6ac74da78054df3464bdce6a4f0bcb9"
+    },
+    {
+      "square_cap": 1464,
+      "exit": 0,
+      "seconds": 2.864760398864746,
+      "builder_totals": [
+        "HEO_TOTAL native=772904 expected=751600.2 peak=1536 peak_op=1443767 peak_phase=divide qubits_touched=1536"
+      ],
+      "raw_sha256": "62c25f615411b8cbf6de5e51442a9e1da9e5ec56f887b5fd465e5b1cff61d5f0",
+      "operations": 10543037,
+      "records_sha3_256": "18f7fc00af40daeda201761064a6ce33a6ac74da78054df3464bdce6a4f0bcb9"
+    },
+    {
+      "square_cap": 1536,
+      "exit": 0,
+      "seconds": 2.664086103439331,
+      "builder_totals": [
+        "HEO_TOTAL native=772904 expected=751600.2 peak=1536 peak_op=1443767 peak_phase=divide qubits_touched=1536"
+      ],
+      "raw_sha256": "62c25f615411b8cbf6de5e51442a9e1da9e5ec56f887b5fd465e5b1cff61d5f0",
+      "operations": 10543037,
+      "records_sha3_256": "18f7fc00af40daeda201761064a6ce33a6ac74da78054df3464bdce6a4f0bcb9"
+    }
+  ],
+  "scope": "Fixed independent square-workspace grid on current official322 source. Capture validated setting before original environment reset; reinstall LF_SQUARE_CAP after fixed recipe. No arithmetic, row, precision or protected file changes. Raw output only; old source-bound finished pipelines remain unchanged and are bypassed, never loosened. New generic/caching proofs required for any selected source."
+}

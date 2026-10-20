@@ -8,6 +8,7 @@ config={
  'breakthrough-prefix27-cleanup11-native-20261020':('observer','SOURCE_FREEZE.json','run-v2.exit',{'v2-tests-'+str(i)+'.log':v for i,v in enumerate([1,1,1,2,2,1,1,2])}),
  'breakthrough-public54fc-lease-20261020':('tool','SOURCE_FREEZE.json','run.exit',{'tests.log':4}),
  'breakthrough-public8b-lease-20261020':('tool','SOURCE_FREEZE.json','run.exit',{'tests.log':4}),
+ 'breakthrough-public322-square-grid-20261020':('observer','SOURCE-FREEZE.json','run.exit',{'tests-'+str(i)+'.log':v for i,v in enumerate([2,1,1,4,1])}),
  'breakthrough-wide-tight-color-20261020':('tool','SOURCE_FREEZE.json','run-v2.exit',{'tests.log':12}),
 }
 assert name in config and not(r/'EVIDENCE-MANIFEST.json').exists();sub,freeze,exitfile,logs=config[name];t=r/sub;f=json.loads((r/freeze).read_text());assert(r/exitfile).read_text().strip()=='0'

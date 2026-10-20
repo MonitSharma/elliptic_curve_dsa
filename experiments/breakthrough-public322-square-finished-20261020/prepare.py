@@ -1,0 +1,22 @@
+import hashlib,json,shutil,subprocess,time
+from pathlib import Path
+r=Path(__file__).resolve().parent;ws=r.parent;old=ws/'breakthrough-public322-square-generic-20261020';proof=ws/'breakthrough-public322-square-lease-20261020';t=r/'candidate';sha=lambda p:hashlib.file_digest(p.open('rb'),'sha256').hexdigest()
+while not(proof/'run.exit').exists():time.sleep(2)
+assert(proof/'run.exit').read_text().strip()=='0'and(old/'run.exit').read_text().strip()=='0';f=json.loads((old/'SOURCE-FREEZE.json').read_text());p=json.loads((proof/'extra16.json').read_text());assert p['leases']and all(not x for x in p['lease_scopes']);pf=json.loads((proof/'SOURCE_FREEZE.json').read_text());assert all(sha(proof/'tool'/path)==h for path,h in pf['tool_source_files'].items());assert all(sha(old/'candidate'/path)==h for path,h in{**f['source_files'],**f['protected_files']}.items());assert sha(old/'candidate/ops.bin')==pf['input_sha256']
+def prefix(path):
+ h=hashlib.sha3_256();position=0
+ with path.open('rb',buffering=0)as raw:
+  header=raw.read(16);assert header[:8]==b'QECCOPSZ';n=int.from_bytes(header[8:],'little');stop=(n-96)*56;child=subprocess.Popen(['zstd','-dc'],stdin=raw,stdout=subprocess.PIPE)
+  while chunk:=child.stdout.read(1<<20):
+   if position<stop:h.update(chunk[:min(len(chunk),stop-position)])
+   position+=len(chunk)
+  assert child.wait()==0 and position==n*56
+ return n-96,h.hexdigest()
+count,inputhash=prefix(old/'candidate/ops.bin');outcount,outhash=prefix(proof/'extra16.ops.bin');assert outcount==count+3*len(p['leases']);assert not t.exists();subprocess.run(['git','-C',str(ws/'toffoli'),'worktree','add','--detach',str(t),f['base']],check=True)
+for path,h in f['source_files'].items():
+ dest=t/path;dest.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(old/'candidate'/path,dest);assert sha(dest)==h
+path=t/'src/point_add/mod.rs';raw=path.read_bytes();raw+=b'\nmod square_lease_cache;\n';path.write_bytes(raw)
+template=(r/'cache-template.rs').read_text().replace('__COUNT__',str(count)).replace('__HASH__',inputhash).replace('__TABLE__',',\n'.join('['+','.join(map(str,row))+']'for row in p['leases']));template=template.replace('EXACT154_CACHE','SQUARE_LEASE_CACHE').replace('Frozen exact154 input prefix','Frozen square1408 cache input').replace('exact154_rewrite','square_lease_rewrite').replace('diagnostic_toffoli_saving=154',f'diagnostic_toffoli_saving={len(p["leases"])}')
+needle='let out=rewrite(ops,LEASES,nb);';assert template.count(needle)==1;guard=f'''assert_eq!(out.len(),{outcount});let mut h=Sha3_256::new();for o in &out{{for v in[o.kind as u64,o.q_control2.0,o.q_control1.0,o.q_target.0,o.c_target.0,o.c_condition.0,o.r_target.0]{{h.update(v.to_le_bytes());}}}}assert_eq!(format!("{{:x}}",h.finalize()),"{outhash}","All native cache records must equal independent proof output");''';template=template.replace(needle,needle+guard);(t/'src/point_add/square_lease_cache.rs').write_bytes(template.encode())
+path=t/'src/point_add/finished_square_pipeline.rs';raw=path.read_bytes();needle=b'super::breakthrough_generic::run(ops)';assert raw.count(needle)==1;raw=raw.replace(needle,b'super::breakthrough_generic::run(super::square_lease_cache::run(super::breakthrough_generic::run(ops)))');path.write_bytes(raw)
+subprocess.run(['cp','-a','--reflink=auto',str(old/'candidate/target'),str(t/'target')],check=True);assert all(sha(t/path)==h for path,h in f['protected_files'].items());subprocess.run(['git','-C',str(t),'add','--intent-to-add','src/point_add'],check=True);(r/'source.patch').write_bytes(subprocess.check_output(['git','-C',str(t),'diff','--binary','HEAD','--','src/point_add']));(r/'SOURCE-FREEZE.json').write_text(json.dumps({'base':f['base'],'source_files':{path.relative_to(t).as_posix():sha(path)for path in(t/'src/point_add').rglob('*')if path.is_file()},'protected_files':f['protected_files'],'identity_nonce':0,'square_cap':1408,'global_cap':1536,'proof_source_freeze_sha256':sha(proof/'SOURCE_FREEZE.json'),'proof_rows_sha256':sha(proof/'extra16.json'),'leases':len(p['leases']),'generic_input_prefix_count':count,'generic_input_prefix_sha3':inputhash,'cache_output_prefix_count':outcount,'cache_output_prefix_sha3':outhash,'scope':'Independent finished square1408 circuit. Fixed raw binding, unchanged generic exact pass, independently reproved unconditional leases with full canonical output assertion, second unchanged generic pass, fixed nonce0 tail. Original source-bound modules unchanged and unused. No final gate or nonce search yet.'},indent=2)+'\n')

@@ -1,0 +1,90 @@
+{
+  "status": "BOUNDED_FACTOR_LANGUAGE_EXHAUSTED_NOT_LOWER_BOUND",
+  "case": {
+    "start": 11,
+    "end": 16,
+    "original_ANDs": 5,
+    "required_nonlinear_rank": 4,
+    "rank_slack": 1,
+    "new_gate_budget": 4,
+    "output_forms": [
+      268435456,
+      603979776,
+      1946157056,
+      134217728
+    ],
+    "boundary_columns": [
+      1,
+      2,
+      6,
+      10,
+      11,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25
+    ],
+    "boundary_width": 16
+  },
+  "solution": null,
+  "states_examined": 4,
+  "history": [
+    {
+      "state": [],
+      "depth": 0,
+      "factor_candidates_tried": 701,
+      "found_target_classes": [
+        8,
+        1
+      ],
+      "seconds_total": 0.05073833465576172
+    },
+    {
+      "state": [
+        8
+      ],
+      "depth": 1,
+      "factor_candidates_tried": 838,
+      "found_target_classes": [
+        1
+      ],
+      "seconds_total": 0.10074520111083984
+    },
+    {
+      "state": [
+        1
+      ],
+      "depth": 1,
+      "factor_candidates_tried": 838,
+      "found_target_classes": [
+        8
+      ],
+      "seconds_total": 0.15126681327819824
+    },
+    {
+      "state": [
+        8,
+        1
+      ],
+      "depth": 2,
+      "factor_candidates_tried": 992,
+      "found_target_classes": [],
+      "seconds_total": 0.20688390731811523
+    }
+  ],
+  "seconds": 0.20734786987304688,
+  "source_hashes": {
+    "PREFIX-DAG.json": "fd22d72380021c1df9fcd0b6813f59eccf3deaf43b3d560e180ceb6f284fb965",
+    "FUNCTIONS.json": "7c33a1bcfcbb628c38f47052da4f2ad4a53b17c06c9b2615819f11e4c32bb878",
+    "WINDOWS.json": "c185b794611a1cbcca5ee3b45d49bd56952a249352035ffe4d78f5315406e38f",
+    "search.py": "5dd157763cfc6a7a93f1634fc000a8afb231a374c269ab6c7bc7de8755711f09"
+  },
+  "scope": "At4 target-function rank and4 AND budget, every new AND must lie in the target-plus-boundary span. Enumerates these subspaces; searches one factor of sparse weight<=3 or existing available gate-control forms, the other factor and linear correction solved exactly. Any hit verified on full14-input truth domain. Finite restricted-language failure is not a full multiplicative-complexity lower bound. Native phase/workspace and complete point-add tests still required."
+}

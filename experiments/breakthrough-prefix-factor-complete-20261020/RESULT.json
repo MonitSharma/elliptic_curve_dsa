@@ -1,0 +1,90 @@
+{
+  "status": "EXACT_NO_FOUR_AND_CHAIN_WITH_DECLARED_BOUNDARY",
+  "case": {
+    "start": 11,
+    "end": 16,
+    "original_ANDs": 5,
+    "required_nonlinear_rank": 4,
+    "rank_slack": 1,
+    "new_gate_budget": 4,
+    "output_forms": [
+      268435456,
+      603979776,
+      1946157056,
+      134217728
+    ],
+    "boundary_columns": [
+      1,
+      2,
+      6,
+      10,
+      11,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25
+    ],
+    "boundary_width": 16
+  },
+  "solution": null,
+  "states_examined": 4,
+  "history": [
+    {
+      "state": [],
+      "depth": 0,
+      "factor_candidates_tried": 65535,
+      "found_target_classes": [
+        8,
+        1
+      ],
+      "seconds_total": 5.720779180526733
+    },
+    {
+      "state": [
+        8
+      ],
+      "depth": 1,
+      "factor_candidates_tried": 131071,
+      "found_target_classes": [
+        1
+      ],
+      "seconds_total": 15.304638862609863
+    },
+    {
+      "state": [
+        1
+      ],
+      "depth": 1,
+      "factor_candidates_tried": 131071,
+      "found_target_classes": [
+        8
+      ],
+      "seconds_total": 24.747887134552002
+    },
+    {
+      "state": [
+        8,
+        1
+      ],
+      "depth": 2,
+      "factor_candidates_tried": 262143,
+      "found_target_classes": [],
+      "seconds_total": 42.88103222846985
+    }
+  ],
+  "seconds": 42.8817400932312,
+  "source_hashes": {
+    "PREFIX-DAG.json": "fd22d72380021c1df9fcd0b6813f59eccf3deaf43b3d560e180ceb6f284fb965",
+    "FUNCTIONS.json": "7c33a1bcfcbb628c38f47052da4f2ad4a53b17c06c9b2615819f11e4c32bb878",
+    "WINDOWS.json": "c185b794611a1cbcca5ee3b45d49bd56952a249352035ffe4d78f5315406e38f",
+    "search.py": "c02d0384d20b59dc33731caf47aaddc17add196303633886e9d5b6151269071f"
+  },
+  "scope": "At4 target-function rank and4 AND budget, every new AND must lie in the target-plus-boundary span. Enumerates these subspaces; searches all affine parities for one factor, with constants absorbed into the linear correction; existing available gate-control forms are tried first, the other factor and linear correction solved exactly. Any hit verified on full14-input truth domain. Complete negative applies only to this declared16-function boundary interface and4-AND budget; other prior functions are excluded. Timeouts remain incomplete. Native phase/workspace and complete point-add tests still required."
+}

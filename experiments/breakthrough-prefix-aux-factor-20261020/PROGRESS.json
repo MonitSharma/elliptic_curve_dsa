@@ -1,0 +1,397 @@
+[
+  {
+    "status": "BOUNDED_FACTOR_LANGUAGE_EXHAUSTED_NOT_LOWER_BOUND",
+    "case": {
+      "start": 9,
+      "end": 16,
+      "original_ANDs": 7,
+      "required_nonlinear_rank": 6,
+      "rank_slack": 2,
+      "new_gate_budget": 6,
+      "output_forms": [
+        33554432,
+        285212672,
+        603979776,
+        1962934272,
+        167772160,
+        67108864
+      ],
+      "boundary_columns": [
+        1,
+        2,
+        5,
+        6,
+        10,
+        11,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "boundary_width": 16,
+      "original_required_nonlinear_rank": 5,
+      "hyperplane_parity": 17,
+      "retained_auxiliary_dimensions": 1
+    },
+    "solution": null,
+    "states_examined": 5,
+    "history": [
+      {
+        "state": [],
+        "depth": 0,
+        "factor_candidates_tried": 699,
+        "found_target_classes": [
+          1
+        ],
+        "seconds_total": 0.13902640342712402
+      },
+      {
+        "state": [
+          1
+        ],
+        "depth": 1,
+        "factor_candidates_tried": 838,
+        "found_target_classes": [
+          32,
+          16
+        ],
+        "seconds_total": 0.24405980110168457
+      },
+      {
+        "state": [
+          32,
+          1
+        ],
+        "depth": 2,
+        "factor_candidates_tried": 993,
+        "found_target_classes": [
+          16
+        ],
+        "seconds_total": 0.33333444595336914
+      },
+      {
+        "state": [
+          16,
+          1
+        ],
+        "depth": 2,
+        "factor_candidates_tried": 992,
+        "found_target_classes": [
+          32
+        ],
+        "seconds_total": 0.41913652420043945
+      },
+      {
+        "state": [
+          32,
+          16,
+          1
+        ],
+        "depth": 3,
+        "factor_candidates_tried": 1165,
+        "found_target_classes": [],
+        "seconds_total": 0.5066993236541748
+      }
+    ],
+    "seconds": 0.5072617530822754,
+    "source_hashes": {
+      "PREFIX-DAG.json": "fd22d72380021c1df9fcd0b6813f59eccf3deaf43b3d560e180ceb6f284fb965",
+      "FUNCTIONS.json": "7c33a1bcfcbb628c38f47052da4f2ad4a53b17c06c9b2615819f11e4c32bb878",
+      "WINDOWS.json": "318b549ee709279ae775ce94e213b8f1a088b734830630fe79acad5518aa0178",
+      "search.py": "54225331d51808c1144da713a1e4bfeb22e134f0dbc7f3a4850c42be02ccae25"
+    },
+    "scope": "At6 retained-function rank and6 AND budget, every new AND must lie in the target-plus-boundary span. Enumerates these subspaces; searches one factor of sparse weight<=3 or existing available gate-control forms, the other factor and linear correction solved exactly. Any hit verified on full14-input truth domain. Finite restricted-language failure is not a full multiplicative-complexity lower bound. Native phase/workspace and complete point-add tests still required."
+  },
+  {
+    "status": "BOUNDED_FACTOR_LANGUAGE_EXHAUSTED_NOT_LOWER_BOUND",
+    "case": {
+      "start": 9,
+      "end": 16,
+      "original_ANDs": 7,
+      "required_nonlinear_rank": 6,
+      "rank_slack": 2,
+      "new_gate_budget": 6,
+      "output_forms": [
+        33554432,
+        285212672,
+        603979776,
+        1962934272,
+        167772160,
+        16777216
+      ],
+      "boundary_columns": [
+        1,
+        2,
+        5,
+        6,
+        10,
+        11,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "boundary_width": 16,
+      "original_required_nonlinear_rank": 5,
+      "hyperplane_parity": 36,
+      "retained_auxiliary_dimensions": 1
+    },
+    "solution": null,
+    "states_examined": 12,
+    "history": [
+      {
+        "state": [],
+        "depth": 0,
+        "factor_candidates_tried": 699,
+        "found_target_classes": [
+          32,
+          1,
+          34
+        ],
+        "seconds_total": 0.1364574432373047
+      },
+      {
+        "state": [
+          32
+        ],
+        "depth": 1,
+        "factor_candidates_tried": 837,
+        "found_target_classes": [
+          1,
+          2
+        ],
+        "seconds_total": 0.23783469200134277
+      },
+      {
+        "state": [
+          1
+        ],
+        "depth": 1,
+        "factor_candidates_tried": 838,
+        "found_target_classes": [
+          32,
+          16,
+          34
+        ],
+        "seconds_total": 0.35330748558044434
+      },
+      {
+        "state": [
+          34
+        ],
+        "depth": 1,
+        "factor_candidates_tried": 836,
+        "found_target_classes": [
+          2,
+          1
+        ],
+        "seconds_total": 0.45117902755737305
+      },
+      {
+        "state": [
+          32,
+          1
+        ],
+        "depth": 2,
+        "factor_candidates_tried": 993,
+        "found_target_classes": [
+          16,
+          2
+        ],
+        "seconds_total": 0.5376741886138916
+      },
+      {
+        "state": [
+          32,
+          2
+        ],
+        "depth": 2,
+        "factor_candidates_tried": 991,
+        "found_target_classes": [
+          1
+        ],
+        "seconds_total": 0.6255218982696533
+      },
+      {
+        "state": [
+          16,
+          1
+        ],
+        "depth": 2,
+        "factor_candidates_tried": 992,
+        "found_target_classes": [
+          32,
+          34
+        ],
+        "seconds_total": 0.7118606567382812
+      },
+      {
+        "state": [
+          34,
+          1
+        ],
+        "depth": 2,
+        "factor_candidates_tried": 992,
+        "found_target_classes": [
+          2,
+          16
+        ],
+        "seconds_total": 0.7960336208343506
+      },
+      {
+        "state": [
+          32,
+          16,
+          1
+        ],
+        "depth": 3,
+        "factor_candidates_tried": 1165,
+        "found_target_classes": [
+          2
+        ],
+        "seconds_total": 0.8807723522186279
+      },
+      {
+        "state": [
+          32,
+          2,
+          1
+        ],
+        "depth": 3,
+        "factor_candidates_tried": 1165,
+        "found_target_classes": [
+          16
+        ],
+        "seconds_total": 0.9672327041625977
+      },
+      {
+        "state": [
+          34,
+          16,
+          1
+        ],
+        "depth": 3,
+        "factor_candidates_tried": 1164,
+        "found_target_classes": [
+          2
+        ],
+        "seconds_total": 1.0487658977508545
+      },
+      {
+        "state": [
+          32,
+          16,
+          2,
+          1
+        ],
+        "depth": 4,
+        "factor_candidates_tried": 1356,
+        "found_target_classes": [],
+        "seconds_total": 1.144852638244629
+      }
+    ],
+    "seconds": 1.1455304622650146,
+    "source_hashes": {
+      "PREFIX-DAG.json": "fd22d72380021c1df9fcd0b6813f59eccf3deaf43b3d560e180ceb6f284fb965",
+      "FUNCTIONS.json": "7c33a1bcfcbb628c38f47052da4f2ad4a53b17c06c9b2615819f11e4c32bb878",
+      "WINDOWS.json": "6b2f5d8e74e296df74b5d82a9205d1167fa0f6dbe67a4682d2b55420cc98a203",
+      "search.py": "54225331d51808c1144da713a1e4bfeb22e134f0dbc7f3a4850c42be02ccae25"
+    },
+    "scope": "At6 retained-function rank and6 AND budget, every new AND must lie in the target-plus-boundary span. Enumerates these subspaces; searches one factor of sparse weight<=3 or existing available gate-control forms, the other factor and linear correction solved exactly. Any hit verified on full14-input truth domain. Finite restricted-language failure is not a full multiplicative-complexity lower bound. Native phase/workspace and complete point-add tests still required."
+  },
+  {
+    "status": "BOUNDED_FACTOR_LANGUAGE_EXHAUSTED_NOT_LOWER_BOUND",
+    "case": {
+      "start": 9,
+      "end": 16,
+      "original_ANDs": 7,
+      "required_nonlinear_rank": 6,
+      "rank_slack": 2,
+      "new_gate_budget": 6,
+      "output_forms": [
+        33554432,
+        285212672,
+        603979776,
+        1962934272,
+        167772160,
+        83886080
+      ],
+      "boundary_columns": [
+        1,
+        2,
+        5,
+        6,
+        10,
+        11,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "boundary_width": 16,
+      "original_required_nonlinear_rank": 5,
+      "hyperplane_parity": 53,
+      "retained_auxiliary_dimensions": 1
+    },
+    "solution": null,
+    "states_examined": 3,
+    "history": [
+      {
+        "state": [],
+        "depth": 0,
+        "factor_candidates_tried": 699,
+        "found_target_classes": [
+          1
+        ],
+        "seconds_total": 0.14020586013793945
+      },
+      {
+        "state": [
+          1
+        ],
+        "depth": 1,
+        "factor_candidates_tried": 838,
+        "found_target_classes": [
+          16
+        ],
+        "seconds_total": 0.24858427047729492
+      },
+      {
+        "state": [
+          16,
+          1
+        ],
+        "depth": 2,
+        "factor_candidates_tried": 992,
+        "found_target_classes": [],
+        "seconds_total": 0.3403754234313965
+      }
+    ],
+    "seconds": 0.340970516204834,
+    "source_hashes": {
+      "PREFIX-DAG.json": "fd22d72380021c1df9fcd0b6813f59eccf3deaf43b3d560e180ceb6f284fb965",
+      "FUNCTIONS.json": "7c33a1bcfcbb628c38f47052da4f2ad4a53b17c06c9b2615819f11e4c32bb878",
+      "WINDOWS.json": "1fb13b2e15291fc5580e5d5a06e671b4c73e93f1f61344e481aafe9743db6aa8",
+      "search.py": "54225331d51808c1144da713a1e4bfeb22e134f0dbc7f3a4850c42be02ccae25"
+    },
+    "scope": "At6 retained-function rank and6 AND budget, every new AND must lie in the target-plus-boundary span. Enumerates these subspaces; searches one factor of sparse weight<=3 or existing available gate-control forms, the other factor and linear correction solved exactly. Any hit verified on full14-input truth domain. Finite restricted-language failure is not a full multiplicative-complexity lower bound. Native phase/workspace and complete point-add tests still required."
+  }
+]
