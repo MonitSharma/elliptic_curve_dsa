@@ -1,0 +1,34 @@
+   Compiling product_pareto_exact v0.1.0 (/home/hclau/ecdsa_research/breakthrough-live-products-20261020/tool)
+    Finished `release` profile [optimized] target(s) in 7.86s
+     Running unittests main.rs (target/release/deps/live_products-905a4dcda20e8eea)
+
+running 4 tests
+
+thread 'tests::ccx_target_is_excluded_while_ccz_self_target_becomes_phase' (2893758) panicked at /home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/src/circuit.rs:228:13:
+kind=AppendToRegister but r_target == NO_REG
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+thread 'tests::fresh_measurements_and_conditional_resets_keep_rng_and_full_state' (2893759) panicked at /home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/src/circuit.rs:228:13:
+kind=AppendToRegister but r_target == NO_REG
+
+thread 'tests::live_affine_parities_preserve_all_values_phase_and_captured_mutating_guards' (2893760) panicked at /home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/src/circuit.rs:228:13:
+kind=AppendToRegister but r_target == NO_REG
+test tests::ccx_target_is_excluded_while_ccz_self_target_becomes_phase ... FAILED
+
+thread 'tests::unknown_fresh_input_and_missing_parity_rows_are_not_reduced' (2893761) panicked at /home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/src/circuit.rs:228:13:
+kind=AppendToRegister but r_target == NO_REG
+test tests::fresh_measurements_and_conditional_resets_keep_rng_and_full_state ... FAILED
+test tests::live_affine_parities_preserve_all_values_phase_and_captured_mutating_guards ... FAILED
+test tests::unknown_fresh_input_and_missing_parity_rows_are_not_reduced ... FAILED
+
+failures:
+
+failures:
+    tests::ccx_target_is_excluded_while_ccz_self_target_becomes_phase
+    tests::fresh_measurements_and_conditional_resets_keep_rng_and_full_state
+    tests::live_affine_parities_preserve_all_values_phase_and_captured_mutating_guards
+    tests::unknown_fresh_input_and_missing_parity_rows_are_not_reduced
+
+test result: FAILED. 0 passed; 4 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `--bin live_products`

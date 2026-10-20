@@ -1,0 +1,32 @@
+{
+  "status": "COMPLETED_RESEARCH_NOT_SCORED",
+  "terminal_marker": "resumed.exit",
+  "terminal_exit": "0",
+  "original_run_exit": "1",
+  "source_files_checked": 177,
+  "source_freeze_present": true,
+  "test_log_verdicts": {
+    "tests.log": [
+      [
+        "FAILED",
+        "18",
+        "2"
+      ]
+    ],
+    "unmodified-control-tests.log": [
+      [
+        "FAILED",
+        "17",
+        "2"
+      ]
+    ],
+    "isolated-cache-tests.log": [
+      [
+        "ok",
+        "1",
+        "0"
+      ]
+    ]
+  },
+  "scope": "Preserve every original failure, source/protected/tool binding, control audit and stream hash. Raw/static/native/development measurements are not scored results. No final gate/nonce verdict is changed."
+}

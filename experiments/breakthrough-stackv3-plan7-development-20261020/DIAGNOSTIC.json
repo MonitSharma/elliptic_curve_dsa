@@ -1,0 +1,254 @@
+{
+  "status": "DEVELOPMENT_COMPARISON_COMPLETE_PRESERVE_ALL_MISMATCHES",
+  "label": "stackv3-plan7-28-generic-development-20261020-v1",
+  "batches": 512,
+  "summaries": {
+    "publice3": {
+      "value_shots": 54,
+      "phase_shots": 37,
+      "dirty_shots": 0,
+      "failed_batches": 62,
+      "mean_executed_stream_toffoli": 756477.9651489258,
+      "rows_sha256": "778022f133b810915125df16824dff0a9db664bc5059686bd554f4e07f4ffd43"
+    },
+    "generic1233": {
+      "value_shots": 54,
+      "phase_shots": 48,
+      "dirty_shots": 0,
+      "failed_batches": 65,
+      "mean_executed_stream_toffoli": 757702.2427978516,
+      "rows_sha256": "d707ab34fdff081fb6a4cc11d59a00edac21c35ba9f9cdf1c6c06aab1b786464"
+    }
+  },
+  "comparisons": {
+    "generic1233": {
+      "candidate_minus_parent_raw_toffoli": 1224.2776489257812,
+      "paired_standard_error": 4.51256889678117,
+      "new_failed_batches": 7,
+      "new_passing_batches": 4,
+      "new_value_failing_shots": [],
+      "new_value_passing_shots": [],
+      "different_target_lanes": [
+        {
+          "batch": 3,
+          "lane": 7,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 16,
+          "lane": 27,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 26,
+          "lane": 1,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 36,
+          "lane": 58,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 47,
+          "lane": 60,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 50,
+          "lane": 54,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 69,
+          "lane": 58,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 70,
+          "lane": 32,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 81,
+          "lane": 26,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 100,
+          "lane": 24,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 113,
+          "lane": 55,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 122,
+          "lane": 21,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 122,
+          "lane": 30,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 133,
+          "lane": 61,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 138,
+          "lane": 58,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 145,
+          "lane": 24,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 164,
+          "lane": 59,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 166,
+          "lane": 58,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 188,
+          "lane": 32,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 196,
+          "lane": 54,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 225,
+          "lane": 11,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 227,
+          "lane": 29,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 229,
+          "lane": 32,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 238,
+          "lane": 20,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 246,
+          "lane": 19,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 269,
+          "lane": 51,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 281,
+          "lane": 19,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 288,
+          "lane": 43,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 343,
+          "lane": 37,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 376,
+          "lane": 18,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 387,
+          "lane": 50,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 411,
+          "lane": 30,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 422,
+          "lane": 46,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 430,
+          "lane": 24,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 444,
+          "lane": 59,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 484,
+          "lane": 25,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        }
+      ],
+      "different_other_lanes": [],
+      "target_differences_confined_to_both_value_failing": true
+    }
+  },
+  "scope": "Fresh full-output development512x64/source, fixed1233/t28 nativeplan7+generic once vs exactpublice3. Preserve all output/value/phase/dirty mismatches. Not final-gated, nonce-screened, benchmarked or scored."
+}

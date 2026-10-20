@@ -1,0 +1,10 @@
+Preparing worktree (detached HEAD 88869d8c)
+HEAD is now at 88869d8c Validate submission e3b5c51f-74e6-480a-82bf-5543fb1ba555
+Traceback (most recent call last):
+  File "/home/hclau/ecdsa_research/breakthrough-stackv3-plan7-generic-20261020/run.py", line 31, in <module>
+    name='tests-'+str(i);run(['/home/hclau/.cargo/bin/cargo','+1.93.0','test','--release','--bin','build_circuit',flt,'--','--nocapture','--test-threads=1'],name,env=env);ns=re.findall(r'test result: ok\. (\d+) passed; 0 failed;',(r/(name+'.log')).read_text());assert len(ns)==1;counts.append(int(ns[0]))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hclau/ecdsa_research/breakthrough-stackv3-plan7-generic-20261020/run.py", line 6, in run
+    (r/(name+'.exit')).write_text(str(rc)+'\n');assert rc==0,name
+                                                       ^^^^^
+AssertionError: tests-0

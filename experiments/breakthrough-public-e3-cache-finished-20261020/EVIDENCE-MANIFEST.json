@@ -1,0 +1,37 @@
+{
+  "files": {
+    ".gitignore": "92fe29b32b9cbbeac5823a13acc24e20e7c8a94abc2d05e463f51e609d6ad224",
+    "tests.pid": "c6d5409bf5c87a7582555a97ee421ae906e6ac971ff6fc66de8546902066f867",
+    "run.exit": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+    "tests.exit": "39b8dc3fc8b44765c8e6f1adee04c5b465e555ab791cc42d0d9e810d5b64297c",
+    "literal-proof-rewriter.rs": "8a34e4b8665c20617e66584657709555e3d311abee4239382faf633469ae2fbd",
+    "TERMINAL-AUDIT.json": "0468698154aa4ed6edf0935a28dff513dd8014a234967b4a9f5223b6d73b7f79",
+    "cache-tests.rs": "220b5c7908c52e4b588ae19f2a4db9d4d0fd66d8851735ab6fa291820874ad09",
+    "supervisor.log": "73fd508515c48b0291fb4d3acaad6b20e35c166460512ff8a002348578ea25a6",
+    "PLAN.md": "2382e6af2008c0c5a8eabe7c52719efbe88b7d22c087747bf52535c72f8d7d0a",
+    "tests.log": "a9c2e8c01d5ab0083c93fb9e9720cb1ac5b76347d41a93fa0fdc89126dad5389",
+    "run.py": "495ca1b0bba7c53134be3de96ac8f3a439257ad0a5c2762a6029cafad4a43be6",
+    "source.patch": "383e6cf2b76cb66f927b5d6c68da4731aa5896bbc8f34dd88391dc0e08f1d1d5",
+    "supervisor.pid": "4f5b92d0937eedf76ae6f172c76799ab9e523f1536d1b47b559a1d09b4647006",
+    "changed-point-add-source.tar.gz": "0febdc085a61cbb3dc6a21b7b73c11b579ec65ee55f6659012f0810829b49a7b",
+    ".gitattributes": "8b9c3028d6467ff3be7c793141927841d70f47f52d0590677438f488ca154992",
+    "SOURCE-FREEZE.json": "916727e518769f84531179b66457c9e5ede2d18757bc78d5e6ee1839ec9862d3"
+  },
+  "streams_retained_on_server": {},
+  "changed_source_files": [
+    "src/point_add/mod.rs",
+    "src/point_add/public_e3_cache.rs"
+  ],
+  "audit": {
+    "status": "FAILED_RESEARCH_OR_PREFLIGHT_OR_FIXTURE_PRESERVED_NOT_SCORED",
+    "terminal_marker": "run.exit",
+    "terminal_exit": "1",
+    "original_run_exit": "1",
+    "source_files_checked": 177,
+    "source_freeze_present": true,
+    "test_log_verdicts": {
+      "tests.log": []
+    },
+    "scope": "Preserve every original failure, source/protected/tool binding, control audit and stream hash. Raw/static/native/development measurements are not scored results. No final gate/nonce verdict is changed."
+  }
+}

@@ -1,0 +1,11 @@
+   Compiling product_pareto_exact v0.1.0 (/home/hclau/ecdsa_research/breakthrough-stackv3-plan7-zero-donors-20261020/tool)
+warning: function `initial_inputs` is never used
+  --> discover.rs:47:4
+   |
+47 | fn initial_inputs(ops:&[Op],nq:usize,nb:usize,alg:&mut Algebra)->(Vec<E>,Vec<E>){
+   |    ^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `product_pareto_exact` (bin "product_pareto_discover") generated 1 warning
+    Finished `release` profile [optimized] target(s) in 1.98s

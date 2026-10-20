@@ -1,0 +1,6 @@
+import ast
+from pathlib import Path
+a=Path(__file__).resolve().parent;s=(a/'seal-research-cycle2.py').read_text();tree=ast.parse(s);names=ast.literal_eval(next(x.value for x in tree.body if isinstance(x,ast.Assign)and any(isinstance(t,ast.Name)and t.id=='names'for t in x.targets)))
+(a/'run-seal-cycle2.py').write_text('import subprocess\nfrom pathlib import Path\nws=Path("/home/hclau/ecdsa_research")\nnames='+repr(names)+'\nfor n in names:\n if not(ws/n/"EVIDENCE-MANIFEST.json").exists():subprocess.run(["python3",str(ws/"breakthrough-sparse-polynomial-20261020/seal-research-cycle2.py"),n],check=True)\n')
+s=(a/'collect-bound-audit-cycle.py').read_text();start=s.index('names=[');end=s.index('\nsha=',start);s=s[:start]+'names='+repr(names)+s[end:];needle=" (r/'.gitignore').write_text('observer/\\n__pycache__/\\nevidence.tar.gz\\n*resource-preflight*\\n*.records.bin\\n')";assert s.count(needle)==1;s=s.replace(needle," p=r/'.gitignore';prior=p.read_text()if p.exists()else'';p.write_text(prior+''.join(x+'\\n'for x in['observer/','candidate/','unmodified-control/','tool/','__pycache__/','evidence.tar.gz','*resource-preflight*','*.records.bin']if x not in prior.splitlines()))")
+(a/'collect-research-cycle2.py').write_text(s);print(len(names),'completed fronts')

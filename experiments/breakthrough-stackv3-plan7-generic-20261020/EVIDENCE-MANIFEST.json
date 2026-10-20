@@ -1,0 +1,44 @@
+{
+  "files": {
+    ".gitignore": "92fe29b32b9cbbeac5823a13acc24e20e7c8a94abc2d05e463f51e609d6ad224",
+    "run.exit": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+    "TERMINAL-AUDIT.json": "32c186364a2796c801f1c05f8579f6579d106f967335cc0571d7369ae246a925",
+    "supervisor.log": "5466eddca78b6116bd35fad19c961cda31adf8a634e86c26012203c77c32cfcc",
+    "PLAN.md": "cb3be4e4f4652cf0139c71384b5b124d24cf6f4b061b1d7b3786eb80239f8153",
+    "run.py": "f8b392389db7e561115026a23c3f5e6b8bdda67f7ed4c70cc44b2ffe4b15436f",
+    "tests-0.exit": "39b8dc3fc8b44765c8e6f1adee04c5b465e555ab791cc42d0d9e810d5b64297c",
+    "tests-0.pid": "35e75f0b91a4be3dd9f8829a071338cbfcaa1a0dc7b79f14adbc4866252fc8f1",
+    "source.patch": "d4efc8224fe7768eefef58bf4387199e37325962f4af860940d7a8ec1302fe39",
+    "supervisor.pid": "150104fad8d4b4431fb6bd776dfac055bfa840d8ced26ffb2a933e4a381509d7",
+    "changed-point-add-source.tar.gz": "4651cc72297b08ba8c7c7801054a6e2f66c7efffa85dafaf33059325a63c025f",
+    ".gitattributes": "8b9c3028d6467ff3be7c793141927841d70f47f52d0590677438f488ca154992",
+    "tests-0.log": "e4f349f055eede4a9ca99fdd333305bca4440c4588a0ec5ba1481936895a2a95",
+    "SOURCE-FREEZE.json": "c66f6346752ea5be5bc6e51ee47a65991b78f42baaa034454059b301033cd86f"
+  },
+  "streams_retained_on_server": {},
+  "changed_source_files": [
+    "src/point_add/stack_plan7_generic.rs",
+    "src/point_add/y15_onefold.rs",
+    "src/point_add/tests_classical_factors.rs",
+    "src/point_add/classical_factors_xor.rs",
+    "src/point_add/breakthrough_generic.rs",
+    "src/point_add/mod.rs",
+    "src/point_add/classical_wide/table.rs",
+    "src/point_add/classical_wide/tests_classical_factors.rs",
+    "src/point_add/classical_wide/product7_simplify.rs",
+    "src/point_add/classical_wide/tests_table.rs",
+    "src/point_add/classical_wide/mod.rs"
+  ],
+  "audit": {
+    "status": "FAILED_RESEARCH_OR_PREFLIGHT_OR_FIXTURE_PRESERVED_NOT_SCORED",
+    "terminal_marker": "run.exit",
+    "terminal_exit": "1",
+    "original_run_exit": "1",
+    "source_files_checked": 185,
+    "source_freeze_present": true,
+    "test_log_verdicts": {
+      "tests-0.log": []
+    },
+    "scope": "Preserve every original failure, source/protected/tool binding, control audit and stream hash. Raw/static/native/development measurements are not scored results. No final gate/nonce verdict is changed."
+  }
+}

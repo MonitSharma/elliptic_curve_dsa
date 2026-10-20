@@ -1,0 +1,16 @@
+{
+  "status": "TWO_UNCHANGED_PARENT_TEST_FAILURES_REPRODUCED_BYTE_IDENTICALLY",
+  "candidate_passing_controls": 18,
+  "unmodified_parent_passing_controls": 17,
+  "failed_tests": [
+    "point_add::leapfrog::prof::leapfrog_prim_costs",
+    "point_add::leapfrog::tests::leapfrog_divide"
+  ],
+  "profile_failure": "Missing optional profiling environment (NotPresent)",
+  "division_failure": "Same deterministic wrong input/output and1phasefailure in an isolated approximate division primitive, both sources; not full pointaddition benchmark",
+  "candidate_all_tests_log_sha256": "9a61f1af3f6c495516eef9f111893890fe88a6a07aca59ac34de386522ad2cf5",
+  "unmodified_all_tests_log_sha256": "52e2036c22426964c95eeda531d25a80827244a5e275c38f495af0819f4a858c",
+  "unmodified_control_freeze_sha256": "d8c9c5d38dd923d3854bff9bb9e5d91ecf2f99d19525442dd9ba5f864684901e",
+  "isolated_new_cache_test": "PASS; no candidate source change",
+  "scope": "Original run.exit1/tests.exit101 remain. No claim all20 tests pass. New cache controls plus independent9 proof controls and full canonical bindings precede development/finalgate."
+}

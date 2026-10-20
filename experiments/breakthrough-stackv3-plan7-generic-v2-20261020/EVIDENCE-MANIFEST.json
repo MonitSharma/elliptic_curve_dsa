@@ -1,0 +1,80 @@
+{
+  "files": {
+    "generate.pid": "8b24fdf825c0f45ef5862c186a4a022e49d5d140da812fab64ca976725571dc3",
+    "RESULT.json": "33397a1ab067bfa98d3d6aa995085dfcab83502a9b2cd56991f1407999a9fd1b",
+    ".gitignore": "92fe29b32b9cbbeac5823a13acc24e20e7c8a94abc2d05e463f51e609d6ad224",
+    "run.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "TERMINAL-AUDIT.json": "9f3cfb4302a3b22e21cd14a720c662d8be90bbcbe1dc851d0ceff3c32241587a",
+    "generate.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "tests-1.log": "f6f0e1f97c1714afaca8f152608ccefebbb3f1611d10f4e18ac00ce749e8d894",
+    "build.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "supervisor.log": "e82af44a9f9022f352f7d4a0010e604f2244afbe0522f94c29f6e95422025092",
+    "PLAN.md": "75b9a211e34b0d9461d11c1afe59b9d10a48934d9a4e2a78d205ee5096a70b83",
+    "build.pid": "8148f36ed0070d26e5dd452eb85da6fb8f6344a5ee4fa0544055401454b380fa",
+    "generate.log": "27f85e5a84102c11ebff6d36325400616aa7a069bd27a3d9506a125933dbff4d",
+    "build.log": "eabd36fdf3d85abe9f678479d76d08c6773031f99809feca6c6e144d8313c323",
+    "tests-2.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "tests-1.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "tests-2.pid": "d99c2b4fe9a71a558ffe19f497dd2ea79f9fc0416e9b9c15b7959880e779e797",
+    "tests-1.pid": "9012af0fb0eacab5ae28046e21889974aae87d356d62bf9f699cca7bece5c54f",
+    "run.py": "2a06c5a40e9910e6e5bbcac07601884a21371be1002195148e5aa8e29cc50b7a",
+    "tests-0.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "tests-0.pid": "6e7184e505e47ec27b22fdc7637f9c5dcc6d28d7ed8f0a606eb2e1d75b959d39",
+    "source.patch": "f463064c75b2a95d529f229cb66feaa5fdeb8717cb16a62f9e06b52a888a0ed1",
+    "supervisor.pid": "f69de0e23a5818e0abab3cb05ca4aab7cd50e1695ba7bee4f8fa90543e4b3249",
+    "changed-point-add-source.tar.gz": "9bc1fd95bfecb852d89f88f9cfa4c0abc4f78facd7bc701cd33b4e5d0575a887",
+    ".gitattributes": "8b9c3028d6467ff3be7c793141927841d70f47f52d0590677438f488ca154992",
+    "tests-0.log": "dd360734df6c04b0cfb61ed93f1b4a202304fe5925665edc6318ba69220e1f3e",
+    "SOURCE-FREEZE.json": "6c496fc3ec1c26a935bb1bfb471d99596555707e7c13a1c41d45509acd6c3446",
+    "tests-2.log": "cfef96433ee38dfeb1274b3c3ce0d0e50226c9e8b9429228ce305fac41248e98"
+  },
+  "streams_retained_on_server": {
+    "candidate/ops.bin": "36e809e798c8a8880bd41c77e30c2a1763081bde177a91e035a7eb83c83a87b7"
+  },
+  "changed_source_files": [
+    "src/point_add/stack_plan7_generic.rs",
+    "src/point_add/y15_onefold.rs",
+    "src/point_add/tests_classical_factors.rs",
+    "src/point_add/product7_simplify.rs",
+    "src/point_add/classical_factors_xor.rs",
+    "src/point_add/breakthrough_generic.rs",
+    "src/point_add/mod.rs",
+    "src/point_add/classical_wide/table.rs",
+    "src/point_add/classical_wide/tests_classical_factors.rs",
+    "src/point_add/classical_wide/product7_simplify.rs",
+    "src/point_add/classical_wide/tests_table.rs",
+    "src/point_add/classical_wide/mod.rs"
+  ],
+  "audit": {
+    "status": "COMPLETED_RESEARCH_NOT_SCORED",
+    "terminal_marker": "run.exit",
+    "terminal_exit": "0",
+    "original_run_exit": "0",
+    "source_files_checked": 186,
+    "source_freeze_present": true,
+    "test_log_verdicts": {
+      "tests-1.log": [
+        [
+          "ok",
+          "3",
+          "0"
+        ]
+      ],
+      "tests-0.log": [
+        [
+          "ok",
+          "4",
+          "0"
+        ]
+      ],
+      "tests-2.log": [
+        [
+          "ok",
+          "7",
+          "0"
+        ]
+      ]
+    },
+    "scope": "Preserve every original failure, source/protected/tool binding, control audit and stream hash. Raw/static/native/development measurements are not scored results. No final gate/nonce verdict is changed."
+  }
+}

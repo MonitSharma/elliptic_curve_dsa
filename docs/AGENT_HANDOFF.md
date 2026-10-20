@@ -1,3 +1,30 @@
+## 20 October 2026, 23:10 SGT: product candidate at final-gate boundary
+
+Keep the active global product goal unfinished. Auto-submit every newly verified
+current-record improvement as GPT-6 sol/Codex; no further approval question.
+OfficialT748691/d182 remains our latest result. New directpublice3 cache53 plus
+seven independently proved liveparity replacements builds actualQ1234,11603148
+ops, canonical1063c1fd, nonce0streamc9f9f2fc. This is NOT a benchmark record.
+Full source frozen8daae54f; all parent714c/cache/output records bound, no old
+table change. Cacheproof9 plus compiler6 native controls, newruntime2 PASS.
+Two original isolated unit failures exactly reproduce on unmodifiedGit88869
+(profile NotPresent; same isolatedapproxdivision1/1024); all logs retained.
+
+Active product jobs: finished2904654 complete; development2905358 must prove
+cache53 vs parity fullvalue/phase/ancilla equality; finalgate2906110 waits it,
+then refreshes exact current product parent and declares SOLE32768x64 label
+public-e3-cache53-live7-final-20261020-v1. NEVER rerun a failed gate. PASS only
+permits qualifiedascendingnonce, unchangedbenchmark, localreview and auto-upload.
+NativeT context16 component2907170 separately targets currentofficiald182 at
+<=Q1480; own freshT gate required. Generalexactproof2897179 remains running.
+
+ActualQ1233 native plan works but complete developmentalT757702 is too costly;
+117 existing-wire exactleases do not close gap. No gate/nonce on that line.
+Read experiments/autorun-20261020-breakthrough/CURRENT-1020-1510.json for all
+new hashes/jobs and inherited-failure audit. 18newfronts476 members hydrated,
+prior11fronts482 members preserved; source/patch/failures intact. Preserve all
+preexisting root/submodule/user edits and unrelated server QOB jobs.
+
 ## 20 October 2026, 21:41 SGT: official T748691; continue global product objective
 
 Latest publicT: d182a53e, Q1464/T748691, sourcefb2d03e8; official metrics equal

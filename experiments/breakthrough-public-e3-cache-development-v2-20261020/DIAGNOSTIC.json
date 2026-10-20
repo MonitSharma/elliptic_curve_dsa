@@ -1,0 +1,37 @@
+{
+  "status": "DEVELOPMENT_COMPARISON_COMPLETE_PRESERVE_ALL_MISMATCHES",
+  "label": "public-e3-exact-context53-development-20261020-v1",
+  "batches": 512,
+  "summaries": {
+    "publice3": {
+      "value_shots": 65,
+      "phase_shots": 46,
+      "dirty_shots": 0,
+      "failed_batches": 70,
+      "mean_executed_stream_toffoli": 756479.6455688477,
+      "rows_sha256": "a26db611149518bc24a9a9760a8ec17f7cb8ad5aa72ee522f69865de024f1a73"
+    },
+    "cache1234": {
+      "value_shots": 65,
+      "phase_shots": 43,
+      "dirty_shots": 0,
+      "failed_batches": 71,
+      "mean_executed_stream_toffoli": 756424.5381469727,
+      "rows_sha256": "1b83843c08fe8843c87244af3dbc262c307466b95f493e7399697e0ebe38b287"
+    }
+  },
+  "comparisons": {
+    "cache1234": {
+      "candidate_minus_parent_raw_toffoli": -55.107421875,
+      "paired_standard_error": 3.4743469811077445,
+      "new_failed_batches": 2,
+      "new_passing_batches": 1,
+      "new_value_failing_shots": [],
+      "new_value_passing_shots": [],
+      "different_target_lanes": [],
+      "different_other_lanes": [],
+      "target_differences_confined_to_both_value_failing": true
+    }
+  },
+  "scope": "Fresh full-output development512x64/source, fixed completepublice3 plus53 exactexisting-wire cacheleases vs exactpublice3. Preserve all output/value/phase/dirty mismatches. Not final-gated, nonce-screened, benchmarked or scored."
+}
