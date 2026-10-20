@@ -1,0 +1,27 @@
+{
+  "classical_bits": 45705,
+  "exact_zero_cancellations": 419,
+  "failure": {
+    "affine_rank_probe": {
+      "constant_witness_index": 1233,
+      "dependencies": [],
+      "formal_rank_including_constant": 1234,
+      "rows": 1233,
+      "scope": "Only exact formal-expression dependencies qualify; opaque functions may hide more relationships. No lower bound on true function rank."
+    },
+    "failed_at": 1444755,
+    "failing_op_kind": "CCX",
+    "first": 1444755,
+    "globally_zero_wires": 1,
+    "reason": "no branch-disjoint donor for complete top interval",
+    "top_support_terms": 0,
+    "universal_supports": 1233
+  },
+  "input_Q": 1234,
+  "opaque_truncations": 115385,
+  "products": 141278,
+  "proved_intervals": [],
+  "scope": "Same kinds, conditions, order and RNG events. Full function keys and conservative supports; no sampled arithmetic or packet inputs. Stops at first failed lifetime. Static proof diagnostic only.",
+  "status": "NO_COMPLETE_WIDTH_REDUCTION",
+  "xor_expression_cap": 64
+}

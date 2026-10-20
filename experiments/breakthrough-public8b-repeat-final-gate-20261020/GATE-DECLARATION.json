@@ -1,0 +1,61 @@
+{
+  "declared_at_utc": "2026-10-20T08:57:43.728973+00:00",
+  "label": "public8b-repeat-generic-final-20261020-v1",
+  "batches": 32768,
+  "shots_per_batch": 64,
+  "shots_per_source": 2097152,
+  "first_batch": 0,
+  "workers_per_source": 16,
+  "protected_scalar_batches_per_source": 8,
+  "candidate_root": "/home/hclau/ecdsa_research/breakthrough-public8b-repeat-generic-20261020/candidate",
+  "candidate_source_freeze": "/home/hclau/ecdsa_research/breakthrough-public8b-repeat-generic-20261020/SOURCE-FREEZE-v2.json",
+  "candidate_source_freeze_sha256": "a680f4d979df3ebdc5601616569705df1f115ebfcc059945d6c2cb3a183c53ab",
+  "candidate_stream": "/home/hclau/ecdsa_research/breakthrough-public8b-repeat-generic-20261020/candidate/ops.bin",
+  "candidate_stream_sha256": "4fb7a65acb7027fe9fa519b0db781f830c5cf1e1e5573afa102247401b3b6a01",
+  "candidate_qubits_from_protected_analyzer": 1464,
+  "identity_nonce": 0,
+  "parent_record": {
+    "id": "8b682cf8-e242-4827-bb54-3c0724635893",
+    "officialScore": 1099503528,
+    "officialMetrics": {
+      "qubits": 1464,
+      "toffoli": 751027
+    },
+    "submissionCommitSha": "58561741282970059dbdd26d3ba8c40cbafd909f"
+  },
+  "public_refresh_at_utc": "2026-10-20T08:57:16.456021+00:00",
+  "public_records_sha256": "3fc7e0b643fbc8097797ce5d67e3de61950ae0afbe5f8f9f972bfe4cfe954b8e",
+  "parent_source_receipt_sha256": "2eec66e8e1745927c68ae264cc0262ee0f0fee57837b3018af400ded54ad9123",
+  "parent_stream": "/home/hclau/ecdsa_research/breakthrough-public140-exact154-final-20261020/candidate/ops.bin",
+  "parent_stream_sha256": "77d43b25b1526603b8e496da5f514a1b397a849bdd6eb9511e11beb0536e3057",
+  "census_binary": "/home/hclau/ecdsa_research/simd-census-v2-20261016/bin/simd_census_v2",
+  "census_binary_sha256": "790e92266ea67ec54ef701b2deed76fe8d0b766b411ca9eab877f82ae2c11a66",
+  "protected_dependency_files": {
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/.github/workflows/benchmark.yml": "3b90200b03c72242cbaab4a8dd22eedcab97fb4ba5983980cf4d738130141162",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/.gitignore": "b9ca6f04c099c9f83bdfaec187be689580b57b1ca701dea5ab297c0500457658",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/Cargo.lock": "42ff16919e551891ad1b21821329b116d133194245a0e0734a33573dfe598e07",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/Cargo.toml": "3c80178b08d29a158abb29a7dcb8eefc67c66f60f2c3bd14483b65eeca0740dc",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/NOTICE": "fdfff837a1a85c14fc8854cfb2fa8a43b2ac58a6b8fcc50e56fe6c9d1293c58f",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/README.md": "ac644b8d227144c34245d913b5cbe6857da02faa10c885bf0ad3b14a5d9d6f7a",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/benchmark.json": "213c8e602881130991b9374d8f991acb2d2a7cc3618ec5f24d5e3cc27add06fb",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/benchmark.sh": "122a65431ad42a1bad5114af9e8f8301fe5cb08c01adaeee00799c9f0d0ed92a",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/results.tsv": "eea840222afd2424445550252f25795d63eb4bc3904b8c87f0213b5f22abc810",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/rust-toolchain": "92b454c1ccf330de9b94242f73bc3214370fb420d5152baeec12dc82ceef9dcc",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/setup.sh": "6efa1c41517f0cd94f1e7301aa5ccb2c488eef66466843668e44e09c5523d029",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/src/bin/build_circuit.rs": "ac013f1d851156a117c7d41ddb16cb5bb014ed4e6ed4679df143207b46852f33",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/src/bin/eval_circuit.rs": "b35314bc47a5f8eecbf60459e6c76c9b43aa034eeb9b7ec3421655d74f9e890b",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/src/circuit.rs": "ac2255f6bcb6895c9da2dfe21c3a051a0ef8fc4e0af9598634fec0035dbf35c6",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/src/lib.rs": "ebad13b0018b36bdcbcac0d0ca2b7b76a00a886eb4f93ff18e7ba321e76b0039",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/src/sim.rs": "f0c72f2a280cd68acee1dbf8282098f72d6b3bf4311e0abf96d122fe002256d7",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/src/weierstrass_elliptic_curve.rs": "ecfca15ee3b831c243fbea559ff4b8937be47fe591a4f14786ec2b9bfb30bded"
+  },
+  "criteria": {
+    "candidate_value_failing_shots_no_more_than_parent": true,
+    "one_sided_exact_mcnemar_p_minimum": 0.05,
+    "failed_batches_per_9024_shot_packet_maximum": 18,
+    "packet_batches": 141,
+    "dirty_ancilla_shots": 0
+  },
+  "verdict_policy": "Sole final gate on this finished repeated-generic source. Outcome final: never rerun, relabel, extend batches or change nonce to reverse failure. No nonce screening until PASS. Earlier exact154 gate is historical and not reused.",
+  "scope": "Independent finished pipeline repeats existing generic exact passes after fixed154 leases; native27 controls pass. Metadata-only freeze correction preserves original stale nonce metadata and changes no source, circuit, tests or build. No benchmark/nonce yet."
+}

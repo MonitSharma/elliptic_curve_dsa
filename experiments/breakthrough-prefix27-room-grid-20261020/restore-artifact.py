@@ -1,0 +1,7 @@
+"""Restore the observer's pre-grid generated artifact from its exact saved case."""
+import hashlib,json,shutil
+from pathlib import Path
+r=Path(__file__).resolve().parent;old=r.parent/'breakthrough-prefix27-cleanup11-native-20261020';sha=lambda p:hashlib.file_digest(p.open('rb'),'sha256').hexdigest();assert(r/'run.exit').read_text().strip()=='0';audit=json.loads((old/'TERMINAL-AUDIT.json').read_text());expected=audit['streams_retained_on_server']['observer/ops.bin'];source=old/'case5/ops.bin';assert sha(source)==expected
+for row in json.loads((r/'RESULT.json').read_text())['cases']:assert row['exit']==0 and sha(r/('room'+str(row['room']))/'ops.bin')==row['raw_sha256']
+prior=sha(old/'observer/ops.bin');shutil.copyfile(source,old/'observer/ops.bin');assert sha(old/'observer/ops.bin')==expected;f=json.loads((old/'SOURCE_FREEZE.json').read_text());assert all(sha(old/'observer'/p)==h for p,h in{**f['source_files'],**f['protected_files']}.items())
+(r/'GENERATED-ARTIFACT-RESTORE.json').write_text(json.dumps({'status':'EXACT_PRE_GRID_OBSERVER_STREAM_RESTORED','historical_sha256':expected,'saved_original':str(source),'last_grid_observer_sha256':prior,'reason':'Additional grid reused the observer executable and working directory. Every grid output was independently saved. Restore only generated ops.bin from exact immutable case5 copy; source, tests, history and all grid results remain unchanged. Future grids should run the executable from each case directory.'},indent=2)+'\n');print(expected)

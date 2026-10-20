@@ -1,0 +1,174 @@
+--- a/README.md
++++ b/README.md
+@@ -1,4 +1,18 @@
+ # ECDSA.fail · Pareto-leading circuit research
++
++## Official Toffoli improvement ·20 October2026,17:00SGT
++
++The challenge officially reproduced **1,464 qubits ×751,027 rounded mean
++executed Toffolis =1,099,503,528** in
++[submission8b682cf8](https://api.ecdsa.fail/api/submissions/8b682cf8-e242-4827-bb54-3c0724635893).
++The08:57UTC public refresh confirms it is the minimum-Toffoli result,
++155 lower at the same width than the preceding official4045 result.
++The independent global product record remains939,138,168.
++
++[Complete local source and disclosures](experiments/breakthrough-public140-exact154-final-20261020/SUBMISSION-NOTE.md)
++and [fresh public evidence](experiments/breakthrough-assessment-20261020/LATEST.json)
++are preserved. Research continues; the user has authorized automatic
++submission of each new complete verified improvement.
+ 
+ ## Complete local Toffoli improvement · 20 October 2026, 15:39 SGT
+ 
+--- a/docs/AGENT_HANDOFF.md
++++ b/docs/AGENT_HANDOFF.md
+@@ -1,4 +1,48 @@
+ # Agent handoff: start here
++
++##20 October2026,17:00SGT: official T751027; independent three-Toffoli descendant gate passes
++
++Public08:57:16UTC records official8b682cf8 atQ1464/T751027, source58561741.
++All194 point-add source files and17 protected files match our previously
++validated1b550a01 source byte-for-byte as Git objects. Product939138168
++(Q1234/T761052) and width671 remain independent public minima.
++
++The user now explicitly authorizes automatic challenge submissions for every
++new verified improvement. This overrides default queue mode for this ongoing
++run; see experiments/autorun-20261020-breakthrough/SUBMISSION-MODE.md.
++Concurrent upload receipts and notes remain untouched by this continuation.
++
++A frozen descendant repeats the unchanged generic exact passes after the154
++leases. Native27 controls pass; diagnostic savings3 unconditional Toffolis.
++Its own final gate, label public8b-repeat-generic-final-20261020-v1,32768x64
++shots/source versus exact official8b, passes all four criteria. Both sources:
++value1224,phase632,dirty0,failed batches1260,5.42175293 per9024-shot packet;
++paired b0/c0,p1.0; identical value-failing IDs. Mean difference exactly-3.0,
++paired SE0.0. Candidate nonce0 stream4fb7a65a, parent77d43b25; declaration
++ac8f96bf. This is not a new benchmark result yet. Ascending exact nonce
++qualification/search and final unchanged benchmark are in progress.
++
++Source-freeze v2 corrects inherited parent nonce209/final-packaging metadata:
++actual candidate source hashes already bound nonce0. Original metadata and
++result remain. No source, circuit, test, build or input changed for this
++correction. Frozen current source receipt a680f4d9.
++
++Deeper product research: two exhaustive one-AND identities reduce prefix27
++cleanup13->11, fullcore44->42 ANDs, unchanged42 HMR and27 peak helpers.
++Native11 controls cover all16384 inputs,3 guards, all42 phase coefficients
++and independent upper words at56/57-bit tight budgets. Best complete raw
++Q1234 proxy762282.5 remains above original762230.75. Additional fixed room
++grid does not improve it. Component-only result; no point-add record.
++Exact branch/affine probes at caps64/256/1024 fail to certify a width reduction
++at op1444755; formal rank1234 including constant, not a true-width lower bound.
++Complete strong-support recoloring keeps low-T candidate atQ1464.
++Public54fc repeated-product probe accepts no additional leases.
++All failures and negatives are preserved with source/tests/logs/stream hashes;
++see CONTINUATION-0817.md and the dated experiment packages.
++
++Keep the substantial product objective active. PreserveQ692, prior gate
++verdicts, historical evidence and unrelated edits/jobs. New verified results
++should be submitted automatically, then public evaluation recorded.
+ 
+ ## 20 October 2026, 15:39 SGT: Q1464/T751027 complete local pass; native prefix27/full-fold work
+ 
+--- a/docs/research-plan.md
++++ b/docs/research-plan.md
+@@ -1,4 +1,48 @@
+ # Research state and next experiments
++
++##20 October2026,17:00SGT: official T751027; independent three-Toffoli descendant gate passes
++
++Public08:57:16UTC records official8b682cf8 atQ1464/T751027, source58561741.
++All194 point-add source files and17 protected files match our previously
++validated1b550a01 source byte-for-byte as Git objects. Product939138168
++(Q1234/T761052) and width671 remain independent public minima.
++
++The user now explicitly authorizes automatic challenge submissions for every
++new verified improvement. This overrides default queue mode for this ongoing
++run; see experiments/autorun-20261020-breakthrough/SUBMISSION-MODE.md.
++Concurrent upload receipts and notes remain untouched by this continuation.
++
++A frozen descendant repeats the unchanged generic exact passes after the154
++leases. Native27 controls pass; diagnostic savings3 unconditional Toffolis.
++Its own final gate, label public8b-repeat-generic-final-20261020-v1,32768x64
++shots/source versus exact official8b, passes all four criteria. Both sources:
++value1224,phase632,dirty0,failed batches1260,5.42175293 per9024-shot packet;
++paired b0/c0,p1.0; identical value-failing IDs. Mean difference exactly-3.0,
++paired SE0.0. Candidate nonce0 stream4fb7a65a, parent77d43b25; declaration
++ac8f96bf. This is not a new benchmark result yet. Ascending exact nonce
++qualification/search and final unchanged benchmark are in progress.
++
++Source-freeze v2 corrects inherited parent nonce209/final-packaging metadata:
++actual candidate source hashes already bound nonce0. Original metadata and
++result remain. No source, circuit, test, build or input changed for this
++correction. Frozen current source receipt a680f4d9.
++
++Deeper product research: two exhaustive one-AND identities reduce prefix27
++cleanup13->11, fullcore44->42 ANDs, unchanged42 HMR and27 peak helpers.
++Native11 controls cover all16384 inputs,3 guards, all42 phase coefficients
++and independent upper words at56/57-bit tight budgets. Best complete raw
++Q1234 proxy762282.5 remains above original762230.75. Additional fixed room
++grid does not improve it. Component-only result; no point-add record.
++Exact branch/affine probes at caps64/256/1024 fail to certify a width reduction
++at op1444755; formal rank1234 including constant, not a true-width lower bound.
++Complete strong-support recoloring keeps low-T candidate atQ1464.
++Public54fc repeated-product probe accepts no additional leases.
++All failures and negatives are preserved with source/tests/logs/stream hashes;
++see CONTINUATION-0817.md and the dated experiment packages.
++
++Keep the substantial product objective active. PreserveQ692, prior gate
++verdicts, historical evidence and unrelated edits/jobs. New verified results
++should be submitted automatically, then public evaluation recorded.
+ 
+ ## 20 October 2026, 15:39 SGT: Q1464/T751027 complete local pass; native prefix27/full-fold work
+ 
+--- a/docs/results-status.md
++++ b/docs/results-status.md
+@@ -1,4 +1,48 @@
+ # Results and submission status
++
++##20 October2026,17:00SGT: official T751027; independent three-Toffoli descendant gate passes
++
++Public08:57:16UTC records official8b682cf8 atQ1464/T751027, source58561741.
++All194 point-add source files and17 protected files match our previously
++validated1b550a01 source byte-for-byte as Git objects. Product939138168
++(Q1234/T761052) and width671 remain independent public minima.
++
++The user now explicitly authorizes automatic challenge submissions for every
++new verified improvement. This overrides default queue mode for this ongoing
++run; see experiments/autorun-20261020-breakthrough/SUBMISSION-MODE.md.
++Concurrent upload receipts and notes remain untouched by this continuation.
++
++A frozen descendant repeats the unchanged generic exact passes after the154
++leases. Native27 controls pass; diagnostic savings3 unconditional Toffolis.
++Its own final gate, label public8b-repeat-generic-final-20261020-v1,32768x64
++shots/source versus exact official8b, passes all four criteria. Both sources:
++value1224,phase632,dirty0,failed batches1260,5.42175293 per9024-shot packet;
++paired b0/c0,p1.0; identical value-failing IDs. Mean difference exactly-3.0,
++paired SE0.0. Candidate nonce0 stream4fb7a65a, parent77d43b25; declaration
++ac8f96bf. This is not a new benchmark result yet. Ascending exact nonce
++qualification/search and final unchanged benchmark are in progress.
++
++Source-freeze v2 corrects inherited parent nonce209/final-packaging metadata:
++actual candidate source hashes already bound nonce0. Original metadata and
++result remain. No source, circuit, test, build or input changed for this
++correction. Frozen current source receipt a680f4d9.
++
++Deeper product research: two exhaustive one-AND identities reduce prefix27
++cleanup13->11, fullcore44->42 ANDs, unchanged42 HMR and27 peak helpers.
++Native11 controls cover all16384 inputs,3 guards, all42 phase coefficients
++and independent upper words at56/57-bit tight budgets. Best complete raw
++Q1234 proxy762282.5 remains above original762230.75. Additional fixed room
++grid does not improve it. Component-only result; no point-add record.
++Exact branch/affine probes at caps64/256/1024 fail to certify a width reduction
++at op1444755; formal rank1234 including constant, not a true-width lower bound.
++Complete strong-support recoloring keeps low-T candidate atQ1464.
++Public54fc repeated-product probe accepts no additional leases.
++All failures and negatives are preserved with source/tests/logs/stream hashes;
++see CONTINUATION-0817.md and the dated experiment packages.
++
++Keep the substantial product objective active. PreserveQ692, prior gate
++verdicts, historical evidence and unrelated edits/jobs. New verified results
++should be submitted automatically, then public evaluation recorded.
+ 
+ ## 20 October 2026, 15:39 SGT: Q1464/T751027 complete local pass; native prefix27/full-fold work
+ 

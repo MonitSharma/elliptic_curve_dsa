@@ -1,0 +1,43 @@
+{
+  "status": "COMPLETE_LOCAL_REVIEW_PASS_READY_FOR_AUTO_SUBMISSION",
+  "at_utc": "2026-10-20T09:17:38.890735+00:00",
+  "source_revision": "a455b26193d87eb9001976683f810312e1a15929",
+  "base": "58561741282970059dbdd26d3ba8c40cbafd909f",
+  "source_files": 194,
+  "protected_files_checked": 17,
+  "source_archive_sha256": "bb6a33feecb7ef1129da24159e275c612fdafb8e9a2408784fbd8f2d287b49ac",
+  "source_patch_sha256": "4222086dc1690c20855bb0e28a9d1605469c0e60f09d81d21c61a1acccfc1dcc",
+  "source_freeze_sha256": "bf5b2b14247750ed686f0016f504eb1ae0c32766be96ddd5cc399c68556ce7e7",
+  "benchmark_result_sha256": "7116bb46647d7b43e990fd7cdc0b8934cd9048397ae86c38d045995c5289e0ad",
+  "gate_declaration_sha256": "ac8f96bfb6607f87eba82c66ea4d2463ac1306b65d28ce7d9c21d28ff5053c9b",
+  "gate_result_sha256": "7e6f9935ec865b90a983d27d6a256cfe59823b0ccc0e3075b5b07fff21c5be39",
+  "native_receipt": {
+    "stream_sha256": "6a8af77b4b0f7e428d52759d555737493dfbf2803a58e0e53d4268557c9fb36f",
+    "records_sha256": "94c656277ffe4b6df863f34d9f3c9d4a2bcd3aab19f54d8d96842eb98158d17e",
+    "pre_tail_sha256": "f491e386f819ab834385e0226754d8d7bda24acccc972d220fe80f1c8f9d5785",
+    "pre_tail_byte_identical_to_gated_source": true,
+    "nonce": 52,
+    "operations": 10553247
+  },
+  "qubits": 1464,
+  "rounded_mean_executed_toffoli": 751020,
+  "product": 1099493280,
+  "nonce": 52,
+  "production_screens": 64,
+  "highest_screened": 64,
+  "passes": [
+    52
+  ],
+  "overrun_first": 53,
+  "overrun_last": 64,
+  "additional_partial_packet_controls": "1..8 repeated in production;24 protected full-state scalar batches at0,70,140",
+  "selected_protected_packet_passed": true,
+  "unchanged_benchmark_passed_shots": 9024,
+  "historical_results_restored": true,
+  "tracked_changes_only_point_add": true,
+  "submission_mode": "auto",
+  "user_authorization": "20October2026:submit every new verified improvement for challenge verification",
+  "ai_model": "GPT-6 sol",
+  "coding_harness": "Codex",
+  "scope": "Complete benchmark reproduction. Fresh public minimum must be checked immediately before upload. Component results remain separate; global product record is not beaten."
+}

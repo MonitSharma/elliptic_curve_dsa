@@ -1,0 +1,66 @@
+{
+  "status": "SELECTIVE_PREFIX27_RAW_GRID_NOT_SCORED",
+  "native_test_counts": [
+    1,
+    2,
+    2,
+    1,
+    1,
+    2
+  ],
+  "cases": [
+    {
+      "cap": 1234,
+      "mode": "control",
+      "room": 30,
+      "index": 0,
+      "exit": 0,
+      "seconds": 4.280032157897949,
+      "builder_totals": [
+        "HEO_TOTAL native=810068 expected=762230.8 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+      ],
+      "prefix27_calls": 0,
+      "raw_sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b"
+    },
+    {
+      "cap": 1234,
+      "mode": "enabled",
+      "room": 30,
+      "index": 1,
+      "exit": 0,
+      "seconds": 4.3696300983428955,
+      "builder_totals": [
+        "HEO_TOTAL native=810076 expected=762629.5 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+      ],
+      "prefix27_calls": 69,
+      "raw_sha256": "66e751488c9a1b099ca00fd02d9e14d3d9f8c92e05b402606c18e43fd2681f4b"
+    },
+    {
+      "cap": 1234,
+      "mode": "enabled",
+      "room": 33,
+      "index": 2,
+      "exit": 0,
+      "seconds": 4.394347906112671,
+      "builder_totals": [
+        "HEO_TOTAL native=810230 expected=762676.5 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+      ],
+      "prefix27_calls": 62,
+      "raw_sha256": "1857c78bbd885da3c172d3e19ea46feba2dc933a9643a788a2e63b53c24e1288"
+    },
+    {
+      "cap": 1233,
+      "mode": "enabled",
+      "room": 30,
+      "index": 3,
+      "exit": 0,
+      "seconds": 4.54828405380249,
+      "builder_totals": [
+        "HEO_TOTAL native=812703 expected=764015.8 peak=1233 peak_op=1444643 peak_phase=divide qubits_touched=1233"
+      ],
+      "prefix27_calls": 70,
+      "raw_sha256": "210067b0be3c446cc77d403c89c8f1adb8888abc9a3f6f9d2b3c1cc03f1ddd5e"
+    }
+  ],
+  "scope": "Fixed whole-circuit policy skips compact prefix at preflight and runtime when original31-helper core plus full upper ripple fits current scratch room31+MW-7. No arithmetic kernel changes, no source/packet-selected rows. Predicted remove100 unnecessary13-AND cleanups; remaining37 calls may save modest raw Toffolis. Raw diagnostics only; source-bound final passes must be reproved before any complete benchmark."
+}

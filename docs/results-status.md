@@ -1,5 +1,84 @@
 # Results and submission status
 
+## 20 October 2026, 17:20 SGT: Q1464/T751020 submitted automatically
+
+The unchanged complete benchmark passes9024/9024 shots: Q1464, rounded mean
+T751020, exact mean751019.6767508865, total6777201563, product1099493280.
+This is7 rounded Toffolis below the refreshed official8b parent T751027.
+The paired fresh-input gate measures exactly3 fewer Toffolis, SE0; the rest
+of the protected-packet difference is packet variation. Lowest pass nonce52,
+64 production screens1..64, sole pass52, overrun53..64; controls1..8 repeated
+in production and24 protected full-state scalar batches disclosed.
+
+Submitted as32256595-e0a3-4015-96ab-3422c866ec48, Officially reproduced Q1464/T751020, public source63d63c90. API rejected promotion only because the global product did not improve.
+Model GPT-6 sol, harness Codex, direct dependency8b682cf8 disclosed.
+The user explicitly authorized automatic submission of each new verified
+improvement; queue mode is superseded for this run. Official metrics match the local unchanged benchmark. Global product939138168 stays lower.
+
+Final sourcea455b26193d87eb9001976683f810312e1a15929, base58561741;194
+source files and17 protected files verify; only finished_pipeline.rs changes.
+Archivebb6a33fe; patch4222086d; selected stream6a8af77b. All145 final evidence
+members and194 source members verify locally. Final source review caught
+inherited executable file modes: original failed review preserved, parent
+modes restored in the index, no source bytes/circuit/benchmark changed.
+The completed review stdout was repackaged; earlier archive retained on server.
+
+Sole final gate public8b-repeat-generic-final-20261020-v1:32768x64 shots per
+source, wrong-value1224/1224, phase632/632, dirty0/0, failed batches1260/1260,
+b0/c0,p1.0, identical value-failing IDs, rate5.4217529296875 per9024 packet.
+No rerun or reused earlier gate. Nonce0 source4fb7a65a, receipt a680f4d9,
+declarationac8f96bf, gate result7e6f9935. Exact per-batch cost difference-3.
+
+Full disclosures, source/evidence verification and official receipt:
+experiments/breakthrough-public8b-repeat-final-20261020/.
+Further product research is active. A bounded exact Boolean synthesis search
+tests rank-admissible5-AND-to4-AND core windows; initial solver timeouts are
+incomplete searches, not lower bounds or circuit results.
+
+## 20 October2026,17:00SGT: official T751027; independent three-Toffoli descendant gate passes
+
+Public08:57:16UTC records official8b682cf8 atQ1464/T751027, source58561741.
+All194 point-add source files and17 protected files match our previously
+validated1b550a01 source byte-for-byte as Git objects. Product939138168
+(Q1234/T761052) and width671 remain independent public minima.
+
+The user now explicitly authorizes automatic challenge submissions for every
+new verified improvement. This overrides default queue mode for this ongoing
+run; see experiments/autorun-20261020-breakthrough/SUBMISSION-MODE.md.
+Concurrent upload receipts and notes remain untouched by this continuation.
+
+A frozen descendant repeats the unchanged generic exact passes after the154
+leases. Native27 controls pass; diagnostic savings3 unconditional Toffolis.
+Its own final gate, label public8b-repeat-generic-final-20261020-v1,32768x64
+shots/source versus exact official8b, passes all four criteria. Both sources:
+value1224,phase632,dirty0,failed batches1260,5.42175293 per9024-shot packet;
+paired b0/c0,p1.0; identical value-failing IDs. Mean difference exactly-3.0,
+paired SE0.0. Candidate nonce0 stream4fb7a65a, parent77d43b25; declaration
+ac8f96bf. This is not a new benchmark result yet. Ascending exact nonce
+qualification/search and final unchanged benchmark are in progress.
+
+Source-freeze v2 corrects inherited parent nonce209/final-packaging metadata:
+actual candidate source hashes already bound nonce0. Original metadata and
+result remain. No source, circuit, test, build or input changed for this
+correction. Frozen current source receipt a680f4d9.
+
+Deeper product research: two exhaustive one-AND identities reduce prefix27
+cleanup13->11, fullcore44->42 ANDs, unchanged42 HMR and27 peak helpers.
+Native11 controls cover all16384 inputs,3 guards, all42 phase coefficients
+and independent upper words at56/57-bit tight budgets. Best complete raw
+Q1234 proxy762282.5 remains above original762230.75. Additional fixed room
+grid does not improve it. Component-only result; no point-add record.
+Exact branch/affine probes at caps64/256/1024 fail to certify a width reduction
+at op1444755; formal rank1234 including constant, not a true-width lower bound.
+Complete strong-support recoloring keeps low-T candidate atQ1464.
+Public54fc repeated-product probe accepts no additional leases.
+All failures and negatives are preserved with source/tests/logs/stream hashes;
+see CONTINUATION-0817.md and the dated experiment packages.
+
+Keep the substantial product objective active. PreserveQ692, prior gate
+verdicts, historical evidence and unrelated edits/jobs. New verified results
+should be submitted automatically, then public evaluation recorded.
+
 ## 20 October 2026, 15:39 SGT: Q1464/T751027 complete local pass; native prefix27/full-fold work
 
 New complete unchanged benchmark: all9024 shots pass, Q1464, rounded mean

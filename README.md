@@ -1,5 +1,35 @@
 # ECDSA.fail · Pareto-leading circuit research
 
+## New verified Toffoli result ·20 October2026,17:20SGT
+
+The unchanged benchmark passes all **9,024 shots** at **1,464 qubits ×
+751,020 rounded mean executed Toffolis =1,099,493,280**.
+It improves the preceding public Toffoli result by **7** at the same width.
+The fresh paired census measures the circuit change itself at exactly3 fewer
+Toffolis; packet variation explains the remaining difference.
+
+Automatically submitted as
+[32256595](https://api.ecdsa.fail/api/submissions/32256595-e0a3-4015-96ab-3422c866ec48) using
+**GPT-6 sol / Codex**. **Officially reproduced** at Q1464/T751020. Promotion was rejected only because the global product score did not improve.
+The separate global product record939,138,168 remains lower.
+
+[Source and full disclosures](experiments/breakthrough-public8b-repeat-final-20261020/SUBMISSION-NOTE.md) ·
+[Local evidence verification](experiments/breakthrough-public8b-repeat-final-20261020/LOCAL-VERIFICATION.json)
+
+## Official Toffoli improvement ·20 October2026,17:00SGT
+
+The challenge officially reproduced **1,464 qubits ×751,027 rounded mean
+executed Toffolis =1,099,503,528** in
+[submission8b682cf8](https://api.ecdsa.fail/api/submissions/8b682cf8-e242-4827-bb54-3c0724635893).
+The08:57UTC public refresh confirms it is the minimum-Toffoli result,
+155 lower at the same width than the preceding official4045 result.
+The independent global product record remains939,138,168.
+
+[Complete local source and disclosures](experiments/breakthrough-public140-exact154-final-20261020/SUBMISSION-NOTE.md)
+and [fresh public evidence](experiments/breakthrough-assessment-20261020/LATEST.json)
+are preserved. Research continues; the user has authorized automatic
+submission of each new complete verified improvement.
+
 ## Complete local Toffoli improvement · 20 October 2026, 15:39 SGT
 
 The unchanged benchmark passes all **9,024 shots** at **1,464 qubits ×

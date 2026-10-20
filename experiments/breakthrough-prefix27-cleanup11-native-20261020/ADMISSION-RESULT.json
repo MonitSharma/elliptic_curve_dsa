@@ -1,0 +1,100 @@
+{
+  "status": "CLEANUP11_NATIVE_AND_RAW_GRID_NOT_SCORED",
+  "native_test_counts": [
+    1,
+    1,
+    1,
+    2,
+    2,
+    1,
+    1,
+    2
+  ],
+  "cases": [
+    {
+      "cap": 1234,
+      "mode": "control",
+      "room": 30,
+      "windows": "56,57",
+      "index": 0,
+      "exit": 0,
+      "seconds": 4.264845371246338,
+      "builder_totals": [
+        "HEO_TOTAL native=810068 expected=762230.8 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+      ],
+      "prefix27_calls": 0,
+      "raw_sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b"
+    },
+    {
+      "cap": 1234,
+      "mode": "enabled",
+      "room": 30,
+      "windows": "56,57",
+      "index": 1,
+      "exit": 0,
+      "seconds": 4.371619701385498,
+      "builder_totals": [
+        "HEO_TOTAL native=809938 expected=762491.5 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+      ],
+      "prefix27_calls": 69,
+      "raw_sha256": "ac69ce21f2285ecede984f6d0461688546ca461bbc64ec87713f1d2793f94e04"
+    },
+    {
+      "cap": 1234,
+      "mode": "enabled",
+      "room": 28,
+      "windows": "56",
+      "index": 2,
+      "exit": 0,
+      "seconds": 4.393951892852783,
+      "builder_totals": [
+        "HEO_TOTAL native=810064 expected=762346.5 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+      ],
+      "prefix27_calls": 37,
+      "raw_sha256": "c365371476384cb8c63fd491465617c437b8521c0e875f3bb5fbd6482fffcc98"
+    },
+    {
+      "cap": 1234,
+      "mode": "enabled",
+      "room": 29,
+      "windows": "56",
+      "index": 3,
+      "exit": 0,
+      "seconds": 4.415144443511963,
+      "builder_totals": [
+        "HEO_TOTAL native=809920 expected=762296.5 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+      ],
+      "prefix27_calls": 37,
+      "raw_sha256": "1ebc74e4fa31094682b1d13a3a94a8f28a8be8227e70c16545a46ec1a562999d"
+    },
+    {
+      "cap": 1234,
+      "mode": "enabled",
+      "room": 30,
+      "windows": "56",
+      "index": 4,
+      "exit": 0,
+      "seconds": 4.376482009887695,
+      "builder_totals": [
+        "HEO_TOTAL native=809872 expected=762282.5 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+      ],
+      "prefix27_calls": 37,
+      "raw_sha256": "5a1a2299bfd31d402d3f9cd0799fb7dcf502c9a4e19b0b1439ca48e1bf3f8017"
+    },
+    {
+      "cap": 1233,
+      "mode": "enabled",
+      "room": 28,
+      "windows": "56",
+      "index": 5,
+      "exit": 0,
+      "seconds": 4.566176176071167,
+      "builder_totals": [
+        "HEO_TOTAL native=812689 expected=763725.2 peak=1233 peak_op=1444643 peak_phase=divide qubits_touched=1233"
+      ],
+      "prefix27_calls": 37,
+      "raw_sha256": "b9d2a62983216fb4e199e4910ca463a1203be9c9894a5a7eb851192db3e3ecb2"
+    }
+  ],
+  "scope": "Two exact one-AND identities lower compact prefix cleanup13 to11, fullcore44 to42. Same31 forward ANDs,42 HMR,27 peak helpers. All16384 input truth identities verified before native circuit tests. Fixed window policies56 or56,57; unchanged original dimensions/precision/width checks. Complete raw grid separate from benchmark or final gate."
+}
