@@ -1,0 +1,180 @@
+{
+  "status": "DEVELOPMENT_COMPARISON_COMPLETE_PRESERVE_ALL_MISMATCHES",
+  "label": "exact-native-rail-g6-development-20261020-v1",
+  "batches": 512,
+  "summaries": {
+    "publica4ee": {
+      "value_shots": 18,
+      "phase_shots": 9,
+      "dirty_shots": 0,
+      "failed_batches": 18,
+      "mean_executed_stream_toffoli": 750913.5314941406,
+      "rows_sha256": "65e2e9e37023667a4dfc11ea0eda5294d943df40d7dd5955361907d47a312214"
+    },
+    "control": {
+      "value_shots": 18,
+      "phase_shots": 9,
+      "dirty_shots": 0,
+      "failed_batches": 18,
+      "mean_executed_stream_toffoli": 751069.8856506348,
+      "rows_sha256": "aacdcd2e9e8d8744ee4f0ad01c83a538ede9e76f1f66c6a510c9e68777793cfb"
+    },
+    "rail": {
+      "value_shots": 18,
+      "phase_shots": 9,
+      "dirty_shots": 0,
+      "failed_batches": 18,
+      "mean_executed_stream_toffoli": 749986.0832824707,
+      "rows_sha256": "86f11694fb2fac96d74758a4fa7122e8f1df786323fb69ce9a57753ce1664179"
+    },
+    "g6": {
+      "value_shots": 18,
+      "phase_shots": 5,
+      "dirty_shots": 0,
+      "failed_batches": 18,
+      "mean_executed_stream_toffoli": 749765.0715332031,
+      "rows_sha256": "5df89087431761411de4e4b6d58c23f682948a29f472caf3a12ce29ac643e390"
+    },
+    "both": {
+      "value_shots": 18,
+      "phase_shots": 9,
+      "dirty_shots": 0,
+      "failed_batches": 18,
+      "mean_executed_stream_toffoli": 748686.2785949707,
+      "rows_sha256": "a2b94474e4638d186f053294d5048249665d36cf61dda8dacd90376266174663"
+    }
+  },
+  "comparisons": {
+    "control": {
+      "candidate_minus_parent_raw_toffoli": 156.35415649414062,
+      "paired_standard_error": 2.3589051068297335,
+      "new_failed_batches": 0,
+      "new_passing_batches": 0,
+      "new_value_failing_shots": [],
+      "new_value_passing_shots": [],
+      "different_target_lanes": [],
+      "different_other_lanes": [],
+      "target_differences_confined_to_both_value_failing": true
+    },
+    "rail": {
+      "candidate_minus_parent_raw_toffoli": -927.4482116699219,
+      "paired_standard_error": 3.025674772464482,
+      "new_failed_batches": 0,
+      "new_passing_batches": 0,
+      "new_value_failing_shots": [],
+      "new_value_passing_shots": [],
+      "different_target_lanes": [
+        {
+          "batch": 79,
+          "lane": 63,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 220,
+          "lane": 5,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 263,
+          "lane": 6,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 291,
+          "lane": 38,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 325,
+          "lane": 21,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 380,
+          "lane": 31,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 429,
+          "lane": 22,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        }
+      ],
+      "different_other_lanes": [],
+      "target_differences_confined_to_both_value_failing": true
+    },
+    "g6": {
+      "candidate_minus_parent_raw_toffoli": -1148.4599609375,
+      "paired_standard_error": 2.9813267010415845,
+      "new_failed_batches": 0,
+      "new_passing_batches": 0,
+      "new_value_failing_shots": [],
+      "new_value_passing_shots": [],
+      "different_target_lanes": [],
+      "different_other_lanes": [],
+      "target_differences_confined_to_both_value_failing": true
+    },
+    "both": {
+      "candidate_minus_parent_raw_toffoli": -2227.252899169922,
+      "paired_standard_error": 3.1060089899128878,
+      "new_failed_batches": 0,
+      "new_passing_batches": 0,
+      "new_value_failing_shots": [],
+      "new_value_passing_shots": [],
+      "different_target_lanes": [
+        {
+          "batch": 79,
+          "lane": 63,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 220,
+          "lane": 5,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 263,
+          "lane": 6,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 291,
+          "lane": 38,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 325,
+          "lane": 21,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 380,
+          "lane": 31,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 429,
+          "lane": 22,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        }
+      ],
+      "different_other_lanes": [],
+      "target_differences_confined_to_both_value_failing": true
+    }
+  },
+  "scope": "Single predeclared512-batch development comparison of fixed frozen control,rail,G6,both sources versus exact officiala4ee. Every full output lane/ancilla hash and value/phase/dirty count retained; source and raw choices frozen before these inputs. Same strengthened comparison/public140 schedule, exact ports only. No final failure-rate gate, nonce screening, benchmark or scored result. All prior failed assembly/environment logs remain."
+}

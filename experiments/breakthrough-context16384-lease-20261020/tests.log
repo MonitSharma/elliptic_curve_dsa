@@ -1,0 +1,24 @@
+   Compiling product_pareto_exact v0.1.0 (/home/hclau/ecdsa_research/breakthrough-context16384-lease-20261020/tool)
+warning: function `initial_inputs` is never used
+  --> discover.rs:47:4
+   |
+47 | fn initial_inputs(ops:&[Op],nq:usize,nb:usize,alg:&mut Algebra)->(Vec<E>,Vec<E>){
+   |    ^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `product_pareto_exact` (bin "product_pareto_discover" test) generated 1 warning
+    Finished `release` profile [optimized] target(s) in 7.30s
+     Running unittests discover.rs (target/release/deps/product_pareto_discover-2dfe2193c7b80ec7)
+
+running 7 tests
+test context_tests::context_never_crosses_enclosing_scope_or_unbalanced_guard ... ok
+test context_tests::context_lease_preserves_full_basis_phase_guards_and_cost_detects_missing_phase ... ok
+test guarded_tests::effective_per_op_guards_are_proved_and_mismatches_rejected ... ok
+test context_tests::context_proves_prepared_alias_but_rejects_broken_relation ... ok
+test tests::local_proof_accepts_symmetric_triple_rejects_fault ... ok
+test guarded_tests::guarded_cache_preserves_all_values_phase_and_executed_cost_and_detects_bad_repair ... ok
+test tests::unknown_guard_stays_unknown ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

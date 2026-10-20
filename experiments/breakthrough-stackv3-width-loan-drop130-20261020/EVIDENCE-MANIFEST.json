@@ -1,0 +1,52 @@
+{
+  "files": {
+    "generate-cap1234-t21.log": "af357d2dad9cc61b2680c4b8af885ca913a0a9d20d3910bbf70d9fb077b685f1",
+    "prepare.py": "68644ee819c8da0bcc2f8b12a4b7e3f19941babc8f3d5bd025d605574a6b85ab",
+    "RESULT.json": "e59b716967e759f007018c379ec8e5bb44e4b0f62316f739f199efde6e59ccbf",
+    "prepare.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "run.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "generate-cap1232-t28.log": "925ee393b406dd4c9a533433b629d6fe6102540ede19815d5aa5a89190c694ef",
+    "generate-cap1234-t28.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "prepare.pid": "b358cd9776dbc5e845d014d4fd0b34ac7cef154f1a2404f8d9d7b5041db77cec",
+    "generate-public.pid": "2dc1502f302fc88209a6cd75c52ca633eb54357e07b92896b7b807f63f4cb0d8",
+    "TERMINAL-AUDIT.json": "8e14df7cf8431dc5f31f99e6444be065c6200f674ff1c21b40e00309d37777e8",
+    "generate-public.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "generate-cap1234-t21.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "build.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "supervisor.log": "a134841af8a2486968a913ed816c8e0ee425ceacfab609c324698497f96f7ca3",
+    "PLAN.md": "fbc1be21704bdc98a675f98a5158bba4d96a6b7df54bd4d72736c712989ab248",
+    "build.pid": "fe061073ac32e78f2f43a651b787390e809975e16195a45341717a4855bd579a",
+    "generate-cap1233-t28.pid": "581ef7886c8dd3cfcc47da4c71cb442df29f2a03930ca1b66f47adab4c1fdaf3",
+    "build.log": "579a1d34e3a171e5ecb80db4abf561ddfe73a910256502af1a97dae8c4fdfeb3",
+    "generate-cap1234-t28.pid": "684653484203fd757529b3b2ee96c530eb18dd0a1f824178b0aebd4107676dc3",
+    "generate-cap1233-t28.exit": "39b8dc3fc8b44765c8e6f1adee04c5b465e555ab791cc42d0d9e810d5b64297c",
+    "generate-cap1232-t28.exit": "39b8dc3fc8b44765c8e6f1adee04c5b465e555ab791cc42d0d9e810d5b64297c",
+    "prepare.log": "1c612a848e3eb8e32d54ad7141deb4d772c86fd5c7deb9e94a4d2f721662aca3",
+    "run.py": "cd5db1a847e989cd19de59864a6b5c5773d34f579e228f56ddc5a0362c27dcf1",
+    "generate-public.log": "48d088138e747ad18ad2e73a597fa4efa927235ad20a7501b3397f13544588d5",
+    "PROGRESS.json": "86034662ef73e9a2e634a5259bd36ed01fd46cf084d6ada20db9c0d629701f35",
+    "generate-cap1232-t28.pid": "72f2bb9ce1bb05c3e485df083b27451b6cf8d6098b4e94fa1e3e795353162a76",
+    "source.patch": "c32e8c7a0a4e89b02960d9a9a26d92e8085c0f92b92f2ab62c02302b06a808db",
+    "generate-cap1233-t28.log": "b88da0af36fb758dd92af47801a697bf45a2239a5933c3e37e8bdf3ce446335c",
+    "supervisor.pid": "1622ebb31b55de94184f64e9f3ab1a936ab83a8fb4b4e8ac2e4309da8364b0b3",
+    "generate-cap1234-t28.log": "b854e777c97ba83f0e889d1514f21308313237fbad9c0f330032e63367560e7a",
+    "generate-cap1234-t21.pid": "8a2871e730d0be466200470e1eb044e17eeeb0c5b12d89f68899fbd6259ff351",
+    "changed-point-add-source.tar.gz": "f17a9513bfb7bce6c95b40f957aae19ae09b35ab10794c6620f61ab5ead6cb37",
+    "SOURCE-FREEZE.json": "7cef7bc8d07d93d6f588c26eab2519be0a29e90038b79db3d81d28ccea8a23fb"
+  },
+  "streams_retained_on_server": {
+    "cap1234-t28/ops.bin": "2bc0537813dcb2f8b0785c567ecdc5a8056b8c7afe8cffd4f78240c34d32de51",
+    "cap1234-t21/ops.bin": "5bbe8531dfe3034ef30b8c9778b69a8d0cca99e1e3fdaef7c07ceba80396d9c6",
+    "public/ops.bin": "714c4e4c1c2c5c59544dcc3ade28587663b616d46a168b0fcd22a06c29c0916f"
+  },
+  "changed_source_files": [
+    "src/point_add/y15_onefold.rs",
+    "src/point_add/mod.rs"
+  ],
+  "audit": {
+    "status": "COMPLETED_RESEARCH_NATIVE_SOURCE_DIAGNOSTIC_NOT_SCORED",
+    "source_files_checked": 176,
+    "native_controls": 0,
+    "scope": "All source/protected/tool bytes and original terminal logs preserved. Native/static/development counts are not benchmark records. Original construction/parser/compile/environment/final-gate verdicts stand; no old guard is weakened."
+  }
+}

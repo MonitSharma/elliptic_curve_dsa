@@ -1,0 +1,37 @@
+[package]
+name = "product_pareto_exact"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+quantum_ecc = { path = "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline" }
+zstd = "0.13"
+sha3 = "0.10"
+serde_json = "1"
+
+[[bin]]
+name = "product_pareto_exact"
+path = "scan-v1.rs"
+
+[[bin]]
+name = "product_pareto_exact_v2"
+path = "scan-v2-invalid.rs"
+
+[[bin]]
+name = "product_pareto_exact_v3"
+path = "scan.rs"
+
+[[bin]]
+name = "product_pareto_unwrap"
+path = "unwrap.rs"
+
+[[bin]]
+name = "product_pareto_discover"
+path = "discover.rs"
+
+[profile.release]
+opt-level = 3
+
+[[bin]]
+name="native_width_stats"
+path="stats.rs"
