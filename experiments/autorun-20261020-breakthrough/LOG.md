@@ -593,3 +593,39 @@ collection continues. Lastlocalcheckpointb123a943; default-branchpush remains
 blocked byautomaticapprovalreview pendingexplicituserpermission, no bypassretry.
 Localwork/authorizedofficialuploads continue; useredits/submodules/serverjobs intact.
 
+
+## 21 October 2026: approved push completed; exact research continues
+
+The user explicitly approved commit41f769ec, which was pushed by normal
+fast-forward to origin/main. Newer research commits remain local; this approval
+does not authorize pushing a newer endpoint. Fresh22:56UTC1716records unchanged:
+T746114/Q1464/de8, product932057476/Q1234/T755314/1829, width669/1df8.
+Global product goal ACTIVE. No new benchmark/finalgate/nonce/submission.
+
+SSH restored; LHC-104-070 available178GiB/144threads at preflight. Completed
+dominance15 and Boolean-reset17native audits each24protected comparisons and
+zero knownoutputbits. Both26member archives fullyverified locally in separate
+original-evidence directories, preserving local.gitignore differences. No
+existing remote work restarted/stopped; chemistry/QOB untouched.
+
+Exactsemantic guard normalization24native/120protected reduces liveRNG5690
+to393; exactboundedcofactor25native/120protected reaches310, still no known or
+certifiedwrongbits. Above-bound cofactor negativecontrol26native qualification
+passes with productioncore unchanged. Fixed firstoldfailure Kissat UNSAT remains
+UNCHECKED: sameproof RAM DRAT900s returns0 but says s TIMEOUT, never VERIFIED.
+No nonce rejected and no old gate verdict rerun.
+
+Currentde8 source205/protected17 reproduces exactpublicframe131712 locally.
+Globalprefix native14:3exact action lowerings, no public1829 rewrite. Second
+cache native9:2fresh leases/849proposed,2proxyT, same output on0/16/64extra
+donors; width remains1464. Phaseextension native18 has no further saving on
+eitherparent. Original phasefixture16/18 failures preserved, V2 fixes only an
+invalid repeated-wire test and an expectation (Zproduct precedesCZ), production
+unchanged. All these are COMPONENTS, not scores or verified new records.
+
+Running fixed normalized-AIGv2 native29PASS with24+3protected qualification,
+and exact2cache+secondgeneric sourcev3. Prior iterator compile failure and
+Windows text/binary patch setupfailures retained; none ran pointinputs/gates.
+Any competitive finalsource needs own frozen gate against current exactparent,
+ascendinglowestpassingnonce and unchangedbenchmark before automatic submission.
+

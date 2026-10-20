@@ -1,0 +1,102 @@
+   Compiling product_pareto_exact v0.1.0 (/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-global-phase-component-20261020/local-tool)
+warning: type alias `H` is never used
+  --> discover.rs:59:6
+   |
+59 | type H=u128;
+   |      ^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: struct `Fingerprints` is never constructed
+  --> discover.rs:60:8
+   |
+60 | struct Fingerprints{next:u64,products:HashMap<[H;3],H>}
+   |        ^^^^^^^^^^^^
+
+warning: methods `fresh`, `and`, and `select` are never used
+  --> discover.rs:62:5
+   |
+61 | impl Fingerprints{
+   | ----------------- methods in this implementation
+62 |  fn fresh(&mut self)->H{self.next+=1;let mut h=Sha3_256::new();h.update(b"pareto-discovery-not-proof-v1");h.upda...
+   |     ^^^^^
+63 |  fn and(&mut self,a:H,b:H)->H{if a==0||b==0{return 0;}if a==1{return b;}if b==1||a==b{return a;}let mut k=[a,b,1...
+   |     ^^^
+64 |  fn select(&mut self,old:H,new:H,cond:H)->H{old^self.and(cond,old^new)}
+   |     ^^^^^^
+
+warning: function `legacy_main` is never used
+   --> discover.rs:155:4
+    |
+155 | fn legacy_main(){
+    |    ^^^^^^^^^^^
+
+warning: `product_pareto_exact` (bin "global_prefix_simplify" test) generated 4 warnings
+    Finished `release` profile [optimized] target(s) in 3.21s
+     Running unittests discover.rs (/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-value-guard-fusion-audit-20261020/local-tool/target/release/deps/global_prefix_simplify-16da2a91c6c3a753)
+
+running 18 tests
+GLOBAL_PREFIX_PROGRESS op=0test context_tests::context_proves_prepared_alias_but_rejects_broken_relation ...  products=0ok opaque_truncations=
+0 replacements=test context_tests::context_never_crosses_enclosing_scope_or_unbalanced_guard ... {}ok
+
+test donor_zero_tests::exact_context_zero_requires_reset_and_all_cancellations ... GLOBAL_PREFIX_PROGRESS op=0ok
+ products=0test donor_zero_tests::context_zero_borrow_preserves_values_phase_and_zero_width_and_detects_bad_fix ... ok opaque_truncations=0
+ replacements={test context_tests::context_lease_preserves_full_basis_phase_guards_and_cost_detects_missing_phase ... }ok
+
+test guarded_tests::effective_per_op_guards_are_proved_and_mismatches_rejected ... GLOBAL_PREFIX_PROGRESS op=0
+thread 'global_prefix_tests::phase_product_relation_can_remove_one_t_without_sampling' (518) panicked at discover.rs:294:214:
+assertion `left == right` failed
+  left: Null
+ right: 1
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+ok
+ products=0test guarded_tests::guarded_cache_preserves_all_values_phase_and_executed_cost_and_detects_bad_repair ...  opaque_truncations=0ok
+ replacements={test tests::local_proof_accepts_symmetric_triple_rejects_fault ... }
+ok
+GLOBAL_PREFIX_PROGRESS op=0test tests::unknown_guard_stays_unknown ... ok products=0
+ opaque_truncations=0test global_prefix_tests::global_zero_and_linear_controls_preserve_all_basis_phase_values_and_count ... ok replacements={
+test global_prefix_tests::phase_product_relation_can_remove_one_t_without_sampling ... }
+FAILED
+GLOBAL_PREFIX_PROGRESS op=0 products=0 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0test global_prefix_tests::opaque_limits_stay_sound_and_missing_classical_guard_is_detected ... ok products=0
+ opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=0 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0test global_prefix_tests::independent_registered_phase_controls_are_not_lowered ... ok products=0
+ opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0test global_prefix_tests::registered_input_declared_late_is_never_assumed_zero ...  products=0ok opaque_truncations=0
+ replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=0 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=
+thread 'global_prefix_tests::phase_lowerings_keep_absolute_phase_and_all_original_guards' (517) panicked at /mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-value-guard-fusion-audit-20261020/local-protected/src/circuit.rs:134:13:
+kind=CCZ and q_target==q_control2==q4
+0 products=test global_prefix_tests::phase_lowerings_keep_absolute_phase_and_all_original_guards ... 0 opaque_truncations=FAILED0
+ replacements={}
+GLOBAL_PREFIX_PROGRESS op=0test global_prefix_tests::global_classical_alias_complement_and_fresh_measurement_keep_guards_phase_and_rng ... ok products=0
+ opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=0 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=0 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=0 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=0 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=0 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=0 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=0 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=0 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=0 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0test global_prefix_tests::phase_classical_alias_complement_and_mutation_preserve_rng_and_phase ...  products=0ok opaque_truncations=0
+ replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=0 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=0 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=0 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=0 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=0 opaque_truncations=0 replacements={}
+test global_prefix_tests::forgetting_product_keys_only_loses_precision_and_preserves_full_protected_semantics ... ok
+
+failures:
+
+failures:
+    global_prefix_tests::phase_lowerings_keep_absolute_phase_and_all_original_guards
+    global_prefix_tests::phase_product_relation_can_remove_one_t_without_sampling
+
+test result: FAILED. 16 passed; 2 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.21s
+
+error: test failed, to rerun pass `--bin global_prefix_simplify`

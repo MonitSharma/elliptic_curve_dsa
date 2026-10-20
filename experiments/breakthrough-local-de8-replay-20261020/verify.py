@@ -1,0 +1,3 @@
+import hashlib,json
+from pathlib import Path
+r=Path(__file__).resolve().parent;t=r/'candidate';f=json.loads((r/'SOURCE-FREEZE.json').read_text());sha=lambda p:hashlib.file_digest(p.open('rb'),'sha256').hexdigest();assert all(sha(t/p)==h for p,h in{**f['source_files'],**f['protected_files']}.items());actual=sha(t/'ops.bin');assert actual==f['expected_stream_sha256'];(r/'RESULT.json').write_text(json.dumps({'status':'EXACT_CURRENT_OFFICIAL_DE8_SOURCE_AND_STREAM_REPRODUCED_LOCALLY','stream_sha256':actual,'source_files':len(f['source_files']),'protected_files':len(f['protected_files']),'scope':f['scope']},indent=2)+'\n')

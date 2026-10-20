@@ -1,0 +1,77 @@
+   Compiling product_pareto_exact v0.1.0 (/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-global-prefix-component-v3-20261020/local-tool)
+warning: type alias `H` is never used
+  --> discover.rs:59:6
+   |
+59 | type H=u128;
+   |      ^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: struct `Fingerprints` is never constructed
+  --> discover.rs:60:8
+   |
+60 | struct Fingerprints{next:u64,products:HashMap<[H;3],H>}
+   |        ^^^^^^^^^^^^
+
+warning: methods `fresh`, `and`, and `select` are never used
+  --> discover.rs:62:5
+   |
+61 | impl Fingerprints{
+   | ----------------- methods in this implementation
+62 |  fn fresh(&mut self)->H{self.next+=1;let mut h=Sha3_256::new();h.update(b"pareto-discovery-not-proof-v1");h.upda...
+   |     ^^^^^
+63 |  fn and(&mut self,a:H,b:H)->H{if a==0||b==0{return 0;}if a==1{return b;}if b==1||a==b{return a;}let mut k=[a,b,1...
+   |     ^^^
+64 |  fn select(&mut self,old:H,new:H,cond:H)->H{old^self.and(cond,old^new)}
+   |     ^^^^^^
+
+warning: function `local_proof` is never used
+  --> discover.rs:66:4
+   |
+66 | fn local_proof(ops:&[Op],first:usize,last:usize,nq:usize,nb:usize)->bool{if last-first>200000{return false;}
+   |    ^^^^^^^^^^^
+
+warning: function `exact_proof_from` is never used
+  --> discover.rs:91:4
+   |
+91 | fn exact_proof_from(ops:&[Op],first:usize,last:usize,nq:usize,nb:usize,start:usize)->bool{if last-first>200000{r...
+   |    ^^^^^^^^^^^^^^^^
+
+warning: function `exact_zero_donors_from` is never used
+   --> discover.rs:118:4
+    |
+118 | fn exact_zero_donors_from(ops:&[Op],first:usize,last:usize,nq:usize,nb:usize,start:usize)->Option<Vec<bool>>{if...
+    |    ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `context_start` is never used
+   --> discover.rs:145:4
+    |
+145 | fn context_start(ops:&[Op],first:usize)->usize{
+    |    ^^^^^^^^^^^^^
+
+warning: function `context_proof` is never used
+   --> discover.rs:150:4
+    |
+150 | fn context_proof(ops:&[Op],first:usize,last:usize,nq:usize,nb:usize)->bool{
+    |    ^^^^^^^^^^^^^
+
+warning: function `tri_and` is never used
+   --> discover.rs:154:4
+    |
+154 | fn tri_and(a:i8,b:i8)->i8{if a==0||b==0{0}else if a==1&&b==1{1}else{-1}}
+    |    ^^^^^^^
+
+warning: function `legacy_main` is never used
+   --> discover.rs:155:4
+    |
+155 | fn legacy_main(){
+    |    ^^^^^^^^^^^
+
+warning: function `rewrite_ops` is never used
+   --> discover.rs:204:4
+    |
+204 | fn rewrite_ops(ops:Vec<Op>,leases:&[[u64;9]],nb:usize)->Vec<Op>{
+    |    ^^^^^^^^^^^
+
+warning: `product_pareto_exact` (bin "global_prefix_simplify") generated 11 warnings
+    Finished `release` profile [optimized] target(s) in 2.57s

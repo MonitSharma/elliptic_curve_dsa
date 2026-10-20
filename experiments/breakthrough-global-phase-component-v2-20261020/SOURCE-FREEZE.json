@@ -1,0 +1,35 @@
+{
+  "tool_source_files": {
+    "Cargo.toml": "fc0054276b3329e34558b273d8356246253347967b514450df2aca92a212b801",
+    "Cargo.lock": "f061160d0a4fdf3d9ba3598f36d117180f0e8b4f635672c44c58433d11c3c272",
+    "io.rs": "6fe65e4c014a77fcfc8428e7acfb1d8e118294b6c6847626a5e0e6868b233d75",
+    "discover.rs": "566c586bf433761c683f44730f77261c9d38e6c1ec2876e5a17f527e328df126"
+  },
+  "protected_files": {
+    ".github/workflows/benchmark.yml": "3b90200b03c72242cbaab4a8dd22eedcab97fb4ba5983980cf4d738130141162",
+    ".gitignore": "b9ca6f04c099c9f83bdfaec187be689580b57b1ca701dea5ab297c0500457658",
+    "Cargo.lock": "42ff16919e551891ad1b21821329b116d133194245a0e0734a33573dfe598e07",
+    "Cargo.toml": "3c80178b08d29a158abb29a7dcb8eefc67c66f60f2c3bd14483b65eeca0740dc",
+    "NOTICE": "fdfff837a1a85c14fc8854cfb2fa8a43b2ac58a6b8fcc50e56fe6c9d1293c58f",
+    "README.md": "ac644b8d227144c34245d913b5cbe6857da02faa10c885bf0ad3b14a5d9d6f7a",
+    "benchmark.json": "213c8e602881130991b9374d8f991acb2d2a7cc3618ec5f24d5e3cc27add06fb",
+    "benchmark.sh": "122a65431ad42a1bad5114af9e8f8301fe5cb08c01adaeee00799c9f0d0ed92a",
+    "results.tsv": "eea840222afd2424445550252f25795d63eb4bc3904b8c87f0213b5f22abc810",
+    "rust-toolchain": "92b454c1ccf330de9b94242f73bc3214370fb420d5152baeec12dc82ceef9dcc",
+    "setup.sh": "6efa1c41517f0cd94f1e7301aa5ccb2c488eef66466843668e44e09c5523d029",
+    "src/bin/build_circuit.rs": "ac013f1d851156a117c7d41ddb16cb5bb014ed4e6ed4679df143207b46852f33",
+    "src/bin/eval_circuit.rs": "b35314bc47a5f8eecbf60459e6c76c9b43aa034eeb9b7ec3421655d74f9e890b",
+    "src/circuit.rs": "ac2255f6bcb6895c9da2dfe21c3a051a0ef8fc4e0af9598634fec0035dbf35c6",
+    "src/lib.rs": "ebad13b0018b36bdcbcac0d0ca2b7b76a00a886eb4f93ff18e7ba321e76b0039",
+    "src/sim.rs": "f0c72f2a280cd68acee1dbf8282098f72d6b3bf4311e0abf96d122fe002256d7",
+    "src/weierstrass_elliptic_curve.rs": "ecfca15ee3b831c243fbea559ff4b8937be47fe591a4f14786ec2b9bfb30bded"
+  },
+  "expression_cap": 1024,
+  "input_streams": {
+    "public1829": "16567ee18910b8ee9f7aca60c33f0aa88df9679e6528fa5a7884e74e1a877baf",
+    "official_de8": "131712cc9c79e9ffd3ac60c07d097a29b5252c03afa95c891c5ecdd603c60c2e"
+  },
+  "native_controls": 18,
+  "scope": "Exact full-prefix phase and action equalities only. Lower CCZ to NEG/Z/CZ or classical-conditioned CZ using full symbolic equality/current classical aliases. Preserve absolute phase, guards, all classical mutations and random draws. Components only, no gate/nonce/benchmark/score.",
+  "fixture_correction": "Original native16/18 passed. Invalid repeated-wire CCZ in constant-phase fixture stopped at unchanged validator. Product relation correctly lowered to Z(product) before CZ, test expectation was wrong. V2 fixes ONLY those tests, production prefix byte-identical."
+}
