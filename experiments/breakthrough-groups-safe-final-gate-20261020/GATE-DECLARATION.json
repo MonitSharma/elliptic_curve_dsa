@@ -1,0 +1,63 @@
+{
+  "declared_at_utc": "2026-10-20T16:10:38.099540+00:00",
+  "label": "groups-safe28-full259-final-20261020-v1",
+  "batches": 32768,
+  "shots_per_batch": 64,
+  "shots_per_source": 2097152,
+  "first_batch": 0,
+  "workers_per_source": 8,
+  "protected_scalar_batches_per_source": 8,
+  "candidate_root": "/home/hclau/ecdsa_research/breakthrough-groups-safe-finished-20261020/candidate",
+  "candidate_source_freeze": "/home/hclau/ecdsa_research/breakthrough-groups-safe-finished-20261020/SOURCE-FREEZE.json",
+  "candidate_source_freeze_sha256": "13d25aa0612d81a98e72c7120b8bd2d500bf7e418b93d6186eac1e76e138ce13",
+  "candidate_stream": "/home/hclau/ecdsa_research/breakthrough-groups-safe-finished-20261020/candidate/ops.bin",
+  "candidate_stream_sha256": "dc1478c1ae14c86e6ab8f94d707599c5c74d5b861bb6dfb7e991a15d2a0d679d",
+  "candidate_qubits_from_protected_analyzer": 1464,
+  "identity_nonce": 0,
+  "parent_record": {
+    "id": "38a686dd-a2b1-4bdc-899e-81a389d36fd5",
+    "officialScore": 1107312320,
+    "officialMetrics": {
+      "qubits": 1480,
+      "toffoli": 748184
+    },
+    "submissionCommitSha": "e3d3f05e6c114f9a644f7ced2588ee65e3072bde"
+  },
+  "public_refresh_at_utc": "2026-10-20T16:10:38.078140+00:00",
+  "public_records_sha256": "31b2b9ec5615fbd7d7194a248df2a0efa3c6a3536f4867ad3aad02301c6955ac",
+  "parent_source_receipt_sha256": "b1876c4ba00c1b76f1ff28d13d0e92d303a771439ee11e025fdb35fa4052b92b",
+  "parent_stream": "/home/hclau/ecdsa_research/breakthrough-native-context-final-20261020/candidate/ops.bin",
+  "parent_stream_sha256": "0e4fcfab22855197075ce69bb8e2b067f7fbf22d4412390707df3944831f0689",
+  "census_binary": "/home/hclau/ecdsa_research/simd-census-v2-20261016/bin/simd_census_v2",
+  "census_binary_sha256": "790e92266ea67ec54ef701b2deed76fe8d0b766b411ca9eab877f82ae2c11a66",
+  "protected_dependency_files": {
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/.github/workflows/benchmark.yml": "3b90200b03c72242cbaab4a8dd22eedcab97fb4ba5983980cf4d738130141162",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/.gitignore": "b9ca6f04c099c9f83bdfaec187be689580b57b1ca701dea5ab297c0500457658",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/Cargo.lock": "42ff16919e551891ad1b21821329b116d133194245a0e0734a33573dfe598e07",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/Cargo.toml": "3c80178b08d29a158abb29a7dcb8eefc67c66f60f2c3bd14483b65eeca0740dc",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/NOTICE": "fdfff837a1a85c14fc8854cfb2fa8a43b2ac58a6b8fcc50e56fe6c9d1293c58f",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/README.md": "ac644b8d227144c34245d913b5cbe6857da02faa10c885bf0ad3b14a5d9d6f7a",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/benchmark.json": "213c8e602881130991b9374d8f991acb2d2a7cc3618ec5f24d5e3cc27add06fb",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/benchmark.sh": "122a65431ad42a1bad5114af9e8f8301fe5cb08c01adaeee00799c9f0d0ed92a",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/results.tsv": "eea840222afd2424445550252f25795d63eb4bc3904b8c87f0213b5f22abc810",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/rust-toolchain": "92b454c1ccf330de9b94242f73bc3214370fb420d5152baeec12dc82ceef9dcc",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/setup.sh": "6efa1c41517f0cd94f1e7301aa5ccb2c488eef66466843668e44e09c5523d029",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/src/bin/build_circuit.rs": "ac013f1d851156a117c7d41ddb16cb5bb014ed4e6ed4679df143207b46852f33",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/src/bin/eval_circuit.rs": "b35314bc47a5f8eecbf60459e6c76c9b43aa034eeb9b7ec3421655d74f9e890b",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/src/circuit.rs": "ac2255f6bcb6895c9da2dfe21c3a051a0ef8fc4e0af9598634fec0035dbf35c6",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/src/lib.rs": "ebad13b0018b36bdcbcac0d0ca2b7b76a00a886eb4f93ff18e7ba321e76b0039",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/src/sim.rs": "f0c72f2a280cd68acee1dbf8282098f72d6b3bf4311e0abf96d122fe002256d7",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/src/weierstrass_elliptic_curve.rs": "ecfca15ee3b831c243fbea559ff4b8937be47fe591a4f14786ec2b9bfb30bded"
+  },
+  "criteria": {
+    "candidate_value_failing_shots_no_more_than_parent": true,
+    "one_sided_exact_mcnemar_p_minimum": 0.05,
+    "failed_batches_per_9024_shot_packet_maximum": 18,
+    "packet_batches": 141,
+    "dirty_ancilla_shots": 0
+  },
+  "verdict_policy": "Sole finalgate for fixed full259-tail/28bit-witness grouped native square on strengthenedT baseline. Currentofficial38 comparator cache is not inherited. Outcome final: no relabel, extension or nonce to reverse failure. All native/mode/source choices fixed before development.",
+  "scope": "Fixed full259-correction/28-bit-witness/grouped-native square with exact capped splits and depth8inverseleaf on unchanged strengthenedT circuit; complete raw/output bindings, genericonce,nonce0, no research faultbranch/externaldump. Own finalgate/nonce/benchmark still required.",
+  "development_plan_sha256": "12fe7716d1f25b80e44f9c584b06480589bf6d7b2f336d1edd56158445bd5e7f",
+  "development_result_sha256": "710038c644d8366f6f8dc1fe630ddb27302555c0c0d65c4d603784535f7cb0e0"
+}

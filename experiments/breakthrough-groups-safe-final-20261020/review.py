@@ -1,0 +1,9 @@
+import subprocess,time
+from pathlib import Path
+r=Path(__file__).resolve().parent
+try:
+ start=time.time()
+ while not(r/'run.exit').exists():assert time.time()-start<7200;time.sleep(2)
+ assert(r/'run.exit').read_text().strip()=='0';subprocess.run(['python3',str(r/'seal.py')],cwd=r,check=True);(r/'review.exit').write_text('0\n')
+except Exception:
+ (r/'review.exit').write_text('1\n');raise

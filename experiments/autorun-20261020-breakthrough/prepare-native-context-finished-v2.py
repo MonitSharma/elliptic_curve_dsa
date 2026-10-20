@@ -1,0 +1,7 @@
+from pathlib import Path
+import shutil,py_compile,json
+root=Path(__file__).resolve().parents[2];old=root/'experiments/breakthrough-native-context-finished-20261020';r=root/'experiments/breakthrough-native-context-finished-v2-20261020';r.mkdir(exist_ok=False)
+for p in['.gitattributes','.gitignore','PLAN.md','cache-tests.rs']:shutil.copyfile(old/p,r/p)
+s=(old/'run.py').read_text();needle='rewrite_ops(ops,LEASES,nb);';assert s.count(needle)==1;s=s.replace(needle,'rewrite_ops(ops,LEASES,nb as usize);');(r/'run.py').write_text(s);py_compile.compile(str(r/'run.py'),doraise=True)
+with(r/'PLAN.md').open('a')as out:out.write('\nV1 accidentally reused the earlier pre-conversion runtime template; itsu64/usize compile failure is retained. V2 restores the already established explicitnb asusize conversion. No arithmetic, proof, source-parent or gate change. Freeze/tests/generation restart in a fresh worktree.\n')
+p=root/'experiments/breakthrough-native-both-context16-20261020/SCOPE-CORRECTION.json';p.write_text(json.dumps({'status':'CORRECT_COPIED_SCOPE_BOILERPLATE_WITHOUT_EDITING_FROZEN_EVIDENCE','original_scope_text':'using only existing physical quantum wires','correct_scope':'This independentT experiment explicitly sets RESEARCH_EXTRA_DONORS=16, inputQ1464, outputQ<=1480. Its numerical source-freeze/driver declarations and run are correct; the zero-added-wire narrative was copied from the earlier template and is incorrect. Not a product or width record.','source_change':False,'rerun':False},indent=2)+'\n');print(r)

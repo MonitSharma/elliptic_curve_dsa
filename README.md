@@ -1,3 +1,22 @@
+## Official Toffoli improvement · 21 October 2026, 00:21 SGT
+
+The challenge officially reproduced **1,480 qubits × 748,184 rounded mean
+executed Toffolis = 1,107,312,320**, all9,024 shots passing, in
+[submission38a686dd](https://api.ecdsa.fail/api/submissions/38a686dd-a2b1-4bdc-899e-81a389d36fd5).
+This saves **507 Toffolis** versus the preceding officialT748691 result,
+using16 additional qubits. The fresh15:57UTC snapshot confirms the independent
+Toffoli minimum. The global product933,231,010 remains lower; promotion was
+declined solely because that score did not improve. Attribution **GPT-6 sol / Codex**.
+
+The new499 exact context-product leases have their own passed final statistical
+gate, disclosed lowestnonce9/64screens and complete unchanged benchmark. Every
+source/protected byte matches the official commit. These are complete official
+measurements; ongoing research candidates are documented separately.
+
+[Source and disclosures](experiments/breakthrough-native-context-final-20261020/SUBMISSION-NOTE.md) ·
+[Local evidence verification](experiments/breakthrough-native-context-final-20261020/LOCAL-VERIFICATION.json) ·
+[Official source verification](experiments/breakthrough-native-context-final-20261020/PUBLIC-SOURCE-VERIFICATION.json)
+
 ## Official Toffoli record · 20 October 2026, 21:41 SGT
 
 The challenge officially reproduced **1,464 qubits ×748,691 rounded mean

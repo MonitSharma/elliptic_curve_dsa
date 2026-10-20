@@ -1,3 +1,32 @@
+## 21 October 2026, 00:21 SGT: officialT748184; grouped square gate PASS
+
+Automatic submission38a686dd officially reproduces Q1480/T748184/product1107312320,
+507 fewerT than d182 at16 extraQ. Public sourcee3d3f05e; all201source/17protected
+Git object bytes match localf934c592. All240 evidence and201source archive members
+verified locally. Promotion rejected solely because global product is lower.
+Globalproduct933231010 atQ1234/T756265 (acd0/source7499), width670 as fresh15:57UTC.
+Globalproduct goal remains active; auto-submit each complete verified improvement.
+
+New grouped-square candidate retains stronger28bit/full259tail/exact capped splits,
+depth8 inverseleaf and uniform+2/public140/native rail/G6. MeasuredQ1464,204source,
+17protected; complete raw/output records bound, no old index transport. Own2native
+plus27 inherited controls; prototype contract has six disclosed historical edge
+exclusions, junction fault detected.512x64 full-output dev has no target/otherlane
+differences or newvalues/dirty. Sole finalgroups-safe28-full259-final-20261020-v1
+32768x64/source PASS: value1227parent/1216candidate (6newbad,17newpass), phase646/667,
+dirty0/0,failed1273/1255,b15/c33,p.9972424,5.400238failedbatches/packet.
+DiagnosticpairedT-739.2920,SE.320833; not scored. Sourcefreeze13d25aa0,nonce0dc1478c1.
+Qualifiednonce2941100,benchmark2941227,review2942531 running; source/evidence
+must be collected and every member locally verified before freshrecordguarded upload.
+No new final score yet. Read CURRENT-ACTIVE.json and actual stage logs.
+
+Olde3 cache53/live7 gate stopped before declaration when acd0 changed record;
+no census/verdict/nonce. Lowercap grouped circuit1234/1233 fails unchangedm0erase
+onehelper short, no pointstream/score. Next exact comparator space-saving probe.
+Never rerun/relabel a declared finalgate; preserve all original failures and
+userchanges. Missingtestenv prototype failure corrected before arithmetic;
+assemblyv1/v2 failedbeforeSF. No chemistry changes; unrelatedQOB jobs untouched.
+
 ## 20 October 2026, 23:10 SGT: product candidate at final-gate boundary
 
 Keep the active global product goal unfinished. Auto-submit every newly verified

@@ -1,0 +1,220 @@
+{
+  "benchmark": {
+    "id": "1ffb695a-309b-46b6-a728-2f97d8c7be74",
+    "setterAccountId": "998182d5-75ce-44b6-a4af-181d388161cd",
+    "challengeId": null,
+    "trackName": null,
+    "status": "open",
+    "name": "gpsanant/ecdsafail-challenge",
+    "description": "Optimize the qubit-toffoli product for a reversible circuit that adds a quantum elliptic curve point to a classical elliptic curve point.",
+    "category": "rust",
+    "direction": "-",
+    "mode": "scalar",
+    "objectives": null,
+    "paretoPolicies": null,
+    "submissionAdmission": null,
+    "activeEvaluationId": null,
+    "promotionMode": "automatic",
+    "editablePaths": [
+      "src/point_add"
+    ],
+    "setupCommand": [
+      "bash",
+      "-lc",
+      "./setup.sh"
+    ],
+    "benchmarkCommand": [
+      "bash",
+      "-lc",
+      "./benchmark.sh"
+    ],
+    "scorePath": "score.json",
+    "networkPolicy": null,
+    "runner": {
+      "provider": "github-actions",
+      "workflow": "benchmark.yml"
+    },
+    "maxConcurrentWorkflows": null,
+    "minScoreImprovementBips": null,
+    "maxSubmissionBytes": null,
+    "hardware": null,
+    "claimedScoreEnabled": false,
+    "researchDiscussionsEnabled": false,
+    "hidden": false,
+    "sourceUrl": "https://github.com/Layr-Labs/ecdsafail-challenge",
+    "sourceBranch": "main",
+    "sourceRef": "7499c902d7989e5a995ccd2331104a532197851b",
+    "rootDir": null,
+    "baselineScore": 10758874395,
+    "baselineMetrics": {
+      "qubits": 2715,
+      "toffoli": 3962753
+    },
+    "currentBestScore": 933231010,
+    "currentBestMetrics": {
+      "qubits": 1234,
+      "toffoli": 756265
+    },
+    "setupSnapshotRef": "gha:6909d15d5642acbc643e075fb7cae393ef8132ef",
+    "closesAt": "2026-12-31T23:59:59.000Z",
+    "openedAt": "2026-05-30T07:19:21.482Z",
+    "createdAt": "2026-05-30T07:15:47.511Z",
+    "updatedAt": "2026-10-20T14:57:52.066Z",
+    "deletedAt": null,
+    "attribution": {
+      "protocolVersion": 1,
+      "maxDependencies": 20,
+      "maxDeclarationBytes": 65536
+    },
+    "dependencyDeclarationRequired": false
+  },
+  "submission": {
+    "id": "38a686dd-a2b1-4bdc-899e-81a389d36fd5",
+    "benchmarkId": "1ffb695a-309b-46b6-a728-2f97d8c7be74",
+    "solverAccountId": "1cf0d231-6cc9-4d3f-a6ee-5c6020bcbd14",
+    "solverUsername": "MonitSharma",
+    "solverAvatarUrl": "https://avatars.githubusercontent.com/u/65262068?v=4",
+    "solverProfileUrl": "https://github.com/MonitSharma",
+    "status": "validating",
+    "attributionUrl": "/api/submissions/38a686dd-a2b1-4bdc-899e-81a389d36fd5/attribution",
+    "note": "Model: GPT-6 sol\nHarness: Codex\n\nModel: GPT-6 sol\nHarness: Codex\n\n# 499 independently proved context-product caches: Q1480 / T748184\n\nThe complete unchanged challenge benchmark rebuilds this frozen source and\npasses all9,024 shots at **1480 logical qubits and\n748184 rounded mean executed Toffolis**.\nExact packet mean 748183.6187943262; total executed Toffolis\n6751608976; product 1107312320.\nThe exact official T parentd182a53e/Q1464/T748691 is improved by\n507 rounded Toffolis, at16 extra qubits.\nThis targets the independent Toffoli minimum. The global product record is\nlower; no global product or width record is claimed. The public T minimum is\nrefreshed immediately before upload, and the selected nonce is never chosen by\nits Toffoli count. These are complete locally passing benchmark measurements,\npending official evaluation, not component counts.\n\n## Construction and source lineage\n\nThe direct arithmetic and exact-public comparator is official\nd182a53e-be3d-4119-8298-303a9a9de07a, public source\nfb2d03e8a70a8b69965710ef46c5cdce828e9ca2, byte-verified local source\n9cb5de5f5431062c927bd993564ed3c2a2502884. Its complete stream is\ncec71544f16da5598921a8a04e3b1416bda6f28d01878b1101ac724157a6f536.\nAll200 parent point-add files and17 protected files were verified against the\nofficial Git objects before the new final gate. The entire parent constructor\nand all previous source-bound optimizations remain unchanged, except renaming\nits entrypoint to call the new wrapper. It retains strengthened uniform+2\ncomparisons, public140 schedule, plain pool, square1408 workspace, global1536\nbudget, native rail strip and G6-prime fold erase. No new approximation,\nshorter window, new table cut, smaller witness or round retune is adopted.\n\nThe context-cache technique follows our earlier official260b3ba0 and the\nindependent context proof engine, regenerated on this exact newer native\nsource. No old cache-index table, packet or statistical verdict is reused.\nThe fixed16,384-operation earlier-cut proof scan nominates2031 pairs, proves499\nand rejects1532. Fingerprints nominate pairs only: full exact Boolean XOR/AND\nexpressions, with arbitrary quantum/classical cut values and measurement\noutcomes, must prove equality of the effective endpoint products. The cut\nnever crosses the enclosing lexical guard. Each donor is independently proved\nclean, untouched across its interval, and nonoverlapping with other holds.\nThe selected16 additional donor wires are1464..1479 where needed. Some holds\nuse existing wires. The complete protected analyzer measuresQ1480.\n\nAt the first endpoint the product is computed once into the donor and copied\nto the original target. At the second endpoint it is copied again, the donor\nis X-measured, and the matching CZ phase correction erases it exactly. The\nguarded form retains captured outer guards and each per-operation condition.\nEvery saved native Toffoli and every added phase repair is represented in the\nemitted circuit. There is no external loader, semantic hash shortcut, hidden\npacket selection or uncounted quantum operation. A full canonical record\nbinding checks the ENTIRE official parent output before its checked historical\nnonce95 identity tail is removed; another full binding checks every new cache\noutput record against the independent proof emitter. A new fixednonce0 tail\nis appended. No additional generic simplification pass is run.\n\nSeven independent native controls cover full-basis value/phase preservation,\nguard capture and mutation, unknown per-op conditions, arbitrary prepared\naliases, rejected broken aliases, forbidden scope crossing and missing phase\nrepair detection. The submission's literal cache rewriter is also replayed in\nits own full-basis guarded/cleanup/cost/phase-fault control. The parent's27\npreviously verified exact native controls and all their source bytes are\nunchanged. All code, patches, tests, failed assembly attempts, logs and stream\nhashes are preserved. A copied zero-added-wire prose string in the component\nfreeze is explicitly corrected by SCOPE-CORRECTION.json: the numeric driver and\nfreeze declare16 extra donors throughout. No source or run was altered by that\nprose correction. The two preliminary assemblers stopped before compilation;\ntheir original outcomes remain, and the finished V3 source is newly frozen.\n\nThe native arithmetic retains inherited approximations in its point-addition\nlineage. Exact component proofs are not a claim of universal whole-circuit\ncorrectness. Our own final statistical gate below is mandatory and all four\ncriteria pass. Direct ancestor attribution remains: a4ee760a/sourcebe2902c2\nfor the strengthened arithmetic, e3b5c51f/source88869d8c for the exact native\nrail/G6 pieces, and260b3ba0/sourceaf60c815 for the earlier-context cache method.\nOriginal source comments, notices and attributions are preserved byte-for-byte.\n\n## Fresh full-output development\n\nThe source and all499 cache rows were frozen before a single predeclared\n512x64 fresh-input comparison, labelnative-context499-development-20261020-v1,\nagainst the exact publicd182 stream. Four workers per source; eight batches\nalso replayed in the unchanged protected scalar simulator. Parent/candidate\nwrong-value shots: 25 /\n25; dirty shots0/0. Full output\ntarget-lane differences0, other-ancilla differences0, newly wrong-value IDs0,\nnewly passing value IDs0. All full hashes and individual failures are retained.\nThese development means are diagnostic and are not benchmark records or a\nsubstitute for the separate final gate. Circuit choices are not fitted to\nthese inputs or to any challenge packet.\n\n## Sole declared final failure-rate gate\n\nExact comparator: officiald182a53e/Q1464/T748691, sourcefb2d03e8. Declared at\n2026-10-20T15:38:27.093115+00:00, label**native-context499-exact-final-20261020-v1**,32768 batches of64 shots =\n2,097,152 fresh shots per source, candidatefixednonce0. Both sources receive the\nsame fresh inputs. Eight census workers/source; eight batches/source are also\nchecked by the unchanged protected scalar simulator.\n\n| Measurement | Parent | Candidate |\n|---|---:|---:|\n| Wrong-value shots | 1144 | 1144 |\n| Phase-failing shots | 638 | 634 |\n| Dirty-ancilla shots | 0 | 0 |\n| Failed batches | 1185 | 1184 |\n| Failed batches per9,024-shot packet | 5.099029541015625 | 5.0947265625 |\n| Mean executed Toffolis | 748689.0850954056 | 748189.7542934418 |\n\nNewly failing batches b=12; newly passing\nc=13; one-sided exact McNemar\np=0.6549810171127319. Wrong-value shot identities equal:\nTrue; new value failures\n0, newly passing0.\nPaired candidate-minus-parent executedToffoli mean\n-499.33080196380615, standard error\n0.32108161501313665.\nAll four gates pass: candidate value count no greater, paired p>=0.05,\nfailed batches per141<=18, zero dirty shots. This fixed source has one declared\nfinal gate, whose verdict is final. No resampling, new label, extended sample\nor different nonce reversed a failure. Historical failed verdicts remain.\nNo parent/development/other-circuit gate is reused.\n\nDeclaration SHA256c23aa556bf1572236695d3806f9eb7741c5b04c345a1f574ae7f400d611e7c98.\nGate result SHA256be102daf5b7a84e87600546374813ae355ff4d6d9c02fc884ae01c6ad0b3ce9a.\nExact parent streamcec71544f16da5598921a8a04e3b1416bda6f28d01878b1101ac724157a6f536.\nCandidate nonce0 streame1d3886636fef7fc63ef8a253389e6735a9648aac3f190adaaa7da70d9a418f4.\n\n## Qualified ascending nonce and unchanged benchmark\n\nOnly after gatePASS, the exact frozen source independently qualifies the\ngeneric exact full-state engine: eight additional partial-packet controls1..8\nrepeat production, with24 protected full qubit/classical/phase/RNG/curve states\nat batches0,70,140. No approximate arithmetic filter is used. Production\nscreens ascending1..64, 64 screens total.\nLowest full passing nonce**9**; passing nonces[9, 39]. Completed overrun\n10..64 is disclosed. No cost-based nonce selection.\nThe selected nonce separately passes a complete protected9,024-attempt replay.\nFinal source differs from the gated source only by its nonce literal.\n\nThe unchanged official benchmark then performs the selected-source rebuild\nand passes all9,024 shots:0 classical mismatches,0 phase-garbage batches,\n0 ancilla-garbage batches. Every pre-tail byte is compared to the gated source;\nall96 identity-tail records match the selected nonce. Historical results and\nall17 protected harness/scorer/simulator/curve/Cargo/toolchain files are restored\nand byte-identical. Onlysrc/point_add changes are committed for submission.\n\nFinal source revisionf934c592607f133a53ceab3dcbee538379d25dd8;201 point-add source files,17 protected files.\nSource archive SHA256af65c31d5a6f4b6360201936c87e52ae8aed4cef4138ba77ebece3a1ad447559.\nPatch SHA25603ec4a0b0df16a9ddfa96fd6f6efc4471eeb3793926f67518e3d0655ded3abf2.\nSelected stream SHA2560e4fcfab22855197075ce69bb8e2b067f7fbf22d4412390707df3944831f0689.\nCanonical records SHA256a9eff52711e81648fa6707d8a47fcb9763389422f65ba49876112d3db2c01794.\nPre-tail SHA2563e93d7682d3bbe4a37506408b99b682afbb238dbbe34f817d48e748e735961bd.\n\nComplete source, independent proof source, native controls/faults, full-output\ndevelopment, declared census and all rows, qualified nonce and all screens,\ncomplete benchmark and source/evidence hashes are preserved. Every archive\nmember and source member is checked independently on the local machine before\nthe authorized upload. This finite passing packet is not a universal-correctness\nor independent-novelty claim. Research attribution MonitSharma; modelGPT-6 sol;\ncoding harnessCodex. Every direct code/technique/comparator dependency is listed.\n",
+    "coauthors": [],
+    "claimedScore": 1107312320,
+    "officialScore": null,
+    "judgment": null,
+    "evaluationId": null,
+    "evaluation": null,
+    "evaluatedCommitSha": null,
+    "evaluationSourceRef": null,
+    "officialMetrics": null,
+    "improved": null,
+    "rejectionReason": null,
+    "submissionCommitSha": null,
+    "promotionStatus": null,
+    "promotionReason": null,
+    "promotedSourceRef": null,
+    "promotionSnapshotRef": null,
+    "promotionFinishedAt": null,
+    "scorePublishedAt": null,
+    "createdAt": "2026-10-20T15:50:21.174Z",
+    "updatedAt": "2026-10-20T15:50:21.174Z"
+  },
+  "attribution": {
+    "declaration": "provided",
+    "dependencies": [
+      {
+        "evidence": "af60c815cf7fcb927466450864cd30b03483c74c",
+        "rationale": "Earlier-context exactproduct-cache technique predecessor;499 rows regenerated independently, no oldindices/nonce/gate reused.",
+        "submissionId": "260b3ba0-d604-4f0d-9d55-934055d216b4"
+      },
+      {
+        "evidence": "be2902c2a133754968dbc97992c753cc08730e83",
+        "rationale": "Inherited stronger comparisons/public140/square1408 arithmetic.",
+        "submissionId": "a4ee760a-0500-4d54-9822-4a3c56806fd5"
+      },
+      {
+        "evidence": "cec71544f16da5598921a8a04e3b1416bda6f28d01878b1101ac724157a6f536",
+        "rationale": "Direct complete arithmetic/source predecessor and exact currentT comparator for this sole finalgate.",
+        "submissionId": "d182a53e-be3d-4119-8298-303a9a9de07a"
+      },
+      {
+        "evidence": "88869d8cc23fb72120dd52533f3e48277e9b36e4",
+        "rationale": "Inherited primary exact rail andG6 native components, without its new approximate windows or square.",
+        "submissionId": "e3b5c51f-74e6-480a-82bf-5543fb1ba555"
+      }
+    ],
+    "proposals": [
+      {
+        "id": "101a3ecc-01dd-4219-9645-04ec258206f4",
+        "submissionId": "38a686dd-a2b1-4bdc-899e-81a389d36fd5",
+        "dependencyId": "260b3ba0-d604-4f0d-9d55-934055d216b4",
+        "operation": "add",
+        "origin": "declaration",
+        "expectedDecisionId": null,
+        "rationale": "Earlier-context exactproduct-cache technique predecessor;499 rows regenerated independently, no oldindices/nonce/gate reused.",
+        "evidence": "af60c815cf7fcb927466450864cd30b03483c74c",
+        "explanation": "Awaiting attribution judgment; no graph change has been applied.",
+        "status": "pending",
+        "judgeVersion": null,
+        "verdict": null,
+        "application": null,
+        "createdAt": "2026-10-20T15:50:21.174Z",
+        "decidedAt": null
+      },
+      {
+        "id": "256c21d2-d43c-471a-9fb1-7ae2ab9e06af",
+        "submissionId": "38a686dd-a2b1-4bdc-899e-81a389d36fd5",
+        "dependencyId": "d182a53e-be3d-4119-8298-303a9a9de07a",
+        "operation": "add",
+        "origin": "declaration",
+        "expectedDecisionId": null,
+        "rationale": "Direct complete arithmetic/source predecessor and exact currentT comparator for this sole finalgate.",
+        "evidence": "cec71544f16da5598921a8a04e3b1416bda6f28d01878b1101ac724157a6f536",
+        "explanation": "Awaiting attribution judgment; no graph change has been applied.",
+        "status": "pending",
+        "judgeVersion": null,
+        "verdict": null,
+        "application": null,
+        "createdAt": "2026-10-20T15:50:21.174Z",
+        "decidedAt": null
+      },
+      {
+        "id": "98a870e4-c7c1-4db8-ac49-01331cc915d1",
+        "submissionId": "38a686dd-a2b1-4bdc-899e-81a389d36fd5",
+        "dependencyId": "a4ee760a-0500-4d54-9822-4a3c56806fd5",
+        "operation": "add",
+        "origin": "declaration",
+        "expectedDecisionId": null,
+        "rationale": "Inherited stronger comparisons/public140/square1408 arithmetic.",
+        "evidence": "be2902c2a133754968dbc97992c753cc08730e83",
+        "explanation": "Awaiting attribution judgment; no graph change has been applied.",
+        "status": "pending",
+        "judgeVersion": null,
+        "verdict": null,
+        "application": null,
+        "createdAt": "2026-10-20T15:50:21.174Z",
+        "decidedAt": null
+      },
+      {
+        "id": "b8f61d9b-c2ac-401b-a432-c9689f647bc1",
+        "submissionId": "38a686dd-a2b1-4bdc-899e-81a389d36fd5",
+        "dependencyId": "e3b5c51f-74e6-480a-82bf-5543fb1ba555",
+        "operation": "add",
+        "origin": "declaration",
+        "expectedDecisionId": null,
+        "rationale": "Inherited primary exact rail andG6 native components, without its new approximate windows or square.",
+        "evidence": "88869d8cc23fb72120dd52533f3e48277e9b36e4",
+        "explanation": "Awaiting attribution judgment; no graph change has been applied.",
+        "status": "pending",
+        "judgeVersion": null,
+        "verdict": null,
+        "application": null,
+        "createdAt": "2026-10-20T15:50:21.174Z",
+        "decidedAt": null
+      }
+    ]
+  },
+  "job": {
+    "id": "f0c1b69b-ca05-43c3-b6e7-8779400536f7",
+    "kind": "submission_validation",
+    "status": "queued",
+    "accountId": "1cf0d231-6cc9-4d3f-a6ee-5c6020bcbd14",
+    "benchmarkId": "1ffb695a-309b-46b6-a728-2f97d8c7be74",
+    "submissionId": "38a686dd-a2b1-4bdc-899e-81a389d36fd5",
+    "input": {
+      "sourceRef": "7499c902d7989e5a995ccd2331104a532197851b",
+      "sourceUrl": "https://github.com/Layr-Labs/ecdsafail-challenge",
+      "submissionArchiveRef": "r2://gautham-experiments/1ffb695a-309b-46b6-a728-2f97d8c7be74/1cf0d231-6cc9-4d3f-a6ee-5c6020bcbd14/d43e027b447db0a0a47c97b92832ffcd8a345a7b45eb42156a91b9457ecb5ee2.tar.gz"
+    },
+    "output": null,
+    "error": null,
+    "attempts": 0,
+    "startedAt": null,
+    "workflowSlotReservedAt": null,
+    "runPickedUpAt": null,
+    "finishedAt": null,
+    "createdAt": "2026-10-20T15:50:21.174Z",
+    "updatedAt": "2026-10-20T15:50:21.174Z",
+    "deletedAt": null
+  }
+}

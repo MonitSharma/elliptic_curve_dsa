@@ -1,0 +1,41 @@
+{
+  "status": "COMPLETE_LOCAL_REVIEW_PASS_READY_FOR_AUTO_SUBMISSION",
+  "at_utc": "2026-10-20T15:48:57.996599+00:00",
+  "source_revision": "f934c592607f133a53ceab3dcbee538379d25dd8",
+  "base": "28e443bcc2f3dc0793c6a416a496b07cfbeb4c4f",
+  "source_files": 201,
+  "protected_files_checked": 17,
+  "source_archive_sha256": "af65c31d5a6f4b6360201936c87e52ae8aed4cef4138ba77ebece3a1ad447559",
+  "source_patch_sha256": "03ec4a0b0df16a9ddfa96fd6f6efc4471eeb3793926f67518e3d0655ded3abf2",
+  "source_freeze_sha256": "49288c90cd427b2a795a80487c9060a77fb881ac3a19093aec44d5cbc56c03ae",
+  "benchmark_result_sha256": "eb70c728108099f3e7588e13359bd6391c4361cfdbb794fab94fff641ffa320c",
+  "gate_declaration_sha256": "c23aa556bf1572236695d3806f9eb7741c5b04c345a1f574ae7f400d611e7c98",
+  "gate_result_sha256": "be102daf5b7a84e87600546374813ae355ff4d6d9c02fc884ae01c6ad0b3ce9a",
+  "native_receipt": {
+    "stream_sha256": "0e4fcfab22855197075ce69bb8e2b067f7fbf22d4412390707df3944831f0689",
+    "records_sha256": "a9eff52711e81648fa6707d8a47fcb9763389422f65ba49876112d3db2c01794",
+    "pre_tail_sha256": "3e93d7682d3bbe4a37506408b99b682afbb238dbbe34f817d48e748e735961bd",
+    "pre_tail_byte_identical_to_gated_source": true,
+    "nonce": 9,
+    "operations": 10598525
+  },
+  "qubits": 1480,
+  "rounded_mean_executed_toffoli": 748184,
+  "product": 1107312320,
+  "nonce": 9,
+  "production_screens": 64,
+  "highest_screened": 64,
+  "passes": [
+    9,
+    39
+  ],
+  "additional_partial_packet_controls": "1..8 repeated in production;24 protected full-state scalar batches at0,70,140",
+  "selected_protected_packet_passed": true,
+  "unchanged_benchmark_passed_shots": 9024,
+  "historical_results_restored": true,
+  "tracked_changes_only_point_add": true,
+  "submission_mode": "auto",
+  "ai_model": "GPT-6 sol",
+  "coding_harness": "Codex",
+  "scope": "Complete unchanged benchmark of499 independently exactcontext product leases on officialT748691;16 extra donor wires for independentT objective. Fresh public minimum checked before upload; no globalproduct claim."
+}
