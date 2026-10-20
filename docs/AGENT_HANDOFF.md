@@ -1,5 +1,56 @@
 # Agent handoff: start here
 
+## 20 October 2026, 11:48 SGT: native eleven-helper compression and complete forward fold validated
+
+No new scored result, final statistical gate or nonce search. Public refresh
+03:16:55UTC remains1687 entries, product54fc Q1234/T761052/product939138168,
+width671, T752991. Queue mode and every earlier gate verdict remain.
+
+The active31-helper core can be converted by an invertible affine change
+into20 required forms plus11 temporary functions. All11 are HMR-erased with
+Clifford phase repair and regenerated with11 ANDs. Two exhaustive native
+tests and original-prefix control pass all16384 source assignments, mixed
+guards, measurement coefficients, allocation reuse and uninterrupted replay.
+Earlier32-AND reconstruction also passes. Compiler and guarded fixture
+failures remain: segmented Simulator.apply_iter calls reset the local guard
+stack; corrected fixture restores it and checks uninterrupted execution.
+All67 native evidence members verify locally, including all five source
+revisions. This is a component storage result, not a scored point-add record.
+
+Complete forward-fold integration passes one exhaustive test plus19 retained
+controls: five tight budgets, two TT modes, three guards, full small inputs,
+independent upper words and all measurement/reset positions. New cap1233
+matches old outputs, phase and cleanup. Complete raw stream6b375c3a has
+Q1233, builderexpected764011.8;22 production calls borrow all11 helpers.
+
+Selected loans borrow only enough helpers to leave10 ladder carries. Same20
+native controls pass. Complete raw5bbda387 remainsQ1233, expected763932.2,
+79.6 below full borrowing and39.6 below reserve-only. Originalcap1234 stays
+byte-exact13f6. These raw diagnostics precede postpasses and remain too
+costly for a product record; no full benchmark or failure census is claimed.
+
+Global planner cap1233 failed its existing capacity assertion at forward130:
+room15 versus modeledfoldneed36, shed pool14 plus2 tops and4 internal wires.
+The assertion is preserved. New preflight experiment uses the independently
+proved peak=max31 prefix helpers, retained helpers plus10 carries, only
+supported forward fin0/mw56 contexts, with original m0 erase budget intact.
+It extends native tests to before-ladder room0..4 versus an unconstrained
+reference before full generation. Initial fixture type error is preserved;
+test-onlyv2 is active. No arithmetic cuts, windows or iterations are changed.
+
+Cleanup-only models can erase13 of the20 retained forms for free but leave
+seven unresolved. The recorded greedy auxiliary searches also stall; these
+are finite negative models, not lower bounds. Native erasure, complete fold,
+selected-loan and failed-global archives all verify locally. Their bundles
+now retain every native evidence member, including generation/failure logs.
+Protected17 and pre-existing user edits remain unchanged.
+
+Checkpoint12a4e198 is pushed and remote-verified. Its push was initially
+rejected by auto-review as unverified export; read-only checks confirmed
+public MonitSharma/elliptic_curve_dsa, prior remote69e5, explicit repository
+push instructions and no credential/resource-preflight artifacts. Same push
+then passed review. No action remains blocked by that rejection.
+
 ## 20 October 2026, 11:26 SGT: complete raw Q1233 prototype; active-core workspace research
 
 No new scored result, final gate or nonce search. Public refresh03:16:55UTC

@@ -1,5 +1,12 @@
 # Active forward prefix: exact native control and workspace models
 
+Follow-up: the 11-helper compression now passes three native controls,
+including the original prefix. Its complete forward-fold integration passes
+one exhaustive test plus 19 retained controls. At the full point-add level
+the current selected-loan prototype is still noncompetitive; see
+`../breakthrough-core-loan-select-20261020/STATUS.md`. The earlier pending
+description below records the model stage.
+
 One native test verifies all 31 held helpers, 21 fields and eight derived
 bits against the independent model on all 16,384 source assignments. The
 unmodified prefix has rank 46, including the constant and 14 inputs. It has
