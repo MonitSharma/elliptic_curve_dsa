@@ -1,0 +1,12 @@
+   Compiling product_pareto_exact v0.1.0 (/home/hclau/ecdsa_research/breakthrough-value-cone-audit-v2-20261020/tool)
+    Finished `release` profile [optimized] target(s) in 1.73s
+     Running unittests audit.rs (target/release/deps/value_cone_audit-c41487ba70bce889)
+
+running 4 tests
+test tests::captured_guards_mutations_live_measurements_and_dead_rng_positions ... ok
+test tests::conditional_stores_resets_and_swaps_keep_prior_versions ... ok
+test tests::omitting_guard_definition_is_detected ... ok
+test tests::phase_only_rng_outputs_are_dead_and_values_allow_independent_draw_patterns ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

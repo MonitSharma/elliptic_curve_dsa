@@ -1,0 +1,11 @@
+   Compiling product_pareto_exact v0.1.0 (/home/hclau/ecdsa_research/breakthrough-value-cone-audit-v2-20261020/tool)
+warning: function `slice` is never used
+  --> audit.rs:24:4
+   |
+24 | fn slice(ops:&[Op],c:&Cone)->Vec<Op>{ops.iter().zip(&c.keep).filter(|(o,k)|**k||matches!(o.kind,K::R|K::Hmr|K::PushCondition|K::PopCondit...
+   |    ^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `product_pareto_exact` (bin "value_cone_audit") generated 1 warning
+    Finished `release` profile [optimized] target(s) in 1.19s

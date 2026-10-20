@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/home/hclau/ecdsa_research/breakthrough-grouped-exact-resource-grid-20261020/resume.py", line 17, in <module>
+    name=f'leaf-unit-d{depth}-m{width}';assert run(['/home/hclau/.cargo/bin/cargo','+1.93.0','test','--release','--bin','build_circuit','sqleaf_unit','--','--nocapture','--test-threads=1'],name,extra={'SQC_LEAF_D':str(depth),'SQLEAF_M':str(width),'SQLEAF_BATCHES':'64'})==0;assert'test result: ok. 1 passed; 0 failed;'in(r/(name+'.log')).read_text()
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

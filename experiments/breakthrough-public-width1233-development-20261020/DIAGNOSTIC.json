@@ -1,0 +1,382 @@
+{
+  "status": "DEVELOPMENT_COMPARISON_COMPLETE_PRESERVE_ALL_MISMATCHES",
+  "label": "public-width1233-cache113-development-20261020-v1",
+  "batches": 512,
+  "summaries": {
+    "publicacd0": {
+      "value_shots": 55,
+      "phase_shots": 41,
+      "dirty_shots": 0,
+      "failed_batches": 64,
+      "mean_executed_stream_toffoli": 756259.1917724609,
+      "rows_sha256": "1134e0696307a7085ba9787e220181686878734dd404ff39fa3356f50e84c12d"
+    },
+    "width1233": {
+      "value_shots": 55,
+      "phase_shots": 36,
+      "dirty_shots": 0,
+      "failed_batches": 62,
+      "mean_executed_stream_toffoli": 756996.8956604004,
+      "rows_sha256": "c4818b9079b0631c85a90bde3bdf51f397cb492757f27ad47b4044d8312ef31a"
+    },
+    "cache113": {
+      "value_shots": 55,
+      "phase_shots": 42,
+      "dirty_shots": 0,
+      "failed_batches": 63,
+      "mean_executed_stream_toffoli": 756885.7895507812,
+      "rows_sha256": "1b0d270cba1220abff3e6c4fca733ed0d22a797ed87364c3f380670dbb6fd923"
+    }
+  },
+  "comparisons": {
+    "width1233": {
+      "candidate_minus_parent_raw_toffoli": 737.7038879394531,
+      "paired_standard_error": 4.652042720878717,
+      "new_failed_batches": 3,
+      "new_passing_batches": 5,
+      "new_value_failing_shots": [],
+      "new_value_passing_shots": [],
+      "different_target_lanes": [
+        {
+          "batch": 20,
+          "lane": 36,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 24,
+          "lane": 22,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 25,
+          "lane": 46,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 93,
+          "lane": 59,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 96,
+          "lane": 10,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 154,
+          "lane": 27,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 160,
+          "lane": 10,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 165,
+          "lane": 11,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 236,
+          "lane": 17,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 258,
+          "lane": 37,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 271,
+          "lane": 27,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 280,
+          "lane": 62,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 282,
+          "lane": 16,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 298,
+          "lane": 28,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 311,
+          "lane": 11,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 319,
+          "lane": 30,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 326,
+          "lane": 15,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 348,
+          "lane": 30,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 402,
+          "lane": 47,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 425,
+          "lane": 39,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 444,
+          "lane": 10,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 446,
+          "lane": 52,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 467,
+          "lane": 17,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 485,
+          "lane": 50,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 493,
+          "lane": 46,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 496,
+          "lane": 2,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 508,
+          "lane": 25,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        }
+      ],
+      "different_other_lanes": [],
+      "target_differences_confined_to_both_value_failing": true
+    },
+    "cache113": {
+      "candidate_minus_parent_raw_toffoli": 626.5977783203125,
+      "paired_standard_error": 4.338806480456712,
+      "new_failed_batches": 6,
+      "new_passing_batches": 7,
+      "new_value_failing_shots": [],
+      "new_value_passing_shots": [],
+      "different_target_lanes": [
+        {
+          "batch": 20,
+          "lane": 36,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 24,
+          "lane": 22,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 25,
+          "lane": 46,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 93,
+          "lane": 59,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 96,
+          "lane": 10,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 154,
+          "lane": 27,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 160,
+          "lane": 10,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 165,
+          "lane": 11,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 236,
+          "lane": 17,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 258,
+          "lane": 37,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 271,
+          "lane": 27,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 280,
+          "lane": 62,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 282,
+          "lane": 16,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 298,
+          "lane": 28,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 311,
+          "lane": 11,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 319,
+          "lane": 30,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 326,
+          "lane": 15,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 348,
+          "lane": 30,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 402,
+          "lane": 47,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 425,
+          "lane": 39,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 444,
+          "lane": 10,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 446,
+          "lane": 52,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 467,
+          "lane": 17,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 485,
+          "lane": 50,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 493,
+          "lane": 46,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 496,
+          "lane": 2,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 508,
+          "lane": 25,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        }
+      ],
+      "different_other_lanes": [],
+      "target_differences_confined_to_both_value_failing": true
+    }
+  },
+  "scope": "Fresh full-output development on frozen complete prototype streams, not assembled submission sources. Exact width/cache changes only; originalparent21bit witness. Full phase/output/dirty/protected scalar results preserved. Not finalgate/nonce/benchmark/scored."
+}

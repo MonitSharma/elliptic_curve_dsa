@@ -1,0 +1,14 @@
+import hashlib,json,shutil,subprocess,time
+from pathlib import Path
+r=Path(__file__).resolve().parent;ws=r.parent;t=r/'tool';old=ws/'breakthrough-zero-lifetime-audit-20261020';sha=lambda p:hashlib.file_digest(p.open('rb'),'sha256').hexdigest()
+def run(cmd,name,cwd=t):
+ with(r/(name+'.log')).open('xb')as out:p=subprocess.Popen(cmd,cwd=cwd,stdout=out,stderr=subprocess.STDOUT);(r/(name+'.pid')).write_text(str(p.pid)+'\n');rc=p.wait()
+ (r/(name+'.exit')).write_text(str(rc)+'\n');assert rc==0,name
+try:
+ f=json.loads((old/'SOURCE-FREEZE.json').read_text());assert(old/'run.exit').read_text().strip()=='0';assert all(sha(old/'tool'/p)==h for p,h in f['tool_source_files'].items());assert all(sha(Path(p))==h for p,h in f['protected_dependency_files'].items());t.mkdir()
+ for p in['io.rs','Cargo.lock']:shutil.copyfile(old/'tool'/p,t/p)
+ shutil.copyfile(r/'audit.rs',t/'audit.rs');(t/'Cargo.toml').write_text((old/'tool/Cargo.toml').read_text().replace('zero_lifetime_audit','value_cone_audit'));subprocess.run(['cp','-a','--reflink=auto',str(old/'tool/target'),str(t/'target')],check=True);inputs={'publicacd0':(ws/'breakthrough-public-acd0-reproduction-20261020/parent/ops.bin','3d7c94f1dea887dd2d4ff13326e350756350cc1044d396444c3f820f8bfad827'),'toffoli747226':(ws/'breakthrough-groups-context-final-20261020/candidate/ops.bin','278802f0728d9233297723c88dffef8544bd9c3ce9968d34a2c3f406b383688a')};assert all(sha(p)==h for p,h in inputs.values());sf={'tool_source_files':{p:sha(t/p)for p in['io.rs','Cargo.lock','Cargo.toml','audit.rs']},'protected_dependency_files':f['protected_dependency_files'],'inputs':{n:{'path':str(p),'sha256':h}for n,(p,h)in inputs.items()},'scope':'Read-only conservative output-value dependency audit with classical SSA/captured guard versions. Four native value/guard/RNG/fault controls before full stream audits. No rewritten candidate, nonce screening/rejection, correctness gate, benchmark or score.'};(r/'SOURCE-FREEZE.json').write_text(json.dumps(sf,indent=2)+'\n');run(['/home/hclau/.cargo/bin/cargo','+1.93.0','test','--release','--locked','--bin','value_cone_audit','--','--nocapture'],'tests');assert'test result: ok. 4 passed; 0 failed;'in(r/'tests.log').read_text();run(['/home/hclau/.cargo/bin/cargo','+1.93.0','build','--release','--locked','--bin','value_cone_audit'],'build');rows={}
+ for n,(path,h)in inputs.items():run([str(t/'target/release/value_cone_audit'),str(path),str(r/(n+'.json'))],'audit-'+n,r);rows[n]=json.loads((r/(n+'.json')).read_text());print(json.dumps({'case':n,**rows[n]}),flush=True)
+ assert all(sha(t/p)==h for p,h in sf['tool_source_files'].items())and all(sha(p)==h for p,h in inputs.values());(r/'RESULT.json').write_text(json.dumps({'status':'READONLY_VALUE_CONE_AUDIT_COMPLETE_NOT_A_CANDIDATE_OR_NONCE_SCREEN','native_controls':4,'cases':rows},indent=2)+'\n');(r/'run.exit').write_text('0\n')
+except BaseException:
+ (r/'run.exit').write_text('1\n');raise

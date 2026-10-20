@@ -1,0 +1,43 @@
+   Compiling product_pareto_exact v0.1.0 (/home/hclau/ecdsa_research/breakthrough-value-cone-audit-20261020/tool)
+error[E0308]: `if` and `else` have incompatible types
+ --> audit.rs:9:78
+  |
+9 | ...ds.push(if o.c_condition.0==no{NONE}else{current[o.c_condition.0 as usize]});let mut old=NONE;let mut new=NONE;
+  |                                   ----      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ expected `u32`, found `u64`
+  |                                   |
+  |                                   expected because of this
+  |
+help: you can convert a `u64` to a `u32` and panic if the converted value doesn't fit
+  |
+9 |  for o in ops{scopes.push(scope);conds.push(if o.c_condition.0==no{NONE}else{current[o.c_condition.0 as usize].try_into().unwrap()});let mut old=NONE;let mut new=NONE;
+  |                                                                                                               ++++++++++++++++++++
+
+error[E0308]: mismatched types
+  --> audit.rs:10:53
+   |
+10 |   match o.kind{K::PushCondition=>{nodes.push((scope,current[o.c_condition.0 as usize]));scope=(nodes.len()-1)as u32;},K::PopCondition=>{a...
+   |                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ expected `u32`, found `u64`
+   |
+help: you can convert a `u64` to a `u32` and panic if the converted value doesn't fit
+   |
+10 |   match o.kind{K::PushCondition=>{nodes.push((scope,current[o.c_condition.0 as usize].try_into().unwrap()));scope=(nodes.len()-1)as u32;},K::PopCondition=>{assert_ne!(scope,0);scope=nodes[scope as usize].0;},K::BitInvert|K::BitStore0|K::BitStore1|K::Hmr=>{let t=o.c_target.0 as usize;old=current[t];new=versions.try_into().unwrap();versions+=1;current[t]=new;},_=>{}}previous.push(old);written.push(new);
+   |                                                                                      ++++++++++++++++++++
+
+error[E0308]: mismatched types
+  --> audit.rs:10:269
+   |
+ 9 | ...ld=NONE;let mut new=NONE;
+   |       ---- expected due to this value
+10 | ...opCondition=>{assert_ne!(scope,0);scope=nodes[scope as usize].0;},K::BitInvert|K::BitStore0|K::BitStore1|K::Hmr=>{let t=o.c_target.0 as usize;old=current[t];ne...
+   |                                                                                                                                                      ^^^^^^^^^^ expected `u32`, found `u64`
+
+error[E0308]: mismatched types
+  --> audit.rs:10:336
+   |
+10 | ...versions.try_into().unwrap();versions+=1;current[t]=new;},_=>{}}previous.push(old);written.push(new);
+   |                                             ---------- ^^^ expected `u64`, found `u32`
+   |                                             |
+   |                                             expected due to the type of this binding
+
+For more information about this error, try `rustc --explain E0308`.
+error: could not compile `product_pareto_exact` (bin "value_cone_audit" test) due to 4 previous errors

@@ -1,0 +1,11 @@
+   Compiling product_pareto_exact v0.1.0 (/home/hclau/ecdsa_research/breakthrough-public-width-live-20261020/tool)
+warning: unused import: `BitId`
+ --> main.rs:3:58
+  |
+3 | use quantum_ecc::circuit::{Op,OperationType as K,QubitId,BitId,NO_BIT,analyze_ops};
+  |                                                          ^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `product_pareto_exact` (bin "live_products") generated 1 warning (run `cargo fix --bin "live_products" -p product_pareto_exact` to apply 1 suggestion)
+    Finished `release` profile [optimized] target(s) in 2.09s

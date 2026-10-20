@@ -1,0 +1,26 @@
+   Compiling product_pareto_exact v0.1.0 (/home/hclau/ecdsa_research/breakthrough-public-width-live-20261020/tool)
+    Finished `release` profile [optimized] target(s) in 8.40s
+     Running unittests main.rs (target/release/deps/live_products-905a4dcda20e8eea)
+
+running 6 tests
+LIVE_PRODUCTS op=0 proven=0 algebra_nodes=0 truncations=0
+LIVE_PRODUCTS op=0 proven=0 algebra_nodes=0 truncations=0
+LIVE_PRODUCTS op=0 proven=0 algebra_nodes=0 truncations=0
+LIVE_PRODUCTS op=0 proven=0 algebra_nodes=0 truncations=0
+test tests::ccx_target_is_excluded_while_ccz_self_target_becomes_phase ... ok
+test tests::fresh_measurements_and_conditional_resets_keep_rng_and_full_state ... LIVE_PRODUCTS op=ok0
+ proven=0 algebra_nodes=0 truncations=0
+LIVE_PRODUCTS op=0 proven=0 algebra_nodes=0 truncations=test tests::sparse_parity_keeps_large_exact_support_and_detects_missing_rows_and_constants ... 0ok
+
+LIVE_PRODUCTS op=0 proven=0 algebra_nodes=0 truncations=0
+LIVE_PRODUCTS op=0 proven=0 algebra_nodes=0 truncations=0
+test tests::unknown_fresh_input_and_missing_parity_rows_are_not_reduced ... okLIVE_PRODUCTS op=
+0 proven=0 algebra_nodes=0 truncations=0
+LIVE_PRODUCTS op=0 proven=0 algebra_nodes=0 truncations=0
+LIVE_PRODUCTS op=0 proven=0 algebra_nodes=0 truncations=0
+LIVE_PRODUCTS op=0 proven=0 algebra_nodes=0 truncations=0
+test tests::live_affine_parities_preserve_all_values_phase_and_captured_mutating_guards ... ok
+test tests::product_implication_absorption_complements_and_xor_are_exhaustive_boolean_identities ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

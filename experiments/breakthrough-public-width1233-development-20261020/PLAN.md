@@ -1,0 +1,1 @@
+Predeclare fresh public-width1233-cache113-development-20261020-v1,512x64 per source, fourworkers, eightprotectedscalarbatches each. Exact publicacd0, frozen width1233 and context113 outputs. Resource and full-function diagnostics only; not finalgate/nonce/benchmark/score.
