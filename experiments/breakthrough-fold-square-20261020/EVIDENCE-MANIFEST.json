@@ -1,0 +1,77 @@
+{
+  "files": {
+    "ADMISSION-PROGRESS.json": "651bd17ed838853c26b8406da142944cae436ede5ef5310f4e6de0bdc97beb48",
+    "ADMISSION-RESULT.json": "11eecfedeb5fefa5ec19b612ffc586208a8cc037a4c20077f7a41e6ebde390b9",
+    "SOURCE_FREEZE.json": "4f2cff9390ba0cc2f3503f492032a862e98ddc38b0c16ded0a3345dca012bc19",
+    "TERMINAL-AUDIT.json": "2b7915c0e7871d9d13a9ddb952a08f80d5cb023b915335c5ba3fc67b10fc0c0c",
+    "added-source/break_profile.rs": "a7e94c66704031f4f0810059f15ca1893ddc5e006a5b82b8c582c67228609515",
+    "added-source/parity_bridge.rs": "6b8c107381b298286f2bab0377556ec4aa93b1b88fc15feabfa8068b5ba06bd0",
+    "build.log": "ef27f784f2db935fdf146337b26532b8dc518a3c4db64abe6d1d3668730258a1",
+    "build.out": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cap1233/child.pid": "8eaae7d594b259fce36fcfd20b9162e4224b3abba2077e20f8e0ea5f74b04b3e",
+    "cap1233/generate.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "cap1233/generate.log": "f8edda4068aeb78d20f38c899f046006a04667bcb1b7e77dcfa9b9e77dce16ff",
+    "cap1233/generate.out": "2a58d12f7b797fe516ccee44c02349dd09e38b15a33e9e7402a14c7f7c9b79db",
+    "cap1234/child.pid": "adf4eb4a8679639c2862dd2dc427d0467083fd87bcc0cfb0872708f61de5e228",
+    "cap1234/generate.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "cap1234/generate.log": "c6fbd991b289534f41e10b3a78c36f0382542ea4b0ef4302011e377a1ccaaba4",
+    "cap1234/generate.out": "cab4b02a10748f1c267a12869dc76b3a605128238ef48e8f805b520776dec42d",
+    "carryout-tests.rs": "6333c5bc3f3026dd3a3cd93a8ed0dce46e3b418620356a25929a5082d1e78def",
+    "launch.py": "6bbcd926aff34806a020328e5823b8f0be9fc299c396f8f7fb286fe689655887",
+    "nohup.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prepare.log": "68486bc28d475b600ced96cce21ab5b547aa35ec778f3a1889f0bed157a37d5c",
+    "prepare.py": "a876c7684e5c1d895f71d49b51cf761ab80184669c168f4dd104627c09cc9e8e",
+    "run.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "run.pid": "62f8f785cb46034aff8e1e53dba0d0ae167b53ba3893c15c0a5d61478e38f4fa",
+    "run.sh": "b8c1596536a2e7249a9ea96941bd1520ad51edb5bd7aa09db5dff446ad3bbcd0",
+    "source.patch": "ef2878d48823eb990d0ed7028e83d072a7b66679833def09c1e11b077240ae1c",
+    "square-bridge.rs": "518468417716bce31d16f85a820ca8a273d357557af30608bef48315ee29dc88",
+    "sweep.log": "0d8069cb547bd628080961e0e9a1bf238d1fbb4dbdcc82adf46b653bcb81281f",
+    "sweep.py": "2718edef6e3f34f8cf027813923947b5ff91372a686d1e694f86cde3a9c249ed",
+    "tests.log": "4de48de1ae6a5e282a9df3f49586a5d4e6704ad96a85c3bcd33c36d01e23b59d"
+  },
+  "terminal_audit": {
+    "sealed_at_utc": "2026-10-20T00:04:53.010384+00:00",
+    "source_base": "90e777ea8242faa0acb2462c5cb5be7c318a2d64",
+    "protected_files_checked": 17,
+    "source_freeze_sha256": "4f2cff9390ba0cc2f3503f492032a862e98ddc38b0c16ded0a3345dca012bc19",
+    "result": {
+      "status": "RAW_ADMISSION_COMPLETE_NOT_SCORED",
+      "cases": [
+        {
+          "cap": 1234,
+          "exit": 0,
+          "seconds": 4.2687461376190186,
+          "builder_totals": [
+            "HEO_TOTAL native=810068 expected=762230.8 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+          ],
+          "raw_sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b"
+        },
+        {
+          "cap": 1233,
+          "exit": 0,
+          "seconds": 4.512060165405273,
+          "builder_totals": [
+            "HEO_TOTAL native=811553 expected=762945.5 peak=1234 peak_op=5505210 peak_phase=square qubits_touched=1234"
+          ],
+          "raw_sha256": "8dcb4213f3dfdc64aab84117c0839941c1517fe1ff4e78508486cc702203bcef"
+        }
+      ]
+    },
+    "no_final_gate_nonce_or_scored_result": true,
+    "streams_retained_on_server": {
+      "/home/hclau/ecdsa_research/breakthrough-fold-square-20261020/cap1233/ops.bin": {
+        "sha256": "8dcb4213f3dfdc64aab84117c0839941c1517fe1ff4e78508486cc702203bcef",
+        "bytes": 38223472
+      },
+      "/home/hclau/ecdsa_research/breakthrough-fold-square-20261020/cap1234/ops.bin": {
+        "sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b",
+        "bytes": 38777871
+      }
+    },
+    "native_binaries": {
+      "/home/hclau/ecdsa_research/breakthrough-fold-square-20261020/observer/target/release/deps/build_circuit-96cdcfa2d1d068c7": "c873b88d4719747be5d404806f336f1c573e366dd3fed900e0c0254f6a57c114",
+      "/home/hclau/ecdsa_research/breakthrough-fold-square-20261020/observer/target/release/deps/build_circuit-0c12d1b03f2fe721": "542436857e2bf9bab94becb424ab0b79376008a895d7a7a5f887973aa6ac65cf"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+; benchmark generated from python API
+(set-info :status unknown)
+(declare-fun target () Bool)
+(declare-fun complement () Bool)
+(declare-fun source_parity () Bool)
+(declare-fun incoming_carry () Bool)
+(assert
+ (let (($x9 (xor source_parity complement)))
+(let (($x15 (xor incoming_carry $x9)))
+(let (($x14 (xor target $x9)))
+(let (($x16 (and $x14 $x15)))
+(let (($x17 (xor $x9 $x16)))
+(let (($x18 (xor $x17 $x16)))
+(let (($x20 (xor $x14 $x18)))
+(or (and (distinct $x18 $x9) true) (and (distinct (xor $x15 $x18) incoming_carry) true) (and (distinct $x20 target) true))))))))))
+(check-sat)

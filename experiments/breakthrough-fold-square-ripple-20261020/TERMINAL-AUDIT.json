@@ -1,0 +1,74 @@
+{
+  "sealed_at_utc": "2026-10-20T00:04:55.679776+00:00",
+  "source_base": "90e777ea8242faa0acb2462c5cb5be7c318a2d64",
+  "protected_files_checked": 17,
+  "source_freeze_sha256": "c54a4cf71843a2d75a786fcb061d21a04d6437d7ff53712a5aae56fa5bc9495a",
+  "result": {
+    "status": "RAW_ADMISSION_COMPLETE_NOT_SCORED",
+    "cases": [
+      {
+        "cap": 1234,
+        "exit": 0,
+        "seconds": 4.240100145339966,
+        "builder_totals": [
+          "HEO_TOTAL native=810068 expected=762230.8 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+        ],
+        "raw_sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b"
+      },
+      {
+        "cap": 1233,
+        "exit": 0,
+        "seconds": 4.59100866317749,
+        "builder_totals": [
+          "HEO_TOTAL native=811562 expected=762954.5 peak=1234 peak_op=5511985 peak_phase=square qubits_touched=1234"
+        ],
+        "raw_sha256": "d89649df7d74b8e93b9dbe40172e6f4fcffc84dc4473dfaca49b9101c8780f7c"
+      }
+    ],
+    "paired_raw_diagnostic": {
+      "status": "RAW_DIAGNOSTIC_COMPLETE_NO_FINAL_GATE_VERDICT",
+      "label": "breakthrough-fold-square-ripple-raw-v1",
+      "batches": 512,
+      "shots_per_source": 32768,
+      "same_value_failing_shot_identities": true,
+      "summaries": {
+        "parent": {
+          "mean_executed_raw_toffoli": 762230.8701171875,
+          "value_shots": 69,
+          "phase_shots": 54,
+          "dirty_shots": 0,
+          "failed_batches": 82,
+          "rows_sha256": "13e776cef8c7a615e60e10fabdaa77f4b92293bb6e978f22713634e03c9c7c2c"
+        },
+        "candidate": {
+          "mean_executed_raw_toffoli": 762961.5975036621,
+          "value_shots": 69,
+          "phase_shots": 40,
+          "dirty_shots": 0,
+          "failed_batches": 80,
+          "rows_sha256": "9236e70579a4609fc9e6353feb57e2252558f01bd1061dc303ffffe8e1b757de"
+        }
+      },
+      "candidate_minus_parent_mean_raw_toffoli": 730.7273864746094,
+      "paired_batch_mean_standard_error": 4.248634726244524,
+      "protected_scalar_verified_batches_per_source": 8,
+      "replay_binary_sha256": "790e92266ea67ec54ef701b2deed76fe8d0b766b411ca9eab877f82ae2c11a66",
+      "scope": "Raw arithmetic diagnostics including failed inputs; configured1233 still actual1234. No complete optimized score, final gate or nonce search."
+    }
+  },
+  "no_final_gate_nonce_or_scored_result": true,
+  "streams_retained_on_server": {
+    "/home/hclau/ecdsa_research/breakthrough-fold-square-ripple-20261020/cap1233/ops.bin": {
+      "sha256": "d89649df7d74b8e93b9dbe40172e6f4fcffc84dc4473dfaca49b9101c8780f7c",
+      "bytes": 38276992
+    },
+    "/home/hclau/ecdsa_research/breakthrough-fold-square-ripple-20261020/cap1234/ops.bin": {
+      "sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b",
+      "bytes": 38777871
+    }
+  },
+  "native_binaries": {
+    "/home/hclau/ecdsa_research/breakthrough-fold-square-ripple-20261020/observer/target/release/deps/build_circuit-96cdcfa2d1d068c7": "0b00392a553ed4e5313927961fedb7fd79f435e0778170011442fb4ebad43a9c",
+    "/home/hclau/ecdsa_research/breakthrough-fold-square-ripple-20261020/observer/target/release/deps/build_circuit-0c12d1b03f2fe721": "1740e5fa04efa0e88180f33e21f3969d3193803d51449207ea40f019f5cc0206"
+  }
+}

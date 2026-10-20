@@ -1,5 +1,42 @@
 # Results and submission status
 
+## 20 October 2026, 08:12 SGT: exact phase fusion and independent carry limit
+
+No new complete resource result, final statistical gate or nonce search.
+Official parent d9ae2845 remains Q1234/T761077/product939169018. All old
+verdicts and the accepted source remain unchanged; future submissions queue.
+
+Global-cap plan7/square refinements finally generate actual1233/touched1233
+with short zero-extended sources, rawb3a3d124. Paired512x64 diagnostic keeps
+the same54 value-failing shot identities and zero dirty, but adds738.28 rawT
+(SE4.49), exceeding the approximate617-T budget per saved qubit. This is a
+development width control, not a scored improvement. Earlier square/ripple
+peaks remained1234; their evidence and outcomes are preserved.
+
+Exact two-stage carry-phase component passes4 native tests:262144 pair and
+174592 ladder bases, exact signs/operand restoration/measurement coefficients.
+Source-row rank<=1 saves one clean carry at zero added scoredT, rank2 at+1T.
+CCZ is scored and attributed. Seven local Boolean identities UNSAT, wrong
+sign control SAT. Separate source-borrowed predicate passes3 native tests.
+Six terminal archives30/46/45/32/37/25 members verify locally;17 protected
+files unchanged. These are components/development evidence, not records.
+
+Byte-identical original13f6 source audit finds735 eligible phase predicates;
+392 rank1, all8 that reach1234 rank1. Real allocation-array calls resolve
+mostly to modular ripples; shared fold carries and two Y15 core sites remain
+separate constraints. Do not infer a global saving from a component.
+
+Active: breakthrough-hardcarry-20261020 runner-v2 supervisor2390788. Keep all
+original planner caps1234 and impose separate hardcarry1233. Exact plain
+borrowing, unique bridge pivots, square adapters and tight phase fusion;
+phase-only YP8 r2/r3 temporary AND consumers become scoredCCZ. Pending hooks
+and paused callbacks remain excluded. Initial parity5/phase4 tests pass;
+fold fixture101 was missing HARD_CARRY_CAP because fixtures bypass build.
+Runner-v2 supplies1234 to fixtures; frozen runtime bytes remain unchanged.
+Check run-v2.exit, native controls and ADMISSION-RESULT before any replay.
+Declared baseline1234 must exactly match13f6. No final gate/nonce yet.
+Run log: experiments/autorun-20261020-breakthrough/LOG.md.
+
 ## 20 October 2026, 07:33 SGT: exact carry borrowing and seven-carry fold
 
 No new complete resource record or final gate. Official d9ae2845 remains the

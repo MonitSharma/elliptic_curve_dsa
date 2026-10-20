@@ -1,0 +1,978 @@
+{
+  "status": "BOTH_COMPLETE_RAW_STREAMS_BYTE_IDENTICAL",
+  "controls": {
+    "1234": {
+      "raw_sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b",
+      "high_water_sites": [
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/bridge.rs:43:74",
+          "active": 1233,
+          "occurrences": 79
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/bridge.rs:43:74",
+          "active": 1234,
+          "occurrences": 79
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/builder.rs:245:43",
+          "active": 1233,
+          "occurrences": 441
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/builder.rs:245:43",
+          "active": 1234,
+          "occurrences": 370
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/leapfrog.rs:2062:17",
+          "active": 1233,
+          "occurrences": 65
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/leapfrog.rs:2062:17",
+          "active": 1234,
+          "occurrences": 64
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/leapfrog.rs:2380:15",
+          "active": 1233,
+          "occurrences": 556
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/leapfrog.rs:2380:15",
+          "active": 1234,
+          "occurrences": 301
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/leapfrog.rs:5123:26",
+          "active": 1233,
+          "occurrences": 84
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/leapfrog.rs:5130:26",
+          "active": 1233,
+          "occurrences": 84
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/leapfrog.rs:5132:26",
+          "active": 1233,
+          "occurrences": 1
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/leapfrog.rs:5132:26",
+          "active": 1234,
+          "occurrences": 84
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/leapfrog.rs:900:21",
+          "active": 1233,
+          "occurrences": 69
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/leapfrog.rs:900:21",
+          "active": 1234,
+          "occurrences": 67
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/bridge.rs:43:74",
+          "active": 1233,
+          "occurrences": 86
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/bridge.rs:43:74",
+          "active": 1234,
+          "occurrences": 86
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/builder.rs:245:43",
+          "active": 1233,
+          "occurrences": 465
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/builder.rs:245:43",
+          "active": 1234,
+          "occurrences": 382
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/leapfrog.rs:2062:17",
+          "active": 1233,
+          "occurrences": 61
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/leapfrog.rs:2062:17",
+          "active": 1234,
+          "occurrences": 59
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/leapfrog.rs:2380:15",
+          "active": 1233,
+          "occurrences": 548
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/leapfrog.rs:2380:15",
+          "active": 1234,
+          "occurrences": 332
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/leapfrog.rs:5206:26",
+          "active": 1233,
+          "occurrences": 48
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/leapfrog.rs:5212:26",
+          "active": 1234,
+          "occurrences": 48
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/leapfrog.rs:900:21",
+          "active": 1233,
+          "occurrences": 31
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/leapfrog.rs:900:21",
+          "active": 1234,
+          "occurrences": 30
+        },
+        {
+          "phase": "square",
+          "caller": "src/bin/../point_add/builder.rs:245:43",
+          "active": 1233,
+          "occurrences": 31
+        },
+        {
+          "phase": "square",
+          "caller": "src/bin/../point_add/builder.rs:245:43",
+          "active": 1234,
+          "occurrences": 31
+        }
+      ],
+      "ripple_contracts": [
+        {
+          "op": 5478173,
+          "width": 144,
+          "source_bits": 144,
+          "active": 1091,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 0,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 1
+        },
+        {
+          "op": 5481847,
+          "width": 144,
+          "source_bits": 144,
+          "active": 1091,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 0,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 1
+        },
+        {
+          "op": 5483532,
+          "width": 145,
+          "source_bits": 125,
+          "active": 1091,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 0,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 0
+        },
+        {
+          "op": 5485081,
+          "width": 145,
+          "source_bits": 125,
+          "active": 1091,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 0,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 0
+        },
+        {
+          "op": 5486630,
+          "width": 145,
+          "source_bits": 125,
+          "active": 1091,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 0,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 0
+        },
+        {
+          "op": 5488031,
+          "width": 145,
+          "source_bits": 125,
+          "active": 1091,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 0,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 0
+        },
+        {
+          "op": 5664981,
+          "width": 128,
+          "source_bits": 124,
+          "active": 1108,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 1,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 0
+        },
+        {
+          "op": 5666532,
+          "width": 128,
+          "source_bits": 126,
+          "active": 1108,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 1,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 0
+        },
+        {
+          "op": 5671030,
+          "width": 140,
+          "source_bits": 140,
+          "active": 1095,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 0,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 1
+        },
+        {
+          "op": 5673141,
+          "width": 141,
+          "source_bits": 121,
+          "active": 1095,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 0,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 0
+        },
+        {
+          "op": 5674784,
+          "width": 141,
+          "source_bits": 121,
+          "active": 1095,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 0,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 0
+        },
+        {
+          "op": 5676427,
+          "width": 141,
+          "source_bits": 121,
+          "active": 1095,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 0,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 0
+        },
+        {
+          "op": 5678220,
+          "width": 141,
+          "source_bits": 121,
+          "active": 1095,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 0,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 0
+        },
+        {
+          "op": 5682403,
+          "width": 128,
+          "source_bits": 126,
+          "active": 1108,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 1,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 0
+        },
+        {
+          "op": 5683741,
+          "width": 128,
+          "source_bits": 124,
+          "active": 1108,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 0,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 0
+        },
+        {
+          "op": 5861874,
+          "width": 144,
+          "source_bits": 144,
+          "active": 1091,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 0,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 1
+        },
+        {
+          "op": 5863559,
+          "width": 145,
+          "source_bits": 125,
+          "active": 1091,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 0,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 0
+        },
+        {
+          "op": 5865108,
+          "width": 145,
+          "source_bits": 125,
+          "active": 1091,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 0,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 0
+        },
+        {
+          "op": 5866657,
+          "width": 145,
+          "source_bits": 125,
+          "active": 1091,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 0,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 0
+        },
+        {
+          "op": 5868058,
+          "width": 145,
+          "source_bits": 125,
+          "active": 1091,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 0,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 0
+        },
+        {
+          "op": 5871176,
+          "width": 144,
+          "source_bits": 144,
+          "active": 1091,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 0,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 1
+        },
+        {
+          "op": 5874850,
+          "width": 144,
+          "source_bits": 144,
+          "active": 1091,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 0,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 1
+        },
+        {
+          "op": 5878524,
+          "width": 144,
+          "source_bits": 144,
+          "active": 1091,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 0,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 1
+        },
+        {
+          "op": 5882454,
+          "width": 144,
+          "source_bits": 144,
+          "active": 1091,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 0,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 1
+        },
+        {
+          "op": 5889206,
+          "width": 144,
+          "source_bits": 144,
+          "active": 1091,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 0,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 1
+        }
+      ]
+    },
+    "1233": {
+      "raw_sha256": "d89649df7d74b8e93b9dbe40172e6f4fcffc84dc4473dfaca49b9101c8780f7c",
+      "high_water_sites": [
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/bridge.rs:43:74",
+          "active": 1233,
+          "occurrences": 119
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/builder.rs:245:43",
+          "active": 1233,
+          "occurrences": 360
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/leapfrog.rs:2062:17",
+          "active": 1233,
+          "occurrences": 65
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/leapfrog.rs:2380:15",
+          "active": 1233,
+          "occurrences": 386
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/leapfrog.rs:5132:26",
+          "active": 1233,
+          "occurrences": 85
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/leapfrog.rs:900:21",
+          "active": 1233,
+          "occurrences": 69
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/bridge.rs:43:74",
+          "active": 1233,
+          "occurrences": 137
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/builder.rs:245:43",
+          "active": 1233,
+          "occurrences": 361
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/leapfrog.rs:2062:17",
+          "active": 1233,
+          "occurrences": 61
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/leapfrog.rs:2380:15",
+          "active": 1233,
+          "occurrences": 357
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/leapfrog.rs:5212:26",
+          "active": 1233,
+          "occurrences": 48
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/leapfrog.rs:900:21",
+          "active": 1233,
+          "occurrences": 31
+        },
+        {
+          "phase": "square",
+          "caller": "src/bin/../point_add/builder.rs:245:43",
+          "active": 1233,
+          "occurrences": 16
+        },
+        {
+          "phase": "square",
+          "caller": "src/bin/../point_add/builder.rs:245:43",
+          "active": 1234,
+          "occurrences": 16
+        },
+        {
+          "phase": "square",
+          "caller": "src/bin/../point_add/parity_bridge.rs:72:21",
+          "active": 1233,
+          "occurrences": 15
+        }
+      ],
+      "ripple_contracts": [
+        {
+          "op": 5505210,
+          "width": 144,
+          "source_bits": 144,
+          "active": 1091,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 0,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 1
+        },
+        {
+          "op": 5509592,
+          "width": 144,
+          "source_bits": 144,
+          "active": 1091,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 0,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 1
+        },
+        {
+          "op": 5511985,
+          "width": 145,
+          "source_bits": 125,
+          "active": 1091,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 0,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 0
+        },
+        {
+          "op": 5513534,
+          "width": 145,
+          "source_bits": 125,
+          "active": 1091,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 0,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 0
+        },
+        {
+          "op": 5515083,
+          "width": 145,
+          "source_bits": 125,
+          "active": 1091,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 0,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 0
+        },
+        {
+          "op": 5516484,
+          "width": 145,
+          "source_bits": 125,
+          "active": 1091,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 0,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 0
+        },
+        {
+          "op": 5693862,
+          "width": 128,
+          "source_bits": 124,
+          "active": 1108,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 1,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 0
+        },
+        {
+          "op": 5695413,
+          "width": 128,
+          "source_bits": 126,
+          "active": 1108,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 1,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 0
+        },
+        {
+          "op": 5700320,
+          "width": 140,
+          "source_bits": 140,
+          "active": 1095,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 0,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 1
+        },
+        {
+          "op": 5703119,
+          "width": 141,
+          "source_bits": 121,
+          "active": 1095,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 0,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 0
+        },
+        {
+          "op": 5704762,
+          "width": 141,
+          "source_bits": 121,
+          "active": 1095,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 0,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 0
+        },
+        {
+          "op": 5706405,
+          "width": 141,
+          "source_bits": 121,
+          "active": 1095,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 0,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 0
+        },
+        {
+          "op": 5708198,
+          "width": 141,
+          "source_bits": 121,
+          "active": 1095,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 0,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 0
+        },
+        {
+          "op": 5712788,
+          "width": 128,
+          "source_bits": 126,
+          "active": 1108,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 1,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 0
+        },
+        {
+          "op": 5714126,
+          "width": 128,
+          "source_bits": 124,
+          "active": 1108,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 0,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 0
+        },
+        {
+          "op": 5892687,
+          "width": 144,
+          "source_bits": 144,
+          "active": 1091,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 0,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 1
+        },
+        {
+          "op": 5895080,
+          "width": 145,
+          "source_bits": 125,
+          "active": 1091,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 0,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 0
+        },
+        {
+          "op": 5896629,
+          "width": 145,
+          "source_bits": 125,
+          "active": 1091,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 0,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 0
+        },
+        {
+          "op": 5898178,
+          "width": 145,
+          "source_bits": 125,
+          "active": 1091,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 0,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 0
+        },
+        {
+          "op": 5899579,
+          "width": 145,
+          "source_bits": 125,
+          "active": 1091,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 0,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 0
+        },
+        {
+          "op": 5902697,
+          "width": 144,
+          "source_bits": 144,
+          "active": 1091,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 0,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 1
+        },
+        {
+          "op": 5907079,
+          "width": 144,
+          "source_bits": 144,
+          "active": 1091,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 0,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 1
+        },
+        {
+          "op": 5911461,
+          "width": 144,
+          "source_bits": 144,
+          "active": 1091,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 0,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 1
+        },
+        {
+          "op": 5916099,
+          "width": 144,
+          "source_bits": 144,
+          "active": 1091,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 0,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 1
+        },
+        {
+          "op": 5923559,
+          "width": 144,
+          "source_bits": 144,
+          "active": 1091,
+          "full_c0": 1,
+          "full_c1": 1,
+          "deferred": 0,
+          "known_output": 0,
+          "known_terminal": 0,
+          "borrowed": 0,
+          "copy_request": 0,
+          "carry_out": 1
+        }
+      ]
+    }
+  },
+  "scope": "Source allocator and ripple-contract audit only; no new score."
+}

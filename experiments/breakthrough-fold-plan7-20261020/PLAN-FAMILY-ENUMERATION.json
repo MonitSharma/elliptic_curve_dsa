@@ -1,0 +1,132 @@
+{
+  "status": "COMPLETE_ENUMERATION_OF_SPECIFIED_NONADJACENT_DROP_ALLOCATION_FAMILY",
+  "family_bound": "K<=2r: before a non-final chunk j at least ceil(j/2) boundaries remain live; width>=1 requires ceil(j/2)+1<=r.",
+  "objective": "Uniform generic carry/compare model: T_emit=n-1 + sum_nonfinal(w-1) + sum_dropped(2w-1); E[T]=n-1 + sum_nonfinal(w-1)/2 + sum_dropped(3w-1)/4.",
+  "limitations": [
+    "Bounds apply to this existing nonadjacent-drop algorithm and uniform generic-stage cost only, not arbitrary adders or point addition.",
+    "Source-specific affine cancellations and fixed-core/helper allocation are outside the model. Native source counts remain authoritative.",
+    "These schedules are not installed into any new circuit by this enumeration."
+  ],
+  "results": [
+    {
+      "budget": 2,
+      "enumerated_patterns": 7,
+      "admitted_patterns": 5,
+      "maximum_covered_bits": 6,
+      "best_fifty_bit_schedule": null
+    },
+    {
+      "budget": 3,
+      "enumerated_patterns": 20,
+      "admitted_patterns": 11,
+      "maximum_covered_bits": 11,
+      "best_fifty_bit_schedule": null
+    },
+    {
+      "budget": 4,
+      "enumerated_patterns": 54,
+      "admitted_patterns": 23,
+      "maximum_covered_bits": 18,
+      "best_fifty_bit_schedule": null
+    },
+    {
+      "budget": 5,
+      "enumerated_patterns": 143,
+      "admitted_patterns": 47,
+      "maximum_covered_bits": 27,
+      "best_fifty_bit_schedule": null
+    },
+    {
+      "budget": 6,
+      "enumerated_patterns": 376,
+      "admitted_patterns": 95,
+      "maximum_covered_bits": 38,
+      "best_fifty_bit_schedule": null
+    },
+    {
+      "budget": 7,
+      "enumerated_patterns": 986,
+      "admitted_patterns": 191,
+      "maximum_covered_bits": 51,
+      "best_fifty_bit_schedule": {
+        "expected_quarters": 338,
+        "modeled_expected_ccx": 84.5,
+        "modeled_emitted_ccx": 130,
+        "plan": [
+          7,
+          6,
+          6,
+          5,
+          5,
+          4,
+          4,
+          3,
+          3,
+          2,
+          2,
+          3
+        ],
+        "drops": [
+          0,
+          2,
+          4,
+          6,
+          8
+        ],
+        "caps": [
+          7,
+          6,
+          6,
+          5,
+          5,
+          4,
+          4,
+          3,
+          3,
+          2,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "budget": 8,
+      "enumerated_patterns": 2583,
+      "admitted_patterns": 383,
+      "maximum_covered_bits": 66,
+      "best_fifty_bit_schedule": {
+        "expected_quarters": 312,
+        "modeled_expected_ccx": 78.0,
+        "modeled_emitted_ccx": 113,
+        "plan": [
+          8,
+          7,
+          6,
+          6,
+          6,
+          5,
+          4,
+          3,
+          2,
+          3
+        ],
+        "drops": [
+          0,
+          2
+        ],
+        "caps": [
+          8,
+          7,
+          7,
+          6,
+          6,
+          5,
+          4,
+          3,
+          2,
+          3
+        ]
+      }
+    }
+  ]
+}

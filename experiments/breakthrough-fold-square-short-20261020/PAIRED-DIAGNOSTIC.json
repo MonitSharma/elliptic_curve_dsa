@@ -1,0 +1,30 @@
+{
+  "status": "RAW_DIAGNOSTIC_COMPLETE_NO_FINAL_GATE_VERDICT",
+  "label": "breakthrough-fold-square-short-raw-v1",
+  "batches": 512,
+  "shots_per_source": 32768,
+  "same_value_failing_shot_identities": true,
+  "summaries": {
+    "parent": {
+      "mean_executed_raw_toffoli": 762237.1507873535,
+      "value_shots": 54,
+      "phase_shots": 36,
+      "dirty_shots": 0,
+      "failed_batches": 60,
+      "rows_sha256": "58456d12a33e6062544242fc04f6720c6096372287e907ebe24fc1d7c2fd1524"
+    },
+    "candidate": {
+      "mean_executed_raw_toffoli": 762975.4356384277,
+      "value_shots": 54,
+      "phase_shots": 41,
+      "dirty_shots": 0,
+      "failed_batches": 61,
+      "rows_sha256": "fb770326c6984ef87bb2b94ed952e29ca88bd913cd00992cc2ce0c31f2db8c1f"
+    }
+  },
+  "candidate_minus_parent_mean_raw_toffoli": 738.2848510742188,
+  "paired_batch_mean_standard_error": 4.492118031121148,
+  "protected_scalar_verified_batches_per_source": 8,
+  "replay_binary_sha256": "790e92266ea67ec54ef701b2deed76fe8d0b766b411ca9eab877f82ae2c11a66",
+  "scope": "Raw arithmetic diagnostics including failed inputs; actual generated peak1233. No complete optimized score, final gate or nonce search."
+}

@@ -1,0 +1,74 @@
+{
+  "sealed_at_utc": "2026-10-20T00:04:56.491847+00:00",
+  "source_base": "90e777ea8242faa0acb2462c5cb5be7c318a2d64",
+  "protected_files_checked": 17,
+  "source_freeze_sha256": "19a3b444c76ea4a42f87ad210d9286dcb765a305624fe6aceca897f011378059",
+  "result": {
+    "status": "RAW_ADMISSION_COMPLETE_NOT_SCORED",
+    "cases": [
+      {
+        "cap": 1234,
+        "exit": 0,
+        "seconds": 4.273620843887329,
+        "builder_totals": [
+          "HEO_TOTAL native=810068 expected=762230.8 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+        ],
+        "raw_sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b"
+      },
+      {
+        "cap": 1233,
+        "exit": 0,
+        "seconds": 4.508062124252319,
+        "builder_totals": [
+          "HEO_TOTAL native=811581 expected=762973.5 peak=1233 peak_op=1444643 peak_phase=divide qubits_touched=1233"
+        ],
+        "raw_sha256": "b3a3d124bd620699a8774ba2d6a8a5578f853601a061162cc8022ee0f0889e6f"
+      }
+    ],
+    "paired_raw_diagnostic": {
+      "status": "RAW_DIAGNOSTIC_COMPLETE_NO_FINAL_GATE_VERDICT",
+      "label": "breakthrough-fold-square-short-raw-v1",
+      "batches": 512,
+      "shots_per_source": 32768,
+      "same_value_failing_shot_identities": true,
+      "summaries": {
+        "parent": {
+          "mean_executed_raw_toffoli": 762237.1507873535,
+          "value_shots": 54,
+          "phase_shots": 36,
+          "dirty_shots": 0,
+          "failed_batches": 60,
+          "rows_sha256": "58456d12a33e6062544242fc04f6720c6096372287e907ebe24fc1d7c2fd1524"
+        },
+        "candidate": {
+          "mean_executed_raw_toffoli": 762975.4356384277,
+          "value_shots": 54,
+          "phase_shots": 41,
+          "dirty_shots": 0,
+          "failed_batches": 61,
+          "rows_sha256": "fb770326c6984ef87bb2b94ed952e29ca88bd913cd00992cc2ce0c31f2db8c1f"
+        }
+      },
+      "candidate_minus_parent_mean_raw_toffoli": 738.2848510742188,
+      "paired_batch_mean_standard_error": 4.492118031121148,
+      "protected_scalar_verified_batches_per_source": 8,
+      "replay_binary_sha256": "790e92266ea67ec54ef701b2deed76fe8d0b766b411ca9eab877f82ae2c11a66",
+      "scope": "Raw arithmetic diagnostics including failed inputs; actual generated peak1233. No complete optimized score, final gate or nonce search."
+    }
+  },
+  "no_final_gate_nonce_or_scored_result": true,
+  "streams_retained_on_server": {
+    "/home/hclau/ecdsa_research/breakthrough-fold-square-short-20261020/cap1233/ops.bin": {
+      "sha256": "b3a3d124bd620699a8774ba2d6a8a5578f853601a061162cc8022ee0f0889e6f",
+      "bytes": 38284589
+    },
+    "/home/hclau/ecdsa_research/breakthrough-fold-square-short-20261020/cap1234/ops.bin": {
+      "sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b",
+      "bytes": 38777871
+    }
+  },
+  "native_binaries": {
+    "/home/hclau/ecdsa_research/breakthrough-fold-square-short-20261020/observer/target/release/deps/build_circuit-96cdcfa2d1d068c7": "a64827d63ab73337e8338f4953f6716daaf471ef72e8eb89b2ab513183884568",
+    "/home/hclau/ecdsa_research/breakthrough-fold-square-short-20261020/observer/target/release/deps/build_circuit-0c12d1b03f2fe721": "526a087d68d582b9c5dc00900f28d24e2d376b6f5fc87f23ec46fd1d161f4ccc"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "status": "SEVEN_BOOLEAN_IDENTITIES_UNSAT_WRONG_SIGN_CONTROL_SAT",
+  "solver": "5.1.0",
+  "queries": [
+    {
+      "name": "generic_two_CCZ",
+      "result": "unsat",
+      "sha256": "730b5f2b5bec2c1570cc5bf2bd1ba44e2dc6965b1b9e38582e16b13e19dec7aa"
+    },
+    {
+      "name": "same_literal_one_CCZ",
+      "result": "unsat",
+      "sha256": "7869053f9691aed3823bab01748960699248e35e3d16a840638559a8425366c3"
+    },
+    {
+      "name": "opposite_literal_one_CCZ",
+      "result": "unsat",
+      "sha256": "140cbe0697e9a7928b9f8bc47e2f010a1672c0381cdb3906ad4d25be622a9ef7"
+    },
+    {
+      "name": "constant_lower_zero_one_CCZ",
+      "result": "unsat",
+      "sha256": "7a6b18b77482551dbad19a852635cbadbb5902f156288cb132085f83ebbddebc"
+    },
+    {
+      "name": "constant_lower_one_one_CCZ",
+      "result": "unsat",
+      "sha256": "86a1aab363b20c17ac20ce442884397dbfc8cae1dfce5817aae767bb91406acc"
+    },
+    {
+      "name": "constant_upper_zero_one_CCZ",
+      "result": "unsat",
+      "sha256": "b30f0b96de15382eedffce575336159027ad7b5c3179d7a5839e17483263bbb7"
+    },
+    {
+      "name": "constant_upper_one_one_CCZ",
+      "result": "unsat",
+      "sha256": "033d6284346c13ab5735ec9b03643b5d9eeddf22b24695acc3987f9be3a3ffc8"
+    }
+  ],
+  "negative_control_model": "[upper_target = False,\n lower_add = True,\n lower_target = False,\n incoming_carry = False,\n upper_add = False]",
+  "scope": "Boolean phase polynomials only. Native tests separately check parity materialization, full ladder, measurements and workspace."
+}

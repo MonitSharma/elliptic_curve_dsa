@@ -1,0 +1,30 @@
+{
+  "status": "RAW_DIAGNOSTIC_COMPLETE_NO_FINAL_GATE_VERDICT",
+  "label": "breakthrough-fold-square-ripple-raw-v1",
+  "batches": 512,
+  "shots_per_source": 32768,
+  "same_value_failing_shot_identities": true,
+  "summaries": {
+    "parent": {
+      "mean_executed_raw_toffoli": 762230.8701171875,
+      "value_shots": 69,
+      "phase_shots": 54,
+      "dirty_shots": 0,
+      "failed_batches": 82,
+      "rows_sha256": "13e776cef8c7a615e60e10fabdaa77f4b92293bb6e978f22713634e03c9c7c2c"
+    },
+    "candidate": {
+      "mean_executed_raw_toffoli": 762961.5975036621,
+      "value_shots": 69,
+      "phase_shots": 40,
+      "dirty_shots": 0,
+      "failed_batches": 80,
+      "rows_sha256": "9236e70579a4609fc9e6353feb57e2252558f01bd1061dc303ffffe8e1b757de"
+    }
+  },
+  "candidate_minus_parent_mean_raw_toffoli": 730.7273864746094,
+  "paired_batch_mean_standard_error": 4.248634726244524,
+  "protected_scalar_verified_batches_per_source": 8,
+  "replay_binary_sha256": "790e92266ea67ec54ef701b2deed76fe8d0b766b411ca9eab877f82ae2c11a66",
+  "scope": "Raw arithmetic diagnostics including failed inputs; configured1233 still actual1234. No complete optimized score, final gate or nonce search."
+}
