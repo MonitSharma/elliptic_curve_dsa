@@ -2,7 +2,7 @@
 import hashlib,json,subprocess,sys,tarfile
 from pathlib import Path
 root=Path(__file__).resolve().parents[2]
-allowed=['breakthrough-fold-square-20261020','breakthrough-fold-square-ripple-20261020','breakthrough-fold-square-short-20261020','breakthrough-hardcap-audit-20261020','breakthrough-phase-bridge-20261020','breakthrough-phase-fusion-20261020']
+allowed=['breakthrough-fold-square-20261020','breakthrough-fold-square-ripple-20261020','breakthrough-fold-square-short-20261020','breakthrough-hardcap-audit-20261020','breakthrough-phase-bridge-20261020','breakthrough-phase-fusion-20261020','breakthrough-phase-sites-20261020','breakthrough-hardcarry-20261020','breakthrough-paused-read-20261020','breakthrough-paused-pool-audit-20261020']
 for name in sys.argv[1:]:
  assert name in allowed;r=root/'experiments'/name;r.mkdir(exist_ok=True)
  subprocess.run(['scp']+[f'smu_server:/home/hclau/ecdsa_research/{name}/{file}'for file in['evidence.tar.gz','EVIDENCE-MANIFEST.json','PACKAGE-RESULT.json']]+[str(r)],check=True)

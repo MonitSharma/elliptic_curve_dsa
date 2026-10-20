@@ -1,0 +1,15 @@
+{
+  "status": "EXACT_NATIVE_EIGHT_BIT_FUNCTION_RANK_ANALYSIS",
+  "native_truth_sha256": "7cac9ae3202ca1b05348421a95fc760a7250e4ba74bc84651b06a969968e13f7",
+  "emitted_core_ccx": 19,
+  "input_affine_rank": 9,
+  "input_and_output_rank": 25,
+  "output_nonlinear_dimension": 16,
+  "input_and_all_computed_wire_rank": 28,
+  "computed_wire_linear_dependencies": [],
+  "supported_signed_inputs_verified": 78,
+  "outside_promised_range_math_mismatches": [
+    -128
+  ],
+  "scope": "Rank bound concerns the actual full eight-bit truth function in an XOR/AND straight-line model, with inputs independent. Not a general reversible/in-place/multioutput gate lower bound or a point-add lower bound; conditional domain restrictions differ. Any proposed rewrite needs full lifetime, phase and native validation."
+}

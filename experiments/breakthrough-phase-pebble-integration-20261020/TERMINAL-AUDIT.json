@@ -1,0 +1,46 @@
+{
+  "sealed_at_utc": "2026-10-20T01:09:08.231550+00:00",
+  "base": "90e777ea8242faa0acb2462c5cb5be7c318a2d64",
+  "protected_files_checked": 17,
+  "source_freeze_sha256": "553c5b4f3ec2a8ac88d6961c671fa30802685eaa59bd01bee1b0ef29df2c75f0",
+  "result": {
+    "status": "RAW_ADMISSION_COMPLETE_NOT_SCORED",
+    "cases": [
+      {
+        "cap": 1234,
+        "exit": 0,
+        "seconds": 4.29391884803772,
+        "builder_totals": [
+          "HEO_TOTAL native=810068 expected=762230.8 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+        ],
+        "raw_sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b"
+      },
+      {
+        "cap": 1233,
+        "exit": 0,
+        "seconds": 4.44073486328125,
+        "builder_totals": [
+          "HEO_TOTAL native=811365 expected=762841.2 peak=1234 peak_op=1584706 peak_phase=divide qubits_touched=1234"
+        ],
+        "raw_sha256": "17324474488354c79da4d69c37e99996102293f57607c32778d878fd0434b0f0"
+      }
+    ]
+  },
+  "streams_retained_on_server": {
+    "/home/hclau/ecdsa_research/breakthrough-phase-pebble-integration-20261020/cap1233/ops.bin": {
+      "sha256": "17324474488354c79da4d69c37e99996102293f57607c32778d878fd0434b0f0",
+      "bytes": 38418903,
+      "complete": true
+    },
+    "/home/hclau/ecdsa_research/breakthrough-phase-pebble-integration-20261020/cap1234/ops.bin": {
+      "sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b",
+      "bytes": 38777871,
+      "complete": true
+    }
+  },
+  "native_binaries": {
+    "/home/hclau/ecdsa_research/breakthrough-phase-pebble-integration-20261020/observer/target/release/deps/build_circuit-96cdcfa2d1d068c7": "1f24998846edb0b7ba3aa4456f4ec83ff79d6621f242048148923ed0277b715c",
+    "/home/hclau/ecdsa_research/breakthrough-phase-pebble-integration-20261020/observer/target/release/deps/build_circuit-0c12d1b03f2fe721": "d0c7971d1b4ec6ba35c34e19e1f1497eb1b204f476ab16771509cbdddd4b4573"
+  },
+  "no_final_gate_nonce_or_scored_result": true
+}

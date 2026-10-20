@@ -1,0 +1,52 @@
+{
+  "status": "OUTPUT_HASH_DEVELOPMENT_DIAGNOSTIC_COMPLETE",
+  "label": "breakthrough-local-fold-output-v1",
+  "batches": 512,
+  "shots_per_source": 32768,
+  "every_original_parent_row_field_matches": true,
+  "all_four_final_register_hashes_match_including_failed_inputs": false,
+  "different_output_batches": [
+    17,
+    29,
+    90,
+    116,
+    121,
+    210,
+    211,
+    271,
+    367,
+    374,
+    449
+  ],
+  "candidate_minus_parent_raw_mean_toffoli": 1430.8163452148438,
+  "paired_standard_error": 4.136316287779617,
+  "summaries": {
+    "original-parent": {
+      "value_shots": 48,
+      "phase_shots": 39,
+      "dirty_shots": 0,
+      "failed_batches": 54,
+      "mean_executed_raw_toffoli": 762235.5883178711,
+      "rows_sha256": "cb1b5d29d3c1a5592f19d5be841b15bc05de2d4d3a5ff855ecf4e43b73e5622e"
+    },
+    "parent": {
+      "value_shots": 48,
+      "phase_shots": 39,
+      "dirty_shots": 0,
+      "failed_batches": 54,
+      "mean_executed_raw_toffoli": 762235.5883178711,
+      "rows_sha256": "b26e77035b70d581901d8ad40968d9622a4fa8f3bdf350cf3d84588e5938e972"
+    },
+    "candidate": {
+      "value_shots": 48,
+      "phase_shots": 29,
+      "dirty_shots": 0,
+      "failed_batches": 52,
+      "mean_executed_raw_toffoli": 763666.4046630859,
+      "rows_sha256": "e4a587d48d54c3d9e5df1afb832d4ff0894f8fb74e78b8c52a5cf18297e76649"
+    }
+  },
+  "protected_scalar_verified_batches_per_run": 8,
+  "output_binary_sha256": "f1d7c4986030fbab6d30c6b0b0841f0175b820ad65fa3efcab18594e09e07c47",
+  "scope": "Finite paired development diagnostic, including inherited failing outputs. SHA3-256 equality is not a universal proof. No complete scored improvement, final gate, nonce or official benchmark."
+}

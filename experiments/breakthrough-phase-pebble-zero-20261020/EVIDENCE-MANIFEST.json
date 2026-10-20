@@ -1,0 +1,53 @@
+{
+  "files": {
+    ".gitignore": "9cd2bae9ff2bc521c13b6b37424684540be3e912e5d6d007b1f98d20d3e7eac0",
+    "SOURCE_FREEZE-v2.json": "c3996cff6c401e7f72e3dbc5905d8fbbc8774b6a12a6ffef9c6802d2d9b9668c",
+    "SOURCE_FREEZE.json": "a64b2dd797ff1351df0254f11b432c38d6dcbc9b318231a4495a8fbe57591087",
+    "TERMINAL-AUDIT.json": "c1eff1e251ed991976c36df2d1d426efabddfd3ea6cbbe06e709927197d7bf35",
+    "launch-v2.py": "7b83d599bb4a46711b4e682b083194419f946932684b7fc779e3ba0a8156b696",
+    "launch.py": "6bbcd926aff34806a020328e5823b8f0be9fc299c396f8f7fb286fe689655887",
+    "nohup-v2.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "nohup.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prepare.log": "68486bc28d475b600ced96cce21ab5b547aa35ec778f3a1889f0bed157a37d5c",
+    "prepare.py": "0e3fb7057c72f69ee068ddf530708499a7b0f14ae358dc84d4406e1c00bfb95c",
+    "run-v2.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "run-v2.pid": "ab4bddfe76d7189aa87647183f73d5af8c3b326cfdfbabe0c28434849a9bd344",
+    "run-v2.sh": "20a0bf8dc3ca3340b16802a8b3ed8f5354a3a353693f55b3bd758f9fd533b7ad",
+    "run.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "run.pid": "4eb66bf657af4c86f9e0f3dd4ca002f643fb8b9b9b3527aa35f32a0e0dc385fd",
+    "run.sh": "f0a1d939360baa07e2d98db467852aeaa725afa49a60949c7ea859d67f4d2959",
+    "setup-local.py": "8ad4c596f4cf0dc95863aa2003570bcf3de5d84a13cf31764dd7607472bdf5f8",
+    "source-v2.patch": "552f5ae8d66144b13a90f415732e409b4d9def0f8c3307bbb12e40141c530a70",
+    "source.patch": "552f5ae8d66144b13a90f415732e409b4d9def0f8c3307bbb12e40141c530a70",
+    "strengthen-v2.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "strengthen-v2.py": "deeeb45f99793b95f32675fefc0bf53a596d73ee6a104bfabc7cd575b175ef65",
+    "tests-v2.log": "726a262b85131be0d97df69382dd6334ee1ebf759514f0ebf24bbfdc8daf1a4b",
+    "tests.log": "3d5454bfd3d52f06e200268031459b6d2a9ea909a155db84beb01a9615290072",
+    "zero_carry-v2.rs": "ea5fe10fa4017145776bdd45f8bb430ce25059650b77bcdbc0790b49f7bbcc90",
+    "zero_carry.rs": "1a5411ab84c3a5b3a2ea4844bbcd8d3d9b1ddeb2bda4b215f2060dcfc118ce5e",
+    "added-source/phase_fusion.rs": "39bd1eed7dd29f5ea1516f60e6f205c07f210514dbb092dd6a9f9be652680f5a",
+    "added-source/phase_pebble.rs": "1049d511a14d98339d2c4e59c224b7d98238cf4aa9ad68c9053fce1511b78f1e",
+    "added-source/zero_carry.rs": "ea5fe10fa4017145776bdd45f8bb430ce25059650b77bcdbc0790b49f7bbcc90",
+    "passed-mixed-guard-v1/SOURCE_FREEZE.json": "a64b2dd797ff1351df0254f11b432c38d6dcbc9b318231a4495a8fbe57591087",
+    "passed-mixed-guard-v1/run.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "passed-mixed-guard-v1/source.patch": "552f5ae8d66144b13a90f415732e409b4d9def0f8c3307bbb12e40141c530a70",
+    "passed-mixed-guard-v1/tests.log": "3d5454bfd3d52f06e200268031459b6d2a9ea909a155db84beb01a9615290072",
+    "passed-mixed-guard-v1/zero_carry.rs": "1a5411ab84c3a5b3a2ea4844bbcd8d3d9b1ddeb2bda4b215f2060dcfc118ce5e"
+  },
+  "terminal_audit": {
+    "sealed_at_utc": "2026-10-20T01:18:42.834215+00:00",
+    "base": "90e777ea8242faa0acb2462c5cb5be7c318a2d64",
+    "protected_files_checked": 17,
+    "source_freeze_sha256": "c3996cff6c401e7f72e3dbc5905d8fbbc8774b6a12a6ffef9c6802d2d9b9668c",
+    "result": {
+      "status": "NATIVE_COMPONENT_PASS",
+      "tests": 3,
+      "scope": "Component only, no point-add resource result or novelty claim."
+    },
+    "streams_retained_on_server": {},
+    "native_binaries": {
+      "/home/hclau/ecdsa_research/breakthrough-phase-pebble-zero-20261020/primitive/target/release/deps/build_circuit-0c12d1b03f2fe721": "ede4adeb6353fcf75b5b0bba33e2c5f821d05a39cf67c620021a8e0596e0c1e5"
+    },
+    "no_final_gate_nonce_or_scored_result": true
+  }
+}

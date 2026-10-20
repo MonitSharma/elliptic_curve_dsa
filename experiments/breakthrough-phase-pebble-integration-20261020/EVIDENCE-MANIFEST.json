@@ -1,0 +1,83 @@
+{
+  "files": {
+    ".gitignore": "6591f24271fdf384711f2db37c65d0ac0520ce285f3fc4e46e7774526ff9d59f",
+    "ADMISSION-PROGRESS.json": "bd977e421827dc53405fbb911dfe9a343cac27332f9f368b8d76165d59850f10",
+    "ADMISSION-RESULT.json": "982668e7ee02e9209c28635253408b0a0c78aaa41d97004fc5923a65bd5f3470",
+    "SOURCE_FREEZE.json": "553c5b4f3ec2a8ac88d6961c671fa30802685eaa59bd01bee1b0ef29df2c75f0",
+    "TERMINAL-AUDIT.json": "da86bf14758213173b56ec13fd30069dd436ac7addfcaed2f9cb3efab63e35df",
+    "build.log": "0c64857c87246e99afe2285b05a88f59350eb5ffedd767fc83add0f447dcad93",
+    "build.out": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "launch.py": "6bbcd926aff34806a020328e5823b8f0be9fc299c396f8f7fb286fe689655887",
+    "leapfrog_adapter.rs": "bfefed7a6bf2b9332d83aa0ed519dad276f76ea149bbcca579a726faa46df6b7",
+    "nohup.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "phase_fit.rs": "0ca686ddbcb710fe920e2d547ecdb110cbe4c0ca83dfe4717833b934df0bc323",
+    "prepare.log": "68486bc28d475b600ced96cce21ab5b547aa35ec778f3a1889f0bed157a37d5c",
+    "prepare.py": "8b9c2135b2d2ed55aa98153458a54d8a442ce87b7f22a8878e0225bfae629d94",
+    "run.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "run.pid": "7dc7a6ce17bf0ab2e046165ec7efb9a0400c7051120c6a394942838f12e0bbf4",
+    "run.sh": "7f8f6032334ef50d2ab7ec3f7f9b1fcdb2e4886889600bdbfbc3d8bee8918f48",
+    "setup-local.py": "1aa60c6d8077bb591102b2926157a70f0be6bb5dc006dd12bab2d6e303fd5244",
+    "source.patch": "9955892df7b932c22a86f909939888f990270633314704b7785dc7eeedd0dca5",
+    "sweep.log": "a1bfcdc8eb6d2c718daaf8fc812632dfec861c253d257d6bf4e95ecfc257bdb1",
+    "sweep.py": "40824d51e1a21055f8e4cd217d6632aa6972a5c5ef91e541687510642cfd7671",
+    "tests.log": "1c2fd6d48150ab8ccf4d72e7a2fde31f67f9793ad31c6fe87313bc9f5a460f63",
+    "added-source/break_profile.rs": "a7e94c66704031f4f0810059f15ca1893ddc5e006a5b82b8c582c67228609515",
+    "added-source/phase_fit.rs": "0ca686ddbcb710fe920e2d547ecdb110cbe4c0ca83dfe4717833b934df0bc323",
+    "added-source/phase_fusion.rs": "39bd1eed7dd29f5ea1516f60e6f205c07f210514dbb092dd6a9f9be652680f5a",
+    "added-source/phase_pebble.rs": "1049d511a14d98339d2c4e59c224b7d98238cf4aa9ad68c9053fce1511b78f1e",
+    "cap1233/child.pid": "c8a3f6ba3d7c1c0527aba36da05390b97bc37c5481326a9f7ab6f0d0bcffc73d",
+    "cap1233/generate.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "cap1233/generate.log": "cfd11ee949307f3a172d298a31bddc28abd935ea73f1478f121b2c4b065e1568",
+    "cap1233/generate.out": "40fa20aef02bfdb3276c782b891c3b4541c200179d3ba17d708ae9781ceffb7f",
+    "cap1234/child.pid": "9ffe75c7302fae0fcb60197009bcb12ed416735ee51b694859e46b1b0bebf0fe",
+    "cap1234/generate.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "cap1234/generate.log": "cab0678137e062eee10848b47bcae90a16c553a5b1317b2963e4232e53e8ba52",
+    "cap1234/generate.out": "cab4b02a10748f1c267a12869dc76b3a605128238ef48e8f805b520776dec42d"
+  },
+  "terminal_audit": {
+    "sealed_at_utc": "2026-10-20T01:09:08.231550+00:00",
+    "base": "90e777ea8242faa0acb2462c5cb5be7c318a2d64",
+    "protected_files_checked": 17,
+    "source_freeze_sha256": "553c5b4f3ec2a8ac88d6961c671fa30802685eaa59bd01bee1b0ef29df2c75f0",
+    "result": {
+      "status": "RAW_ADMISSION_COMPLETE_NOT_SCORED",
+      "cases": [
+        {
+          "cap": 1234,
+          "exit": 0,
+          "seconds": 4.29391884803772,
+          "builder_totals": [
+            "HEO_TOTAL native=810068 expected=762230.8 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+          ],
+          "raw_sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b"
+        },
+        {
+          "cap": 1233,
+          "exit": 0,
+          "seconds": 4.44073486328125,
+          "builder_totals": [
+            "HEO_TOTAL native=811365 expected=762841.2 peak=1234 peak_op=1584706 peak_phase=divide qubits_touched=1234"
+          ],
+          "raw_sha256": "17324474488354c79da4d69c37e99996102293f57607c32778d878fd0434b0f0"
+        }
+      ]
+    },
+    "streams_retained_on_server": {
+      "/home/hclau/ecdsa_research/breakthrough-phase-pebble-integration-20261020/cap1233/ops.bin": {
+        "sha256": "17324474488354c79da4d69c37e99996102293f57607c32778d878fd0434b0f0",
+        "bytes": 38418903,
+        "complete": true
+      },
+      "/home/hclau/ecdsa_research/breakthrough-phase-pebble-integration-20261020/cap1234/ops.bin": {
+        "sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b",
+        "bytes": 38777871,
+        "complete": true
+      }
+    },
+    "native_binaries": {
+      "/home/hclau/ecdsa_research/breakthrough-phase-pebble-integration-20261020/observer/target/release/deps/build_circuit-96cdcfa2d1d068c7": "1f24998846edb0b7ba3aa4456f4ec83ff79d6621f242048148923ed0277b715c",
+      "/home/hclau/ecdsa_research/breakthrough-phase-pebble-integration-20261020/observer/target/release/deps/build_circuit-0c12d1b03f2fe721": "d0c7971d1b4ec6ba35c34e19e1f1497eb1b204f476ab16771509cbdddd4b4573"
+    },
+    "no_final_gate_nonce_or_scored_result": true
+  }
+}

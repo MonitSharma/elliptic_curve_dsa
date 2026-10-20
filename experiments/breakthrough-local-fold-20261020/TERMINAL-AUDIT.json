@@ -1,0 +1,46 @@
+{
+  "sealed_at_utc": "2026-10-20T01:08:57.895833+00:00",
+  "base": "90e777ea8242faa0acb2462c5cb5be7c318a2d64",
+  "protected_files_checked": 17,
+  "source_freeze_sha256": "bc3e8d2b582cc2e18e08bd0fe671c5537c563c826ce2a7961fc4600a4bd28a2d",
+  "result": {
+    "status": "RAW_ADMISSION_COMPLETE_NOT_SCORED",
+    "cases": [
+      {
+        "cap": 1234,
+        "exit": 0,
+        "seconds": 4.37562370300293,
+        "builder_totals": [
+          "HEO_TOTAL native=810068 expected=762230.8 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+        ],
+        "raw_sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b"
+      },
+      {
+        "cap": 1233,
+        "exit": 0,
+        "seconds": 4.602047920227051,
+        "builder_totals": [
+          "HEO_TOTAL native=811736 expected=763672.0 peak=1234 peak_op=4330595 peak_phase=divide qubits_touched=1234"
+        ],
+        "raw_sha256": "932f51840b6c49501a193e540f4e5a2d3150a4c4be0129742a103a09497570df"
+      }
+    ]
+  },
+  "streams_retained_on_server": {
+    "/home/hclau/ecdsa_research/breakthrough-local-fold-20261020/cap1233/ops.bin": {
+      "sha256": "932f51840b6c49501a193e540f4e5a2d3150a4c4be0129742a103a09497570df",
+      "bytes": 38612920,
+      "complete": true
+    },
+    "/home/hclau/ecdsa_research/breakthrough-local-fold-20261020/cap1234/ops.bin": {
+      "sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b",
+      "bytes": 38777871,
+      "complete": true
+    }
+  },
+  "native_binaries": {
+    "/home/hclau/ecdsa_research/breakthrough-local-fold-20261020/observer/target/release/deps/build_circuit-96cdcfa2d1d068c7": "c928125c419dbdc443b0c7d98807e908644390c34090e7e43f6bfa4524c368ac",
+    "/home/hclau/ecdsa_research/breakthrough-local-fold-20261020/observer/target/release/deps/build_circuit-0c12d1b03f2fe721": "897b43773f628083ad64fcdfa781443114e59a117e25d08b2587a54244512ce0"
+  },
+  "no_final_gate_nonce_or_scored_result": true
+}

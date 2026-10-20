@@ -1,0 +1,18 @@
+[
+  {
+    "cap": 1234,
+    "exit": 0,
+    "seconds": 4.37498140335083,
+    "builder_totals": [
+      "HEO_TOTAL native=810068 expected=762230.8 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+    ],
+    "raw_sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b"
+  },
+  {
+    "cap": 1233,
+    "exit": 101,
+    "seconds": 0.27842044830322266,
+    "builder_totals": [],
+    "failure_tail": "2255235\t2255456\t1132\t1132\t9\nDIRTY_FRAGMENT\tchunked_add\t256\t2252465\t2255458\t1130\t1131\t274\nDIRTY_FRAGMENT\tcmp_lt_phase\t19\t2257669\t2257890\t1133\t1133\t9\nDIRTY_FRAGMENT\tcmp_lt_phase\t19\t2258740\t2258961\t1133\t1133\t9\nDIRTY_FRAGMENT\tchunked_add\t256\t2255970\t2258963\t1131\t1132\t274\nDIRTY_FRAGMENT\tcmp_lt_phase\t19\t2261034\t2261255\t1134\t1134\t9\nDIRTY_FRAGMENT\tcmp_lt_phase\t19\t2262035\t2262256\t1134\t1134\t9\nDIRTY_FRAGMENT\tchunked_add\t235\t2259475\t2262258\t1132\t1133\t253\nDIRTY_FRAGMENT\tcmp_lt_phase\t19\t2268455\t2268676\t1168\t1168\t4.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t19\t2269456\t2269677\t1168\t1168\t4.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t19\t2270242\t2270463\t1131\t1131\t9\nNARROW_Y42 F 68 put back\n\nthread 'main' (2395746) panicked at src/bin/../point_add/builder.rs:343:9:\nassertion `left == right` failed: y42: the payload op changed the set of free wires\n  left: [104, 105, 244, 667, 767, 1107, 1108, 1109, 1110, 1111, 1112, 1113, 1116, 1119, 1120, 1132, 1133, 1134, 1138, 1140, 1142, 1144, 1149, 1151, 1154, 1155, 1156, 1157, 1158, 1159, 1160, 1161, 1162, 1163, 1164, 1165, 1166, 1167, 1168, 1169, 1170, 1171, 1172, 1173, 1174, 1175, 1176, 1177, 1178, 1179, 1180, 1181, 1182, 1183, 1184, 1185, 1186, 1187, 1188, 1189, 1190, 1191, 1192, 1193, 1194, 1195, 1196, 1197, 1198, 1199, 1200, 1201, 1202, 1203, 1204, 1205, 1206, 1207, 1208, 1209, 1210, 1211, 1212, 1213, 1214, 1215, 1216, 1217, 1218, 1219, 1220, 1221, 1222, 1223, 1224, 1225, 1226, 1227, 1228, 1229, 1230, 1231, 1232, 1233]\n right: [104, 105, 244, 667, 767, 1107, 1108, 1109, 1110, 1111, 1112, 1113, 1116, 1119, 1120, 1132, 1133, 1134, 1138, 1140, 1142, 1144, 1149, 1151, 1154, 1155, 1156, 1157, 1158, 1159, 1160, 1161, 1162, 1163, 1164, 1165, 1166, 1167, 1168, 1169, 1170, 1171, 1172, 1173, 1174, 1175, 1176, 1177, 1178, 1179, 1180, 1181, 1182, 1183, 1184, 1185, 1186, 1187, 1188, 1189, 1190, 1191, 1192, 1193, 1194, 1195, 1196, 1197, 1198, 1199, 1200, 1201, 1202, 1203, 1204, 1205, 1206, 1207, 1208, 1209, 1210, 1211, 1212, 1213, 1214, 1215, 1216, 1217, 1218, 1219, 1220, 1221, 1222, 1223, 1224, 1225, 1226, 1227, 1228, 1229, 1230, 1231, 1232]\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\nCommand exited with non-zero status 101\n\tCommand being timed: \"/home/hclau/ecdsa_research/breakthrough-paused-read-20261020/observer/target/release/build_circuit\"\n\tUser time (seconds): 0.14\n\tSystem time (seconds): 0.09\n\tPercent of CPU this job got: 93%\n\tElapsed (wall clock) time (h:mm:ss or m:ss): 0:00.25\n\tAverage shared text size (kbytes): 0\n\tAverage unshared data size (kbytes): 0\n\tAverage stack size (kbytes): 0\n\tAverage total size (kbytes): 0\n\tMaximum resident set size (kbytes): 127872\n\tAverage resident set size (kbytes): 0\n\tMajor (requiring I/O) page faults: 0\n\tMinor (reclaiming a frame) page faults: 31415\n\tVoluntary context switches: 3\n\tInvoluntary context switches: 0\n\tSwaps: 0\n\tFile system inputs: 0\n\tFile system outputs: 112\n\tSocket messages sent: 0\n\tSocket messages received: 0\n\tSignals delivered: 0\n\tPage size (bytes): 4096\n\tExit status: 101\n"
+  }
+]

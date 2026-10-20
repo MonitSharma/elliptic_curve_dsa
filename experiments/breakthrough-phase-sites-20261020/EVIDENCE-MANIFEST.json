@@ -1,0 +1,7715 @@
+{
+  "files": {
+    ".gitignore": "74967b30bcea1585258a8dc553af91c3150f3dcd008a4725ede353a84443d849",
+    "PHASE-SITE-AUDIT.json": "406c4e206117314304603d0862af15563df86ded056ac7dee0e03100d64f93fd",
+    "SOURCE_FREEZE.json": "0bc131205514ebe677fcce436962a436f59ea04ca0eece9cd9f311bd588036b6",
+    "TERMINAL-AUDIT.json": "5b4beb87c7debcb8daf05de754b04a551efc973e79c17d67e85fd92753dcdbe8",
+    "added-source/break_profile.rs": "a7e94c66704031f4f0810059f15ca1893ddc5e006a5b82b8c582c67228609515",
+    "added-source/parity_bridge.rs": "a5fb00afcfb09d455374ed697f2115837a947f0f28215abc5aabf8c87a7012bb",
+    "build.log": "5a3ccf5bed311b06c326461bf6b9e4cbe775b4b57aedef6b267ff7b63e1e70ef",
+    "build.out": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "generate.log": "bf6b650eab162adb39deb774f935243729a539b10cbe3eea5edc714d588ebbaf",
+    "generate.out": "cab4b02a10748f1c267a12869dc76b3a605128238ef48e8f805b520776dec42d",
+    "launch.py": "6bbcd926aff34806a020328e5823b8f0be9fc299c396f8f7fb286fe689655887",
+    "nohup.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "observe.log": "0f3e30fcae1b561c339b2fa16cfe5c0b8cd9b889544d9429ac96d9c6b0f96349",
+    "observe.py": "c574a45929474cba43d8722fe5d86259fbf9479f336a00ca4c59276b50804c1c",
+    "prepare.log": "68486bc28d475b600ced96cce21ab5b547aa35ec778f3a1889f0bed157a37d5c",
+    "prepare.py": "7cee980945e445e8ba9bdf1f13166e4a9739a93847ab9063667bf2a7b17241ce",
+    "run.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "run.pid": "66cda9dd1a5b42af9ead6446a3a359406cd9ddd988c76e40ddb860b45de39d58",
+    "run.sh": "40d3d2a231c5b3950adc9fec9b712677fe11eb62d7217fe7f9937da442e9a9f3",
+    "source.patch": "eae4a0a39127ccae80335108f03c8c7700ed7ee34ceecb65fbeaf5e578f4030a"
+  },
+  "terminal_audit": {
+    "sealed_at_utc": "2026-10-20T00:17:30.870937+00:00",
+    "source_base": "90e777ea8242faa0acb2462c5cb5be7c318a2d64",
+    "protected_files_checked": 17,
+    "source_freeze_sha256": "0bc131205514ebe677fcce436962a436f59ea04ca0eece9cd9f311bd588036b6",
+    "result": {
+      "status": "COMPLETE_RAW_CONTROL_BYTE_IDENTICAL",
+      "raw_sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b",
+      "array_callers": [
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1106,
+          "requested": 127,
+          "occurrences": 2
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1107,
+          "requested": 127,
+          "occurrences": 1
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1108,
+          "requested": 126,
+          "occurrences": 2
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1109,
+          "requested": 125,
+          "occurrences": 2
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1110,
+          "requested": 124,
+          "occurrences": 4
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1111,
+          "requested": 123,
+          "occurrences": 4
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1112,
+          "requested": 122,
+          "occurrences": 4
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1113,
+          "requested": 121,
+          "occurrences": 4
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1114,
+          "requested": 120,
+          "occurrences": 4
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1115,
+          "requested": 119,
+          "occurrences": 4
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1116,
+          "requested": 117,
+          "occurrences": 1
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1116,
+          "requested": 118,
+          "occurrences": 4
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1117,
+          "requested": 116,
+          "occurrences": 1
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1117,
+          "requested": 117,
+          "occurrences": 5
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1118,
+          "requested": 116,
+          "occurrences": 1
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1119,
+          "requested": 115,
+          "occurrences": 2
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1120,
+          "requested": 114,
+          "occurrences": 2
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1121,
+          "requested": 113,
+          "occurrences": 2
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1122,
+          "requested": 112,
+          "occurrences": 2
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1123,
+          "requested": 111,
+          "occurrences": 2
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1124,
+          "requested": 110,
+          "occurrences": 2
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1125,
+          "requested": 109,
+          "occurrences": 2
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1127,
+          "requested": 107,
+          "occurrences": 2
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1148,
+          "requested": 85,
+          "occurrences": 1
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1149,
+          "requested": 84,
+          "occurrences": 2
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1149,
+          "requested": 85,
+          "occurrences": 1
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1150,
+          "requested": 84,
+          "occurrences": 2
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1151,
+          "requested": 83,
+          "occurrences": 3
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1152,
+          "requested": 82,
+          "occurrences": 3
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1153,
+          "requested": 81,
+          "occurrences": 3
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1155,
+          "requested": 79,
+          "occurrences": 3
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1156,
+          "requested": 77,
+          "occurrences": 3
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1156,
+          "requested": 78,
+          "occurrences": 6
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1157,
+          "requested": 77,
+          "occurrences": 5
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1158,
+          "requested": 76,
+          "occurrences": 3
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1159,
+          "requested": 75,
+          "occurrences": 3
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1160,
+          "requested": 74,
+          "occurrences": 3
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1161,
+          "requested": 73,
+          "occurrences": 3
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1162,
+          "requested": 72,
+          "occurrences": 3
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1163,
+          "requested": 71,
+          "occurrences": 3
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1164,
+          "requested": 70,
+          "occurrences": 3
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1170,
+          "requested": 63,
+          "occurrences": 8
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1171,
+          "requested": 63,
+          "occurrences": 6
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1172,
+          "requested": 62,
+          "occurrences": 8
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1173,
+          "requested": 61,
+          "occurrences": 8
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1174,
+          "requested": 60,
+          "occurrences": 4
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1175,
+          "requested": 58,
+          "occurrences": 2
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1176,
+          "requested": 57,
+          "occurrences": 2
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1176,
+          "requested": 58,
+          "occurrences": 5
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1178,
+          "requested": 56,
+          "occurrences": 4
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1180,
+          "requested": 54,
+          "occurrences": 4
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1181,
+          "requested": 53,
+          "occurrences": 4
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1182,
+          "requested": 51,
+          "occurrences": 2
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1183,
+          "requested": 50,
+          "occurrences": 8
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1183,
+          "requested": 51,
+          "occurrences": 2
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1184,
+          "requested": 50,
+          "occurrences": 8
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1185,
+          "requested": 49,
+          "occurrences": 10
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1186,
+          "requested": 48,
+          "occurrences": 10
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1187,
+          "requested": 46,
+          "occurrences": 4
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1187,
+          "requested": 47,
+          "occurrences": 10
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1188,
+          "requested": 45,
+          "occurrences": 1
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1188,
+          "requested": 46,
+          "occurrences": 13
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1189,
+          "requested": 45,
+          "occurrences": 5
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1190,
+          "requested": 44,
+          "occurrences": 5
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1191,
+          "requested": 42,
+          "occurrences": 8
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1191,
+          "requested": 43,
+          "occurrences": 5
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1192,
+          "requested": 41,
+          "occurrences": 4
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1192,
+          "requested": 42,
+          "occurrences": 11
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1193,
+          "requested": 41,
+          "occurrences": 12
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1194,
+          "requested": 39,
+          "occurrences": 2
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1194,
+          "requested": 40,
+          "occurrences": 6
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1195,
+          "requested": 38,
+          "occurrences": 4
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1195,
+          "requested": 39,
+          "occurrences": 8
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1196,
+          "requested": 38,
+          "occurrences": 4
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1197,
+          "requested": 36,
+          "occurrences": 7
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1197,
+          "requested": 37,
+          "occurrences": 6
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1198,
+          "requested": 35,
+          "occurrences": 3
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1198,
+          "requested": 36,
+          "occurrences": 13
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1199,
+          "requested": 35,
+          "occurrences": 40
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1200,
+          "requested": 33,
+          "occurrences": 6
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1200,
+          "requested": 34,
+          "occurrences": 21
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1201,
+          "requested": 33,
+          "occurrences": 36
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1148,
+          "requested": 85,
+          "occurrences": 2
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1149,
+          "requested": 84,
+          "occurrences": 6
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1149,
+          "requested": 85,
+          "occurrences": 2
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1150,
+          "requested": 84,
+          "occurrences": 6
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1151,
+          "requested": 83,
+          "occurrences": 6
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1152,
+          "requested": 82,
+          "occurrences": 3
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1153,
+          "requested": 81,
+          "occurrences": 6
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1154,
+          "requested": 80,
+          "occurrences": 9
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1155,
+          "requested": 79,
+          "occurrences": 3
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1156,
+          "requested": 77,
+          "occurrences": 1
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1160,
+          "requested": 74,
+          "occurrences": 3
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1161,
+          "requested": 73,
+          "occurrences": 3
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1162,
+          "requested": 72,
+          "occurrences": 3
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1163,
+          "requested": 71,
+          "occurrences": 3
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1164,
+          "requested": 70,
+          "occurrences": 3
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1170,
+          "requested": 63,
+          "occurrences": 9
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1171,
+          "requested": 63,
+          "occurrences": 9
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1172,
+          "requested": 62,
+          "occurrences": 16
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1173,
+          "requested": 61,
+          "occurrences": 12
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1174,
+          "requested": 60,
+          "occurrences": 4
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1175,
+          "requested": 58,
+          "occurrences": 1
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1176,
+          "requested": 57,
+          "occurrences": 3
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1176,
+          "requested": 58,
+          "occurrences": 4
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1178,
+          "requested": 56,
+          "occurrences": 4
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1182,
+          "requested": 51,
+          "occurrences": 3
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1183,
+          "requested": 50,
+          "occurrences": 12
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1183,
+          "requested": 51,
+          "occurrences": 4
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1184,
+          "requested": 50,
+          "occurrences": 16
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1185,
+          "requested": 49,
+          "occurrences": 15
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1186,
+          "requested": 48,
+          "occurrences": 15
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1187,
+          "requested": 46,
+          "occurrences": 5
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1187,
+          "requested": 47,
+          "occurrences": 10
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1188,
+          "requested": 45,
+          "occurrences": 2
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1188,
+          "requested": 46,
+          "occurrences": 12
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1189,
+          "requested": 45,
+          "occurrences": 5
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1190,
+          "requested": 44,
+          "occurrences": 5
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1191,
+          "requested": 42,
+          "occurrences": 1
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1192,
+          "requested": 41,
+          "occurrences": 2
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1192,
+          "requested": 42,
+          "occurrences": 4
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1193,
+          "requested": 40,
+          "occurrences": 2
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1193,
+          "requested": 41,
+          "occurrences": 8
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1194,
+          "requested": 39,
+          "occurrences": 1
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1194,
+          "requested": 40,
+          "occurrences": 24
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1195,
+          "requested": 38,
+          "occurrences": 4
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1195,
+          "requested": 39,
+          "occurrences": 9
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1196,
+          "requested": 38,
+          "occurrences": 16
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1197,
+          "requested": 36,
+          "occurrences": 11
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1198,
+          "requested": 35,
+          "occurrences": 16
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1198,
+          "requested": 36,
+          "occurrences": 18
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1199,
+          "requested": 35,
+          "occurrences": 114
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/width_composition.rs:183:20",
+          "active": 1202,
+          "requested": 32,
+          "occurrences": 2
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/width_composition.rs:183:20",
+          "active": 1205,
+          "requested": 28,
+          "occurrences": 2
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/width_composition.rs:183:20",
+          "active": 1206,
+          "requested": 28,
+          "occurrences": 6
+        },
+        {
+          "phase": "square",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1091,
+          "requested": 143,
+          "occurrences": 16
+        },
+        {
+          "phase": "square",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1095,
+          "requested": 139,
+          "occurrences": 5
+        },
+        {
+          "phase": "square",
+          "caller": "src/bin/../point_add/modular.rs:225:389",
+          "active": 1108,
+          "requested": 126,
+          "occurrences": 4
+        },
+        {
+          "phase": "square",
+          "caller": "src/bin/../point_add/width_composition.rs:183:20",
+          "active": 1089,
+          "requested": 145,
+          "occurrences": 1
+        },
+        {
+          "phase": "square",
+          "caller": "src/bin/../point_add/width_composition.rs:183:20",
+          "active": 1094,
+          "requested": 140,
+          "occurrences": 1
+        },
+        {
+          "phase": "square",
+          "caller": "src/bin/../point_add/width_composition.rs:218:16",
+          "active": 1089,
+          "requested": 145,
+          "occurrences": 2
+        },
+        {
+          "phase": "square",
+          "caller": "src/bin/../point_add/width_composition.rs:218:16",
+          "active": 1096,
+          "requested": 138,
+          "occurrences": 2
+        }
+      ],
+      "lin_and_callers": [
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/leapfrog.rs:2694:13",
+          "active": 1232,
+          "occurrences": 542
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/leapfrog.rs:2694:13",
+          "active": 1233,
+          "occurrences": 294
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/y15_onefold.rs:913:21",
+          "active": 1232,
+          "occurrences": 14
+        },
+        {
+          "phase": "divide",
+          "caller": "src/bin/../point_add/y15_onefold.rs:913:21",
+          "active": 1233,
+          "occurrences": 7
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/leapfrog.rs:2694:13",
+          "active": 1232,
+          "occurrences": 545
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/leapfrog.rs:2694:13",
+          "active": 1233,
+          "occurrences": 330
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/y15_onefold.rs:717:13",
+          "active": 1232,
+          "occurrences": 1
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/y15_onefold.rs:717:13",
+          "active": 1233,
+          "occurrences": 1
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/y15_onefold.rs:913:21",
+          "active": 1232,
+          "occurrences": 2
+        },
+        {
+          "phase": "multiply",
+          "caller": "src/bin/../point_add/y15_onefold.rs:913:21",
+          "active": 1233,
+          "occurrences": 1
+        }
+      ],
+      "phase_sites": [
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 2290530,
+          "active": 1186,
+          "bits": 2,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 2319608,
+          "active": 1187,
+          "bits": 3,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 2348630,
+          "active": 1188,
+          "bits": 4,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 2377548,
+          "active": 1189,
+          "bits": 5,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 2406402,
+          "active": 1190,
+          "bits": 6,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 2435184,
+          "active": 1191,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 2463872,
+          "active": 1192,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 2492498,
+          "active": 1193,
+          "bits": 9,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 2521042,
+          "active": 1194,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 2549542,
+          "active": 1195,
+          "bits": 11,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 2578076,
+          "active": 1197,
+          "bits": 13,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 2606779,
+          "active": 1198,
+          "bits": 14,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 2635454,
+          "active": 1199,
+          "bits": 15,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 2664101,
+          "active": 1200,
+          "bits": 16,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 2692720,
+          "active": 1201,
+          "bits": 17,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 2721311,
+          "active": 1202,
+          "bits": 18,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 2749911,
+          "active": 1204,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 2778775,
+          "active": 1207,
+          "bits": 23,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 2807198,
+          "active": 1208,
+          "bits": 24,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 2835659,
+          "active": 1209,
+          "bits": 25,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 2864085,
+          "active": 1211,
+          "bits": 3,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 2864359,
+          "active": 1210,
+          "bits": 24,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 2892607,
+          "active": 1212,
+          "bits": 5,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 2893079,
+          "active": 1211,
+          "bits": 23,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 2921153,
+          "active": 1212,
+          "bits": 5,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 2921625,
+          "active": 1211,
+          "bits": 23,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 2950350,
+          "active": 1213,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 2950992,
+          "active": 1212,
+          "bits": 22,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 2979545,
+          "active": 1214,
+          "bits": 9,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 2980353,
+          "active": 1213,
+          "bits": 21,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3008722,
+          "active": 1215,
+          "bits": 11,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3009716,
+          "active": 1214,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3037919,
+          "active": 1216,
+          "bits": 13,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3039083,
+          "active": 1215,
+          "bits": 19,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3067110,
+          "active": 1217,
+          "bits": 15,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3068448,
+          "active": 1216,
+          "bits": 18,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3096210,
+          "active": 1219,
+          "bits": 2,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3096385,
+          "active": 1218,
+          "bits": 16,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3097814,
+          "active": 1217,
+          "bits": 17,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3125360,
+          "active": 1220,
+          "bits": 5,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3125788,
+          "active": 1219,
+          "bits": 15,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3127146,
+          "active": 1218,
+          "bits": 16,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3154490,
+          "active": 1221,
+          "bits": 8,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3155179,
+          "active": 1220,
+          "bits": 14,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3156458,
+          "active": 1219,
+          "bits": 15,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3183430,
+          "active": 1222,
+          "bits": 10,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3184305,
+          "active": 1221,
+          "bits": 13,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3185489,
+          "active": 1220,
+          "bits": 14,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3212210,
+          "active": 1224,
+          "bits": 3,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3212476,
+          "active": 1223,
+          "bits": 11,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3213450,
+          "active": 1222,
+          "bits": 12,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3214535,
+          "active": 1221,
+          "bits": 13,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3241050,
+          "active": 1225,
+          "bits": 7,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3241680,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3242563,
+          "active": 1223,
+          "bits": 11,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3243557,
+          "active": 1222,
+          "bits": 12,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3269823,
+          "active": 1227,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3270180,
+          "active": 1226,
+          "bits": 8,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3270885,
+          "active": 1225,
+          "bits": 9,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3271693,
+          "active": 1224,
+          "bits": 10,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3272596,
+          "active": 1223,
+          "bits": 11,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3298599,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3298956,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3299495,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3300097,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3300826,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3301634,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3327547,
+          "active": 1227,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3327904,
+          "active": 1226,
+          "bits": 8,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3328609,
+          "active": 1225,
+          "bits": 9,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3329417,
+          "active": 1224,
+          "bits": 10,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3330320,
+          "active": 1223,
+          "bits": 11,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3356247,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3356604,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3357143,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3357745,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3358474,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3359282,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3384399,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3384756,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3385295,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3385897,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3386626,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3387434,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3413297,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3413654,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3414193,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3414795,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3415524,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3416332,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3442265,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3442622,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3443161,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3443763,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3444492,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3445300,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3471296,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3471653,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3472192,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3472794,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3473523,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3474331,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3500297,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3500654,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3501193,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3501795,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3502524,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3503332,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3529172,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3529529,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3530068,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3530670,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3531399,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3532207,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3557943,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3558300,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3558839,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3559441,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3560170,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3560978,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3586610,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3586967,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3587506,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3588108,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3588837,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3589645,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3615173,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3615530,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3616069,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3616671,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3617400,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3618208,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3643695,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3644052,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3644591,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3645193,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3645922,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3646730,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3672236,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3672593,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3673132,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3673734,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3674463,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3675271,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3700751,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3701108,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3701647,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3702249,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3702978,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3703786,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3729321,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3729678,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3730217,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3730819,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3731548,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3732356,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3757888,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3758245,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3758784,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3759386,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3760115,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3760923,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3786534,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3786891,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3787430,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3788032,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3788761,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3789569,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3814793,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3815150,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3815689,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3816291,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3817020,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3817828,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3842549,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3842906,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3843445,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3844047,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3844776,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3845584,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3870198,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3870555,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3871094,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3871696,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3872425,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3873233,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3897862,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3898219,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3898758,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3899360,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3900089,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3900897,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3925634,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3925991,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3926530,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3927132,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3927861,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3928669,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3953406,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3953763,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3954302,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3954904,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3955633,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3956441,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3980967,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3981308,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3981823,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3982401,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3983098,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 3983870,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4004256,
+          "active": 1226,
+          "bits": 4,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4007949,
+          "active": 1232,
+          "bits": 2,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4008116,
+          "active": 1231,
+          "bits": 3,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4008370,
+          "active": 1230,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4008711,
+          "active": 1229,
+          "bits": 5,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4009139,
+          "active": 1228,
+          "bits": 6,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4009630,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4010240,
+          "active": 1226,
+          "bits": 8,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4011162,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4011626,
+          "active": 1225,
+          "bits": 4,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4031701,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4033268,
+          "active": 1228,
+          "bits": 7,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4035915,
+          "active": 1232,
+          "bits": 2,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4036082,
+          "active": 1231,
+          "bits": 3,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4036336,
+          "active": 1230,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4036677,
+          "active": 1229,
+          "bits": 5,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4037105,
+          "active": 1228,
+          "bits": 6,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4038616,
+          "active": 1228,
+          "bits": 6,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4039138,
+          "active": 1227,
+          "bits": 7,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4040173,
+          "active": 1227,
+          "bits": 7,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4040682,
+          "active": 1226,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4065067,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4066634,
+          "active": 1228,
+          "bits": 7,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4069281,
+          "active": 1232,
+          "bits": 2,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4069448,
+          "active": 1231,
+          "bits": 3,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4069702,
+          "active": 1230,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4070043,
+          "active": 1229,
+          "bits": 5,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4070471,
+          "active": 1228,
+          "bits": 6,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4071982,
+          "active": 1228,
+          "bits": 6,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4072504,
+          "active": 1227,
+          "bits": 7,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4073539,
+          "active": 1227,
+          "bits": 7,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4074048,
+          "active": 1226,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4092858,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4094425,
+          "active": 1228,
+          "bits": 7,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4097072,
+          "active": 1232,
+          "bits": 2,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4097239,
+          "active": 1231,
+          "bits": 3,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4097493,
+          "active": 1230,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4097834,
+          "active": 1229,
+          "bits": 5,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4098262,
+          "active": 1228,
+          "bits": 6,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4099773,
+          "active": 1228,
+          "bits": 6,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4100295,
+          "active": 1227,
+          "bits": 7,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4101330,
+          "active": 1227,
+          "bits": 7,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4101839,
+          "active": 1226,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4120691,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4122258,
+          "active": 1228,
+          "bits": 7,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4124905,
+          "active": 1232,
+          "bits": 2,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4125072,
+          "active": 1231,
+          "bits": 3,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4125326,
+          "active": 1230,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4125667,
+          "active": 1229,
+          "bits": 5,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4126095,
+          "active": 1228,
+          "bits": 6,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4127606,
+          "active": 1228,
+          "bits": 6,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4128128,
+          "active": 1227,
+          "bits": 7,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4129163,
+          "active": 1227,
+          "bits": 7,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4129672,
+          "active": 1226,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4148524,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4150091,
+          "active": 1228,
+          "bits": 7,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4152738,
+          "active": 1232,
+          "bits": 2,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4152905,
+          "active": 1231,
+          "bits": 3,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4153159,
+          "active": 1230,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4153500,
+          "active": 1229,
+          "bits": 5,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4153928,
+          "active": 1228,
+          "bits": 6,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4155439,
+          "active": 1228,
+          "bits": 6,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4155961,
+          "active": 1227,
+          "bits": 7,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4156996,
+          "active": 1227,
+          "bits": 7,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4157505,
+          "active": 1226,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4176357,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4177924,
+          "active": 1228,
+          "bits": 7,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4180571,
+          "active": 1232,
+          "bits": 2,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4180738,
+          "active": 1231,
+          "bits": 3,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4180992,
+          "active": 1230,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4181333,
+          "active": 1229,
+          "bits": 5,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4181761,
+          "active": 1228,
+          "bits": 6,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4183272,
+          "active": 1228,
+          "bits": 6,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4183794,
+          "active": 1227,
+          "bits": 7,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4184829,
+          "active": 1227,
+          "bits": 7,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4185338,
+          "active": 1226,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4204434,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4206001,
+          "active": 1228,
+          "bits": 7,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4208648,
+          "active": 1232,
+          "bits": 2,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4208815,
+          "active": 1231,
+          "bits": 3,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4209069,
+          "active": 1230,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4209410,
+          "active": 1229,
+          "bits": 5,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4209838,
+          "active": 1228,
+          "bits": 6,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4211349,
+          "active": 1228,
+          "bits": 6,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4211871,
+          "active": 1227,
+          "bits": 7,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4212906,
+          "active": 1227,
+          "bits": 7,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4213415,
+          "active": 1226,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4223714,
+          "active": 1221,
+          "bits": 7,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4223916,
+          "active": 1220,
+          "bits": 14,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "divide",
+          "op": 4224127,
+          "active": 1219,
+          "bits": 15,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7119099,
+          "active": 1225,
+          "bits": 7,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7119197,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7119472,
+          "active": 1223,
+          "bits": 11,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7119630,
+          "active": 1222,
+          "bits": 12,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7127983,
+          "active": 1225,
+          "bits": 7,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7128081,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7128356,
+          "active": 1223,
+          "bits": 11,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7128514,
+          "active": 1222,
+          "bits": 12,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7148121,
+          "active": 1225,
+          "bits": 7,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7148219,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7148494,
+          "active": 1223,
+          "bits": 11,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7148652,
+          "active": 1222,
+          "bits": 12,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7167485,
+          "active": 1225,
+          "bits": 7,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7167583,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7167858,
+          "active": 1223,
+          "bits": 11,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7168016,
+          "active": 1222,
+          "bits": 12,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7186861,
+          "active": 1225,
+          "bits": 7,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7186959,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7187234,
+          "active": 1223,
+          "bits": 11,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7187392,
+          "active": 1222,
+          "bits": 12,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7206225,
+          "active": 1225,
+          "bits": 7,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7206323,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7206598,
+          "active": 1223,
+          "bits": 11,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7206756,
+          "active": 1222,
+          "bits": 12,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7225589,
+          "active": 1225,
+          "bits": 7,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7225687,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7225962,
+          "active": 1223,
+          "bits": 11,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7226120,
+          "active": 1222,
+          "bits": 12,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7250546,
+          "active": 1225,
+          "bits": 7,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7250644,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7250919,
+          "active": 1223,
+          "bits": 11,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7251077,
+          "active": 1222,
+          "bits": 12,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7271449,
+          "active": 1224,
+          "bits": 3,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7271487,
+          "active": 1223,
+          "bits": 11,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7271777,
+          "active": 1222,
+          "bits": 12,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7271950,
+          "active": 1221,
+          "bits": 13,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7292457,
+          "active": 1222,
+          "bits": 10,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7292732,
+          "active": 1221,
+          "bits": 13,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7292920,
+          "active": 1220,
+          "bits": 14,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7313832,
+          "active": 1221,
+          "bits": 7,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7314042,
+          "active": 1220,
+          "bits": 14,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7314265,
+          "active": 1219,
+          "bits": 15,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7344680,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7345484,
+          "active": 1228,
+          "bits": 7,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7346037,
+          "active": 1232,
+          "bits": 2,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7346060,
+          "active": 1231,
+          "bits": 3,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7346098,
+          "active": 1230,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7346151,
+          "active": 1229,
+          "bits": 5,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7346219,
+          "active": 1228,
+          "bits": 6,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7346522,
+          "active": 1228,
+          "bits": 6,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7346616,
+          "active": 1227,
+          "bits": 7,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7347755,
+          "active": 1227,
+          "bits": 7,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7348172,
+          "active": 1226,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7371530,
+          "active": 1226,
+          "bits": 4,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7372506,
+          "active": 1232,
+          "bits": 2,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7372529,
+          "active": 1231,
+          "bits": 3,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7372567,
+          "active": 1230,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7372620,
+          "active": 1229,
+          "bits": 5,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7372688,
+          "active": 1228,
+          "bits": 6,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7372907,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7373017,
+          "active": 1226,
+          "bits": 8,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7373579,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7374279,
+          "active": 1225,
+          "bits": 4,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7398185,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7398238,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7398321,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7398555,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7398680,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7398864,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7423200,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7423253,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7423336,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7423570,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7423695,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7423879,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7448211,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7448264,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7448347,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7448581,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7448706,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7448890,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 7456274,
+          "active": 1187,
+          "bits": 5,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7474174,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7474227,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7474310,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7474544,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7474669,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7474853,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 7482872,
+          "active": 1186,
+          "bits": 6,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7500963,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7501016,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7501099,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7501333,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7501458,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7501642,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 7509761,
+          "active": 1185,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7527803,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7527856,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7527939,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7528173,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7528298,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7528482,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 7536571,
+          "active": 1184,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7554518,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7554571,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7554654,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7554888,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7555013,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7555197,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 7563389,
+          "active": 1183,
+          "bits": 9,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7581268,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7581321,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7581404,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7581638,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7581763,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7581947,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 7590292,
+          "active": 1182,
+          "bits": 12,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7608154,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7608207,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7608290,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7608524,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7608649,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7608833,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 7617281,
+          "active": 1181,
+          "bits": 13,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7635112,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7635165,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7635248,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7635482,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7635607,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7635791,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 7644342,
+          "active": 1180,
+          "bits": 14,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7662073,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7662126,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7662209,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7662443,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7662568,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7662752,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 7671409,
+          "active": 1179,
+          "bits": 15,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7689069,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7689122,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7689205,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7689439,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7689564,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7689748,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 7698508,
+          "active": 1178,
+          "bits": 16,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7716157,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7716210,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7716293,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7716527,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7716652,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7716836,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 7725699,
+          "active": 1177,
+          "bits": 17,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7743400,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7743453,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7743536,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7743770,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7743895,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7744079,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 7753095,
+          "active": 1176,
+          "bits": 20,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7770883,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7770936,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7771019,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7771253,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7771378,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7771562,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 7780678,
+          "active": 1175,
+          "bits": 21,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7798647,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7798700,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7798783,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7799017,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7799142,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7799326,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 7808460,
+          "active": 1172,
+          "bits": 18,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7826245,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7826298,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7826381,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7826615,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7826740,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7826924,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 7836156,
+          "active": 1171,
+          "bits": 19,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7853857,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7853910,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7853993,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7854227,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7854352,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7854536,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 7863871,
+          "active": 1170,
+          "bits": 20,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7881528,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7881581,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7881664,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7881898,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7882023,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7882207,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 7891645,
+          "active": 1169,
+          "bits": 21,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7909267,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7909320,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7909403,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7909637,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7909762,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7909946,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 7919487,
+          "active": 1168,
+          "bits": 22,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7937046,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7937099,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7937182,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7937416,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7937541,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7937725,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 7947398,
+          "active": 1167,
+          "bits": 23,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 7949091,
+          "active": 1167,
+          "bits": 2,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7964897,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7964950,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7965033,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7965267,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7965392,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7965576,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 7972854,
+          "active": 1166,
+          "bits": 2,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 7974637,
+          "active": 1166,
+          "bits": 24,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 7976385,
+          "active": 1166,
+          "bits": 3,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7992149,
+          "active": 1227,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7992202,
+          "active": 1226,
+          "bits": 8,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7992347,
+          "active": 1225,
+          "bits": 9,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7992591,
+          "active": 1224,
+          "bits": 10,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 7992734,
+          "active": 1223,
+          "bits": 11,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8000916,
+          "active": 1165,
+          "bits": 3,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8002754,
+          "active": 1165,
+          "bits": 25,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8004557,
+          "active": 1165,
+          "bits": 4,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8020254,
+          "active": 1229,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8020307,
+          "active": 1228,
+          "bits": 6,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8020390,
+          "active": 1227,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8020624,
+          "active": 1226,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8020749,
+          "active": 1225,
+          "bits": 9,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8020933,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8028995,
+          "active": 1164,
+          "bits": 4,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8030888,
+          "active": 1164,
+          "bits": 26,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8032746,
+          "active": 1164,
+          "bits": 5,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8048487,
+          "active": 1227,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8048540,
+          "active": 1226,
+          "bits": 8,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8048685,
+          "active": 1225,
+          "bits": 9,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8048929,
+          "active": 1224,
+          "bits": 10,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8049072,
+          "active": 1223,
+          "bits": 11,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8057287,
+          "active": 1163,
+          "bits": 5,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8059235,
+          "active": 1163,
+          "bits": 27,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8061148,
+          "active": 1163,
+          "bits": 6,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8076947,
+          "active": 1225,
+          "bits": 7,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8077045,
+          "active": 1224,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8077336,
+          "active": 1223,
+          "bits": 11,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8077494,
+          "active": 1222,
+          "bits": 12,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8085806,
+          "active": 1162,
+          "bits": 6,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8087859,
+          "active": 1162,
+          "bits": 30,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8089861,
+          "active": 1162,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8105685,
+          "active": 1224,
+          "bits": 3,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8105723,
+          "active": 1223,
+          "bits": 11,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8106029,
+          "active": 1222,
+          "bits": 12,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8106202,
+          "active": 1221,
+          "bits": 13,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8114611,
+          "active": 1161,
+          "bits": 7,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8116719,
+          "active": 1161,
+          "bits": 31,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8118776,
+          "active": 1161,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8134622,
+          "active": 1222,
+          "bits": 10,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8134901,
+          "active": 1221,
+          "bits": 13,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8135101,
+          "active": 1220,
+          "bits": 14,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8143607,
+          "active": 1160,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8145770,
+          "active": 1160,
+          "bits": 32,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8147882,
+          "active": 1160,
+          "bits": 9,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8163727,
+          "active": 1221,
+          "bits": 7,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8163869,
+          "active": 1220,
+          "bits": 14,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8164176,
+          "active": 1219,
+          "bits": 15,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8172779,
+          "active": 1159,
+          "bits": 9,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8174997,
+          "active": 1159,
+          "bits": 33,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8177164,
+          "active": 1159,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8193052,
+          "active": 1220,
+          "bits": 4,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8193125,
+          "active": 1219,
+          "bits": 15,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8193471,
+          "active": 1218,
+          "bits": 16,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8202171,
+          "active": 1158,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8204444,
+          "active": 1158,
+          "bits": 34,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8206666,
+          "active": 1158,
+          "bits": 11,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8222584,
+          "active": 1218,
+          "bits": 16,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8222965,
+          "active": 1217,
+          "bits": 17,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8231762,
+          "active": 1157,
+          "bits": 11,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8234090,
+          "active": 1157,
+          "bits": 35,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8236367,
+          "active": 1157,
+          "bits": 12,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8252302,
+          "active": 1217,
+          "bits": 14,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8252645,
+          "active": 1216,
+          "bits": 18,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8261539,
+          "active": 1156,
+          "bits": 12,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8263922,
+          "active": 1156,
+          "bits": 36,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8266254,
+          "active": 1156,
+          "bits": 13,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8282174,
+          "active": 1216,
+          "bits": 12,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8282475,
+          "active": 1215,
+          "bits": 19,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8291466,
+          "active": 1155,
+          "bits": 13,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8293904,
+          "active": 1155,
+          "bits": 37,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8296291,
+          "active": 1155,
+          "bits": 14,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8312196,
+          "active": 1215,
+          "bits": 10,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8312455,
+          "active": 1214,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8321543,
+          "active": 1154,
+          "bits": 14,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8324036,
+          "active": 1154,
+          "bits": 38,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8326478,
+          "active": 1154,
+          "bits": 15,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8342346,
+          "active": 1214,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8342563,
+          "active": 1213,
+          "bits": 21,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8351748,
+          "active": 1153,
+          "bits": 15,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8354296,
+          "active": 1153,
+          "bits": 39,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8356793,
+          "active": 1153,
+          "bits": 16,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8372656,
+          "active": 1213,
+          "bits": 6,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8372787,
+          "active": 1212,
+          "bits": 22,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8382069,
+          "active": 1152,
+          "bits": 16,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8384747,
+          "active": 1152,
+          "bits": 43,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8387350,
+          "active": 1152,
+          "bits": 17,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8403324,
+          "active": 1214,
+          "bits": 8,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8403541,
+          "active": 1213,
+          "bits": 21,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8412124,
+          "active": 1151,
+          "bits": 17,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8414857,
+          "active": 1151,
+          "bits": 44,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8417515,
+          "active": 1151,
+          "bits": 18,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8433448,
+          "active": 1213,
+          "bits": 6,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8433579,
+          "active": 1212,
+          "bits": 22,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8442259,
+          "active": 1150,
+          "bits": 18,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8445047,
+          "active": 1150,
+          "bits": 45,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8447760,
+          "active": 1150,
+          "bits": 19,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8463685,
+          "active": 1212,
+          "bits": 4,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8463750,
+          "active": 1211,
+          "bits": 23,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8472521,
+          "active": 1149,
+          "bits": 19,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8475364,
+          "active": 1149,
+          "bits": 46,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8478118,
+          "active": 1148,
+          "bits": 18,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8493750,
+          "active": 1208,
+          "bits": 23,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8502547,
+          "active": 1146,
+          "bits": 17,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8505350,
+          "active": 1146,
+          "bits": 43,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8508086,
+          "active": 1146,
+          "bits": 18,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8523579,
+          "active": 1206,
+          "bits": 21,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8532429,
+          "active": 1145,
+          "bits": 18,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8535287,
+          "active": 1145,
+          "bits": 44,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8538078,
+          "active": 1145,
+          "bits": 19,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8553525,
+          "active": 1204,
+          "bits": 19,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8563184,
+          "active": 1144,
+          "bits": 19,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8566097,
+          "active": 1144,
+          "bits": 45,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8568943,
+          "active": 1144,
+          "bits": 20,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8584372,
+          "active": 1203,
+          "bits": 18,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8594098,
+          "active": 1143,
+          "bits": 20,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8597066,
+          "active": 1143,
+          "bits": 46,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8599967,
+          "active": 1143,
+          "bits": 21,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8615417,
+          "active": 1202,
+          "bits": 17,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8625210,
+          "active": 1142,
+          "bits": 21,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8628233,
+          "active": 1142,
+          "bits": 47,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8631189,
+          "active": 1142,
+          "bits": 22,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8646660,
+          "active": 1201,
+          "bits": 16,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8656520,
+          "active": 1141,
+          "bits": 22,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8659598,
+          "active": 1141,
+          "bits": 48,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8662609,
+          "active": 1141,
+          "bits": 23,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8678101,
+          "active": 1200,
+          "bits": 15,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8688028,
+          "active": 1140,
+          "bits": 23,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8691186,
+          "active": 1140,
+          "bits": 50,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8694269,
+          "active": 1140,
+          "bits": 24,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8709786,
+          "active": 1198,
+          "bits": 13,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8719638,
+          "active": 1139,
+          "bits": 24,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8722851,
+          "active": 1139,
+          "bits": 51,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8725989,
+          "active": 1139,
+          "bits": 25,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8741546,
+          "active": 1207,
+          "bits": 22,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8751118,
+          "active": 1138,
+          "bits": 25,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8754386,
+          "active": 1138,
+          "bits": 52,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8757579,
+          "active": 1138,
+          "bits": 26,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8773157,
+          "active": 1206,
+          "bits": 21,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8782796,
+          "active": 1137,
+          "bits": 26,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8786119,
+          "active": 1137,
+          "bits": 53,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "parity_phase",
+          "phase": "multiply",
+          "op": 8789367,
+          "active": 1137,
+          "bits": 27,
+          "rank": 2,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8804965,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8824798,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8844631,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8864464,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8884297,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8904130,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8923963,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8943796,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8963629,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 8983462,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9003295,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9023128,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9042961,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9062794,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9082627,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9102460,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9122293,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9142126,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9161959,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9181792,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9201625,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9221458,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9241291,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9261124,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9280957,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9300790,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9320623,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9340456,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9360289,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9380122,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9399955,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9419788,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9439621,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9459454,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9479287,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9499120,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9518953,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9538786,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9558619,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9578452,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9598285,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9618118,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9637951,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9657784,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9677617,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9697450,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9717283,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9737116,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9756949,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9776782,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9796615,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9816448,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9836281,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9856114,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9875947,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9895780,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9915613,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9935446,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9955279,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9975112,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 9994945,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 10014778,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 10034611,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 10054444,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 10074277,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 10094110,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 10113943,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 10133776,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 10153609,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 10173442,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 10193275,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 10213108,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 10232941,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 10252774,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        },
+        {
+          "family": "lin_lt",
+          "phase": "multiply",
+          "op": 10272607,
+          "active": 1205,
+          "bits": 20,
+          "rank": 1,
+          "admissible": true
+        }
+      ],
+      "scope": "Source contracts only; rank<=1 predicts zero extra Toffolis and one less carry if adapted. No changed circuit, scored result or final gate."
+    },
+    "no_final_gate_nonce_or_scored_result": true,
+    "streams_retained_on_server": {},
+    "native_binaries": {
+      "/home/hclau/ecdsa_research/breakthrough-phase-sites-20261020/observer/target/release/deps/build_circuit-96cdcfa2d1d068c7": "64223136a8b980e9fa78884e84fcd8e6191584f0f835489d0b990ddc4ba09b97"
+    }
+  }
+}

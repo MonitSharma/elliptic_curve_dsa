@@ -1,0 +1,78 @@
+{
+  "status": "SAME_V1_FAILURE_CLASSIFIED_NO_CHANGED_CIRCUIT_OR_VERDICT",
+  "same_label_and_all_old_fields_reproduced": true,
+  "value_failing_shot_identities_equal": true,
+  "different_target_lanes": [
+    {
+      "batch": 17,
+      "lane": 37,
+      "parent_value_fails": true,
+      "candidate_value_fails": true
+    },
+    {
+      "batch": 29,
+      "lane": 13,
+      "parent_value_fails": true,
+      "candidate_value_fails": true
+    },
+    {
+      "batch": 90,
+      "lane": 13,
+      "parent_value_fails": true,
+      "candidate_value_fails": true
+    },
+    {
+      "batch": 116,
+      "lane": 37,
+      "parent_value_fails": true,
+      "candidate_value_fails": true
+    },
+    {
+      "batch": 121,
+      "lane": 31,
+      "parent_value_fails": true,
+      "candidate_value_fails": true
+    },
+    {
+      "batch": 210,
+      "lane": 10,
+      "parent_value_fails": true,
+      "candidate_value_fails": true
+    },
+    {
+      "batch": 211,
+      "lane": 12,
+      "parent_value_fails": true,
+      "candidate_value_fails": true
+    },
+    {
+      "batch": 271,
+      "lane": 5,
+      "parent_value_fails": true,
+      "candidate_value_fails": true
+    },
+    {
+      "batch": 367,
+      "lane": 29,
+      "parent_value_fails": true,
+      "candidate_value_fails": true
+    },
+    {
+      "batch": 374,
+      "lane": 34,
+      "parent_value_fails": true,
+      "candidate_value_fails": true
+    },
+    {
+      "batch": 449,
+      "lane": 32,
+      "parent_value_fails": true,
+      "candidate_value_fails": true
+    }
+  ],
+  "different_other_lanes": [],
+  "target_differences_confined_to_both_value_failing": true,
+  "observation_binary_sha256": "add4bb5fd5a63cca8d565c28e8f4f5e43a34a34cc81ec22eb43a846c1aa25901",
+  "v1_binary_preserved_sha256": "f1d7c4986030fbab6d30c6b0b0841f0175b820ad65fa3efcab18594e09e07c47",
+  "scope": "Classifies existing full-output hash mismatch on exactly the same512 batches. Does not establish its algorithmic cause or change the failed equivalence verdict. No final gate, nonce or scored result."
+}

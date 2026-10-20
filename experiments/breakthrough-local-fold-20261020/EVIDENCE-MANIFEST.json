@@ -1,0 +1,82 @@
+{
+  "files": {
+    ".gitignore": "285e54fedf186186f4f7c9deb93f601b4bbe5b1a3b5ac4610ed85e1bfc4ab9e3",
+    "ADMISSION-PROGRESS.json": "913baf24f9f06b23cd9568f92d95ac17a3b440837c8acfc992ee2c16e60b615d",
+    "ADMISSION-RESULT.json": "2f8cba5bfd35a3b48d274538adbf83320e5ae8e6442960c30fba88c96b6398d6",
+    "SOURCE_FREEZE.json": "bc3e8d2b582cc2e18e08bd0fe671c5537c563c826ce2a7961fc4600a4bd28a2d",
+    "TERMINAL-AUDIT.json": "fa33a9cd754f1a23443817c7c0440662c1db46b53b049a61831f9fe31ecbc097",
+    "build.log": "cdcf24484415888c64e1035f08d524c68334e0ea64112d7b063c69c5863736cc",
+    "build.out": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fold-only.patch": "214a2ccb0c58dcb5f383a68efe315de8cac212cfab34792314cd58232dbd7ee7",
+    "launch.py": "6bbcd926aff34806a020328e5823b8f0be9fc299c396f8f7fb286fe689655887",
+    "nohup.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prepare.log": "68486bc28d475b600ced96cce21ab5b547aa35ec778f3a1889f0bed157a37d5c",
+    "prepare.py": "060307ab2171c03f5a90bbd1141abb4644b87ef30a7dfbf33d1fae5374a2a7e6",
+    "run.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "run.pid": "7defadf0bd31a8d7a14718b1db765745ce6285aa90b43ab9f277b888f4d3eb37",
+    "run.sh": "4cea983b7f5dfe5b73674bf298375a7f784740fa9c2076543351401231ca0f04",
+    "setup-local.py": "1ffb001b0e6b150d7e772d3b24ed704d7d10db7709b1746f3bf3aeb116e11976",
+    "source.patch": "6608b02f9313ba6497ff41c9fc640e901b5436716774b9f09e6f44eda1222c9e",
+    "sweep.log": "c28d237cd52985fd8ec824264a73a1526a12ed80bd37fdb5aa4ac2fb02a5f935",
+    "sweep.py": "40824d51e1a21055f8e4cd217d6632aa6972a5c5ef91e541687510642cfd7671",
+    "tests.log": "a3c876952668ecd141a0dc3941ca0a03d8cf322f35e57a0bf98dd359b851b607",
+    "added-source/break_profile.rs": "a7e94c66704031f4f0810059f15ca1893ddc5e006a5b82b8c582c67228609515",
+    "added-source/parity_bridge.rs": "c02a499fb4e072ba9370391673588d120610de6eee4f1bbbb8ef5d6707e9619b",
+    "added-source/parity_paused.rs": "ba6c1005ef99d604c0833e84a490ef220c8e83b9724b0c5d95a90a1e3e69ffd6",
+    "added-source/phase_fusion.rs": "165f23b63b24639bd7f73cfea078eb69b665d47e0587da791539befa78152ab0",
+    "cap1233/child.pid": "665ffdfa6956c86064c22454f62f7eaa264a42629a2f7bb7a29f00de01fb4006",
+    "cap1233/generate.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "cap1233/generate.log": "ecd6f3dabe90eab3cd8e1a090024a73d3345c6d8c809469e436128226fa5b33b",
+    "cap1233/generate.out": "2c1d124e35f9b259038f474d09105b38d3eaa80e398afbc1420771d5960344a4",
+    "cap1234/child.pid": "825b09b9cb957a0589f4090b75c65eb2da1d99e8a33c49f1922a65fd6a702964",
+    "cap1234/generate.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "cap1234/generate.log": "d5043dfc04fb8ccefaa34af66525b664102df0683a990fadd9a04b87e0acbb55",
+    "cap1234/generate.out": "cab4b02a10748f1c267a12869dc76b3a605128238ef48e8f805b520776dec42d"
+  },
+  "terminal_audit": {
+    "sealed_at_utc": "2026-10-20T01:08:57.895833+00:00",
+    "base": "90e777ea8242faa0acb2462c5cb5be7c318a2d64",
+    "protected_files_checked": 17,
+    "source_freeze_sha256": "bc3e8d2b582cc2e18e08bd0fe671c5537c563c826ce2a7961fc4600a4bd28a2d",
+    "result": {
+      "status": "RAW_ADMISSION_COMPLETE_NOT_SCORED",
+      "cases": [
+        {
+          "cap": 1234,
+          "exit": 0,
+          "seconds": 4.37562370300293,
+          "builder_totals": [
+            "HEO_TOTAL native=810068 expected=762230.8 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+          ],
+          "raw_sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b"
+        },
+        {
+          "cap": 1233,
+          "exit": 0,
+          "seconds": 4.602047920227051,
+          "builder_totals": [
+            "HEO_TOTAL native=811736 expected=763672.0 peak=1234 peak_op=4330595 peak_phase=divide qubits_touched=1234"
+          ],
+          "raw_sha256": "932f51840b6c49501a193e540f4e5a2d3150a4c4be0129742a103a09497570df"
+        }
+      ]
+    },
+    "streams_retained_on_server": {
+      "/home/hclau/ecdsa_research/breakthrough-local-fold-20261020/cap1233/ops.bin": {
+        "sha256": "932f51840b6c49501a193e540f4e5a2d3150a4c4be0129742a103a09497570df",
+        "bytes": 38612920,
+        "complete": true
+      },
+      "/home/hclau/ecdsa_research/breakthrough-local-fold-20261020/cap1234/ops.bin": {
+        "sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b",
+        "bytes": 38777871,
+        "complete": true
+      }
+    },
+    "native_binaries": {
+      "/home/hclau/ecdsa_research/breakthrough-local-fold-20261020/observer/target/release/deps/build_circuit-96cdcfa2d1d068c7": "c928125c419dbdc443b0c7d98807e908644390c34090e7e43f6bfa4524c368ac",
+      "/home/hclau/ecdsa_research/breakthrough-local-fold-20261020/observer/target/release/deps/build_circuit-0c12d1b03f2fe721": "897b43773f628083ad64fcdfa781443114e59a117e25d08b2587a54244512ce0"
+    },
+    "no_final_gate_nonce_or_scored_result": true
+  }
+}

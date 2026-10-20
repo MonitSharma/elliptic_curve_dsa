@@ -1,0 +1,392 @@
+{
+  "status": "EXACT_DP_FOR_SPECIFIED_UNIFORM_RANK_MODEL_ONLY",
+  "script_sha256": "c7784536b53ead2f22526efb1ac9f88525a6f52c302d99762573f713557cc834",
+  "cost": "Base n-1; nonfinal boundary expected(w-1)/2; each internal phase drop expected source-row-rank/2. Retained boundary count contributes to each chunk peak.",
+  "admission": "Nonfinal width w owns w wires including external output, inner pebble prefix m=w-1. Final width w owns max(w-2,0). Internal drops need <=floor((m-1)/2).",
+  "limitations": [
+    "Not a native or scored point-add result.",
+    "Uniform source ranks, disjoint operands, no boundary drops and no extra fixed-core workspace are assumed.",
+    "Existing source-specific gate cancellations, copy/phase contracts and conditional source rows require a native weighted planner and validation.",
+    "Does not prove a lower bound over arbitrary adders or circuits."
+  ],
+  "results": [
+    {
+      "uniform_adjacent_source_row_rank": 1,
+      "carry_budget": 7,
+      "bits": 50,
+      "feasible": false,
+      "extra_toffoli_x2": null,
+      "model_total_expected_toffoli": null,
+      "chunks_and_internal_drop_counts": null
+    },
+    {
+      "uniform_adjacent_source_row_rank": 1,
+      "carry_budget": 8,
+      "bits": 50,
+      "feasible": true,
+      "extra_toffoli_x2": 52,
+      "model_total_expected_toffoli": 75.0,
+      "chunks_and_internal_drop_counts": [
+        [
+          8,
+          0
+        ],
+        [
+          9,
+          2
+        ],
+        [
+          10,
+          4
+        ],
+        [
+          8,
+          3
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          1
+        ]
+      ]
+    },
+    {
+      "uniform_adjacent_source_row_rank": 1,
+      "carry_budget": 9,
+      "bits": 50,
+      "feasible": true,
+      "extra_toffoli_x2": 42,
+      "model_total_expected_toffoli": 70.0,
+      "chunks_and_internal_drop_counts": [
+        [
+          9,
+          0
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          1
+        ]
+      ]
+    },
+    {
+      "uniform_adjacent_source_row_rank": 1,
+      "carry_budget": 10,
+      "bits": 50,
+      "feasible": true,
+      "extra_toffoli_x2": 38,
+      "model_total_expected_toffoli": 68.0,
+      "chunks_and_internal_drop_counts": [
+        [
+          9,
+          0
+        ],
+        [
+          9,
+          0
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          11,
+          4
+        ]
+      ]
+    },
+    {
+      "uniform_adjacent_source_row_rank": 1,
+      "carry_budget": 11,
+      "bits": 50,
+      "feasible": true,
+      "extra_toffoli_x2": 37,
+      "model_total_expected_toffoli": 67.5,
+      "chunks_and_internal_drop_counts": [
+        [
+          8,
+          0
+        ],
+        [
+          10,
+          0
+        ],
+        [
+          9,
+          0
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          15,
+          6
+        ]
+      ]
+    },
+    {
+      "uniform_adjacent_source_row_rank": 1,
+      "carry_budget": 12,
+      "bits": 50,
+      "feasible": true,
+      "extra_toffoli_x2": 36,
+      "model_total_expected_toffoli": 67.0,
+      "chunks_and_internal_drop_counts": [
+        [
+          10,
+          0
+        ],
+        [
+          11,
+          0
+        ],
+        [
+          10,
+          0
+        ],
+        [
+          19,
+          8
+        ]
+      ]
+    },
+    {
+      "uniform_adjacent_source_row_rank": 2,
+      "carry_budget": 7,
+      "bits": 50,
+      "feasible": false,
+      "extra_toffoli_x2": null,
+      "model_total_expected_toffoli": null,
+      "chunks_and_internal_drop_counts": null
+    },
+    {
+      "uniform_adjacent_source_row_rank": 2,
+      "carry_budget": 8,
+      "bits": 50,
+      "feasible": true,
+      "extra_toffoli_x2": 64,
+      "model_total_expected_toffoli": 81.0,
+      "chunks_and_internal_drop_counts": [
+        [
+          8,
+          0
+        ],
+        [
+          9,
+          2
+        ],
+        [
+          10,
+          4
+        ],
+        [
+          8,
+          3
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "uniform_adjacent_source_row_rank": 2,
+      "carry_budget": 9,
+      "bits": 50,
+      "feasible": true,
+      "extra_toffoli_x2": 45,
+      "model_total_expected_toffoli": 71.5,
+      "chunks_and_internal_drop_counts": [
+        [
+          9,
+          0
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "uniform_adjacent_source_row_rank": 2,
+      "carry_budget": 10,
+      "bits": 50,
+      "feasible": true,
+      "extra_toffoli_x2": 38,
+      "model_total_expected_toffoli": 68.0,
+      "chunks_and_internal_drop_counts": [
+        [
+          9,
+          0
+        ],
+        [
+          9,
+          0
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          0
+        ]
+      ]
+    },
+    {
+      "uniform_adjacent_source_row_rank": 2,
+      "carry_budget": 11,
+      "bits": 50,
+      "feasible": true,
+      "extra_toffoli_x2": 37,
+      "model_total_expected_toffoli": 67.5,
+      "chunks_and_internal_drop_counts": [
+        [
+          8,
+          0
+        ],
+        [
+          10,
+          0
+        ],
+        [
+          9,
+          0
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          8,
+          0
+        ]
+      ]
+    },
+    {
+      "uniform_adjacent_source_row_rank": 2,
+      "carry_budget": 12,
+      "bits": 50,
+      "feasible": true,
+      "extra_toffoli_x2": 36,
+      "model_total_expected_toffoli": 67.0,
+      "chunks_and_internal_drop_counts": [
+        [
+          10,
+          0
+        ],
+        [
+          11,
+          0
+        ],
+        [
+          10,
+          0
+        ],
+        [
+          9,
+          0
+        ],
+        [
+          10,
+          0
+        ]
+      ]
+    }
+  ]
+}

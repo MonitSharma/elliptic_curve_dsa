@@ -1,0 +1,26 @@
+{
+  "sealed_at_utc": "2026-10-20T01:09:07.516945+00:00",
+  "base": "90e777ea8242faa0acb2462c5cb5be7c318a2d64",
+  "protected_files_checked": 17,
+  "source_freeze_sha256": "d30ffa10eda20f7f843f71904c9190ecc90286f0c9128777cd74e4a1730bfd88",
+  "result": {
+    "status": "EXACT_NATIVE_EIGHT_BIT_FUNCTION_RANK_ANALYSIS",
+    "native_truth_sha256": "7cac9ae3202ca1b05348421a95fc760a7250e4ba74bc84651b06a969968e13f7",
+    "emitted_core_ccx": 19,
+    "input_affine_rank": 9,
+    "input_and_output_rank": 25,
+    "output_nonlinear_dimension": 16,
+    "input_and_all_computed_wire_rank": 28,
+    "computed_wire_linear_dependencies": [],
+    "supported_signed_inputs_verified": 78,
+    "outside_promised_range_math_mismatches": [
+      -128
+    ],
+    "scope": "Rank bound concerns the actual full eight-bit truth function in an XOR/AND straight-line model, with inputs independent. Not a general reversible/in-place/multioutput gate lower bound or a point-add lower bound; conditional domain restrictions differ. Any proposed rewrite needs full lifetime, phase and native validation."
+  },
+  "streams_retained_on_server": {},
+  "native_binaries": {
+    "/home/hclau/ecdsa_research/breakthrough-core-rank-20261020/primitive/target/release/deps/build_circuit-0c12d1b03f2fe721": "ab7e6b3dc18e6149787a3a1c6ea99589a3a28c5542a3dff7de79e01bf713bd67"
+  },
+  "no_final_gate_nonce_or_scored_result": true
+}
