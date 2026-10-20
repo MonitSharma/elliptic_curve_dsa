@@ -1,0 +1,54 @@
+{
+  "status": "CLASSICAL_NAMESPACE_MISMATCH_CLASSIFICATION_ONLY",
+  "table_edits": 82682,
+  "candidate_index_offsets": [
+    -10920,
+    -10919,
+    -10918,
+    0
+  ],
+  "counts": {
+    "no_quantum_skeleton_match_at_tested_offsets": 12852,
+    "exact_record_at_tested_offset": 69829,
+    "quantum_skeleton_equal_only_classical_labels_differ": 1
+  },
+  "matched_index_offset_histogram": {
+    "-10920": 61361,
+    "0": 1740,
+    "-10918": 1765,
+    "-10919": 4964
+  },
+  "classical_bits_max_plus_one": {
+    "control": 40002,
+    "mixed": 40002
+  },
+  "label_changes": {
+    "(4, 1376, 1373, -3)": 1
+  },
+  "examples": [
+    {
+      "old_index": 4011714,
+      "new_index": 4000796,
+      "offset": -10918,
+      "old": [
+        12,
+        18446744073709551615,
+        18446744073709551615,
+        179,
+        1376,
+        18446744073709551615,
+        18446744073709551615
+      ],
+      "new": [
+        12,
+        18446744073709551615,
+        18446744073709551615,
+        179,
+        1373,
+        18446744073709551615,
+        18446744073709551615
+      ]
+    }
+  ],
+  "scope": "Only a diagnostic of candidate alignments and field differences. No proof of unique mapping, no table edits, no binding change, no final gate or score. A whole-classical-namespace alpha-renaming is valid only when injective and respecting fixed input bits and every read/write; any proposed map needs independent exact full-record checks."
+}

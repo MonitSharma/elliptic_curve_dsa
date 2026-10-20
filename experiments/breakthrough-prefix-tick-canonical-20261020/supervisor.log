@@ -1,0 +1,9 @@
+{"mode": "control", "stream_sha256": "51671a28145ce015d31b90db57c5bb248d544b0daacecfae1a015753056fa2e8", "operations": 11628847, "seconds": 234.09179878234863}
+Traceback (most recent call last):
+  File "/home/hclau/ecdsa_research/breakthrough-prefix-tick-canonical-20261020/run.py", line 14, in <module>
+    assert all(sha(t/p)==h for p,h in{**f['source_files'],**f['protected_files']}.items());dest=r/mode;dest.mkdir();start=time.time();run(['timeout','1800',str(t/'target/release/build_circuit')],'generate-'+mode,dest,dict(os.environ,BREAK_TICK_MODE=mode));assert all(sha(t/p)==h for p,h in{**f['source_files'],**f['protected_files']}.items());row={'mode':mode,'stream_sha256':sha(dest/'ops.bin'),'operations':int.from_bytes((dest/'ops.bin').open('rb').read(16)[8:],'little'),'seconds':time.time()-start}
+                                                                                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hclau/ecdsa_research/breakthrough-prefix-tick-canonical-20261020/run.py", line 7, in run
+    (r/(name+'.exit')).write_text(str(rc)+'\n');assert rc==0,name
+                                                       ^^^^^
+AssertionError: generate-mixed
