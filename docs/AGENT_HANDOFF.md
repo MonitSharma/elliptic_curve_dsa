@@ -1,5 +1,51 @@
 # Agent handoff: start here
 
+## 20 October 2026, 18:41 SGT: Q1464/T750911 verified and automatically submitted
+
+Complete unchanged benchmark: 9024/9024 shots, Q1464, rounded mean T750911,
+exact mean750910.5620567376, total6776216912, product1099333704. Saves109
+rounded Toffolis at unchanged width versus direct official parent32256595,
+public source63d63c90. Submission a4ee760a-0500-4d54-9822-4a3c56806fd5, GPT-6 sol/Codex,
+currently validating. No official score yet; global product939138168 is lower.
+
+Final source28e443bcc2f3dc0793c6a416a496b07cfbeb4c4f,196 point-add files,
+17 protected files. Only mod.rs and two new modules differ. Exact square
+workspace1234->1408; raw structural grid chooses smallest byte-identical tie.
+Unchanged generic passes, independently proved153 unconditional product
+leases, full native rewrite canonical assertion, second generic pass.
+Native27 controls pass. No arithmetic/precision/public row/correctness cuts.
+Archive sourceee0ee69c, patch9e3c25de, selected stream54c8cd60. All238 final
+evidence members and196 source files verify locally; original full archive
+499882f3 retained. Completed review output preserved separately as
+source-review-completed.log; archive captured the earlier in-progress log.
+
+Own sole final gate public322-square1408-final-20261020-v1, declared
+10:19:22.615442UTC before32768x64 fresh shots/source, nonce0. Exact parent
+stream6a8af77b; candidate807cc252. Wrong-value1104/1104 with identical shot
+IDs, phase622/594, dirty0/0, failed batches1160/1145, candidate4.9269104 per
+9024-shot packet. b12/c27, one-sided exact McNemar p0.99526235, paired mean
+difference-108.82871437 with SE0.26991412. All four criteria pass. Declaration
+90c480e8, result88c5b918. No reused gate, relabel, extension or rerun.
+Lowest passing nonce8,64 production screens1..64, sole pass8, overrun9..64;
+eight extra partial controls and24 protected full-state/RNG/curve batches,
+selected9024-attempt packet pass. Every pre-tail record matches frozen source.
+
+Independent larger-product research: exact quadratic-span closure excludes
+all63 original-span retained interfaces, independently reproduced by full
+augmented-column intersection and dimension formula. This excludes<=30 AND
+programs only when all intermediate functions stay in the original46-function
+span; not an unrestricted circuit bound. All88 fresh primary-pair quadratic
+auxiliaries across651 interfaces each are negative in the declared extended
+language. Raw capacity grid1536..2560 yields identical streams in all8 cases.
+Every corresponding archive member verifies locally. No model/proxy is scored.
+Active full generic comparison of baseline versus compact prefix27/cleanup11,
+Q1234, tests whether pass interactions offset its raw+51.75 cost. It remains
+research only. PreserveQ692, all past failed gates and unrelated jobs/edits.
+
+Source/evidence/official receipts: experiments/breakthrough-public322-square-final-20261020/.
+Automatic verified-result submissions remain authorized. Continue the substantial
+product objective; do not mark the active goal complete on the T result alone.
+
 ## 20 October 2026, 17:20 SGT: Q1464/T751020 submitted automatically
 
 The unchanged complete benchmark passes9024/9024 shots: Q1464, rounded mean

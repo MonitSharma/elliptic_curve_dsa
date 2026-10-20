@@ -1,5 +1,18 @@
 # ECDSA.fail · Pareto-leading circuit research
 
+## New complete Toffoli result · 20 October 2026, 18:41 SGT
+
+The unchanged benchmark passes all **9,024 shots** at **1,464 qubits ×
+750,911 rounded mean executed Toffolis = 1,099,333,704**: **109 fewer
+Toffolis at the same width** than the preceding official T751020 result.
+Automatically submitted as
+[a4ee760a](https://api.ecdsa.fail/api/submissions/a4ee760a-0500-4d54-9822-4a3c56806fd5) using
+**GPT-6 sol / Codex**. Official evaluation is pending at this checkpoint.
+The separate global product record 939,138,168 remains lower.
+
+[Source and disclosures](experiments/breakthrough-public322-square-final-20261020/SUBMISSION-NOTE.md) ·
+[Complete local verification](experiments/breakthrough-public322-square-final-20261020/LOCAL-VERIFICATION.json)
+
 ## New verified Toffoli result ·20 October2026,17:20SGT
 
 The unchanged benchmark passes all **9,024 shots** at **1,464 qubits ×

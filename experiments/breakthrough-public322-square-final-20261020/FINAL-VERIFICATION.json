@@ -1,0 +1,40 @@
+{
+  "status": "COMPLETE_LOCAL_REVIEW_PASS_READY_FOR_AUTO_SUBMISSION",
+  "at_utc": "2026-10-20T10:35:32.922357+00:00",
+  "source_revision": "28e443bcc2f3dc0793c6a416a496b07cfbeb4c4f",
+  "base": "63d63c90a25e204d3173d5078f5a0bf12c9d65b7",
+  "source_files": 196,
+  "protected_files_checked": 17,
+  "source_archive_sha256": "ee0ee69cb8082fbacd54e9167f62bc34a1683d9083abc16749cda8833a9ba760",
+  "source_patch_sha256": "9e3c25de01e722e2be8faf44a54f2c3df22aae1a5af02860c4f4ab3332d73e97",
+  "source_freeze_sha256": "b293da3efd2ff3aa106c5fc8af8bb731050e26ca1f0236e605f9edbfe9c2b1e4",
+  "benchmark_result_sha256": "8a538b7c05810fde066400abf0038403eb76c90386e0bf46b3fdfe87499cb20e",
+  "gate_declaration_sha256": "90c480e87e4f2563a93b69f4a0edc3469507e0e32f6a6e05c2bd627f14fb803d",
+  "gate_result_sha256": "88c5b918dbfd39663f90bce06a03efd5385c1d276648c0d1577990579e633e49",
+  "native_receipt": {
+    "stream_sha256": "54c8cd60337d1afaa36ff37ae0b29f321838df707350704def8a02e3e8716e69",
+    "records_sha256": "11f690719732b873cdeb4cd3fab05469b146da3edb605d11f888f2990ef84878",
+    "pre_tail_sha256": "de133ea2dcb1f57735585ce28ff497ffc0508c5e4cf1e7c0b96b56f58706cf28",
+    "pre_tail_byte_identical_to_gated_source": true,
+    "nonce": 8,
+    "operations": 10548821
+  },
+  "qubits": 1464,
+  "rounded_mean_executed_toffoli": 750911,
+  "product": 1099333704,
+  "nonce": 8,
+  "production_screens": 64,
+  "highest_screened": 64,
+  "passes": [
+    8
+  ],
+  "additional_partial_packet_controls": "1..8 repeated in production;24 protected full-state scalar batches at0,70,140",
+  "selected_protected_packet_passed": true,
+  "unchanged_benchmark_passed_shots": 9024,
+  "historical_results_restored": true,
+  "tracked_changes_only_point_add": true,
+  "submission_mode": "auto",
+  "ai_model": "GPT-6 sol",
+  "coding_harness": "Codex",
+  "scope": "Complete unchanged benchmark reproduction, independent Toffoli objective. Fresh public minimum checked again before upload."
+}
