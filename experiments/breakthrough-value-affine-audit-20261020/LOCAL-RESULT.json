@@ -1,0 +1,30 @@
+{
+  "status": "COMPLETED_VERIFICATION_ONLY_NO_NONCE_REJECTED",
+  "native_controls": 23,
+  "known_output_bits": [
+    0,
+    0
+  ],
+  "certified_wrong_shots": [
+    0,
+    0
+  ],
+  "concrete_wrong_shots": [
+    [
+      64,
+      64,
+      64
+    ],
+    [
+      64,
+      64,
+      64
+    ]
+  ],
+  "protected_fullstream_value_comparisons": 30,
+  "budget_events": [
+    "AFFINE_BUDGET_EXHAUSTED at=5069401 alloutputsUNKNOWN",
+    "AFFINE_BUDGET_EXHAUSTED at=5074815 alloutputsUNKNOWN"
+  ],
+  "scope": "Verification-only bounded Boolean polynomial certificates on unchanged old stream, first128 preserved failures. Polynomial identities exact, opaque atoms overapproximate; no certainty from sampling. At most8terms/degree4, exact structural memoization capped65536; >2million monomials returns ALLUNKNOWN. No nonce screened/rejected or gate/circuit modified."
+}

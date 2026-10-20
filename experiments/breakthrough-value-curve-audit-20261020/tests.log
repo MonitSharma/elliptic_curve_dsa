@@ -1,0 +1,88 @@
+   Compiling zstd-sys v2.1.2+zstd.1.5.7
+   Compiling zstd-safe v7.3.0
+   Compiling zstd v0.13.3
+   Compiling quantum_ecc v0.1.0 (/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-value-guard-fusion-audit-20261020/local-protected)
+   Compiling product_pareto_exact v0.1.0 (/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-value-curve-audit-20261020/local-tool)
+error[E0277]: the trait bound `ruint::Uint<256, 4>: From<u64>` is not satisfied
+   --> audit.rs:93:252
+    |
+ 93 | ...2F".parse().unwrap(),a:0u64.into(),b:7u64.into(),gx:"0x79BE667EF9DCBBAC55A06295CE870B07029BFCDB2DCE28D959F2815B16F81798".parse()...
+    |                                ^^^^ the trait `From<u64>` is not implemented for `ruint::Uint<256, 4>`
+    |
+help: `ruint::Uint<256, 4>` implements trait `From<T>`
+   --> /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/alloy-primitives-1.7.3/src/bits/fixed.rs:194:9
+    |
+194 |           impl From<$fb> for $int {
+    |           ^^^^^^^^^^^^^^^^^^^^^^^ `From<alloy_primitives::bits::fixed::FixedBytes<32>>`
+...
+207 | / fixed_bytes_uint_conversions! {
+208 | |     u8            => aliases::B8,
+209 | |     aliases::U8   => aliases::B8,
+210 | |     i8            => aliases::B8,
+...   |
+242 | | }
+    | |_- in this macro invocation
+    |
+   ::: /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/alloy-primitives-1.7.3/src/utils/units.rs:167:1
+    |
+167 |   impl From<ParseUnits> for U256 {
+    |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ `From<alloy_primitives::utils::units::ParseUnits>`
+    = note: required for `u64` to implement `Into<ruint::Uint<256, 4>>`
+    = note: this error originates in the macro `fixed_bytes_uint_conversions` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0277]: the trait bound `ruint::Uint<256, 4>: From<u64>` is not satisfied
+   --> audit.rs:93:266
+    |
+ 93 | ...wrap(),a:0u64.into(),b:7u64.into(),gx:"0x79BE667EF9DCBBAC55A06295CE870B07029BFCDB2DCE28D959F2815B16F81798".parse().unwrap(),gy:"...
+    |                                ^^^^ the trait `From<u64>` is not implemented for `ruint::Uint<256, 4>`
+    |
+help: `ruint::Uint<256, 4>` implements trait `From<T>`
+   --> /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/alloy-primitives-1.7.3/src/bits/fixed.rs:194:9
+    |
+194 |           impl From<$fb> for $int {
+    |           ^^^^^^^^^^^^^^^^^^^^^^^ `From<alloy_primitives::bits::fixed::FixedBytes<32>>`
+...
+207 | / fixed_bytes_uint_conversions! {
+208 | |     u8            => aliases::B8,
+209 | |     aliases::U8   => aliases::B8,
+210 | |     i8            => aliases::B8,
+...   |
+242 | | }
+    | |_- in this macro invocation
+    |
+   ::: /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/alloy-primitives-1.7.3/src/utils/units.rs:167:1
+    |
+167 |   impl From<ParseUnits> for U256 {
+    |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ `From<alloy_primitives::utils::units::ParseUnits>`
+    = note: required for `u64` to implement `Into<ruint::Uint<256, 4>>`
+    = note: this error originates in the macro `fixed_bytes_uint_conversions` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0277]: the trait bound `ruint::Uint<256, 4>: From<u64>` is not satisfied
+   --> audit.rs:140:135
+    |
+140 | ...;let p=c.mul(c.gx,c.gy,2u64.into());assert!(c.is_on_curve(p.0,p.1));assert_ne!(p.0,c.gx);assert_eq!(c.add(c.gx,c.gy,c.gx,c.gy),p);}
+    |                                ^^^^ the trait `From<u64>` is not implemented for `ruint::Uint<256, 4>`
+    |
+help: `ruint::Uint<256, 4>` implements trait `From<T>`
+   --> /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/alloy-primitives-1.7.3/src/bits/fixed.rs:194:9
+    |
+194 |           impl From<$fb> for $int {
+    |           ^^^^^^^^^^^^^^^^^^^^^^^ `From<alloy_primitives::bits::fixed::FixedBytes<32>>`
+...
+207 | / fixed_bytes_uint_conversions! {
+208 | |     u8            => aliases::B8,
+209 | |     aliases::U8   => aliases::B8,
+210 | |     i8            => aliases::B8,
+...   |
+242 | | }
+    | |_- in this macro invocation
+    |
+   ::: /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/alloy-primitives-1.7.3/src/utils/units.rs:167:1
+    |
+167 |   impl From<ParseUnits> for U256 {
+    |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ `From<alloy_primitives::utils::units::ParseUnits>`
+    = note: required for `u64` to implement `Into<ruint::Uint<256, 4>>`
+    = note: this error originates in the macro `fixed_bytes_uint_conversions` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+For more information about this error, try `rustc --explain E0277`.
+error: could not compile `product_pareto_exact` (bin "value_curve_audit" test) due to 3 previous errors

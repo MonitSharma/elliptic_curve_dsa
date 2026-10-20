@@ -1,0 +1,220 @@
+   Compiling product_pareto_exact v0.1.0 (/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-value-failure-fixture-audit-20261020/local-tool)
+warning: unused import: `XofReader`
+  --> audit.rs:95:114
+   |
+95 |  use quantum_ecc::sim::Simulator;use quantum_ecc::circuit::QubitOrBit;use sha3::digest::{Update,ExtendableOutput,XofReader};
+   |                                                                                                                  ^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable does not need to be mutable
+  --> audit.rs:96:231
+   |
+96 | ...alue-known-failure-source-audit-20261020-v1");let mut xof=h.finalize_xof();let mut noise=0xa8d7135f23649b01u64;let mut rows=vec![...
+   |                                                      ----^^^
+   |                                                      |
+   |                                                      help: remove this `mut`
+   |
+   = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `xof`
+  --> audit.rs:96:231
+   |
+96 | ...ce-audit-20261020-v1");let mut xof=h.finalize_xof();let mut noise=0xa8d7135f23649b01u64;let mut rows=vec![];let fixtures:Vec<serd...
+   |                               ^^^^^^^ help: if this is intentional, prefix it with an underscore: `_xof`
+   |
+   = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable does not need to be mutable
+   --> audit.rs:106:489
+    |
+106 | ...ollect::<BTreeSet<_>>().into_iter().collect();let mut p=compile_known(&ops,&outputs,&unknown_bits);let initial=p.nodes.len();let...
+    |                                                      ----^
+    |                                                      |
+    |                                                      help: remove this `mut`
+
+warning: field `source` is never read
+ --> audit.rs:9:75
+  |
+9 | #[derive(Clone,Copy,Debug)]struct Node{k:u8,a:u32,b:u32,t:u32,g:u32,r:u32,source:u32}
+  |                                   ---- field in this struct               ^^^^^^
+  |
+  = note: `Node` has derived impls for the traits `Debug` and `Clone`, but these are intentionally ignored during dead code analysis
+  = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `product_pareto_exact` (bin "value_failure_fixture_audit" test) generated 5 warnings (run `cargo fix --bin "value_failure_fixture_audit" -p product_pareto_exact --tests` to apply 4 suggestions)
+    Finished `release` profile [optimized] target(s) in 3.17s
+     Running unittests audit.rs (/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-value-guard-fusion-audit-20261020/local-tool/target/release/deps/value_failure_fixture_audit-8ec701a943860042)
+
+running 21 tests
+VALUE_IR_PROGRESS round=test tests::abstract_boolean_truth_tables_cover_all_concretizations ... ok0 nodes=
+0 removed=test tests::exact_guard_implication_truth_tables_and_negative_cases ... 1 cancelled=ok
+2 reset_normalizations=test tests::valid_curve_fixture_reference_checks_group_and_distinct_points ... ok0
+
+VALUE_IR_PROGRESS round=0test tests::captured_guard_versions_survive_mutation_and_allow_only_correct_cancellation ... ok nodes=2
+ removed=3 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0test tests::known_bit_stores_and_captured_false_guard_preserve_values ...  nodes=0ok
+ removed=3 cancelled=2 reset_normalizations=0
+VALUE_IR_PROGRESS round=0test tests::boolean_store_alias_and_captured_complement_are_exact ... ok nodes=1
+ removed=3 cancelled=2 reset_normalizations=0
+VALUE_IR_PROGRESS round=0test tests::dominated_conditional_reset_and_frames_remove_only_value_dead_rng ...  nodes=2ok
+ removed=2 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0test tests::genuinely_live_measurement_keeps_exact_original_rng_slot ...  nodes=60ok
+ removed=16 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=2 removed=0 cancelled=1 reset_normalizations=0
+VALUE_IR_PROGRESS round=test tests::complementary_nested_guards_fuse_only_to_captured_common_guard ... 0 nodes=ok
+0 removed=2 cancelled=2 reset_normalizations=0
+VALUE_IR_PROGRESS round=0test tests::double_classical_inversion_reuses_immutable_guard_version ... ok nodes=2
+ removed=1 cancelled=2 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=2 removed=2 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0test tests::helper_bits_initial_zero_false_hmr_keeps_rng_position ... ok nodes=2
+ removed=1 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=test tests::abstract_unknown_measurement_never_certifies_random_output ... ok0
+ nodes=2 removed=0 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0test tests::independent_guards_do_not_get_or_fused_or_cancelled ... ok nodes=2
+ removed=0 cancelled=1 reset_normalizations=0
+VALUE_IR_PROGRESS round=test tests::complementary_per_op_guards_fuse_to_one_gate_never_cancel_to_zero ... ok0 nodes=
+5 removed=0 cancelled=2 reset_normalizations=0
+VALUE_IR_PROGRESS round=0test tests::shared_read_only_control_commutes_but_target_reads_and_control_writes_block ... ok nodes=3
+ removed=1 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0test tests::unmatched_reset_guard_never_claims_global_zero ... ok nodes=2
+ removed=6 cancelled=0 reset_normalizations=1
+VALUE_IR_PROGRESS round=0 nodes=5 removed=3 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0test tests::union_of_possible_write_guards_is_covered_only_when_reset_guard_implies_it ...  nodes=3ok
+ removed=1 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0test tests::missing_guard_or_reset_is_detected_by_protected_value_comparison ...  nodes=49ok
+ removed=8 cancelled=6 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=2 removed=1 cancelled=2 reset_normalizations=0
+VALUE_IR_PROGRESS round=0test tests::matched_writes_expose_a_new_global_zero_reset_without_assuming_nonoutput_inputs_clean ... ok nodes=2
+ removed=1 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0test tests::prepared_arbitrary_nonoutput_input_is_not_assumed_clean ... ok nodes=73
+ removed=5 cancelled=2 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=46 removed=18 cancelled=2 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=55 removed=12 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=56 removed=10 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=51 removed=15 cancelled=2 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=58 removed=13 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=40 removed=12 cancelled=6 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=47 removed=12 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=60 removed=5 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=69 removed=7 cancelled=4 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=49 removed=8 cancelled=4 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=52 removed=7 cancelled=4 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=72 removed=4 cancelled=4 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=44 removed=10 cancelled=4 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=62 removed=8 cancelled=2 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=45 removed=13 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=52 removed=4 cancelled=6 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=72 removed=3 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=51 removed=14 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=66 removed=7 cancelled=2 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=70 removed=7 cancelled=2 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=49 removed=12 cancelled=6 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=66 removed=7 cancelled=4 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=66 removed=7 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=50 removed=6 cancelled=6 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=54 removed=15 cancelled=2 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=56 removed=13 cancelled=2 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=57 removed=6 cancelled=5 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=57 removed=11 cancelled=2 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=39 removed=10 cancelled=2 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=73 removed=5 cancelled=2 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=66 removed=7 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=50 removed=16 cancelled=4 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=46 removed=12 cancelled=2 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=57 removed=8 cancelled=4 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=61 removed=9 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=52 removed=13 cancelled=4 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=52 removed=7 cancelled=2 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=67 removed=10 cancelled=2 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=63 removed=6 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=71 removed=7 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=51 removed=6 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=40 removed=7 cancelled=8 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=66 removed=10 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=54 removed=10 cancelled=2 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=47 removed=15 cancelled=2 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=44 removed=6 cancelled=4 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=55 removed=11 cancelled=2 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=59 removed=4 cancelled=2 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=52 removed=14 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=52 removed=7 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=58 removed=13 cancelled=1 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=50 removed=11 cancelled=4 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=42 removed=12 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=54 removed=8 cancelled=6 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=51 removed=19 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=67 removed=13 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=61 removed=9 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=48 removed=8 cancelled=8 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=58 removed=10 cancelled=4 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=52 removed=10 cancelled=4 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=54 removed=11 cancelled=2 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=62 removed=9 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=60 removed=10 cancelled=2 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=60 removed=9 cancelled=4 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=45 removed=10 cancelled=2 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=48 removed=12 cancelled=4 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=58 removed=10 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=45 removed=14 cancelled=4 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=64 removed=8 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=60 removed=7 cancelled=10 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=56 removed=14 cancelled=4 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=50 removed=12 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=57 removed=17 cancelled=2 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=58 removed=12 cancelled=2 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=57 removed=10 cancelled=6 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=57 removed=7 cancelled=2 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=48 removed=12 cancelled=4 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=57 removed=12 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=58 removed=7 cancelled=2 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=38 removed=16 cancelled=4 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=35 removed=16 cancelled=2 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=67 removed=3 cancelled=6 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=47 removed=18 cancelled=2 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=71 removed=2 cancelled=4 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=52 removed=6 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=71 removed=3 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=37 removed=19 cancelled=2 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=63 removed=5 cancelled=8 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=64 removed=11 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=68 removed=9 cancelled=2 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=57 removed=14 cancelled=4 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=62 removed=10 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=36 removed=16 cancelled=4 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=59 removed=11 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=44 removed=12 cancelled=2 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=58 removed=10 cancelled=2 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=56 removed=12 cancelled=2 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=60 removed=14 cancelled=4 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=51 removed=13 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=47 removed=19 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=55 removed=7 cancelled=4 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=49 removed=13 cancelled=4 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=43 removed=10 cancelled=8 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=46 removed=9 cancelled=10 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=35 removed=19 cancelled=2 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=48 removed=7 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=55 removed=10 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=45 removed=12 cancelled=6 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=38 removed=13 cancelled=6 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=48 removed=9 cancelled=4 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=36 removed=12 cancelled=4 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=62 removed=5 cancelled=6 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=60 removed=9 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=68 removed=7 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=57 removed=11 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=52 removed=13 cancelled=2 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=43 removed=18 cancelled=2 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=46 removed=10 cancelled=2 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=45 removed=16 cancelled=2 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=55 removed=14 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=62 removed=7 cancelled=0 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=53 removed=17 cancelled=2 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=62 removed=13 cancelled=2 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=71 removed=5 cancelled=4 reset_normalizations=0
+VALUE_IR_PROGRESS round=0 nodes=55 removed=11 cancelled=4 reset_normalizations=0
+test tests::guarded_value_programs_with_mutating_controls_match_full_protected_simulator ... ok
+
+test result: ok. 21 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.95s
+

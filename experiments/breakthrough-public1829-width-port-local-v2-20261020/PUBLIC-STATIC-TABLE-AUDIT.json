@@ -1,0 +1,58 @@
+{
+  "status": "PUBLIC_TABLE_STRUCTURE_DIAGNOSTIC_NOT_EXECUTED_RESOURCES",
+  "tables": {
+    "row_edits.txt": {
+      "sha256": "65e64291f18238a54e117b527ec41c2429e27ce5c9f1aa6b338e85e4aab60b61",
+      "rows": 0,
+      "removed_operation_kinds": {},
+      "added_operation_kinds": {},
+      "static_ccx_ccz_delta": 0
+    },
+    "and_cache.txt": {
+      "sha256": "92616a8f65ec01f5b36d752de0ecdc69d2d71fb00ed90d70c13bb8866bf1cd80",
+      "rows": 294,
+      "removed_operation_kinds": {
+        "13": 293,
+        "15": 1
+      },
+      "added_operation_kinds": {
+        "13": 147,
+        "8": 294,
+        "12": 145,
+        "9": 145,
+        "4": 1,
+        "5": 1,
+        "15": 1
+      },
+      "static_ccx_ccz_delta": -146
+    },
+    "product_copy.txt": {
+      "sha256": "aecd3aaa38693d9d137389ab3336862f2b3c71f0a59681b0321e521bf99d8fce",
+      "rows": 1120,
+      "removed_operation_kinds": {
+        "13": 280,
+        "8": 280,
+        "12": 280,
+        "9": 280
+      },
+      "added_operation_kinds": {
+        "13": 280
+      },
+      "static_ccx_ccz_delta": 0
+    },
+    "value_edits.txt": {
+      "sha256": "f25c692e638c38bea955e04ab8848178e9b02da3beb72ce543431fef3fcb4398",
+      "rows": 4,
+      "removed_operation_kinds": {
+        "13": 4
+      },
+      "added_operation_kinds": {
+        "15": 3,
+        "8": 6,
+        "16": 3
+      },
+      "static_ccx_ccz_delta": -4
+    }
+  },
+  "scope": "Raw operation-kind table differences only. Guarded execution and fresh proof context determine actual resource savings. Old source-bound tables never applied to changed constructors."
+}

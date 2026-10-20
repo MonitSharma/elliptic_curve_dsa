@@ -1,0 +1,18 @@
+   Compiling product_pareto_exact v0.1.0 (/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-value-curve-audit-v2-20261020/local-tool)
+warning: field `source` is never read
+ --> audit.rs:9:75
+  |
+9 | #[derive(Clone,Copy,Debug)]struct Node{k:u8,a:u32,b:u32,t:u32,g:u32,r:u32,source:u32}
+  |                                   ---- field in this struct               ^^^^^^
+  |
+  = note: `Node` has derived impls for the traits `Debug` and `Clone`, but these are intentionally ignored during dead code analysis
+  = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `compile` is never used
+  --> audit.rs:32:4
+   |
+32 | fn compile(ops:&[Op],unknown_quantum:&[usize])->Program{let(_,nb,_,_)=analyze_ops(ops.iter());compile_known(ops,unknown_quantum,&(0....
+   |    ^^^^^^^
+
+warning: `product_pareto_exact` (bin "value_curve_audit") generated 2 warnings
+    Finished `release` profile [optimized] target(s) in 3.20s

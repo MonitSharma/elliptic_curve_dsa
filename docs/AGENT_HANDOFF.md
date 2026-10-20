@@ -1,3 +1,48 @@
+## 21 October 2026: local research continues through server outage
+
+Official de8bac6a Q1464/T746114 remains the latest verified result in our
+21:03UTC public snapshot. No new score or nonce search since that submission.
+SSH to smu_server timed out repeatedly after21:06UTC; remote Boolean-reset job
+3143340 was last native17PASS/running. Its final status is unknown; no jobs killed.
+Pending remote workspace transfer/launch unconfirmed. Chemistry untouched.
+
+Existing local WSL compiler1.99 used in separate research folders. All17protected
+dependencies restored to EXACT server-frozen LF bytes; no harness edits. Old
+Q1233 source177files reproduces exactstream61927788 under localcompiler; remains
+superseded, no old gate/nonce/benchmark/upload resumed. Its new guard-fusion
+verification-only audit native20PASS/fullstatic audit running. Public1829 source
+186files also reproduces exactpublishedstream16567ee1 under the local resource
+grid. Native9comparator/plan/policy controlsPASS. Three predeclared modes public,
+cap1234-t21, cap1233-r012; only exact workspace changes, public approximations
+unchanged. Changed branches OMIT old boundtables, retain generic passes; no
+hash binding disabled/repointed. Fresh cache proofs required if competitive.
+
+Two local setup failures retained: first workspace adapter stopped before
+source changes/tests on whitespace-sensitive dependency path replacement;
+curve-fixture tool stopped before input tests because U256 lacks u64 Into.
+Corrected separatev2 folders retain originals. Native shell first failed onCRLF
+beforecompile; LF launcher fixes it. Offline cache miss preserved; locked
+dependencies fetched for separate verification tools. No failure called a pass.
+
+Filter fixtures: earlier arbitrary registered bit patterns do NOT establish
+anything about valid-curve usefulness. New curve tool native21PASS tests32fresh
+validcurve batches/96protected value comparisons, fullstatic audit stillrunning.
+Separately first128 preserved oldvalue-failure scalars, rawexact captured-SSA IR:
+native21/30protected value comparisons PASS; all128 wrong under all3RNGpatterns,
+but zero certifiedknown/wrong bits. No nonce screened/rejected or gate rerun.
+
+Bounded Boolean ANF retains exact XOR/AND/ITE correlations, opaque atoms widen
+possibilities, structural equality only; truth samples NEVER select certificates.
+Native23PASS/30protected comparisons on same128 verifier fixtures. Original2m
+and separate8m monomial budgets both exhaust, returning ALLUNKNOWN, zero certified
+wrong bits. Negative/budget-limited results preserved with full frozen tool source,
+fixtures, logs and hashes. These are verification-only counts, NOT quantum
+resources. Further exact filter research and complete product objective active.
+
+Every verified current-record improvement still goes automatically to challenge
+verification as GPT-6 sol/Codex. Default-branch push remains blocked by automatic
+approval review pending explicit approval; no retry/bypass. User edits preserved.
+
 ## 21 October 2026, 05:03 SGT: official T746114; exact product research continues
 
 Official submission de8bac6a-afff-479e-b716-8cbf2dce6c73 reproduces Q1464,
