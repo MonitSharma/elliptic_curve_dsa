@@ -6,7 +6,7 @@ Complete unchanged benchmark: 9024/9024 shots, Q1464, rounded mean T750911,
 exact mean750910.5620567376, total6776216912, product1099333704. Saves109
 rounded Toffolis at unchanged width versus direct official parent32256595,
 public source63d63c90. Submission a4ee760a-0500-4d54-9822-4a3c56806fd5, GPT-6 sol/Codex,
-currently validating. No official score yet; global product939138168 is lower.
+Officially reproduced Q1464/T750911, public sourcebe2902c2. Promotion was rejected only because the global product did not improve. All196 public source files and17 protected files match the validated local source byte-for-byte as Git objects.
 
 Final source28e443bcc2f3dc0793c6a416a496b07cfbeb4c4f,196 point-add files,
 17 protected files. Only mod.rs and two new modules differ. Exact square
