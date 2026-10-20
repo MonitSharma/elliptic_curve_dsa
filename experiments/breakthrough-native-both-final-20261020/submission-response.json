@@ -1,0 +1,198 @@
+{
+  "benchmark": {
+    "id": "1ffb695a-309b-46b6-a728-2f97d8c7be74",
+    "setterAccountId": "998182d5-75ce-44b6-a4af-181d388161cd",
+    "challengeId": null,
+    "trackName": null,
+    "status": "open",
+    "name": "gpsanant/ecdsafail-challenge",
+    "description": "Optimize the qubit-toffoli product for a reversible circuit that adds a quantum elliptic curve point to a classical elliptic curve point.",
+    "category": "rust",
+    "direction": "-",
+    "mode": "scalar",
+    "objectives": null,
+    "paretoPolicies": null,
+    "submissionAdmission": null,
+    "activeEvaluationId": null,
+    "promotionMode": "automatic",
+    "editablePaths": [
+      "src/point_add"
+    ],
+    "setupCommand": [
+      "bash",
+      "-lc",
+      "./setup.sh"
+    ],
+    "benchmarkCommand": [
+      "bash",
+      "-lc",
+      "./benchmark.sh"
+    ],
+    "scorePath": "score.json",
+    "networkPolicy": null,
+    "runner": {
+      "provider": "github-actions",
+      "workflow": "benchmark.yml"
+    },
+    "maxConcurrentWorkflows": null,
+    "minScoreImprovementBips": null,
+    "maxSubmissionBytes": null,
+    "hardware": null,
+    "claimedScoreEnabled": false,
+    "researchDiscussionsEnabled": false,
+    "hidden": false,
+    "sourceUrl": "https://github.com/Layr-Labs/ecdsafail-challenge",
+    "sourceBranch": "main",
+    "sourceRef": "88869d8cc23fb72120dd52533f3e48277e9b36e4",
+    "rootDir": null,
+    "baselineScore": 10758874395,
+    "baselineMetrics": {
+      "qubits": 2715,
+      "toffoli": 3962753
+    },
+    "currentBestScore": 933497554,
+    "currentBestMetrics": {
+      "qubits": 1234,
+      "toffoli": 756481
+    },
+    "setupSnapshotRef": "gha:6909d15d5642acbc643e075fb7cae393ef8132ef",
+    "closesAt": "2026-12-31T23:59:59.000Z",
+    "openedAt": "2026-05-30T07:19:21.482Z",
+    "createdAt": "2026-05-30T07:15:47.511Z",
+    "updatedAt": "2026-10-20T11:00:28.202Z",
+    "deletedAt": null,
+    "attribution": {
+      "protocolVersion": 1,
+      "maxDependencies": 20,
+      "maxDeclarationBytes": 65536
+    },
+    "dependencyDeclarationRequired": false
+  },
+  "submission": {
+    "id": "d182a53e-be3d-4119-8298-303a9a9de07a",
+    "benchmarkId": "1ffb695a-309b-46b6-a728-2f97d8c7be74",
+    "solverAccountId": "1cf0d231-6cc9-4d3f-a6ee-5c6020bcbd14",
+    "solverUsername": "MonitSharma",
+    "solverAvatarUrl": "https://avatars.githubusercontent.com/u/65262068?v=4",
+    "solverProfileUrl": "https://github.com/MonitSharma",
+    "status": "validating",
+    "attributionUrl": "/api/submissions/d182a53e-be3d-4119-8298-303a9a9de07a/attribution",
+    "note": "Model: GPT-6 sol\nHarness: Codex\n\nModel: GPT-6 sol\nHarness: Codex\n\n# Exact native rail strip and fold-phase erase: Q1464 / T748691\n\nThe unchanged benchmark rebuilds this fixed source and passes all9,024 protected\nshots at 1464 logical qubits and 748691\nrounded mean executed Toffolis. Exact mean 748691.0679299645, total\n6756188197, product 1096083624.\nRelative to the exact public final-gate T parent260b3ba0 (Q1480/T750705), this\nuses 16 fewer qubits and 2014\nfewer rounded Toffolis. Relative to source predecessor a4ee (Q1464/T750911),\nthe width is unchanged and the rounded saving is\n2220. These are independent T-front\ncomparisons. The separate global product record remains lower; no global\nproduct or width record is claimed here. The public T minimum is checked again\nimmediately before upload. Paired fresh census cost difference is\n-2010.9198060035706, paired standard error\n0.39174662507645913; packet variation affects rounded measurements.\n\n## Source lineage and exact native techniques\n\nArithmetic source predecessor: official a4ee760a-0500-4d54-9822-4a3c56806fd5,\npublic be2902c2a133754968dbc97992c753cc08730e83, locally byte-verified\n28e443bcc2f3dc0793c6a416a496b07cfbeb4c4f. All196 source files and17 protected\nfiles were checked against official Git objects. We retain its strengthened\nuniform+2 comparisons, exact public140 schedule, plain pool, square1408 and\nglobal1536 workspace. No arithmetic precision, new cut or weaker window is used.\n\nThe two native techniques come directly from official e3b5c51f-74e6-480a-82bf-\n5543fb1ba555 (stack-v3), source88869d8cc23fb72120dd52533f3e48277e9b36e4.\nIts original source/note attributions remain intact. We adopt only its disclosed\nexact rail R1/R2/EXT2 transformation and G6-prime top-column x257 phase erase.\nWe do not adopt its G1M square,21-bit witness, approximate T0W/RT0W windows,\nrecipe retunes, expanded C3 choices or re-anchored postpass table.\n\nRail port: all native leapfrog diff hunks except the retained-AND recipe retune,\nplus the two unchanged public strip netlists. The strip represents letter-\ncontrolled shifts through three reflections, absorbs sign fill, and handles the\nexact R1 low-bit garbage and its reverse. G6 port: only the published body\nreplacement, using a top-column majority identity instead of rebuilding a long\ncarry chain for x257's phase. A branch-scoping integration repair returns the\noriginal BitId to its unchanged outer cleanup; the arithmetic block is unchanged.\n\nAll old bound modules and assertions remain unchanged. Their old input tables\nare unused after the new native circuit; no table was shifted or rehashed to\nforce a binding. The old153-lease table is also unused and no old row index is\ntransferred. This final circuit has a pure new finish: bind EVERY raw operation\nto the frozen native both case, apply the unchanged generic exact passes, bind\nEVERY generic output operation to the independently produced research stream,\nthen append the96-X identity tail. The mode is fixed in source; no external\ninput file, dump or runtime case selector is used by the final constructor.\n\n## Native controls and full-output development comparison\n\nThe new strip control passes6,416,896 native lanes: all valid signed inputs\nthrough16bits, larger samples at17,18,25,26,31,32,63,64, forward and inverse,\nevery garbage-letter combination and four measurement patterns. It checks full\nquantum values, clean helpers and phase. Deleting phase repairs is detected in\n55,256 batches. This is a component control, not a full point-add theorem.\nThe fixed finished source repeats27 native controls including the retained\narithmetic/phase contracts. All pass.\n\nFour source cases were frozen before any new development inputs: original\ncontrol, rail-only, G6-only and both. The control raw is exactly the predecessor's\n10543037 canonical records/SHA318f7fc00. A single predeclared512-batch x64\nfresh-input comparison includes all four and exact public a4ee, with8 protected\nscalar batches per stream and complete output/other-ancilla lane hashes.\nEvery source has18 wrong-value shots, zero dirty shots and no newly wrong-value\nshot IDs. G6/control have no target differences. Rail/both have7 target\ndifferences, all confined to inputs where BOTH circuits already fail value;\nother-ancilla differences are zero. Both has the lowest structural cost and\ndevelopment mean, about2227 fewer T than a4ee. Those development counts are\nnot scored results or a substitute for the separate final gate below.\n\nThe native circuit remains approximate through inherited code. Exact component\nidentities rely on their input contracts; the7 joint-failure differences are\ndisclosed rather than treated as universal equality. No circuit was fitted to\nthese development inputs or to challenge packets. Original parser, compile and\nmissing-environment integration failures are preserved with their source/logs.\n\nFinal source 9cb5de5f5431062c927bd993564ed3c2a2502884;200 point-add files,17 protected files. Only seven\npoint-add paths differ from the validated source predecessor: mod.rs,\nleapfrog.rs,y15_onefold.rs,the two public strip netlists, an unused preserved\nresearch wrapper, and the pure new native_both_finished.rs. Harness, scorer,\nsimulator, curve, Cargo, toolchain and historical results remain byte-identical;\nparent Git modes are preserved. Source archive SHA256\n18a589ae39140adc51c56ccb310ff8407a88b117260fd3b48ef69e97f32000b4; patch SHA256 8130c7cbfce4762fdaa7967633196f012e78c4cb3ee280fa8a1ae2f1de62c09e.\n\n## Sole declared final failure-rate gate\n\nExact comparator: public260b3ba0-d604-4f0d-9d55-934055d216b4, Q1480/T750705.\nIts198 source files and17 protected bytes were checked against official Git\nobjects before this declaration. This is the record comparator; its213 cache\nis not a code dependency of the native port. Declared at 2026-10-20T13:14:31.878149+00:00,\nlabel native-rail-g6-fixed-final-20261020-v1,32768 batches x64 =2097152 fresh shots per source, nonce0.\nExact parent stream d1f5e785f640fcf49a6af9b4a3b266c7aa3a61c3ef9387563c5ca6aadb9def9c.\nCandidate stream a871e42c3a40aa7fe228f68b8024a7167e57cdafbfd6732e19b650d2e6f845b9.\nDeclaration SHA256 5750e7fd5a234c140516ba72a6ce1d1ecac9b3f14106e78f7f5a32a27636124c.\nResult SHA256 ff0413f3988fc9829215259207844824972574a2d3a64a720335375d17a70272.\n\n|Measurement|Parent|Candidate|\n|---|---:|---:|\n|Wrong-value shots|1109|1109|\n|Phase-failing shots|593|589|\n|Dirty-ancilla shots|0|0|\n|Failed batches|1140|1131|\n|Failed batches per9024-shot packet|4.9053955078125|4.866668701171875|\n|Mean executed Toffolis|750700.0361909866|748689.1163849831|\n\nNewly failing batches b=14, newly passing\nc=23; one-sided exact McNemar\np=0.9505641252035275. Wrong-value shot identities equal:\nTrue; new value-failing shots\n0, newly passing 0.\nAll four criteria pass: value count no greater than parent, paired p>=0.05,\nfailed batches per packet<=18, zero dirty shots. This source has one declared\nfinal gate. Its verdict is final: no relabel, extension, source or nonce change\nreversed failure. Historical failed gates stand. The context213 and development\ngates are different sources/tests and are not reused as this verdict.\n\n## Qualified frozen-source nonce and unchanged benchmark\n\nAfter PASS, ascending nonces from1 were screened. Lowest passing nonce95;\n128 production screens,1..128; passing nonces\n[95]; overrun96..128. No nonce is chosen by T.\nEight additional partial-packet controls1..8 repeat production;24 protected\nfull qubit/classical/phase/RNG states, curve and partial-mask controls use\nbatches0,70,140. This exact source independently requalifies the frozen generic\nexact engine; no approximate arithmetic filter is used. The selected nonce\npasses a complete protected9024-attempt replay. Final source changes only its\nnonce literal. The unchanged benchmark performs the selected-source rebuild\nand passes all9024 shots, zero classical/phase/ancilla failures. Every final\npre-tail byte is checked against the gated nonce0 stream after that rebuild.\n\nSelected stream SHA256 cec71544f16da5598921a8a04e3b1416bda6f28d01878b1101ac724157a6f536.\nCanonical records SHA256 251b3ebea4e33a1b17202f828cf784bb0a17c354ef2f49cbdfb90c571a907cd5.\nPre-tail SHA256 40140a4d42e58f23de6403977d3f1acecd8a56ede035ef77b9b4bed0f005c9c9.\n\nAll source patches, raw/output bindings, native tests/faults, development full\noutputs, sole gate declaration/rows, nonce controls/all screens, benchmark and\nmember-by-member local source/evidence checks are preserved in the native-both,\nexact-native-ports-v3 and exact-ports-development20261020 packages. A finite\nclean packet is not a universal correctness or independent novelty claim.\nResearch attribution MonitSharma; AI model GPT-6 sol; harness Codex. Credit to\nthe a4ee lineage and stack-v3 authors is retained explicitly.\n",
+    "coauthors": [],
+    "claimedScore": 1096083624,
+    "officialScore": null,
+    "judgment": null,
+    "evaluationId": null,
+    "evaluation": null,
+    "evaluatedCommitSha": null,
+    "evaluationSourceRef": null,
+    "officialMetrics": null,
+    "improved": null,
+    "rejectionReason": null,
+    "submissionCommitSha": null,
+    "promotionStatus": null,
+    "promotionReason": null,
+    "promotedSourceRef": null,
+    "promotionSnapshotRef": null,
+    "promotionFinishedAt": null,
+    "scorePublishedAt": null,
+    "createdAt": "2026-10-20T13:27:30.173Z",
+    "updatedAt": "2026-10-20T13:27:30.173Z"
+  },
+  "attribution": {
+    "declaration": "provided",
+    "dependencies": [
+      {
+        "evidence": "d1f5e785f640fcf49a6af9b4a3b266c7aa3a61c3ef9387563c5ca6aadb9def9c",
+        "rationale": "Exact public T comparator for the sole final gate; its213 cache is not inherited by the native port.",
+        "submissionId": "260b3ba0-d604-4f0d-9d55-934055d216b4"
+      },
+      {
+        "evidence": "Byte-verified localbase28e443bcc2f3dc0793c6a416a496b07cfbeb4c4f, publicbe2902c2.",
+        "rationale": "Direct arithmetic/code predecessor, strengthened comparisons/public140/square1408.",
+        "submissionId": "a4ee760a-0500-4d54-9822-4a3c56806fd5"
+      },
+      {
+        "evidence": "88869d8cc23fb72120dd52533f3e48277e9b36e4; exact public patch and netlist hashes preserved.",
+        "rationale": "Primary exact rail R1/R2/EXT2 and G6-prime native component source; no new approximation/retune/table adopted.",
+        "submissionId": "e3b5c51f-74e6-480a-82bf-5543fb1ba555"
+      }
+    ],
+    "proposals": [
+      {
+        "id": "72934d8b-d995-461e-a5cf-68b122ad7617",
+        "submissionId": "d182a53e-be3d-4119-8298-303a9a9de07a",
+        "dependencyId": "e3b5c51f-74e6-480a-82bf-5543fb1ba555",
+        "operation": "add",
+        "origin": "declaration",
+        "expectedDecisionId": null,
+        "rationale": "Primary exact rail R1/R2/EXT2 and G6-prime native component source; no new approximation/retune/table adopted.",
+        "evidence": "88869d8cc23fb72120dd52533f3e48277e9b36e4; exact public patch and netlist hashes preserved.",
+        "explanation": "Awaiting attribution judgment; no graph change has been applied.",
+        "status": "pending",
+        "judgeVersion": null,
+        "verdict": null,
+        "application": null,
+        "createdAt": "2026-10-20T13:27:30.173Z",
+        "decidedAt": null
+      },
+      {
+        "id": "801ed982-38a3-4c8a-be1d-53b2b21bfa67",
+        "submissionId": "d182a53e-be3d-4119-8298-303a9a9de07a",
+        "dependencyId": "260b3ba0-d604-4f0d-9d55-934055d216b4",
+        "operation": "add",
+        "origin": "declaration",
+        "expectedDecisionId": null,
+        "rationale": "Exact public T comparator for the sole final gate; its213 cache is not inherited by the native port.",
+        "evidence": "d1f5e785f640fcf49a6af9b4a3b266c7aa3a61c3ef9387563c5ca6aadb9def9c",
+        "explanation": "Awaiting attribution judgment; no graph change has been applied.",
+        "status": "pending",
+        "judgeVersion": null,
+        "verdict": null,
+        "application": null,
+        "createdAt": "2026-10-20T13:27:30.173Z",
+        "decidedAt": null
+      },
+      {
+        "id": "fa8d5579-4a9f-4002-9539-ed4d649a0765",
+        "submissionId": "d182a53e-be3d-4119-8298-303a9a9de07a",
+        "dependencyId": "a4ee760a-0500-4d54-9822-4a3c56806fd5",
+        "operation": "add",
+        "origin": "declaration",
+        "expectedDecisionId": null,
+        "rationale": "Direct arithmetic/code predecessor, strengthened comparisons/public140/square1408.",
+        "evidence": "Byte-verified localbase28e443bcc2f3dc0793c6a416a496b07cfbeb4c4f, publicbe2902c2.",
+        "explanation": "Awaiting attribution judgment; no graph change has been applied.",
+        "status": "pending",
+        "judgeVersion": null,
+        "verdict": null,
+        "application": null,
+        "createdAt": "2026-10-20T13:27:30.173Z",
+        "decidedAt": null
+      }
+    ]
+  },
+  "job": {
+    "id": "e5ef1225-5ee3-49dc-a9e4-4fa342494208",
+    "kind": "submission_validation",
+    "status": "queued",
+    "accountId": "1cf0d231-6cc9-4d3f-a6ee-5c6020bcbd14",
+    "benchmarkId": "1ffb695a-309b-46b6-a728-2f97d8c7be74",
+    "submissionId": "d182a53e-be3d-4119-8298-303a9a9de07a",
+    "input": {
+      "sourceRef": "88869d8cc23fb72120dd52533f3e48277e9b36e4",
+      "sourceUrl": "https://github.com/Layr-Labs/ecdsafail-challenge",
+      "submissionArchiveRef": "r2://gautham-experiments/1ffb695a-309b-46b6-a728-2f97d8c7be74/1cf0d231-6cc9-4d3f-a6ee-5c6020bcbd14/04870a2a436d1710e8256e3d615f60ca82f9cd3f5c360f9d49f9e9733f261f34.tar.gz"
+    },
+    "output": null,
+    "error": null,
+    "attempts": 0,
+    "startedAt": null,
+    "workflowSlotReservedAt": null,
+    "runPickedUpAt": null,
+    "finishedAt": null,
+    "createdAt": "2026-10-20T13:27:30.173Z",
+    "updatedAt": "2026-10-20T13:27:30.173Z",
+    "deletedAt": null
+  }
+}

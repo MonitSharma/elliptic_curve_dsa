@@ -1,0 +1,5 @@
+from pathlib import Path
+import ast,shutil
+root=Path(__file__).resolve().parents[2];old=root/'experiments/breakthrough-public322-square-final-20261020';r=root/'experiments/breakthrough-context-lease-final-20261020';shutil.copyfile(old/'check-status.py',r/'check-status.py');s=(old/'verify-official-source.py').read_text();changes={'a4ee760a-0500-4d54-9822-4a3c56806fd5':'260b3ba0-d604-4f0d-9d55-934055d216b4',"{'qubits':1464,'toffoli':750911}":"{'qubits':1480,'toffoli':750705}",'1099333704':'1111043400','len(paths)==196':'len(paths)==198','54c8cd60337d1afaa36ff37ae0b29f321838df707350704def8a02e3e8716e69':'d1f5e785f640fcf49a6af9b4a3b266c7aa3a61c3ef9387563c5ca6aadb9def9c',"'Q':1464,'T':750911":"'Q':1480,'T':750705","'improvement_in_T':109":"'improvement_in_T':206",'Independent T minimum confirmed by fresh public snapshot.':'Independent T standing checked separately by fresh public snapshot.'}
+for a,b in changes.items():assert a in s,a;s=s.replace(a,b)
+ast.parse(s);(r/'verify-official-source.py').write_text(s);print('Prepared official status and198/17 public-source verification; no resubmission.')

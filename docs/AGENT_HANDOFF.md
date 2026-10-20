@@ -1,3 +1,28 @@
+## 20 October 2026, 21:41 SGT: official T748691; continue global product objective
+
+Latest publicT: d182a53e, Q1464/T748691, sourcefb2d03e8; official metrics equal
+complete local benchmark, all200 point-add and17 protected Git-object bytes
+verified. Prior260b Q1480/T750705/sourceaf60c815 also reproduced198/17. Auto-
+submit every newly verified current-record improvement as GPT-6 sol/Codex.
+Never ask again for publication approval. Full evidence under the corresponding
+breakthrough-native-both-final and breakthrough-context-lease-final directories.
+Global product933497554 (e3b5c51f, Q1234/T756481/source88869) is still lower;
+active product goal is NOT complete. PreserveQ692, failedProduct25/Product84,
+all other final failed verdicts, preexisting root edits and unrelated jobs.
+
+Nativeboth source9cb5de5f, nonce95,128 production screens,27 native controls,
+one final32768x64 gate PASS(p0.950564), every source/evidence byte verified.
+Exact primary components credited to public88869; no new approximation adopted.
+Current product probe: breakthrough-stackv3-width-loan128-20261020, supervisor
+2853827. Restore original exact forward128 carry loan to remove a one-wire
+admission cliff; first reproduce714c full public control, then fixed rawcap
+1234/1233/1232 with21-control/28-stronger witness. All old guards unchanged.
+Earlier lean128 no-effect and rawlowerbudget failures remain. Do not treat
+nominalcap or staticproxy as scoredQ/T. Inspect output/hashes and native contracts
+before any own final gate, qualified ascending nonce, unchanged benchmark and
+auto-submission. Classical-at-peak or isolated carry measure/recompute may be a
+next exact width route; no such probe/result is implemented yet.
+
 # Agent handoff: start here
 
 ## 20 October 2026, 18:41 SGT: Q1464/T750911 verified and automatically submitted

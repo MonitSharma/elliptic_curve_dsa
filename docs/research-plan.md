@@ -1,3 +1,46 @@
+## 20 October 2026, 21:41 SGT: two official T improvements; global product work continues
+
+Official260b3ba0 reproduces Q1480/T750705/product1111043400, sourceaf60c815,
+198/17 public bytes verified. Officiald182a53e then reproduces
+Q1464/T748691/product1096083624, sourcefb2d03e8,200/17 bytes verified.
+Both use GPT-6 sol/Codex and were submitted automatically immediately after
+complete unchanged benchmark/local member review. Both promotions decline
+solely because global product is lower. Public13:37UTC confirms T748691 minimum,
+product933497554 atQ1234/T756481 (e3b5c51f/source88869), width671.
+
+Latest native exact rail/G6 source9cb5de5f retains uniform+2 comparisons,
+public140, square1408 and all17 protected bytes. All raw/output records bind
+to the frozen research stream. Native27 controls include6,416,896 strip lanes
+and phase faults;512x64 development compares all four fixedcases. Seven output
+differences occur only on joint value-failing inputs, no new wrong-value IDs,
+zero dirty. Sole final native-rail-g6-fixed-final-20261020-v1 declared
+13:14:31.878149UTC,32768x64/source, compares exact official260b streamd1f5e785
+against nonce0a871e42c: value1109/1109 identical IDs, phase593/589, dirty0/0,
+failed1140/1131, candidate4.8666687/packet, b14/c23, p0.9505641, pairedT
+-2010.919806 with SE0.3917466. PASS once, no rerun/relabel/extension.
+Lowestnonce95,128 screens1..128, solepass95, overrun96..128, eight extra
+partial controls repeated in production and24 full-state/RNG/curve controls.
+Selected full9024 replay and unchanged benchmark pass; total6756188197.
+Final streamcec71544, records251b3ebe, pre-tail40140a4d, archive18a589ae,
+patch8130c7cb. All296 evidence members and200 source members verify locally.
+All three direct dependencies (a4ee arithmetic,e3b exact components,260b gate
+comparator) are disclosed. No global product or universal-correctness claim.
+
+Earlier context213 source0fcd6ac4 has its own distinct final gate PASS,
+nonce221/256 screens; all177 evidence and198 source members verify locally.
+The fixed16384-operation proof context finds345 unconditional leases on olda4ee,
+7 native controls, but is only a component result; do not count it as scored.
+
+Global product remains the active unfinished goal. Newpublic714c full control
+reproduces exactly. Raw witness28 stays measuredQ1234;1233/1232 stop the
+unchangedy16 guard at forward128. Lean128 produces byte-identical positive
+raw streams and the same lowerbudget failures (its path is ineligible there).
+New original carry-loan128 restoration is predeclared/running: parentretuned
+128..137 to129..137, losing one loan at the admission cliff. Preserve all
+failures, no guard weakening. Next inspect actualQ and full-source correctness
+if legal. A later read-only classical/AND carry-pebbling audit may reduce peak
+without globally retuning every ladder. No packet-dependent circuit changes.
+
 # Research state and next experiments
 
 ## 20 October 2026, 18:41 SGT: Q1464/T750911 verified and automatically submitted

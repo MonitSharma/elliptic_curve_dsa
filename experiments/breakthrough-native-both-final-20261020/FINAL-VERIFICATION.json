@@ -1,0 +1,40 @@
+{
+  "status": "COMPLETE_LOCAL_REVIEW_PASS_READY_FOR_AUTO_SUBMISSION",
+  "at_utc": "2026-10-20T13:24:47.428412+00:00",
+  "source_revision": "9cb5de5f5431062c927bd993564ed3c2a2502884",
+  "base": "28e443bcc2f3dc0793c6a416a496b07cfbeb4c4f",
+  "source_files": 200,
+  "protected_files_checked": 17,
+  "source_archive_sha256": "18a589ae39140adc51c56ccb310ff8407a88b117260fd3b48ef69e97f32000b4",
+  "source_patch_sha256": "8130c7cbfce4762fdaa7967633196f012e78c4cb3ee280fa8a1ae2f1de62c09e",
+  "source_freeze_sha256": "a9a34025c09b9196652784d285cd2d83c04e92b5ee6b7fb72c7ca49bfd77018b",
+  "benchmark_result_sha256": "3cc294cba42b5eb9deebf0fc85ea265734afe6e53ebf6f1060a5b636a3017be6",
+  "gate_declaration_sha256": "5750e7fd5a234c140516ba72a6ce1d1ecac9b3f14106e78f7f5a32a27636124c",
+  "gate_result_sha256": "ff0413f3988fc9829215259207844824972574a2d3a64a720335375d17a70272",
+  "native_receipt": {
+    "stream_sha256": "cec71544f16da5598921a8a04e3b1416bda6f28d01878b1101ac724157a6f536",
+    "records_sha256": "251b3ebea4e33a1b17202f828cf784bb0a17c354ef2f49cbdfb90c571a907cd5",
+    "pre_tail_sha256": "40140a4d42e58f23de6403977d3f1acecd8a56ede035ef77b9b4bed0f005c9c9",
+    "pre_tail_byte_identical_to_gated_source": true,
+    "nonce": 95,
+    "operations": 10597028
+  },
+  "qubits": 1464,
+  "rounded_mean_executed_toffoli": 748691,
+  "product": 1096083624,
+  "nonce": 95,
+  "production_screens": 128,
+  "highest_screened": 128,
+  "passes": [
+    95
+  ],
+  "additional_partial_packet_controls": "1..8 repeated in production;24 protected full-state scalar batches at0,70,140",
+  "selected_protected_packet_passed": true,
+  "unchanged_benchmark_passed_shots": 9024,
+  "historical_results_restored": true,
+  "tracked_changes_only_point_add": true,
+  "submission_mode": "auto",
+  "ai_model": "GPT-6 sol",
+  "coding_harness": "Codex",
+  "scope": "Complete unchanged benchmark reproduction of fixed exact rail+G6 port. Fresh public minimum checked before upload. Global product objective remains separate."
+}

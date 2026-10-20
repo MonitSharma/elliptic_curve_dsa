@@ -1,0 +1,32 @@
+{
+  "status": "COMPLETE_UNCHANGED_BENCHMARK_PASS",
+  "qubits": 1480,
+  "rounded_mean_executed_toffoli": 750705,
+  "product": 1111043400,
+  "total_executed_toffoli": 6774365101,
+  "tested_shots": 9024,
+  "mean_executed_toffoli": 750705.3525044327,
+  "native_receipt": {
+    "stream_sha256": "d1f5e785f640fcf49a6af9b4a3b266c7aa3a61c3ef9387563c5ca6aadb9def9c",
+    "records_sha256": "309de1a6b11982474e8129bd90371a821bf61064a2262506cb28911b1407c7db",
+    "pre_tail_sha256": "bfa26d8dadb85963e5dc8d3fe9ca8d13ebc17d78e6e51bf179a4632b9e643789",
+    "pre_tail_byte_identical_to_gated_source": true,
+    "nonce": 221,
+    "operations": 10549460
+  },
+  "search_result": {
+    "status": "LOWEST_PASS_FOUND",
+    "selected_nonce": 221,
+    "production_screens": 256,
+    "highest_screened": 256,
+    "passes": [
+      221
+    ],
+    "control_unique_nonces": 8,
+    "control_nonces": "1..8 partial packets, repeated in production;24 full-state scalar batches",
+    "production_rows_sha256": "ba3b0a587d5662ccd4b9427b0487fc454102293e0044060b612077172bccd190"
+  },
+  "protected_files_checked": 17,
+  "submission_mode": "auto",
+  "scope": "Local complete reproduction; not officially evaluated. Targets independent Toffoli objective, not global product. Existing final statistical gate retained unchanged."
+}

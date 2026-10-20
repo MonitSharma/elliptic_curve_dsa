@@ -1,3 +1,26 @@
+## Official Toffoli record · 20 October 2026, 21:41 SGT
+
+The challenge officially reproduced **1,464 qubits ×748,691 rounded mean
+executed Toffolis =1,096,083,624**, all9,024 benchmark shots passing, in
+[submission d182a53e](https://api.ecdsa.fail/api/submissions/d182a53e-be3d-4119-8298-303a9a9de07a).
+This saves **2,014 Toffolis and16 qubits** versus the immediately preceding
+official [Q1480/T750705 result](https://api.ecdsa.fail/api/submissions/260b3ba0-d604-4f0d-9d55-934055d216b4),
+and2,220 Toffolis at unchanged width versus the earlier Q1464/T750911 result.
+The fresh13:37UTC public snapshot confirms the independent T minimum.
+Global product **933,497,554** remains lower; promotion was declined solely
+because that global score did not improve. Both submissions use **GPT-6 sol / Codex**.
+
+Exact native rail and G6 components from public stack-v3/88869 are ported onto
+our strengthened comparison/public140 circuit, with fresh complete stream
+bindings. No new approximate window, witness truncation or correctness cut is
+adopted. Its own final2,097,152-shot-per-source gate passes; lowest nonce95,
+128 screens and all controls are disclosed. All200 public source files and17
+protected files match the locally verified source byte-for-byte as Git objects.
+
+[Source and disclosures](experiments/breakthrough-native-both-final-20261020/SUBMISSION-NOTE.md) ·
+[Local verification](experiments/breakthrough-native-both-final-20261020/LOCAL-VERIFICATION.json) ·
+[Official source verification](experiments/breakthrough-native-both-final-20261020/PUBLIC-SOURCE-VERIFICATION.json)
+
 # ECDSA.fail · Pareto-leading circuit research
 
 ## New complete Toffoli result · 20 October 2026, 18:41 SGT
