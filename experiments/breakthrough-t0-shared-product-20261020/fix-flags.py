@@ -1,0 +1,3 @@
+from pathlib import Path
+r=Path(__file__).resolve().parent;p=r/'tests.rs';raw=p.read_bytes();a=b'let mut phases=Vec::new();let mut counts=Vec::new();';b=b'let flag_words:Vec<u64>=(0..n).map(|i|if let Some(j)=flag{if i==j{u64::MAX}else{0}}else{let mut b=[0u8;8];reader.read(&mut b);u64::from_le_bytes(b)}).collect();let mut phases=Vec::new();let mut counts=Vec::new();';assert raw.count(a)==1;raw=raw.replace(a,b)
+a=b'let value=if let Some(j)=flag{if i==j{u64::MAX}else{0}}else{let mut b=[0u8;8];reader.read(&mut b);u64::from_le_bytes(b)};s.bits[bit.0 as usize]=value;';b=b's.bits[bit.0 as usize]=flag_words[i];';assert raw.count(a)==1;raw=raw.replace(a,b);p.write_bytes(raw)

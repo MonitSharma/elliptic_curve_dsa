@@ -4,6 +4,7 @@ from pathlib import Path
 from datetime import datetime,timezone
 ws=Path('/home/hclau/ecdsa_research');name=sys.argv[1]
 config={
+ 'breakthrough-core-loan-preflight-20261020':('observer','SOURCE_FREEZE-v2.json','run-v2.exit','tests-v2.log',[1,1,3,1,4,3,2,3,1,1],'ADMISSION-RESULT.json'),
  'breakthrough-global-cap-20261020':('observer','SOURCE_FREEZE.json','run.exit',None,[],'ADMISSION-RESULT.json'),
  'breakthrough-core-loan-native-20261020':('primitive','SOURCE_FREEZE-v5.json','run-v5.exit','tests-v5.log',[2,1],None),
  'breakthrough-core-loan-fold-20261020':('observer','SOURCE_FREEZE.json','run.exit','tests.log',[1,1,3,1,4,3,2,3,1,1],'ADMISSION-RESULT.json'),

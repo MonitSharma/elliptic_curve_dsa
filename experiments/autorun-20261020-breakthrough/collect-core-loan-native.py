@@ -2,7 +2,7 @@
 import gzip,hashlib,io,json,subprocess,sys,tarfile
 from pathlib import Path
 root=Path(__file__).resolve().parents[2]
-allowed=['breakthrough-global-cap-20261020','breakthrough-core-loan-native-20261020','breakthrough-core-loan-fold-20261020','breakthrough-core-loan-select-20261020','breakthrough-terminal-pebble-20261020', 'breakthrough-terminal-integration-20261020', 'breakthrough-direct-transport-20261020', 'breakthrough-budget-c3-20261020', 'breakthrough-phase-cubic-cap-20261020', 'breakthrough-live-core-rank-20261020', 'breakthrough-activation-audit-20261020', 'breakthrough-phase-cubic-reserve-20261020']
+allowed=['breakthrough-core-loan-preflight-20261020','breakthrough-global-cap-20261020','breakthrough-core-loan-native-20261020','breakthrough-core-loan-fold-20261020','breakthrough-core-loan-select-20261020','breakthrough-terminal-pebble-20261020', 'breakthrough-terminal-integration-20261020', 'breakthrough-direct-transport-20261020', 'breakthrough-budget-c3-20261020', 'breakthrough-phase-cubic-cap-20261020', 'breakthrough-live-core-rank-20261020', 'breakthrough-activation-audit-20261020', 'breakthrough-phase-cubic-reserve-20261020']
 for name in sys.argv[1:]:
  assert name in allowed;r=root/'experiments'/name;r.mkdir(exist_ok=True)
  subprocess.run(['scp']+[f'smu_server:/home/hclau/ecdsa_research/{name}/{file}'for file in['evidence.tar.gz','EVIDENCE-MANIFEST.json','PACKAGE-RESULT.json']]+[str(r)],check=True)

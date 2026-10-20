@@ -1,0 +1,932 @@
+{
+  "files": {
+    "LAYOUT-AUDIT.json": "e7f85937d2a3f0ffd3d417f5f5452d1a4fc397fb598e209fb5efb4b41ac0bba7",
+    "SOURCE_FREEZE.json": "81b6985ba274f2a0c40feec91d9cf03f1ae96665288c59d12897840bd067d3f1",
+    "TERMINAL-AUDIT.json": "dd3a947bd20ec2400e99a972b75b0ad3d09afb4167c1cc7af5b85c26beeeb229",
+    "audit.log": "638185053b6ce151db83e3c7ad1b2912dbd6e4b47f14db3ea55985780e3daab9",
+    "audit.py": "f1b9197e22c946e6528b19ede687291b8048db472de2c448e2fd24ade4ca5b45",
+    "build.log": "beb06b255ff839302321720ca70a22ad45eedf3f0b42fb51fd894a62fe59c90c",
+    "build.out": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "launch.py": "bb38c1fda83d94349e88c199bb9404a62a038d22743762a05f904dd307aa6eb5",
+    "nohup.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prepare.log": "68486bc28d475b600ced96cce21ab5b547aa35ec778f3a1889f0bed157a37d5c",
+    "prepare.py": "854dd4008600d84dda120c6b35c28fcf7cc172545802166d2e5c68e9197fffc7",
+    "run.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "run.pid": "8ef0fdd8d6b9bf7c7b4ef1b55843d009d9089e918c9bb47953714500f82b936a",
+    "run.sh": "0fe2810b5ea3070f24daa4f19832329ac3189904c0f3396fed41506cc72cfd8c",
+    "source.patch": "ab9d7337b2e05e5e87d059c2d4458346d4707d3fbfa3b2a14d58b7cdd1cc39d4",
+    "added-source/break_profile.rs": "a7e94c66704031f4f0810059f15ca1893ddc5e006a5b82b8c582c67228609515",
+    "added-source/core_loan_certificate.rs": "b10079269bf6c797e680e66097b40f6246cb4715d18215dae82719a17398cfce",
+    "added-source/core_loan_runtime.rs": "9cae697e5919e737c82722c8ddc3ac6ee7cf61966b617bfbe91c356fcb777910",
+    "added-source/fin1_fold_certificate.rs": "f3c58876d148e84d467e3c7867272dba37ee37c20572326b44173664eff73b2b",
+    "added-source/fin1_fold_runtime.rs": "2e567ecfb3e843734cc34332049778ee8ad3b08faa82c185d421a705e6d35e95",
+    "added-source/phase_fit.rs": "7a5e26ea94186d534775c3bdf06797267e0d3115d86b018deaf7bba9838a5bf4",
+    "added-source/phase_fusion.rs": "39bd1eed7dd29f5ea1516f60e6f205c07f210514dbb092dd6a9f9be652680f5a",
+    "added-source/phase_pebble.rs": "403c79b3d888c098aef06e24459d5425905f65f7e6722fc20b34245d674a6935",
+    "added-source/terminal_pebble.rs": "6cc274871604485ec47f5bc5dc9dfe0056b2164a1ac7a4c8861e9b1ab9ec40d9",
+    "added-source/zero_carry.rs": "ea5fe10fa4017145776bdd45f8bb430ce25059650b77bcdbc0790b49f7bbcc90",
+    "cap1232/child.pid": "04070b3f6901f776875071cd6b8a256aac03e20e480f165132498bff336fa2cf",
+    "cap1232/generate.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "cap1232/generate.log": "0dbb51c4113b64943450a2a6c6b68316ef09aa92ab590fbcc82da9a90029036a",
+    "cap1232/generate.out": "c5c22fe217f2c30d250428743a455b288ce8f5575763a08d55e35a74a502beb9",
+    "cap1232/replay-sites.json": "8a5f7ae52db0c2d76bf277b1b8081f5381f4ba3cbd02e13454c68b7a262c28c6",
+    "cap1233/child.pid": "69a98a637172826e8ea97cdeb2c38ea681fbe8646bb322ac35fe066af8ba3229",
+    "cap1233/generate.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "cap1233/generate.log": "8a3f98624aa76a6e5e0cb6770b18ca8506ac6c9db084ce937f1383ffee0df4f6",
+    "cap1233/generate.out": "001c7665d9be0dfc6cd3fffc54d5e21235cba9d21d201be61eb18c4fa0054464",
+    "cap1233/replay-sites.json": "5ad02681b99e351d3fab0bcff30bfadeb61b0617845a280a204d1de6d1735557",
+    "cap1234/child.pid": "21fb297a0fc26e9f3df7c5345aa9b249b1ef743c50f836c46a9fca3945f8a23b",
+    "cap1234/generate.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "cap1234/generate.log": "08fe19718c5ccb623de6acedf8dbd6a3ae9036aae4a242e458af821c0babbdf1",
+    "cap1234/generate.out": "cab4b02a10748f1c267a12869dc76b3a605128238ef48e8f805b520776dec42d",
+    "cap1234/replay-sites.json": "68b1d0fec18a7215d25aee7a8edf82ab7c3e4ed870a7ca091598d609a71f478c"
+  },
+  "terminal_audit": {
+    "sealed_at_utc": "2026-10-20T04:44:23.468301+00:00",
+    "base": "90e777ea8242faa0acb2462c5cb5be7c318a2d64",
+    "protected_files_checked": 17,
+    "source_freeze_sha256": "81b6985ba274f2a0c40feec91d9cf03f1ae96665288c59d12897840bd067d3f1",
+    "result": {
+      "status": "EXACT_STREAM_CONTROLS_WITH_REPLAY_METADATA",
+      "cases": [
+        {
+          "cap": 1234,
+          "exit": 0,
+          "raw_sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b",
+          "trace_sites": 2213,
+          "trace_sha256": "68b1d0fec18a7215d25aee7a8edf82ab7c3e4ed870a7ca091598d609a71f478c",
+          "seconds": 4.572793483734131
+        },
+        {
+          "cap": 1233,
+          "exit": 0,
+          "raw_sha256": "8d458cf4cfbf340264c41a33d1ca4e7fae203420690bcc6dc09cbe2f9ed2ad4f",
+          "trace_sites": 2255,
+          "trace_sha256": "5ad02681b99e351d3fab0bcff30bfadeb61b0617845a280a204d1de6d1735557",
+          "seconds": 4.664987564086914
+        },
+        {
+          "cap": 1232,
+          "exit": 0,
+          "raw_sha256": "23acf8d486739226e3bc2a9b255fa95e27670cd2f54a154a923ed92f647c37e0",
+          "trace_sites": 2297,
+          "trace_sha256": "8a5f7ae52db0c2d76bf277b1b8081f5381f4ba3cbd02e13454c68b7a262c28c6",
+          "seconds": 4.661848545074463
+        }
+      ],
+      "comparisons": [
+        {
+          "cap": 1233,
+          "identical_ordered_trace": false,
+          "identical_site_multiset": false,
+          "old_only_count": 586,
+          "new_only_count": 628,
+          "old_only_examples": [
+            [
+              [
+                "divide",
+                "B",
+                "232",
+                "128",
+                "19"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "238",
+                "4",
+                "4"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "238",
+                "130",
+                "19"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "240",
+                "6",
+                "6"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "240",
+                "131",
+                "19"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "246",
+                "8",
+                "8"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "246",
+                "132",
+                "19"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "252",
+                "10",
+                "10"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "252",
+                "133",
+                "19"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "258",
+                "12",
+                "12"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "258",
+                "134",
+                "19"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "263",
+                "14",
+                "14"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "263",
+                "135",
+                "19"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "269",
+                "16",
+                "16"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "269",
+                "136",
+                "19"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "274",
+                "18",
+                "18"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "274",
+                "137",
+                "19"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "274",
+                "118",
+                "19"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "279",
+                "20",
+                "20"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "279",
+                "138",
+                "19"
+              ],
+              1
+            ]
+          ],
+          "new_only_examples": [
+            [
+              [
+                "divide",
+                "B",
+                "232",
+                "4",
+                "4"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "232",
+                "130",
+                "19"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "238",
+                "8",
+                "8"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "238",
+                "132",
+                "19"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "240",
+                "10",
+                "10"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "240",
+                "133",
+                "19"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "246",
+                "12",
+                "12"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "246",
+                "134",
+                "19"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "252",
+                "14",
+                "14"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "252",
+                "135",
+                "19"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "258",
+                "16",
+                "16"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "258",
+                "136",
+                "19"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "263",
+                "18",
+                "18"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "263",
+                "137",
+                "19"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "269",
+                "20",
+                "20"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "269",
+                "138",
+                "19"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "274",
+                "86",
+                "19"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "274",
+                "171",
+                "19"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "274",
+                "3",
+                "3"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "274",
+                "119",
+                "19"
+              ],
+              1
+            ]
+          ]
+        },
+        {
+          "cap": 1232,
+          "identical_ordered_trace": false,
+          "identical_site_multiset": false,
+          "old_only_count": 918,
+          "new_only_count": 1002,
+          "old_only_examples": [
+            [
+              [
+                "divide",
+                "B",
+                "227",
+                "128",
+                "19"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "232",
+                "128",
+                "19"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "232",
+                "2",
+                "2"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "232",
+                "129",
+                "19"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "238",
+                "4",
+                "4"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "238",
+                "130",
+                "19"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "238",
+                "6",
+                "6"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "238",
+                "131",
+                "19"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "240",
+                "6",
+                "6"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "240",
+                "131",
+                "19"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "240",
+                "8",
+                "8"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "240",
+                "132",
+                "19"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "246",
+                "8",
+                "8"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "246",
+                "132",
+                "19"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "246",
+                "10",
+                "10"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "246",
+                "133",
+                "19"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "252",
+                "10",
+                "10"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "252",
+                "133",
+                "19"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "252",
+                "12",
+                "12"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "252",
+                "134",
+                "19"
+              ],
+              1
+            ]
+          ],
+          "new_only_examples": [
+            [
+              [
+                "divide",
+                "B",
+                "227",
+                "2",
+                "2"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "227",
+                "129",
+                "19"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "232",
+                "4",
+                "4"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "232",
+                "130",
+                "19"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "232",
+                "6",
+                "6"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "232",
+                "131",
+                "19"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "238",
+                "8",
+                "8"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "238",
+                "132",
+                "19"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "238",
+                "10",
+                "10"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "238",
+                "133",
+                "19"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "240",
+                "10",
+                "10"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "240",
+                "133",
+                "19"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "240",
+                "12",
+                "12"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "240",
+                "134",
+                "19"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "246",
+                "12",
+                "12"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "246",
+                "134",
+                "19"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "246",
+                "14",
+                "14"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "246",
+                "135",
+                "19"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "252",
+                "14",
+                "14"
+              ],
+              1
+            ],
+            [
+              [
+                "divide",
+                "B",
+                "252",
+                "135",
+                "19"
+              ],
+              1
+            ]
+          ]
+        }
+      ],
+      "scope": "Trace covers existing record_replay_site calls only. Any difference refutes a claim that all traced replay predicates are unchanged. Identical traces do not establish completeness for every approximation in the circuit. No full correctness census or resource score."
+    },
+    "streams_retained_on_server": {
+      "/home/hclau/ecdsa_research/breakthrough-replay-layout-audit-20261020/cap1233/ops.bin": {
+        "sha256": "8d458cf4cfbf340264c41a33d1ca4e7fae203420690bcc6dc09cbe2f9ed2ad4f",
+        "bytes": 37851197,
+        "complete": true
+      },
+      "/home/hclau/ecdsa_research/breakthrough-replay-layout-audit-20261020/cap1234/ops.bin": {
+        "sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b",
+        "bytes": 38777871,
+        "complete": true
+      },
+      "/home/hclau/ecdsa_research/breakthrough-replay-layout-audit-20261020/cap1232/ops.bin": {
+        "sha256": "23acf8d486739226e3bc2a9b255fa95e27670cd2f54a154a923ed92f647c37e0",
+        "bytes": 37985073,
+        "complete": true
+      },
+      "/home/hclau/ecdsa_research/breakthrough-replay-layout-audit-20261020/observer/ops.bin": {
+        "sha256": "23acf8d486739226e3bc2a9b255fa95e27670cd2f54a154a923ed92f647c37e0",
+        "bytes": 37985073,
+        "complete": true
+      }
+    },
+    "native_binaries": {
+      "/home/hclau/ecdsa_research/breakthrough-replay-layout-audit-20261020/observer/target/release/deps/build_circuit-96cdcfa2d1d068c7": "e40f05cf44b8817fa7a1a8c72a255fa5b77d95bd231b7975e841779fb1ad3a7a",
+      "/home/hclau/ecdsa_research/breakthrough-replay-layout-audit-20261020/observer/target/release/deps/build_circuit-0c12d1b03f2fe721": "b9021545f11c1559ff7f1241f451a353edb6ea21acf4491d46714fa175abade1"
+    },
+    "no_final_gate_nonce_or_scored_result": true,
+    "scope_correction": "Direct profile constants stay fixed, but tighter global caps change derived replay boundaries. Component equivalence does not establish complete point-add equivalence; exact streams and differing replay metadata preserved in breakthrough-replay-layout-audit-20261020."
+  }
+}

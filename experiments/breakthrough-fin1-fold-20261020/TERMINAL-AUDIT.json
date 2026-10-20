@@ -1,0 +1,60 @@
+{
+  "sealed_at_utc": "2026-10-20T04:44:23.032587+00:00",
+  "base": "90e777ea8242faa0acb2462c5cb5be7c318a2d64",
+  "protected_files_checked": 17,
+  "source_freeze_sha256": "9badca0d0c9058ea5a5057783c4eb0153002b9c168c501df730384c4cf373c80",
+  "result": {
+    "status": "RAW_ADMISSION_COMPLETE_NOT_SCORED",
+    "cases": [
+      {
+        "cap": 1234,
+        "exit": 0,
+        "seconds": 4.91627836227417,
+        "builder_totals": [
+          "HEO_TOTAL native=810068 expected=762230.8 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+        ],
+        "raw_sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b"
+      },
+      {
+        "cap": 1233,
+        "exit": 0,
+        "seconds": 5.183755159378052,
+        "builder_totals": [
+          "HEO_TOTAL native=811225 expected=762882.2 peak=1233 peak_op=1444643 peak_phase=divide qubits_touched=1233"
+        ],
+        "raw_sha256": "8d458cf4cfbf340264c41a33d1ca4e7fae203420690bcc6dc09cbe2f9ed2ad4f"
+      },
+      {
+        "cap": 1232,
+        "exit": 101,
+        "seconds": 0.7018873691558838,
+        "builder_totals": [],
+        "failure_tail": "_lt_phase\t18\t7145022\t7145231\t1194\t1194\t8.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t7145621\t7145830\t1194\t1194\t8.5\nDIRTY_DIRECT_PLAN\t7146010\t30\t1204\t0\t0\t28\t[30]\nDIRTY_FRAGMENT\tdirect_add_phase_transport\t30\t7146010\t7146437\t1204\t1204\t29\nDIRTY_FRAGMENT\tfold_double_joint\t52\t7145992\t7146688\t1202\t1202\t51\nDIRTY_FRAGMENT\tcmp_lt_phase\t13\t7146738\t7146887\t1194\t1194\t6\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t7146891\t7147100\t1193\t1193\t8.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t4\t7150391\t7150430\t1197\t1197\t1.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t7150790\t7150999\t1197\t1197\t8.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t7151359\t7151568\t1197\t1197\t8.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t7151928\t7152137\t1197\t1197\t8.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t7152497\t7152706\t1197\t1197\t8.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t7153066\t7153275\t1197\t1197\t8.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t7153635\t7153844\t1197\t1197\t8.5\nDIRTY_FRAGMENT\tchunked_add\t256\t7150002\t7153846\t1195\t1196\t308.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t11\t7154807\t7154930\t1198\t1198\t5\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t7155280\t7155489\t1198\t1198\t8.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t7155839\t7156048\t1198\t1198\t8.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t7156398\t7156607\t1198\t1198\t8.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t7156957\t7157166\t1198\t1198\t8.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t7157516\t7157725\t1198\t1198\t8.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t7158075\t7158284\t1198\t1198\t8.5\nDIRTY_FRAGMENT\tchunked_add\t256\t7154358\t7158286\t1196\t1197\t312\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t7159467\t7159676\t1199\t1199\t8.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t7160016\t7160225\t1199\t1199\t8.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t7160565\t7160774\t1199\t1199\t8.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t7161114\t7161323\t1199\t1199\t8.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t7161653\t7161862\t1199\t1199\t8.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t7162192\t7162401\t1199\t1199\t8.5\nDIRTY_FRAGMENT\tchunked_add\t236\t7158798\t7162403\t1197\t1198\t287\n\nthread 'main' (2534948) panicked at src/bin/../point_add/y15_onefold.rs:631:5:\ny16 at rev t=126: the room is too small: fold short of 21 (room 14, need 35), m0's erase short of 13 (room 22, need 35), block 16 + 2 + 2 for the fold, + 0 + 1 for the erase\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\nCommand exited with non-zero status 101\n\tCommand being timed: \"/home/hclau/ecdsa_research/breakthrough-fin1-fold-20261020/observer/target/release/build_circuit\"\n\tUser time (seconds): 0.30\n\tSystem time (seconds): 0.37\n\tPercent of CPU this job got: 99%\n\tElapsed (wall clock) time (h:mm:ss or m:ss): 0:00.67\n\tAverage shared text size (kbytes): 0\n\tAverage unshared data size (kbytes): 0\n\tAverage stack size (kbytes): 0\n\tAverage total size (kbytes): 0\n\tMaximum resident set size (kbytes): 397440\n\tAverage resident set size (kbytes): 0\n\tMajor (requiring I/O) page faults: 0\n\tMinor (reclaiming a frame) page faults: 98356\n\tVoluntary context switches: 1\n\tInvoluntary context switches: 1\n\tSwaps: 0\n\tFile system inputs: 0\n\tFile system outputs: 360\n\tSocket messages sent: 0\n\tSocket messages received: 0\n\tSignals delivered: 0\n\tPage size (bytes): 4096\n\tExit status: 101\n"
+      }
+    ],
+    "preserved_negative_case": "cap1232 generation failed; successful controls are raw only"
+  },
+  "streams_retained_on_server": {
+    "/home/hclau/ecdsa_research/breakthrough-fin1-fold-20261020/cap1233/ops.bin": {
+      "sha256": "8d458cf4cfbf340264c41a33d1ca4e7fae203420690bcc6dc09cbe2f9ed2ad4f",
+      "bytes": 37851197,
+      "complete": true
+    },
+    "/home/hclau/ecdsa_research/breakthrough-fin1-fold-20261020/cap1234/ops.bin": {
+      "sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b",
+      "bytes": 38777871,
+      "complete": true
+    },
+    "/home/hclau/ecdsa_research/breakthrough-fin1-fold-20261020/observer/ops.bin": {
+      "sha256": "8d458cf4cfbf340264c41a33d1ca4e7fae203420690bcc6dc09cbe2f9ed2ad4f",
+      "bytes": 37851197,
+      "complete": true
+    }
+  },
+  "native_binaries": {
+    "/home/hclau/ecdsa_research/breakthrough-fin1-fold-20261020/observer/target/release/deps/build_circuit-96cdcfa2d1d068c7": "02c4e8043e434d850b2cea34d4110197babef28d81a0d922d380ea5a67938223",
+    "/home/hclau/ecdsa_research/breakthrough-fin1-fold-20261020/observer/target/release/deps/build_circuit-0c12d1b03f2fe721": "158bfb8f6c242ad14da2c9cb0a22d5df0429c84b7560a4580406a3ca3fde604e"
+  },
+  "no_final_gate_nonce_or_scored_result": true,
+  "scope_correction": "Direct profile constants stay fixed, but tighter global caps change derived replay boundaries. Component equivalence does not establish complete point-add equivalence; exact streams and differing replay metadata preserved in breakthrough-replay-layout-audit-20261020."
+}

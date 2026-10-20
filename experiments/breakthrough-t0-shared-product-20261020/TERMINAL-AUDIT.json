@@ -1,0 +1,52 @@
+{
+  "sealed_at_utc": "2026-10-20T04:44:09.809139+00:00",
+  "base": "90e777ea8242faa0acb2462c5cb5be7c318a2d64",
+  "protected_files_checked": 17,
+  "source_freeze_sha256": "5ece67718f8269120b2a1bac36a505976163476e032b1fba055a596d40c2ead6",
+  "result": {
+    "status": "RAW_ADMISSION_COMPLETE_NOT_SCORED",
+    "cases": [
+      {
+        "cap": 1234,
+        "exit": 0,
+        "seconds": 4.273672580718994,
+        "builder_totals": [
+          "HEO_TOTAL native=810068 expected=762230.8 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+        ],
+        "raw_sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b"
+      },
+      {
+        "cap": 1233,
+        "exit": 0,
+        "seconds": 4.418531656265259,
+        "builder_totals": [
+          "HEO_TOTAL native=811225 expected=762882.2 peak=1233 peak_op=1444643 peak_phase=divide qubits_touched=1233"
+        ],
+        "raw_sha256": "8d458cf4cfbf340264c41a33d1ca4e7fae203420690bcc6dc09cbe2f9ed2ad4f"
+      }
+    ]
+  },
+  "streams_retained_on_server": {
+    "/home/hclau/ecdsa_research/breakthrough-t0-shared-product-20261020/cap1233/ops.bin": {
+      "sha256": "8d458cf4cfbf340264c41a33d1ca4e7fae203420690bcc6dc09cbe2f9ed2ad4f",
+      "bytes": 37851197,
+      "complete": true
+    },
+    "/home/hclau/ecdsa_research/breakthrough-t0-shared-product-20261020/cap1234/ops.bin": {
+      "sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b",
+      "bytes": 38777871,
+      "complete": true
+    },
+    "/home/hclau/ecdsa_research/breakthrough-t0-shared-product-20261020/observer/ops.bin": {
+      "sha256": "8d458cf4cfbf340264c41a33d1ca4e7fae203420690bcc6dc09cbe2f9ed2ad4f",
+      "bytes": 37851197,
+      "complete": true
+    }
+  },
+  "native_binaries": {
+    "/home/hclau/ecdsa_research/breakthrough-t0-shared-product-20261020/observer/target/release/deps/build_circuit-96cdcfa2d1d068c7": "1e244de379d5a6fe30fc3d6307bf7e1e11696cbcf3dab1ab3af1ae57cbad417d",
+    "/home/hclau/ecdsa_research/breakthrough-t0-shared-product-20261020/observer/target/release/deps/build_circuit-0c12d1b03f2fe721": "692525f4a214cb82fd60e074a6b83187869f29b2c13e2e4054ebb2a24a94e49f"
+  },
+  "no_final_gate_nonce_or_scored_result": true,
+  "scope_correction": "Direct profile constants stay fixed, but tighter global caps change derived replay boundaries. Component equivalence does not establish complete point-add equivalence; exact streams and differing replay metadata preserved in breakthrough-replay-layout-audit-20261020."
+}

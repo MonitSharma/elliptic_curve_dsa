@@ -1,0 +1,30 @@
+{
+  "status": "RAW_ADMISSION_COMPLETE_NOT_SCORED",
+  "cases": [
+    {
+      "cap": 1234,
+      "exit": 0,
+      "seconds": 4.346269130706787,
+      "builder_totals": [
+        "HEO_TOTAL native=810068 expected=762230.8 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+      ],
+      "raw_sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b"
+    },
+    {
+      "cap": 1233,
+      "exit": 0,
+      "seconds": 5.277003526687622,
+      "builder_totals": [
+        "HEO_TOTAL native=811225 expected=762882.2 peak=1233 peak_op=1444643 peak_phase=divide qubits_touched=1233"
+      ],
+      "raw_sha256": "8d458cf4cfbf340264c41a33d1ca4e7fae203420690bcc6dc09cbe2f9ed2ad4f"
+    },
+    {
+      "cap": 1232,
+      "exit": 101,
+      "seconds": 0.7412559986114502,
+      "builder_totals": [],
+      "failure_tail": "1199\t8.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t7161114\t7161323\t1199\t1199\t8.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t7161653\t7161862\t1199\t1199\t8.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t7162192\t7162401\t1199\t1199\t8.5\nDIRTY_FRAGMENT\tchunked_add\t236\t7158798\t7162403\t1197\t1198\t287\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t7171276\t7171485\t1212\t1212\t4.25\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t7172224\t7172433\t1212\t1212\t4.25\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t7173064\t7173273\t1193\t1193\t8.5\nNARROW_Y42 R 126 put back\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t7178306\t7178515\t1196\t1196\t8.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t7178885\t7179094\t1196\t1196\t8.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t7179464\t7179673\t1196\t1196\t8.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t7180033\t7180242\t1196\t1196\t8.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t7180602\t7180811\t1196\t1196\t8.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t7181171\t7181380\t1196\t1196\t8.5\nDIRTY_FRAGMENT\tchunked_add\t256\t7177577\t7181382\t1194\t1195\t307\nDIRTY_FRAGMENT\tcmp_lt_phase\t4\t7182283\t7182322\t1197\t1197\t1.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t7182682\t7182891\t1197\t1197\t8.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t7183251\t7183460\t1197\t1197\t8.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t7183820\t7184029\t1197\t1197\t8.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t7184389\t7184598\t1197\t1197\t8.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t7184958\t7185167\t1197\t1197\t8.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t7185527\t7185736\t1197\t1197\t8.5\nDIRTY_FRAGMENT\tchunked_add\t256\t7181894\t7185738\t1195\t1196\t308.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t7186919\t7187128\t1198\t1198\t8.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t7187468\t7187677\t1198\t1198\t8.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t7188017\t7188226\t1198\t1198\t8.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t7188566\t7188775\t1198\t1198\t8.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t7189105\t7189314\t1198\t1198\t8.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t7189644\t7189853\t1198\t1198\t8.5\nDIRTY_FRAGMENT\tchunked_add\t236\t7186250\t7189855\t1196\t1197\t287\n\nthread 'main' (2538306) panicked at src/bin/../point_add/y15_onefold.rs:632:5:\ny16 at rev t=125: the room is too small: fold short of 21 (room 15, need 36), m0's erase short of 12 (room 23, need 35), block 16 + 2 + 2 for the fold, + 0 + 1 for the erase\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\nCommand exited with non-zero status 101\n\tCommand being timed: \"/home/hclau/ecdsa_research/breakthrough-reverse-plan7-20261020/observer/target/release/build_circuit\"\n\tUser time (seconds): 0.33\n\tSystem time (seconds): 0.38\n\tPercent of CPU this job got: 99%\n\tElapsed (wall clock) time (h:mm:ss or m:ss): 0:00.71\n\tAverage shared text size (kbytes): 0\n\tAverage unshared data size (kbytes): 0\n\tAverage stack size (kbytes): 0\n\tAverage total size (kbytes): 0\n\tMaximum resident set size (kbytes): 398592\n\tAverage resident set size (kbytes): 0\n\tMajor (requiring I/O) page faults: 0\n\tMinor (reclaiming a frame) page faults: 98729\n\tVoluntary context switches: 2\n\tInvoluntary context switches: 1\n\tSwaps: 0\n\tFile system inputs: 0\n\tFile system outputs: 360\n\tSocket messages sent: 0\n\tSocket messages received: 0\n\tSignals delivered: 0\n\tPage size (bytes): 4096\n\tExit status: 101\n"
+    }
+  ]
+}

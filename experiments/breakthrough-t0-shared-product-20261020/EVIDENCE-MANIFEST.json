@@ -1,0 +1,92 @@
+{
+  "files": {
+    "ADMISSION-PROGRESS.json": "ad6054175f0fa6d006bebb7202d9a73430961156cdfa1ea7d54a9e70516a6fb8",
+    "ADMISSION-RESULT.json": "0d9f3580b1c632f7cc2e3a4e56c1dd0d10bddfff922989141593ef3e7775e793",
+    "SOURCE_FREEZE.json": "5ece67718f8269120b2a1bac36a505976163476e032b1fba055a596d40c2ead6",
+    "TERMINAL-AUDIT.json": "7790ab772169565395ffd3c37d070157f5b0e20cac58e22b79444ce0d6f27b8f",
+    "build.log": "e842b0030c1f5d39ec26f6eb86f75011779e2ae10d33a4abffdf8d1dc91f1699",
+    "build.out": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fix-flags.py": "62880c76ced0e902a3250adfd5ede408ea847bd5906105810abe6f3899a7b9a5",
+    "launch.py": "bb38c1fda83d94349e88c199bb9404a62a038d22743762a05f904dd307aa6eb5",
+    "make-run.py": "7a67cc5cbccda9430cbffe1ad2c6e6b31e56b8a2d16f839bd03916a27c5d076f",
+    "nohup.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prepare.log": "68486bc28d475b600ced96cce21ab5b547aa35ec778f3a1889f0bed157a37d5c",
+    "prepare.py": "308c31496f531872a5ad752c0393289a1fb444ce3b26b9440f1fb1035b7eb6ad",
+    "run.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "run.pid": "48ba2a8af9a0c9876411f66b953f384180f26dcea85a1403e8dfce3b179953df",
+    "run.sh": "0a17224da39e52d55e870baf6fa8f9e4612dd293ca1f4c15d12ec2908a7c7117",
+    "source.patch": "e82bdc7c9543a5947ddcc8544e67613ec1dc5a0be8a16700c54eda5efa4fe5c7",
+    "sweep.log": "b6951713fa0b3ddb2ce732653d1681484a18e6670a50ea54899311f6b004f169",
+    "sweep.py": "40824d51e1a21055f8e4cd217d6632aa6972a5c5ef91e541687510642cfd7671",
+    "tests.log": "eb5116dfe6cf68cb7cf82ae0dd06e27d161a510dd79ea63de4f98b0893ac3339",
+    "tests.rs": "4b0b422b4a30cb1723ac2c4b66e585ea5ff225e7b4855a5aa3ff7cf08dfaf1be",
+    "added-source/break_profile.rs": "a7e94c66704031f4f0810059f15ca1893ddc5e006a5b82b8c582c67228609515",
+    "added-source/core_loan_certificate.rs": "b10079269bf6c797e680e66097b40f6246cb4715d18215dae82719a17398cfce",
+    "added-source/core_loan_runtime.rs": "9cae697e5919e737c82722c8ddc3ac6ee7cf61966b617bfbe91c356fcb777910",
+    "added-source/phase_fit.rs": "7a5e26ea94186d534775c3bdf06797267e0d3115d86b018deaf7bba9838a5bf4",
+    "added-source/phase_fusion.rs": "39bd1eed7dd29f5ea1516f60e6f205c07f210514dbb092dd6a9f9be652680f5a",
+    "added-source/phase_pebble.rs": "403c79b3d888c098aef06e24459d5425905f65f7e6722fc20b34245d674a6935",
+    "added-source/terminal_pebble.rs": "6cc274871604485ec47f5bc5dc9dfe0056b2164a1ac7a4c8861e9b1ab9ec40d9",
+    "added-source/zero_carry.rs": "ea5fe10fa4017145776bdd45f8bb430ce25059650b77bcdbc0790b49f7bbcc90",
+    "cap1233/child.pid": "4a80611db52f07c39c4bcef3bf86b4e9908284aa647fc106809a32d989914beb",
+    "cap1233/generate.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "cap1233/generate.log": "daec013bcce597c58d190e8b6346cdb48df3fd99ff2b339b63dfc55652ce70ac",
+    "cap1233/generate.out": "001c7665d9be0dfc6cd3fffc54d5e21235cba9d21d201be61eb18c4fa0054464",
+    "cap1234/child.pid": "64b011a1a32ac9e7f9861b8604263ef8ca3e16d62543988ea4c16ebfab990061",
+    "cap1234/generate.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "cap1234/generate.log": "7fe23a92612d55cd35e333a182c1fab1efe0bf219481b436d5a662cb1a864312",
+    "cap1234/generate.out": "cab4b02a10748f1c267a12869dc76b3a605128238ef48e8f805b520776dec42d"
+  },
+  "terminal_audit": {
+    "sealed_at_utc": "2026-10-20T04:44:09.809139+00:00",
+    "base": "90e777ea8242faa0acb2462c5cb5be7c318a2d64",
+    "protected_files_checked": 17,
+    "source_freeze_sha256": "5ece67718f8269120b2a1bac36a505976163476e032b1fba055a596d40c2ead6",
+    "result": {
+      "status": "RAW_ADMISSION_COMPLETE_NOT_SCORED",
+      "cases": [
+        {
+          "cap": 1234,
+          "exit": 0,
+          "seconds": 4.273672580718994,
+          "builder_totals": [
+            "HEO_TOTAL native=810068 expected=762230.8 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+          ],
+          "raw_sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b"
+        },
+        {
+          "cap": 1233,
+          "exit": 0,
+          "seconds": 4.418531656265259,
+          "builder_totals": [
+            "HEO_TOTAL native=811225 expected=762882.2 peak=1233 peak_op=1444643 peak_phase=divide qubits_touched=1233"
+          ],
+          "raw_sha256": "8d458cf4cfbf340264c41a33d1ca4e7fae203420690bcc6dc09cbe2f9ed2ad4f"
+        }
+      ]
+    },
+    "streams_retained_on_server": {
+      "/home/hclau/ecdsa_research/breakthrough-t0-shared-product-20261020/cap1233/ops.bin": {
+        "sha256": "8d458cf4cfbf340264c41a33d1ca4e7fae203420690bcc6dc09cbe2f9ed2ad4f",
+        "bytes": 37851197,
+        "complete": true
+      },
+      "/home/hclau/ecdsa_research/breakthrough-t0-shared-product-20261020/cap1234/ops.bin": {
+        "sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b",
+        "bytes": 38777871,
+        "complete": true
+      },
+      "/home/hclau/ecdsa_research/breakthrough-t0-shared-product-20261020/observer/ops.bin": {
+        "sha256": "8d458cf4cfbf340264c41a33d1ca4e7fae203420690bcc6dc09cbe2f9ed2ad4f",
+        "bytes": 37851197,
+        "complete": true
+      }
+    },
+    "native_binaries": {
+      "/home/hclau/ecdsa_research/breakthrough-t0-shared-product-20261020/observer/target/release/deps/build_circuit-96cdcfa2d1d068c7": "1e244de379d5a6fe30fc3d6307bf7e1e11696cbcf3dab1ab3af1ae57cbad417d",
+      "/home/hclau/ecdsa_research/breakthrough-t0-shared-product-20261020/observer/target/release/deps/build_circuit-0c12d1b03f2fe721": "692525f4a214cb82fd60e074a6b83187869f29b2c13e2e4054ebb2a24a94e49f"
+    },
+    "no_final_gate_nonce_or_scored_result": true,
+    "scope_correction": "Direct profile constants stay fixed, but tighter global caps change derived replay boundaries. Component equivalence does not establish complete point-add equivalence; exact streams and differing replay metadata preserved in breakthrough-replay-layout-audit-20261020."
+  }
+}

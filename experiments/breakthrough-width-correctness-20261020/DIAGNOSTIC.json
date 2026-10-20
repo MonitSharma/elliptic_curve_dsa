@@ -1,0 +1,226 @@
+{
+  "status": "DEVELOPMENT_COMPARISON_COMPLETE_PRESERVE_ALL_MISMATCHES",
+  "label": "breakthrough-width-layout-development-v1",
+  "batches": 512,
+  "summaries": {
+    "raw1234": {
+      "value_shots": 57,
+      "phase_shots": 45,
+      "dirty_shots": 0,
+      "failed_batches": 61,
+      "mean_executed_raw_toffoli": 762229.3843078613,
+      "rows_sha256": "0ac90bc67df6202832f070af26a2580d4fd92522d3ba5f34af898aa3385a4ad9"
+    },
+    "raw1233": {
+      "value_shots": 57,
+      "phase_shots": 32,
+      "dirty_shots": 0,
+      "failed_batches": 60,
+      "mean_executed_raw_toffoli": 762881.2916870117,
+      "rows_sha256": "f1aa524cacd16d1bfc6cf8b0f9c3ead752e924b1c7c41fea7a7b4af2c8e51feb"
+    },
+    "raw1232": {
+      "value_shots": 57,
+      "phase_shots": 37,
+      "dirty_shots": 0,
+      "failed_batches": 67,
+      "mean_executed_raw_toffoli": 763622.8829650879,
+      "rows_sha256": "283a2f1ec87efd28b90e75982c54b9e67e90d4932fe9856206da886fdd15614a"
+    }
+  },
+  "comparisons": {
+    "raw1233": {
+      "candidate_minus_parent_raw_toffoli": 651.9073791503906,
+      "paired_standard_error": 4.450394113171203,
+      "new_failed_batches": 5,
+      "new_passing_batches": 6,
+      "new_value_failing_shots": [],
+      "new_value_passing_shots": [],
+      "different_target_lanes": [
+        {
+          "batch": 8,
+          "lane": 13,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 46,
+          "lane": 29,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 52,
+          "lane": 43,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 86,
+          "lane": 2,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 87,
+          "lane": 41,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 107,
+          "lane": 11,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 173,
+          "lane": 46,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 176,
+          "lane": 8,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 213,
+          "lane": 14,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 295,
+          "lane": 28,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 329,
+          "lane": 62,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 386,
+          "lane": 55,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 453,
+          "lane": 58,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 498,
+          "lane": 51,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        }
+      ],
+      "different_other_lanes": [],
+      "target_differences_confined_to_both_value_failing": true
+    },
+    "raw1232": {
+      "candidate_minus_parent_raw_toffoli": 1393.4986572265625,
+      "paired_standard_error": 4.565996769843185,
+      "new_failed_batches": 12,
+      "new_passing_batches": 6,
+      "new_value_failing_shots": [],
+      "new_value_passing_shots": [],
+      "different_target_lanes": [
+        {
+          "batch": 8,
+          "lane": 13,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 46,
+          "lane": 29,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 52,
+          "lane": 43,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 86,
+          "lane": 2,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 87,
+          "lane": 41,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 107,
+          "lane": 11,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 173,
+          "lane": 46,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 176,
+          "lane": 8,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 213,
+          "lane": 14,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 295,
+          "lane": 28,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 329,
+          "lane": 62,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 386,
+          "lane": 55,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 453,
+          "lane": 58,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 498,
+          "lane": 51,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        }
+      ],
+      "different_other_lanes": [],
+      "target_differences_confined_to_both_value_failing": true
+    }
+  },
+  "scope": "Paired development diagnostic of changed global replay layout, versus the exact historical raw construction control. Not a declared final failure-rate gate, not a comparison to the current optimized public record, and not an official benchmark. Preserve every mismatch. No nonce or tuning to these inputs."
+}

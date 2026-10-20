@@ -8,3 +8,5 @@ s=s.replace("assert len(result['cases'])==2 and all(row['exit']==0 for row in re
 s=(r/'collect-core-loan-native.py').read_text().replace('allowed=[',"allowed=['breakthrough-global-cap-20261020',",1)
 s=s.replace("for m in members:\n   p=Path(m.name);data=archive.extractfile(m).read()","for m in members:\n   p=Path(m.name);data=archive.extractfile(m).read();retained[m.name]=data")
 (r/'collect-core-loan-native.py').write_bytes(s.encode())
+s=(r/'seal-core-loan-native.py').read_text().replace('config={',"config={\n 'breakthrough-core-loan-preflight-20261020':('observer','SOURCE_FREEZE-v2.json','run-v2.exit','tests-v2.log',[1,1,3,1,4,3,2,3,1,1],'ADMISSION-RESULT.json'),",1);(r/'seal-core-loan-native.py').write_bytes(s.encode())
+s=(r/'collect-core-loan-native.py').read_text().replace('allowed=[',"allowed=['breakthrough-core-loan-preflight-20261020',",1);(r/'collect-core-loan-native.py').write_bytes(s.encode())

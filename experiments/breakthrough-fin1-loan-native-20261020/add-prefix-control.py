@@ -1,0 +1,5 @@
+from pathlib import Path
+r=Path(__file__).resolve().parent;p=r/'tests.rs';raw=p.read_bytes();a=b'let mut rng=Words{bytes,pos:0};let mut s=';b=b'let prefix_bytes=bytes.clone();let mut rng=Words{bytes,pos:0};let mut s=';assert raw.count(a)==1;raw=raw.replace(a,b)
+a=b'   let _=&marks;';b=b'''   let mut prefix_rng=Words{bytes:prefix_bytes,pos:0};let mut prefix=Simulator::new(nq as usize,nb as usize,&mut prefix_rng);prefix.qubits.copy_from_slice(&initial);prefix.bits[bit.0 as usize]=guard;prefix.apply_iter(ops[..marks[1]].iter());assert_eq!(prefix.phase,0,"compressed phase batch{batch}");
+   let compressed:Vec<u64>=include_str!("fin1_compressed.dat").split_whitespace().map(|x|x.parse().unwrap()).collect();for(i,&q)in held.iter().enumerate(){assert_eq!(prefix.qubits[q.0 as usize],if i<20{compressed[i*256+batch]&guard}else{0},"compressed helper{i} batch{batch}");}for &q in &input{assert_eq!(prefix.qubits[q.0 as usize],initial[q.0 as usize]);}
+''';assert raw.count(a)==1;raw=raw.replace(a,b);p.write_bytes(raw)

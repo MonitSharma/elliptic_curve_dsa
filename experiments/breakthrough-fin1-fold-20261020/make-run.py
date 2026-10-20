@@ -1,0 +1,6 @@
+from pathlib import Path
+r=Path(__file__).resolve().parent;old=r.parent/'breakthrough-core-loan-fold-20261020';raw=(old/'tests.rs').read_bytes()
+changes=[(b'core_loan_fold_tests',b'fin1_fold_tests'),(b'core_loans::force',b'core_loans_fin1::force'),(b'1234-budget-(64+31-usize::from(ttm))',b'1232-budget-(64+30)'),(b'if new{"1233"}else{"1234"}',b'if new{"1232"}else{"1234"}'),(b'with_phase_cap(Some(1234)',b'with_phase_cap(Some(if new{1232}else{1250})'),(b'k1,k2,0,None,ttm,2',b'k1,k2,1,None,ttm,2'),(b'peak<=if new{1233}else{1234}',b'peak<=if new{1232}else{1250}'),(b'for budget in 6..=10{for ttm in[false,true]',b'for budget in 0..=6{for ttm in[false]'),(b'build(6,true,false)',b'build(0,false,false)'),(b'build(6,true,true)',b'build(0,false,true)'),(b'fixture(6,true,',b'fixture(0,false,'),(b'CORE_LOAN_FULL_FOLD',b'FIN1_COMPLETE_FOLD')]
+for a,b in changes:assert a in raw,a;raw=raw.replace(a,b)
+(r/'tests.rs').write_bytes(raw);old=r.parent/'breakthrough-t0-shared-product-20261020';(r/'run.sh').write_bytes((old/'run.sh').read_bytes().replace(b'breakthrough-t0-shared-product',b'breakthrough-fin1-fold').replace(b'for filter in t0_shared_product_tests',b'for filter in fin1_fold_tests t0_shared_product_tests'))
+for n in ['launch.py','sweep.py']:(r/n).write_bytes((old/n).read_bytes())

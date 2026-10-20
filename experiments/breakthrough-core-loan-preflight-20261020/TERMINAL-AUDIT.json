@@ -1,0 +1,46 @@
+{
+  "sealed_at_utc": "2026-10-20T03:59:59.090318+00:00",
+  "base": "90e777ea8242faa0acb2462c5cb5be7c318a2d64",
+  "protected_files_checked": 17,
+  "source_freeze_sha256": "135ef47d64c5b73e8b7d83815e99ce22b921035acd69d8a615ad3b16917c8a53",
+  "result": {
+    "status": "RAW_ADMISSION_COMPLETE_NOT_SCORED",
+    "cases": [
+      {
+        "cap": 1234,
+        "exit": 0,
+        "seconds": 4.287420272827148,
+        "builder_totals": [
+          "HEO_TOTAL native=810068 expected=762230.8 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+        ],
+        "raw_sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b"
+      },
+      {
+        "cap": 1233,
+        "exit": 0,
+        "seconds": 4.432959079742432,
+        "builder_totals": [
+          "HEO_TOTAL native=811481 expected=763010.2 peak=1233 peak_op=1444643 peak_phase=divide qubits_touched=1233"
+        ],
+        "raw_sha256": "d6934faaa92d07c13cbdbe0297682595f21c290ebe88e8e1297f373b36e09989"
+      }
+    ]
+  },
+  "streams_retained_on_server": {
+    "/home/hclau/ecdsa_research/breakthrough-core-loan-preflight-20261020/cap1233/ops.bin": {
+      "sha256": "d6934faaa92d07c13cbdbe0297682595f21c290ebe88e8e1297f373b36e09989",
+      "bytes": 37860675,
+      "complete": true
+    },
+    "/home/hclau/ecdsa_research/breakthrough-core-loan-preflight-20261020/cap1234/ops.bin": {
+      "sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b",
+      "bytes": 38777871,
+      "complete": true
+    }
+  },
+  "native_binaries": {
+    "/home/hclau/ecdsa_research/breakthrough-core-loan-preflight-20261020/observer/target/release/deps/build_circuit-96cdcfa2d1d068c7": "9aedfa6aa34d22d7e47412aaa23f83747181628ede258d6e9d9dc6ab5a81cfe2",
+    "/home/hclau/ecdsa_research/breakthrough-core-loan-preflight-20261020/observer/target/release/deps/build_circuit-0c12d1b03f2fe721": "58e14df41274d615310b7f2647df9fb0842a345fedad33bb2d4d0f35ebfbf6cb"
+  },
+  "no_final_gate_nonce_or_scored_result": true
+}

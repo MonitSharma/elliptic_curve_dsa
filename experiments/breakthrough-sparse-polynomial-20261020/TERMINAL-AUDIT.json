@@ -1,0 +1,35 @@
+{
+  "sealed_at_utc": "2026-10-20T04:54:10.910664+00:00",
+  "base": "90e777ea8242faa0acb2462c5cb5be7c318a2d64",
+  "protected_files_checked": 17,
+  "source_freeze_sha256": "793ee7d0fab379e9936d9cdf93641a05886f11cfc12cfb0309e53b770f38dbc8",
+  "result": {
+    "exit": 0,
+    "seconds": 210.48312306404114,
+    "input_stream_sha256": "bc6fec885e7ebfdad405dddc86519d053d6398aa7b2be1c7a2459d8128444a39",
+    "stages": [
+      "POLY_STAGE name=identities ops=11090650 nq=1233 nb=2457 native=810868 depth_weight=762345.250000 diagnostic_only=1",
+      "POLY_STAGE name=witnesses ops=11090650 nq=1233 nb=2457 native=810867 depth_weight=762344.750000 diagnostic_only=1"
+    ],
+    "streams": {
+      "optimized-poly.ops.bin": {
+        "sha256": "f84e09164ad5ed6f2ffd7d4b1f8843cde9fdc2a1edbb89d7a07eb95cd9a1d4b5",
+        "bytes": 37087720
+      }
+    },
+    "scope": "Exact research optimizer on frozen generic stream. No final gate, full benchmark, nonce or resource record; depth weights diagnostic only."
+  },
+  "streams_retained_on_server": {
+    "/home/hclau/ecdsa_research/breakthrough-sparse-polynomial-20261020/optimized-poly.ops.bin": {
+      "sha256": "f84e09164ad5ed6f2ffd7d4b1f8843cde9fdc2a1edbb89d7a07eb95cd9a1d4b5",
+      "bytes": 37087720,
+      "complete": true
+    }
+  },
+  "native_binaries": {
+    "/home/hclau/ecdsa_research/breakthrough-sparse-polynomial-20261020/tool/target/release/deps/build_circuit-96cdcfa2d1d068c7": "1af194c2fa97ae39718b131cdd9eedaa785e6f2f2f462cafaf37b68e97777124",
+    "/home/hclau/ecdsa_research/breakthrough-sparse-polynomial-20261020/tool/target/release/deps/build_circuit-0c12d1b03f2fe721": "8a98fb6fc98ab95c86e8b3088c0dc62523e0ae4b004677a72d23cb971c839587"
+  },
+  "no_final_gate_nonce_or_scored_result": true,
+  "scope_correction": "Direct profile constants stay fixed, but tighter global caps change derived replay boundaries. Component equivalence does not establish complete point-add equivalence; exact streams and differing replay metadata preserved in breakthrough-replay-layout-audit-20261020."
+}

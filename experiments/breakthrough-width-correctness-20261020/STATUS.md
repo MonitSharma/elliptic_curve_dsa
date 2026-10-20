@@ -1,0 +1,3 @@
+# Paired raw-width diagnostic: output equality not established
+
+Label breakthrough-width-layout-development-v1,512x64 shots/source,4workers and8 protected scalar batches each. Raw1234/1233/1232 have57 identical value-failing shot IDs, zero dirty shots and equal other registers. Both narrower streams differ on14 target lanes already value-failing in both. Phase failures45/32/37; failed batches61/60/67. All mismatches and per-lane output hashes retained. This is development evidence versus historical raw control, not the current optimized public parent or a final gate. No scored improvement, nonce, unchanged benchmark or universal equivalence claim. All23 evidence members verify locally.
