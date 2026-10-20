@@ -1,0 +1,222 @@
+{
+  "status": "EXACT_ALL16384_RETAINED_HELPER_MODEL_NOT_NATIVE",
+  "rebuild_to_forward_erasure": [
+    10,
+    9,
+    8,
+    7,
+    6,
+    5,
+    4,
+    3,
+    2,
+    1,
+    0
+  ],
+  "frontier": [
+    {
+      "retained": 0,
+      "mask": 0,
+      "forward_erasure_ids": [],
+      "prefix_peak_helpers": 27,
+      "held_through_ladder": 20,
+      "core_ANDs": 42,
+      "core_HMRs": 42,
+      "minimum_room_with_eight_ladder_wires": 28
+    },
+    {
+      "retained": 1,
+      "mask": 1024,
+      "forward_erasure_ids": [
+        10
+      ],
+      "prefix_peak_helpers": 27,
+      "held_through_ladder": 21,
+      "core_ANDs": 41,
+      "core_HMRs": 41,
+      "minimum_room_with_eight_ladder_wires": 29
+    },
+    {
+      "retained": 2,
+      "mask": 1536,
+      "forward_erasure_ids": [
+        9,
+        10
+      ],
+      "prefix_peak_helpers": 27,
+      "held_through_ladder": 22,
+      "core_ANDs": 40,
+      "core_HMRs": 40,
+      "minimum_room_with_eight_ladder_wires": 30
+    },
+    {
+      "retained": 3,
+      "mask": 1792,
+      "forward_erasure_ids": [
+        8,
+        9,
+        10
+      ],
+      "prefix_peak_helpers": 27,
+      "held_through_ladder": 23,
+      "core_ANDs": 39,
+      "core_HMRs": 39,
+      "minimum_room_with_eight_ladder_wires": 31
+    },
+    {
+      "retained": 4,
+      "mask": 1920,
+      "forward_erasure_ids": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "prefix_peak_helpers": 27,
+      "held_through_ladder": 24,
+      "core_ANDs": 38,
+      "core_HMRs": 38,
+      "minimum_room_with_eight_ladder_wires": 32
+    },
+    {
+      "retained": 5,
+      "mask": 1984,
+      "forward_erasure_ids": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "prefix_peak_helpers": 27,
+      "held_through_ladder": 25,
+      "core_ANDs": 37,
+      "core_HMRs": 37,
+      "minimum_room_with_eight_ladder_wires": 33
+    },
+    {
+      "retained": 6,
+      "mask": 2016,
+      "forward_erasure_ids": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "prefix_peak_helpers": 27,
+      "held_through_ladder": 26,
+      "core_ANDs": 36,
+      "core_HMRs": 36,
+      "minimum_room_with_eight_ladder_wires": 34
+    },
+    {
+      "retained": 7,
+      "mask": 2032,
+      "forward_erasure_ids": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "prefix_peak_helpers": 27,
+      "held_through_ladder": 27,
+      "core_ANDs": 35,
+      "core_HMRs": 35,
+      "minimum_room_with_eight_ladder_wires": 35
+    },
+    {
+      "retained": 8,
+      "mask": 2040,
+      "forward_erasure_ids": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "prefix_peak_helpers": 28,
+      "held_through_ladder": 28,
+      "core_ANDs": 34,
+      "core_HMRs": 34,
+      "minimum_room_with_eight_ladder_wires": 36
+    },
+    {
+      "retained": 9,
+      "mask": 2044,
+      "forward_erasure_ids": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "prefix_peak_helpers": 29,
+      "held_through_ladder": 29,
+      "core_ANDs": 33,
+      "core_HMRs": 33,
+      "minimum_room_with_eight_ladder_wires": 37
+    },
+    {
+      "retained": 10,
+      "mask": 2046,
+      "forward_erasure_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "prefix_peak_helpers": 30,
+      "held_through_ladder": 30,
+      "core_ANDs": 32,
+      "core_HMRs": 32,
+      "minimum_room_with_eight_ladder_wires": 38
+    },
+    {
+      "retained": 11,
+      "mask": 2047,
+      "forward_erasure_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "prefix_peak_helpers": 31,
+      "held_through_ladder": 31,
+      "core_ANDs": 31,
+      "core_HMRs": 31,
+      "minimum_room_with_eight_ladder_wires": 39
+    }
+  ],
+  "forward_ANDs": 31,
+  "unretained_cleanup_ANDs": 11,
+  "forward_phase_coefficients_verified": 11,
+  "cleanup_phase_coefficients_verified": 31,
+  "source_sha256": "d1b7b3d7d4bcff1732b7aff202841bc6cc323c26129107f23a40d567ae304e5d",
+  "model_sha256": "5815067a2058d0512db5378bb6b62d795439df4057cf74217e97021b03b6273a",
+  "scope": "Each selected forward HMR/phase repair is omitted and that same physical value is kept outside the schedule, then reinserted at its exactly matching cleanup rebuild, omitting one AND and one HMR. All14-input value/phase functions match exactly. Lifecycle frontier minimizes peak then saved lifetime for each retained count. More held wires can increase complete ladder cost. Native exhaustive phase/ancilla controls and full raw resource grid still required; no circuit score or final gate."
+}

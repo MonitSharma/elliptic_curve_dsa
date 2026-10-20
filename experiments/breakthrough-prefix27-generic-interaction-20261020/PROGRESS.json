@@ -1,0 +1,82 @@
+[
+  {
+    "label": "control",
+    "path": "/home/hclau/ecdsa_research/breakthrough-prefix27-cleanup11-native-20261020/case0/ops.bin",
+    "sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b",
+    "raw_row": {
+      "cap": 1234,
+      "mode": "control",
+      "room": 30,
+      "windows": "56,57",
+      "index": 0,
+      "exit": 0,
+      "seconds": 4.264845371246338,
+      "builder_totals": [
+        "HEO_TOTAL native=810068 expected=762230.8 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+      ],
+      "prefix27_calls": 0,
+      "raw_sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b"
+    },
+    "operations": 11268527,
+    "qubits": 1234,
+    "diagnostic_weight": 761696.25,
+    "stream_sha256": "40a55e81af487e4f830eca1827d9904f60ed215b33d3bee9f12a801a46c4479c",
+    "seconds": 201.7373971939087,
+    "stages": [
+      "GENERIC_STAGE name=raw ops=11263273 nq=1234 nb=1623 native=810068 depth_weight=762230.750000 diagnostic_only=1",
+      "GENERIC_STAGE name=product ops=11263254 nq=1234 nb=1623 native=810028 depth_weight=762191.750000 diagnostic_only=1",
+      "GENERIC_STAGE name=affine ops=11263254 nq=1234 nb=1623 native=810028 depth_weight=762191.750000 diagnostic_only=1",
+      "GENERIC_STAGE name=quadratic ops=11263254 nq=1234 nb=1623 native=810028 depth_weight=762191.750000 diagnostic_only=1",
+      "GENERIC_STAGE name=truth ops=11263254 nq=1234 nb=1623 native=810028 depth_weight=762191.750000 diagnostic_only=1",
+      "GENERIC_STAGE name=interned_witness ops=11263254 nq=1234 nb=1623 native=810028 depth_weight=762191.750000 diagnostic_only=1",
+      "GENERIC_STAGE name=measurement_absorption ops=11263294 nq=1234 nb=1643 native=809996 depth_weight=762159.750000 diagnostic_only=1",
+      "GENERIC_STAGE name=parity_scan ops=11263294 nq=1234 nb=1643 native=809996 depth_weight=762159.750000 diagnostic_only=1",
+      "GENERIC_STAGE name=conditional ops=11265428 nq=1234 nb=1646 native=809731 depth_weight=762089.750000 diagnostic_only=1",
+      "GENERIC_STAGE name=square_top ops=11268488 nq=1234 nb=2456 native=809731 depth_weight=761707.250000 diagnostic_only=1",
+      "GENERIC_STAGE name=conditional_ur ops=11268491 nq=1234 nb=2457 native=809730 depth_weight=761706.250000 diagnostic_only=1",
+      "GENERIC_STAGE name=zero_force ops=11268491 nq=1234 nb=2457 native=809730 depth_weight=761706.250000 diagnostic_only=1",
+      "GENERIC_STAGE name=classical_factors ops=11268514 nq=1234 nb=2457 native=809720 depth_weight=761698.750000 diagnostic_only=1",
+      "GENERIC_STAGE name=classical_wide ops=11268527 nq=1234 nb=2457 native=809715 depth_weight=761696.250000 diagnostic_only=1"
+    ]
+  },
+  {
+    "label": "compact",
+    "path": "/home/hclau/ecdsa_research/breakthrough-prefix27-cleanup11-native-20261020/case4/ops.bin",
+    "sha256": "5a1a2299bfd31d402d3f9cd0799fb7dcf502c9a4e19b0b1439ca48e1bf3f8017",
+    "raw_row": {
+      "cap": 1234,
+      "mode": "enabled",
+      "room": 30,
+      "windows": "56",
+      "index": 4,
+      "exit": 0,
+      "seconds": 4.376482009887695,
+      "builder_totals": [
+        "HEO_TOTAL native=809872 expected=762282.5 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+      ],
+      "prefix27_calls": 37,
+      "raw_sha256": "5a1a2299bfd31d402d3f9cd0799fb7dcf502c9a4e19b0b1439ca48e1bf3f8017"
+    },
+    "operations": 11094579,
+    "qubits": 1234,
+    "diagnostic_weight": 761748.0,
+    "stream_sha256": "a86e59a2c89e3f55189447b6e3cbec169a69cee204751ff0a0aca220bcc8f058",
+    "seconds": 196.94609999656677,
+    "stages": [
+      "GENERIC_STAGE name=raw ops=11089325 nq=1234 nb=1623 native=809872 depth_weight=762282.500000 diagnostic_only=1",
+      "GENERIC_STAGE name=product ops=11089306 nq=1234 nb=1623 native=809833 depth_weight=762244.500000 diagnostic_only=1",
+      "GENERIC_STAGE name=affine ops=11089306 nq=1234 nb=1623 native=809830 depth_weight=762241.500000 diagnostic_only=1",
+      "GENERIC_STAGE name=quadratic ops=11089306 nq=1234 nb=1623 native=809830 depth_weight=762241.500000 diagnostic_only=1",
+      "GENERIC_STAGE name=truth ops=11089306 nq=1234 nb=1623 native=809830 depth_weight=762241.500000 diagnostic_only=1",
+      "GENERIC_STAGE name=interned_witness ops=11089306 nq=1234 nb=1623 native=809829 depth_weight=762240.500000 diagnostic_only=1",
+      "GENERIC_STAGE name=measurement_absorption ops=11089346 nq=1234 nb=1643 native=809797 depth_weight=762208.500000 diagnostic_only=1",
+      "GENERIC_STAGE name=parity_scan ops=11089346 nq=1234 nb=1643 native=809797 depth_weight=762208.500000 diagnostic_only=1",
+      "GENERIC_STAGE name=conditional ops=11091480 nq=1234 nb=1646 native=809535 depth_weight=762141.500000 diagnostic_only=1",
+      "GENERIC_STAGE name=square_top ops=11094540 nq=1234 nb=2456 native=809535 depth_weight=761759.000000 diagnostic_only=1",
+      "GENERIC_STAGE name=conditional_ur ops=11094543 nq=1234 nb=2457 native=809534 depth_weight=761758.000000 diagnostic_only=1",
+      "GENERIC_STAGE name=zero_force ops=11094543 nq=1234 nb=2457 native=809534 depth_weight=761758.000000 diagnostic_only=1",
+      "GENERIC_STAGE name=classical_factors ops=11094569 nq=1234 nb=2457 native=809523 depth_weight=761750.000000 diagnostic_only=1",
+      "GENERIC_STAGE name=classical_wide ops=11094579 nq=1234 nb=2457 native=809519 depth_weight=761748.000000 diagnostic_only=1"
+    ]
+  }
+]

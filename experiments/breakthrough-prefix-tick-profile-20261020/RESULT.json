@@ -1,0 +1,314 @@
+{
+  "status": "BYTE_IDENTICAL_STRUCTURAL_TICK_PROFILES_NOT_SCORED",
+  "cases": [
+    {
+      "label": "baseline",
+      "keep": 0,
+      "mask": 0,
+      "room": 30,
+      "mode": "control",
+      "expected_raw_sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b",
+      "raw_sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b",
+      "seconds": 4.562182426452637,
+      "tick_count": 550,
+      "builder_totals": [
+        "HEO_TOTAL native=810068 expected=762230.8 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+      ]
+    },
+    {
+      "label": "prior0",
+      "keep": 0,
+      "mask": 0,
+      "room": 30,
+      "mode": "enabled",
+      "expected_raw_sha256": "5a1a2299bfd31d402d3f9cd0799fb7dcf502c9a4e19b0b1439ca48e1bf3f8017",
+      "raw_sha256": "5a1a2299bfd31d402d3f9cd0799fb7dcf502c9a4e19b0b1439ca48e1bf3f8017",
+      "seconds": 4.44745397567749,
+      "tick_count": 550,
+      "builder_totals": [
+        "HEO_TOTAL native=809872 expected=762282.5 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+      ]
+    },
+    {
+      "label": "prior1",
+      "keep": 1,
+      "mask": 1024,
+      "room": 29,
+      "mode": "enabled",
+      "expected_raw_sha256": "401c05282af7da1c11d3cc8bff0a04e909b9a1a57396c77c6688b1d7a285b0f8",
+      "raw_sha256": "401c05282af7da1c11d3cc8bff0a04e909b9a1a57396c77c6688b1d7a285b0f8",
+      "seconds": 4.464579105377197,
+      "tick_count": 550,
+      "builder_totals": [
+        "HEO_TOTAL native=810106 expected=762347.8 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+      ]
+    },
+    {
+      "label": "prior2",
+      "keep": 1,
+      "mask": 1024,
+      "room": 31,
+      "mode": "enabled",
+      "expected_raw_sha256": "e489c204a12a3aebb81df5082c0bf45ca4f9c946cd6946b4eee61d6acf14f23e",
+      "raw_sha256": "e489c204a12a3aebb81df5082c0bf45ca4f9c946cd6946b4eee61d6acf14f23e",
+      "seconds": 4.435415506362915,
+      "tick_count": 550,
+      "builder_totals": [
+        "HEO_TOTAL native=809872 expected=762271.5 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+      ]
+    },
+    {
+      "label": "prior3",
+      "keep": 2,
+      "mask": 1536,
+      "room": 30,
+      "mode": "enabled",
+      "expected_raw_sha256": "f0e2f354a359bd24642ea4b788864873d32a8098e336302e666ff81bb09154ca",
+      "raw_sha256": "f0e2f354a359bd24642ea4b788864873d32a8098e336302e666ff81bb09154ca",
+      "seconds": 4.445620775222778,
+      "tick_count": 550,
+      "builder_totals": [
+        "HEO_TOTAL native=810232 expected=762380.5 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+      ]
+    },
+    {
+      "label": "prior4",
+      "keep": 2,
+      "mask": 1536,
+      "room": 32,
+      "mode": "enabled",
+      "expected_raw_sha256": "46ed6713eb07f27a40f92dc8e3f92ccc005c6becc1ba9ac6ce8f725dfe1ccc4f",
+      "raw_sha256": "46ed6713eb07f27a40f92dc8e3f92ccc005c6becc1ba9ac6ce8f725dfe1ccc4f",
+      "seconds": 4.438220977783203,
+      "tick_count": 550,
+      "builder_totals": [
+        "HEO_TOTAL native=809872 expected=762260.5 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+      ]
+    },
+    {
+      "label": "prior5",
+      "keep": 3,
+      "mask": 1792,
+      "room": 31,
+      "mode": "enabled",
+      "expected_raw_sha256": "d1a388976eedbc3e7f69212885d42a4a795fd6050f85a22ae1d401624e00cac6",
+      "raw_sha256": "d1a388976eedbc3e7f69212885d42a4a795fd6050f85a22ae1d401624e00cac6",
+      "seconds": 4.415383815765381,
+      "tick_count": 550,
+      "builder_totals": [
+        "HEO_TOTAL native=810232 expected=762369.5 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+      ]
+    },
+    {
+      "label": "prior6",
+      "keep": 3,
+      "mask": 1792,
+      "room": 33,
+      "mode": "enabled",
+      "expected_raw_sha256": "777801db29f01f32f5e822e49804386d088821aa0ff561367d7c226b95f38a22",
+      "raw_sha256": "777801db29f01f32f5e822e49804386d088821aa0ff561367d7c226b95f38a22",
+      "seconds": 4.440513610839844,
+      "tick_count": 550,
+      "builder_totals": [
+        "HEO_TOTAL native=810040 expected=762298.5 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+      ]
+    },
+    {
+      "label": "prior7",
+      "keep": 4,
+      "mask": 1920,
+      "room": 32,
+      "mode": "enabled",
+      "expected_raw_sha256": "9fb302a927f49774b5140890d7619c68eb6d27b459b46852e251ebb954404b4d",
+      "raw_sha256": "9fb302a927f49774b5140890d7619c68eb6d27b459b46852e251ebb954404b4d",
+      "seconds": 4.472880840301514,
+      "tick_count": 550,
+      "builder_totals": [
+        "HEO_TOTAL native=810232 expected=762358.5 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+      ]
+    },
+    {
+      "label": "prior8",
+      "keep": 4,
+      "mask": 1920,
+      "room": 34,
+      "mode": "enabled",
+      "expected_raw_sha256": "5497081bee9d26c1c5c0fbb873afdb76ac9c31b07b728f2c6b3ea781be695d36",
+      "raw_sha256": "5497081bee9d26c1c5c0fbb873afdb76ac9c31b07b728f2c6b3ea781be695d36",
+      "seconds": 4.475157976150513,
+      "tick_count": 550,
+      "builder_totals": [
+        "HEO_TOTAL native=810040 expected=762287.5 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+      ]
+    },
+    {
+      "label": "prior9",
+      "keep": 5,
+      "mask": 1984,
+      "room": 33,
+      "mode": "enabled",
+      "expected_raw_sha256": "859a6cd946083b3830624ac3f6c97652961fec850fc23233a397d664d5b153d2",
+      "raw_sha256": "859a6cd946083b3830624ac3f6c97652961fec850fc23233a397d664d5b153d2",
+      "seconds": 4.513456583023071,
+      "tick_count": 550,
+      "builder_totals": [
+        "HEO_TOTAL native=810292 expected=762363.0 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+      ]
+    },
+    {
+      "label": "prior10",
+      "keep": 5,
+      "mask": 1984,
+      "room": 35,
+      "mode": "enabled",
+      "expected_raw_sha256": "0a0b4338ce2f9eeecaa382c480aec1417d490a9270ffbe16456c2aee2b31c705",
+      "raw_sha256": "0a0b4338ce2f9eeecaa382c480aec1417d490a9270ffbe16456c2aee2b31c705",
+      "seconds": 4.560060501098633,
+      "tick_count": 550,
+      "builder_totals": [
+        "HEO_TOTAL native=810046 expected=762282.2 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+      ]
+    },
+    {
+      "label": "prior11",
+      "keep": 6,
+      "mask": 2016,
+      "room": 34,
+      "mode": "enabled",
+      "expected_raw_sha256": "4a7742c8f627e9ff8815cca313e19d4af7856f8c16d29ad2a99f1a58631fc3ba",
+      "raw_sha256": "4a7742c8f627e9ff8815cca313e19d4af7856f8c16d29ad2a99f1a58631fc3ba",
+      "seconds": 4.599568128585815,
+      "tick_count": 550,
+      "builder_totals": [
+        "HEO_TOTAL native=810478 expected=762421.8 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+      ]
+    },
+    {
+      "label": "prior12",
+      "keep": 6,
+      "mask": 2016,
+      "room": 36,
+      "mode": "enabled",
+      "expected_raw_sha256": "7604ede32ee480680a68e2d9d6011bec8cf1f86cff33de43a1c60162f995f489",
+      "raw_sha256": "7604ede32ee480680a68e2d9d6011bec8cf1f86cff33de43a1c60162f995f489",
+      "seconds": 4.870042085647583,
+      "tick_count": 550,
+      "builder_totals": [
+        "HEO_TOTAL native=810046 expected=762275.8 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+      ]
+    },
+    {
+      "label": "prior13",
+      "keep": 7,
+      "mask": 2032,
+      "room": 35,
+      "mode": "enabled",
+      "expected_raw_sha256": "9540d70b1dae2dbdc4a662e02a3fca68eb8b4440b7624066aad0a6429c835f81",
+      "raw_sha256": "9540d70b1dae2dbdc4a662e02a3fca68eb8b4440b7624066aad0a6429c835f81",
+      "seconds": 4.51767897605896,
+      "tick_count": 550,
+      "builder_totals": [
+        "HEO_TOTAL native=810490 expected=762419.8 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+      ]
+    },
+    {
+      "label": "prior14",
+      "keep": 7,
+      "mask": 2032,
+      "room": 37,
+      "mode": "enabled",
+      "expected_raw_sha256": "39cad99402fa24cf3f3cf026752c9f94a6607223972810dacec36bdd24b009b5",
+      "raw_sha256": "39cad99402fa24cf3f3cf026752c9f94a6607223972810dacec36bdd24b009b5",
+      "seconds": 4.542334318161011,
+      "tick_count": 550,
+      "builder_totals": [
+        "HEO_TOTAL native=810047 expected=762270.0 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+      ]
+    },
+    {
+      "label": "prior15",
+      "keep": 8,
+      "mask": 2040,
+      "room": 36,
+      "mode": "enabled",
+      "expected_raw_sha256": "ccfdc141db0376c1f083bd25393f15d93fb33a37d15777b1b0bbaaac9de099c4",
+      "raw_sha256": "ccfdc141db0376c1f083bd25393f15d93fb33a37d15777b1b0bbaaac9de099c4",
+      "seconds": 4.441816329956055,
+      "tick_count": 550,
+      "builder_totals": [
+        "HEO_TOTAL native=810508 expected=762421.0 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+      ]
+    },
+    {
+      "label": "prior16",
+      "keep": 8,
+      "mask": 2040,
+      "room": 38,
+      "mode": "enabled",
+      "expected_raw_sha256": "fdd33dd826ad854397759b00134937a4fbef143e852fb826e90f0095f3c0974b",
+      "raw_sha256": "fdd33dd826ad854397759b00134937a4fbef143e852fb826e90f0095f3c0974b",
+      "seconds": 4.418898105621338,
+      "tick_count": 550,
+      "builder_totals": [
+        "HEO_TOTAL native=810048 expected=762264.8 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+      ]
+    },
+    {
+      "label": "prior17",
+      "keep": 9,
+      "mask": 2044,
+      "room": 37,
+      "mode": "enabled",
+      "expected_raw_sha256": "692e70f5ec994be88fec594f8f0660edbf082c9f8aecec1cb624c37076576522",
+      "raw_sha256": "692e70f5ec994be88fec594f8f0660edbf082c9f8aecec1cb624c37076576522",
+      "seconds": 4.474593639373779,
+      "tick_count": 550,
+      "builder_totals": [
+        "HEO_TOTAL native=810515 expected=762418.5 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+      ]
+    },
+    {
+      "label": "prior18",
+      "keep": 9,
+      "mask": 2044,
+      "room": 39,
+      "mode": "enabled",
+      "expected_raw_sha256": "3946594fc788702449c591baabe9542070484859ddbba0cc3e5c6b2a7bbc8f03",
+      "raw_sha256": "3946594fc788702449c591baabe9542070484859ddbba0cc3e5c6b2a7bbc8f03",
+      "seconds": 4.54311203956604,
+      "tick_count": 550,
+      "builder_totals": [
+        "HEO_TOTAL native=810054 expected=762263.5 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+      ]
+    },
+    {
+      "label": "prior19",
+      "keep": 10,
+      "mask": 2046,
+      "room": 38,
+      "mode": "enabled",
+      "expected_raw_sha256": "efcc537ca660965a0f48e5c1e1b9d2f9ea14e0c369e43d798926bc815e09efd3",
+      "raw_sha256": "efcc537ca660965a0f48e5c1e1b9d2f9ea14e0c369e43d798926bc815e09efd3",
+      "seconds": 4.560588836669922,
+      "tick_count": 550,
+      "builder_totals": [
+        "HEO_TOTAL native=810528 expected=762418.8 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+      ]
+    },
+    {
+      "label": "prior20",
+      "keep": 10,
+      "mask": 2046,
+      "room": 40,
+      "mode": "enabled",
+      "expected_raw_sha256": "88a4d65bad7bdba0248078c49fa7b098650127bb31422f062a16cc987040ac52",
+      "raw_sha256": "88a4d65bad7bdba0248078c49fa7b098650127bb31422f062a16cc987040ac52",
+      "seconds": 4.640897750854492,
+      "tick_count": 550,
+      "builder_totals": [
+        "HEO_TOTAL native=810096 expected=762274.8 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+      ]
+    }
+  ],
+  "scope": "Read-only counters wrap entire forward/reverse ticks, including surrounding preflight and arithmetic. Original function bodies/arguments unchanged; all22 raw streams must byte-match frozen original/control or previous passing retention cases. Reuse prior13 native controls with explicit log hashes; no new control claim. Failed keep11 cases preserved and not rerun. Fixed structural costs only, no packet/census/nonce. Determine which tick-specific choices merit a new full build; no scored result."
+}

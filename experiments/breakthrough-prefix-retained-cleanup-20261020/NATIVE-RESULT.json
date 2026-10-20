@@ -1,0 +1,49 @@
+{
+  "status": "NATIVE_COMPONENT_PASS_COMPLETE_RESOURCE_GRID_NONCOMPETITIVE",
+  "native_tests": 13,
+  "core_frontier_7": {
+    "primary_inputs": 14,
+    "helpers_peak": 27,
+    "total_core_peak": 41,
+    "ANDs": 35,
+    "HMRs": 35,
+    "kept_across_ladder": 27
+  },
+  "phase_controls": "All16384 inputs,3 guards, every independent measurement coefficient and fixed patterns for all12 frontier masks. Fullfold values/phase/ancillas match reference with independent upper words at24 tight-budget settings. Original11 controls also pass.",
+  "best_raw_case": {
+    "keep": 2,
+    "mask": 1536,
+    "room": 32,
+    "index": 4,
+    "exit": 0,
+    "seconds": 4.306963920593262,
+    "builder_totals": [
+      "HEO_TOTAL native=809872 expected=762260.5 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+    ],
+    "prefix27_calls": 37,
+    "raw_sha256": "46ed6713eb07f27a40f92dc8e3f92ccc005c6becc1ba9ac6ce8f725dfe1ccc4f",
+    "operations": 11090019
+  },
+  "original_baseline_raw_diagnostic_weight": 762230.75,
+  "compact_no_retention_raw_diagnostic_weight": 762282.5,
+  "best_retained_raw_diagnostic_weight": 762260.5,
+  "remaining_raw_excess": 29.75,
+  "failed_cases": [
+    {
+      "index": 21,
+      "keep": 11,
+      "room": 39,
+      "reason": "Unchanged ladder minimum assertion; supported isolated fixture does not establish all complete contexts."
+    },
+    {
+      "index": 22,
+      "keep": 11,
+      "room": 41,
+      "reason": "Unchanged ladder minimum assertion; supported isolated fixture does not establish all complete contexts."
+    }
+  ],
+  "source_freeze_sha256": "0b626ce8118062c8c1263624bba974f5029b47411db2f330ce8e1ec4c2f8fced",
+  "native_core_log_sha256": "e4c20f0b5005c6ecd78a7445887793c438bdaa821e1b7f08bb46a5113a6dcbf2",
+  "native_fullfold_log_sha256": "6db5740726753833aec6f104f3ea2e5d37c8f81bf452b74cdbe735d5915cf7c1",
+  "scope": "Component success only, no complete point-add resource record, final failure gate, nonce or benchmark. All failed construction cases remain preserved. Next: read-only tick profiles to see whether independent local choices help."
+}

@@ -1,0 +1,72 @@
+{
+  "status": "STRUCTURAL_TICK_CHOICES_REQUIRE_NEW_COMPLETE_BUILD",
+  "baseline_raw_sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b",
+  "choices": [
+    {
+      "key": [
+        "divide",
+        "fwd",
+        129,
+        true
+      ],
+      "keep": 0,
+      "mask": 0,
+      "room": 30,
+      "profile_case": "prior0",
+      "baseline_tick_cost": 1536.75,
+      "selected_tick_cost": 1536.0,
+      "saving": 0.75,
+      "baseline_live_before": 1194,
+      "baseline_live_after": 1195
+    },
+    {
+      "key": [
+        "divide",
+        "fwd",
+        130,
+        true
+      ],
+      "keep": 0,
+      "mask": 0,
+      "room": 30,
+      "profile_case": "prior0",
+      "baseline_tick_cost": 1542.5,
+      "selected_tick_cost": 1535.5,
+      "saving": 7.0,
+      "baseline_live_before": 1195,
+      "baseline_live_after": 1198
+    }
+  ],
+  "ticks_chosen": 2,
+  "sum_predicted_tick_savings": 7.75,
+  "baseline_raw_diagnostic_weight": 762230.75,
+  "predicted_mixed_raw_diagnostic_weight": 762223.0,
+  "rejected_live_interfaces": [],
+  "source_profile_freeze_sha256": "c3748915b2409f38bac6218b6fedcc5988987317f64555ef27bfeee043cd7b6b",
+  "profile_result_sha256": "01e036163394d8805b5027586be65b27f54e2bc1da2d3eb403f9d10d0cc36e27",
+  "tick_table_hashes": {
+    "baseline": "9a4da4179ad4e4494f2b4dcfb6a601d2c1074c61b8613ecede6a00370f79e378",
+    "prior0": "082f55495f1c5f87aba1b0f01cfe114255c50664d93965d38c6e7d62afe6ccea",
+    "prior1": "2b9f6898d60a6c9b65b9be8588e714fefdab06d80645441eb6c6e4ca8cc616b1",
+    "prior2": "fc05cbac6d642c4f1e1bf8e28124cb0ef20b69595efddfdb43bc9bfb37119717",
+    "prior3": "d4d9bfc6dd5a44acdf5070a43bce56eef09eed160909d0ece3bd83bd7b578609",
+    "prior4": "c7173b06f77ea413ba3ccd7fa801d39ea56c93b04c7cf018a2b28b95f6290d82",
+    "prior5": "f603616ea7c285b1f0269f0d119b2744ea31666c9a625bfe3b34d8700f8c6578",
+    "prior6": "bb2f631186c29cf3a979238c7a1b850ea297ef80811ba7d8ffe9904d73f06411",
+    "prior7": "a4dcf7a3708345f201f5358c1a2c4b14c7ed19c831879285a399ce1e04ca9567",
+    "prior8": "2f02d89c2e79891a9ef2586a2a1db716a6d24505d441dc43d5106c3ed33e58fc",
+    "prior9": "ddad7cfacf1a1a0b30b3eb099ffd53f2052eade7d170015c457e29d41c69d0fb",
+    "prior10": "8bf18bfd55ce2b28522ac3aef1d41a2b845be666ab437ffaaf6e3d444a248dfb",
+    "prior11": "3da627bc050b2a1bc0c3b83a4901f1da9ce6b9fc8c73c6106460e3e155919d6e",
+    "prior12": "ce6085381cf376bc86957153a287e2c12968abe955288182ff7c565916076451",
+    "prior13": "1d69a9f6300f1d486964e062610342c654eb0e75e6a92f48309f600ea57fa06c",
+    "prior14": "dee9ea23b0f16f5461a3078c6ec948d98bd2291faaa89017c701bd61d336e82a",
+    "prior15": "e776239613ce7511c0da99aad389fc0219c9ddc6c6a3a39d704ad91d33a79886",
+    "prior16": "2b27e64cc9902f1dfcfed858ae3e929da3298d39ef60f073ee513d14dbf1c2a6",
+    "prior17": "93a69652f50e8023a0617f942663b1e8d7deae2cccc486f6f69ca006e4637510",
+    "prior18": "218665e48ea0fd1307f2fbc9c02c5fcbcef828fe4f684671b52a8abe742e8c22",
+    "prior19": "515ea34585e6748c2649c2cd453a9922eaec642ce719d726aff54747efbb23ca",
+    "prior20": "d393099fe21eeccd4271dc835014114053c81d341f954c3bac9a62ba102e52f0"
+  },
+  "scope": "Deterministic minimum static whole-tick cost, tie-break by fewer retained helpers then room and case label. Exact frozen raw streams byte-verified in all22 source cases. All choices require equal live-qubit boundary counts. NO point/nonce/census packet or measured failure inputs used. Predicted sum need not compose, because allocator/bookkeeping and external sweeps may interact; require new direct mixed source build, exact controls, final gate, nonce and unchanged benchmark before any result."
+}
