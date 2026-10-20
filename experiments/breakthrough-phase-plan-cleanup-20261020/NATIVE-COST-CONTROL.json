@@ -1,0 +1,162 @@
+{
+  "status": "PASS_COMPONENT_DIAGNOSTIC_NOT_POINT_ADD_SCORE",
+  "native_archive_sha256": "78a578f2fe20b8927cb19926802baa4c73b47da18562a4891d075f38bf634601",
+  "input_label": "weighted-phase-chunks-native-v1",
+  "measurement_label": "weighted-phase-chunks-measurements-v2",
+  "full_case_configurations": 983040,
+  "old_plan_expected": "49 + sum_nonfinal(w-1)/2 + sum_dropped(3w-1)/4",
+  "new_expected": "49 + plan.extra_x4/4; includes retained phase cleanup",
+  "cases": [
+    {
+      "pattern": 0,
+      "budget": 8,
+      "old_plan": false,
+      "shots": 65536,
+      "toffoli_total_including_core": 5501771,
+      "core_toffoli_per_shot": 0,
+      "mean_adder_toffoli": 83.95036315917969,
+      "analytic_expected_adder_toffoli": 84.0
+    },
+    {
+      "pattern": 0,
+      "budget": 8,
+      "old_plan": true,
+      "shots": 65536,
+      "toffoli_total_including_core": 5114226,
+      "core_toffoli_per_shot": 0,
+      "mean_adder_toffoli": 78.03689575195312,
+      "analytic_expected_adder_toffoli": 78
+    },
+    {
+      "pattern": 0,
+      "budget": 9,
+      "old_plan": false,
+      "shots": 65536,
+      "toffoli_total_including_core": 4687399,
+      "core_toffoli_per_shot": 0,
+      "mean_adder_toffoli": 71.52403259277344,
+      "analytic_expected_adder_toffoli": 71.5
+    },
+    {
+      "pattern": 0,
+      "budget": 9,
+      "old_plan": true,
+      "shots": 65536,
+      "toffoli_total_including_core": 4637855,
+      "core_toffoli_per_shot": 0,
+      "mean_adder_toffoli": 70.76805114746094,
+      "analytic_expected_adder_toffoli": 70.75
+    },
+    {
+      "pattern": 0,
+      "budget": 10,
+      "old_plan": false,
+      "shots": 65536,
+      "toffoli_total_including_core": 4455080,
+      "core_toffoli_per_shot": 0,
+      "mean_adder_toffoli": 67.9791259765625,
+      "analytic_expected_adder_toffoli": 68.0
+    },
+    {
+      "pattern": 1,
+      "budget": 8,
+      "old_plan": false,
+      "shots": 65536,
+      "toffoli_total_including_core": 4933233,
+      "core_toffoli_per_shot": 0,
+      "mean_adder_toffoli": 75.27516174316406,
+      "analytic_expected_adder_toffoli": 75.25
+    },
+    {
+      "pattern": 1,
+      "budget": 8,
+      "old_plan": true,
+      "shots": 65536,
+      "toffoli_total_including_core": 5114226,
+      "core_toffoli_per_shot": 0,
+      "mean_adder_toffoli": 78.03689575195312,
+      "analytic_expected_adder_toffoli": 78
+    },
+    {
+      "pattern": 1,
+      "budget": 9,
+      "old_plan": false,
+      "shots": 65536,
+      "toffoli_total_including_core": 4586446,
+      "core_toffoli_per_shot": 0,
+      "mean_adder_toffoli": 69.98361206054688,
+      "analytic_expected_adder_toffoli": 70.0
+    },
+    {
+      "pattern": 1,
+      "budget": 9,
+      "old_plan": true,
+      "shots": 65536,
+      "toffoli_total_including_core": 4637855,
+      "core_toffoli_per_shot": 0,
+      "mean_adder_toffoli": 70.76805114746094,
+      "analytic_expected_adder_toffoli": 70.75
+    },
+    {
+      "pattern": 1,
+      "budget": 10,
+      "old_plan": false,
+      "shots": 65536,
+      "toffoli_total_including_core": 4457733,
+      "core_toffoli_per_shot": 0,
+      "mean_adder_toffoli": 68.01960754394531,
+      "analytic_expected_adder_toffoli": 68.0
+    },
+    {
+      "pattern": 2,
+      "budget": 8,
+      "old_plan": false,
+      "shots": 65536,
+      "toffoli_total_including_core": 6325737,
+      "core_toffoli_per_shot": 19,
+      "mean_adder_toffoli": 77.52308654785156,
+      "analytic_expected_adder_toffoli": 77.5
+    },
+    {
+      "pattern": 2,
+      "budget": 8,
+      "old_plan": true,
+      "shots": 65536,
+      "toffoli_total_including_core": 6359410,
+      "core_toffoli_per_shot": 19,
+      "mean_adder_toffoli": 78.03689575195312,
+      "analytic_expected_adder_toffoli": 78
+    },
+    {
+      "pattern": 2,
+      "budget": 9,
+      "old_plan": false,
+      "shots": 65536,
+      "toffoli_total_including_core": 5831630,
+      "core_toffoli_per_shot": 19,
+      "mean_adder_toffoli": 69.98361206054688,
+      "analytic_expected_adder_toffoli": 70.0
+    },
+    {
+      "pattern": 2,
+      "budget": 9,
+      "old_plan": true,
+      "shots": 65536,
+      "toffoli_total_including_core": 5883039,
+      "core_toffoli_per_shot": 19,
+      "mean_adder_toffoli": 70.76805114746094,
+      "analytic_expected_adder_toffoli": 70.75
+    },
+    {
+      "pattern": 2,
+      "budget": 10,
+      "old_plan": false,
+      "shots": 65536,
+      "toffoli_total_including_core": 5702917,
+      "core_toffoli_per_shot": 19,
+      "mean_adder_toffoli": 68.01960754394531,
+      "analytic_expected_adder_toffoli": 68.0
+    }
+  ],
+  "scope": "Component-only expectation and finite random-word averages, with original unmodified held core19CCX removed for pattern2. No universal arithmetic proof or complete point-add resource result."
+}

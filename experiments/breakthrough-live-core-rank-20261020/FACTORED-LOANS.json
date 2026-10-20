@@ -1,0 +1,473 @@
+{
+  "status": "EXACT_ALL_16384_TRUTH_FUNCTION_FACTORIZATIONS",
+  "functions_sha256": "7c33a1bcfcbb628c38f47052da4f2ad4a53b17c06c9b2615819f11e4c32bb878",
+  "phase_model_sha256": "101cd2a90eaf80ffc83457f4b49b11034135ed731595802054a0bbaab879dfc2",
+  "reconstruction_order": "reverse of erasure order",
+  "total_reconstruction_AND_products": 32,
+  "witnesses": [
+    {
+      "wire_function": "y5",
+      "products": [
+        [
+          [
+            "sum5"
+          ],
+          [
+            "tt"
+          ]
+        ]
+      ],
+      "linear": [],
+      "and_count": 1
+    },
+    {
+      "wire_function": "c5",
+      "products": [
+        [
+          [
+            "c3"
+          ],
+          [
+            "sum3"
+          ]
+        ],
+        [
+          [
+            "c1",
+            "sum1"
+          ],
+          [
+            "input7",
+            "sum1"
+          ]
+        ],
+        [
+          [
+            "c2",
+            "sum2"
+          ],
+          [
+            "input8",
+            "sum2"
+          ]
+        ],
+        [
+          [
+            "c4",
+            "sum4"
+          ],
+          [
+            "input6",
+            "input9",
+            "sum0",
+            "sum4"
+          ]
+        ],
+        [
+          [
+            "input6"
+          ],
+          [
+            "sum0"
+          ]
+        ]
+      ],
+      "linear": [
+        "input7",
+        "input8",
+        "input9",
+        "sum0",
+        "sum1",
+        "sum2",
+        "sum4"
+      ],
+      "and_count": 5
+    },
+    {
+      "wire_function": "y4",
+      "products": [
+        [
+          [
+            "input13"
+          ],
+          [
+            "sum4"
+          ]
+        ]
+      ],
+      "linear": [],
+      "and_count": 1
+    },
+    {
+      "wire_function": "y3",
+      "products": [
+        [
+          [
+            "field1",
+            "input6",
+            "input7",
+            "sum1"
+          ],
+          [
+            "input10",
+            "input6",
+            "input7",
+            "sum1"
+          ]
+        ],
+        [
+          [
+            "c1",
+            "field2",
+            "input11",
+            "input7",
+            "input8",
+            "input9",
+            "sum0",
+            "sum2"
+          ],
+          [
+            "field2",
+            "input11",
+            "input8",
+            "sum1",
+            "sum2"
+          ]
+        ],
+        [
+          [
+            "c2",
+            "input6",
+            "input7"
+          ],
+          [
+            "c2",
+            "input9",
+            "sum0"
+          ]
+        ],
+        [
+          [
+            "c2",
+            "input11",
+            "input6",
+            "input8",
+            "sum2"
+          ],
+          [
+            "field2",
+            "input11",
+            "input8",
+            "sum2"
+          ]
+        ],
+        [
+          [
+            "input11",
+            "sum2"
+          ],
+          [
+            "input8",
+            "sum2"
+          ]
+        ]
+      ],
+      "linear": [
+        "c2",
+        "field2",
+        "field3",
+        "input10",
+        "input8",
+        "sum1",
+        "sum2"
+      ],
+      "and_count": 5
+    },
+    {
+      "wire_function": "r3",
+      "products": [
+        [
+          [
+            "field1"
+          ],
+          [
+            "field3",
+            "field8",
+            "field9",
+            "input6"
+          ]
+        ],
+        [
+          [
+            "c2",
+            "field2",
+            "field8",
+            "input10",
+            "input11",
+            "input8",
+            "input9",
+            "sum2"
+          ],
+          [
+            "input6"
+          ]
+        ],
+        [
+          [
+            "c2",
+            "field2",
+            "field8",
+            "input11",
+            "input7",
+            "input8",
+            "sum1",
+            "sum2"
+          ],
+          [
+            "field2",
+            "input9",
+            "sum0"
+          ]
+        ],
+        [
+          [
+            "c1"
+          ],
+          [
+            "field2",
+            "input11",
+            "input7",
+            "input8",
+            "sum2"
+          ]
+        ],
+        [
+          [
+            "c2",
+            "input7",
+            "input8",
+            "sum1",
+            "sum2"
+          ],
+          [
+            "input11",
+            "input7"
+          ]
+        ],
+        [
+          [
+            "input8",
+            "sum2"
+          ],
+          [
+            "sum1"
+          ]
+        ]
+      ],
+      "linear": [
+        "field2",
+        "field8",
+        "input11",
+        "input7",
+        "input8",
+        "sum1",
+        "sum2"
+      ],
+      "and_count": 6
+    },
+    {
+      "wire_function": "r2",
+      "products": [
+        [
+          [
+            "field1",
+            "input9"
+          ],
+          [
+            "input10",
+            "input6",
+            "input7",
+            "sum1"
+          ]
+        ],
+        [
+          [
+            "c1",
+            "input10",
+            "sum0"
+          ],
+          [
+            "input7",
+            "sum1"
+          ]
+        ],
+        [
+          [
+            "input10"
+          ],
+          [
+            "sum0"
+          ]
+        ]
+      ],
+      "linear": [
+        "input10",
+        "input7",
+        "sum1"
+      ],
+      "and_count": 3
+    },
+    {
+      "wire_function": "tt",
+      "products": [
+        [
+          [
+            "input12"
+          ],
+          [
+            "input13"
+          ]
+        ]
+      ],
+      "linear": [],
+      "and_count": 1
+    },
+    {
+      "wire_function": "c4",
+      "products": [
+        [
+          [
+            "c3"
+          ],
+          [
+            "sum3"
+          ]
+        ],
+        [
+          [
+            "input6"
+          ],
+          [
+            "sum0"
+          ]
+        ],
+        [
+          [
+            "c1",
+            "sum1"
+          ],
+          [
+            "input7",
+            "sum1"
+          ]
+        ],
+        [
+          [
+            "c2",
+            "sum2"
+          ],
+          [
+            "input8",
+            "sum2"
+          ]
+        ]
+      ],
+      "linear": [
+        "input6",
+        "input7",
+        "input8",
+        "sum1",
+        "sum2"
+      ],
+      "and_count": 4
+    },
+    {
+      "wire_function": "c3",
+      "products": [
+        [
+          [
+            "input6"
+          ],
+          [
+            "sum0"
+          ]
+        ],
+        [
+          [
+            "c1",
+            "sum1"
+          ],
+          [
+            "input7",
+            "sum1"
+          ]
+        ],
+        [
+          [
+            "c2",
+            "sum2"
+          ],
+          [
+            "input8",
+            "sum2"
+          ]
+        ]
+      ],
+      "linear": [
+        "input6",
+        "input7",
+        "input8",
+        "sum1",
+        "sum2"
+      ],
+      "and_count": 3
+    },
+    {
+      "wire_function": "c2",
+      "products": [
+        [
+          [
+            "input6"
+          ],
+          [
+            "sum0"
+          ]
+        ],
+        [
+          [
+            "c1",
+            "sum1"
+          ],
+          [
+            "input7",
+            "sum1"
+          ]
+        ]
+      ],
+      "linear": [
+        "input6",
+        "input7",
+        "sum1"
+      ],
+      "and_count": 2
+    },
+    {
+      "wire_function": "c1",
+      "products": [
+        [
+          [
+            "input6"
+          ],
+          [
+            "sum0"
+          ]
+        ]
+      ],
+      "linear": [
+        "input6"
+      ],
+      "and_count": 1
+    }
+  ],
+  "scope": "Polynomial model only. Each product can use one scratch output plus an existing parity pivot; alias and in-place basis-transform legality remain to be checked in a native circuit. No complete resource result."
+}

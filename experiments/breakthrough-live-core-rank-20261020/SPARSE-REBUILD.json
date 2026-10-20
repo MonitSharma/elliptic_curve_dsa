@@ -1,0 +1,220 @@
+{
+  "status": "EXACT_ALL_16384_TRUTH_FUNCTION_FACTORIZATIONS",
+  "functions_sha256": "7c33a1bcfcbb628c38f47052da4f2ad4a53b17c06c9b2615819f11e4c32bb878",
+  "phase_model_sha256": "101cd2a90eaf80ffc83457f4b49b11034135ed731595802054a0bbaab879dfc2",
+  "reconstruction_order": "reverse of erasure order",
+  "total_reconstruction_AND_products": 11,
+  "witnesses": [
+    {
+      "wire_function": "y5",
+      "products": [
+        [
+          [
+            "tt"
+          ],
+          [
+            "sum5"
+          ]
+        ]
+      ],
+      "linear": [],
+      "and_count": 1
+    },
+    {
+      "wire_function": "c5",
+      "products": [
+        [
+          [
+            "input6",
+            "input9",
+            "sum0",
+            "sum4"
+          ],
+          [
+            "input6",
+            "input9",
+            "sum0",
+            "c4"
+          ]
+        ]
+      ],
+      "linear": [
+        "c4"
+      ],
+      "and_count": 1
+    },
+    {
+      "wire_function": "y4",
+      "products": [
+        [
+          [
+            "input13"
+          ],
+          [
+            "sum4"
+          ]
+        ]
+      ],
+      "linear": [],
+      "and_count": 1
+    },
+    {
+      "wire_function": "y3",
+      "products": [
+        [
+          [
+            "input12",
+            "input13",
+            "tt"
+          ],
+          [
+            "sum3"
+          ]
+        ]
+      ],
+      "linear": [],
+      "and_count": 1
+    },
+    {
+      "wire_function": "r3",
+      "products": [
+        [
+          [
+            "input11",
+            "r2"
+          ],
+          [
+            "input8",
+            "sum2",
+            "c2",
+            "r2"
+          ]
+        ]
+      ],
+      "linear": [
+        "r2"
+      ],
+      "and_count": 1
+    },
+    {
+      "wire_function": "r2",
+      "products": [
+        [
+          [
+            "input6",
+            "input7",
+            "input9",
+            "sum0",
+            "sum1",
+            "field1",
+            "c1"
+          ],
+          [
+            "input6",
+            "input9",
+            "input10",
+            "sum0",
+            "field1"
+          ]
+        ]
+      ],
+      "linear": [
+        "input6",
+        "input7",
+        "input9",
+        "input10",
+        "sum0",
+        "sum1",
+        "field1",
+        "c1"
+      ],
+      "and_count": 1
+    },
+    {
+      "wire_function": "tt",
+      "products": [
+        [
+          [
+            "input12"
+          ],
+          [
+            "input13"
+          ]
+        ]
+      ],
+      "linear": [],
+      "and_count": 1
+    },
+    {
+      "wire_function": "c4",
+      "products": [
+        [
+          [
+            "c3"
+          ],
+          [
+            "one",
+            "sum3"
+          ]
+        ]
+      ],
+      "linear": [],
+      "and_count": 1
+    },
+    {
+      "wire_function": "c3",
+      "products": [
+        [
+          [
+            "input8",
+            "sum2"
+          ],
+          [
+            "input8",
+            "c2"
+          ]
+        ]
+      ],
+      "linear": [
+        "c2"
+      ],
+      "and_count": 1
+    },
+    {
+      "wire_function": "c2",
+      "products": [
+        [
+          [
+            "input7",
+            "sum1"
+          ],
+          [
+            "input7",
+            "c1"
+          ]
+        ]
+      ],
+      "linear": [
+        "c1"
+      ],
+      "and_count": 1
+    },
+    {
+      "wire_function": "c1",
+      "products": [
+        [
+          [
+            "input6"
+          ],
+          [
+            "one",
+            "sum0"
+          ]
+        ]
+      ],
+      "linear": [],
+      "and_count": 1
+    }
+  ],
+  "scope": "One AND per helper using affine fanins of currently available transformed wires and written low sums. All16384 truth assignments checked; pending native controls. No whole point-add score."
+}

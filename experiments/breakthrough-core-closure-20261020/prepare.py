@@ -1,0 +1,6 @@
+import hashlib,json,subprocess
+from pathlib import Path
+r=Path(__file__).resolve().parent;ws=r.parent;sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest();v=json.loads((r/'INSTANCE-VERIFICATION.json').read_text())
+assert sha(r/'instance.dat')==v['instance_sha256'];assert sha(ws/'breakthrough-core-rank-20261020/CORE-TRUTH.json')==v['native_truth_sha256']
+paths=['build-instance.py','closure.cpp','verify.py','instance.dat','INSTANCE-VERIFICATION.json','prepare.py','run.sh','launch.py']
+(r/'MODEL-SOURCE-FREEZE.json').write_text(json.dumps({'source_files':{p:sha(r/p)for p in paths},'native_truth_sha256':v['native_truth_sha256'],'instance_sha256':v['instance_sha256'],'compiler_flags':['-O3','-std=c++20','-march=native'],'compiler_version':subprocess.check_output(['g++','--version']).decode(),'model_wall_seconds':3600,'maximum_A_per_closure_stage':4194304,'threads':1,'memory_limit_gib':8,'scope':'Standalone exact truth model, no candidate/check-out/harness edits. All19 functions verified before search. Native kernel selftests against300 independent naive closures plus cubic-lift and quadratic-cancellation controls; then known19 control, pure16 and six specified one/two-garbage lifts. Full/partial statuses remain distinct. No finalgate/nonce/record.'},indent=2)+'\n')

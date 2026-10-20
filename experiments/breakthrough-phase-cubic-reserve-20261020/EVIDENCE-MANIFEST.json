@@ -1,0 +1,86 @@
+{
+  "files": {
+    "ADMISSION-PROGRESS.json": "ca53b166e88082f69fe2f9029d3c9dcc7545ebf379b4974f439a101d85bbad35",
+    "ADMISSION-RESULT.json": "53ae8c770d70fd9959fa8aba1664a2b32318c7775a05a9e6a507d31b8e3ce8c1",
+    "SOURCE_FREEZE.json": "14e269c8ef11e6af9e02938cb1d745e90971aa9bf082bd95e37a21e26fb15037",
+    "TERMINAL-AUDIT.json": "f247c5c4fd9c731183e25be3adc4e4c3881d40bada7c82046b5a910065a2993c",
+    "build-v2.log": "880e70c2df7ef0caa718e33143fad53c51d70838b043adc7462eb1d6f4378e29",
+    "build-v2.out": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "launch-v2.py": "1a25e87744db33e45a6cc82bed466e947f1b09b7ddac99b56683dc5e4f7fed5e",
+    "launch.py": "bb38c1fda83d94349e88c199bb9404a62a038d22743762a05f904dd307aa6eb5",
+    "nohup-v2.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "nohup.log": "d4167ca21789dcdc704efed2f1a851bbd405c0a0a5b1cd0eb0513e08ce58bcba",
+    "prepare-v2.log": "68486bc28d475b600ced96cce21ab5b547aa35ec778f3a1889f0bed157a37d5c",
+    "prepare.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prepare.py": "b97c0e05d2e73a63d4e0b423d44aaab7957f909f50e1c6dd40c9185ed3aa3ae7",
+    "run-v2.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "run-v2.pid": "3af7a4d7bf2913db10415891c1e39b22f5ac3445dff73666a40366af7f45021e",
+    "run-v2.sh": "21310e28055bb62ad7f6dcabb4ca5860a308913a7ec8216e2ec2044748b0d027",
+    "run.pid": "377bae5c41f75a57f6426a51e9faec503496814082c9fb699e05d253ef984d63",
+    "run.sh": "4d023faa724f2cec5a075aa85c14e81fe5732554f84d2ef74f046dfbe8da8a65",
+    "source.patch": "ad23faf7dcd77db7759074c08c79bedf95c6600815c6b9e1ba1edb362ed8d98e",
+    "sweep-v2.log": "f873bb4bd0d05e8e3b7428dd825cae119fa1f4c561dcc04771f5d405e7549ded",
+    "sweep.py": "40824d51e1a21055f8e4cd217d6632aa6972a5c5ef91e541687510642cfd7671",
+    "tests-v2.log": "4c42cc1972d1bb0c9cbb87330fc8cf29c49aed10665af0ac5ee6e897711a23ef",
+    "added-source/break_profile.rs": "a7e94c66704031f4f0810059f15ca1893ddc5e006a5b82b8c582c67228609515",
+    "added-source/phase_fit.rs": "7a5e26ea94186d534775c3bdf06797267e0d3115d86b018deaf7bba9838a5bf4",
+    "added-source/phase_fusion.rs": "39bd1eed7dd29f5ea1516f60e6f205c07f210514dbb092dd6a9f9be652680f5a",
+    "added-source/phase_pebble.rs": "403c79b3d888c098aef06e24459d5425905f65f7e6722fc20b34245d674a6935",
+    "added-source/terminal_pebble.rs": "6cc274871604485ec47f5bc5dc9dfe0056b2164a1ac7a4c8861e9b1ab9ec40d9",
+    "added-source/zero_carry.rs": "ea5fe10fa4017145776bdd45f8bb430ce25059650b77bcdbc0790b49f7bbcc90",
+    "cap1233/child.pid": "8e70a4cb47a0c87bdaa53081e7971a449a52d9f6449e3249ab54a916ed1ab651",
+    "cap1233/generate.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "cap1233/generate.log": "d7856ed353e74e993e176dd12efb404c9adf46cb0b38ace320fad972c833ae0a",
+    "cap1233/generate.out": "dc47fc0879a521640cab22417e8fbc16baf71f61bedc9fd288780bc3f6529ac2",
+    "cap1234/child.pid": "5a18fa64951e523833a8eec9f64eb33ecfadaac98b510ed2a66e164615777e1e",
+    "cap1234/generate.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "cap1234/generate.log": "580178d00c3fed940f68ea205eb05003acae5d5a6e36095a73b1f320b07f3df9",
+    "cap1234/generate.out": "cab4b02a10748f1c267a12869dc76b3a605128238ef48e8f805b520776dec42d"
+  },
+  "terminal_audit": {
+    "sealed_at_utc": "2026-10-20T03:19:21.743224+00:00",
+    "base": "90e777ea8242faa0acb2462c5cb5be7c318a2d64",
+    "protected_files_checked": 17,
+    "source_freeze_sha256": "14e269c8ef11e6af9e02938cb1d745e90971aa9bf082bd95e37a21e26fb15037",
+    "result": {
+      "status": "RAW_ADMISSION_COMPLETE_NOT_SCORED",
+      "cases": [
+        {
+          "cap": 1234,
+          "exit": 0,
+          "seconds": 4.2206645011901855,
+          "builder_totals": [
+            "HEO_TOTAL native=810068 expected=762230.8 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+          ],
+          "raw_sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b"
+        },
+        {
+          "cap": 1233,
+          "exit": 0,
+          "seconds": 4.693403959274292,
+          "builder_totals": [
+            "HEO_TOTAL native=813503 expected=763971.8 peak=1233 peak_op=1444643 peak_phase=divide qubits_touched=1233"
+          ],
+          "raw_sha256": "8447753aaf3b0f157ecc2e351225adc69dc48c4ebf9c05ace471773e91db0113"
+        }
+      ]
+    },
+    "streams_retained_on_server": {
+      "/home/hclau/ecdsa_research/breakthrough-phase-cubic-reserve-20261020/cap1233/ops.bin": {
+        "sha256": "8447753aaf3b0f157ecc2e351225adc69dc48c4ebf9c05ace471773e91db0113",
+        "bytes": 39258115,
+        "complete": true
+      },
+      "/home/hclau/ecdsa_research/breakthrough-phase-cubic-reserve-20261020/cap1234/ops.bin": {
+        "sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b",
+        "bytes": 38777871,
+        "complete": true
+      }
+    },
+    "native_binaries": {
+      "/home/hclau/ecdsa_research/breakthrough-phase-cubic-reserve-20261020/observer/target/release/deps/build_circuit-96cdcfa2d1d068c7": "56cdf0f5d2c978b7c5c70778d57ba7270d7a926aec975ad573ea7e38160a7dba",
+      "/home/hclau/ecdsa_research/breakthrough-phase-cubic-reserve-20261020/observer/target/release/deps/build_circuit-0c12d1b03f2fe721": "c03d9b58123754ed79959adefcfc0d4935abfe9012cc4a4c03e3d9a98d1a55ef"
+    },
+    "no_final_gate_nonce_or_scored_result": true
+  }
+}

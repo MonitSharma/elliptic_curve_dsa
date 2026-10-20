@@ -1,0 +1,25 @@
+{
+  "source_files": {
+    "build-instance.py": "8c1393259659a0ccce7a21fe5fa926ef75830a4104e198aab268d5fc061c20ea",
+    "closure.cpp": "52cd3309d00bdd45e740ead585d596276a7c8834bf7a8b713d75114ffba019dd",
+    "verify.py": "e98f0d780f92d709929ed9569f020a45c71eca96ed6b8139184e71222c72983a",
+    "instance.dat": "ade915943b500b6884ea5dd25c3273d0321bc99359dd1a1581a9d15c83628885",
+    "INSTANCE-VERIFICATION.json": "aefdd44cb3d8401628829f18357cdab075e678498086c2f3afc6a4c2c739e177",
+    "prepare.py": "fbec12988a27d33feb627ec40db585862688340f4596ff34e407318378c48c39",
+    "run.sh": "5dde76602ea28efb6afbb5eb3b4424a12dbb9d2bea7b35882f0d95c24b8cb9bf",
+    "launch.py": "93226169035c7a88fd9ee5d74881a79716ef6c9620870ca240f618e9cef5eda0"
+  },
+  "native_truth_sha256": "7cac9ae3202ca1b05348421a95fc760a7250e4ba74bc84651b06a969968e13f7",
+  "instance_sha256": "ade915943b500b6884ea5dd25c3273d0321bc99359dd1a1581a9d15c83628885",
+  "compiler_flags": [
+    "-O3",
+    "-std=c++20",
+    "-march=native"
+  ],
+  "compiler_version": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "model_wall_seconds": 3600,
+  "maximum_A_per_closure_stage": 4194304,
+  "threads": 1,
+  "memory_limit_gib": 8,
+  "scope": "Standalone exact truth model, no candidate/check-out/harness edits. All19 functions verified before search. Native kernel selftests against300 independent naive closures plus cubic-lift and quadratic-cancellation controls; then known19 control, pure16 and six specified one/two-garbage lifts. Full/partial statuses remain distinct. No finalgate/nonce/record."
+}

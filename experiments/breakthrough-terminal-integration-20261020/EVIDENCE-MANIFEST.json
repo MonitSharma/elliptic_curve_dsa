@@ -1,0 +1,82 @@
+{
+  "files": {
+    ".gitignore": "e2aec48039d097c077d2e4e0ff47543cf10be4397309904194505f18edfdef6b",
+    "ADMISSION-PROGRESS.json": "a21445b4040e86dfe27f012b7d2273b9e885c3bd9950070a5d309b16ba7650f4",
+    "ADMISSION-RESULT.json": "eb43e66b2ab07c48f6f26ef19095cf38c67c36b15710f30c09beb169398eb995",
+    "SOURCE_FREEZE.json": "02e006a060acbb9ef993f68975b71adea3f6b4970648ed2b2d57256ebf3680e2",
+    "TERMINAL-AUDIT.json": "2ae2aefd1b44d2288b717cd46768baebe77e3f9c5c9ef667dd855c99163f2947",
+    "build.log": "c03544e2d467238da3d8cd2c00af49034cbc64fc0983b8de7e48c6b8161ac71c",
+    "build.out": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "launch.py": "6bbcd926aff34806a020328e5823b8f0be9fc299c396f8f7fb286fe689655887",
+    "nohup.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prepare.log": "68486bc28d475b600ced96cce21ab5b547aa35ec778f3a1889f0bed157a37d5c",
+    "prepare.py": "940f244313b44bc50f4482006df82dc52cd74b8f9125a1b3fda4d512a102a5a5",
+    "run.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "run.pid": "8a6aae7db6db26ccadc923fea5bf5a22fbd9b8c5bf7c1091b482652054c87e6b",
+    "run.sh": "6191686105bb1a693429a0ff8f800f733f871a50a00b3d0e18b6dce52b30a1c6",
+    "source.patch": "5792364f73fd84d892db348497c77ef2f0864f87d6cf4ef4dccd2f69f59ec970",
+    "sweep.log": "7949ce2b7547095145b67d698df0acdcc5d1d631b0935b44e25d9efcdf9e2820",
+    "sweep.py": "95950b01d18d5f034c8dd345593db606ea1bda37a671e9b79b028aa28e2dd624",
+    "tests.log": "2c4d4429fd54603fc2c8082cef9d7308ef43372b063839b5c07ab32dda54bf86",
+    "added-source/break_profile.rs": "a7e94c66704031f4f0810059f15ca1893ddc5e006a5b82b8c582c67228609515",
+    "added-source/phase_fit.rs": "7a5e26ea94186d534775c3bdf06797267e0d3115d86b018deaf7bba9838a5bf4",
+    "added-source/phase_fusion.rs": "39bd1eed7dd29f5ea1516f60e6f205c07f210514dbb092dd6a9f9be652680f5a",
+    "added-source/phase_pebble.rs": "403c79b3d888c098aef06e24459d5425905f65f7e6722fc20b34245d674a6935",
+    "added-source/terminal_pebble.rs": "6cc274871604485ec47f5bc5dc9dfe0056b2164a1ac7a4c8861e9b1ab9ec40d9",
+    "added-source/zero_carry.rs": "ea5fe10fa4017145776bdd45f8bb430ce25059650b77bcdbc0790b49f7bbcc90",
+    "cap1233/child.pid": "89bf9f2dc3caf6f66b611cc1bc9410f668231c7e41a0eac75f216be4c7ba3675",
+    "cap1233/generate.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "cap1233/generate.log": "f7526832ee664977d7b5b9bf4108d6393643221ecbbb0884b42d5d44af87d444",
+    "cap1233/generate.out": "2de02dbfd2ec8b4c7ac05038f64330bd3a9fa076e0efedc4c4587475034bddeb",
+    "cap1234/child.pid": "cb1a365a3812a14c105635d1c772875bc82758faaf918bc3b44adbc6c14a41c1",
+    "cap1234/generate.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "cap1234/generate.log": "704be4a08d028256816d2693def629866e72d07a32c77e2d32f5cfde2215d089",
+    "cap1234/generate.out": "cab4b02a10748f1c267a12869dc76b3a605128238ef48e8f805b520776dec42d"
+  },
+  "terminal_audit": {
+    "sealed_at_utc": "2026-10-20T03:16:23.808948+00:00",
+    "base": "90e777ea8242faa0acb2462c5cb5be7c318a2d64",
+    "protected_files_checked": 17,
+    "source_freeze_sha256": "02e006a060acbb9ef993f68975b71adea3f6b4970648ed2b2d57256ebf3680e2",
+    "result": {
+      "status": "RAW_ADMISSION_COMPLETE_NOT_SCORED",
+      "cases": [
+        {
+          "cap": 1234,
+          "exit": 0,
+          "seconds": 4.336411952972412,
+          "builder_totals": [
+            "HEO_TOTAL native=810068 expected=762230.8 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+          ],
+          "raw_sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b"
+        },
+        {
+          "cap": 1233,
+          "exit": 0,
+          "seconds": 4.604672193527222,
+          "builder_totals": [
+            "HEO_TOTAL native=813240 expected=763840.8 peak=1234 peak_op=7321477 peak_phase=multiply qubits_touched=1234"
+          ],
+          "raw_sha256": "40c3863db687abfb5895cfefc459f048b0d09a5cce883c120d2c464538e32cef"
+        }
+      ]
+    },
+    "streams_retained_on_server": {
+      "/home/hclau/ecdsa_research/breakthrough-terminal-integration-20261020/cap1233/ops.bin": {
+        "sha256": "40c3863db687abfb5895cfefc459f048b0d09a5cce883c120d2c464538e32cef",
+        "bytes": 39231347,
+        "complete": true
+      },
+      "/home/hclau/ecdsa_research/breakthrough-terminal-integration-20261020/cap1234/ops.bin": {
+        "sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b",
+        "bytes": 38777871,
+        "complete": true
+      }
+    },
+    "native_binaries": {
+      "/home/hclau/ecdsa_research/breakthrough-terminal-integration-20261020/observer/target/release/deps/build_circuit-96cdcfa2d1d068c7": "b5b1b12cbb102497f55370079c8ce35b829db209fa0cb03a268d281d8cfb3e49",
+      "/home/hclau/ecdsa_research/breakthrough-terminal-integration-20261020/observer/target/release/deps/build_circuit-0c12d1b03f2fe721": "0ec64fba65b9d9cde3f6c7dcd1143f7985ba04a984a4f9b7fd9a327f8ea36ac1"
+    },
+    "no_final_gate_nonce_or_scored_result": true
+  }
+}

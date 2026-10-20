@@ -1,0 +1,46 @@
+{
+  "sealed_at_utc": "2026-10-20T03:16:26.555331+00:00",
+  "base": "90e777ea8242faa0acb2462c5cb5be7c318a2d64",
+  "protected_files_checked": 17,
+  "source_freeze_sha256": "d08f501d65c32da75d641ded3d681c4223d346b4fb730885b5453d90d84bc270",
+  "result": {
+    "status": "RAW_ADMISSION_COMPLETE_NOT_SCORED",
+    "cases": [
+      {
+        "cap": 1234,
+        "exit": 0,
+        "seconds": 4.262983798980713,
+        "builder_totals": [
+          "HEO_TOTAL native=810068 expected=762230.8 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+        ],
+        "raw_sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b"
+      },
+      {
+        "cap": 1233,
+        "exit": 0,
+        "seconds": 4.6061742305755615,
+        "builder_totals": [
+          "HEO_TOTAL native=813248 expected=763844.8 peak=1234 peak_op=11464768 peak_phase=multiply qubits_touched=1234"
+        ],
+        "raw_sha256": "99b8d8260804bb8c183748c0977f01e670139ddcb1ee8505be99a3262ebc2848"
+      }
+    ]
+  },
+  "streams_retained_on_server": {
+    "/home/hclau/ecdsa_research/breakthrough-direct-transport-20261020/cap1233/ops.bin": {
+      "sha256": "99b8d8260804bb8c183748c0977f01e670139ddcb1ee8505be99a3262ebc2848",
+      "bytes": 39248904,
+      "complete": true
+    },
+    "/home/hclau/ecdsa_research/breakthrough-direct-transport-20261020/cap1234/ops.bin": {
+      "sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b",
+      "bytes": 38777871,
+      "complete": true
+    }
+  },
+  "native_binaries": {
+    "/home/hclau/ecdsa_research/breakthrough-direct-transport-20261020/observer/target/release/deps/build_circuit-96cdcfa2d1d068c7": "879a5bbb2c5c98c93513a4a020be83e015a4a2422bfeda346ed4603b69eaa3a3",
+    "/home/hclau/ecdsa_research/breakthrough-direct-transport-20261020/observer/target/release/deps/build_circuit-0c12d1b03f2fe721": "624db8dece64d128d97a38e98e8cde99633b60ce57f148f16591aecfbeec5bf3"
+  },
+  "no_final_gate_nonce_or_scored_result": true
+}

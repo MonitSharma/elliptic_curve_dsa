@@ -1,0 +1,80 @@
+{
+  "files": {
+    "ADMISSION-PROGRESS.json": "80e563bb7dea1d2ef68b92ac9f6d051a934b940143c5bb0226eccc0235197bfa",
+    "ADMISSION-RESULT.json": "2ef9d5206e07adb91ada70b0c56f820311436f36872e6fcbfe019e3a437a9b17",
+    "SOURCE_FREEZE.json": "4ff516baf8aba3d5155e00574c38d2859a8a1f795fb922e63acebcaa34275370",
+    "TERMINAL-AUDIT.json": "b847ce7fefb50748d276dad8189171037f3d8053abd6def0be2c73b555601859",
+    "build.log": "46d6167e6329aa2b63dad7eedf1391340f7f1ab0d3f9870f940789c36bae1b6d",
+    "build.out": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "launch.py": "bb38c1fda83d94349e88c199bb9404a62a038d22743762a05f904dd307aa6eb5",
+    "nohup.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prepare.log": "68486bc28d475b600ced96cce21ab5b547aa35ec778f3a1889f0bed157a37d5c",
+    "prepare.py": "63ba7f5ec6902a2edcc5fe7781a07e1bfaeb11a0623c181ab4226002711d76e2",
+    "run.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "run.pid": "5055fb382c508353531fc395390c97feb6246e13f7fcbaca52fa78ad1132b69a",
+    "run.sh": "f61fa1d67c8c895a87d532b43b1031ebec15cbf7d4b5dde635437e57bcaaa24b",
+    "source.patch": "6b86cec3873d023e5f0c158454119912b010260b3b7052032e46d6cfb452a47a",
+    "sweep.log": "f84eedc744b251075c85f090ee85e8b8f6b975f3d857f9a5ebf832aa84674c9d",
+    "sweep.py": "40824d51e1a21055f8e4cd217d6632aa6972a5c5ef91e541687510642cfd7671",
+    "added-source/break_profile.rs": "a7e94c66704031f4f0810059f15ca1893ddc5e006a5b82b8c582c67228609515",
+    "added-source/phase_fit.rs": "7a5e26ea94186d534775c3bdf06797267e0d3115d86b018deaf7bba9838a5bf4",
+    "added-source/phase_fusion.rs": "39bd1eed7dd29f5ea1516f60e6f205c07f210514dbb092dd6a9f9be652680f5a",
+    "added-source/phase_pebble.rs": "403c79b3d888c098aef06e24459d5425905f65f7e6722fc20b34245d674a6935",
+    "added-source/terminal_pebble.rs": "6cc274871604485ec47f5bc5dc9dfe0056b2164a1ac7a4c8861e9b1ab9ec40d9",
+    "added-source/zero_carry.rs": "ea5fe10fa4017145776bdd45f8bb430ce25059650b77bcdbc0790b49f7bbcc90",
+    "cap1233/child.pid": "f4aab30a8b98cf7153ad46395cff68d7ec37492d41c6d0ad0146cafeb1cc4a71",
+    "cap1233/generate.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "cap1233/generate.log": "58a72bb931e666bd35dddb9e04d1b5cb6daab7715aef335d1a8c4b8e218fa286",
+    "cap1233/generate.out": "aa3f330b2d6e1fc5c1b65513553619448455de7a12291a9e0346758d3f13e7a9",
+    "cap1234/child.pid": "cf716d71d1402a07d60501c22feae3538698a936ce5d5881c34b994aa85e447b",
+    "cap1234/generate.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "cap1234/generate.log": "c91d7e539e7139ce55ff3f956657cbf9b45fad53f9e24008c9fbf08a68a2dd9e",
+    "cap1234/generate.out": "cab4b02a10748f1c267a12869dc76b3a605128238ef48e8f805b520776dec42d"
+  },
+  "terminal_audit": {
+    "sealed_at_utc": "2026-10-20T03:16:33.633981+00:00",
+    "base": "90e777ea8242faa0acb2462c5cb5be7c318a2d64",
+    "protected_files_checked": 17,
+    "source_freeze_sha256": "4ff516baf8aba3d5155e00574c38d2859a8a1f795fb922e63acebcaa34275370",
+    "result": {
+      "status": "RAW_ADMISSION_COMPLETE_NOT_SCORED",
+      "cases": [
+        {
+          "cap": 1234,
+          "exit": 0,
+          "seconds": 4.285529851913452,
+          "builder_totals": [
+            "HEO_TOTAL native=810068 expected=762230.8 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+          ],
+          "raw_sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b"
+        },
+        {
+          "cap": 1233,
+          "exit": 0,
+          "seconds": 4.666515111923218,
+          "builder_totals": [
+            "HEO_TOTAL native=813248 expected=763844.8 peak=1234 peak_op=11464768 peak_phase=multiply qubits_touched=1234"
+          ],
+          "raw_sha256": "99b8d8260804bb8c183748c0977f01e670139ddcb1ee8505be99a3262ebc2848"
+        }
+      ]
+    },
+    "streams_retained_on_server": {
+      "/home/hclau/ecdsa_research/breakthrough-activation-audit-20261020/cap1233/ops.bin": {
+        "sha256": "99b8d8260804bb8c183748c0977f01e670139ddcb1ee8505be99a3262ebc2848",
+        "bytes": 39248904,
+        "complete": true
+      },
+      "/home/hclau/ecdsa_research/breakthrough-activation-audit-20261020/cap1234/ops.bin": {
+        "sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b",
+        "bytes": 38777871,
+        "complete": true
+      }
+    },
+    "native_binaries": {
+      "/home/hclau/ecdsa_research/breakthrough-activation-audit-20261020/observer/target/release/deps/build_circuit-96cdcfa2d1d068c7": "5588318afdc3580bc5820803b42ef6c612bbf6fc3238782578cb821bc9de804a",
+      "/home/hclau/ecdsa_research/breakthrough-activation-audit-20261020/observer/target/release/deps/build_circuit-0c12d1b03f2fe721": "2bf1119c3ba506d8bb7297b2ec0d65ccb4343ae836ed2b33414713304577bfe1"
+    },
+    "no_final_gate_nonce_or_scored_result": true
+  }
+}

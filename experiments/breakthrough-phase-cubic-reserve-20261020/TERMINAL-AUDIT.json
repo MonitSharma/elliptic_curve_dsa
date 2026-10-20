@@ -1,0 +1,46 @@
+{
+  "sealed_at_utc": "2026-10-20T03:19:21.743224+00:00",
+  "base": "90e777ea8242faa0acb2462c5cb5be7c318a2d64",
+  "protected_files_checked": 17,
+  "source_freeze_sha256": "14e269c8ef11e6af9e02938cb1d745e90971aa9bf082bd95e37a21e26fb15037",
+  "result": {
+    "status": "RAW_ADMISSION_COMPLETE_NOT_SCORED",
+    "cases": [
+      {
+        "cap": 1234,
+        "exit": 0,
+        "seconds": 4.2206645011901855,
+        "builder_totals": [
+          "HEO_TOTAL native=810068 expected=762230.8 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+        ],
+        "raw_sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b"
+      },
+      {
+        "cap": 1233,
+        "exit": 0,
+        "seconds": 4.693403959274292,
+        "builder_totals": [
+          "HEO_TOTAL native=813503 expected=763971.8 peak=1233 peak_op=1444643 peak_phase=divide qubits_touched=1233"
+        ],
+        "raw_sha256": "8447753aaf3b0f157ecc2e351225adc69dc48c4ebf9c05ace471773e91db0113"
+      }
+    ]
+  },
+  "streams_retained_on_server": {
+    "/home/hclau/ecdsa_research/breakthrough-phase-cubic-reserve-20261020/cap1233/ops.bin": {
+      "sha256": "8447753aaf3b0f157ecc2e351225adc69dc48c4ebf9c05ace471773e91db0113",
+      "bytes": 39258115,
+      "complete": true
+    },
+    "/home/hclau/ecdsa_research/breakthrough-phase-cubic-reserve-20261020/cap1234/ops.bin": {
+      "sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b",
+      "bytes": 38777871,
+      "complete": true
+    }
+  },
+  "native_binaries": {
+    "/home/hclau/ecdsa_research/breakthrough-phase-cubic-reserve-20261020/observer/target/release/deps/build_circuit-96cdcfa2d1d068c7": "56cdf0f5d2c978b7c5c70778d57ba7270d7a926aec975ad573ea7e38160a7dba",
+    "/home/hclau/ecdsa_research/breakthrough-phase-cubic-reserve-20261020/observer/target/release/deps/build_circuit-0c12d1b03f2fe721": "c03d9b58123754ed79959adefcfc0d4935abfe9012cc4a4c03e3d9a98d1a55ef"
+  },
+  "no_final_gate_nonce_or_scored_result": true
+}

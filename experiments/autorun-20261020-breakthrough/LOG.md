@@ -148,3 +148,64 @@ Purephasepredicate3native testsPASS. Before cleanup-aware nativeplanner: integra
 Cleanup-aware nativeplanner passes3 plus3predicatecontrols; restores8carrybudget onactualcore. Beforefullsquarepeakaudit: metadataonly frozen0bdplan7source, control1234exact13f6/candidate1233exact0bd bothcomplete. RecordfirstnewID1233callerinsquareandcontracts; no circuitpolicychange, gate ornonce.
 
 Beforecleanupnativev2 fixture-onlycostcontrol: originaldeterministicmultiplication measurementwords correlate under nestedguards, so previousobservedcomponentmeansnot unbiasedcostestimates. Planner/circuit/prefixunchanged; 15fullconfigurationsx65536sameoriginalinputstates, independentfixedSHAKEmeasurementlabel weighted-phase-chunks-measurements-v2. Retainv1all3+3PASStests/probes, runfullfixturetestonlyv2. No statisticalgate/nonce orpoint-addscore.
+
+Before terminal-pebble component: retain exact existing known_top measurement/reset/phasechannel even on violatedtop promises. Somecinphasepebble omits topCCX, forcesdesiredwithHMR/CliffordMAJphase; Noneadapterpreservesfirstcarry. Nativecompare originalripple arbitrary n5..7 allbasis/schedules, padding1,n-2,n-1,n, cinmodes,desired,guards; align semanticHMRwords ignoringoriginalpostHMRcleanRdraws. Alloldmeasurement/resetcoefficients n8 plusoriginalphaseprimitive suite. No gate/nonce/point-addscore.
+
+Terminalcomponentv1 arbitrarysmallbasis/offpromisechannel andalias testsPASS; coefficientfixturefailsadmission, n8zerocin drops[2,4] exceeds prefixcapacity. Beforev2 fixture-onlyn9 correction (validbothcinmodes), padding1/7/8/9, all17originalHMR/R probes; runtimeandmoduleprefix unchanged. Preservev1FAIL; no statisticalgate/nonce orclaim.
+
+Terminalcomponentv2PASS3 directoriginalchannel+3oldphaseprimitive controls. Beforev3: add phase-only truecarrybirthhook neededfor globalmodularDSQ_APPLY; zeroadapteroffsetincluded. Compare originaldeferredphase oneverycarryposition againstnewbirthphase, including earlydroppositions, n6allbasis/inputk/desired/cin/mixedguards. Repeatretained3+3. No point-addintegrationyet, finalgate/nonce/score.
+
+Terminalv3 passes3channel+1birthphase+3oldprimitivecontrols. Beforeintegration: preserve exactknown_topreset/phase onstrictfullmodularcalls only, distinctphysicaladdends, no carryout/copy/deferred/known-output/borrowed; useDSQ_APPLY attruecarrybirth, restoreallzero-carrysourceforms beforehook. Originalouterplanners/windows/iterations; seven nativefilters3+1+4+3+2+3+1 before1234exact13f6/candidate1233generation. No finalgate/nonce/score.
+
+Terminalintegrationpassesall17native controls andfullraw40c3863d, butactual1234nowmultiplyop7321477 (squarecleared). Censuswidth_compositiondirectmappedchunkowned32. Beforeallphaseadapter: removeonlyunnecessarysquarephaserestriction fromsameplainexactchunk; retainouterdefer/recover/hold/unhold. One serialenvironment-ownednative testalln8paritymaps/cin/guards,modesnormal/inverse/deferrecover/holdunhold; n12allRNGpositions alsoholdkeep/unholdkeep, deliberateomittedrecoverfaultmustdetect. Thenretainedfiltersandexact13f6/fullcandidate. No gate/nonce/score.
+
+Before exactcoreclosure model: independentPython bitsetreconstruction matchesall19native heldfunctionsandall256actualoutputfunctions inclunsupported-128. PureUrank25 closuresearch tests16ANDBooleanSLP feasibility; specified3singlelifts/3pairs test17/18 onlyinthosesubspaces, known19controlfirst. StandaloneC++ kernelvalidatedagainst300independentnaive closures, cubic-lift/quadraticcancel controls. OneCPU/8GiB,3600smodeldeadline/4194304Aperstage; incomplete distinctfromabsence. No candidate, statisticalgate, nonce, quantumlowerboundorrecordclaim.
+
+Directtransportv1 compilerE0425 beforetests: linecomment swallowedfollowing compressed declarations. Preserveversion; v2blockcommentrepaironly, sameintendedpolicy/tests. Coreclosurecompleted2s: exact18ANDwitness andcomputedpureUclosureblocks16withinBooleanSLP model; thenactivationreviewshows19helperis legacy (Y15_CORE_V2/Y16_CORE active14FWD/12REV). Thoseactivefunctions have nonlinearoutputdimension14/12, so18legacywitnessNOTa currentrecordoptimization. No candidateedit basedonunusedhelper; redirecttoactualfullcoreliveness.
+
+Activeforwardcore source-derivedmodel all16384 independent14-bit inputs:31heldhelpers, fullrank46 (1+14+31), no simplelinearloan. Actualfieldoutputs nonlinear19, field+completedlow6+carry6 nonlinear25 vs31helpercomputations. Before nativeproof: test-only snapshot immediatelyafter activeY16FWD14 program in fold_fwd_v2 fin0, all31heldfunctions/21fields/8derivedkfunctions compare independenttable onall16384inputs. No circuit change outside cfgtest, gate/nonce orrecord. Legacy18witness remainsunusedhelperonly.
+
+Directtransportv2 all17priorcontrols+1boundarylifecycle testPASS (alln8maps/modes/guards, alln12RNGpos inclretainedboundaries, omittedrecoverfaultdetected). Controllerthenassertedagainstoldv1sourcefreeze BEFOREbothcapgenerations. Localv3prepfirstwronginheritedloopneedleassertedbeforanyfiles; correctedliteral[1234,1233]. Beforev3 controller-onlycorrectSOURCE_FREEZE-v2 selection, testednativebinary/sourceunchanged; same1234exact13f6/1233generation. No statisticalgate/nonce.
+
+Before budget-aware C3 native study: directtransportfullraw99b8d826 remainsactual1234late multiplyT0Phase (Censusone T0Phase t at y15:3527); existingC3loan nonlinearidentity canavoidexpensiveY28plan7. Reuseit onlyhard1233/mw56/drop>0/staticcore_room6/7 afterTT removal. Keeporiginalcallereligibility/shedestimates, globals/conservatism, windows/iterations. Nativeforcesloanvsold atfin0..3/TTmodes/budgets6/7 forall1638414-bit coreinputs+fixedrandom50upperbits, comparefullfold data/phase/ancilla; then18retainedcontrols/full1234exact13f6/1233. No gate/nonce/score.
+
+Before cubicphasecap study: latepeak99b T0Phase ANDtemporary reaches1234. Atactualoverflow only, no quantumtemp; aggregateclassicalmono3flagsbyXOR andapplyCCZ toaffinef parity usingexistingpivot, alias/constantsClifford. Nativealln3..7 jointquantum+classicalflags,4affinepatterns,guards/cleanupRNG/Stats/width vsindependentcyclicmap phase, thenretained18tests andfullcontrol/candidategeneration. Faultcontrolsequalparent,hard1234exact13f6required. No gate/nonce/score.
+
+BudgetC3v1 oldcontrolfixtureuseddefaultwalkcap1251 despiteassumed1234, failspeakbeforedatareplay. V2 fixtureonlyexistingphasecap1234override,runtimeprefixunchanged,sameall14inputs. Cubicphasev1preparationfindstwoAND+at patterns, assertsbeforewriting source/freeze; observerstillbyteexactparent. V2 scopesalleditstoT0Phase andreusesuntouchedcheckout; preservepreparationfailure, no circuitexistedfromv1. Bothdeclarednative/fullgenerationobjectivesunchanged.
+
+## 20 October 2026, 11:26 SGT: complete raw Q1233 prototype; active-core workspace research
+
+No new scored result, final gate or nonce search. Public refresh03:16:55UTC
+has1687 entries; product54fc remains Q1234/T761052/product939138168, width671,
+Toffolis752991. Historical d9ae remains our accepted submission; queue mode
+and every earlier gate verdict remain unchanged.
+
+Exact terminal-output reset/phase adapter passes7 focused native tests.
+Its integration clears the square peak. Direct phase-transport controls pass
+18 native tests and clear the next multiply peak. A long-lived T0 phase
+temporary remains; a lifetime-aware direct cubic replacement passes19 tests
+and generates a complete raw circuit at peak/touchedQ1233, stream8447753a.
+Raw builderexpected763971.8 versus762230.8 control is noncompetitive in cost;
+neither these construction diagnostics nor component counts are scored results.
+Controlcap1234 stays byte-exact13f6. All17 protected files stay unchanged.
+
+Immediate-allocation cubic policy and narrow C3 budget policy pass their
+components but do not activate in the full circuit; exact activation traces
+explain why. Failed compiler/preparation/launcher/width fixtures are retained.
+Eight new native evidence archives and exact source/test bundles verify locally.
+
+The exact18-product synthesis found for old19-product addend_from_n is an
+INACTIVE legacy-helper result. Enabled forward/reverse tables have14/12
+products. Earlier weighted fixtures called actualcore also used that legacy
+helper and demonstrate no active-production gain. Their old evidence remains.
+
+The active prefix independently matches all31 helper/21 field/8 derived-bit
+functions on all16384 independent source assignments. Its original frame has
+rank46 and no simple linear spare. After writing six low sums, new exact
+models expose20 required helper forms and11 garbage forms. All11 can be
+HMR-erased with Clifford phase repair and regenerated with11 ANDs (earlier
+generic32-product reconstruction preserved). Native implementation is under
+validation. Initial compiler and guarded fixture failures remain; diagnosis
+found Simulator.apply_iter resets its local guard stack between segmented
+calls. Corrected fixture adds an uninterrupted full-stream control. No native
+or full-fold workspace improvement is yet claimed for this new technique.

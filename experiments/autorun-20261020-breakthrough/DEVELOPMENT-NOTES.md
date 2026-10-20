@@ -222,3 +222,121 @@ all registers ANDphase for arbitrary measurementwords, allcoefficients,
 false/mixedguards. This validates same reset channel even offpromise, not
 merely outputcorrectness on promised arithmetic. Preserve nativeoriginal
 17files; adapter changesonlypoint_add source. No gate/nonce/score claim.
+
+## 02:xxUTC: exact terminal channel now tested; multiplication direct path
+
+Terminalcomponent v1: allsmall offpromise channel+alias tests pass; coefficient
+fixture wrongly requested zero-cin n8 drops[2,4]. V2 test-only n9fix passes3
+channel+3oldphaseprimitive. V3 phase-only truecarrybirthhook passes3channel+
+1deferredbirthphase+3oldprimitive. Native originalfree emitsR after HMR;
+semantic alignment originaltop word0, Ci word1+2*(m-i), R drawsignorednew.
+Hook reads true carry and classical phase bits only. Zero firsthook in v3
+occursbefore restoring sourceforms; terminalintegration moves it after source
+restore and repeats allnative controls. Copy/deferred/known-output/borrowed
+promises remain excluded in the integration; globalDSQ_APPLY is preserved on
+true carry birth, source stages must be physically distinct.
+
+Terminalintegration2474368 completes native3+1+4+3+2+3+1 filters and bothraw
+streams. Baseline exact13f6. Candidateactual1234 at MULTIPLY op7321477,
+raw40c3863db687abfb5895cfefc459f048b0d09a5cce883c120d2c464538e32cef,
+builderexpected763840.8. The squareknownterminalpeak cleared for+2.6 modelT,
+but no resource result yet. Census already gives trueowner withoutnewtrace:
+width_composition.rs:183 owned32 +out at181. direct_add_phase_transport.
+Its strict_square_chunk helper unnecessarily rejects all non-square phases.
+The same exact perchunk map+livecin+cleanout interface occurs in multiply.
+
+NEXT: native direct_add_phase_transport tests in same source with phase-only
+restriction removed. Force localcap base+3 on n8 plan[4,4] (oldbase+4peak),
+new phaseoptionaladd fits. Arbitrary paritymaps, incomingcin, classicalguard.
+Modes plainadd, ordinaryinverse pair, and deferredfirst +recoverinverse pair:
+complement b around same add implements inverse evenwithcin; recreated chunk
+carries equal originals, so outerpendingphase corrections cancel. Checkfull
+arithmetic/source/ancilla/phase for allsmall basisinputs; allRNGpositions on
+larger word. Controls cap1234 =>adapteroff, candidatecapbase+3=>on, assert
+old/new actualcomponentpeaks. Existing outerdefer/recover callbacks stay asis.
+This may clear multiplypeak, without extending a copy/deferredINSIDEchunk
+promise. Do not simply ignore outer recover. Original wholepointgate still
+notdeclared and currentofficialparent remains54fc.
+
+Cleanupnativev2 independentSHAKEcostcontrol passes1 fullfixturetest, same
+983040 originalinputcase/configurations, runtimeprefix/plannerunchanged.
+Its30memberarchive/sourcebundlesverifylocally. Expecteduniformrank1budget8
+75.25vsold78; measured-2.761734. Actualcore rows expected77.5vs78, measured
+-0.513809. Componentonly, no point-addscore. Older correlated means retained
+but are not unbiased cost estimates.
+
+Rootcheckpoint69e5cb48 pushed/remoteverified after http.postBuffer per-command
+retry (no permanentconfigchange). Preexisting userfiles unstaged. Later
+terminalcomponent/integration and cleanupnativeartifacts remain uncommitted.
+
+## Independent next larger direction: exact AND-core synthesis closure
+
+Core actual8input TT outputs rank25 incl1+8inputs, nonlinear16; physical19AND
+functions independent. Reconstruct addend_from_n in truthbitsets and verify
+ALL256 functions/outputs exactly vs nativeCORE-TRUTH; preserve unsupported
+n=-128 exceptional behavior. r_maj stores actualmajority wire (AND thenXORci),
+not pureAND. Product61n lowblock: q=-3n, low6 q +upper(n+q>>6), highn-s.
+
+Potential exact16AND existence algorithm, not implemented yet:
+Let U=span(1,input8,allactualoutputs), dim25. Any16AND XOR/AND straightline
+network realizing outputs has ALLintermediate functions inU (rank bound).
+Starting L=span(1,inputs), add any productA*B inU\L withA,B inL. Greedyclosure
+is monotone; fullclosureproperlybelowU disproves16AND in THISBooleanSLP model.
+Represent truthas4xu64. Enumerate homogeneous A overcurrentfeaturebasis via
+Graycode; no needconstants since changing affine constants changesproduct
+onlybyknownlinearA/B. Precompute outsideU residual R_ij=reduceU(fi&fj).
+ForfixedA, B->reduceU(A*B) is linear. Gaussian kernel of residualcolumns
+R_i(A) yields Bcoefficients; each kernelbasis product is inU, checkifnotL.
+IfallkernelbasisproductsinL, alladmissibleBproductsareinL. Fullenumeration
+2^d-1 A gives closure proof; ifpartial/timecap reportINCOMPLETE only.
+GrayupdateallR_i in O(d) bitsetXOR, kernelO(d^2). Likelyfirst4borrow+6high
+prefixgates growd=18, so262144 A is tractable inC++. Prioritize originalfanin
+pairs ifbothinL tospeedknown19AND control. Allow affineconstmaskbit63 for
+priority/witness; Gray excludesconstant. Track each ANDfanin mask +freeXOR
+outputselectors, verifyallnativeTT bits independently inPython.
+
+Then try W=U+one originalgarbagewire12/13/14 (dim26) for17AND witness;
+three pairs for18AND; W=allnative19computed(dim28) known19AND control.
+Failure in chosen liftedsubspaces is NOT universal17/18 lowerbound. Full
+Uclosed may prove no16 within specified Boolean model only, not general
+quantum/measured/in-place lowerbound. Validate kernelclosure vs independent
+naiveallA,B enumeration onsmall randomtruthspaces before longrun. Outside
+candidate Rust/Cargo; standaloneC++tool,1CPU/8GiB, nohup/PID/log, preflight.
+No source/gate/nonce/noveltyclaim until realnative witnessvalidated.
+
+## 20 October 2026, 11:26 SGT: complete raw Q1233 prototype; active-core workspace research
+
+No new scored result, final gate or nonce search. Public refresh03:16:55UTC
+has1687 entries; product54fc remains Q1234/T761052/product939138168, width671,
+Toffolis752991. Historical d9ae remains our accepted submission; queue mode
+and every earlier gate verdict remain unchanged.
+
+Exact terminal-output reset/phase adapter passes7 focused native tests.
+Its integration clears the square peak. Direct phase-transport controls pass
+18 native tests and clear the next multiply peak. A long-lived T0 phase
+temporary remains; a lifetime-aware direct cubic replacement passes19 tests
+and generates a complete raw circuit at peak/touchedQ1233, stream8447753a.
+Raw builderexpected763971.8 versus762230.8 control is noncompetitive in cost;
+neither these construction diagnostics nor component counts are scored results.
+Controlcap1234 stays byte-exact13f6. All17 protected files stay unchanged.
+
+Immediate-allocation cubic policy and narrow C3 budget policy pass their
+components but do not activate in the full circuit; exact activation traces
+explain why. Failed compiler/preparation/launcher/width fixtures are retained.
+Eight new native evidence archives and exact source/test bundles verify locally.
+
+The exact18-product synthesis found for old19-product addend_from_n is an
+INACTIVE legacy-helper result. Enabled forward/reverse tables have14/12
+products. Earlier weighted fixtures called actualcore also used that legacy
+helper and demonstrate no active-production gain. Their old evidence remains.
+
+The active prefix independently matches all31 helper/21 field/8 derived-bit
+functions on all16384 independent source assignments. Its original frame has
+rank46 and no simple linear spare. After writing six low sums, new exact
+models expose20 required helper forms and11 garbage forms. All11 can be
+HMR-erased with Clifford phase repair and regenerated with11 ANDs (earlier
+generic32-product reconstruction preserved). Native implementation is under
+validation. Initial compiler and guarded fixture failures remain; diagnosis
+found Simulator.apply_iter resets its local guard stack between segmented
+calls. Corrected fixture adds an uninterrupted full-stream control. No native
+or full-fold workspace improvement is yet claimed for this new technique.
