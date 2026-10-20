@@ -1,0 +1,40 @@
+{
+  "status": "RAW_ALLOCATION_INTERFACE_DIAGNOSTICS_NOT_SCORED",
+  "stream_sha256": {
+    "control": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b",
+    "mixed": "9ee3a796b1b88dbc5cf0a3256bdbdae29e009b3b878a5fdd4973ed008e1c7ff3"
+  },
+  "comparisons": [
+    {
+      "tick": 129,
+      "live_quantum_roles_equal": true,
+      "active_qubit_counts_equal": true,
+      "free_qubit_sets_equal": true,
+      "free_qubit_orders_equal": true,
+      "held_classical_bit_sets_equal": true,
+      "free_classical_orders_equal": true,
+      "next_classical_counter_equal": true,
+      "role_differences": 0,
+      "source_snapshots_sha256": {
+        "control": "bf8b7873f690d45b46d4963347b2b1b3ad5885161c0ac666b8b4099cd554e0ba",
+        "mixed": "bf8b7873f690d45b46d4963347b2b1b3ad5885161c0ac666b8b4099cd554e0ba"
+      }
+    },
+    {
+      "tick": 130,
+      "live_quantum_roles_equal": true,
+      "active_qubit_counts_equal": true,
+      "free_qubit_sets_equal": true,
+      "free_qubit_orders_equal": false,
+      "held_classical_bit_sets_equal": true,
+      "free_classical_orders_equal": false,
+      "next_classical_counter_equal": true,
+      "role_differences": 0,
+      "source_snapshots_sha256": {
+        "control": "82c07db124d03c56ae1fbe8ed6be1215d4309744e9cbad2615817d9ab8520a34",
+        "mixed": "e9a1ebff4dc9f1c90cdf6ef35812b652ea132270d372b22d374388a5aed33722"
+      }
+    }
+  ],
+  "scope": "Read-only raw allocation-state capture after the2 selected ticks. Reborrow same payload handle, same raw arithmetic, no pool mutation, no old binding weakened. Capture free quantum/classical lists and full Walk rail/tape/payload wire roles. Baseline raw must reproduce13f6. Determines whether existing asserted narrow_alloc_set can safely restore only free-list order. This is NOT a transport proof, final gate, nonce or benchmark."
+}

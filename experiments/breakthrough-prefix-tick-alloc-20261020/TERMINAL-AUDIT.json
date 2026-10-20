@@ -1,0 +1,37 @@
+{
+  "status": "EXACT_LIVE_INTERFACES_FREE_LIST_ORDER_DIFFERENT_AT_T130",
+  "native_controls_rerun": 0,
+  "comparisons": [
+    {
+      "tick": 129,
+      "live_quantum_roles_equal": true,
+      "active_qubit_counts_equal": true,
+      "free_qubit_sets_equal": true,
+      "free_qubit_orders_equal": true,
+      "held_classical_bit_sets_equal": true,
+      "free_classical_orders_equal": true,
+      "next_classical_counter_equal": true,
+      "role_differences": 0,
+      "source_snapshots_sha256": {
+        "control": "bf8b7873f690d45b46d4963347b2b1b3ad5885161c0ac666b8b4099cd554e0ba",
+        "mixed": "bf8b7873f690d45b46d4963347b2b1b3ad5885161c0ac666b8b4099cd554e0ba"
+      }
+    },
+    {
+      "tick": 130,
+      "live_quantum_roles_equal": true,
+      "active_qubit_counts_equal": true,
+      "free_qubit_sets_equal": true,
+      "free_qubit_orders_equal": false,
+      "held_classical_bit_sets_equal": true,
+      "free_classical_orders_equal": false,
+      "next_classical_counter_equal": true,
+      "role_differences": 0,
+      "source_snapshots_sha256": {
+        "control": "82c07db124d03c56ae1fbe8ed6be1215d4309744e9cbad2615817d9ab8520a34",
+        "mixed": "e9a1ebff4dc9f1c90cdf6ef35812b652ea132270d372b22d374388a5aed33722"
+      }
+    }
+  ],
+  "scope": "Raw read-only allocator/interface capture only. Prior13 native controls belong to the strict-source experiment and are not rerun here. Tick129 state identical; tick130 live roles/free sets/counter identical, only free-list order differs. Supports trying existing asserted free-list restore, not proof of bound-pass transport or a resource result."
+}
