@@ -1,0 +1,7 @@
+Preparing worktree (detached HEAD 28e443bc)
+HEAD is now at 28e443bc Exact square1408 workspace and independently proved153 leases at nonce8
+Traceback (most recent call last):
+  File "/home/hclau/ecdsa_research/breakthrough-exact-native-ports-20261020/prepare.py", line 5, in <module>
+    patch=subprocess.check_output(['git','-C',str(repo),'diff','--no-ext-diff',base,new,'--','src/point_add/leapfrog.rs']);lines=patch.decode().splitlines(keepends=True);header=''.join(lines[:next(i for i,l in enumerate(lines)if l.startswith('@@'))]);hunks=re.split(r'(?m)(?=^@@)',patch.decode()[len(header):]);assert 'HEO_PIN_SQ_LEND_RETAINED_ANDS' in hunks[0];assert all('HEO_PIN_SQ_LEND_RETAINED_ANDS'not in h for h in hunks[1:]);selected=(header+''.join(hunks[1:])).encode();(r/'public-rail-exact.patch').write_bytes(selected);subprocess.run(['git','-C',str(t),'apply','--check',str(r/'public-rail-exact.patch')],check=True);subprocess.run(['git','-C',str(t),'apply',str(r/'public-rail-exact.patch')],check=True)
+                                                                                                                                                                                                                                                                                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

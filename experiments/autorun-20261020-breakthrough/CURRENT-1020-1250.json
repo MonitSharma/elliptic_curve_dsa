@@ -1,0 +1,155 @@
+{
+  "at_utc": "2026-10-20T12:51:57.155487+00:00",
+  "prior_root_commit": "602d6df0",
+  "submission_mode": "auto",
+  "goal": "Active and unfinished; keep pursuing complete Q, T and product improvements and automatically submit every new fully verified current-record improvement as GPT-6 sol/Codex.",
+  "public_snapshot": "20261020T123415Z",
+  "public_product": {
+    "id": "e3b5c51f-74e6-480a-82bf-5543fb1ba555",
+    "Q": 1234,
+    "T": 756481,
+    "product": 933497554,
+    "source": "88869d8cc23fb72120dd52533f3e48277e9b36e4",
+    "disclosures": "Stack-v3 exact R1/R2/EXT2 rail strip and G6prime fold erase; new G1M square exact with28-bit witness but public uses21; two additional approximate boundary windows. Do not port new approximations. Full public control714c exactly reproduced by width probe."
+  },
+  "public_T": {
+    "id": "a4ee760a-0500-4d54-9822-4a3c56806fd5",
+    "Q": 1464,
+    "T": 750911,
+    "source": "be2902c2a133754968dbc97992c753cc08730e83",
+    "status": "Already officially reproduced and independent T minimum. Prior official source verified196/17 bytes; no new complete benchmark yet."
+  },
+  "context4096": {
+    "directory": "breakthrough-context-lease-20261020",
+    "source_freeze": "adbcc1d333837dae799597a66c57454119c61afbfe280d5a7010d0ab54522721",
+    "native_controls": 7,
+    "proposed": 1877,
+    "accepted_unconditional_leases": 213,
+    "rejected": 1664,
+    "diagnostic_T_saving": 213.0,
+    "max_donor": 1479,
+    "output_stream": "d0d1f2e693b90aa5d4ebdde57453ba5047219248591f78b14c5e31da098e9b05",
+    "local_evidence_members_verified": 30
+  },
+  "finished213": {
+    "directory": "breakthrough-context-lease-finished-20261020",
+    "pid": 2818936,
+    "native_controls": 28,
+    "source_files": 198,
+    "protected_files": 17,
+    "freeze_sha256": "21955ba0b5e7971b6f33fbcad3f03b4dc3749d9df70b5a9337ddd1b5e328e91f",
+    "nonce0_stream": "9a29a3452eee6b9e1a370ddafc45eaa5a20114a926c0274bfc66ac52be288ebb",
+    "operations": 10549460,
+    "Q": 1480,
+    "diagnostic_weight": 750700.25,
+    "construction": "Preserve full officiala4ee constructor, bind ENTIRE original stream, strip checked historical nonce8 tail,213 independently proved leases with every output record bound, unchanged generic pass, new nonce0. No old guard/table weakened."
+  },
+  "final_gate213": {
+    "directory": "breakthrough-context-lease-final-gate-20261020",
+    "verdict": "FAILURE_RATE_GATE_PASS",
+    "label": "context213-exact-earlier-cut-final-20261020-v1",
+    "declared_at": "2026-10-20T12:40:13.943294+00:00",
+    "declaration_sha256": "0c43731e690723fb884d0a8317109682cab56492fd29ee48d7bf63908c077752",
+    "batches": 32768,
+    "shots_per_source": 2097152,
+    "parent_candidate_value": [
+      1147,
+      1147
+    ],
+    "value_failing_IDs_equal": true,
+    "phase": [
+      625,
+      619
+    ],
+    "dirty": [
+      0,
+      0
+    ],
+    "failed_batches": [
+      1182,
+      1187
+    ],
+    "candidate_failed_batches_per_packet": 5.107635498046875,
+    "b": 18,
+    "c": 13,
+    "one_sided_exact_p": 0.23656482994556427,
+    "paired_T_difference": -212.88193893432617,
+    "paired_SE": 0.2697563881945469,
+    "verdict_final": true
+  },
+  "nonce213": {
+    "directory": "breakthrough-context-lease-nonce-20261020",
+    "lowest_pass": 221,
+    "production_screens": 256,
+    "passes": [
+      221
+    ],
+    "overrun": "222..256",
+    "controls": "8 partial packet controls1..8 repeated in production,24 protected full qubit/classical/phase/RNG states and curve/partial-mask controls. Selected entire9024 protected replay PASS.",
+    "source_unchanged": true
+  },
+  "final213": {
+    "directory": "breakthrough-context-lease-final-20261020",
+    "pid": 2822541,
+    "controller": "continue.py runs gate, qualified nonce,finalize.py unchanged benchmark,seal.py source/evidence review; stops on any failure. Gate+qualification PASS, final native rebuild/generate in progress.",
+    "current": "Native build succeeded, full native generation running (three generic passes inherited+new). After first receipt, unchanged benchmark repeats full build; may take~20min total. No new scored result until complete pass.",
+    "after_ready": "Run collect-context-final.py locally (all evidence and198 source members), copy LOCAL-VERIFICATION.json to finalserverdir, launch submit.py via nohup resourcechecked launcher. Fresh API parent must stilla4ee and T must beat current min. Do not ask permission. Preserve response; inspect status, never duplicate uncertain upload. Attribution GPT-6 sol/Codex.",
+    "packaging": "Sealer preserves modes,17 protected,changed3files only, parent full canonical binding, gate/nonce/benchmark/source archive hashes and full disclosures. Root collect script verifies every member before upload. No in-progress source-review stdout included.",
+    "scope": "Independent T objective with+16 width, not global product."
+  },
+  "context16384": {
+    "directory": "breakthrough-context16384-lease-20261020",
+    "pid": 2823983,
+    "status": "7 native controls pass; scan summary345 proven,1532 rejected of1877, same a4ee input. Need collect RESULT.json/source/evidence.",
+    "scope": "Component only, not gated or scored. More context yields132 additional leases versus4096; do not claim a record. Future should rescan combined exact port source if it wins."
+  },
+  "exact_native_ports": {
+    "directory": "breakthrough-exact-native-ports-v3-20261020",
+    "original_pid": 2819580,
+    "resume_pid": 2823153,
+    "base": "Byte-verified a4ee local28e443bc",
+    "public_components": "Only exact rail R1/R2/EXT2 hunks (exclude recipe retune) and G6 body from88869. No new square/truncated witness/boundary windows/retunes/C3 selections. Old finish/cache modules remain unchanged and UNUSED in research wrapper.",
+    "native_strip_control": "6,416,896 lanes pass; exhaustive valid signed widths4..16; larger samples17,18,25,26,31,32,63,64; both directions, all garbage-letter combos,4measurement patterns;55256 missing-phase fault batches detected.",
+    "retained_controls": 27,
+    "repair_history": "v1 empty leading hunk split stopped before source mutation (13members verified); v2 selector bit0 scope compile failure before tests (22members verified). v3 scope repaired; originalrunner omitted PEBBLE_HARD_CAP so tests12 stopped at NotPresent before arithmetic. Source unchanged; resume.py sets required baseline1234 and reruns ALL16 filters under tests-env-*; original run.exit1 stays; completion is resumed.exit. Do not weaken assertions.",
+    "completed_cases": {
+      "control": {
+        "Q": 1464,
+        "raw_count": 10543037,
+        "raw_SHA3": "18f7fc00af40daeda201761064a6ce33a6ac74da78054df3464bdce6a4f0bcb9",
+        "diagnostic_weight": 751070.25,
+        "output_stream": "aec04bb40d36a6699e5b7c1da153342494693b2df61d61285f82d8c6c5453daf"
+      },
+      "rail": {
+        "Q": 1464,
+        "diagnostic_weight": 749988.25,
+        "raw_SHA3": "6cf285ce7aa71cca69a25a7ffdce941e4d3f999ac32fab28daa2f4f2416ac003",
+        "output_stream": "7c3de1c12d7cca67fb2e0bf57f2257cf3d8c22df5f6fb0b9db5495ddd5b95601"
+      },
+      "g6": {
+        "Q": 1464,
+        "diagnostic_weight": 749767.0,
+        "raw_SHA3": "b8e52744825e1c51e655e1c927a94de87521fab80d65658ca1ac897636aef0ac",
+        "output_stream": "18d79bbf9b84725a2a628a5b3228988c1b0fd1e00d6fe6c9c8f6254f73679321"
+      }
+    },
+    "both": "Final generic pass in progress, expected larger exact saving; not verified full curve yet. Must preserve source and all results before integration."
+  },
+  "ports_development": {
+    "directory": "breakthrough-exact-ports-development-20261020",
+    "pid": 2830603,
+    "label": "exact-native-rail-g6-development-20261020-v1",
+    "plan": "Wait resumed.exit0; hash allfixed4streams and exacta4ee parent; declare PLAN.json before512x64 fresh shots each,8 protected scalar controls each,4 workers sequential. Existing validated diagnostic tool preserves every output/ancilla lane hash and all value/phase/dirty flags. No final gate/nonce.",
+    "next": "If passing and both is best, make self-contained FIXED both-mode finished source with raw binding, one unchanged generic pass and nonce0; compare every generated record to original fixedboth research stream. Never transfer old cache indices. Own final gate vs then-current publicT parent, qualified ascending nonce, unchanged benchmark,localreview,auto-submit. Can independently rederive leases later. Credit public88869 exact components."
+  },
+  "new_public_width": {
+    "directory": "breakthrough-stackv3-width-20261020",
+    "pid": 2828585,
+    "freeze": "8a04f6e3afade46704199ef581951b963a733952bf113d200809dff19ff1700e",
+    "status": "Complete grid. Full public714c control exact,11602990ops. Raw cap1234/t21 a07f8065 (11598774ops), cap1234/t28 7a1bb98d (11609622ops); cap1233/t28 and1232/t28 fail originaly16 guard at fwd128: room16 need39, m0erase room21 need35. Not fundamental width lower bound. All old bound passes untouched; rawreturnsresearchonly.",
+    "plan_note": "Plan text was prewritten in prepare-new-public-width.py but initial helper hit existing directory, so PLAN.md copied after launch. Actual fixedcase source and SOURCE-FREEZE written before generation. No gate/nonce. Preserve this packaging error honestly.",
+    "potential_followup": "Inspect exact lean alternative at tick128. New public retune disables128 carryloan; one-budget drop crosses an admission cliff (23 helper short), not a simple one-wire shortage. Predeclare legal exact lean-path/loan configuration before new native tests; never weaken guard or lowerprecision. Stronger28-bit witness costs~330T, lostpostpasscredit~166T, so Q1233 can afford only~117extraT to beat current product; nominalcap alone not measuredQ."
+  },
+  "preservation": "All initial isolated ticks source/failure56 members locally verified. Existing Q692, Product25/Product84 final failed gates, preexisting root edits and unrelated QOB/chemistry jobs untouched. Own server<=64threads and leave100GiB; resourcechecked nohup launcher/PID/logs used. No subagents.",
+  "next": "Complete automatic submission as soon as benchmark+localreview passes; continue larger exact native port work and independent product width research. Do not mark active goal complete or finish the turn at a checkpoint."
+}

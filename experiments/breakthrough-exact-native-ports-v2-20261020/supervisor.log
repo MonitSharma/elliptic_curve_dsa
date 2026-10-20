@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/home/hclau/ecdsa_research/breakthrough-exact-native-ports-v2-20261020/run.py", line 18, in <module>
+    name='tests-'+str(i);run(['/home/hclau/.cargo/bin/cargo','+1.93.0','test','--release','--bin','build_circuit',filter,'--','--nocapture','--test-threads=1'],name);actual=re.findall(r'test result: ok\. (\d+) passed; 0 failed;',(r/(name+'.log')).read_text());assert len(actual)==1 and int(actual[0])>0;counts.append(int(actual[0]))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hclau/ecdsa_research/breakthrough-exact-native-ports-v2-20261020/run.py", line 7, in run
+    (r/(name+'.exit')).write_text(str(rc)+'\n');assert rc==0,name
+                                                       ^^^^^
+AssertionError: tests-0

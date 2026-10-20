@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/home/hclau/ecdsa_research/breakthrough-exact-native-ports-20261020/run.py", line 15, in <module>
+    run(['python3','prepare.py'],'prepare',r);f=json.loads((r/'SOURCE-FREEZE.json').read_text());counts=[]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hclau/ecdsa_research/breakthrough-exact-native-ports-20261020/run.py", line 7, in run
+    (r/(name+'.exit')).write_text(str(rc)+'\n');assert rc==0,name
+                                                       ^^^^^
+AssertionError: prepare

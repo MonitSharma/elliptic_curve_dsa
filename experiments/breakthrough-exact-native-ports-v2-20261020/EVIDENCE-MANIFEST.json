@@ -1,0 +1,39 @@
+{
+  "files": {
+    "prepare.py": "9b03c389c4a3e27c25c74d312a4b71337f257d976ba3f27bf98e1c0a7133c65c",
+    "prepare.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "rail-tests.rs": "de01e888d9870b64fc022aa9c3e68a79dfac96ce9a2581a51083160ab135260c",
+    "run.exit": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+    "prepare.pid": "fdf20c3f4d7cde17967d5b44427a91b363e1d999d12cf476c2d94ceb888d877c",
+    "TERMINAL-AUDIT.json": "3fdb3c5aaf2833fcba64acecb26ab11dabdf6158c58a54c4b8eb204d95adf244",
+    "public-rail-exact.patch": "1b88a820fc9678508919cbda4c48be42a2808cf5c9a61011ce9aa22dd2b8367f",
+    "supervisor.log": "a5677a10adbb6b03b35306b70366736bf59d51bac99bb707e90afd07feb280fb",
+    "PLAN.md": "dc0ee87d91b3e8e76083ae902451eedbbe48f21dd18a0199f831c74f97a71c1d",
+    "prepare.log": "0c9344714a99cee4c19988acbca297f93e2bffcf9dac1416c7e2ff8794e073fe",
+    "run.py": "6992a8f94c6e6de3909d988c118ed73f4fbb06b160657e6ace8ac2ec245a641b",
+    "old-g6-body.rs": "8ec585850068c66c90a3be850fad1e7cc989fefdb4fb95de6f0a8533b7e8a45a",
+    "tests-0.exit": "39b8dc3fc8b44765c8e6f1adee04c5b465e555ab791cc42d0d9e810d5b64297c",
+    "tests-0.pid": "c511c169863fc2d030f8929640fb41c9248f4eb7f952c38a99ee820f55273f59",
+    "source.patch": "4bfaa23338d421a4a20baac814f7e03d3956cd26b32816863ec1003dfe24076d",
+    "supervisor.pid": "7a8bf09c40d8027e8fc2f1a450f4b6a2cd78726b1fec6e58aecd761e49510e2a",
+    "new-g6-body.rs": "a3f8fc71988d01328e5b1d4a42d1ae26fb60b75add9116b5efd40b42c37a2f8e",
+    "changed-point-add-source.tar.gz": "bab86f8a7da7d736fac95d9893321a3d103ff33c6a8828081c9288e34b8278bc",
+    "REPAIR-NOTE.md": "29b8211c3116799a642989c0235055fde03810110ce88e8a8b3b1533a20b5964",
+    "tests-0.log": "11f4e2e4acc0bece2966f814982bfd3af173560136e9a15b918932320f57374c",
+    "SOURCE-FREEZE.json": "56e2cb89f36704ce33392f37e4f7822f0c579bbad9a0de4dac65b207a05709ce"
+  },
+  "streams_retained_on_server": {},
+  "changed_source_files": [
+    "src/point_add/strip_small.rs",
+    "src/point_add/strip_barrel.rs",
+    "src/point_add/y15_onefold.rs",
+    "src/point_add/exact_native_port.rs",
+    "src/point_add/mod.rs",
+    "src/point_add/leapfrog.rs"
+  ],
+  "audit": {
+    "status": "RESEARCH_SELECTOR_BIT0_SCOPE_COMPILE_FAILURE_BEFORE_TESTS",
+    "native_controls": 0,
+    "scope": "Full frozen source/patch/compiler failure retained. No native test/arithmetic/gate/nonce verdict. Corrected selector repair proceeds separately."
+  }
+}

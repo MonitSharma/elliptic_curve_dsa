@@ -1,0 +1,1 @@
+The first preparation stopped before arithmetic edits: the hunk splitter retained an empty leading segment, so its expected first-hunk assertion correctly rejected it. Original scripts/worktree/logs retained. This revision filters the empty segment; planned arithmetic, cases, guards and tests are unchanged. No gate or nonce was run.
