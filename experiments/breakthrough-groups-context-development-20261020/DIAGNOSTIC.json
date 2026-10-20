@@ -1,0 +1,37 @@
+{
+  "status": "DEVELOPMENT_COMPARISON_COMPLETE_PRESERVE_ALL_MISMATCHES",
+  "label": "groups-context230-development-20261020-v1",
+  "batches": 512,
+  "summaries": {
+    "public8d": {
+      "value_shots": 12,
+      "phase_shots": 9,
+      "dirty_shots": 0,
+      "failed_batches": 13,
+      "mean_executed_stream_toffoli": 747453.1827697754,
+      "rows_sha256": "1018dfecc25ea03d654642a1bb4e7f972e306899ed85ef77123a2b73e1147519"
+    },
+    "context230": {
+      "value_shots": 12,
+      "phase_shots": 5,
+      "dirty_shots": 0,
+      "failed_batches": 12,
+      "mean_executed_stream_toffoli": 747226.326171875,
+      "rows_sha256": "d3113e5ccebe4d40d4f05358e9089dcc07e743a5909d11c2aeb262fc1e82f22b"
+    }
+  },
+  "comparisons": {
+    "context230": {
+      "candidate_minus_parent_raw_toffoli": -226.85659790039062,
+      "paired_standard_error": 2.5987207884040187,
+      "new_failed_batches": 0,
+      "new_passing_batches": 1,
+      "new_value_failing_shots": [],
+      "new_value_passing_shots": [],
+      "different_target_lanes": [],
+      "different_other_lanes": [],
+      "target_differences_confined_to_both_value_failing": true
+    }
+  },
+  "scope": "Fresh full-output development512x64/source, fixedexactcontext230 on complete officialT747453 grouped-safe parent. Preserve all output/value/phase/dirty mismatches. Not final-gated, nonce-screened, benchmarked or scored."
+}

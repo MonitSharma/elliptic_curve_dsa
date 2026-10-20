@@ -1,0 +1,1 @@
+Fresh512x64/source full-output comparison labelgroups-context230-development-20261020-v1, current8d exactstreamccdef4d6 vs ownfrozen230 exactcache/source205. Fourworkers/source,eightprotectedscalar. Retainalltarget/ancilla/value/phase differences. Sourcefixedbeforeinputs; no statisticalfinalgate/nonce/score yet.

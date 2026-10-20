@@ -1,0 +1,37 @@
+[
+  {
+    "mode": "control",
+    "exit": 0,
+    "seconds": 165.88359308242798,
+    "stream_sha256": "a871e42c3a40aa7fe228f68b8024a7167e57cdafbfd6732e19b650d2e6f845b9",
+    "raw_stream_sha256": "ffe8c0e3b5a56db88ba373bc3de39b81daabb0f787ff1a62468b44269e3a7e61",
+    "qubits": 1464,
+    "diagnostic_weight": 748689.0,
+    "generic_stages": [
+      "GENERIC_STAGE name=raw ops=10591703 nq=1464 nb=1621 native=761414 depth_weight=749282.000000 diagnostic_only=1",
+      "GENERIC_STAGE name=product ops=10591683 nq=1464 nb=1621 native=761374 depth_weight=749243.000000 diagnostic_only=1",
+      "GENERIC_STAGE name=affine ops=10591683 nq=1464 nb=1621 native=761374 depth_weight=749243.000000 diagnostic_only=1",
+      "GENERIC_STAGE name=quadratic ops=10591683 nq=1464 nb=1621 native=761374 depth_weight=749243.000000 diagnostic_only=1",
+      "GENERIC_STAGE name=truth ops=10591683 nq=1464 nb=1621 native=761374 depth_weight=749243.000000 diagnostic_only=1",
+      "GENERIC_STAGE name=interned_witness ops=10591683 nq=1464 nb=1621 native=761374 depth_weight=749243.000000 diagnostic_only=1",
+      "GENERIC_STAGE name=measurement_absorption ops=10591723 nq=1464 nb=1641 native=761342 depth_weight=749211.000000 diagnostic_only=1",
+      "GENERIC_STAGE name=parity_scan ops=10591723 nq=1464 nb=1641 native=761342 depth_weight=749211.000000 diagnostic_only=1",
+      "GENERIC_STAGE name=conditional ops=10593835 nq=1464 nb=1641 native=761078 depth_weight=749082.000000 diagnostic_only=1",
+      "GENERIC_STAGE name=square_top ops=10596895 nq=1464 nb=2451 native=761078 depth_weight=748699.500000 diagnostic_only=1",
+      "GENERIC_STAGE name=conditional_ur ops=10596898 nq=1464 nb=2452 native=761077 depth_weight=748698.500000 diagnostic_only=1",
+      "GENERIC_STAGE name=zero_force ops=10596898 nq=1464 nb=2452 native=761077 depth_weight=748698.500000 diagnostic_only=1",
+      "GENERIC_STAGE name=classical_factors ops=10596926 nq=1464 nb=2452 native=761065 depth_weight=748690.000000 diagnostic_only=1",
+      "GENERIC_STAGE name=classical_wide ops=10596932 nq=1464 nb=2452 native=761063 depth_weight=748689.000000 diagnostic_only=1"
+    ]
+  },
+  {
+    "mode": "groups-safe28-d8-cap1234",
+    "exit": 101,
+    "seconds": 0.3837575912475586
+  },
+  {
+    "mode": "groups-safe28-d8-cap1233",
+    "exit": 101,
+    "seconds": 0.3470778465270996
+  }
+]

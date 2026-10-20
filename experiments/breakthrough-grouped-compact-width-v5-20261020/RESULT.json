@@ -1,0 +1,77 @@
+{
+  "status": "GROUPED_SQUARE_NATIVE_FIXED_CASES_NOT_GATED_OR_SCORED",
+  "native_controls": 33,
+  "unit_cases": [
+    {
+      "mode": "control",
+      "exit": 101,
+      "historical_six_walk_domain_edges_excluded_by_existing_unit": true,
+      "g3_summary": [
+        "G3_UT pins=EXACT_CMP_COMPACT=0;PEBBLE_HARD_CAP=1536;SQC_G1M=0;SQC_T=28;SQC_G=259;SQC_LEAF_D=0;GROUP_JUNCTION_FAULT=0 cap=Some(1408) wires=1348 T/shot=40135 shots=1024 out_bad(-off)=491 out_bad(+off)=1024 y_bad=0 phase_bad=0 ancilla_bad_batches=16 offset_zero=false"
+      ],
+      "edge_phase_masks": [
+        "G3_UT edge phase mask=0x31"
+      ]
+    },
+    {
+      "mode": "groups-safe28-d8-cap1234",
+      "exit": 0,
+      "historical_six_walk_domain_edges_excluded_by_existing_unit": true,
+      "g3_summary": [
+        "G3_UT pins=EXACT_CMP_COMPACT=1;PEBBLE_HARD_CAP=1234;SQC_G1M=1;SQC_T=28;SQC_G=259;SQC_LEAF_D=8;GROUP_JUNCTION_FAULT=0;G3_SQ_EXACT_SPLIT=1 cap=Some(1234) wires=1268 T/shot=38679 shots=1024 out_bad(-off)=0 out_bad(+off)=1024 y_bad=0 phase_bad=0 ancilla_bad_batches=0 offset_zero=false"
+      ],
+      "edge_phase_masks": [
+        "G3_UT edge phase mask=0x5"
+      ]
+    },
+    {
+      "mode": "groups-safe28-d8-cap1233",
+      "exit": 0,
+      "historical_six_walk_domain_edges_excluded_by_existing_unit": true,
+      "g3_summary": [
+        "G3_UT pins=EXACT_CMP_COMPACT=1;PEBBLE_HARD_CAP=1233;SQC_G1M=1;SQC_T=28;SQC_G=259;SQC_LEAF_D=8;GROUP_JUNCTION_FAULT=0;G3_SQ_EXACT_SPLIT=1 cap=Some(1233) wires=1268 T/shot=38692 shots=1024 out_bad(-off)=0 out_bad(+off)=1024 y_bad=0 phase_bad=0 ancilla_bad_batches=0 offset_zero=false"
+      ],
+      "edge_phase_masks": [
+        "G3_UT edge phase mask=0x2d"
+      ]
+    }
+  ],
+  "source_freeze_sha256": "9de350e085bb7b0c0ebafbcf9d652216368769cff61bd3fbf0353964834c090a",
+  "cases": [
+    {
+      "mode": "control",
+      "exit": 0,
+      "seconds": 165.34497618675232,
+      "stream_sha256": "a871e42c3a40aa7fe228f68b8024a7167e57cdafbfd6732e19b650d2e6f845b9",
+      "raw_stream_sha256": "ffe8c0e3b5a56db88ba373bc3de39b81daabb0f787ff1a62468b44269e3a7e61",
+      "qubits": 1464,
+      "diagnostic_weight": 748689.0,
+      "generic_stages": [
+        "GENERIC_STAGE name=raw ops=10591703 nq=1464 nb=1621 native=761414 depth_weight=749282.000000 diagnostic_only=1",
+        "GENERIC_STAGE name=product ops=10591683 nq=1464 nb=1621 native=761374 depth_weight=749243.000000 diagnostic_only=1",
+        "GENERIC_STAGE name=affine ops=10591683 nq=1464 nb=1621 native=761374 depth_weight=749243.000000 diagnostic_only=1",
+        "GENERIC_STAGE name=quadratic ops=10591683 nq=1464 nb=1621 native=761374 depth_weight=749243.000000 diagnostic_only=1",
+        "GENERIC_STAGE name=truth ops=10591683 nq=1464 nb=1621 native=761374 depth_weight=749243.000000 diagnostic_only=1",
+        "GENERIC_STAGE name=interned_witness ops=10591683 nq=1464 nb=1621 native=761374 depth_weight=749243.000000 diagnostic_only=1",
+        "GENERIC_STAGE name=measurement_absorption ops=10591723 nq=1464 nb=1641 native=761342 depth_weight=749211.000000 diagnostic_only=1",
+        "GENERIC_STAGE name=parity_scan ops=10591723 nq=1464 nb=1641 native=761342 depth_weight=749211.000000 diagnostic_only=1",
+        "GENERIC_STAGE name=conditional ops=10593835 nq=1464 nb=1641 native=761078 depth_weight=749082.000000 diagnostic_only=1",
+        "GENERIC_STAGE name=square_top ops=10596895 nq=1464 nb=2451 native=761078 depth_weight=748699.500000 diagnostic_only=1",
+        "GENERIC_STAGE name=conditional_ur ops=10596898 nq=1464 nb=2452 native=761077 depth_weight=748698.500000 diagnostic_only=1",
+        "GENERIC_STAGE name=zero_force ops=10596898 nq=1464 nb=2452 native=761077 depth_weight=748698.500000 diagnostic_only=1",
+        "GENERIC_STAGE name=classical_factors ops=10596926 nq=1464 nb=2452 native=761065 depth_weight=748690.000000 diagnostic_only=1",
+        "GENERIC_STAGE name=classical_wide ops=10596932 nq=1464 nb=2452 native=761063 depth_weight=748689.000000 diagnostic_only=1"
+      ]
+    },
+    {
+      "mode": "groups-safe28-d8-cap1234",
+      "exit": 101,
+      "seconds": 0.4159584045410156
+    },
+    {
+      "mode": "groups-safe28-d8-cap1233",
+      "exit": 101,
+      "seconds": 0.39311766624450684
+    }
+  ]
+}

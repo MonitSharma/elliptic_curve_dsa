@@ -1,0 +1,1 @@
+SOLE final groups-context230-final-20261020-v1,32768x64/source freshpaired nonce0 exactcurrentofficial8d/ccdef4d6 comparator.205source/17protected; measuredQ1464. Allfour AGENTScriteria, finalverdict no rerun/relabel/extension/nonce to reversefailure. Freshpublicrecordcheck before declaration. PASSonly permitsqualifiednonce/unchangedbenchmark/localreview/autosubmit.

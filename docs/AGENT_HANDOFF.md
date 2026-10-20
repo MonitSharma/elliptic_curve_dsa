@@ -1,3 +1,56 @@
+## 21 October 2026, 01:02 SGT: official Q1464/T747226; continue product research
+
+New auto-submission71d9dc7e officially reproduces Q1464/T747226/product1093938864,
+227 fewerT atunchangedQ vs8d. Publicsource28a4e93e, local3c7e627a; all205source
+and17protected Git-object bytes match. All186evidence/205source members verified
+locally. Officialpromotion rejected solely because globalproduct islower. Fresh
+17:02UTC1711records confirms Tminimum747226; product933231010/acd0/Q1234/T756265
+andwidth670/e2 unchanged. Globalproduct goalactive; auto-submit every newcomplete
+verified current-record improvement asGPT6sol/Codex. Never declaregoalcomplete.
+
+Bothfixedexactcontext scans (0/16permitteddonors) prove same230leases/output,
+actualQ1464/maxdonor1460/noaddedwire,1154nominees/924rejects,9nativecontrols each.
+Wholepublic8d constructor preserved; fullparent/input/cacheoutput canonical
+bindings,checkedoldnonce282tail removed,nonce0d0e05c59; no genericrepass ornew
+precision/window/cut/round. FinishedSF48d46460, native runtime1PASS. Fresh512x64
+dev: wrongvalues12sameIDs,dirty0,target/otherdiff0;phase9/5,failed13/12.
+Sole groups-context230-final-20261020-v1 gate32768x64/source PASS: value1165/1165
+identicalIDs,phase637/637,dirty0,failed1191/1190,b7/c8,p.6963806152,5.120544/packet,
+pairedT-228.734732,SE.323315. Declarationc67c713c/result75e97edd. No relabel/rerun.
+Qualifiedlowestnonce179,192production screens1..192,solepass179,overrun180..192;
+8additionalpartialcontrols1..8 repeat/24protectedfullstatebatches,selected9024
+replayPASS. Unchangedbenchmark9024PASS,total6742964592. Finalstream278802f0,
+records2a44fb48,pretail392e2e43,sourcearchive1fcd767b,patch377f0aec,finalarchive
+c7fbfd62. Sourcechangesonlynonce0->179 fromgatedsource. No globalproductclaim.
+
+Major newcomponent: exact measured-prefix/reversible-tail phasecompare. Keepm
+cleanmeasured carries; omittedtail steps use in-place MAJ onoperandwires,
+terminalthreeCZphase,reverseMAJundo,thenoriginalprefixHMR. Eachsavedhelpercosts
+oneextra nativeT; maxn-2 savedhelpers leavesoneprefixcarry. All2k omittedR/HMR
+draws replacedbyzeroHMR. Native4 PASSallsmallbasis/alllegalcuts, wide3..256,
+guards/sourcealiasseeds/value/phase/dirty/RNG/peak/fault; fulla871 control exact.
+V6 lowcap constructions stillfailfoldguard, no pointstream/score. Earlier
+v1drawfixturefail,v2onehelper,v3compilefail,v4quartic,v5dirtylinear-ladder
+prototypes all retained; nativepassedwhereapplicable, no scoredresourceclaims.
+V3 compilefailure is iteratorfixture, not arithmetic; V6 initialone-linelocal
+quotingfailure made nosourcechange/workload, dedicatedhelpercorrects it.
+
+Activev7 PID2969452 composes v6 with independentlynativeverified seven/eight/nine
+helper50bit exactfoldplans. Explicitnewcheckedbranch budget7..9/drop>=10-budget;
+oldguardremains. Exactdrop3 fwd123..136/rev124..126 onlylowcapmode. Existingcore
+route admittedatequalitycap1234 onlywithbothcaps1234/core_room>=30 andallprior
+preconditions; originalsmaller-cap route stays. No newapprox/tabletransport.
+Native4+27/group/squareunits thenfullcontrola871 andcap1234/1233 generation.
+ReadactualmeasuredQ; nominalcap is notQ. Productcandidate needsownexactpublicacd0
+gate, notTparent. Ifanotherguardstops, preserve andderive/test nextlegalroute.
+
+Fivecompletedfronts482members independentlyverified andsources/patches retained.
+Nestedsubmissionevidence hydratedthroughmanifestchecks/immutablearchivelinks.
+Lastpushedroot9ede0ce7; laterlocal41f769ec/fdf747b3 andthischeckpoint awaitpush.
+Automaticreview rejected sharedmainpush; explicituserapproval requested,no
+bypass/retry. Localwork andauthorizedofficialsubmissionscontinue. Preserve all
+preexistinguserroot/submodule edits andunrelatedserverQOBjobs; chemistryuntouched.
+
 ## 21 October 2026, 00:35 SGT: official Q1464/T747453; product goal active
 
 New auto-submission8d0fef2b officially reproduces Q1464/T747453/product1094271192,

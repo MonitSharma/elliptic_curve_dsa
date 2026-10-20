@@ -1,0 +1,40 @@
+{
+  "status": "COMPLETE_LOCAL_REVIEW_PASS_READY_FOR_AUTO_SUBMISSION",
+  "at_utc": "2026-10-20T16:55:19.973188+00:00",
+  "source_revision": "3c7e627af3afbb18db03c4dad2b92653ad8c2637",
+  "base": "28e443bcc2f3dc0793c6a416a496b07cfbeb4c4f",
+  "source_files": 205,
+  "protected_files_checked": 17,
+  "source_archive_sha256": "1fcd767b7372b0ef2a0c4a23d6de723a61e1f0326bea18b8540f715aa6c35fa4",
+  "source_patch_sha256": "377f0aec48944a6007652ab995a7909e3df44ea05fe3f19eca7ef075cff7b6f5",
+  "source_freeze_sha256": "92835253080ebff7d8d8f698c4651c08fe7ef3e68d97bd496d3feb390e65eb34",
+  "benchmark_result_sha256": "651486ac4410b257f2ab58aa1a015c69c92a6dccdb43fbb589395297ab767737",
+  "gate_declaration_sha256": "c67c713cbef92c7e9a09d9d99767b5312b4e2a23d9324033d8e6cf511a9a84ed",
+  "gate_result_sha256": "75e97edd8f22b20c55fa5689b47e4f0b6bb3759f6e33845bcd10f598c84e7a60",
+  "native_receipt": {
+    "stream_sha256": "278802f0728d9233297723c88dffef8544bd9c3ce9968d34a2c3f406b383688a",
+    "records_sha256": "2a44fb480419a9059ccf89d330432d85196f40d5c90d3946078b96c9494a1cdd",
+    "pre_tail_sha256": "392e2e439333c56265becca43e68b5ccc57e9e0b87401a9c285af4d67ac171a2",
+    "pre_tail_byte_identical_to_gated_source": true,
+    "nonce": 179,
+    "operations": 10981698
+  },
+  "qubits": 1464,
+  "rounded_mean_executed_toffoli": 747226,
+  "product": 1093938864,
+  "nonce": 179,
+  "production_screens": 192,
+  "highest_screened": 192,
+  "passes": [
+    179
+  ],
+  "additional_partial_packet_controls": "1..8 repeated in production;24 protected full-state scalar batches at0,70,140",
+  "selected_protected_packet_passed": true,
+  "unchanged_benchmark_passed_shots": 9024,
+  "historical_results_restored": true,
+  "tracked_changes_only_point_add": true,
+  "submission_mode": "auto",
+  "ai_model": "GPT-6 sol",
+  "coding_harness": "Codex",
+  "scope": "Complete unchanged benchmark of230 independently exact contextual product leases on officialT747453; actualQ1464 unchanged. Fresh publicminimum checked before upload; no globalproduct claim."
+}
