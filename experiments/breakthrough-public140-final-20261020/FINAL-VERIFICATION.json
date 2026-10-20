@@ -1,0 +1,32 @@
+{
+  "status": "COMPLETE_LOCAL_REPRODUCTION_REVIEW_PASS_QUEUED",
+  "at_utc": "2026-10-20T06:27:34.316620+00:00",
+  "source_revision": "a70d1cb6ca6696b7894093f0ca435c5ab26ee586",
+  "base": "90e777ea8242faa0acb2462c5cb5be7c318a2d64",
+  "source_archive_sha256": "64cd34815b79fd181cf3f3985f2d7bc6eac9e9802b81c94a463282fc5cb8eb68",
+  "patch_sha256": "2f70d51317d4861bb0b70627d062dc79c56e24df3812ba40aa8f821a0c709e18",
+  "source_freeze_sha256": "b707da4cebeedaf7ac8257e2b8ee71840091da1323549e02490468ea82ccc84b",
+  "benchmark_result_sha256": "a3db0667b942bb7bbd6fab2fc057fdaa1422e47f6cbf055b159de9309b3cbe87",
+  "native_receipt": {
+    "stream_sha256": "dc6210044f475393b4c7901d6241bbd379a05a757ebaba1507acceab0c74966a",
+    "records_sha256": "facba5d70a92ee136e0e805efb2392866d9f2e1aa7917706e86134b3a13ac958",
+    "pre_tail_sha256": "3abd6b1fef0a142a8fc6545a12500a68526d4e74c04069a7ecf98fd45a28fca0",
+    "pre_tail_byte_identical_to_gated_source": true,
+    "nonce": 125,
+    "operations": 10552785
+  },
+  "protected_files_checked": 17,
+  "tracked_changes_only_point_add": true,
+  "historical_results_restored": true,
+  "nonce": 125,
+  "production_screens": 128,
+  "parallel_overrun_nonces": "126..128",
+  "partial_packet_control_nonces": "1..8, repeated in production; 24 protected full-state batches",
+  "selected_protected_replay": true,
+  "unchanged_benchmark_passed_shots": 9024,
+  "failed_gate_reruns": 0,
+  "submission_mode": "queue",
+  "ai_model": "GPT-6 sol",
+  "coding_harness": "Codex",
+  "scope": "Complete locally passing result targets independent Toffoli record. Not official, not global product record, not universal correctness or novelty proof."
+}

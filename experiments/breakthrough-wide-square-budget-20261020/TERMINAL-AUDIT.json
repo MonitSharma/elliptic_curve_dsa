@@ -1,0 +1,79 @@
+{
+  "sealed_at_utc": "2026-10-20T05:44:26.483761+00:00",
+  "base": "90e777ea8242faa0acb2462c5cb5be7c318a2d64",
+  "protected_files_checked": 17,
+  "source_freeze_sha256": "4ba9211136fee0c740a1bb0d1845687714722f0555dd3066cbd9ede6d6edfeca",
+  "result": {
+    "status": "SQUARE_BUDGET_GENERATION_ONLY_NOT_SCORED",
+    "cases": [
+      {
+        "name": "control",
+        "strength": 0,
+        "square_cap": 1234,
+        "exit": 0,
+        "seconds": 4.067321062088013,
+        "builder_totals": [
+          "HEO_TOTAL native=788244 expected=752253.6 peak=1264 peak_op=1444364 peak_phase=divide qubits_touched=1264"
+        ],
+        "raw_sha256": "7fe2bb94f6b68965b87f7af4debd245d53c4b84df91ee0260e032499d49c14df",
+        "trace_sites": 1559,
+        "trace_sha256": "4da61c0abf1109cdfc08dc88604c7f535af63a72cedc4080468d941f495b002f"
+      },
+      {
+        "name": "square",
+        "strength": 0,
+        "square_cap": 1264,
+        "exit": 0,
+        "seconds": 4.42809796333313,
+        "builder_totals": [
+          "HEO_TOTAL native=788186 expected=752224.6 peak=1264 peak_op=1444364 peak_phase=divide qubits_touched=1264"
+        ],
+        "raw_sha256": "7eda7e5803f0c9c126e859228c9e944436ca9cb500e388e4a2d77b004a3025ac",
+        "trace_sites": 1559,
+        "trace_sha256": "4da61c0abf1109cdfc08dc88604c7f535af63a72cedc4080468d941f495b002f"
+      },
+      {
+        "name": "strong-square",
+        "strength": 2,
+        "square_cap": 1264,
+        "exit": 0,
+        "seconds": 4.17553186416626,
+        "builder_totals": [
+          "HEO_TOTAL native=788627 expected=752433.1 peak=1264 peak_op=1444364 peak_phase=divide qubits_touched=1264"
+        ],
+        "raw_sha256": "c1e97e77396bbada9b55de28a4c760f5f22902de62878894bdc16d96bca85aef",
+        "trace_sites": 1559,
+        "trace_sha256": "c363d7537ae8bb099a137eef5fe843beb29b567697a27af5415ee7c2c33bf6a7"
+      }
+    ],
+    "scope": "Use existing square arithmetic at budget1264 instead of the retained1234, while global/hard1264 fixed. Three predeclared parameter cases, no new primitive or removed assertion. Original stronger-comparison variant remains separate. Baseline control7fe2bb94 mandatory. No correctness gate, nonce, packet tuning or scored result."
+  },
+  "streams_retained_on_server": {
+    "/home/hclau/ecdsa_research/breakthrough-wide-square-budget-20261020/square/ops.bin": {
+      "sha256": "7eda7e5803f0c9c126e859228c9e944436ca9cb500e388e4a2d77b004a3025ac",
+      "bytes": 36112819,
+      "complete": true
+    },
+    "/home/hclau/ecdsa_research/breakthrough-wide-square-budget-20261020/control/ops.bin": {
+      "sha256": "7fe2bb94f6b68965b87f7af4debd245d53c4b84df91ee0260e032499d49c14df",
+      "bytes": 36092598,
+      "complete": true
+    },
+    "/home/hclau/ecdsa_research/breakthrough-wide-square-budget-20261020/observer/ops.bin": {
+      "sha256": "c1e97e77396bbada9b55de28a4c760f5f22902de62878894bdc16d96bca85aef",
+      "bytes": 36172755,
+      "complete": true
+    },
+    "/home/hclau/ecdsa_research/breakthrough-wide-square-budget-20261020/strong-square/ops.bin": {
+      "sha256": "c1e97e77396bbada9b55de28a4c760f5f22902de62878894bdc16d96bca85aef",
+      "bytes": 36172755,
+      "complete": true
+    }
+  },
+  "native_binaries": {
+    "/home/hclau/ecdsa_research/breakthrough-wide-square-budget-20261020/observer/target/release/deps/build_circuit-96cdcfa2d1d068c7": "74f27954fae7a9ef15d0e5b93447472a86be5da20265f499f758f30050c27ac4",
+    "/home/hclau/ecdsa_research/breakthrough-wide-square-budget-20261020/observer/target/release/deps/build_circuit-0c12d1b03f2fe721": "e9fe1f8cc81b0fd93cba074c81c8ad932d23a4596c07eda158dc012b7913328d"
+  },
+  "no_final_gate_nonce_or_scored_result": true,
+  "scope_correction": "Arithmetic scope is defined by the frozen source and experiment report. Budget changes can move derived predicates; stronger-comparison experiments explicitly increase precision. Component equivalence does not establish complete point-add equivalence."
+}

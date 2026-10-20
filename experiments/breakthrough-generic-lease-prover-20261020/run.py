@@ -1,0 +1,15 @@
+import hashlib,json,os,shutil,subprocess,time
+from pathlib import Path
+r=Path(__file__).resolve().parent;ws=r.parent;old=ws/'product-pareto-20261019';t=r/'tool';sha=lambda p:hashlib.file_digest(p.open('rb'),'sha256').hexdigest();assert not t.exists();t.mkdir();tf=json.loads((ws/'breakthrough-output-audit-20261020/TOOL-SOURCE-FREEZE-v2.json').read_text());deps=tf['protected_dependency_files'];assert all(sha(Path(p))==h for p,h in deps.items());assert sha(old/'discover.rs')=='a1c6c5ec4f8169c1731a3606f418cad96ae7e73fe4ffec5f6ba0c68b70bb5b72'
+for p in old.iterdir():
+ if p.is_file()and(p.suffix=='.rs'or p.name in['Cargo.toml','Cargo.lock']):shutil.copyfile(p,t/p.name)
+subprocess.run(['cp','-a','--reflink=auto',str(old/'target'),str(t/'target')],check=True)
+inputs=[('generic1234',ws/'breakthrough-generic-postpass-20261020/generic-cap1234/ops.bin','40a55e81af487e4f830eca1827d9904f60ed215b33d3bee9f12a801a46c4479c'),('uniform1264',ws/'breakthrough-wide-uniform-compare-20261020/cap1264-uniform-plus-two/ops.bin','9cba8f4354dcba894f3faafef5e48f9526cfbbdcf1ed070b944c32c57ed99071')];assert all(sha(p)==h for n,p,h in inputs);source={p.name:sha(p)for p in t.iterdir()if p.is_file()};(r/'SOURCE_FREEZE.json').write_text(json.dumps({'tool_source_files':source,'protected_dependency_files':deps,'inputs':{n:{'path':str(p),'sha256':h}for n,p,h in inputs},'scope':'Existing exact arbitrary-cut lease prover, isolated and rebuilt. Fingerprints nominate only; accepted identities and donor lifetimes require exact proofs. No native submission or full-circuit resource claim.'},indent=2)+'\n')
+def run(args,log,cwd=t):
+ with(r/log).open('xb')as out:p=subprocess.Popen(['timeout','1800']+args,cwd=cwd,stdout=out,stderr=subprocess.STDOUT);(r/(log+'.pid')).write_text(str(p.pid)+'\n');rc=p.wait()
+ (r/(log+'.exit')).write_text(str(rc)+'\n')
+ if rc:(r/'run.exit').write_text(str(rc)+'\n');raise SystemExit(rc)
+run(['/home/hclau/.cargo/bin/cargo','+1.93.0','test','--release','--bin','product_pareto_discover'],'tests.log');run(['/home/hclau/.cargo/bin/cargo','+1.93.0','build','--release','--bin','product_pareto_discover'],'build.log');binary=t/'target/release/product_pareto_discover';rows=[]
+for name,path,h in inputs:
+ assert sha(path)==h and all(sha(t/p)==v for p,v in source.items())and all(sha(Path(p))==v for p,v in deps.items());start=time.time();run([str(binary),str(path),str(r/name)],name+'.log');result=json.loads((r/(name+'.json')).read_text());row={'name':name,'seconds':time.time()-start,'input_sha256':h,'binary_sha256':sha(binary),'proposed':result['proposed'],'proven_leases':len(result['leases']),'unproved':len(result['rejected_unproven']),'output_sha256':sha(r/(name+'.ops.bin')),'scope':'Exact local proofs, not a complete native/benchmark resource result.'};rows.append(row);(r/'DISCOVERY-PROGRESS.json').write_text(json.dumps(rows,indent=2)+'\n');print(json.dumps(row),flush=True)
+(r/'DISCOVERY-RESULT.json').write_text(json.dumps({'status':'EXACT_DISCOVERY_COMPLETE_COMPONENT_ONLY','cases':rows},indent=2)+'\n');(r/'run.exit').write_text('0\n')

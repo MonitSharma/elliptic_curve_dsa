@@ -1,0 +1,442 @@
+{
+  "status": "DEVELOPMENT_COMPARISON_COMPLETE_PRESERVE_ALL_MISMATCHES",
+  "label": "breakthrough-wide1264-strong-late-development-v1",
+  "batches": 512,
+  "summaries": {
+    "public1863": {
+      "value_shots": 20,
+      "phase_shots": 17,
+      "dirty_shots": 0,
+      "failed_batches": 24,
+      "mean_executed_raw_toffoli": 752997.2579345703,
+      "rows_sha256": "1e69a77825d99580a0a5117e4b1511f88163c8764ca0245b631d43a9b13afc66"
+    },
+    "strong1264": {
+      "value_shots": 48,
+      "phase_shots": 34,
+      "dirty_shots": 0,
+      "failed_batches": 56,
+      "mean_executed_raw_toffoli": 752460.807220459,
+      "rows_sha256": "ccdeb167a1c26080744412d048ddc5b8e341da5aedb12ea1bf8885fe29409830"
+    }
+  },
+  "comparisons": {
+    "strong1264": {
+      "candidate_minus_parent_raw_toffoli": -536.4507141113281,
+      "paired_standard_error": 3.5549496742423847,
+      "new_failed_batches": 35,
+      "new_passing_batches": 3,
+      "new_value_failing_shots": [
+        [
+          11,
+          51
+        ],
+        [
+          21,
+          54
+        ],
+        [
+          44,
+          13
+        ],
+        [
+          48,
+          35
+        ],
+        [
+          57,
+          57
+        ],
+        [
+          65,
+          44
+        ],
+        [
+          109,
+          39
+        ],
+        [
+          118,
+          62
+        ],
+        [
+          157,
+          62
+        ],
+        [
+          164,
+          8
+        ],
+        [
+          207,
+          32
+        ],
+        [
+          216,
+          6
+        ],
+        [
+          230,
+          39
+        ],
+        [
+          260,
+          25
+        ],
+        [
+          260,
+          40
+        ],
+        [
+          281,
+          8
+        ],
+        [
+          282,
+          3
+        ],
+        [
+          295,
+          47
+        ],
+        [
+          334,
+          14
+        ],
+        [
+          355,
+          55
+        ],
+        [
+          377,
+          56
+        ],
+        [
+          393,
+          40
+        ],
+        [
+          399,
+          37
+        ],
+        [
+          400,
+          27
+        ],
+        [
+          418,
+          43
+        ],
+        [
+          448,
+          34
+        ],
+        [
+          480,
+          47
+        ],
+        [
+          494,
+          10
+        ],
+        [
+          501,
+          14
+        ]
+      ],
+      "new_value_passing_shots": [
+        [
+          52,
+          18
+        ]
+      ],
+      "different_target_lanes": [
+        {
+          "batch": 11,
+          "lane": 51,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 15,
+          "lane": 7,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 21,
+          "lane": 54,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 44,
+          "lane": 13,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 48,
+          "lane": 35,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 52,
+          "lane": 18,
+          "parent_value_fails": true,
+          "candidate_value_fails": false
+        },
+        {
+          "batch": 57,
+          "lane": 57,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 65,
+          "lane": 44,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 70,
+          "lane": 22,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 104,
+          "lane": 7,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 105,
+          "lane": 63,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 109,
+          "lane": 39,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 116,
+          "lane": 62,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 118,
+          "lane": 62,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 142,
+          "lane": 0,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 152,
+          "lane": 41,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 157,
+          "lane": 62,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 164,
+          "lane": 8,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 168,
+          "lane": 56,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 207,
+          "lane": 32,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 216,
+          "lane": 6,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 230,
+          "lane": 39,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 260,
+          "lane": 25,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 260,
+          "lane": 40,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 281,
+          "lane": 8,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 282,
+          "lane": 3,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 294,
+          "lane": 40,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 295,
+          "lane": 47,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 309,
+          "lane": 42,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 334,
+          "lane": 14,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 355,
+          "lane": 55,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 377,
+          "lane": 56,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 387,
+          "lane": 43,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 392,
+          "lane": 17,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 393,
+          "lane": 40,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 399,
+          "lane": 37,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 400,
+          "lane": 27,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 414,
+          "lane": 29,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 418,
+          "lane": 43,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 448,
+          "lane": 34,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 458,
+          "lane": 20,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 476,
+          "lane": 3,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 478,
+          "lane": 38,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 480,
+          "lane": 47,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 491,
+          "lane": 1,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 494,
+          "lane": 10,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 501,
+          "lane": 14,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        }
+      ],
+      "different_other_lanes": [],
+      "target_differences_confined_to_both_value_failing": false
+    }
+  },
+  "scope": "Paired development diagnostic of a distinct finished frozen circuit with a fixed two-bit stronger late comparison, against exact public Toffoli record62341149. This512-batch diagnostic is not the final32768-batch gate or an official benchmark. Original nonqualified raw1264 and all prior verdicts remain. Preserve every mismatch; no official-packet tuning or nonce."
+}

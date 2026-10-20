@@ -1,0 +1,2 @@
+from pathlib import Path
+r=Path(__file__).resolve().parent;s=(r/'run.py').read_text();a="binaries=[p for p in(t/'target/release/deps').glob('build_circuit-*')if p.is_file()and os.access(p,os.X_OK)];assert len(binaries)==1;exe=binaries[0]";b="names=re.findall(r'Executable unittests.*\\(target/release/deps/([^\\)]+)\\)',(audit/'build.log').read_text());assert len(names)==1;exe=t/'target/release/deps'/names[0];assert exe.is_file()and os.access(exe,os.X_OK)";assert s.count(a)==1;s=s.replace(a,b).replace("r/'run.exit'","r/'run-v2.exit'");(r/'run-v2.py').write_bytes(s.encode())

@@ -1,0 +1,112 @@
+{
+  "status": "UNIFORM_COMPARISON_GENERATION_ONLY_NOT_SCORED",
+  "cases": [
+    {
+      "cap": 1264,
+      "profile": "original",
+      "pool": "shipped",
+      "exit": 0,
+      "seconds": 4.003657341003418,
+      "builder_totals": [
+        "HEO_TOTAL native=788244 expected=752253.6 peak=1264 peak_op=1444364 peak_phase=divide qubits_touched=1264"
+      ],
+      "raw_sha256": "7fe2bb94f6b68965b87f7af4debd245d53c4b84df91ee0260e032499d49c14df",
+      "trace_sites": 1559,
+      "trace_sha256": "4da61c0abf1109cdfc08dc88604c7f535af63a72cedc4080468d941f495b002f",
+      "phase_boundaries_sha256": "9304bc50d60ec9f330c519eb83f4fc5720d674c0fbf0d7343c198a7182f823c6"
+    },
+    {
+      "cap": 1400,
+      "profile": "original",
+      "pool": "plain",
+      "exit": 101,
+      "seconds": 0.6359009742736816,
+      "builder_totals": [],
+      "failure_tail": "499\t128\t20\nDIRTY_FRAGMENT\tcmp_lt_phase\t20\t7533083\t7533316\t1173\t1173\t9.5\nDIRTY_FRAGMENT\tchunked_add\t256\t7530559\t7533318\t1171\t1172\t262.5\nLAYOUT_AUDIT\tmultiply\tB\t499\t9\t9\nDIRTY_FRAGMENT\tcmp_lt_phase\t9\t7536142\t7536241\t1177\t1177\t4\nDIRTY_FRAGMENT\tchunked_add\t233\t7533848\t7536243\t1175\t1176\t234\nDIRTY_FRAGMENT\tcmp_lt_phase\t21\t7540602\t7540847\t1204\t1204\t5\nDIRTY_FRAGMENT\tcmp_lt_phase\t21\t7541709\t7541954\t1204\t1204\t5\nDIRTY_FRAGMENT\tcmp_lt_phase\t21\t7542579\t7542824\t1163\t1163\t10\nLAYOUT_AUDIT\tmultiply\tB\t495\t128\t20\nDIRTY_FRAGMENT\tcmp_lt_phase\t20\t7553160\t7553393\t1168\t1168\t9.5\nDIRTY_FRAGMENT\tchunked_add\t256\t7550656\t7553395\t1166\t1167\t260.5\nLAYOUT_AUDIT\tmultiply\tB\t495\t128\t20\nDIRTY_FRAGMENT\tcmp_lt_phase\t20\t7556449\t7556682\t1172\t1172\t9.5\nDIRTY_FRAGMENT\tchunked_add\t256\t7553925\t7556684\t1170\t1171\t262.5\nLAYOUT_AUDIT\tmultiply\tB\t495\t8\t8\nDIRTY_FRAGMENT\tcmp_lt_phase\t8\t7559508\t7559595\t1176\t1176\t3.5\nDIRTY_FRAGMENT\tchunked_add\t233\t7557214\t7559597\t1174\t1175\t233.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t21\t7563956\t7564201\t1203\t1203\t5\nDIRTY_FRAGMENT\tcmp_lt_phase\t21\t7565063\t7565308\t1203\t1203\t5\nDIRTY_FRAGMENT\tcmp_lt_phase\t21\t7565933\t7566178\t1162\t1162\t10\nLAYOUT_AUDIT\tmultiply\tB\t488\t128\t20\nDIRTY_FRAGMENT\tcmp_lt_phase\t20\t7576635\t7576868\t1167\t1167\t9.5\nDIRTY_FRAGMENT\tchunked_add\t256\t7574131\t7576870\t1165\t1166\t260.5\nLAYOUT_AUDIT\tmultiply\tB\t488\t128\t20\nDIRTY_FRAGMENT\tcmp_lt_phase\t20\t7579924\t7580157\t1171\t1171\t9.5\nDIRTY_FRAGMENT\tchunked_add\t256\t7577400\t7580159\t1169\t1170\t262.5\nLAYOUT_AUDIT\tmultiply\tB\t488\t7\t7\nDIRTY_FRAGMENT\tcmp_lt_phase\t7\t7582983\t7583058\t1175\t1175\t3\nDIRTY_FRAGMENT\tchunked_add\t233\t7580689\t7583060\t1173\t1174\t233\nDIRTY_FRAGMENT\tcmp_lt_phase\t21\t7587419\t7587664\t1202\t1202\t5\nDIRTY_FRAGMENT\tcmp_lt_phase\t21\t7588526\t7588771\t1202\t1202\t5\nDIRTY_FRAGMENT\tcmp_lt_phase\t21\t7589396\t7589641\t1161\t1161\t10\nLAYOUT_AUDIT\tmultiply\tB\t483\t21\t21\nDIRTY_FRAGMENT\tcmp_lt_phase\t21\t7600219\t7600462\t1166\t1166\t10\nDIRTY_FRAGMENT\tchunked_add\t256\t7597715\t7600464\t1164\t1165\t261\nLAYOUT_AUDIT\tmultiply\tB\t483\t128\t20\nDIRTY_FRAGMENT\tcmp_lt_phase\t20\t7603518\t7603751\t1170\t1170\t9.5\nDIRTY_FRAGMENT\tchunked_add\t256\t7600994\t7603753\t1168\t1169\t262.5\nLAYOUT_AUDIT\tmultiply\tB\t483\t6\t6\nDIRTY_FRAGMENT\tcmp_lt_phase\t6\t7606577\t7606640\t1174\t1174\t2.5\nDIRTY_FRAGMENT\tchunked_add\t233\t7604283\t7606642\t1172\t1173\t232.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t21\t7611001\t7611246\t1201\t1201\t5\nDIRTY_FRAGMENT\tcmp_lt_phase\t21\t7612108\t7612353\t1201\t1201\t5\nDIRTY_FRAGMENT\tcmp_lt_phase\t21\t7612978\t7613223\t1160\t1160\t10\nLAYOUT_AUDIT\tmultiply\tB\t478\t20\t20\nDIRTY_FRAGMENT\tcmp_lt_phase\t20\t7623922\t7624153\t1165\t1165\t9.5\nDIRTY_FRAGMENT\tchunked_add\t256\t7621418\t7624155\t1163\t1164\t260.5\nLAYOUT_AUDIT\tmultiply\tB\t478\t128\t20\nDIRTY_FRAGMENT\tcmp_lt_phase\t20\t7627209\t7627442\t1169\t1169\t9.5\nDIRTY_FRAGMENT\tchunked_add\t256\t7624685\t7627444\t1167\t1168\t262.5\n\nthread 'main' (2584621) panicked at src/bin/../point_add/pingpong.rs:4061:37:\ny15: the kept low carries must sit inside the first chunk\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\nDIRTY_FRAGMENT\tchunked_add\t233\t7627974\t7627974\t1171\t1172\t0\n"
+    },
+    {
+      "cap": 1400,
+      "profile": "uniform-plus-two",
+      "pool": "plain",
+      "exit": 101,
+      "seconds": 0.593458890914917,
+      "builder_totals": [],
+      "failure_tail": "3\nDIRTY_FRAGMENT\tcmp_lt_phase\t23\t7196466\t7196735\t1196\t1196\t11\nDIRTY_FRAGMENT\tchunked_add\t231\t7194192\t7196737\t1194\t1195\t239\nDIRTY_FRAGMENT\tcmp_lt_phase\t23\t7201148\t7201417\t1227\t1227\t5.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t23\t7202361\t7202630\t1227\t1227\t5.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t23\t7203315\t7203584\t1182\t1182\t11\nLAYOUT_AUDIT\tmultiply\tB\t577\t128\t23\nDIRTY_FRAGMENT\tcmp_lt_phase\t23\t7211847\t7212116\t1187\t1187\t11\nDIRTY_FRAGMENT\tchunked_add\t256\t7209343\t7212118\t1185\t1186\t262\nLAYOUT_AUDIT\tmultiply\tB\t577\t128\t23\nDIRTY_FRAGMENT\tcmp_lt_phase\t23\t7215172\t7215441\t1191\t1191\t11\nDIRTY_FRAGMENT\tchunked_add\t256\t7212648\t7215443\t1189\t1190\t264\nLAYOUT_AUDIT\tmultiply\tB\t577\t116\t23\nDIRTY_FRAGMENT\tcmp_lt_phase\t23\t7218247\t7218516\t1195\t1195\t11\nDIRTY_FRAGMENT\tchunked_add\t231\t7215973\t7218518\t1193\t1194\t239\nDIRTY_FRAGMENT\tcmp_lt_phase\t23\t7222929\t7223198\t1226\t1226\t5.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t23\t7224142\t7224411\t1226\t1226\t5.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t23\t7225096\t7225365\t1181\t1181\t11\nLAYOUT_AUDIT\tmultiply\tB\t571\t128\t23\nDIRTY_FRAGMENT\tcmp_lt_phase\t23\t7233749\t7234018\t1186\t1186\t11\nDIRTY_FRAGMENT\tchunked_add\t256\t7231245\t7234020\t1184\t1185\t262\nLAYOUT_AUDIT\tmultiply\tB\t571\t128\t23\nDIRTY_FRAGMENT\tcmp_lt_phase\t23\t7237074\t7237343\t1190\t1190\t11\nDIRTY_FRAGMENT\tchunked_add\t256\t7234550\t7237345\t1188\t1189\t264\nLAYOUT_AUDIT\tmultiply\tB\t571\t116\t23\nDIRTY_FRAGMENT\tcmp_lt_phase\t23\t7240149\t7240418\t1194\t1194\t11\nDIRTY_FRAGMENT\tchunked_add\t231\t7237875\t7240420\t1192\t1193\t239\nDIRTY_FRAGMENT\tcmp_lt_phase\t23\t7244831\t7245100\t1225\t1225\t5.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t23\t7246044\t7246313\t1225\t1225\t5.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t23\t7246998\t7247267\t1180\t1180\t11\nLAYOUT_AUDIT\tmultiply\tB\t567\t128\t23\nDIRTY_FRAGMENT\tcmp_lt_phase\t23\t7255772\t7256041\t1185\t1185\t11\nDIRTY_FRAGMENT\tchunked_add\t256\t7253268\t7256043\t1183\t1184\t262\nLAYOUT_AUDIT\tmultiply\tB\t567\t128\t23\nDIRTY_FRAGMENT\tcmp_lt_phase\t23\t7259097\t7259366\t1189\t1189\t11\nDIRTY_FRAGMENT\tchunked_add\t256\t7256573\t7259368\t1187\t1188\t264\nLAYOUT_AUDIT\tmultiply\tB\t567\t116\t23\nDIRTY_FRAGMENT\tcmp_lt_phase\t23\t7262172\t7262441\t1193\t1193\t11\nDIRTY_FRAGMENT\tchunked_add\t231\t7259898\t7262443\t1191\t1192\t239\nDIRTY_FRAGMENT\tcmp_lt_phase\t23\t7266854\t7267123\t1224\t1224\t5.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t23\t7268067\t7268336\t1224\t1224\t5.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t23\t7269021\t7269290\t1179\t1179\t11\nLAYOUT_AUDIT\tmultiply\tB\t562\t128\t23\nDIRTY_FRAGMENT\tcmp_lt_phase\t23\t7277916\t7278185\t1184\t1184\t11\nDIRTY_FRAGMENT\tchunked_add\t256\t7275412\t7278187\t1182\t1183\t262\nLAYOUT_AUDIT\tmultiply\tB\t562\t128\t23\nDIRTY_FRAGMENT\tcmp_lt_phase\t23\t7281241\t7281510\t1188\t1188\t11\nDIRTY_FRAGMENT\tchunked_add\t256\t7278717\t7281512\t1186\t1187\t264\nDIRTY_PLAN\t7282042\t231\t1190\t0\t21\t210\t[22, 209]\nDIRTY_FRAGMENT\tcmp_lt_phase\t22\t7284341\t7284596\t1191\t1191\t10.5\nDIRTY_FRAGMENT\twc_add\t231\t7282042\t7284597\t1190\t1191\t241.5\nDIRTY_FRAGMENT\tchunked_add\t231\t7282042\t7284597\t1190\t1191\t241.5\n\nthread 'main' (2584695) panicked at src/bin/../point_add/pingpong.rs:4815:9:\ny15: the chunked add did not take the carry-in\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n"
+    },
+    {
+      "cap": 1440,
+      "profile": "original",
+      "pool": "plain",
+      "exit": 101,
+      "seconds": 0.530062198638916,
+      "builder_totals": [],
+      "failure_tail": "1\t1208\t0\t0\t49\t[51]\nDIRTY_FRAGMENT\tdirect_add_phase_transport\t51\t6862322\t6863017\t1208\t1208\t50\nDIRTY_FRAGMENT\tfold_double_joint\t52\t6862304\t6863040\t1206\t1206\t53\nLAYOUT_AUDIT\tmultiply\tB\t651\t246\t16\nDIRTY_FRAGMENT\tcmp_lt_phase\t16\t6863108\t6863293\t1195\t1195\t7.5\nDIRTY_FRAGMENT\tchunked_add\t85\t6865851\t6866692\t1195\t1196\t85\nLAYOUT_AUDIT\tmultiply\tB\t646\t85\t18\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t6870134\t6870343\t1196\t1196\t8.5\nDROP_EXACT_LEAD mul=1 r=646 base=1193 saving=5.5 bounds=[(0, 247), (247, 256)]\nJOINT_LOWFOLD r=646 mul=1 base=1193 last=9 prefix=0 guard=0 saving=5.5\nEXACT_RETAINED_FOLD mul 646 52\nDIRTY_DIRECT_PLAN\t6874282\t51\t1206\t0\t0\t49\t[51]\nDIRTY_FRAGMENT\tdirect_add_phase_transport\t51\t6874282\t6874977\t1206\t1206\t50\nDIRTY_FRAGMENT\tfold_double_joint\t52\t6874264\t6875000\t1204\t1204\t53\nLAYOUT_AUDIT\tmultiply\tB\t646\t247\t18\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t6875062\t6875271\t1194\t1194\t8.5\nDROP_EXACT_LEAD mul=1 r=646 base=1193 saving=5.5 bounds=[(0, 247), (247, 256)]\nJOINT_LOWFOLD r=646 mul=1 base=1193 last=9 prefix=0 guard=0 saving=5.5\nEXACT_RETAINED_FOLD mul 646 52\nDIRTY_DIRECT_PLAN\t6879348\t51\t1206\t0\t0\t49\t[51]\nDIRTY_FRAGMENT\tdirect_add_phase_transport\t51\t6879348\t6880043\t1206\t1206\t50\nDIRTY_FRAGMENT\tfold_double_joint\t52\t6879330\t6880066\t1204\t1204\t53\nLAYOUT_AUDIT\tmultiply\tB\t646\t247\t18\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t6880128\t6880337\t1194\t1194\t8.5\nDIRTY_FRAGMENT\tchunked_add\t84\t6882933\t6883764\t1194\t1195\t84\nLAYOUT_AUDIT\tmultiply\tB\t642\t84\t18\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t6887216\t6887425\t1195\t1195\t8.5\nDROP_EXACT_LEAD mul=1 r=642 base=1192 saving=5.5 bounds=[(0, 247), (247, 256)]\nJOINT_LOWFOLD r=642 mul=1 base=1192 last=9 prefix=0 guard=0 saving=5.5\nEXACT_RETAINED_FOLD mul 642 52\nDIRTY_DIRECT_PLAN\t6891401\t51\t1205\t0\t0\t49\t[51]\nDIRTY_FRAGMENT\tdirect_add_phase_transport\t51\t6891401\t6892096\t1205\t1205\t50\nDIRTY_FRAGMENT\tfold_double_joint\t52\t6891383\t6892119\t1203\t1203\t53\nLAYOUT_AUDIT\tmultiply\tB\t642\t247\t18\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t6892181\t6892390\t1193\t1193\t8.5\nDROP_EXACT_LEAD mul=1 r=642 base=1192 saving=5.5 bounds=[(0, 247), (247, 256)]\nJOINT_LOWFOLD r=642 mul=1 base=1192 last=9 prefix=0 guard=0 saving=5.5\nEXACT_RETAINED_FOLD mul 642 52\nDIRTY_DIRECT_PLAN\t6896513\t51\t1205\t0\t0\t49\t[51]\nDIRTY_FRAGMENT\tdirect_add_phase_transport\t51\t6896513\t6897208\t1205\t1205\t50\nDIRTY_FRAGMENT\tfold_double_joint\t52\t6896495\t6897231\t1203\t1203\t53\nLAYOUT_AUDIT\tmultiply\tB\t642\t247\t18\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t6897293\t6897502\t1193\t1193\t8.5\nLAYOUT_AUDIT\tmultiply\tB\t636\t14\t14\nDIRTY_FRAGMENT\tcmp_lt_phase\t14\t6902932\t6903091\t1199\t1199\t6.5\nDIRTY_FRAGMENT\tchunked_add\t256\t6900428\t6903093\t1197\t1198\t257.5\nLAYOUT_AUDIT\tmultiply\tB\t636\t18\t18\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t6906147\t6906354\t1203\t1203\t8.5\nDIRTY_FRAGMENT\tchunked_add\t256\t6903623\t6906356\t1201\t1202\t261.5\n\nthread 'main' (2584879) panicked at src/bin/../point_add/pingpong.rs:4061:37:\ny15: the kept low carries must sit inside the first chunk\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\nDIRTY_FRAGMENT\tchunked_add\t236\t6906886\t6906886\t1205\t1206\t0\n"
+    },
+    {
+      "cap": 1440,
+      "profile": "uniform-plus-two",
+      "pool": "plain",
+      "exit": 101,
+      "seconds": 0.5424478054046631,
+      "builder_totals": [],
+      "failure_tail": "15\t15\nDIRTY_FRAGMENT\tcmp_lt_phase\t15\t6979127\t6979298\t1201\t1201\t7\nDIRTY_FRAGMENT\tchunked_add\t256\t6976586\t6979300\t1199\t1200\t260.5\nDIRTY_FRAGMENT\tchunked_add\t234\t6979830\t6982136\t1203\t1204\t231\nDIRTY_FRAGMENT\tcmp_lt_phase\t20\t6986469\t6986702\t1230\t1230\t4.75\nDIRTY_FRAGMENT\tcmp_lt_phase\t20\t6987523\t6987756\t1230\t1230\t4.75\nDIRTY_FRAGMENT\tcmp_lt_phase\t20\t6988351\t6988584\t1191\t1191\t9.5\nLAYOUT_AUDIT\tmultiply\tB\t621\t11\t11\nDIRTY_FRAGMENT\tcmp_lt_phase\t11\t6995658\t6995781\t1196\t1196\t5\nDIRTY_FRAGMENT\tchunked_add\t256\t6993154\t6995783\t1194\t1195\t256\nLAYOUT_AUDIT\tmultiply\tB\t621\t15\t15\nDIRTY_FRAGMENT\tcmp_lt_phase\t15\t6998837\t6999008\t1200\t1200\t7\nDIRTY_FRAGMENT\tchunked_add\t256\t6996313\t6999010\t1198\t1199\t260\nDIRTY_FRAGMENT\tchunked_add\t234\t6999540\t7001846\t1202\t1203\t231\nDIRTY_FRAGMENT\tcmp_lt_phase\t20\t7006179\t7006412\t1229\t1229\t4.75\nDIRTY_FRAGMENT\tcmp_lt_phase\t20\t7007233\t7007466\t1229\t1229\t4.75\nDIRTY_FRAGMENT\tcmp_lt_phase\t20\t7008061\t7008294\t1190\t1190\t9.5\nLAYOUT_AUDIT\tmultiply\tB\t616\t10\t10\nDIRTY_FRAGMENT\tcmp_lt_phase\t10\t7015539\t7015650\t1195\t1195\t4.5\nDIRTY_FRAGMENT\tchunked_add\t256\t7013035\t7015652\t1193\t1194\t255.5\nLAYOUT_AUDIT\tmultiply\tB\t616\t14\t14\nDIRTY_FRAGMENT\tcmp_lt_phase\t14\t7018706\t7018865\t1199\t1199\t6.5\nDIRTY_FRAGMENT\tchunked_add\t256\t7016182\t7018867\t1197\t1198\t259.5\nDIRTY_FRAGMENT\tchunked_add\t234\t7019397\t7021703\t1201\t1202\t231\nDIRTY_FRAGMENT\tcmp_lt_phase\t20\t7026036\t7026269\t1228\t1228\t4.75\nDIRTY_FRAGMENT\tcmp_lt_phase\t20\t7027090\t7027323\t1228\t1228\t4.75\nDIRTY_FRAGMENT\tcmp_lt_phase\t20\t7027918\t7028151\t1189\t1189\t9.5\nDIRTY_FRAGMENT\tcmp_lt_phase\t2\t7035513\t7035530\t1195\t1195\t0.5\nLAYOUT_AUDIT\tmultiply\tB\t611\t8\t8\nDIRTY_FRAGMENT\tcmp_lt_phase\t8\t7035534\t7035621\t1194\t1194\t3.5\nDIRTY_FRAGMENT\tchunked_add\t256\t7033013\t7035623\t1192\t1193\t255\nDIRTY_FRAGMENT\tcmp_lt_phase\t2\t7038673\t7038690\t1199\t1199\t0.5\nLAYOUT_AUDIT\tmultiply\tB\t611\t12\t12\nDIRTY_FRAGMENT\tcmp_lt_phase\t12\t7038694\t7038829\t1198\t1198\t5.5\nDIRTY_FRAGMENT\tchunked_add\t256\t7036153\t7038831\t1196\t1197\t259\nDIRTY_FRAGMENT\tchunked_add\t230\t7039361\t7041627\t1200\t1201\t227\nDIRTY_FRAGMENT\tcmp_lt_phase\t24\t7046064\t7046345\t1235\t1235\t5.75\nDIRTY_FRAGMENT\tcmp_lt_phase\t24\t7047330\t7047611\t1235\t1235\t5.75\nDIRTY_FRAGMENT\tcmp_lt_phase\t24\t7048326\t7048607\t1188\t1188\t11.5\nLAYOUT_AUDIT\tmultiply\tB\t607\t8\t8\nDIRTY_FRAGMENT\tcmp_lt_phase\t8\t7056094\t7056181\t1193\t1193\t3.5\nDIRTY_FRAGMENT\tchunked_add\t256\t7053590\t7056183\t1191\t1192\t254.5\nLAYOUT_AUDIT\tmultiply\tB\t607\t12\t12\nDIRTY_FRAGMENT\tcmp_lt_phase\t12\t7059237\t7059372\t1197\t1197\t5.5\nDIRTY_FRAGMENT\tchunked_add\t256\t7056713\t7059374\t1195\t1196\t258.5\nDIRTY_FRAGMENT\tchunked_add\t230\t7059904\t7062170\t1199\t1200\t227\nDIRTY_FRAGMENT\tcmp_lt_phase\t24\t7066607\t7066888\t1234\t1234\t5.75\nDIRTY_FRAGMENT\tcmp_lt_phase\t24\t7067873\t7068154\t1234\t1234\t5.75\nDIRTY_FRAGMENT\tcmp_lt_phase\t24\t7068869\t7069150\t1187\t1187\t11.5\n\nthread 'main' (2584880) panicked at src/bin/../point_add/pingpong.rs:4061:37:\ny15: the kept low carries must sit inside the first chunk\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\nDIRTY_FRAGMENT\tchunked_add\t256\t7074254\t7074254\t1190\t1191\t0\n"
+    },
+    {
+      "cap": 1536,
+      "profile": "original",
+      "pool": "plain",
+      "exit": 0,
+      "seconds": 3.89296817779541,
+      "builder_totals": [
+        "HEO_TOTAL native=757122 expected=737767.8 peak=1536 peak_op=1427505 peak_phase=divide qubits_touched=1536"
+      ],
+      "raw_sha256": "28557fb03e0c152215562099236b56cf363505520d3db88807657bde2efec27c",
+      "trace_sites": 32,
+      "trace_sha256": "459a61416e680790394538a164221af42c07b648c14be27aaea4d1df7c9e1506",
+      "phase_boundaries_sha256": "6dbe5c63f36100cf6d12f562a55807523e9865c8ca72925bfa1c0d4b03b5a3dc"
+    },
+    {
+      "cap": 1536,
+      "profile": "uniform-plus-two",
+      "pool": "plain",
+      "exit": 0,
+      "seconds": 3.897472381591797,
+      "builder_totals": [
+        "HEO_TOTAL native=759744 expected=738697.8 peak=1536 peak_op=1437615 peak_phase=divide qubits_touched=1536"
+      ],
+      "raw_sha256": "1ed8fe458ed5ef3899e11f8607aed31cf0476a088fdae30221a3fb9a20202a63",
+      "trace_sites": 32,
+      "trace_sha256": "2629a3fb3b561729b52d80746ce3396fd938dd3f01ebc7d665c350cd2be7b927",
+      "phase_boundaries_sha256": "68563c1bad9846adc4b7c4bdb8cd57f15b785f1a6221aa36a265353e9b7abd93"
+    },
+    {
+      "cap": 1664,
+      "profile": "original",
+      "pool": "plain",
+      "exit": 0,
+      "seconds": 3.8044967651367188,
+      "builder_totals": [
+        "HEO_TOTAL native=757122 expected=737767.8 peak=1664 peak_op=1427505 peak_phase=divide qubits_touched=1664"
+      ],
+      "raw_sha256": "28557fb03e0c152215562099236b56cf363505520d3db88807657bde2efec27c",
+      "trace_sites": 32,
+      "trace_sha256": "459a61416e680790394538a164221af42c07b648c14be27aaea4d1df7c9e1506",
+      "phase_boundaries_sha256": "6dbe5c63f36100cf6d12f562a55807523e9865c8ca72925bfa1c0d4b03b5a3dc"
+    },
+    {
+      "cap": 1664,
+      "profile": "uniform-plus-two",
+      "pool": "plain",
+      "exit": 0,
+      "seconds": 3.83451509475708,
+      "builder_totals": [
+        "HEO_TOTAL native=759744 expected=738697.8 peak=1664 peak_op=1437615 peak_phase=divide qubits_touched=1664"
+      ],
+      "raw_sha256": "1ed8fe458ed5ef3899e11f8607aed31cf0476a088fdae30221a3fb9a20202a63",
+      "trace_sites": 32,
+      "trace_sha256": "2629a3fb3b561729b52d80746ce3396fd938dd3f01ebc7d665c350cd2be7b927",
+      "phase_boundaries_sha256": "68563c1bad9846adc4b7c4bdb8cd57f15b785f1a6221aa36a265353e9b7abd93"
+    }
+  ],
+  "scope": "Prime unused clean capacity with zero emitted operations before both plain-pool allocator snapshots. Reverse release preserves LIFO trace, native regression catches unchanged old assertion. Same nine fixed spacious cases; exact1264control. All assertions remain. No final gate, nonce or resource score."
+}

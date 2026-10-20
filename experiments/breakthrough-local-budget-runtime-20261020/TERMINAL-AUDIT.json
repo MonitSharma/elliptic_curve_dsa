@@ -1,0 +1,66 @@
+{
+  "sealed_at_utc": "2026-10-20T05:08:43.797114+00:00",
+  "base": "90e777ea8242faa0acb2462c5cb5be7c318a2d64",
+  "protected_files_checked": 17,
+  "source_freeze_sha256": "96bc6905226e7442f39e281d0edf46bedaa3146151ec3689b5466fcee31ddb88",
+  "result": {
+    "status": "RAW_ADMISSION_COMPLETE_NOT_SCORED",
+    "cases": [
+      {
+        "cap": 1234,
+        "exit": 0,
+        "seconds": 4.341711044311523,
+        "builder_totals": [
+          "HEO_TOTAL native=810068 expected=762230.8 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+        ],
+        "raw_sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b"
+      },
+      {
+        "cap": 1233,
+        "exit": 0,
+        "seconds": 4.786927223205566,
+        "builder_totals": [
+          "HEO_TOTAL native=812497 expected=763592.2 peak=1233 peak_op=1444643 peak_phase=divide qubits_touched=1233"
+        ],
+        "raw_sha256": "6b3995b287d681159a4e9b2c2287240b3f3d4951cbf9e0c9470e6e551f355ffa"
+      },
+      {
+        "cap": 1232,
+        "exit": 0,
+        "seconds": 4.763506889343262,
+        "builder_totals": [
+          "HEO_TOTAL native=815643 expected=765202.6 peak=1232 peak_op=1444652 peak_phase=divide qubits_touched=1232"
+        ],
+        "raw_sha256": "afe50376b9b48db9c135b6534c7b37a9892ce9021401e0c14da27a2cbc4412fd"
+      }
+    ]
+  },
+  "streams_retained_on_server": {
+    "/home/hclau/ecdsa_research/breakthrough-local-budget-runtime-20261020/cap1233/ops.bin": {
+      "sha256": "6b3995b287d681159a4e9b2c2287240b3f3d4951cbf9e0c9470e6e551f355ffa",
+      "bytes": 38910401,
+      "complete": true
+    },
+    "/home/hclau/ecdsa_research/breakthrough-local-budget-runtime-20261020/cap1234/ops.bin": {
+      "sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b",
+      "bytes": 38777871,
+      "complete": true
+    },
+    "/home/hclau/ecdsa_research/breakthrough-local-budget-runtime-20261020/cap1232/ops.bin": {
+      "sha256": "afe50376b9b48db9c135b6534c7b37a9892ce9021401e0c14da27a2cbc4412fd",
+      "bytes": 39041220,
+      "complete": true
+    },
+    "/home/hclau/ecdsa_research/breakthrough-local-budget-runtime-20261020/observer/ops.bin": {
+      "sha256": "afe50376b9b48db9c135b6534c7b37a9892ce9021401e0c14da27a2cbc4412fd",
+      "bytes": 39041220,
+      "complete": true
+    }
+  },
+  "native_binaries": {
+    "/home/hclau/ecdsa_research/breakthrough-local-budget-runtime-20261020/observer/target/release/deps/build_circuit-96cdcfa2d1d068c7": "b399cc52fdd0b5e4b350882004925fc15856fd4e42055cba4a986bd365b1421c",
+    "/home/hclau/ecdsa_research/breakthrough-local-budget-runtime-20261020/observer/target/release/deps/build_circuit-0c12d1b03f2fe721": "f33ca63ba5f681f00558a4f26cd8408569e87728a1a90ee0530805ddd08c2053"
+  },
+  "no_final_gate_nonce_or_scored_result": true,
+  "scope_correction": "Direct profile constants stay fixed, but tighter global caps change derived replay boundaries. Component equivalence does not establish complete point-add equivalence; exact streams and differing replay metadata preserved in breakthrough-replay-layout-audit-20261020."
+}

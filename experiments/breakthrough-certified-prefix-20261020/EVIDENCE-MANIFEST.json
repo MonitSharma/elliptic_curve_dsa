@@ -1,0 +1,122 @@
+{
+  "files": {
+    "AUDIT-PROGRESS.json": "ed59364b1ee2a44be6db57b8b1360dde031d7add3453618368da3d8ecc8f10bc",
+    "AUDIT-RESULT.json": "5eb74b82f2439b818ad85c507d808133dd54652071c4188238c7e18c1e0ac92b",
+    "PLAN.md": "45d70deeb93b00fc5d4af63a483f6ec743b754e828d541c16c6a4b19c82a52f8",
+    "SOURCE_FREEZE.json": "484c00be83eda3cb0db2835630cd4e44c7732b1b2d6debde2fdc3afffcb8ddf9",
+    "TERMINAL-AUDIT.json": "943e0dd402ca06a46b7cc15c61d96b27ab07abd44e8693d65f0e49eeaf097ae0",
+    "build.log": "ceeff8664a84cc3c407e33c0e0c6313180a5c5bee12617449073538e8093ebce",
+    "prepare.log": "68486bc28d475b600ced96cce21ab5b547aa35ec778f3a1889f0bed157a37d5c",
+    "prepare.py": "341a531abad6e95a0cf86e5edf33cb18a870e8de1c2dec0ec3df5ae19039e08c",
+    "run.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "run.py": "c9f5717066c73e8e2936803cfa630862ef3707d7650dca66fe81ff3135ad2da7",
+    "source.patch": "16e639f9f7e8057e7356cd83e4f0e760014e5e27933567d3f0a17f97d7caa867",
+    "supervisor.log": "8ef1c783f007913449716b139165623b3016179c357d3fb890e12f91c6cd7c36",
+    "supervisor.pid": "a565246fa839b8aced1e5ea37c984fcac231f51824a6bd93c2f64836cb514317",
+    "added-source/break_profile.rs": "a7e94c66704031f4f0810059f15ca1893ddc5e006a5b82b8c582c67228609515",
+    "added-source/breakthrough_generic.rs": "fcc271e9f0718881b91d6ee756bb7982bf8e684c136d009fb1e23ecc2a8f4789",
+    "added-source/core_loan_certificate.rs": "b10079269bf6c797e680e66097b40f6246cb4715d18215dae82719a17398cfce",
+    "added-source/core_loan_runtime.rs": "9cae697e5919e737c82722c8ddc3ac6ee7cf61966b617bfbe91c356fcb777910",
+    "added-source/phase_fit.rs": "7a5e26ea94186d534775c3bdf06797267e0d3115d86b018deaf7bba9838a5bf4",
+    "added-source/phase_fusion.rs": "39bd1eed7dd29f5ea1516f60e6f205c07f210514dbb092dd6a9f9be652680f5a",
+    "added-source/phase_pebble.rs": "403c79b3d888c098aef06e24459d5425905f65f7e6722fc20b34245d674a6935",
+    "added-source/terminal_pebble.rs": "6cc274871604485ec47f5bc5dc9dfe0056b2164a1ac7a4c8861e9b1ab9ec40d9",
+    "added-source/zero_carry.rs": "ea5fe10fa4017145776bdd45f8bb430ce25059650b77bcdbc0790b49f7bbcc90",
+    "certified/child.pid": "6d66b161588fda83f433237035e330cc6d7437765ad7b8e96b4bed91c4f8a49f",
+    "certified/generate.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "certified/generate.log": "9f42e4c2f1264b6bab4773757b32505cd61cc67f3376f9873b6b49c46565a259",
+    "certified/generate.out": "241e79a5cc7967d3b4667f6cdedad5bc6b20f127bfcc51415d776d667705d229",
+    "generic/child.pid": "d61430ce691512bea65b03ecd6596f582e6c8c7db190b7db2abe37c12363cf82",
+    "generic/generate.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "generic/generate.log": "c75e0d8c98fc08895698062496f694bc0cb3fe5eeeb0c475a4e59caf4f2799bf",
+    "generic/generate.out": "697e30cbd1cd6d490a56a16fb1d80b72066feb21af2403375332c730c6e1728e"
+  },
+  "terminal_audit": {
+    "sealed_at_utc": "2026-10-20T06:23:22.375025+00:00",
+    "base": "90e777ea8242faa0acb2462c5cb5be7c318a2d64",
+    "protected_files_checked": 17,
+    "source_freeze_sha256": "484c00be83eda3cb0db2835630cd4e44c7732b1b2d6debde2fdc3afffcb8ddf9",
+    "result": {
+      "status": "CERTIFICATE_PREFIX_AUDIT_NOT_SCORED",
+      "cases": [
+        {
+          "mode": "generic",
+          "exit": 0,
+          "seconds": 198.49610590934753,
+          "generic_stages": [
+            "GENERIC_STAGE name=raw ops=11263273 nq=1234 nb=1623 native=810068 depth_weight=762230.750000 diagnostic_only=1",
+            "GENERIC_STAGE name=product ops=11263254 nq=1234 nb=1623 native=810028 depth_weight=762191.750000 diagnostic_only=1",
+            "GENERIC_STAGE name=affine ops=11263254 nq=1234 nb=1623 native=810028 depth_weight=762191.750000 diagnostic_only=1",
+            "GENERIC_STAGE name=quadratic ops=11263254 nq=1234 nb=1623 native=810028 depth_weight=762191.750000 diagnostic_only=1",
+            "GENERIC_STAGE name=truth ops=11263254 nq=1234 nb=1623 native=810028 depth_weight=762191.750000 diagnostic_only=1",
+            "GENERIC_STAGE name=interned_witness ops=11263254 nq=1234 nb=1623 native=810028 depth_weight=762191.750000 diagnostic_only=1",
+            "GENERIC_STAGE name=measurement_absorption ops=11263294 nq=1234 nb=1643 native=809996 depth_weight=762159.750000 diagnostic_only=1",
+            "GENERIC_STAGE name=parity_scan ops=11263294 nq=1234 nb=1643 native=809996 depth_weight=762159.750000 diagnostic_only=1",
+            "GENERIC_STAGE name=conditional ops=11265428 nq=1234 nb=1646 native=809731 depth_weight=762089.750000 diagnostic_only=1",
+            "GENERIC_STAGE name=square_top ops=11268488 nq=1234 nb=2456 native=809731 depth_weight=761707.250000 diagnostic_only=1",
+            "GENERIC_STAGE name=conditional_ur ops=11268491 nq=1234 nb=2457 native=809730 depth_weight=761706.250000 diagnostic_only=1",
+            "GENERIC_STAGE name=zero_force ops=11268491 nq=1234 nb=2457 native=809730 depth_weight=761706.250000 diagnostic_only=1",
+            "GENERIC_STAGE name=classical_factors ops=11268514 nq=1234 nb=2457 native=809720 depth_weight=761698.750000 diagnostic_only=1",
+            "GENERIC_STAGE name=classical_wide ops=11268527 nq=1234 nb=2457 native=809715 depth_weight=761696.250000 diagnostic_only=1"
+          ],
+          "bindings": [],
+          "stream_sha256": "40a55e81af487e4f830eca1827d9904f60ed215b33d3bee9f12a801a46c4479c"
+        },
+        {
+          "mode": "certified",
+          "exit": 0,
+          "seconds": 211.57049202919006,
+          "generic_stages": [
+            "GENERIC_STAGE name=raw ops=11263273 nq=1234 nb=1623 native=810068 depth_weight=762230.750000 diagnostic_only=1",
+            "GENERIC_STAGE name=product ops=11263254 nq=1234 nb=1623 native=810028 depth_weight=762191.750000 diagnostic_only=1",
+            "GENERIC_STAGE name=affine ops=11263254 nq=1234 nb=1623 native=810028 depth_weight=762191.750000 diagnostic_only=1",
+            "GENERIC_STAGE name=quadratic ops=11263254 nq=1234 nb=1623 native=810028 depth_weight=762191.750000 diagnostic_only=1",
+            "GENERIC_STAGE name=truth ops=11263254 nq=1234 nb=1623 native=810028 depth_weight=762191.750000 diagnostic_only=1",
+            "GENERIC_STAGE name=interned_witness ops=11263254 nq=1234 nb=1623 native=810028 depth_weight=762191.750000 diagnostic_only=1",
+            "GENERIC_STAGE name=measurement_absorption ops=11263294 nq=1234 nb=1643 native=809996 depth_weight=762159.750000 diagnostic_only=1",
+            "GENERIC_STAGE name=parity_scan ops=11263294 nq=1234 nb=1643 native=809996 depth_weight=762159.750000 diagnostic_only=1",
+            "GENERIC_STAGE name=conditional ops=11265428 nq=1234 nb=1646 native=809731 depth_weight=762089.750000 diagnostic_only=1",
+            "GENERIC_STAGE name=square_top ops=11268488 nq=1234 nb=2456 native=809731 depth_weight=761707.250000 diagnostic_only=1",
+            "GENERIC_STAGE name=original_bound ops=11453190 nq=1234 nb=11606 native=812793 depth_weight=761430.781250 diagnostic_only=1",
+            "GENERIC_STAGE name=original_linear_restore ops=11453250 nq=1234 nb=40002 native=812752 depth_weight=761396.281250 diagnostic_only=1",
+            "GENERIC_STAGE name=original_square_finish ops=11630691 nq=1234 nb=45700 native=815929 depth_weight=761353.742188 diagnostic_only=1",
+            "GENERIC_STAGE name=conditional_ur ops=11630694 nq=1234 nb=45701 native=815928 depth_weight=761352.742188 diagnostic_only=1",
+            "GENERIC_STAGE name=zero_force ops=11630694 nq=1234 nb=45701 native=815928 depth_weight=761352.742188 diagnostic_only=1",
+            "GENERIC_STAGE name=classical_factors ops=11630714 nq=1234 nb=45701 native=815920 depth_weight=761346.242188 diagnostic_only=1",
+            "GENERIC_STAGE name=classical_wide ops=11630722 nq=1234 nb=45701 native=815917 depth_weight=761344.742188 diagnostic_only=1"
+          ],
+          "bindings": [
+            "REBIND region y42_bound len=489932 shift=-324 exact=false",
+            "Y42_BOUND edits=26590 rows=211292 ops=11453190",
+            "REBIND window linear_restore edits=41 moved=34 exact=false"
+          ],
+          "stream_sha256": "85958b9f90cc93c7bba94d158cba2b4dde890bf9f4231cd70dc5b4fd9f1218b2"
+        }
+      ],
+      "scope": "Existing exact certificate prefix only on its original raw13f6 arithmetic/control, hard1234 enforced. All table/region checks unchanged. Baseline generic40a55byteexact required. Census cuts and source-bound late cache omitted. No new arithmetic/certificate/packet data, finalgate, nonce or scored result."
+    },
+    "streams_retained_on_server": {
+      "/home/hclau/ecdsa_research/breakthrough-certified-prefix-20261020/generic/ops.bin": {
+        "sha256": "40a55e81af487e4f830eca1827d9904f60ed215b33d3bee9f12a801a46c4479c",
+        "bytes": 38868875,
+        "complete": true
+      },
+      "/home/hclau/ecdsa_research/breakthrough-certified-prefix-20261020/certified/ops.bin": {
+        "sha256": "85958b9f90cc93c7bba94d158cba2b4dde890bf9f4231cd70dc5b4fd9f1218b2",
+        "bytes": 39613242,
+        "complete": true
+      },
+      "/home/hclau/ecdsa_research/breakthrough-certified-prefix-20261020/observer/ops.bin": {
+        "sha256": "85958b9f90cc93c7bba94d158cba2b4dde890bf9f4231cd70dc5b4fd9f1218b2",
+        "bytes": 39613242,
+        "complete": true
+      }
+    },
+    "native_binaries": {
+      "/home/hclau/ecdsa_research/breakthrough-certified-prefix-20261020/observer/target/release/deps/build_circuit-96cdcfa2d1d068c7": "e9259590ac7e4648de6a2ebaeb6e0ef9a9844b7985ce273c87ebd2b1e50e6369",
+      "/home/hclau/ecdsa_research/breakthrough-certified-prefix-20261020/observer/target/release/deps/build_circuit-0c12d1b03f2fe721": "692525f4a214cb82fd60e074a6b83187869f29b2c13e2e4054ebb2a24a94e49f"
+    },
+    "no_final_gate_nonce_or_scored_result": true,
+    "scope_correction": "Arithmetic scope is defined by the frozen source and experiment report. Budget changes can move derived predicates; stronger-comparison experiments explicitly increase precision. Component equivalence does not establish complete point-add equivalence."
+  }
+}

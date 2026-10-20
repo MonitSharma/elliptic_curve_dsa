@@ -1,0 +1,62 @@
+{
+  "sealed_at_utc": "2026-10-20T05:19:53.543534+00:00",
+  "base": "90e777ea8242faa0acb2462c5cb5be7c318a2d64",
+  "protected_files_checked": 17,
+  "source_freeze_sha256": "433151d9337c6534e4fbf1adfe16923bdd0e529118fb0126af48ad6c557f0257",
+  "result": {
+    "status": "GENERATION_ONLY_NOT_SCORED",
+    "cases": [
+      {
+        "mode": 0,
+        "exit": 0,
+        "seconds": 4.025227069854736,
+        "builder_totals": [
+          "HEO_TOTAL native=788244 expected=752253.6 peak=1264 peak_op=1444364 peak_phase=divide qubits_touched=1264"
+        ],
+        "raw_sha256": "7fe2bb94f6b68965b87f7af4debd245d53c4b84df91ee0260e032499d49c14df",
+        "trace_sites": 1559,
+        "trace_sha256": "4da61c0abf1109cdfc08dc88604c7f535af63a72cedc4080468d941f495b002f"
+      },
+      {
+        "mode": 2,
+        "exit": 0,
+        "seconds": 4.187521696090698,
+        "builder_totals": [
+          "HEO_TOTAL native=788685 expected=752462.1 peak=1264 peak_op=1444364 peak_phase=divide qubits_touched=1264"
+        ],
+        "raw_sha256": "f97bc5a1be3546e5d123a9007344936fd6a0e769725a941619e1441d0099887c",
+        "trace_sites": 1559,
+        "trace_sha256": "c363d7537ae8bb099a137eef5fe843beb29b567697a27af5415ee7c2c33bf6a7"
+      }
+    ],
+    "trace_comparison": {
+      "old_only": 150,
+      "new_only": 150,
+      "ordered_trace_identical": false
+    },
+    "scope": "One fixed precision increase at global/hard1264: late PP_CHUNK_SHAPE offset-5 to-3 after recipe installation, all other bands fixed. Baseline mode0 must reproduce7fe2bb94; mode2 reports replay metadata. No cuts removed, packet tuning, final gate, nonce or scored result. Full candidate still requires fresh correctness and executed-cost qualification."
+  },
+  "streams_retained_on_server": {
+    "/home/hclau/ecdsa_research/breakthrough-wide-stronger-compare-20261020/mode2/ops.bin": {
+      "sha256": "f97bc5a1be3546e5d123a9007344936fd6a0e769725a941619e1441d0099887c",
+      "bytes": 36233139,
+      "complete": true
+    },
+    "/home/hclau/ecdsa_research/breakthrough-wide-stronger-compare-20261020/observer/ops.bin": {
+      "sha256": "f97bc5a1be3546e5d123a9007344936fd6a0e769725a941619e1441d0099887c",
+      "bytes": 36233139,
+      "complete": true
+    },
+    "/home/hclau/ecdsa_research/breakthrough-wide-stronger-compare-20261020/mode0/ops.bin": {
+      "sha256": "7fe2bb94f6b68965b87f7af4debd245d53c4b84df91ee0260e032499d49c14df",
+      "bytes": 36092598,
+      "complete": true
+    }
+  },
+  "native_binaries": {
+    "/home/hclau/ecdsa_research/breakthrough-wide-stronger-compare-20261020/observer/target/release/deps/build_circuit-96cdcfa2d1d068c7": "791873dc2bf6848991c690b348ad84b806bf20c9dbf75fbbeae7be6d51d4c2cc",
+    "/home/hclau/ecdsa_research/breakthrough-wide-stronger-compare-20261020/observer/target/release/deps/build_circuit-0c12d1b03f2fe721": "e9fe1f8cc81b0fd93cba074c81c8ad932d23a4596c07eda158dc012b7913328d"
+  },
+  "no_final_gate_nonce_or_scored_result": true,
+  "scope_correction": "Direct profile constants stay fixed, but tighter global caps change derived replay boundaries. Component equivalence does not establish complete point-add equivalence; exact streams and differing replay metadata preserved in breakthrough-replay-layout-audit-20261020."
+}

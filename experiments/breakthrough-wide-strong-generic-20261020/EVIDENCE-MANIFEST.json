@@ -1,0 +1,76 @@
+{
+  "files": {
+    "AUDIT-RESULT.json": "57552f5e0375e78a812c9a9294291796e275a4ea1f19fd7fafa757deb41376f1",
+    "INPUT-FREEZE.json": "8e5786ce79426796d200f9eb00e9ea444cc7fa64540e9f770c031f71366d7bab",
+    "TERMINAL-AUDIT.json": "3024fe198fd2ecb27f3493826dab59c5a66bf4604a85248766d388a662924943",
+    "audit.log": "abe44cc30d7f120ab5ead023f8dda98361a51c4ff69fd25b9fedf435c70feabc",
+    "audit.pid": "296cdcaab459e5311bc940174a40db792e477a4d8a4c0866f9718a204d395052",
+    "run-v2.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "run-v2.py": "9c921f4477e10cc636461e921fa13b09c400fa14a09d9d9285b5472b4122e61a",
+    "run.py": "5633f5f657a72238477196d60ab1eace10669ba5a8002f8081ff70f92c24fa0f",
+    "supervisor-v2.log": "07619290cdbe1c7298da40a08dc86e27cf05bd3015b9aac93d87bbdfe5fb0caa",
+    "supervisor-v2.pid": "0ddd05ba74c56aba5f8c9b3c064659a1dfd7aa407dc9bfd4d58d2cb1eb273686",
+    "supervisor.log": "222a3f487ef5a51d89e0876b4ad90c8747261e38f27c8c7d35cc40a1423914c3",
+    "supervisor.pid": "976b1b2d04bf38fe30fd71b0ee69d42aac9902f368deab900c632d8e7198bd38"
+  },
+  "terminal_audit": {
+    "status": "LINKED_FROZEN_OPTIMIZER_AUDIT_ARCHIVED",
+    "input_freeze": {
+      "arithmetic_source_freeze_sha256": "433151d9337c6534e4fbf1adfe16923bdd0e529118fb0126af48ad6c557f0257",
+      "optimizer_source_freeze_sha256": "58428b12da161c18b19805931e0a41520355e532dcac83c539593c08923d7767",
+      "optimizer_binary_sha256": "37bad64cc5eca547bb158290114c0e73a13305378899af41d40bf979e28caa42",
+      "baseline_control": {
+        "cap": 1234,
+        "seconds": 213.7915117740631,
+        "input_sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b",
+        "output_sha256": "34bdbda2bd9422a087236376ce0676cccb1ce4e702ed558726810e1284d9f350",
+        "output_records": {
+          "operations": 11268527,
+          "record_sha256": "63eb09e3df3ecc6dc84330089f7100c369a21d8b50380bf792ab253debdf35c0"
+        },
+        "generic_stages": [
+          "GENERIC_STAGE name=product ops=11263254 nq=1234 nb=1623 native=810028 depth_weight=762191.750000 diagnostic_only=1",
+          "GENERIC_STAGE name=affine ops=11263254 nq=1234 nb=1623 native=810028 depth_weight=762191.750000 diagnostic_only=1",
+          "GENERIC_STAGE name=quadratic ops=11263254 nq=1234 nb=1623 native=810028 depth_weight=762191.750000 diagnostic_only=1",
+          "GENERIC_STAGE name=truth ops=11263254 nq=1234 nb=1623 native=810028 depth_weight=762191.750000 diagnostic_only=1",
+          "GENERIC_STAGE name=interned_witness ops=11263254 nq=1234 nb=1623 native=810028 depth_weight=762191.750000 diagnostic_only=1",
+          "GENERIC_STAGE name=measurement_absorption ops=11263294 nq=1234 nb=1643 native=809996 depth_weight=762159.750000 diagnostic_only=1",
+          "GENERIC_STAGE name=parity_scan ops=11263294 nq=1234 nb=1643 native=809996 depth_weight=762159.750000 diagnostic_only=1",
+          "GENERIC_STAGE name=conditional ops=11265428 nq=1234 nb=1646 native=809731 depth_weight=762089.750000 diagnostic_only=1",
+          "GENERIC_STAGE name=square_top ops=11268488 nq=1234 nb=2456 native=809731 depth_weight=761707.250000 diagnostic_only=1",
+          "GENERIC_STAGE name=conditional_ur ops=11268491 nq=1234 nb=2457 native=809730 depth_weight=761706.250000 diagnostic_only=1",
+          "GENERIC_STAGE name=zero_force ops=11268491 nq=1234 nb=2457 native=809730 depth_weight=761706.250000 diagnostic_only=1",
+          "GENERIC_STAGE name=classical_factors ops=11268514 nq=1234 nb=2457 native=809720 depth_weight=761698.750000 diagnostic_only=1",
+          "GENERIC_STAGE name=classical_wide ops=11268527 nq=1234 nb=2457 native=809715 depth_weight=761696.250000 diagnostic_only=1"
+        ]
+      },
+      "input_stream": "/home/hclau/ecdsa_research/breakthrough-wide-stronger-compare-20261020/mode2/ops.bin",
+      "input_sha256": "f97bc5a1be3546e5d123a9007344936fd6a0e769725a941619e1441d0099887c",
+      "scope": "Same frozen generic exact optimizer and installed postpass recipe after complete original control. Fixed stronger arithmetic input; no source-bound/census/nonce pass or new optimizer. Depth weights diagnostic only."
+    },
+    "result": {
+      "exit": 0,
+      "seconds": 188.9692599773407,
+      "stages": [
+        "GENERIC_STAGE name=product ops=10798332 nq=1264 nb=1623 native=788647 depth_weight=752424.625000 diagnostic_only=1",
+        "GENERIC_STAGE name=affine ops=10798332 nq=1264 nb=1623 native=788646 depth_weight=752423.625000 diagnostic_only=1",
+        "GENERIC_STAGE name=quadratic ops=10798331 nq=1264 nb=1623 native=788645 depth_weight=752423.125000 diagnostic_only=1",
+        "GENERIC_STAGE name=truth ops=10798331 nq=1264 nb=1623 native=788645 depth_weight=752423.125000 diagnostic_only=1",
+        "GENERIC_STAGE name=interned_witness ops=10798331 nq=1264 nb=1623 native=788645 depth_weight=752423.125000 diagnostic_only=1",
+        "GENERIC_STAGE name=measurement_absorption ops=10798371 nq=1264 nb=1643 native=788613 depth_weight=752391.125000 diagnostic_only=1",
+        "GENERIC_STAGE name=parity_scan ops=10798371 nq=1264 nb=1643 native=788613 depth_weight=752391.125000 diagnostic_only=1",
+        "GENERIC_STAGE name=conditional ops=10800491 nq=1264 nb=1645 native=788351 depth_weight=752324.625000 diagnostic_only=1",
+        "GENERIC_STAGE name=square_top ops=10803551 nq=1264 nb=2455 native=788351 depth_weight=751942.125000 diagnostic_only=1",
+        "GENERIC_STAGE name=conditional_ur ops=10803554 nq=1264 nb=2456 native=788350 depth_weight=751941.125000 diagnostic_only=1",
+        "GENERIC_STAGE name=zero_force ops=10803554 nq=1264 nb=2456 native=788350 depth_weight=751941.125000 diagnostic_only=1",
+        "GENERIC_STAGE name=classical_factors ops=10803577 nq=1264 nb=2456 native=788340 depth_weight=751933.625000 diagnostic_only=1",
+        "GENERIC_STAGE name=classical_wide ops=10803587 nq=1264 nb=2456 native=788336 depth_weight=751931.625000 diagnostic_only=1"
+      ],
+      "output_sha256": "d4d5944e2266f442ed234ce8e0b104f749450365769e00db9274084ba82d1787",
+      "output_bytes": 35057617,
+      "scope": "Frozen exact optimizer audit, diagnostic only. No final gate, official benchmark, nonce or scored result."
+    },
+    "scope": "Generic optimizer and complete original control preserved separately. Noncompetitive diagnostic, no finalgate, nonce or record.",
+    "sealed_at_utc": "2026-10-20T06:30:37.428558+00:00"
+  }
+}

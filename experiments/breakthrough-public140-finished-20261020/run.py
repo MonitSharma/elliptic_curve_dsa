@@ -1,0 +1,16 @@
+import hashlib,json,os,re,struct,subprocess,time
+from pathlib import Path
+r=Path(__file__).resolve().parent;t=r/'candidate';sha=lambda p:hashlib.file_digest(p.open('rb'),'sha256').hexdigest();env=os.environ.copy();env['PEBBLE_HARD_CAP']='1234'
+def run(args,log,cwd=r,timeout=1800):
+ with(r/log).open('ab')as out:p=subprocess.Popen(['timeout',str(timeout)]+args,cwd=cwd,env=env,stdout=out,stderr=subprocess.STDOUT);(r/(log+'.pid')).write_text(str(p.pid)+'\n');rc=p.wait()
+ if rc:(r/'run.exit').write_text(str(rc)+'\n');raise SystemExit(rc)
+run(['python3','prepare.py'],'prepare.log');f=json.loads((r/'SOURCE_FREEZE.json').read_text())
+filters=['prime_clean_pool_tests','wide_loan_policy_tests','reverse_budget_tests','fin1_fold_tests','t0_shared_product_tests','core_loan_fold_tests','phase_cubic_cap_tests','phase_pebble','phase_fit','phase_fusion','zero_carry','plan7_tests','terminal_contract_tests','terminal_birth_phase_tests','direct_transport_tests']
+for filter in filters:run(['/home/hclau/.cargo/bin/cargo','+1.93.0','test','--release','--bin','build_circuit',filter,'--','--nocapture','--test-threads=1'],'tests.log',t)
+actual=[int(n)for n in re.findall(r'test result: ok\. (\d+) passed; 0 failed;',(r/'tests.log').read_text())];assert actual==[2,1,1,1,1,1,1,3,1,4,3,2,3,1,1],actual
+run(['/home/hclau/.cargo/bin/cargo','+1.93.0','build','--release','--bin','build_circuit'],'build.log',t);assert all(sha(t/p)==h for p,h in {**f['source_files'],**f['protected_files']}.items());start=time.time();run([str(t/'target/release/build_circuit')],'generate.log',t);path=t/'ops.bin';h=hashlib.sha256();size=0;tail=b''
+with path.open('rb',buffering=0)as raw:
+ header=raw.read(16);assert header[:8]==b'QECCOPSZ';count=int.from_bytes(header[8:],'little');p=subprocess.Popen(['zstd','-dc'],stdin=raw,stdout=subprocess.PIPE)
+ while chunk:=p.stdout.read(1<<20):h.update(chunk);size+=len(chunk);tail=(tail+chunk)[-96*56:]
+ assert p.wait()==0 and size==count*56
+no=(1<<64)-1;tailops=list(struct.iter_unpack('<7Q',tail));assert len(tailops)==96 and all(o==(6,no,no,0,no,no,no)for o in tailops);log=(r/'generate.log').read_text();stages=[l for l in log.splitlines()if l.startswith('GENERIC_STAGE ')];assert len(stages)>=12;final=stages[-1];fields=dict(re.findall(r'(\w+)=([^ ]+)',final));assert int(fields['ops'])+96==count;assert all(sha(t/p)==v for p,v in {**f['source_files'],**f['protected_files']}.items());result={'status':'FINISHED_SOURCE_NONCE0_GENERATED_NOT_YET_GATED','seconds':time.time()-start,'stream_path':str(path),'stream_sha256':sha(path),'operations':count,'operation_record_sha256':h.hexdigest(),'qubits_from_protected_analyzer':int(fields['nq']),'classical_bits':int(fields['nb']),'native_tests_passed':sum(actual),'native_test_counts':actual,'generic_stages':stages,'final_depth_weight_diagnostic':float(fields['depth_weight']),'identity_nonce':0,'native_binary_sha256':sha(t/'target/release/build_circuit'),'source_freeze_sha256':sha(r/'SOURCE_FREEZE.json'),'scope':'Finished source frozen before generation. Native controls and raw binding pass; complete96-X nonce0 tail verified. No final statistical gate, nonce search, unchanged official benchmark or scored result yet.'};(r/'FINISHED-RESULT.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result),flush=True);(r/'run.exit').write_text('0\n')

@@ -1,0 +1,2 @@
+from pathlib import Path
+r=Path(__file__).resolve().parent;s=(r.parent/'breakthrough-wide-uniform-compare-20261020/run.py').read_text();a="cap,profile=spec['cap'],spec['profile']";assert s.count(a)==1;s=s.replace(a,"cap,profile,pool=spec['cap'],spec['profile'],spec['pool']").replace("f'cap{cap}-{profile}'","f'cap{cap}-{profile}-{pool}'").replace("BREAK_PROFILE=profile)","BREAK_PROFILE=profile,BREAK_POOL=pool)");(r/'run.py').write_bytes(s.encode())

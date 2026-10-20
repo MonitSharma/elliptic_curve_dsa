@@ -1,0 +1,444 @@
+{
+  "status": "DEVELOPMENT_COMPARISON_COMPLETE_PRESERVE_ALL_MISMATCHES",
+  "label": "breakthrough-wide1264-development-v1",
+  "batches": 512,
+  "summaries": {
+    "public1863": {
+      "value_shots": 16,
+      "phase_shots": 10,
+      "dirty_shots": 0,
+      "failed_batches": 17,
+      "mean_executed_raw_toffoli": 752993.5653686523,
+      "rows_sha256": "e7f438d4dcbd1080b01b1d0d367c3ae5170764d72a9eaae1b067173c454786dd"
+    },
+    "raw1264": {
+      "value_shots": 49,
+      "phase_shots": 37,
+      "dirty_shots": 0,
+      "failed_batches": 53,
+      "mean_executed_raw_toffoli": 752251.6489562988,
+      "rows_sha256": "fdb05e8b3e1a14e2e29914248bd405142c2dda587b80fcce42584d29972b2841"
+    }
+  },
+  "comparisons": {
+    "raw1264": {
+      "candidate_minus_parent_raw_toffoli": -741.9164123535156,
+      "paired_standard_error": 3.4987950374951335,
+      "new_failed_batches": 38,
+      "new_passing_batches": 2,
+      "new_value_failing_shots": [
+        [
+          3,
+          49
+        ],
+        [
+          7,
+          29
+        ],
+        [
+          27,
+          19
+        ],
+        [
+          50,
+          15
+        ],
+        [
+          50,
+          48
+        ],
+        [
+          81,
+          7
+        ],
+        [
+          93,
+          35
+        ],
+        [
+          111,
+          17
+        ],
+        [
+          126,
+          32
+        ],
+        [
+          126,
+          48
+        ],
+        [
+          127,
+          17
+        ],
+        [
+          147,
+          59
+        ],
+        [
+          150,
+          43
+        ],
+        [
+          183,
+          23
+        ],
+        [
+          185,
+          55
+        ],
+        [
+          196,
+          14
+        ],
+        [
+          198,
+          29
+        ],
+        [
+          224,
+          16
+        ],
+        [
+          252,
+          38
+        ],
+        [
+          280,
+          20
+        ],
+        [
+          282,
+          19
+        ],
+        [
+          284,
+          42
+        ],
+        [
+          297,
+          58
+        ],
+        [
+          316,
+          56
+        ],
+        [
+          317,
+          41
+        ],
+        [
+          407,
+          1
+        ],
+        [
+          413,
+          2
+        ],
+        [
+          421,
+          35
+        ],
+        [
+          439,
+          51
+        ],
+        [
+          449,
+          16
+        ],
+        [
+          463,
+          44
+        ],
+        [
+          469,
+          61
+        ],
+        [
+          478,
+          52
+        ],
+        [
+          496,
+          59
+        ]
+      ],
+      "new_value_passing_shots": [
+        [
+          236,
+          58
+        ]
+      ],
+      "different_target_lanes": [
+        {
+          "batch": 3,
+          "lane": 49,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 7,
+          "lane": 29,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 27,
+          "lane": 19,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 50,
+          "lane": 15,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 50,
+          "lane": 48,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 81,
+          "lane": 7,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 90,
+          "lane": 41,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 93,
+          "lane": 35,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 111,
+          "lane": 17,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 126,
+          "lane": 32,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 126,
+          "lane": 48,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 127,
+          "lane": 17,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 145,
+          "lane": 37,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 147,
+          "lane": 59,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 150,
+          "lane": 43,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 183,
+          "lane": 23,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 185,
+          "lane": 55,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 196,
+          "lane": 14,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 198,
+          "lane": 29,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 224,
+          "lane": 16,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 236,
+          "lane": 58,
+          "parent_value_fails": true,
+          "candidate_value_fails": false
+        },
+        {
+          "batch": 246,
+          "lane": 23,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 252,
+          "lane": 38,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 275,
+          "lane": 26,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 279,
+          "lane": 1,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 280,
+          "lane": 20,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 282,
+          "lane": 19,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 284,
+          "lane": 42,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 297,
+          "lane": 58,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 314,
+          "lane": 58,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 316,
+          "lane": 56,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 317,
+          "lane": 41,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 341,
+          "lane": 27,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 407,
+          "lane": 1,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 413,
+          "lane": 2,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 414,
+          "lane": 21,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 421,
+          "lane": 35,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 435,
+          "lane": 5,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 439,
+          "lane": 51,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 449,
+          "lane": 16,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 463,
+          "lane": 44,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 469,
+          "lane": 61,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 478,
+          "lane": 52,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 496,
+          "lane": 59,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        }
+      ],
+      "different_other_lanes": [],
+      "target_differences_confined_to_both_value_failing": false
+    }
+  },
+  "scope": "Paired development diagnostic against the exact published stream of current Toffoli record62341149. Frozen raw1264 source and stream precede this declaration. This512-batch diagnostic is not the declared32768-batch final gate, nonce screening or unchanged benchmark. Preserve every mismatch; no content/tables/cuts tuned to an official packet."
+}

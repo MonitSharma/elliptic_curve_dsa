@@ -1,0 +1,60 @@
+{
+  "declared_at_utc": "2026-10-20T06:03:09.745316+00:00",
+  "label": "public140-uniform2-generic-final-20261020-v1",
+  "batches": 32768,
+  "shots_per_batch": 64,
+  "shots_per_source": 2097152,
+  "first_batch": 0,
+  "workers_per_source": 16,
+  "protected_scalar_batches_per_source": 8,
+  "candidate_root": "/home/hclau/ecdsa_research/breakthrough-public140-finished-20261020/candidate",
+  "candidate_source_freeze": "/home/hclau/ecdsa_research/breakthrough-public140-finished-20261020/FINAL-SOURCE-FREEZE.json",
+  "candidate_source_freeze_sha256": "dfd5eb50295bae73f73a55229e2b8ac53554392627bfdb3caad0e7db3d74ed64",
+  "candidate_stream": "/home/hclau/ecdsa_research/breakthrough-public140-finished-20261020/candidate/ops.bin",
+  "candidate_stream_sha256": "a85c3ffa0ec725b04900ac79d5729dab126a870d566533f53d0f256c0d90cf98",
+  "candidate_qubits_from_protected_analyzer": 1464,
+  "identity_nonce": 0,
+  "parent_record": {
+    "id": "62341149-b0f8-422e-aef5-9388be813600",
+    "officialScore": 1402822233,
+    "officialMetrics": {
+      "qubits": 1863,
+      "toffoli": 752991
+    },
+    "submissionCommitSha": "3c0917bbce5ffcc0178b89cc7769e9db1d6bc018"
+  },
+  "public_refresh_at_utc": "2026-10-20T05:58:31.049779+00:00",
+  "public_records_sha256": "83ca3ca0117739b0275b45fbf0d059102a87e683475b939411c447b5e88d0d0d",
+  "parent_stream": "/home/hclau/ecdsa_research/wide95-703-review-20261018-085419/candidate/ops.bin",
+  "parent_stream_sha256": "09dbeacbd80a5d51656723c4350e367e91d5b5a00306008bf97b288bd4a205e4",
+  "census_binary": "/home/hclau/ecdsa_research/simd-census-v2-20261016/bin/simd_census_v2",
+  "census_binary_sha256": "790e92266ea67ec54ef701b2deed76fe8d0b766b411ca9eab877f82ae2c11a66",
+  "protected_dependency_files": {
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/.github/workflows/benchmark.yml": "3b90200b03c72242cbaab4a8dd22eedcab97fb4ba5983980cf4d738130141162",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/.gitignore": "b9ca6f04c099c9f83bdfaec187be689580b57b1ca701dea5ab297c0500457658",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/Cargo.lock": "42ff16919e551891ad1b21821329b116d133194245a0e0734a33573dfe598e07",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/Cargo.toml": "3c80178b08d29a158abb29a7dcb8eefc67c66f60f2c3bd14483b65eeca0740dc",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/NOTICE": "fdfff837a1a85c14fc8854cfb2fa8a43b2ac58a6b8fcc50e56fe6c9d1293c58f",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/README.md": "ac644b8d227144c34245d913b5cbe6857da02faa10c885bf0ad3b14a5d9d6f7a",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/benchmark.json": "213c8e602881130991b9374d8f991acb2d2a7cc3618ec5f24d5e3cc27add06fb",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/benchmark.sh": "122a65431ad42a1bad5114af9e8f8301fe5cb08c01adaeee00799c9f0d0ed92a",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/results.tsv": "eea840222afd2424445550252f25795d63eb4bc3904b8c87f0213b5f22abc810",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/rust-toolchain": "92b454c1ccf330de9b94242f73bc3214370fb420d5152baeec12dc82ceef9dcc",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/setup.sh": "6efa1c41517f0cd94f1e7301aa5ccb2c488eef66466843668e44e09c5523d029",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/src/bin/build_circuit.rs": "ac013f1d851156a117c7d41ddb16cb5bb014ed4e6ed4679df143207b46852f33",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/src/bin/eval_circuit.rs": "b35314bc47a5f8eecbf60459e6c76c9b43aa034eeb9b7ec3421655d74f9e890b",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/src/circuit.rs": "ac2255f6bcb6895c9da2dfe21c3a051a0ef8fc4e0af9598634fec0035dbf35c6",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/src/lib.rs": "ebad13b0018b36bdcbcac0d0ca2b7b76a00a886eb4f93ff18e7ba321e76b0039",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/src/sim.rs": "f0c72f2a280cd68acee1dbf8282098f72d6b3bf4311e0abf96d122fe002256d7",
+    "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline/src/weierstrass_elliptic_curve.rs": "ecfca15ee3b831c243fbea559ff4b8937be47fe591a4f14786ec2b9bfb30bded"
+  },
+  "criteria": {
+    "candidate_value_failing_shots_no_more_than_parent": true,
+    "one_sided_exact_mcnemar_p_minimum": 0.05,
+    "failed_batches_per_9024_shot_packet_maximum": 18,
+    "packet_batches": 141,
+    "dirty_ancilla_shots": 0
+  },
+  "verdict_policy": "One declared final gate for this finished frozen candidate. Outcome final. Never change label, increase batches, change nonce or rerun to convert a failure into a pass. No nonce screening before pass. Current nonce0 is fixed, not searched.",
+  "scope": "Targets the independent Toffoli record, not the global product record. All source, streams and dependencies verified before declaration; native26 controls and exact raw-record binding pass. No final verdict or official benchmark claimed at declaration."
+}

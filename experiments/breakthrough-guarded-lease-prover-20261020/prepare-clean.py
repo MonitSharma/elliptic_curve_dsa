@@ -1,0 +1,7 @@
+import hashlib,json,shutil,subprocess
+from pathlib import Path
+ws=Path('/home/hclau/ecdsa_research');r=ws/'breakthrough-scope-clean-20261020';old=ws/'breakthrough-scope-fingerprints-20261020';t=r/'tool';sha=lambda p:hashlib.file_digest(p.open('rb'),'sha256').hexdigest();assert not t.exists();f=json.loads((old/'SOURCE_FREEZE.json').read_text());assert all(sha(old/'tool'/p)==h for p,h in f['tool_source_files'].items());t.mkdir()
+for p in(old/'tool').iterdir():
+ if p.is_file():shutil.copyfile(p,t/p.name)
+s=(t/'discover.rs').read_text();a='let nomination=scoped_product_keys(&ops);';assert s.count(a)==1;s=s.replace(a,a+'let scope_donors=scope_clean_donors(&ops,nq,&nomination);');a='&&clean[d]&&';assert s.count(a)==1;s=s.replace(a,'&&(clean[d]||scope_donors.get(&i).is_some_and(|v|v.contains(&d)))&&');s+='\n'+(r/'scope_clean.rs').read_text();(t/'discover.rs').write_bytes(s.encode());subprocess.run(['cp','-a','--reflink=auto',str(old/'tool/target'),str(t/'target')],check=True)
+f['tool_source_files']={p.name:sha(p)for p in t.iterdir()if p.is_file()};f['scope']='Independent exact three-valued analysis proves donor zero conditional on common lexical scope. Unknown resets do not establish zero; nested same guard can establish certainty. All intervening reads block scoped donors; at most64 donor nominations per repeated scoped product. Full arbitrary-cut product proof and guard-correct HMR repair unchanged. Component discovery only; no native integration/benchmark/gate/nonce.';(r/'SOURCE_FREEZE.json').write_text(json.dumps(f,indent=2)+'\n')

@@ -1,0 +1,19 @@
+import hashlib,json,re,subprocess
+from pathlib import Path
+r=Path(__file__).resolve().parent;ws=r.parent;t=r/'candidate';old=ws/'breakthrough-public-schedule-20261020';sha=lambda p:hashlib.file_digest(p.open('rb'),'sha256').hexdigest();f=json.loads((old/'SOURCE_FREEZE.json').read_text());assert not t.exists()and(old/'run.exit').read_text().strip()=='0';assert all(sha(old/'observer'/p)==h for p,h in {**f['source_files'],**f['protected_files']}.items());inputfile=old/'cap1536-uniform-plus-two-plain-public140/ops.bin';assert sha(inputfile)=='1b034533e1f064638c3a141eecc997b672e372b7e3a830a6ea235049b99f4952';gfroot=ws/'breakthrough-generic-postpass-20261020';gf=json.loads((gfroot/'SOURCE_FREEZE.json').read_text());gpath='src/point_add/breakthrough_generic.rs';assert sha(gfroot/'observer'/gpath)==gf['source_files'][gpath]
+with inputfile.open('rb',buffering=0)as raw:
+ header=raw.read(16);assert header[:8]==b'QECCOPSZ';count=int.from_bytes(header[8:],'little');h=hashlib.sha3_256();h256=hashlib.sha256();size=0;p=subprocess.Popen(['zstd','-dc'],stdin=raw,stdout=subprocess.PIPE)
+ while chunk:=p.stdout.read(1<<20):h.update(chunk);h256.update(chunk);size+=len(chunk)
+ assert p.wait()==0 and size==count*56
+record={'input_stream':str(inputfile),'framed_sha256':sha(inputfile),'operations':count,'record_sha3_256':h.hexdigest(),'record_sha256':h256.hexdigest()};(r/'RAW-INPUT-BINDING.json').write_text(json.dumps(record,indent=2)+'\n')
+subprocess.run(['git','-C',str(ws/'toffoli'),'worktree','add','--detach',str(t),f['base']],check=True)
+for p in(old/'observer/src/point_add').rglob('*'):
+ if p.is_file():q=t/p.relative_to(old/'observer');q.parent.mkdir(parents=True,exist_ok=True);q.write_bytes(p.read_bytes())
+p=t/'src/point_add/mod.rs';raw=p.read_bytes();values={'PROFILE':'uniform-plus-two','POOL':'plain','SCHEDULE':'public140','CAP':'1234','HARD':'1536'}
+for name,value in values.items():
+ pattern=rb'std::env::var\("BREAK_'+name.encode()+rb'"\)\.expect\("[^"\r\n]*"\)';assert len(re.findall(pattern,raw))==1,name;raw=re.sub(pattern,('"'+value+'".to_owned()').encode(),raw)
+start=raw.index(b'    break_profile::save_ops("prepass.ops.bin", &ops);');matches=list(re.finditer(rb'\n\}\r*\n(?:\r*\n)*mod affine_constant;',raw[start:]));assert len(matches)==1;end=start+matches[0].start();raw=raw[:start]+b'    finished_pipeline::run(ops)'+raw[end:];raw+=b'\nmod breakthrough_generic;\nmod finished_pipeline;\n';p.write_bytes(raw)
+p=t/'src/point_add/builder.rs';raw=p.read_bytes()
+for prefix in [b'        eprintln!("PHASE_AUDIT',b'        eprintln!("LAYOUT_AUDIT']:
+ lines=raw.splitlines(keepends=True);hits=[i for i,l in enumerate(lines)if l.startswith(prefix)];assert len(hits)==1;del lines[hits[0]];raw=b''.join(lines)
+p.write_bytes(raw);(t/gpath).write_bytes((gfroot/'observer'/gpath).read_bytes());pipeline=(r/'finished_pipeline.rs').read_text().replace('__COUNT__',str(count)).replace('__HASH__',record['record_sha3_256']);(t/'src/point_add/finished_pipeline.rs').write_bytes(pipeline.encode());subprocess.run(['cp','-a','--reflink=auto',str(old/'observer/target'),str(t/'target')],check=True);assert all(sha(t/p)==h for p,h in f['protected_files'].items());(r/'source.patch').write_bytes(subprocess.check_output(['git','-C',str(t),'diff','--binary','HEAD']));f['source_files']={p.relative_to(t).as_posix():sha(p)for p in(t/'src/point_add').rglob('*')if p.is_file()};f['raw_input_binding']=record;f['identity_nonce']=0;f['scope']='Finished fixed strengthened public140/1536 recipe, square1234, plain pool with zero-op priming; generic exact pipeline only, no bound/census passes. Raw operation records bound before optimization;96-X identity tail nonce0. Diagnostic printing/file write removed with binding required. Freeze precedes generation, final-gate declaration and any nonce search. All17 protected files unchanged.';(r/'SOURCE_FREEZE.json').write_text(json.dumps(f,indent=2)+'\n')

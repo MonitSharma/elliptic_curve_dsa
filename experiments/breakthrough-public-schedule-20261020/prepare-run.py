@@ -1,0 +1,2 @@
+from pathlib import Path
+r=Path(__file__).resolve().parent;s=(r.parent/'breakthrough-primed-pool-20261020/sweep.py').read_text();a="cap,profile,pool=spec['cap'],spec['profile'],spec['pool']";assert s.count(a)==1;s=s.replace(a,"cap,profile,pool,schedule=spec['cap'],spec['profile'],spec['pool'],spec['schedule']").replace("f'cap{cap}-{profile}-{pool}'","f'cap{cap}-{profile}-{pool}-{schedule}'").replace('BREAK_POOL=pool)','BREAK_POOL=pool,BREAK_SCHEDULE=schedule)');(r/'sweep.py').write_bytes(s.encode())

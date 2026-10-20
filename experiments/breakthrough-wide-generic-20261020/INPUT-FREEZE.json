@@ -1,0 +1,33 @@
+{
+  "source_freeze_sha256": "f5ae978c3106e61f30dad3cbc208b71d052496c4b17d24b9a7e10cf89941d7cf",
+  "cases": [
+    {
+      "cap": 1234,
+      "exit": 0,
+      "seconds": 4.214255332946777,
+      "builder_totals": [
+        "HEO_TOTAL native=810068 expected=762230.8 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+      ],
+      "raw_sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b"
+    },
+    {
+      "cap": 1256,
+      "exit": 0,
+      "seconds": 4.386939764022827,
+      "builder_totals": [
+        "HEO_TOTAL native=793354 expected=754491.4 peak=1256 peak_op=1444436 peak_phase=divide qubits_touched=1256"
+      ],
+      "raw_sha256": "9993b12446fef50733cc21fb7c75ae885cf803c757410889be247ee1670f40d0"
+    },
+    {
+      "cap": 1264,
+      "exit": 0,
+      "seconds": 4.5094709396362305,
+      "builder_totals": [
+        "HEO_TOTAL native=788244 expected=752253.6 peak=1264 peak_op=1444364 peak_phase=divide qubits_touched=1264"
+      ],
+      "raw_sha256": "7fe2bb94f6b68965b87f7af4debd245d53c4b84df91ee0260e032499d49c14df"
+    }
+  ],
+  "scope": "All successful predeclared wider budgets>=1256 plus original1234 control. Source fixed before stream audit; no input/packet tuning."
+}

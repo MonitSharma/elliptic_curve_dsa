@@ -1,0 +1,40 @@
+{
+  "files": {
+    "INPUT-FREEZE.json": "a816ab9fac968f6681edffc1bd6ef11e9c98bb64516c258407bd084822c8c6ba",
+    "RESULT.json": "f3c49f3c6e178d7ea9e3374b2d8281cb3e57b3de469bdbec90567fc64403b601",
+    "TERMINAL-AUDIT.json": "c934f7ccdeb58c0e0837e38d80353796c0bc9b453dfa2ddf2f336088a8b498a7",
+    "certified.json": "cd22483b1d688da42f48c53cdb5d5ef6ccd765f04e91a5c5006e882c7ad4551d",
+    "discovery.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "discovery.log": "45f79c82799b249f76cfc7d8caf7698ad13086182a4329c86d10133d65266704",
+    "discovery.pid": "8d69c70b2b554a3beb3ced78ea7dce6d485cbbd3015a4f5d4afd91c79a8d3f75",
+    "run.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "run.py": "4523cd848f37bc9222d41b18cfd86d1d062a7958c92322e7d4096f83bc88d239",
+    "supervisor.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "supervisor.pid": "aa31f0fbded0660a499c7c7e419bcc41d8281c14fc1690c5fca54ee8e1bf6435"
+  },
+  "terminal_audit": {
+    "status": "LINKED_EXACT_COMPONENT_DISCOVERY_ARCHIVED",
+    "input_freeze": {
+      "input_path": "/home/hclau/ecdsa_research/breakthrough-certified-prefix-20261020/certified/ops.bin",
+      "input_sha256": "85958b9f90cc93c7bba94d158cba2b4dde890bf9f4231cd70dc5b4fd9f1218b2",
+      "tool_freeze_path": "/home/hclau/ecdsa_research/breakthrough-guarded-lease-prover-20261020/SOURCE_FREEZE.json",
+      "tool_freeze_sha256": "e77708c1358e6dee24502e3b45fcd7f27b40e79a842eef13415cf3610cca4a1e",
+      "source_freeze_path": "/home/hclau/ecdsa_research/breakthrough-certified-prefix-20261020/SOURCE_FREEZE.json",
+      "source_freeze_sha256": "484c00be83eda3cb0db2835630cd4e44c7732b1b2d6debde2fdc3afffcb8ddf9",
+      "binary_path": "/home/hclau/ecdsa_research/breakthrough-guarded-lease-prover-20261020/tool/target/release/product_pareto_discover",
+      "binary_sha256": "79f7aa9e7294bf33fba7126466ed0ef3614b430c948708ae8ab493b34c40df16",
+      "scope": "Fresh exact guarded lease discovery on original-stream certified prefix. No nonce, gate or scored result; input certificate exactness still needs separate review."
+    },
+    "result": {
+      "status": "EXACT_COMPONENT_DISCOVERY_COMPLETE_NOT_SCORED",
+      "proposed": 124,
+      "proven_leases": 113,
+      "depth_weight_saving_diagnostic": 113.0,
+      "unproved": 11,
+      "output_sha256": "6b058590f2476e723064d22db247c8f083ec66de314b69b4360d2ac4c93470f5",
+      "seconds": 9.208813428878784
+    },
+    "scope": "Existing source/tool fully preserved separately. Research only, no gate, nonce or record.",
+    "sealed_at_utc": "2026-10-20T06:30:37.055611+00:00"
+  }
+}

@@ -1,0 +1,107 @@
+"""Prepare owned additive documentation, leaving prior user edits unstaged."""
+import difflib,json,subprocess
+from datetime import datetime,timezone,timedelta
+from pathlib import Path
+root=Path(__file__).resolve().parents[2];r=Path(__file__).resolve().parent
+assert not subprocess.check_output(['git','diff','--cached','--name-only'],cwd=root).strip()
+assert json.loads((root/'experiments/breakthrough-public140-final-20261020/LOCAL-VERIFICATION.json').read_bytes())['status']=='EVERY_FINAL_EVIDENCE_AND_SOURCE_MEMBER_VERIFIED_LOCALLY'
+sgt=datetime.now(timezone.utc).astimezone(timezone(timedelta(hours=8))).strftime('%d %B %Y, %H:%M SGT')
+readme=f'''## Local Toffoli improvement · {sgt}
+
+The unchanged complete benchmark passes all **9,024 shots** at **1,464 qubits
+× 751,182 rounded mean executed Toffolis = 1,099,730,448**. This is a locally
+verified result **queued for review, not officially evaluated**. Against the
+public Toffoli record refreshed at 06:20 UTC (Q1863/T752991), it saves **1,809
+Toffolis (0.24024%) and 399 qubits**. The separate public product record
+939,138,168 remains lower; the product research continues.
+
+The frozen circuit passed its declared 2,097,152-shot-per-source statistical
+gate with zero dirty shots. Lowest passing nonce **125**, **128** production
+screens, eight additional partial-packet nonce controls repeated in production,
+and window overrun 126..128 are disclosed. Approximate arithmetic remains;
+finite-packet success does not establish universal correctness. AI model:
+**GPT-6 sol**; coding harness: **Codex**. Source `a70d1cb6`.
+
+[Complete disclosures](experiments/breakthrough-public140-final-20261020/SUBMISSION-NOTE.md) ·
+[Local evidence verification](experiments/breakthrough-public140-final-20261020/LOCAL-VERIFICATION.json) ·
+[Full source and evidence](experiments/breakthrough-public140-final-20261020/final-evidence.tar.gz)
+
+'''
+prefix=f'''## {sgt}: complete Q1464/T751182 local benchmark; queued
+
+All 9,024 shots pass the unchanged benchmark: Q1464, rounded mean executed
+T751182, exact mean751181.5601728724, product1099730448. Sourcea70d1cb6,
+native streamdc621004. Queue mode: no new official upload/evaluation. The
+06:20:06UTC public refresh has1689 entries: T752991/Q1863, product939138168
+atQ1234/T761052, width671. T improves1809 and width399 relative to Tparent;
+global product remains lower. Active product objective stays unfinished.
+
+The final gate was declared before execution: public140-uniform2-generic-final-
+20261020-v1,32768x64 shots/source, exact public Tparent09dbeacb versus frozen
+nonce0a85c3ffa. Parent/candidate wrong-value1212/1190, phase816/663, dirty0/0,
+failed batches1379/1230, candidate5.29266 failed batches/packet. Exact paired
+McNemar b63/c212 passes; value IDs differ (15 newly wrong/37 newly correct).
+All four requirements pass. Verdict final, no rerun/relabel/extension.
+
+Nonce125 is the lowest full-packet pass among ascending1..128, with only125
+passing. Eight nonce controls1..8, repeated in production, check24 protected
+full-state batches plus curve/RNG/partial masks. Selected protected replay and
+unchanged benchmark both pass. Only nonce constant changes from gated source;
+every pre-tail record matches. All17 protected files and historical results
+are preserved. Complete final87-member evidence and193-file source archive
+verify locally. AI attribution GPT-6 sol/Codex. Full disclosure in
+experiments/breakthrough-public140-final-20261020/SUBMISSION-NOTE.md.
+
+The key wide-circuit finding: inherited schedule is138 rows, public parent140.
+Restoring exact public140 and uniform+2 comparisons resolves the observed
+development regression. Earlier wide1264/spacious138 variants have additional
+wrong-value shots and remain unqualified diagnostics, never plotted records.
+Zero-operation pool priming preserves allocation order and strict assertions;
+two native tests and all26 retained finished-source controls pass. Builder
+primed capacity is not referenced peak Q. Stronger-compare archive footer scope
+was wrong; an external correction preserves original bytes and states+2 bits.
+
+Fixed physical-budget variants preserve2213 replay sites but cost too much.
+Q1233/Q1232 raw counts763592.2/765202.6 are diagnostic only. Generic wider
+postpasses and all negative generation/correctness outcomes are archived.
+Sparse Boolean-polynomial work saves only0.5 diagnostic T beyond truth14.
+
+Independent exact lease tools pass2/4/6/8/6 native controls across successive
+versions (original, guarded, scoped fingerprints, scoped zero facts, cross-
+scope proof). Every tested original/certificate stream still yields113 leases;
+no extra saving from the refinements. Certificate-prefix generic control is
+byte-exact40a55 and bound-prefix stream85958b9f has diagnostic761344.742188.
+The inherited linear_restore says exact=false and uses local anchors; calling
+the entire prefix exact was too broad. Its separate scope review is retained;
+it is not qualified. New extra-donor cache research targets the T objective
+on a separate copy of the completed public140 circuit. No new nonce search
+is permitted before its own finished-source gate. All old verdicts and Q692
+width evidence remain. Unrelated user edits and server jobs stay intact.
+
+'''
+patch=[]
+for name,addition in [('README.md',readme)]+[(n,prefix)for n in ['docs/research-plan.md','docs/results-status.md','docs/AGENT_HANDOFF.md']]:
+ p=root/name;head=subprocess.check_output(['git','show','HEAD:'+name],cwd=root).decode();first,rest=head.split('\n',1);updated=first+'\n\n'+addition+rest.lstrip('\n');patch.extend(difflib.unified_diff(head.splitlines(keepends=True),updated.splitlines(keepends=True),fromfile='a/'+name,tofile='b/'+name))
+ data=p.read_bytes();first,rest=data.split(b'\n',1);ending=b'\r\n'if first.endswith(b'\r')else b'\n'
+ if rest.startswith(ending):rest=rest[len(ending):]
+ p.write_bytes(first+b'\n'+ending+addition.encode().replace(b'\n',ending)+rest)
+(r/'checkpoint-public140-index.patch').write_bytes(''.join(patch).encode())
+for name in ['LOG.md','DEVELOPMENT-NOTES.md']:
+ p=r/name;p.write_bytes(p.read_bytes().rstrip()+b'\n\n'+prefix.encode())
+(r/'READY.md').write_bytes(('''# Submission queue: 20 October 2026
+
+Ready local Toffoli candidate **Q1464 / T751182**, product1099730448.
+Source **a70d1cb6ca6696b7894093f0ca435c5ab26ee586**, nonce125.
+All9024 unchanged benchmark shots pass; all four final statistical gate
+requirements pass. No upload/evaluation has been made for this candidate.
+Queue mode remains in effect. Refresh public records before any submission.
+
+Complete note, evidence and full source:
+`experiments/breakthrough-public140-final-20261020/`.
+Server candidate:
+`/home/hclau/ecdsa_research/breakthrough-public140-final-20261020/candidate`.
+AI model: GPT-6 sol; coding harness: Codex. Scope is independent T objective;
+global product record is not beaten. Continue product and separate exact
+extra-donor research. Every old failed-gate verdict remains in force.
+''').encode())
+print('Owned complete benchmark and research checkpoint prepared.')

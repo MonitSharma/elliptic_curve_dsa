@@ -1,0 +1,231 @@
+{
+  "files": [
+    {
+      "path": "bridge.rs",
+      "bytes": [
+        6560,
+        7019
+      ],
+      "sha256": [
+        "a4a4d012e045753b4cf68abcaa14e004f4d7bce50d4d7ef8d5069818ac3bc528",
+        "4a2429169b45f030a0a8fcef9f798aa9bf658804a6290a7960b9a361624c85cd"
+      ],
+      "constant_differences": {}
+    },
+    {
+      "path": "builder.rs",
+      "bytes": [
+        29124,
+        29855
+      ],
+      "sha256": [
+        "8957efbd17ee59501c0274ee49ad51d634631501faed45483e63ff004ccfc6aa",
+        "2491a0ad22281952f4fe689687dab333f66ea877c567c8eccbcf36b8b1b8570d"
+      ],
+      "constant_differences": {}
+    },
+    {
+      "path": "leapfrog.rs",
+      "bytes": [
+        351844,
+        356689
+      ],
+      "sha256": [
+        "126c737b5d3e1fff135d8ab551c9e1ef14140b20a8384f0a751f8d0c31bc04ed",
+        "187c8802faa379b706adb2d1a953d194dfb7bdaf9bd74278f54ac831c4705cc5"
+      ],
+      "constant_differences": {
+        "Y42_ALLOC": {
+          "public_parent": "false",
+          "spacious_lineage": "Y42"
+        },
+        "Y42_UNBOUND": {
+          "public_parent": "true",
+          "spacious_lineage": "false"
+        }
+      }
+    },
+    {
+      "path": "leapfrog_data/pack_t0hat_tail0_138_steps_k770_lw2.txt",
+      "bytes": [
+        2860,
+        2965
+      ],
+      "sha256": [
+        "39f94990cfab20954142af3df630e206622fae05087f63b58dcc37fcafa26eeb",
+        "aba52f9e7cea64b9a06ff7e433a92a5d192f61f7f14b5058589bad0b03790287"
+      ]
+    },
+    {
+      "path": "leapfrog_data/y42_alloc.txt",
+      "bytes": [
+        52425,
+        51854
+      ],
+      "sha256": [
+        "96ec8d3912a0c8266c41f94d0b79ac6134a669eb3dfb60da02fdb2cea9f6d038",
+        "0fdd9ffa98b9307fda30583e8ae42d14b8f7bc8fe3a7ae75ad3b02e0127078e3"
+      ]
+    },
+    {
+      "path": "linear_restore.bin",
+      "bytes": [
+        3124,
+        2200
+      ],
+      "sha256": [
+        "6a1490a693fac2168cb014d2df40d2db08273078f7a238013f843c6e7c909d2c",
+        "515ddaf85fa92d203879c6a4f4a01e9e413a1d4a2695f4d1bab7eb3cd240b0d0"
+      ]
+    },
+    {
+      "path": "linear_restore.rs",
+      "bytes": [
+        1999,
+        2177
+      ],
+      "sha256": [
+        "d1c05432e6f4d06e854c7bf2b8b4da5e4f4ee3547942cb3a095f97237d484be8",
+        "a2522b51f72837082d2926fbee9aa36d31ca8b82a7b3f1041b3a4f2837489ab2"
+      ],
+      "constant_differences": {}
+    },
+    {
+      "path": "mod.rs",
+      "bytes": [
+        38534,
+        40745
+      ],
+      "sha256": [
+        "60b9b99eaeac8da6b9284a0aa1c917c600da6b366a744a89109402e73f4cb98b",
+        "0c2ef060b0e02f92c0bd512bf7827ae8ddb062540c50f439fdc21ce224b54c67"
+      ],
+      "constant_differences": {}
+    },
+    {
+      "path": "modular.rs",
+      "bytes": [
+        62851,
+        71337
+      ],
+      "sha256": [
+        "20546fadfc554a0d0bf2a72cb2ff0c158283fb2acf858db79a399901a934d2f1",
+        "b073bca8fb804f55478398c3455228531409a940aa77c77c26288e44937b36c8"
+      ],
+      "constant_differences": {}
+    },
+    {
+      "path": "pingpong.rs",
+      "bytes": [
+        225172,
+        230030
+      ],
+      "sha256": [
+        "7014d8eb44715a3a3f8c15bdde7d251d8e925230e8f162edbf53405aa4657ecb",
+        "21c424a6a125d863976287c43dba65d8a24ce74a0ce081ad6278b7b2402fb7cb"
+      ],
+      "constant_differences": {}
+    },
+    {
+      "path": "pscan.rs",
+      "bytes": [
+        21804,
+        22999
+      ],
+      "sha256": [
+        "5f1cc39c360d62c2e721d7570707e33d4a836bc0997bbf7c48491f112f182496",
+        "e4fab3d0c5869f00b5b358f1f493a6b5b60850769b7c2c1976fa23425cf0e26d"
+      ],
+      "constant_differences": {}
+    },
+    {
+      "path": "record.rs",
+      "bytes": [
+        13552,
+        13012
+      ],
+      "sha256": [
+        "cf264a25a43a44f215f15f3cc2837b092b8a75f11e0d12eac276ce64432e7a0f",
+        "15e8836c9a96246912efaaf82a7935b57ab4bb6836c82df93e1c8a0bed30a77d"
+      ],
+      "constant_differences": {}
+    },
+    {
+      "path": "square.rs",
+      "bytes": [
+        77417,
+        76774
+      ],
+      "sha256": [
+        "271af64d4a261a817cbcc967cdcfc335ba7ae2206183592c73e43ae0a6d976d1",
+        "93820a4440d9e553a96cc104ceb3256fef05424f2b201ba87377f270b4058664"
+      ],
+      "constant_differences": {}
+    },
+    {
+      "path": "width_composition.rs",
+      "bytes": [
+        17106,
+        22250
+      ],
+      "sha256": [
+        "4efed06b25cde054697d02b68c04f45edb3b8c5e99d19ad2c726d6244a3de8d5",
+        "8006e0436d62cfb861c504615acb03b1750115199cf63c6a8f555ef8c41995a3"
+      ],
+      "constant_differences": {}
+    },
+    {
+      "path": "y15_onefold.rs",
+      "bytes": [
+        216068,
+        248033
+      ],
+      "sha256": [
+        "69cfc773b90bc3919393ca0c12496abb6a2d7329d1248a7405098c5719ddbd4c",
+        "538e9c8275533c6a7429e1fb2728786499e95354a768b3840ffbc6611c2aa366"
+      ],
+      "constant_differences": {
+        "CONSUMER_LOANS": {
+          "public_parent": null,
+          "spacious_lineage": "true"
+        },
+        "Y15_KEEP_LOW": {
+          "public_parent": "[5, 4, 3]",
+          "spacious_lineage": "[5, 3, 3]"
+        },
+        "Y15_KEEP_ROOM": {
+          "public_parent": "96",
+          "spacious_lineage": "95"
+        },
+        "Y28_PLAN7": {
+          "public_parent": null,
+          "spacious_lineage": "([7,6,6,5,5,4,4,3,3,2,2,3], [0,2,4,6,8])"
+        }
+      }
+    },
+    {
+      "path": "y42_bound.bin",
+      "bytes": [
+        2886232,
+        2854612
+      ],
+      "sha256": [
+        "c2276f55ddce185238dc959beca1625d72aea64364ddead657c2e280b8c9189b",
+        "49a0c88a5ac97daaf216fb211e41fbfacb7aff71a696cfc948f20695dfda8447"
+      ]
+    },
+    {
+      "path": "y42_bound_pass.rs",
+      "bytes": [
+        4444,
+        4589
+      ],
+      "sha256": [
+        "1df1cb22ce10caf5aa3733ea4e840743b592bd23d766126bb5d30ca30a783180",
+        "e94e639b32ab481b93de737f775b89f1d81795925b422fd3ee222a566370e066"
+      ],
+      "constant_differences": {}
+    }
+  ],
+  "scope": "Complete common-file hash comparison and textual Rust constants including array types. Not a semantic proof or executed-profile trace. No source changes or gate verdict."
+}

@@ -1,0 +1,56 @@
+{
+  "sealed_at_utc": "2026-10-20T05:08:47.500149+00:00",
+  "base": "90e777ea8242faa0acb2462c5cb5be7c318a2d64",
+  "protected_files_checked": 17,
+  "source_freeze_sha256": "6949a3ef5830da3c97a377a44f604c5de7f7553817c86d2cd004f9f55149a857",
+  "result": {
+    "status": "RAW_ADMISSION_COMPLETE_NOT_SCORED",
+    "cases": [
+      {
+        "cap": 1234,
+        "exit": 0,
+        "seconds": 4.351792573928833,
+        "builder_totals": [
+          "HEO_TOTAL native=810068 expected=762230.8 peak=1234 peak_op=1444634 peak_phase=divide qubits_touched=1234"
+        ],
+        "raw_sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b"
+      },
+      {
+        "cap": 1233,
+        "exit": 101,
+        "seconds": 0.41035985946655273,
+        "builder_totals": [],
+        "failure_tail": "DIT\tdivide\tB\t646\t148\t18\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t3947900\t3948109\t1196\t1196\t8.5\nLAYOUT_AUDIT\tdivide\tB\t646\t184\t18\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t3948469\t3948678\t1196\t1196\t8.5\nLAYOUT_AUDIT\tdivide\tB\t646\t220\t18\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t3949038\t3949247\t1196\t1196\t8.5\nDIRTY_FRAGMENT\tchunked_add\t256\t3945444\t3949249\t1194\t1195\t307\nLAYOUT_AUDIT\tdivide\tB\t646\t37\t18\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t3950490\t3950699\t1197\t1197\t8.5\nLAYOUT_AUDIT\tdivide\tB\t646\t74\t18\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t3951069\t3951278\t1197\t1197\t8.5\nLAYOUT_AUDIT\tdivide\tB\t646\t111\t18\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t3951648\t3951857\t1197\t1197\t8.5\nLAYOUT_AUDIT\tdivide\tB\t646\t148\t18\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t3952217\t3952426\t1197\t1197\t8.5\nLAYOUT_AUDIT\tdivide\tB\t646\t184\t18\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t3952786\t3952995\t1197\t1197\t8.5\nLAYOUT_AUDIT\tdivide\tB\t646\t220\t18\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t3953355\t3953564\t1197\t1197\t8.5\nDIRTY_FRAGMENT\tchunked_add\t256\t3949761\t3953566\t1195\t1196\t307\nPHASE_OPTIONAL\tdivide\t3954209\t3954762\t1198\t38\t1\t1\t[1]\nLAYOUT_AUDIT\tdivide\tB\t646\t14\t14\nDIRTY_FRAGMENT\tcmp_lt_phase\t14\t3954764\t3954923\t1198\t1198\t6.5\nPHASE_OPTIONAL\tdivide\t3954925\t3955478\t1198\t38\t1\t1\t[1]\nLAYOUT_AUDIT\tdivide\tB\t646\t51\t18\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t3955480\t3955689\t1198\t1198\t8.5\nPHASE_OPTIONAL\tdivide\t3955691\t3956244\t1198\t38\t1\t1\t[1]\nLAYOUT_AUDIT\tdivide\tB\t646\t88\t18\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t3956246\t3956455\t1198\t1198\t8.5\nPHASE_OPTIONAL\tdivide\t3956457\t3957010\t1198\t38\t1\t1\t[1]\nLAYOUT_AUDIT\tdivide\tB\t646\t125\t18\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t3957012\t3957221\t1198\t1198\t8.5\nPHASE_OPTIONAL\tdivide\t3957223\t3957776\t1198\t38\t1\t1\t[1]\nLAYOUT_AUDIT\tdivide\tB\t646\t162\t18\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t3957778\t3957987\t1198\t1198\t8.5\nPHASE_OPTIONAL\tdivide\t3957989\t3958542\t1198\t38\t1\t1\t[1]\nLAYOUT_AUDIT\tdivide\tB\t646\t199\t18\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t3958544\t3958753\t1198\t1198\t8.5\nDIRTY_FRAGMENT\tchunked_add\t236\t3954078\t3958755\t1196\t1197\t291\n\nthread 'main' (2559637) panicked at src/bin/../point_add/y15_onefold.rs:1631:62:\ny15: the forward fold's ladder does not fit: budget 3, active 1232, cap 1233\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\nCommand exited with non-zero status 101\n\tCommand being timed: \"/home/hclau/ecdsa_research/breakthrough-local-budget-20261020/observer/target/release/build_circuit\"\n\tUser time (seconds): 0.18\n\tSystem time (seconds): 0.19\n\tPercent of CPU this job got: 99%\n\tElapsed (wall clock) time (h:mm:ss or m:ss): 0:00.38\n\tAverage shared text size (kbytes): 0\n\tAverage unshared data size (kbytes): 0\n\tAverage stack size (kbytes): 0\n\tAverage total size (kbytes): 0\n\tMaximum resident set size (kbytes): 221184\n\tAverage resident set size (kbytes): 0\n\tMajor (requiring I/O) page faults: 0\n\tMinor (reclaiming a frame) page faults: 54460\n\tVoluntary context switches: 1\n\tInvoluntary context switches: 1\n\tSwaps: 0\n\tFile system inputs: 0\n\tFile system outputs: 328\n\tSocket messages sent: 0\n\tSocket messages received: 0\n\tSignals delivered: 0\n\tPage size (bytes): 4096\n\tExit status: 101\n"
+      },
+      {
+        "cap": 1232,
+        "exit": 101,
+        "seconds": 0.4330446720123291,
+        "builder_totals": [],
+        "failure_tail": "AYOUT_AUDIT\tdivide\tB\t646\t220\t18\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t3971123\t3971332\t1196\t1196\t8.5\nDIRTY_FRAGMENT\tchunked_add\t256\t3967529\t3971334\t1194\t1195\t307\nPHASE_OPTIONAL\tdivide\t3972207\t3972760\t1197\t38\t1\t1\t[1]\nLAYOUT_AUDIT\tdivide\tB\t646\t37\t18\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t3972762\t3972971\t1197\t1197\t8.5\nPHASE_OPTIONAL\tdivide\t3972973\t3973526\t1197\t38\t1\t1\t[1]\nLAYOUT_AUDIT\tdivide\tB\t646\t74\t18\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t3973528\t3973737\t1197\t1197\t8.5\nPHASE_OPTIONAL\tdivide\t3973739\t3974292\t1197\t38\t1\t1\t[1]\nLAYOUT_AUDIT\tdivide\tB\t646\t111\t18\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t3974294\t3974503\t1197\t1197\t8.5\nLAYOUT_AUDIT\tdivide\tB\t646\t148\t18\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t3974863\t3975072\t1197\t1197\t8.5\nLAYOUT_AUDIT\tdivide\tB\t646\t184\t18\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t3975432\t3975641\t1197\t1197\t8.5\nLAYOUT_AUDIT\tdivide\tB\t646\t220\t18\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t3976001\t3976210\t1197\t1197\t8.5\nDIRTY_FRAGMENT\tchunked_add\t256\t3971846\t3976212\t1195\t1196\t310\nPHASE_OPTIONAL\tdivide\t3976855\t3977413\t1198\t38\t2\t1\t[1, 3]\nLAYOUT_AUDIT\tdivide\tB\t646\t14\t14\nDIRTY_FRAGMENT\tcmp_lt_phase\t14\t3977415\t3977574\t1198\t1198\t6.5\nPHASE_OPTIONAL\tdivide\t3977576\t3978134\t1198\t38\t2\t1\t[1, 3]\nLAYOUT_AUDIT\tdivide\tB\t646\t51\t18\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t3978136\t3978345\t1198\t1198\t8.5\nPHASE_OPTIONAL\tdivide\t3978347\t3978905\t1198\t38\t2\t1\t[1, 3]\nLAYOUT_AUDIT\tdivide\tB\t646\t88\t18\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t3978907\t3979116\t1198\t1198\t8.5\nPHASE_OPTIONAL\tdivide\t3979118\t3979676\t1198\t38\t2\t1\t[1, 3]\nLAYOUT_AUDIT\tdivide\tB\t646\t125\t18\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t3979678\t3979887\t1198\t1198\t8.5\nPHASE_OPTIONAL\tdivide\t3979889\t3980447\t1198\t38\t2\t1\t[1, 3]\nLAYOUT_AUDIT\tdivide\tB\t646\t162\t18\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t3980449\t3980658\t1198\t1198\t8.5\nPHASE_OPTIONAL\tdivide\t3980660\t3981218\t1198\t38\t2\t1\t[1, 3]\nLAYOUT_AUDIT\tdivide\tB\t646\t199\t18\nDIRTY_FRAGMENT\tcmp_lt_phase\t18\t3981220\t3981429\t1198\t1198\t8.5\nDIRTY_FRAGMENT\tchunked_add\t236\t3976724\t3981431\t1196\t1197\t297\n\nthread 'main' (2559639) panicked at src/bin/../point_add/y15_onefold.rs:1631:62:\ny15: the forward fold's ladder does not fit: budget 3, active 1231, cap 1232\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\nCommand exited with non-zero status 101\n\tCommand being timed: \"/home/hclau/ecdsa_research/breakthrough-local-budget-20261020/observer/target/release/build_circuit\"\n\tUser time (seconds): 0.19\n\tSystem time (seconds): 0.21\n\tPercent of CPU this job got: 99%\n\tElapsed (wall clock) time (h:mm:ss or m:ss): 0:00.41\n\tAverage shared text size (kbytes): 0\n\tAverage unshared data size (kbytes): 0\n\tAverage stack size (kbytes): 0\n\tAverage total size (kbytes): 0\n\tMaximum resident set size (kbytes): 222336\n\tAverage resident set size (kbytes): 0\n\tMajor (requiring I/O) page faults: 0\n\tMinor (reclaiming a frame) page faults: 54771\n\tVoluntary context switches: 1\n\tInvoluntary context switches: 1\n\tSwaps: 0\n\tFile system inputs: 0\n\tFile system outputs: 336\n\tSocket messages sent: 0\n\tSocket messages received: 0\n\tSignals delivered: 0\n\tPage size (bytes): 4096\n\tExit status: 101\n"
+      }
+    ],
+    "preserved_negative_cases": [
+      1233,
+      1232
+    ]
+  },
+  "streams_retained_on_server": {
+    "/home/hclau/ecdsa_research/breakthrough-local-budget-20261020/cap1234/ops.bin": {
+      "sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b",
+      "bytes": 38777871,
+      "complete": true
+    },
+    "/home/hclau/ecdsa_research/breakthrough-local-budget-20261020/observer/ops.bin": {
+      "sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b",
+      "bytes": 38777871,
+      "complete": true
+    }
+  },
+  "native_binaries": {
+    "/home/hclau/ecdsa_research/breakthrough-local-budget-20261020/observer/target/release/deps/build_circuit-96cdcfa2d1d068c7": "c1cf0f4107253574024f08f413f0f56376da315fe4bfea84362bcc48cded3fd8",
+    "/home/hclau/ecdsa_research/breakthrough-local-budget-20261020/observer/target/release/deps/build_circuit-0c12d1b03f2fe721": "ff0cf1115ece39d8c7045096578039988cf6645aeeddeb7524ea193b8bc1ce9c"
+  },
+  "no_final_gate_nonce_or_scored_result": true,
+  "scope_correction": "Direct profile constants stay fixed, but tighter global caps change derived replay boundaries. Component equivalence does not establish complete point-add equivalence; exact streams and differing replay metadata preserved in breakthrough-replay-layout-audit-20261020."
+}

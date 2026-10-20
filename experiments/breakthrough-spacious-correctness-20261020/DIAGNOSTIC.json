@@ -1,0 +1,1188 @@
+{
+  "status": "DEVELOPMENT_COMPARISON_COMPLETE_PRESERVE_ALL_MISMATCHES",
+  "label": "breakthrough-spacious1536-development-v1",
+  "batches": 512,
+  "summaries": {
+    "public1863": {
+      "value_shots": 15,
+      "phase_shots": 11,
+      "dirty_shots": 0,
+      "failed_batches": 18,
+      "mean_executed_stream_toffoli": 752993.1655578613,
+      "rows_sha256": "a7e4ca01a349f382c168ac2348301359f915a8d3cc37a9938caf34e601a2ffff"
+    },
+    "spacious_original": {
+      "value_shots": 63,
+      "phase_shots": 32,
+      "dirty_shots": 0,
+      "failed_batches": 61,
+      "mean_executed_stream_toffoli": 737768.0497436523,
+      "rows_sha256": "ac67f0a9f7f5d63163668346693efbc8a2cf4af42afaa786caf1e3eff90353fa"
+    },
+    "spacious_uniform": {
+      "value_shots": 63,
+      "phase_shots": 26,
+      "dirty_shots": 0,
+      "failed_batches": 61,
+      "mean_executed_stream_toffoli": 738699.5364379883,
+      "rows_sha256": "0c5fe8e7b6779db70a8c3d83e2faa1614862f521624b96449ea58cb597faf63b"
+    }
+  },
+  "comparisons": {
+    "spacious_original": {
+      "candidate_minus_parent_raw_toffoli": -15225.115814208984,
+      "paired_standard_error": 2.7392952609270487,
+      "new_failed_batches": 45,
+      "new_passing_batches": 2,
+      "new_value_failing_shots": [
+        [
+          11,
+          46
+        ],
+        [
+          14,
+          37
+        ],
+        [
+          17,
+          52
+        ],
+        [
+          50,
+          49
+        ],
+        [
+          52,
+          50
+        ],
+        [
+          54,
+          12
+        ],
+        [
+          66,
+          56
+        ],
+        [
+          69,
+          42
+        ],
+        [
+          86,
+          53
+        ],
+        [
+          89,
+          1
+        ],
+        [
+          93,
+          51
+        ],
+        [
+          111,
+          28
+        ],
+        [
+          119,
+          49
+        ],
+        [
+          172,
+          52
+        ],
+        [
+          180,
+          11
+        ],
+        [
+          216,
+          31
+        ],
+        [
+          238,
+          46
+        ],
+        [
+          243,
+          53
+        ],
+        [
+          247,
+          25
+        ],
+        [
+          252,
+          7
+        ],
+        [
+          287,
+          14
+        ],
+        [
+          290,
+          27
+        ],
+        [
+          291,
+          40
+        ],
+        [
+          304,
+          6
+        ],
+        [
+          306,
+          39
+        ],
+        [
+          309,
+          31
+        ],
+        [
+          329,
+          14
+        ],
+        [
+          354,
+          58
+        ],
+        [
+          359,
+          34
+        ],
+        [
+          365,
+          19
+        ],
+        [
+          370,
+          52
+        ],
+        [
+          373,
+          33
+        ],
+        [
+          382,
+          8
+        ],
+        [
+          382,
+          26
+        ],
+        [
+          388,
+          38
+        ],
+        [
+          402,
+          4
+        ],
+        [
+          402,
+          50
+        ],
+        [
+          404,
+          14
+        ],
+        [
+          405,
+          12
+        ],
+        [
+          408,
+          7
+        ],
+        [
+          425,
+          28
+        ],
+        [
+          427,
+          46
+        ],
+        [
+          433,
+          41
+        ],
+        [
+          440,
+          61
+        ],
+        [
+          441,
+          21
+        ],
+        [
+          471,
+          49
+        ],
+        [
+          485,
+          47
+        ],
+        [
+          501,
+          13
+        ]
+      ],
+      "new_value_passing_shots": [],
+      "different_target_lanes": [
+        {
+          "batch": 11,
+          "lane": 46,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 14,
+          "lane": 37,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 17,
+          "lane": 52,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 50,
+          "lane": 49,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 52,
+          "lane": 50,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 54,
+          "lane": 12,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 66,
+          "lane": 56,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 69,
+          "lane": 42,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 83,
+          "lane": 20,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 86,
+          "lane": 53,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 89,
+          "lane": 1,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 93,
+          "lane": 51,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 98,
+          "lane": 51,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 111,
+          "lane": 28,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 119,
+          "lane": 49,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 172,
+          "lane": 52,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 180,
+          "lane": 11,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 186,
+          "lane": 3,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 189,
+          "lane": 22,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 191,
+          "lane": 34,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 216,
+          "lane": 31,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 238,
+          "lane": 46,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 243,
+          "lane": 53,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 247,
+          "lane": 25,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 252,
+          "lane": 7,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 287,
+          "lane": 14,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 290,
+          "lane": 27,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 290,
+          "lane": 56,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 291,
+          "lane": 40,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 304,
+          "lane": 6,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 306,
+          "lane": 39,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 309,
+          "lane": 31,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 317,
+          "lane": 20,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 329,
+          "lane": 14,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 354,
+          "lane": 58,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 359,
+          "lane": 34,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 364,
+          "lane": 26,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 365,
+          "lane": 19,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 370,
+          "lane": 52,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 373,
+          "lane": 33,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 374,
+          "lane": 51,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 382,
+          "lane": 8,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 382,
+          "lane": 26,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 386,
+          "lane": 25,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 388,
+          "lane": 38,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 402,
+          "lane": 4,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 402,
+          "lane": 50,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 404,
+          "lane": 14,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 405,
+          "lane": 12,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 408,
+          "lane": 7,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 425,
+          "lane": 28,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 427,
+          "lane": 46,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 432,
+          "lane": 10,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 433,
+          "lane": 41,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 440,
+          "lane": 61,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 441,
+          "lane": 21,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 444,
+          "lane": 36,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 468,
+          "lane": 25,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 471,
+          "lane": 49,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 485,
+          "lane": 47,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 498,
+          "lane": 39,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 501,
+          "lane": 13,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        }
+      ],
+      "different_other_lanes": [],
+      "target_differences_confined_to_both_value_failing": false
+    },
+    "spacious_uniform": {
+      "candidate_minus_parent_raw_toffoli": -14293.629119873047,
+      "paired_standard_error": 2.723615298436919,
+      "new_failed_batches": 46,
+      "new_passing_batches": 3,
+      "new_value_failing_shots": [
+        [
+          11,
+          46
+        ],
+        [
+          14,
+          37
+        ],
+        [
+          17,
+          52
+        ],
+        [
+          50,
+          49
+        ],
+        [
+          52,
+          50
+        ],
+        [
+          54,
+          12
+        ],
+        [
+          66,
+          56
+        ],
+        [
+          69,
+          42
+        ],
+        [
+          86,
+          53
+        ],
+        [
+          89,
+          1
+        ],
+        [
+          93,
+          51
+        ],
+        [
+          111,
+          28
+        ],
+        [
+          119,
+          49
+        ],
+        [
+          172,
+          52
+        ],
+        [
+          180,
+          11
+        ],
+        [
+          216,
+          31
+        ],
+        [
+          238,
+          46
+        ],
+        [
+          243,
+          53
+        ],
+        [
+          247,
+          25
+        ],
+        [
+          252,
+          7
+        ],
+        [
+          287,
+          14
+        ],
+        [
+          290,
+          27
+        ],
+        [
+          291,
+          40
+        ],
+        [
+          304,
+          6
+        ],
+        [
+          306,
+          39
+        ],
+        [
+          309,
+          31
+        ],
+        [
+          329,
+          14
+        ],
+        [
+          354,
+          58
+        ],
+        [
+          359,
+          34
+        ],
+        [
+          365,
+          19
+        ],
+        [
+          370,
+          52
+        ],
+        [
+          373,
+          33
+        ],
+        [
+          382,
+          8
+        ],
+        [
+          382,
+          26
+        ],
+        [
+          388,
+          38
+        ],
+        [
+          402,
+          4
+        ],
+        [
+          402,
+          50
+        ],
+        [
+          404,
+          14
+        ],
+        [
+          405,
+          12
+        ],
+        [
+          408,
+          7
+        ],
+        [
+          425,
+          28
+        ],
+        [
+          427,
+          46
+        ],
+        [
+          433,
+          41
+        ],
+        [
+          440,
+          61
+        ],
+        [
+          441,
+          21
+        ],
+        [
+          471,
+          49
+        ],
+        [
+          485,
+          47
+        ],
+        [
+          501,
+          13
+        ]
+      ],
+      "new_value_passing_shots": [],
+      "different_target_lanes": [
+        {
+          "batch": 11,
+          "lane": 46,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 14,
+          "lane": 37,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 17,
+          "lane": 52,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 50,
+          "lane": 49,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 52,
+          "lane": 50,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 54,
+          "lane": 12,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 66,
+          "lane": 56,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 69,
+          "lane": 42,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 83,
+          "lane": 20,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 86,
+          "lane": 53,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 89,
+          "lane": 1,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 93,
+          "lane": 51,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 98,
+          "lane": 51,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 111,
+          "lane": 28,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 119,
+          "lane": 49,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 172,
+          "lane": 52,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 180,
+          "lane": 11,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 186,
+          "lane": 3,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 189,
+          "lane": 22,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 191,
+          "lane": 34,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 216,
+          "lane": 31,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 238,
+          "lane": 46,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 243,
+          "lane": 53,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 247,
+          "lane": 25,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 252,
+          "lane": 7,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 287,
+          "lane": 14,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 290,
+          "lane": 27,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 290,
+          "lane": 56,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 291,
+          "lane": 40,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 304,
+          "lane": 6,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 306,
+          "lane": 39,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 309,
+          "lane": 31,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 317,
+          "lane": 20,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 329,
+          "lane": 14,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 354,
+          "lane": 58,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 359,
+          "lane": 34,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 364,
+          "lane": 26,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 365,
+          "lane": 19,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 370,
+          "lane": 52,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 373,
+          "lane": 33,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 374,
+          "lane": 51,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 382,
+          "lane": 8,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 382,
+          "lane": 26,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 386,
+          "lane": 25,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 388,
+          "lane": 38,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 402,
+          "lane": 4,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 402,
+          "lane": 50,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 404,
+          "lane": 14,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 405,
+          "lane": 12,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 408,
+          "lane": 7,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 425,
+          "lane": 28,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 427,
+          "lane": 46,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 432,
+          "lane": 10,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 433,
+          "lane": 41,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 440,
+          "lane": 61,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 441,
+          "lane": 21,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 444,
+          "lane": 36,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 468,
+          "lane": 25,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 471,
+          "lane": 49,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 485,
+          "lane": 47,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 498,
+          "lane": 39,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        },
+        {
+          "batch": 501,
+          "lane": 13,
+          "parent_value_fails": false,
+          "candidate_value_fails": true
+        }
+      ],
+      "different_other_lanes": [],
+      "target_differences_confined_to_both_value_failing": false
+    }
+  },
+  "scope": "Predeclared paired512-batch development diagnostic of two distinct finished frozen spacious circuits versus the exact public Toffoli record62341149. Native pool regression passes2 tests; strict capacity/free-set assertions remain. No final32768-batch gate, nonce, official benchmark or packet tuning. Preserve all failures. Builder peak includes idle preallocation, so actual stream qubit count must be measured separately."
+}

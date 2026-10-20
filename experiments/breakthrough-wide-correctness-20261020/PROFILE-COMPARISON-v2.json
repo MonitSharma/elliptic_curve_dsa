@@ -1,0 +1,98 @@
+{
+  "scope": "Textual source comparison, not an executed recipe trace or proof. No candidate changes or gate verdict. Omitted/inactive constants do not establish arithmetic differences.",
+  "files": [
+    {
+      "file": "mod.rs",
+      "source_sha256": [
+        "60b9b99eaeac8da6b9284a0aa1c917c600da6b366a744a89109402e73f4cb98b",
+        "aaa6f59b68b39adedb4c6fb70d0f6b5c0d4ef5638050f0a6f4a72e3563836e99"
+      ],
+      "constant_differences": {},
+      "textual_literal_env_differences": {
+        "SL_COND": {
+          "public_toffoli_parent": null,
+          "raw1264_lineage": "ur"
+        },
+        "tuple:SL_COND": {
+          "public_toffoli_parent": null,
+          "raw1264_lineage": "ur"
+        }
+      }
+    },
+    {
+      "file": "leapfrog.rs",
+      "source_sha256": [
+        "126c737b5d3e1fff135d8ab551c9e1ef14140b20a8384f0a751f8d0c31bc04ed",
+        "7a2748279da42468408e0df6319ab331e5d3ee3b1eb6ef7e46856bdc2b7aafae"
+      ],
+      "constant_differences": {
+        "Y42_ALLOC": {
+          "public_toffoli_parent": "false",
+          "raw1264_lineage": "Y42"
+        },
+        "Y42_UNBOUND": {
+          "public_toffoli_parent": "true",
+          "raw1264_lineage": "false"
+        }
+      },
+      "textual_literal_env_differences": {
+        "tuple:FM_PARK_HOLD": {
+          "public_toffoli_parent": "1",
+          "raw1264_lineage": "0"
+        },
+        "tuple:HEO_PIN_PP_CHUNK_SHAPE": {
+          "public_toffoli_parent": "64:0,38:0,25:-3,0:-4",
+          "raw1264_lineage": "64:0,38:0,25:-3,0:-5"
+        },
+        "tuple:HEO_PIN_PP_WALK_MAX_QUBITS": {
+          "public_toffoli_parent": "1536",
+          "raw1264_lineage": null
+        },
+        "tuple:LF_SQUARE_CAP": {
+          "public_toffoli_parent": null,
+          "raw1264_lineage": "1234"
+        },
+        "tuple:SL_N2_MD": {
+          "public_toffoli_parent": null,
+          "raw1264_lineage": "none"
+        }
+      }
+    },
+    {
+      "file": "pingpong.rs",
+      "source_sha256": [
+        "7014d8eb44715a3a3f8c15bdde7d251d8e925230e8f162edbf53405aa4657ecb",
+        "21c424a6a125d863976287c43dba65d8a24ce74a0ce081ad6278b7b2402fb7cb"
+      ],
+      "constant_differences": {},
+      "textual_literal_env_differences": {}
+    },
+    {
+      "file": "y15_onefold.rs",
+      "source_sha256": [
+        "69cfc773b90bc3919393ca0c12496abb6a2d7329d1248a7405098c5719ddbd4c",
+        "538e9c8275533c6a7429e1fb2728786499e95354a768b3840ffbc6611c2aa366"
+      ],
+      "constant_differences": {
+        "CONSUMER_LOANS": {
+          "public_toffoli_parent": null,
+          "raw1264_lineage": "true"
+        },
+        "Y15_KEEP_ROOM": {
+          "public_toffoli_parent": "96",
+          "raw1264_lineage": "95"
+        }
+      },
+      "textual_literal_env_differences": {
+        "PEBBLE_HARD_CAP": {
+          "public_toffoli_parent": null,
+          "raw1264_lineage": "1234"
+        },
+        "tuple:PEBBLE_HARD_CAP": {
+          "public_toffoli_parent": null,
+          "raw1264_lineage": "1234"
+        }
+      }
+    }
+  ]
+}

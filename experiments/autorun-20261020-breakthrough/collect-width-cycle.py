@@ -2,7 +2,7 @@
 import gzip,hashlib,io,json,subprocess,sys,tarfile
 from pathlib import Path
 root=Path(__file__).resolve().parents[2]
-allowed=['breakthrough-sparse-polynomial-20261020', 'breakthrough-t0-shared-product-20261020', 'breakthrough-fin1-loan-native-20261020', 'breakthrough-fin1-fold-20261020', 'breakthrough-reverse-plan7-20261020', 'breakthrough-reverse-budget-20261020', 'breakthrough-generic-postpass-20261020', 'breakthrough-truth14-20261020', 'breakthrough-replay-layout-audit-20261020', 'breakthrough-width-correctness-20261020']
+allowed=['breakthrough-certified-prefix-20261020', 'breakthrough-public-schedule-20261020', 'breakthrough-wide-generic-20261020', 'breakthrough-wide-square-budget-20261020', 'breakthrough-wide-uniform-compare-20261020', 'breakthrough-spacious-budget-20261020', 'breakthrough-primed-pool-20261020', 'breakthrough-wide-stronger-compare-20261020', 'breakthrough-wide-loan-policy-20261020', 'breakthrough-local-budget-20261020', 'breakthrough-local-budget-runtime-20261020', 'breakthrough-wide-budget-20261020', 'breakthrough-sparse-polynomial-20261020', 'breakthrough-t0-shared-product-20261020', 'breakthrough-fin1-loan-native-20261020', 'breakthrough-fin1-fold-20261020', 'breakthrough-reverse-plan7-20261020', 'breakthrough-reverse-budget-20261020', 'breakthrough-generic-postpass-20261020', 'breakthrough-truth14-20261020', 'breakthrough-replay-layout-audit-20261020', 'breakthrough-width-correctness-20261020']
 for name in sys.argv[1:]:
  assert name in allowed;r=root/'experiments'/name;r.mkdir(exist_ok=True)
  subprocess.run(['scp']+[f'smu_server:/home/hclau/ecdsa_research/{name}/{file}'for file in['evidence.tar.gz','EVIDENCE-MANIFEST.json','PACKAGE-RESULT.json']]+[str(r)],check=True)

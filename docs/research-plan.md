@@ -1,5 +1,56 @@
 # Research state and next experiments
 
+## 20 October 2026, 14:30 SGT: complete Q1464/T751182 local benchmark; queued
+
+All 9,024 shots pass the unchanged benchmark: Q1464, rounded mean executed
+T751182, exact mean751181.5601728724, product1099730448. Sourcea70d1cb6,
+native streamdc621004. Queue mode: no new official upload/evaluation. The
+06:20:06UTC public refresh has1689 entries: T752991/Q1863, product939138168
+atQ1234/T761052, width671. T improves1809 and width399 relative to Tparent;
+global product remains lower. Active product objective stays unfinished.
+
+The final gate was declared before execution: public140-uniform2-generic-final-
+20261020-v1,32768x64 shots/source, exact public Tparent09dbeacb versus frozen
+nonce0a85c3ffa. Parent/candidate wrong-value1212/1190, phase816/663, dirty0/0,
+failed batches1379/1230, candidate5.29266 failed batches/packet. Exact paired
+McNemar b63/c212 passes; value IDs differ (15 newly wrong/37 newly correct).
+All four requirements pass. Verdict final, no rerun/relabel/extension.
+
+Nonce125 is the lowest full-packet pass among ascending1..128, with only125
+passing. Eight nonce controls1..8, repeated in production, check24 protected
+full-state batches plus curve/RNG/partial masks. Selected protected replay and
+unchanged benchmark both pass. Only nonce constant changes from gated source;
+every pre-tail record matches. All17 protected files and historical results
+are preserved. Complete final87-member evidence and193-file source archive
+verify locally. AI attribution GPT-6 sol/Codex. Full disclosure in
+experiments/breakthrough-public140-final-20261020/SUBMISSION-NOTE.md.
+
+The key wide-circuit finding: inherited schedule is138 rows, public parent140.
+Restoring exact public140 and uniform+2 comparisons resolves the observed
+development regression. Earlier wide1264/spacious138 variants have additional
+wrong-value shots and remain unqualified diagnostics, never plotted records.
+Zero-operation pool priming preserves allocation order and strict assertions;
+two native tests and all26 retained finished-source controls pass. Builder
+primed capacity is not referenced peak Q. Stronger-compare archive footer scope
+was wrong; an external correction preserves original bytes and states+2 bits.
+
+Fixed physical-budget variants preserve2213 replay sites but cost too much.
+Q1233/Q1232 raw counts763592.2/765202.6 are diagnostic only. Generic wider
+postpasses and all negative generation/correctness outcomes are archived.
+Sparse Boolean-polynomial work saves only0.5 diagnostic T beyond truth14.
+
+Independent exact lease tools pass2/4/6/8/6 native controls across successive
+versions (original, guarded, scoped fingerprints, scoped zero facts, cross-
+scope proof). Every tested original/certificate stream still yields113 leases;
+no extra saving from the refinements. Certificate-prefix generic control is
+byte-exact40a55 and bound-prefix stream85958b9f has diagnostic761344.742188.
+The inherited linear_restore says exact=false and uses local anchors; calling
+the entire prefix exact was too broad. Its separate scope review is retained;
+it is not qualified. New extra-donor cache research targets the T objective
+on a separate copy of the completed public140 circuit. No new nonce search
+is permitted before its own finished-source gate. All old verdicts and Q692
+width evidence remain. Unrelated user edits and server jobs stay intact.
+
 ## 20 October 2026, 12:47 SGT: complete raw Q1232; replay-boundary scope corrected
 
 No new scored result, final statistical gate or nonce search. Public snapshot

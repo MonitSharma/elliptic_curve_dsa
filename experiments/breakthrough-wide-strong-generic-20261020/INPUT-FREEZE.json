@@ -1,0 +1,33 @@
+{
+  "arithmetic_source_freeze_sha256": "433151d9337c6534e4fbf1adfe16923bdd0e529118fb0126af48ad6c557f0257",
+  "optimizer_source_freeze_sha256": "58428b12da161c18b19805931e0a41520355e532dcac83c539593c08923d7767",
+  "optimizer_binary_sha256": "37bad64cc5eca547bb158290114c0e73a13305378899af41d40bf979e28caa42",
+  "baseline_control": {
+    "cap": 1234,
+    "seconds": 213.7915117740631,
+    "input_sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b",
+    "output_sha256": "34bdbda2bd9422a087236376ce0676cccb1ce4e702ed558726810e1284d9f350",
+    "output_records": {
+      "operations": 11268527,
+      "record_sha256": "63eb09e3df3ecc6dc84330089f7100c369a21d8b50380bf792ab253debdf35c0"
+    },
+    "generic_stages": [
+      "GENERIC_STAGE name=product ops=11263254 nq=1234 nb=1623 native=810028 depth_weight=762191.750000 diagnostic_only=1",
+      "GENERIC_STAGE name=affine ops=11263254 nq=1234 nb=1623 native=810028 depth_weight=762191.750000 diagnostic_only=1",
+      "GENERIC_STAGE name=quadratic ops=11263254 nq=1234 nb=1623 native=810028 depth_weight=762191.750000 diagnostic_only=1",
+      "GENERIC_STAGE name=truth ops=11263254 nq=1234 nb=1623 native=810028 depth_weight=762191.750000 diagnostic_only=1",
+      "GENERIC_STAGE name=interned_witness ops=11263254 nq=1234 nb=1623 native=810028 depth_weight=762191.750000 diagnostic_only=1",
+      "GENERIC_STAGE name=measurement_absorption ops=11263294 nq=1234 nb=1643 native=809996 depth_weight=762159.750000 diagnostic_only=1",
+      "GENERIC_STAGE name=parity_scan ops=11263294 nq=1234 nb=1643 native=809996 depth_weight=762159.750000 diagnostic_only=1",
+      "GENERIC_STAGE name=conditional ops=11265428 nq=1234 nb=1646 native=809731 depth_weight=762089.750000 diagnostic_only=1",
+      "GENERIC_STAGE name=square_top ops=11268488 nq=1234 nb=2456 native=809731 depth_weight=761707.250000 diagnostic_only=1",
+      "GENERIC_STAGE name=conditional_ur ops=11268491 nq=1234 nb=2457 native=809730 depth_weight=761706.250000 diagnostic_only=1",
+      "GENERIC_STAGE name=zero_force ops=11268491 nq=1234 nb=2457 native=809730 depth_weight=761706.250000 diagnostic_only=1",
+      "GENERIC_STAGE name=classical_factors ops=11268514 nq=1234 nb=2457 native=809720 depth_weight=761698.750000 diagnostic_only=1",
+      "GENERIC_STAGE name=classical_wide ops=11268527 nq=1234 nb=2457 native=809715 depth_weight=761696.250000 diagnostic_only=1"
+    ]
+  },
+  "input_stream": "/home/hclau/ecdsa_research/breakthrough-wide-stronger-compare-20261020/mode2/ops.bin",
+  "input_sha256": "f97bc5a1be3546e5d123a9007344936fd6a0e769725a941619e1441d0099887c",
+  "scope": "Same frozen generic exact optimizer and installed postpass recipe after complete original control. Fixed stronger arithmetic input; no source-bound/census/nonce pass or new optimizer. Depth weights diagnostic only."
+}

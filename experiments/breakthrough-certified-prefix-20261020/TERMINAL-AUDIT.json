@@ -1,0 +1,88 @@
+{
+  "sealed_at_utc": "2026-10-20T06:23:22.375025+00:00",
+  "base": "90e777ea8242faa0acb2462c5cb5be7c318a2d64",
+  "protected_files_checked": 17,
+  "source_freeze_sha256": "484c00be83eda3cb0db2835630cd4e44c7732b1b2d6debde2fdc3afffcb8ddf9",
+  "result": {
+    "status": "CERTIFICATE_PREFIX_AUDIT_NOT_SCORED",
+    "cases": [
+      {
+        "mode": "generic",
+        "exit": 0,
+        "seconds": 198.49610590934753,
+        "generic_stages": [
+          "GENERIC_STAGE name=raw ops=11263273 nq=1234 nb=1623 native=810068 depth_weight=762230.750000 diagnostic_only=1",
+          "GENERIC_STAGE name=product ops=11263254 nq=1234 nb=1623 native=810028 depth_weight=762191.750000 diagnostic_only=1",
+          "GENERIC_STAGE name=affine ops=11263254 nq=1234 nb=1623 native=810028 depth_weight=762191.750000 diagnostic_only=1",
+          "GENERIC_STAGE name=quadratic ops=11263254 nq=1234 nb=1623 native=810028 depth_weight=762191.750000 diagnostic_only=1",
+          "GENERIC_STAGE name=truth ops=11263254 nq=1234 nb=1623 native=810028 depth_weight=762191.750000 diagnostic_only=1",
+          "GENERIC_STAGE name=interned_witness ops=11263254 nq=1234 nb=1623 native=810028 depth_weight=762191.750000 diagnostic_only=1",
+          "GENERIC_STAGE name=measurement_absorption ops=11263294 nq=1234 nb=1643 native=809996 depth_weight=762159.750000 diagnostic_only=1",
+          "GENERIC_STAGE name=parity_scan ops=11263294 nq=1234 nb=1643 native=809996 depth_weight=762159.750000 diagnostic_only=1",
+          "GENERIC_STAGE name=conditional ops=11265428 nq=1234 nb=1646 native=809731 depth_weight=762089.750000 diagnostic_only=1",
+          "GENERIC_STAGE name=square_top ops=11268488 nq=1234 nb=2456 native=809731 depth_weight=761707.250000 diagnostic_only=1",
+          "GENERIC_STAGE name=conditional_ur ops=11268491 nq=1234 nb=2457 native=809730 depth_weight=761706.250000 diagnostic_only=1",
+          "GENERIC_STAGE name=zero_force ops=11268491 nq=1234 nb=2457 native=809730 depth_weight=761706.250000 diagnostic_only=1",
+          "GENERIC_STAGE name=classical_factors ops=11268514 nq=1234 nb=2457 native=809720 depth_weight=761698.750000 diagnostic_only=1",
+          "GENERIC_STAGE name=classical_wide ops=11268527 nq=1234 nb=2457 native=809715 depth_weight=761696.250000 diagnostic_only=1"
+        ],
+        "bindings": [],
+        "stream_sha256": "40a55e81af487e4f830eca1827d9904f60ed215b33d3bee9f12a801a46c4479c"
+      },
+      {
+        "mode": "certified",
+        "exit": 0,
+        "seconds": 211.57049202919006,
+        "generic_stages": [
+          "GENERIC_STAGE name=raw ops=11263273 nq=1234 nb=1623 native=810068 depth_weight=762230.750000 diagnostic_only=1",
+          "GENERIC_STAGE name=product ops=11263254 nq=1234 nb=1623 native=810028 depth_weight=762191.750000 diagnostic_only=1",
+          "GENERIC_STAGE name=affine ops=11263254 nq=1234 nb=1623 native=810028 depth_weight=762191.750000 diagnostic_only=1",
+          "GENERIC_STAGE name=quadratic ops=11263254 nq=1234 nb=1623 native=810028 depth_weight=762191.750000 diagnostic_only=1",
+          "GENERIC_STAGE name=truth ops=11263254 nq=1234 nb=1623 native=810028 depth_weight=762191.750000 diagnostic_only=1",
+          "GENERIC_STAGE name=interned_witness ops=11263254 nq=1234 nb=1623 native=810028 depth_weight=762191.750000 diagnostic_only=1",
+          "GENERIC_STAGE name=measurement_absorption ops=11263294 nq=1234 nb=1643 native=809996 depth_weight=762159.750000 diagnostic_only=1",
+          "GENERIC_STAGE name=parity_scan ops=11263294 nq=1234 nb=1643 native=809996 depth_weight=762159.750000 diagnostic_only=1",
+          "GENERIC_STAGE name=conditional ops=11265428 nq=1234 nb=1646 native=809731 depth_weight=762089.750000 diagnostic_only=1",
+          "GENERIC_STAGE name=square_top ops=11268488 nq=1234 nb=2456 native=809731 depth_weight=761707.250000 diagnostic_only=1",
+          "GENERIC_STAGE name=original_bound ops=11453190 nq=1234 nb=11606 native=812793 depth_weight=761430.781250 diagnostic_only=1",
+          "GENERIC_STAGE name=original_linear_restore ops=11453250 nq=1234 nb=40002 native=812752 depth_weight=761396.281250 diagnostic_only=1",
+          "GENERIC_STAGE name=original_square_finish ops=11630691 nq=1234 nb=45700 native=815929 depth_weight=761353.742188 diagnostic_only=1",
+          "GENERIC_STAGE name=conditional_ur ops=11630694 nq=1234 nb=45701 native=815928 depth_weight=761352.742188 diagnostic_only=1",
+          "GENERIC_STAGE name=zero_force ops=11630694 nq=1234 nb=45701 native=815928 depth_weight=761352.742188 diagnostic_only=1",
+          "GENERIC_STAGE name=classical_factors ops=11630714 nq=1234 nb=45701 native=815920 depth_weight=761346.242188 diagnostic_only=1",
+          "GENERIC_STAGE name=classical_wide ops=11630722 nq=1234 nb=45701 native=815917 depth_weight=761344.742188 diagnostic_only=1"
+        ],
+        "bindings": [
+          "REBIND region y42_bound len=489932 shift=-324 exact=false",
+          "Y42_BOUND edits=26590 rows=211292 ops=11453190",
+          "REBIND window linear_restore edits=41 moved=34 exact=false"
+        ],
+        "stream_sha256": "85958b9f90cc93c7bba94d158cba2b4dde890bf9f4231cd70dc5b4fd9f1218b2"
+      }
+    ],
+    "scope": "Existing exact certificate prefix only on its original raw13f6 arithmetic/control, hard1234 enforced. All table/region checks unchanged. Baseline generic40a55byteexact required. Census cuts and source-bound late cache omitted. No new arithmetic/certificate/packet data, finalgate, nonce or scored result."
+  },
+  "streams_retained_on_server": {
+    "/home/hclau/ecdsa_research/breakthrough-certified-prefix-20261020/generic/ops.bin": {
+      "sha256": "40a55e81af487e4f830eca1827d9904f60ed215b33d3bee9f12a801a46c4479c",
+      "bytes": 38868875,
+      "complete": true
+    },
+    "/home/hclau/ecdsa_research/breakthrough-certified-prefix-20261020/certified/ops.bin": {
+      "sha256": "85958b9f90cc93c7bba94d158cba2b4dde890bf9f4231cd70dc5b4fd9f1218b2",
+      "bytes": 39613242,
+      "complete": true
+    },
+    "/home/hclau/ecdsa_research/breakthrough-certified-prefix-20261020/observer/ops.bin": {
+      "sha256": "85958b9f90cc93c7bba94d158cba2b4dde890bf9f4231cd70dc5b4fd9f1218b2",
+      "bytes": 39613242,
+      "complete": true
+    }
+  },
+  "native_binaries": {
+    "/home/hclau/ecdsa_research/breakthrough-certified-prefix-20261020/observer/target/release/deps/build_circuit-96cdcfa2d1d068c7": "e9259590ac7e4648de6a2ebaeb6e0ef9a9844b7985ce273c87ebd2b1e50e6369",
+    "/home/hclau/ecdsa_research/breakthrough-certified-prefix-20261020/observer/target/release/deps/build_circuit-0c12d1b03f2fe721": "692525f4a214cb82fd60e074a6b83187869f29b2c13e2e4054ebb2a24a94e49f"
+  },
+  "no_final_gate_nonce_or_scored_result": true,
+  "scope_correction": "Arithmetic scope is defined by the frozen source and experiment report. Budget changes can move derived predicates; stronger-comparison experiments explicitly increase precision. Component equivalence does not establish complete point-add equivalence."
+}

@@ -1,0 +1,39 @@
+{
+  "cases": [
+    {
+      "cap": 1234,
+      "sites": 2213,
+      "trace_sha256": "68b1d0fec18a7215d25aee7a8edf82ab7c3e4ed870a7ca091598d609a71f478c",
+      "raw_sha256": "13f6ffc377e0f2ec043a54d04296c79eb68fc0a16e2ce0277bdc7dcc624e8e7b"
+    },
+    {
+      "cap": 1233,
+      "sites": 2213,
+      "trace_sha256": "68b1d0fec18a7215d25aee7a8edf82ab7c3e4ed870a7ca091598d609a71f478c",
+      "raw_sha256": "6b3995b287d681159a4e9b2c2287240b3f3d4951cbf9e0c9470e6e551f355ffa"
+    },
+    {
+      "cap": 1232,
+      "sites": 2213,
+      "trace_sha256": "68b1d0fec18a7215d25aee7a8edf82ab7c3e4ed870a7ca091598d609a71f478c",
+      "raw_sha256": "afe50376b9b48db9c135b6534c7b37a9892ce9021401e0c14da27a2cbc4412fd"
+    }
+  ],
+  "comparisons": [
+    {
+      "cap": 1233,
+      "identical_ordered_trace": true,
+      "identical_site_multiset": true,
+      "old_only": 0,
+      "new_only": 0
+    },
+    {
+      "cap": 1232,
+      "identical_ordered_trace": true,
+      "identical_site_multiset": true,
+      "old_only": 0,
+      "new_only": 0
+    }
+  ],
+  "scope": "Metadata covers existing replay-site calls only; identical traces do not prove completeness for every approximation. No full-stream correctness gate or scored result."
+}

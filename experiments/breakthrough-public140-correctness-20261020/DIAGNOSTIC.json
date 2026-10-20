@@ -1,0 +1,70 @@
+{
+  "status": "DEVELOPMENT_COMPARISON_COMPLETE_PRESERVE_ALL_MISMATCHES",
+  "label": "breakthrough-public140-spacious-development-v1",
+  "batches": 512,
+  "summaries": {
+    "public1863": {
+      "value_shots": 17,
+      "phase_shots": 16,
+      "dirty_shots": 0,
+      "failed_batches": 23,
+      "mean_executed_stream_toffoli": 752993.2397460938,
+      "rows_sha256": "a6ded81a984a54720e33f3b68d4c948a6fbe2c4459e0c3fb96e113a39458a797"
+    },
+    "public140_original": {
+      "value_shots": 17,
+      "phase_shots": 12,
+      "dirty_shots": 0,
+      "failed_batches": 20,
+      "mean_executed_stream_toffoli": 750772.6328125,
+      "rows_sha256": "a571556d4268569804c190206722e1e1c1e19fcb636181e6e55e0b3f85f80c26"
+    },
+    "public140_uniform": {
+      "value_shots": 17,
+      "phase_shots": 10,
+      "dirty_shots": 0,
+      "failed_batches": 20,
+      "mean_executed_stream_toffoli": 751708.6869812012,
+      "rows_sha256": "4b03894eefaed24a42b63db37335069f6a4df6c4dc15eb4948ea1779c8e0621d"
+    }
+  },
+  "comparisons": {
+    "public140_original": {
+      "candidate_minus_parent_raw_toffoli": -2220.60693359375,
+      "paired_standard_error": 2.4609557381501777,
+      "new_failed_batches": 1,
+      "new_passing_batches": 4,
+      "new_value_failing_shots": [],
+      "new_value_passing_shots": [],
+      "different_target_lanes": [
+        {
+          "batch": 240,
+          "lane": 4,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        }
+      ],
+      "different_other_lanes": [],
+      "target_differences_confined_to_both_value_failing": true
+    },
+    "public140_uniform": {
+      "candidate_minus_parent_raw_toffoli": -1284.5527648925781,
+      "paired_standard_error": 2.776950370061762,
+      "new_failed_batches": 2,
+      "new_passing_batches": 5,
+      "new_value_failing_shots": [],
+      "new_value_passing_shots": [],
+      "different_target_lanes": [
+        {
+          "batch": 240,
+          "lane": 4,
+          "parent_value_fails": true,
+          "candidate_value_fails": true
+        }
+      ],
+      "different_other_lanes": [],
+      "target_differences_confined_to_both_value_failing": true
+    }
+  },
+  "scope": "Predeclared paired512-batch development diagnostic of two finished frozen sources restoring the exact public140 schedule, versus exact current Toffoli record62341149. Other inherited configurations may differ. No final32768-batch gate, official benchmark, nonce or packet tuning. All prior nonqualified circuits and gate verdicts remain."
+}
