@@ -1,0 +1,431 @@
+warning: unused doc comment
+   --> src/bin/../point_add/pingpong.rs:116:1
+    |
+116 | /// K3b pricing instrument: `K3B_EXTRA_ROOM=k` as a CELL pin raises the cap by k inside that cell only.
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ rustdoc does not generate documentation for macro invocations
+    |
+    = help: to document an item produced by a macro, the macro must produce the documentation as part of its expansion
+    = note: `#[warn(unused_doc_comments)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused doc comment
+    --> src/bin/../point_add/pingpong.rs:3996:1
+     |
+3996 | / /// y15-core: a carry-in for the next [`chunked_add`]'s first chunk, as (low, wire): the caller has already added
+3997 | | /// positions [0, low) (sums written, carries kept) and the first chunk's ripple runs on [low, hi) with this carry-in.
+3998 | | /// The chunk plan and the boundary compares are those of the plain add. Unset (the default) changes nothing.
+     | |_------------------------------------------------------------------------------------------------------------^
+     |   |
+     |   rustdoc does not generate documentation for macro invocations
+     |
+     = help: to document an item produced by a macro, the macro must produce the documentation as part of its expansion
+
+warning: unused import: `f_slice`
+  --> src/bin/../point_add/pingpong.rs:56:22
+   |
+56 |     add_f_window, f, f_slice, ripple_add, ripple_add_lent,
+   |                      ^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `fold_guard`
+  --> src/bin/../point_add/pingpong.rs:59:32
+   |
+59 | use super::{env_flag, env_raw, fold_guard, pinned_env, required_env, Builder, N, SECP256K1_P};
+   |                                ^^^^^^^^^^
+
+warning: unused doc comment
+   --> src/bin/../point_add/heo.rs:99:1
+    |
+ 99 | / /// `HEO_PIN_<name>` overrides a pinned head setting. None when the overlay is off.
+100 | | /// K3b: per-cell pin overrides (set by `heo_carry` around one payload cell). Consulted before `HEO_PIN_*`.
+    | |_----------------------------------------------------------------------------------------------------------^
+    |   |
+    |   rustdoc does not generate documentation for macro invocations
+    |
+    = help: to document an item produced by a macro, the macro must produce the documentation as part of its expansion
+
+warning: unused doc comment
+   --> src/bin/../point_add/heo_carry.rs:313:1
+    |
+313 | /// Run `body`, booking its Toffoli under `comp` and its window peak under `(label, t)`.
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ rustdoc does not generate documentation for macro invocations
+    |
+    = help: to document an item produced by a macro, the macro must produce the documentation as part of its expansion
+
+warning: unused import: `AtomicUsize`
+    --> src/bin/../point_add/heo_carry.rs:1879:29
+     |
+1879 |     use std::sync::atomic::{AtomicUsize, Ordering};
+     |                             ^^^^^^^^^^^
+
+warning: unused doc comment
+   --> src/bin/../point_add/square.rs:680:1
+    |
+680 | / /// Recursion policy: a sum half of at least this many bits is split again
+681 | | /// instead of squared triangularly. `B(m) = m(m-1)/2 + 4m - 3` for the base
+682 | | /// case against `K(m) = B(a) + B(b) + B(b+1) + a + 7b + 1` for one split puts
+683 | | /// the break-even near 60 bits; the tree-wide peak, not the count, is what
+684 | | /// bounds how deep this may go, so it is a pinned knob rather than a constant.
+    | |_------------------------------------------------------------------------------^
+    |   |
+    |   rustdoc does not generate documentation for macro invocations
+    |
+    = help: to document an item produced by a macro, the macro must produce the documentation as part of its expansion
+
+warning: unused doc comment
+   --> src/bin/../point_add/square.rs:686:1
+    |
+686 | / /// Same policy for the low half `a`, whose split leaves `a` itself modified
+687 | | /// until the inverse -- so `a` must be consumed (into `t = a + b`) before its
+688 | | /// split is built. Disabled by pinning it above any half width (>= 129).
+    | |_------------------------------------------------------------------------^
+    |   |
+    |   rustdoc does not generate documentation for macro invocations
+    |
+    = help: to document an item produced by a macro, the macro must produce the documentation as part of its expansion
+
+warning: unused import: `f_slice`
+  --> src/bin/../point_add/j_fuse.rs:24:39
+   |
+24 | use super::modular::{add_f_window, f, f_slice, ripple_add};
+   |                                       ^^^^^^^
+
+warning: unused variable: `room`
+  --> src/bin/../point_add/joint_lowfold.rs:24:9
+   |
+24 |     let room=walk_max_qubits().saturating_sub(circ.active_qubits()as usize);
+   |         ^^^^ help: if this is intentional, prefix it with an underscore: `_room`
+   |
+   = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `loans`
+  --> src/bin/../point_add/joint_lowfold.rs:25:9
+   |
+25 |     let loans=REPLAY_SIGN_LOANS.with(|s|s.get());
+   |         ^^^^^ help: if this is intentional, prefix it with an underscore: `_loans`
+
+warning: unused variable: `loans`
+  --> src/bin/../point_add/retained_prebias.rs:12:6
+   |
+12 |  let loans=REPLAY_SIGN_LOANS.with(|s|s.get());
+   |      ^^^^^ help: if this is intentional, prefix it with an underscore: `_loans`
+
+warning: variable does not need to be mutable
+    --> src/bin/../point_add/leapfrog.rs:7544:25
+     |
+7544 |                     let mut pick = |mode: u64, r64: &mut dyn FnMut() -> u64| -> U256 {
+     |                         ----^^^^
+     |                         |
+     |                         help: remove this `mut`
+     |
+     = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable does not need to be mutable
+    --> src/bin/../point_add/leapfrog.rs:7661:17
+     |
+7661 |             let mut run = |ops: &[crate::circuit::Op], xof_tag: &[u8]| -> (Vec<bool>, Vec<bool>, u64) {
+     |                 ----^^^
+     |                 |
+     |                 help: remove this `mut`
+
+warning: unused variable: `p`
+   --> src/bin/../point_add/heo_carry.rs:244:104
+    |
+244 |             cell_windows: std::env::var("HEO_CELL_WINDOWS").ok().filter(|p| !p.trim().is_empty()).map(|p| {
+    |                                                                                                        ^ help: if this is intentional, prefix it with an underscore: `_p`
+
+warning: unused variable: `p`
+   --> src/bin/../point_add/heo_carry.rs:236:103
+    |
+236 |             proxy_esw: std::env::var("HEO_PROXY_ENVELOPE").ok().filter(|p| !p.trim().is_empty()).map(|p| {
+    |                                                                                                       ^ help: if this is intentional, prefix it with an underscore: `_p`
+
+warning: unused variable: `p`
+    --> src/bin/../point_add/heo_carry.rs:1890:74
+     |
+1890 |     let ovr = OVR.get_or_init(|| std::env::var("K3B_CELL_OVR").ok().map(|p| {
+     |                                                                          ^ help: if this is intentional, prefix it with an underscore: `_p`
+
+warning: unused variable: `path`
+   --> src/bin/../point_add/heo.rs:195:13
+    |
+195 |         let path = std::env::var("HEO_ENVELOPE").expect("HEO_WALK needs HEO_ENVELOPE=<path to `esw ead` lines>");
+    |             ^^^^ help: if this is intentional, prefix it with an underscore: `_path`
+
+warning: unused variable: `path`
+   --> src/bin/../point_add/heo.rs:230:16
+    |
+230 |             Ok(path) => {
+    |                ^^^^ help: if this is intentional, prefix it with an underscore: `_path`
+
+warning: variable does not need to be mutable
+   --> src/bin/../point_add/mod.rs:530:9
+    |
+530 |     let mut ops = build_point_add();
+    |         ----^^^
+    |         |
+    |         help: remove this `mut`
+
+warning: variable does not need to be mutable
+  --> src/bin/../point_add/phase_pebble.rs:68:13
+   |
+68 |         let mut execute=|c:&mut Builder|{
+   |             ----^^^^^^^
+   |             |
+   |             help: remove this `mut`
+
+warning: variable does not need to be mutable
+  --> src/bin/../point_add/zero_carry.rs:29:91
+   |
+29 | ...   let ones:Vec<_>=(0..n).map(|i|pattern==2&&i%3==0||pattern==3&&i==1).collect();let mut execute=|c:&mut Builder|{assert!(add(c,&targe...
+   |                                                                                         ----^^^^^^^
+   |                                                                                         |
+   |                                                                                         help: remove this `mut`
+
+warning: `quantum_ecc` (bin "build_circuit" test) generated 23 warnings (run `cargo fix --bin "build_circuit" -p quantum_ecc --tests` to apply 17 suggestions)
+    Finished `release` profile [optimized] target(s) in 0.10s
+     Running unittests src/bin/build_circuit.rs (target/release/deps/build_circuit-0c12d1b03f2fe721)
+
+running 1 test
+test point_add::leapfrog::y15::core_loan_fold_tests::complete_forward_fold_with_eleven_helper_loans_all_small_inputs_guards_and_measurements ... CORE_LOAN_FOLD	init	2061	1223	1233	10	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FULL_FOLD budget1 ttmfalse guard0000000000000000 shots16384 old_peak1250 new_peak1233 old_t0 new_t0 diagnostic_delta0
+CORE_LOAN_FOLD	init	2061	1223	1233	10	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FULL_FOLD budget1 ttmfalse guarda55add33ff001701 shots16384 old_peak1250 new_peak1233 old_t758363 new_t865578 diagnostic_delta6.54388427734375
+CORE_LOAN_FOLD	init	2061	1223	1233	10	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FULL_FOLD budget1 ttmfalse guardffffffffffffffff shots16384 old_peak1250 new_peak1233 old_t1564578 new_t1786845 diagnostic_delta13.56610107421875
+CORE_LOAN_FOLD	init	2051	1223	1233	9	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FULL_FOLD budget2 ttmfalse guard0000000000000000 shots16384 old_peak1250 new_peak1233 old_t0 new_t0 diagnostic_delta0
+CORE_LOAN_FOLD	init	2051	1223	1233	9	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FULL_FOLD budget2 ttmfalse guarda55add33ff001701 shots16384 old_peak1250 new_peak1233 old_t753173 new_t855672 diagnostic_delta6.25604248046875
+CORE_LOAN_FOLD	init	2051	1223	1233	9	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FULL_FOLD budget2 ttmfalse guardffffffffffffffff shots16384 old_peak1250 new_peak1233 old_t1554945 new_t1768159 diagnostic_delta13.0135498046875
+CORE_LOAN_FOLD	init	2037	1223	1233	8	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FULL_FOLD budget3 ttmfalse guard0000000000000000 shots16384 old_peak1250 new_peak1233 old_t0 new_t0 diagnostic_delta0
+CORE_LOAN_FOLD	init	2037	1223	1233	8	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FULL_FOLD budget3 ttmfalse guarda55add33ff001701 shots16384 old_peak1250 new_peak1233 old_t749877 new_t847243 diagnostic_delta5.9427490234375
+CORE_LOAN_FOLD	init	2037	1223	1233	8	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FULL_FOLD budget3 ttmfalse guardffffffffffffffff shots16384 old_peak1250 new_peak1233 old_t1548100 new_t1751120 diagnostic_delta12.391357421875
+CORE_LOAN_FOLD	init	2022	1223	1233	7	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FULL_FOLD budget4 ttmfalse guard0000000000000000 shots16384 old_peak1250 new_peak1233 old_t0 new_t0 diagnostic_delta0
+CORE_LOAN_FOLD	init	2022	1223	1233	7	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FULL_FOLD budget4 ttmfalse guarda55add33ff001701 shots16384 old_peak1250 new_peak1233 old_t747313 new_t842029 diagnostic_delta5.781005859375
+CORE_LOAN_FOLD	init	2022	1223	1233	7	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FULL_FOLD budget4 ttmfalse guardffffffffffffffff shots16384 old_peak1250 new_peak1233 old_t1540982 new_t1737603 diagnostic_delta12.00079345703125
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FULL_FOLD budget5 ttmfalse guard0000000000000000 shots16384 old_peak1250 new_peak1233 old_t0 new_t0 diagnostic_delta0
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FULL_FOLD budget5 ttmfalse guarda55add33ff001701 shots16384 old_peak1250 new_peak1233 old_t742683 new_t832559 diagnostic_delta5.485595703125
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FULL_FOLD budget5 ttmfalse guardffffffffffffffff shots16384 old_peak1250 new_peak1233 old_t1531522 new_t1718542 diagnostic_delta11.414794921875
+CORE_LOAN_FOLD	init	1995	1223	1233	5	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FULL_FOLD budget6 ttmfalse guard0000000000000000 shots16384 old_peak1234 new_peak1233 old_t0 new_t0 diagnostic_delta0
+CORE_LOAN_FOLD	init	1995	1223	1233	5	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FULL_FOLD budget6 ttmfalse guarda55add33ff001701 shots16384 old_peak1234 new_peak1233 old_t870504 new_t825249 diagnostic_delta-2.76214599609375
+CORE_LOAN_FOLD	init	1995	1223	1233	5	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FULL_FOLD budget6 ttmfalse guardffffffffffffffff shots16384 old_peak1234 new_peak1233 old_t1800114 new_t1703687 diagnostic_delta-5.88543701171875
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FULL_FOLD budget6 ttmtrue guard0000000000000000 shots16384 old_peak1234 new_peak1233 old_t0 new_t0 diagnostic_delta0
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FULL_FOLD budget6 ttmtrue guarda55add33ff001701 shots16384 old_peak1234 new_peak1233 old_t878074 new_t832559 diagnostic_delta-2.77801513671875
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FULL_FOLD budget6 ttmtrue guardffffffffffffffff shots16384 old_peak1234 new_peak1233 old_t1813832 new_t1718542 diagnostic_delta-5.8160400390625
+CORE_LOAN_FOLD	init	1935	1223	1233	4	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FULL_FOLD budget7 ttmfalse guard0000000000000000 shots16384 old_peak1234 new_peak1233 old_t0 new_t0 diagnostic_delta0
+CORE_LOAN_FOLD	init	1935	1223	1233	4	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FULL_FOLD budget7 ttmfalse guarda55add33ff001701 shots16384 old_peak1234 new_peak1233 old_t818122 new_t819274 diagnostic_delta0.0703125
+CORE_LOAN_FOLD	init	1935	1223	1233	4	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FULL_FOLD budget7 ttmfalse guardffffffffffffffff shots16384 old_peak1234 new_peak1233 old_t1686511 new_t1690008 diagnostic_delta0.21343994140625
+CORE_LOAN_FOLD	init	1995	1223	1233	5	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FULL_FOLD budget7 ttmtrue guard0000000000000000 shots16384 old_peak1234 new_peak1233 old_t0 new_t0 diagnostic_delta0
+CORE_LOAN_FOLD	init	1995	1223	1233	5	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FULL_FOLD budget7 ttmtrue guarda55add33ff001701 shots16384 old_peak1234 new_peak1233 old_t820878 new_t825249 diagnostic_delta0.26678466796875
+CORE_LOAN_FOLD	init	1995	1223	1233	5	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FULL_FOLD budget7 ttmtrue guardffffffffffffffff shots16384 old_peak1234 new_peak1233 old_t1694015 new_t1703687 diagnostic_delta0.59033203125
+CORE_LOAN_FOLD	init	1873	1223	1233	3	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FULL_FOLD budget8 ttmfalse guard0000000000000000 shots16384 old_peak1234 new_peak1233 old_t0 new_t0 diagnostic_delta0
+CORE_LOAN_FOLD	init	1873	1223	1233	3	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FULL_FOLD budget8 ttmfalse guarda55add33ff001701 shots16384 old_peak1234 new_peak1233 old_t793863 new_t809262 diagnostic_delta0.93988037109375
+CORE_LOAN_FOLD	init	1873	1223	1233	3	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FULL_FOLD budget8 ttmfalse guardffffffffffffffff shots16384 old_peak1234 new_peak1233 old_t1639819 new_t1669372 diagnostic_delta1.80377197265625
+CORE_LOAN_FOLD	init	1935	1223	1233	4	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FULL_FOLD budget8 ttmtrue guard0000000000000000 shots16384 old_peak1234 new_peak1233 old_t0 new_t0 diagnostic_delta0
+CORE_LOAN_FOLD	init	1935	1223	1233	4	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FULL_FOLD budget8 ttmtrue guarda55add33ff001701 shots16384 old_peak1234 new_peak1233 old_t799294 new_t819274 diagnostic_delta1.219482421875
+CORE_LOAN_FOLD	init	1935	1223	1233	4	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FULL_FOLD budget8 ttmtrue guardffffffffffffffff shots16384 old_peak1234 new_peak1233 old_t1648824 new_t1690008 diagnostic_delta2.513671875
+CORE_LOAN_FOLD	init	1868	1223	1233	2	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FULL_FOLD budget9 ttmfalse guard0000000000000000 shots16384 old_peak1234 new_peak1233 old_t0 new_t0 diagnostic_delta0
+CORE_LOAN_FOLD	init	1868	1223	1233	2	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FULL_FOLD budget9 ttmfalse guarda55add33ff001701 shots16384 old_peak1234 new_peak1233 old_t789690 new_t801755 diagnostic_delta0.73638916015625
+CORE_LOAN_FOLD	init	1868	1223	1233	2	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FULL_FOLD budget9 ttmfalse guardffffffffffffffff shots16384 old_peak1234 new_peak1233 old_t1629675 new_t1655967 diagnostic_delta1.604736328125
+CORE_LOAN_FOLD	init	1873	1223	1233	3	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FULL_FOLD budget9 ttmtrue guard0000000000000000 shots16384 old_peak1234 new_peak1233 old_t0 new_t0 diagnostic_delta0
+CORE_LOAN_FOLD	init	1873	1223	1233	3	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FULL_FOLD budget9 ttmtrue guarda55add33ff001701 shots16384 old_peak1234 new_peak1233 old_t795412 new_t809262 diagnostic_delta0.8453369140625
+CORE_LOAN_FOLD	init	1873	1223	1233	3	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FULL_FOLD budget9 ttmtrue guardffffffffffffffff shots16384 old_peak1234 new_peak1233 old_t1643332 new_t1669372 diagnostic_delta1.58935546875
+CORE_LOAN_FOLD	init	1845	1223	1233	1	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FULL_FOLD budget10 ttmfalse guard0000000000000000 shots16384 old_peak1234 new_peak1233 old_t0 new_t0 diagnostic_delta0
+CORE_LOAN_FOLD	init	1845	1223	1233	1	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FULL_FOLD budget10 ttmfalse guarda55add33ff001701 shots16384 old_peak1234 new_peak1233 old_t785210 new_t793646 diagnostic_delta0.514892578125
+CORE_LOAN_FOLD	init	1845	1223	1233	1	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FULL_FOLD budget10 ttmfalse guardffffffffffffffff shots16384 old_peak1234 new_peak1233 old_t1622292 new_t1638634 diagnostic_delta0.9974365234375
+CORE_LOAN_FOLD	init	1868	1223	1233	2	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FULL_FOLD budget10 ttmtrue guard0000000000000000 shots16384 old_peak1234 new_peak1233 old_t0 new_t0 diagnostic_delta0
+CORE_LOAN_FOLD	init	1868	1223	1233	2	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FULL_FOLD budget10 ttmtrue guarda55add33ff001701 shots16384 old_peak1234 new_peak1233 old_t791688 new_t801755 diagnostic_delta0.61444091796875
+CORE_LOAN_FOLD	init	1868	1223	1233	2	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FULL_FOLD budget10 ttmtrue guardffffffffffffffff shots16384 old_peak1234 new_peak1233 old_t1634622 new_t1655967 diagnostic_delta1.30279541015625
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+CORE_LOAN_FOLD	init	2017	1223	1233	6	[10, 9, 8, 7, 6, 4, 6]
+ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 68 filtered out; finished in 2.42s
+

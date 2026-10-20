@@ -1,0 +1,178 @@
+warning: unused doc comment
+   --> src/bin/../point_add/pingpong.rs:116:1
+    |
+116 | /// K3b pricing instrument: `K3B_EXTRA_ROOM=k` as a CELL pin raises the cap by k inside that cell only.
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ rustdoc does not generate documentation for macro invocations
+    |
+    = help: to document an item produced by a macro, the macro must produce the documentation as part of its expansion
+    = note: `#[warn(unused_doc_comments)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused doc comment
+    --> src/bin/../point_add/pingpong.rs:3996:1
+     |
+3996 | / /// y15-core: a carry-in for the next [`chunked_add`]'s first chunk, as (low, wire): the caller has already added
+3997 | | /// positions [0, low) (sums written, carries kept) and the first chunk's ripple runs on [low, hi) with this carry-in.
+3998 | | /// The chunk plan and the boundary compares are those of the plain add. Unset (the default) changes nothing.
+     | |_------------------------------------------------------------------------------------------------------------^
+     |   |
+     |   rustdoc does not generate documentation for macro invocations
+     |
+     = help: to document an item produced by a macro, the macro must produce the documentation as part of its expansion
+
+warning: unused import: `f_slice`
+  --> src/bin/../point_add/pingpong.rs:56:22
+   |
+56 |     add_f_window, f, f_slice, ripple_add, ripple_add_lent,
+   |                      ^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `fold_guard`
+  --> src/bin/../point_add/pingpong.rs:59:32
+   |
+59 | use super::{env_flag, env_raw, fold_guard, pinned_env, required_env, Builder, N, SECP256K1_P};
+   |                                ^^^^^^^^^^
+
+warning: unused doc comment
+   --> src/bin/../point_add/heo.rs:99:1
+    |
+ 99 | / /// `HEO_PIN_<name>` overrides a pinned head setting. None when the overlay is off.
+100 | | /// K3b: per-cell pin overrides (set by `heo_carry` around one payload cell). Consulted before `HEO_PIN_*`.
+    | |_----------------------------------------------------------------------------------------------------------^
+    |   |
+    |   rustdoc does not generate documentation for macro invocations
+    |
+    = help: to document an item produced by a macro, the macro must produce the documentation as part of its expansion
+
+warning: unused doc comment
+   --> src/bin/../point_add/heo_carry.rs:313:1
+    |
+313 | /// Run `body`, booking its Toffoli under `comp` and its window peak under `(label, t)`.
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ rustdoc does not generate documentation for macro invocations
+    |
+    = help: to document an item produced by a macro, the macro must produce the documentation as part of its expansion
+
+warning: unused import: `AtomicUsize`
+    --> src/bin/../point_add/heo_carry.rs:1879:29
+     |
+1879 |     use std::sync::atomic::{AtomicUsize, Ordering};
+     |                             ^^^^^^^^^^^
+
+warning: unused doc comment
+   --> src/bin/../point_add/square.rs:680:1
+    |
+680 | / /// Recursion policy: a sum half of at least this many bits is split again
+681 | | /// instead of squared triangularly. `B(m) = m(m-1)/2 + 4m - 3` for the base
+682 | | /// case against `K(m) = B(a) + B(b) + B(b+1) + a + 7b + 1` for one split puts
+683 | | /// the break-even near 60 bits; the tree-wide peak, not the count, is what
+684 | | /// bounds how deep this may go, so it is a pinned knob rather than a constant.
+    | |_------------------------------------------------------------------------------^
+    |   |
+    |   rustdoc does not generate documentation for macro invocations
+    |
+    = help: to document an item produced by a macro, the macro must produce the documentation as part of its expansion
+
+warning: unused doc comment
+   --> src/bin/../point_add/square.rs:686:1
+    |
+686 | / /// Same policy for the low half `a`, whose split leaves `a` itself modified
+687 | | /// until the inverse -- so `a` must be consumed (into `t = a + b`) before its
+688 | | /// split is built. Disabled by pinning it above any half width (>= 129).
+    | |_------------------------------------------------------------------------^
+    |   |
+    |   rustdoc does not generate documentation for macro invocations
+    |
+    = help: to document an item produced by a macro, the macro must produce the documentation as part of its expansion
+
+warning: unused import: `f_slice`
+  --> src/bin/../point_add/j_fuse.rs:24:39
+   |
+24 | use super::modular::{add_f_window, f, f_slice, ripple_add};
+   |                                       ^^^^^^^
+
+warning: unused variable: `room`
+  --> src/bin/../point_add/joint_lowfold.rs:24:9
+   |
+24 |     let room=walk_max_qubits().saturating_sub(circ.active_qubits()as usize);
+   |         ^^^^ help: if this is intentional, prefix it with an underscore: `_room`
+   |
+   = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `loans`
+  --> src/bin/../point_add/joint_lowfold.rs:25:9
+   |
+25 |     let loans=REPLAY_SIGN_LOANS.with(|s|s.get());
+   |         ^^^^^ help: if this is intentional, prefix it with an underscore: `_loans`
+
+warning: unused variable: `loans`
+  --> src/bin/../point_add/retained_prebias.rs:12:6
+   |
+12 |  let loans=REPLAY_SIGN_LOANS.with(|s|s.get());
+   |      ^^^^^ help: if this is intentional, prefix it with an underscore: `_loans`
+
+warning: variable does not need to be mutable
+    --> src/bin/../point_add/leapfrog.rs:7528:25
+     |
+7528 |                     let mut pick = |mode: u64, r64: &mut dyn FnMut() -> u64| -> U256 {
+     |                         ----^^^^
+     |                         |
+     |                         help: remove this `mut`
+     |
+     = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable does not need to be mutable
+    --> src/bin/../point_add/leapfrog.rs:7645:17
+     |
+7645 |             let mut run = |ops: &[crate::circuit::Op], xof_tag: &[u8]| -> (Vec<bool>, Vec<bool>, u64) {
+     |                 ----^^^
+     |                 |
+     |                 help: remove this `mut`
+
+warning: unused variable: `p`
+   --> src/bin/../point_add/heo_carry.rs:244:104
+    |
+244 |             cell_windows: std::env::var("HEO_CELL_WINDOWS").ok().filter(|p| !p.trim().is_empty()).map(|p| {
+    |                                                                                                        ^ help: if this is intentional, prefix it with an underscore: `_p`
+
+warning: unused variable: `p`
+   --> src/bin/../point_add/heo_carry.rs:236:103
+    |
+236 |             proxy_esw: std::env::var("HEO_PROXY_ENVELOPE").ok().filter(|p| !p.trim().is_empty()).map(|p| {
+    |                                                                                                       ^ help: if this is intentional, prefix it with an underscore: `_p`
+
+warning: unused variable: `p`
+    --> src/bin/../point_add/heo_carry.rs:1890:74
+     |
+1890 |     let ovr = OVR.get_or_init(|| std::env::var("K3B_CELL_OVR").ok().map(|p| {
+     |                                                                          ^ help: if this is intentional, prefix it with an underscore: `_p`
+
+warning: unused variable: `path`
+   --> src/bin/../point_add/heo.rs:195:13
+    |
+195 |         let path = std::env::var("HEO_ENVELOPE").expect("HEO_WALK needs HEO_ENVELOPE=<path to `esw ead` lines>");
+    |             ^^^^ help: if this is intentional, prefix it with an underscore: `_path`
+
+warning: unused variable: `path`
+   --> src/bin/../point_add/heo.rs:230:16
+    |
+230 |             Ok(path) => {
+    |                ^^^^ help: if this is intentional, prefix it with an underscore: `_path`
+
+warning: `quantum_ecc` (bin "build_circuit" test) generated 20 warnings (run `cargo fix --bin "build_circuit" -p quantum_ecc --tests` to apply 14 suggestions)
+    Finished `release` profile [optimized] target(s) in 0.10s
+     Running unittests src/bin/build_circuit.rs (target/release/deps/build_circuit-0c12d1b03f2fe721)
+
+running 4 tests
+test point_add::leapfrog::y15::stack_plan7_admission_tests::explicit_seven_budget_case_is_admitted_without_weakening_old_contract ... ok
+test point_add::leapfrog::y15::stack_plan7_admission_tests::missing_phase_repair_in_seven_wire_plan_is_detected ... ok
+test point_add::leapfrog::y15::stack_plan7_port_tests::adjacent_drops_are_rejected_by_existing_contract - should panic ... 
+thread 'point_add::leapfrog::y15::stack_plan7_port_tests::adjacent_drops_are_rejected_by_existing_contract' (2995950) panicked at src/bin/../point_add/y15_onefold.rs:891:13:
+y28: a dropped carry needs the next kept carry and its own carry-in live
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+ok
+test point_add::leapfrog::y15::stack_plan7_port_tests::plan7_and_plan8_full_fifty_bit_affine_addition_and_phase ... PLAN7_COMPONENT budget=8 physical_peak=122 ops=1989 rng=112 emitted_ccx=113
+PLAN7_COMPONENT budget=7 physical_peak=121 ops=2275 rng=129 emitted_ccx=130
+ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 23 filtered out; finished in 0.15s
+

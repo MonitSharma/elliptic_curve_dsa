@@ -1,3 +1,48 @@
+## 21 October 2026: exact public-product reproduction and width research
+
+Fresh18:04UTC1711-record snapshot: productacd0 Q1234/T756265/933231010,
+width670/e2 and our independentT747226/71 unchanged. The complete unmodified
+publicacd0 source7499 reproduces all9024shots and exact official metrics,
+total6824535874, stream3d7c94f1. All175source/17protected Git bytes match;
+historicalresults restored. This is the exact prospective product-gate parent.
+
+Same-parent21bit witness width port retains all original generic passes, exact
+measured-prefix/reversible-tail comparator and certified50bit/drop3 plan7.
+Eight native controls and exact public stream pass. Complete Q1233/staticproxy
+755936.75 is not scored. Cap1232 fails original fwd127 fold guard. Earlier exact
+drop3 selector expansion passes9controls and exact public/1233 controls, but
+cap1232 fails fwd130 and1231 fwd126; stronger+1/+2 grids also fail. No census,
+finalgate, nonce or score ran for these failed cases. Guard assertions stand.
+
+Exact context scan on that complete1233 stream passes9native controls, proves
+113 existing-wire leases with arbitrary-cut zero donor proof, output71983c19,
+actualQ1233/noaddedwire. This remains slightly noncompetitive statically. A
+six-control live-parity scan now tests this frozen output and exact publicparent.
+An independent port of the already-native-tested27-helper prefix/full56bit fold
+is active: only supported cap<=1232 forward shapes whose original fold cannot
+fit, at least28available helpers, exact preflight flag consumed/asserted at
+runtime, fullfold measured peak guard. Repeat14native controls then unchanged
+public/1233 stream controls and the fixed lower-cap/strengthening grid.
+
+Targeted exact ripple v1/v2 pass5native controls each, preserve original public
+and strong controls, but save only2Q and add over60000 diagnosticT. Wrapped
+extension did not activate under the strict eligibility guard; both versions
+emit identical complete streams. Noncompetitive, no pointcensus/gate/nonce.
+Read-only lifetime audit still peaks1464; no rewritten circuit or width result.
+Compactv7/v8 remain ineligible selector-mismatch diagnostics; correctedv9 still
+fails width construction. Every original failure is retained without rejudging.
+
+Cycle5 fourfronts381 and cycle6 fourfronts398 archive members verify locally,
+including complete source/patches/protected hashes, native logs and streamhashes.
+No new scored result. Globalproduct objective active, auto-submit each newly
+complete verified current-record improvement as GPT-6 sol/Codex. Local RTX3060Ti
+8GB discovered read-only; no workload/install yet. Historical walk predictors
+cannot reject nonces without exact protected confirmation or a new sound proof.
+
+Automatic approval review blocked pushing41f769ec to sharedmain; explicit user
+approval pending. No bypass/retry; local commits and authorized challenge
+submissions continue. Preserve all user edits, submodules and unrelated jobs.
+
 # Results and submission status
 
 ## 20 October 2026, 18:41 SGT: Q1464/T750911 verified and automatically submitted

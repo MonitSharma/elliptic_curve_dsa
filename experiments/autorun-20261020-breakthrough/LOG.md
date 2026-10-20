@@ -423,3 +423,110 @@ shedding. No packet data or nonce enters any structural experiment. Preserve
 Q692 and all earlier failed-gate verdicts. The active substantial product
 objective remains unfinished; unrelated user edits and server jobs stay intact.
 
+
+
+Submission checkpoint 20 October 2026: uploaded Q1464/T751027 as 8b682cf8-e242-4827-bb54-3c0724635893 using GPT-6.1 Sol/Codex. API status validating, job queued; no official score yet. Fresh public minimum before upload was Q1464/T751182. Tighter-fold component and active configuration-corrected full-circuit run were not submitted.
+
+## 20 October 2026, 18:41 SGT: Q1464/T750911 verified and automatically submitted
+
+Complete unchanged benchmark: 9024/9024 shots, Q1464, rounded mean T750911,
+exact mean750910.5620567376, total6776216912, product1099333704. Saves109
+rounded Toffolis at unchanged width versus direct official parent32256595,
+public source63d63c90. Submission a4ee760a-0500-4d54-9822-4a3c56806fd5, GPT-6 sol/Codex,
+currently validating. No official score yet; global product939138168 is lower.
+
+Final source28e443bcc2f3dc0793c6a416a496b07cfbeb4c4f,196 point-add files,
+17 protected files. Only mod.rs and two new modules differ. Exact square
+workspace1234->1408; raw structural grid chooses smallest byte-identical tie.
+Unchanged generic passes, independently proved153 unconditional product
+leases, full native rewrite canonical assertion, second generic pass.
+Native27 controls pass. No arithmetic/precision/public row/correctness cuts.
+Archive sourceee0ee69c, patch9e3c25de, selected stream54c8cd60. All238 final
+evidence members and196 source files verify locally; original full archive
+499882f3 retained. Completed review output preserved separately as
+source-review-completed.log; archive captured the earlier in-progress log.
+
+Own sole final gate public322-square1408-final-20261020-v1, declared
+10:19:22.615442UTC before32768x64 fresh shots/source, nonce0. Exact parent
+stream6a8af77b; candidate807cc252. Wrong-value1104/1104 with identical shot
+IDs, phase622/594, dirty0/0, failed batches1160/1145, candidate4.9269104 per
+9024-shot packet. b12/c27, one-sided exact McNemar p0.99526235, paired mean
+difference-108.82871437 with SE0.26991412. All four criteria pass. Declaration
+90c480e8, result88c5b918. No reused gate, relabel, extension or rerun.
+Lowest passing nonce8,64 production screens1..64, sole pass8, overrun9..64;
+eight extra partial controls and24 protected full-state/RNG/curve batches,
+selected9024-attempt packet pass. Every pre-tail record matches frozen source.
+
+Independent larger-product research: exact quadratic-span closure excludes
+all63 original-span retained interfaces, independently reproduced by full
+augmented-column intersection and dimension formula. This excludes<=30 AND
+programs only when all intermediate functions stay in the original46-function
+span; not an unrestricted circuit bound. All88 fresh primary-pair quadratic
+auxiliaries across651 interfaces each are negative in the declared extended
+language. Raw capacity grid1536..2560 yields identical streams in all8 cases.
+Every corresponding archive member verifies locally. No model/proxy is scored.
+Active full generic comparison of baseline versus compact prefix27/cleanup11,
+Q1234, tests whether pass interactions offset its raw+51.75 cost. It remains
+research only. PreserveQ692, all past failed gates and unrelated jobs/edits.
+
+Source/evidence/official receipts: experiments/breakthrough-public322-square-final-20261020/.
+Automatic verified-result submissions remain authorized. Continue the substantial
+product objective; do not mark the active goal complete on the T result alone.
+
+20October2026 canonical-prefix cycle: native35AND/35HMR at27helper peak verified; complete retention grid remains noncompetitive. Two structural unretained tick choices predict7.75 rawT saving. Strict public control exactly51671, mixed stops at unchangedY42 region binding. Allocation probe proves all live roles/free sets equal, only free-list order differs at130. Existing asserted allocator-order restore now passes both tick interfaces withoutgates; full legacy-pipeline build continues. Separate exact post-parent generic-repeat probe in progress, no early savings. All failure/source/evidence preserved; no new statistical gate or nonce. OfficialT750911/a4ee remains confirmed. Global product goal unfinished; automatic verified-result submissions remain authorized.
+20October2026 context213:7 exact proof controls,213 new leases; self-contained198/17 source,28 controls. Sole final gate context213-exact-earlier-cut-final-20261020-v1 PASS:1147 identical wrong-value shots,dirty0,failed1187 vs1182,p0.23656,pairedT-212.88194. Lowestnonce221,256 screens,8controls+24states and protected9024 pass. Final benchmark/review in progress; no new scored result yet. Exact public88869 rail/G6 ports separately native6416896 lanes+27 controls; rawcontrol exact, rail-1082T/G6-1303.25T diagnostics, combined and fresh512batch full-output comparison pending. Publicproduct now933497554. Newpublic exactcontrol714c reproduced; lowerbudget1233/1232 stops unchangedy16guard at128, preserve failure. Fixed16384 proofscan reports345 leases, componentonly. Auto-submit verified current improvements GPT-6sol/Codex and keep largergoalactive.
+2026-10-20T12:58:04.369776+00:00 predeclare stackv3 exact lean128 native width probe: previous1233/1232 y16 room cliff, use existing no-copy path on128 with originalassertions, public714c control first, fixed1234/t21,1234/t28,1233/t28,1232/t28; no weakercheck, no finalgate/nonce/score.
+2026-10-20T13:13:57.974944+00:00 predeclare fixed nativeboth final gate native-rail-g6-fixed-final-20261020-v1,32768x64 vs exact then-current context213 official T parent; wait pending260b result and public198/17 byteverify beforedeclaration, neverreusecontextgate. Candidate200/17,27controls,raw+allgenericrecordsbound,a871 nonce0. PASS only→independent8nonce/24statequalification→ascendinglowest→unchangedbenchmarkonce verifiesallpre-tailbytes→localreview→autosubmitGPT6sol/Codex.
+2026-10-20T13:36:15.388818+00:00 predeclare stackv3 original exact forwardcarryloan128 restoration; unchangedy16 guard rawdeficit23 vs shedcapacity22, one extra loanmayfit1233. Fixedpublic714c control andraw1234t21/1234t28/1233t28/1232t28, strengthenwitness28, preservelean128 noeffectfailure, no finalgate/nonce/score.
+2026-10-20T13:42:57.267766+00:00 predeclare exactloan128+existingdrop130=2 widthprobe: loan128 passesfirstbarrier, now fwd130 deficit21 vs supported20; drop2 reducesneed1 underunchangedguard. Public714c control first,fixedraw1234t21/1234t28/1233t28/1232t28,strongwitness28,no newapprox/gate/nonce.
+2026-10-20T13:58:21.481085+00:00 predeclare explicit nativeplan7 port: old2drop alreadyrecipeoverride; addonly verified50bitbudget7drop3case unchangedladderguards,repeat4native functional/phase/width/fault tests,exactloan128 plusdrop3fwd130onlycap<1234,714c fullpubliccontrolbeforefixedrawgrid,strongwitness28,no gate/nonce.
+
+2026-10-20T14:09:45.216524+00:00 plan7 passes native4 and moves1233 failure130->131; predeclare unchanged exactplan7 drop3 overforward130..137, old guards retained, same fullpublic control and rawcases; no gate/nonce/score.
+
+2026-10-20T14:16:00.589103+00:00 plan7range native4/public714c PASS;1233 forwards fit thenoriginalrev126guard stops21vs20,1232 stopsfwd127. Predeclare sameexactplan7/drop3 reverse124..127 plusforward130..137 onlylowerbudget; no gate/nonce/score.
+
+## 21 October 2026: exact public-product reproduction and width research
+
+Fresh18:04UTC1711-record snapshot: productacd0 Q1234/T756265/933231010,
+width670/e2 and our independentT747226/71 unchanged. The complete unmodified
+publicacd0 source7499 reproduces all9024shots and exact official metrics,
+total6824535874, stream3d7c94f1. All175source/17protected Git bytes match;
+historicalresults restored. This is the exact prospective product-gate parent.
+
+Same-parent21bit witness width port retains all original generic passes, exact
+measured-prefix/reversible-tail comparator and certified50bit/drop3 plan7.
+Eight native controls and exact public stream pass. Complete Q1233/staticproxy
+755936.75 is not scored. Cap1232 fails original fwd127 fold guard. Earlier exact
+drop3 selector expansion passes9controls and exact public/1233 controls, but
+cap1232 fails fwd130 and1231 fwd126; stronger+1/+2 grids also fail. No census,
+finalgate, nonce or score ran for these failed cases. Guard assertions stand.
+
+Exact context scan on that complete1233 stream passes9native controls, proves
+113 existing-wire leases with arbitrary-cut zero donor proof, output71983c19,
+actualQ1233/noaddedwire. This remains slightly noncompetitive statically. A
+six-control live-parity scan now tests this frozen output and exact publicparent.
+An independent port of the already-native-tested27-helper prefix/full56bit fold
+is active: only supported cap<=1232 forward shapes whose original fold cannot
+fit, at least28available helpers, exact preflight flag consumed/asserted at
+runtime, fullfold measured peak guard. Repeat14native controls then unchanged
+public/1233 stream controls and the fixed lower-cap/strengthening grid.
+
+Targeted exact ripple v1/v2 pass5native controls each, preserve original public
+and strong controls, but save only2Q and add over60000 diagnosticT. Wrapped
+extension did not activate under the strict eligibility guard; both versions
+emit identical complete streams. Noncompetitive, no pointcensus/gate/nonce.
+Read-only lifetime audit still peaks1464; no rewritten circuit or width result.
+Compactv7/v8 remain ineligible selector-mismatch diagnostics; correctedv9 still
+fails width construction. Every original failure is retained without rejudging.
+
+Cycle5 fourfronts381 and cycle6 fourfronts398 archive members verify locally,
+including complete source/patches/protected hashes, native logs and streamhashes.
+No new scored result. Globalproduct objective active, auto-submit each newly
+complete verified current-record improvement as GPT-6 sol/Codex. Local RTX3060Ti
+8GB discovered read-only; no workload/install yet. Historical walk predictors
+cannot reject nonces without exact protected confirmation or a new sound proof.
+
+Automatic approval review blocked pushing41f769ec to sharedmain; explicit user
+approval pending. No bypass/retry; local commits and authorized challenge
+submissions continue. Preserve all user edits, submodules and unrelated jobs.
+

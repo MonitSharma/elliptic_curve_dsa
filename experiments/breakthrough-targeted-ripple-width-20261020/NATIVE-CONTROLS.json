@@ -1,0 +1,64 @@
+{
+  "prior_exact_native_controls": 27,
+  "exact_ripple_controls": 5,
+  "group_plan_controls": 1,
+  "unit_cases": [
+    {
+      "mode": "control",
+      "exit": 101,
+      "historical_six_walk_domain_edges_excluded_by_existing_unit": true,
+      "g3_summary": [
+        "G3_UT pins=PEBBLE_HARD_CAP=1536;SQC_G1M=0;SQC_T=28;SQC_G=259;SQC_LEAF_D=0;GROUP_JUNCTION_FAULT=0 cap=Some(1408) wires=1348 T/shot=40134 shots=1024 out_bad(-off)=491 out_bad(+off)=1024 y_bad=0 phase_bad=0 ancilla_bad_batches=16 offset_zero=false"
+      ],
+      "edge_phase_masks": [
+        "G3_UT edge phase mask=0x2d"
+      ]
+    },
+    {
+      "mode": "groups-safe28-d8",
+      "exit": 0,
+      "historical_six_walk_domain_edges_excluded_by_existing_unit": true,
+      "g3_summary": [
+        "G3_UT pins=PEBBLE_HARD_CAP=1536;SQC_G1M=1;SQC_T=28;SQC_G=259;SQC_LEAF_D=8;GROUP_JUNCTION_FAULT=0;G3_SQ_EXACT_SPLIT=1 cap=Some(1408) wires=1345 T/shot=38459 shots=1024 out_bad(-off)=0 out_bad(+off)=1024 y_bad=0 phase_bad=0 ancilla_bad_batches=0 offset_zero=false"
+      ],
+      "edge_phase_masks": [
+        "G3_UT edge phase mask=0x6"
+      ]
+    },
+    {
+      "mode": "groups-safe28-d8-target1234",
+      "exit": 0,
+      "historical_six_walk_domain_edges_excluded_by_existing_unit": true,
+      "g3_summary": [
+        "G3_UT pins=PEBBLE_HARD_CAP=1536;SQC_G1M=1;SQC_T=28;SQC_G=259;SQC_LEAF_D=8;GROUP_JUNCTION_FAULT=0;G3_SQ_EXACT_SPLIT=1 cap=Some(1408) wires=1345 T/shot=38459 shots=1024 out_bad(-off)=0 out_bad(+off)=1024 y_bad=0 phase_bad=0 ancilla_bad_batches=0 offset_zero=false"
+      ],
+      "edge_phase_masks": [
+        "G3_UT edge phase mask=0x6"
+      ]
+    },
+    {
+      "mode": "groups-safe28-d8-target1240",
+      "exit": 0,
+      "historical_six_walk_domain_edges_excluded_by_existing_unit": true,
+      "g3_summary": [
+        "G3_UT pins=PEBBLE_HARD_CAP=1536;SQC_G1M=1;SQC_T=28;SQC_G=259;SQC_LEAF_D=8;GROUP_JUNCTION_FAULT=0;G3_SQ_EXACT_SPLIT=1 cap=Some(1408) wires=1345 T/shot=38459 shots=1024 out_bad(-off)=0 out_bad(+off)=1024 y_bad=0 phase_bad=0 ancilla_bad_batches=0 offset_zero=false"
+      ],
+      "edge_phase_masks": [
+        "G3_UT edge phase mask=0x6"
+      ]
+    },
+    {
+      "mode": "groups-safe28-d8-target1233",
+      "exit": 0,
+      "historical_six_walk_domain_edges_excluded_by_existing_unit": true,
+      "g3_summary": [
+        "G3_UT pins=PEBBLE_HARD_CAP=1536;SQC_G1M=1;SQC_T=28;SQC_G=259;SQC_LEAF_D=8;GROUP_JUNCTION_FAULT=0;G3_SQ_EXACT_SPLIT=1 cap=Some(1408) wires=1345 T/shot=38459 shots=1024 out_bad(-off)=0 out_bad(+off)=1024 y_bad=0 phase_bad=0 ancilla_bad_batches=0 offset_zero=false"
+      ],
+      "edge_phase_masks": [
+        "G3_UT edge phase mask=0x6"
+      ]
+    }
+  ],
+  "deliberate_junction_fault_exit": 101,
+  "scope": "Existing G3 unit contract excludes its six documented walk-domain edges; their raw diagnostics retained. No universal arbitraryfield claim."
+}

@@ -1,0 +1,1 @@
+Fin0 selector correction passes its native contract; the fin1 equality-cap route remains disabled and does not match the y16 estimate. This frozen prototype is ineligible diagnostics; no statistical gate/nonce/score. V9 adds the separate matching fin1 selector and native contract.

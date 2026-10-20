@@ -1,0 +1,26 @@
+from pathlib import Path
+import ast
+
+a=Path(__file__).parent;r=a.parent/'breakthrough-public-width-live-20261020';r.mkdir(exist_ok=False)
+(r/'.gitattributes').write_text('* -text\n');(r/'.gitignore').write_text('tool/\n__pycache__/\n*resource-preflight*\nevidence.tar.gz\n')
+s='''import hashlib,json,os,shutil,subprocess,time
+from pathlib import Path
+r=Path(__file__).resolve().parent;ws=r.parent;t=r/'tool';old=ws/'breakthrough-live-products-absorption-v2-20261020';sha=lambda p:hashlib.file_digest(p.open('rb'),'sha256').hexdigest()
+def run(cmd,name,cwd=t):
+ with(r/(name+'.log')).open('xb')as log:p=subprocess.Popen(cmd,cwd=cwd,stdout=log,stderr=subprocess.STDOUT);(r/(name+'.pid')).write_text(str(p.pid)+'\\n');rc=p.wait()
+ (r/(name+'.exit')).write_text(str(rc)+'\\n');assert rc==0,name
+try:
+ of=json.loads((old/'SOURCE-FREEZE.json').read_text());assert(old/'run.exit').read_text().strip()=='0';assert all(sha(old/'tool'/p)==h for p,h in of['tool_source_files'].items());assert all(sha(Path(p))==h for p,h in of['protected_dependency_files'].items());t.mkdir()
+ for p in of['tool_source_files']:shutil.copyfile(old/'tool'/p,t/p)
+ subprocess.run(['cp','-a','--reflink=auto',str(old/'tool/target'),str(t/'target')],check=True)
+ inputs={'width1233cache113':(ws/'breakthrough-public-width1233-context-20261020/zero-donors.ops.bin','71983c1987979228f2d3c4ddf371796dd6c7d9e72e634abf9c0cbdb40764e5d6'),'publicacd0':(ws/'breakthrough-public-acd0-reproduction-20261020/parent/ops.bin','3d7c94f1dea887dd2d4ff13326e350756350cc1044d396444c3f820f8bfad827')}
+ assert all(sha(p)==h for p,h in inputs.values());freeze={'tool_source_files':{p:sha(t/p)for p in of['tool_source_files']},'protected_dependency_files':of['protected_dependency_files'],'inputs':{n:{'path':str(p),'sha256':h}for n,(p,h)in inputs.items()},'scope':'Same exact512-term original-op live-product algebra/parity proof and six native controls, newly applied to full frozen publicparent and width1233cache113 streams. No point-input sampling/gate/nonce/score.'};(r/'SOURCE-FREEZE.json').write_text(json.dumps(freeze,indent=2)+'\\n');run(['/home/hclau/.cargo/bin/cargo','+1.93.0','test','--release','--bin','live_products','--','--nocapture'],'tests');assert'test result: ok. 6 passed; 0 failed;'in(r/'tests.log').read_text();run(['/home/hclau/.cargo/bin/cargo','+1.93.0','build','--release','--bin','live_products'],'build');rows={}
+ for n,(p,h)in inputs.items():
+  start=time.time();run(['timeout','2400',str(t/'target/release/live_products'),str(p),str(r/n)],'scan-'+n);x=json.loads((r/(n+'.json')).read_text());run([str(ws/'breakthrough-stackv3-width-stats-20261020/tool/target/release/native_width_stats'),str(r/(n+'.ops.bin')),str(r/(n+'-STATS.json'))],'stats-'+n,r);st=json.loads((r/(n+'-STATS.json')).read_text());rows[n]={'hits':len(x['hits']),'input_count':x['input_count'],'output_count':x['output_count'],'output_records_sha3':x['output_records_sha3'],'output_stream_sha256':sha(r/(n+'.ops.bin')),'qubits':st['qubits_protected_analyzer'],'diagnostic_weight':st['fair_guard_depth_proxy'],'seconds':time.time()-start};print(json.dumps({'case':n,**rows[n]}),flush=True)
+ assert all(sha(t/p)==h for p,h in freeze['tool_source_files'].items())and all(sha(p)==h for p,h in inputs.values());(r/'RESULT.json').write_text(json.dumps({'status':'EXACT_LIVE_PRODUCTS_COMPONENT_NOT_SCORED','cases':rows},indent=2)+'\\n');(r/'run.exit').write_text('0\\n')
+except BaseException:
+ (r/'run.exit').write_text('1\\n');raise
+'''
+ast.parse(s);(r/'run.py').write_text(s)
+(r/'PLAN.md').write_text('Exact six-control512-term live Boolean implication/parity proof on fixed complete publicacd0 and width1233cache113 streams. No quantum wire/RNG/measurement/metadata changes in these replacement rows. Native value/phase/guard/fault controls precede scan. Original-op exact proof is regenerated, no old site tables carried. Component only, no point-input sampling/finalgate/nonce/score.\n')
+print(r)
