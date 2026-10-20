@@ -1,3 +1,13 @@
+## Public references refreshed · 21 October 2026, 04:03 SGT
+
+The latest public product record is **1,234 × 755,314 = 932,057,476**,
+[submission 1829986e](https://api.ecdsa.fail/api/submissions/1829986e-675c-4fbf-bb28-22f2f95246c4).
+Its unchanged 9,024-shot benchmark, source files and published stream reproduce
+locally. Our [747,218-Toffoli result](https://api.ecdsa.fail/api/submissions/2bd0f979-ab55-4f91-8133-68a08febaa67)
+remains the independent Toffoli minimum in the fresh public snapshot.
+
+[Public-record reproduction and provenance](experiments/breakthrough-public1829-reproduction-20261020/RESULT.json)
+
 ## Official Toffoli improvement · 21 October 2026, 03:27 SGT
 
 The challenge officially reproduced **1,464 qubits × 747,218 rounded mean

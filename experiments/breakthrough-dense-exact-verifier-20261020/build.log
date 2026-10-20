@@ -1,0 +1,55 @@
+   Compiling value_prefilter v0.1.0 (/home/hclau/ecdsa_research/breakthrough-dense-exact-verifier-20261020/tool)
+warning: fields `avg_cliff`, `avg_tof`, `tot_tof`, `tot_cliff`, and `fail_reason` are never read
+  --> src/official.rs:5:5
+   |
+ 3 | struct SeedReport {
+   |        ---------- fields in this struct
+ 4 |     ok: bool,
+ 5 |     avg_cliff: f64,
+   |     ^^^^^^^^^
+ 6 |     avg_tof: f64,
+   |     ^^^^^^^
+ 7 |     tot_tof: u64,
+   |     ^^^^^^^
+ 8 |     tot_cliff: u64,
+   |     ^^^^^^^^^
+...
+13 |     fail_reason: Option<String>,
+   |     ^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: struct `FastSimulator` is never constructed
+  --> src/fast_sim_wide.rs:26:8
+   |
+26 | struct FastSimulator<'a> {phase:u64,qubits:Vec<u64>,bits:Vec<u64>,xof:&'a mut sha3::Shake256Reader,words:Vec<u8>}
+   |        ^^^^^^^^^^^^^
+
+warning: multiple associated items are never used
+  --> src/fast_sim_wide.rs:28:5
+   |
+27 | impl<'a> FastSimulator<'a> {
+   | -------------------------- associated items in this implementation
+28 |  fn new(nq:usize,nb:usize,xof:&'a mut sha3::Shake256Reader)->Self{Self{phase:0,qubits:vec![0;nq],bits:vec![0;nb],xof,words:Vec::new()}}
+   |     ^^^
+29 |  fn clear_for_shot(&mut self){self.phase=0;self.qubits.fill(0);self.bits.fill(0);}
+   |     ^^^^^^^^^^^^^^
+30 |  fn qubit(&self,q:QubitId)->u64{self.qubits[q.0 as usize]}
+   |     ^^^^^
+31 |  fn qubit_mut(&mut self,q:QubitId)->&mut u64{&mut self.qubits[q.0 as usize]}
+   |     ^^^^^^^^^
+32 |  fn set_register(&mut self,r:&[QubitOrBit],v:U256,lane:usize){for(i,x)in r.iter().enumerate(){let p=match x{QubitOrBit::Qubit(q)=>&mut se...
+   |     ^^^^^^^^^^^^
+33 |  fn get_register(&self,r:&[QubitOrBit],lane:usize)->U256{let mut v=U256::ZERO;for(i,x)in r.iter().enumerate(){let p=match x{QubitOrBit::Q...
+   |     ^^^^^^^^^^^^
+34 |  fn apply(&mut self,p:&Compact){
+   |     ^^^^^
+
+warning: function `confirm_bucket` is never used
+  --> src/screen.rs:25:4
+   |
+25 | fn confirm_bucket(prefix:&Compact,mut prepared:Vec<PreparedPacket>,regs:&[Vec<QubitOrBit>],nq:usize,nb:usize,curve:&FastCurveC)->Vec<serd...
+   |    ^^^^^^^^^^^^^^
+
+warning: `value_prefilter` (bin "value_prefilter") generated 4 warnings
+    Finished `release` profile [optimized] target(s) in 14.21s

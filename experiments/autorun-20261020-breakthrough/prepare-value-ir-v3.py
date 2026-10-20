@@ -1,0 +1,27 @@
+from pathlib import Path
+import ast,shutil
+a=Path(__file__).parent;old=a.parent/'breakthrough-value-ir-audit-v2-20261020';r=a.parent/'breakthrough-value-ir-audit-v3-20261020';r.mkdir(exist_ok=False)
+for n in ['.gitattributes','.gitignore']:shutil.copyfile(old/n,r/n)
+s=(old/'audit.rs').read_text()
+s=s.replace('fn compile(ops:&[Op],unknown_quantum:&[usize])->Program{','fn compile(ops:&[Op],unknown_quantum:&[usize])->Program{let(_,nb,_,_)=analyze_ops(ops.iter());compile_known(ops,unknown_quantum,&(0..nb as usize).collect::<Vec<_>>())}\nfn compile_known(ops:&[Op],unknown_quantum:&[usize],unknown_classical:&[usize])->Program{')
+s=s.replace('let mut versions=nb;','let mut constants=vec![0i8;nb];for &b in unknown_classical{constants[b]=-1;}let mut versions=nb;')
+start=s.index(' for(i,o)in ops.iter().enumerate(){let own=');end=s.index('  match o.kind{',start)
+s=s[:start]+''' for(i,o)in ops.iter().enumerate(){let condition=if o.c_condition.0==u64::MAX{None}else{Some(current[o.c_condition.0 as usize])};let false_guard=base==NO||condition.map(|v|constants[v as usize]==0).unwrap_or(false);let own=condition.filter(|&v|constants[v as usize]!=1).map(|v|vec![v]).unwrap_or_default();let g=if false_guard{NO}else{intern(merge(&guards[base as usize],&own),&mut guards,&mut index)};
+  if o.kind==K::PushCondition{stack.push(base);base=g;continue;}if o.kind==K::PopCondition{base=stack.pop().unwrap();continue;}
+  if g==NO{if matches!(o.kind,K::R|K::Hmr){rng+=1;}continue;}let mut qnode=None;
+''' + s[end:]
+needle='nodes.push(Node{k,a:old,b:NO,t:new,g,r:rng.try_into().unwrap(),source:i.try_into().unwrap()});'
+replacement='''let old_constant=constants[old as usize];let constant=match k{CZERO=>if g==0||old_constant==0{0}else{-1},CONE=>if g==0||old_constant==1{1}else{-1},CINV=>if g==0&&old_constant>=0{1-old_constant}else{-1},CRNG=>-1,_=>unreachable!()};constants.push(constant);nodes.push(Node{k,a:old,b:NO,t:new,g,r:rng.try_into().unwrap(),source:i.try_into().unwrap()});'''
+assert s.count(needle)==1;s=s.replace(needle,replacement)
+s=s.replace('for _ in 0..2048{','for round in 0..128{').replace('rounds.push((l,c,p.nodes.len()));','rounds.push((l,c,p.nodes.len()));if round%8==0{eprintln!("VALUE_IR_PROGRESS round={} nodes={} removed={} cancelled={}",round,p.nodes.len(),l,c);}')
+s=s.replace('let mut p=compile(&ops,&outputs);let initial=',"let unknown_bits:Vec<_>=ops.iter().filter(|o|o.kind==K::AppendToRegister&&o.c_target.0!=u64::MAX).map(|o|o.c_target.0 as usize).collect::<BTreeSet<_>>().into_iter().collect();let mut p=compile_known(&ops,&outputs,&unknown_bits);let initial=")
+pos=s.rfind('\n}')
+s=s[:pos]+'''
+ fn checked_known_bits(ops:&[Op],unknown_bits:&[usize])->Program{let inputs=[0,1,2];let mut p=compile_known(ops,&inputs,unknown_bits);optimize(&mut p,&inputs);for pattern in[0u64,u64::MAX,0xa55a_3311_ee00_1701]{let words=vec![pattern;p.rng];let mut rng=Words{v:words.iter().flat_map(|x|x.to_le_bytes()).collect(),at:0};let mut sim=Simulator::new(p.nq,p.nb,&mut rng);for lane in 0..64{for(i,&q)in inputs.iter().enumerate(){sim.qubits[q]|=((lane>>i&1)as u64)<<lane;}for(i,&b)in unknown_bits.iter().enumerate(){sim.bits[b]|=((lane>>(i+3)&1)as u64)<<lane;}}let mut q=sim.qubits.clone();let bits=sim.bits.clone();sim.apply_iter(ops.iter());eval(&p,&mut q,&bits,&words);for &q0 in &inputs{assert_eq!(q[q0],sim.qubits[q0]);}drop(sim);assert_eq!(rng.at,p.rng*8);}p}
+ #[test]fn helper_bits_initial_zero_false_hmr_keeps_rng_position(){let n=u64::MAX;let ops=vec![op(K::Hmr,n,n,3,2,1),op(K::BitStore1,n,n,n,1,n),op(K::Hmr,n,n,3,2,1),op(K::X,n,n,2,n,2)];let p=checked_known_bits(&ops,&[0]);let live:Vec<_>=p.nodes.iter().filter(|n|n.k==CRNG).collect();assert_eq!(p.rng,2);assert_eq!(live.len(),1);assert_eq!(live[0].r,1);}
+ #[test]fn known_bit_stores_and_captured_false_guard_preserve_values(){let n=u64::MAX;let ops=vec![op(K::PushCondition,n,n,n,n,1),op(K::BitStore1,n,n,n,1,n),op(K::X,n,n,2,n,n),op(K::PopCondition,n,n,n,n,n),op(K::BitStore1,n,n,n,1,0),op(K::X,n,n,2,n,1),op(K::BitStore0,n,n,n,1,n),op(K::BitInvert,n,n,n,1,n),op(K::CX,n,0,2,n,1)];checked_known_bits(&ops,&[0]);}
+''' + s[pos:]
+(r/'audit.rs').write_text(s)
+s=(old/'run.py').read_text().replace('8 passed; 0 failed;','10 passed; 0 failed;').replace("'native_controls':8","'native_controls':10").replace('Eight protected native','Ten protected native').replace('fixedpoint or2048round bound','fixedpoint or128round bound; source-registered classical inputs arbitrary and helper classical bits initiallyzero with SSA constant propagation')
+ast.parse(s);(r/'run.py').write_text(s)
+(r/'PLAN.md').write_text((old/'PLAN.md').read_text()+'''\nV3 keeps both prior audit sources/outcomes intact. Source-declared registered\nquantum/classical inputs arbitrary; all other physical helpers initiallyzero,\nas protected Simulator::new. Conservative SSA constants track unconditional\nclassical stores/inverts and stores agreeing with prior constant under anyguard.\nKnowntrue guard literals omitted, knownfalse op no value effect; false R/HMR\nstill consumes its original RNG position. PushCondition captures false/true\nbefore later bit mutations. Extra2 exhaustive protected native controls cover\nhelper/classicalinput distinction, false HMR RNG position, nested capturedfalse\nguards and subsequent guarded writes.128round bound and progress every8rounds.\nNo exported quantum circuit, resource score, nonce screen or rejection. Future\nfilters require separate protected whole-point/FS/source qualification.\n''');print(r)

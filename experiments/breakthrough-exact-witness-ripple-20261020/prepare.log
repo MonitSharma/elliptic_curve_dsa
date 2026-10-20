@@ -1,0 +1,7 @@
+Preparing worktree (detached HEAD 28e443bc)
+HEAD is now at 28e443bc Exact square1408 workspace and independently proved153 leases at nonce8
+Traceback (most recent call last):
+  File "/home/hclau/ecdsa_research/breakthrough-exact-witness-ripple-20261020/prepare.py", line 9, in <module>
+    p=t/'src/point_add/square.rs';s=p.read_text();needle='    let mut sum = y_hi.to_vec();';assert s.count(needle)==1;s=s.replace(needle,'    let held_sum=if super::env_flag("EXACT_SQUARE_SHARED_SUM"){let q=circ.alloc_qubits(h);circ.cx_pairs(y_hi,&q);Some(q)}else{None};\n    let mut sum=held_sum.as_ref().map(|q|q.to_vec()).unwrap_or_else(||y_hi.to_vec());');needle='    restore_square_sum(circ, y_lo, &sum);';assert s.count(needle)==1;s=s.replace(needle,'    if let Some(q)=held_sum{let a:Vec<_>=(0..sum.len()).map(|j|y_lo.get(j).copied()).collect();let b:Vec<_>=(0..sum.len()).map(|j|y_hi.get(j).copied()).collect();super::sqc::erase_sum(circ,&sum,&a,&b);for &wire in q.iter().rev(){circ.release_clean(wire);}}else{restore_square_sum(circ,y_lo,&sum);}');s+='\n'+(r/'sum-tests.rs').read_text();p.write_text(s)
+                                                                                                   ^^^^^^^^^^^^^^^^^^
+AssertionError

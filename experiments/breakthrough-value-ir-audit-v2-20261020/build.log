@@ -1,0 +1,24 @@
+   Compiling product_pareto_exact v0.1.0 (/home/hclau/ecdsa_research/breakthrough-value-ir-audit-v2-20261020/tool)
+warning: fields `r` and `source` are never read
+ --> audit.rs:9:69
+  |
+9 | #[derive(Clone,Copy,Debug)]struct Node{k:u8,a:u32,b:u32,t:u32,g:u32,r:u32,source:u32}
+  |                                   ---- fields in this struct        ^     ^^^^^^
+  |
+  = note: `Node` has derived impls for the traits `Debug` and `Clone`, but these are intentionally ignored during dead code analysis
+  = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: field `nb` is never read
+  --> audit.rs:10:62
+   |
+10 | struct Program{nodes:Vec<Node>,guards:Vec<Vec<u32>>,nq:usize,nb:usize,versions:usize,rng:usize,certified_zero_resets:usize}
+   |        ------- field in this struct                          ^^
+
+warning: function `eval` is never used
+  --> audit.rs:47:4
+   |
+47 | fn eval(p:&Program,q:&mut[u64],initial_bits:&[u64],random:&[u64]){assert_eq!(initial_bits.len(),p.nb);assert_eq!(random.len(),p.rng);let ...
+   |    ^^^^
+
+warning: `product_pareto_exact` (bin "value_ir_audit") generated 3 warnings
+    Finished `release` profile [optimized] target(s) in 1.78s

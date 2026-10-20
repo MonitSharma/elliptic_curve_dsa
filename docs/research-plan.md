@@ -1,3 +1,75 @@
+## 21 October 2026, 04:15 SGT: new public baseline; exact full-width arithmetic
+
+Fresh19:54UTC1714records: accepted1829986e/source3eefcf21 becomesproductminimum
+Q1234/T755314/product932057476. Our2bd Q1464/T747218 remainsTminimum; width670/e2.
+Newpublicsource reproduced WITHOUT edits:186source/17protected matchGit objects,
+unchanged9024benchmarkPASS,total6815950442, exactpublishedstream16567ee1,
+SFf5757099/sourcearchive0a420e46. Every22evidence members verifiedlocally.
+
+OurQ1233/bestdrop gatePASS againstoldpublicacd0 remainsfinal; not re-judged or
+rerun. Newpublicrecord removesits expectedproductmargin. StoppedONLY verified
+idlecontinuation3074390 andidlefinalwatch3078510/child3078511 BEFORE any new
+screens/benchmark/upload. SUPERSEDED.json preservesofficialnewrecord/commands/
+zeroattempts. Localwatch40820 exit1 is expectedintentionalstop, not a benchmark
+failure. Initialqualified finite1..65536 search3045633/3046104 mayfinishunchanged;
+over62000completed/noPASS atcheckpoint. Noinfinitecontinuation orobsoleteupload.
+Preparedscripts remainresearchhistory; neverresumeoldsource againstnewrecord.
+
+Exact arithmetic opportunity onstrongTparent: allfive oldwitness translations
+runFULL259bits becauseSQC_G259. Their sum is -w*(2^32+977) mod2^259, w0..7.
+Public1829's13-lowbit polynomial is adapted to a singleFULL259bit ripple,
+REQUIRINGg>=n; its public59bitcut isNOT imported. No new group/reduction/witness
+cutoff; strong28bitwrap witness, fullgroup tails, windows/rounds/exactsplits stay.
+Separate exact sharedsum copies128bits whilebothoperands live andusesoldexact
+freeerase; extraQ allowed forindependentT. Fixed5cases beforeinputs: exactf8c833
+precache control, rippleatoldcaps, ripplewide, sharedsumwide, bothwide; widecaps
+global1664/square1536. Sourceonlypoint_add,17protected unchanged.
+
+V1setup stoppedbeforefreeze/native tests becausea textualsumneedleoccurselsewhere;
+partialsource/logs preserved18members. V2scopes ONLYsub_square_g1m, thennative
+newcomponent fails after deliberatefault. Diagnosis: inheritedheo::passthrough
+caches firstread processswitch inOnceLock<HashMap>; fault1 stayedactive after
+set_var0. Oldreferencepassed. OriginalfrozenV2/nativefailures preserved23members.
+V3readsALL3newresearchswitches directly throughstd::env andadds fault-then-clean
+regression. All4witness testsPASS: polynomialw0..7/modulartranslation widths35,
+59,64,129,259; full259old/new phase/guard/dirty checks; faultdetection; faulttoggle.
+Sharedsum small/widebasis/control/phase/cleanup testPASS. Groupplan1 andall5
+existingfullsquarecaller unitsPASS (their6historical walk-domain exclusions
+unchanged/disclosed). No statistical gate/census/nonce verdict existsfornewgrid.
+Fullconstructor generation nowrunning; mustreproducecontrolf8c833 before any
+resource interpretation. Staticweights are diagnostics, never scoredToffolis.
+
+Queued development3116282 waitsforcompletegrid. Onefreshlabel
+exact-witness-resource-development-20261020-v1,512x64/source,4workers/8protected
+scalarbatches each vs exactpublishedT2bd stream63370be6. Selectminimum actualmeanT,
+tieQthenmode, solely byresources amongpredeclarednative-correct architectures;
+preserveallwrong/phase/dirty/otherdifferences. Nofailure-based hiddenselection.
+Thenfreshcacheproof/fullraw/generic/cachebindings, literal0/sourcefreeze/native,
+freshfinisheddevelopment, OWN sole finalgate vs exactthen-currentT2bd, qualified
+ascendingnonce/protected9024/unchangedbenchmark/localmemberverification before
+automatic GPT-6sol/Codex submission. Globalproduct goalremainsACTIVE.
+
+Verifierresearch remainsseparate: IRv2native8 reachesfixedpoint321rounds,
+product7510/T2187live RNGdefs; v3native10/128rounds7393/2087; v4native12/128rounds
+5792/410. Countsareinternal dependency nodes, NOT quantum resources. Threevalued
+auditnative14/24fullsource protected finalvalue comparisonsPASS, butall8fixtures
+haveZEROcertifiedknown outputbits; no usefulRNG-free rejectionfilter. Neverused
+to rejectanynonce orclaimquantumimprovement. Allnegative evidence retained.
+
+Exact dense-survivor verifier passes8partialnonce/24protectedfullstate controls,
+all1024productnonce terminalkinds/firstwitnesses/counts matchoriginalengine, plus
+knownpassingofficialTdepth12nonce41/all141batches/protected9024. Additional2057
+controlattempts recorded, repeatproduction1024, notnewselection. Fullcontroltime
+29.96475s vs37.94737s (~1.2664x), no scoreclaim. Sourcefreeze011bf97c/binaryebe4abc2.
+Productionengine/source unchanged. Anyfuture newsource needsfreshqualification.
+
+Cycle11sevenfronts196 andcycle12onefront23members allhashverifiedlocally. Original
+source/protected files, patches/logs/streamhashes andfailures retained; inventories
+stayserver-only. Allpreexistinguserroot/submodule edits preserved. Lastlocal
+checkpoint9006f17; default-branchpush remainsblockedbyautomaticapprovalreview,
+pendingexplicituserapproval. Do notbypass. Localwork/authorizedchallengeuploads
+continue; unrelatedserverQOBjobs/chemistry untouched.
+
 ## 21 October 2026, 03:27 SGT: official T747218; product gate passes
 
 Auto-submission2bd0f979 officially reproduces Q1464/T747218/product1093927152,

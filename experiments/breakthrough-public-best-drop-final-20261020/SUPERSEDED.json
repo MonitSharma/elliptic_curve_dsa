@@ -1,0 +1,34 @@
+{
+  "at_utc": "2026-10-20T19:56:03.291961+00:00",
+  "status": "SUPERSEDED_BEFORE_CONTINUATION_OR_BENCHMARK_BY_NEW_PUBLIC_PRODUCT_RECORD",
+  "new_public_record": {
+    "id": "1829986e-675c-4fbf-bb28-22f2f95246c4",
+    "officialMetrics": {
+      "qubits": 1234,
+      "toffoli": 755314
+    },
+    "officialScore": 932057476,
+    "submissionCommitSha": "3eefcf216ca37cba0ae3f56212d6b1302844a249"
+  },
+  "preserved_gate": "PASS remains final against exact publicacd0; no rerun/relabel or rejudgment",
+  "candidate_source_unchanged": true,
+  "continuation_production_screens": 0,
+  "benchmark_attempts": 0,
+  "challenge_upload_attempts": 0,
+  "initial_finite_search": "Original1..65536 may complete unchanged; no infinite continuation or current-record claim. Preserve all completed screens and any protected historical packet result.",
+  "stopped_idle_processes": {
+    "3074390": [
+      "python3",
+      "/home/hclau/ecdsa_research/breakthrough-public-best-drop-nonce-continuation-20261020/run.py"
+    ],
+    "3078510": [
+      "python3",
+      "/home/hclau/ecdsa_research/breakthrough-public-best-drop-final-20261020/watch.py"
+    ],
+    "3078511": [
+      "python3",
+      "/home/hclau/ecdsa_research/breakthrough-public-best-drop-final-20261020/finalize.py"
+    ]
+  },
+  "scope": "Stop only verified idle follow-on processes. Current finite exact search, verifier controls/audits, unrelated jobs and chemistry untouched. Next work reproduces freshpublic3eef and constructs a new exact candidate with its own fresh declared gate."
+}

@@ -1,0 +1,45 @@
+   Compiling product_pareto_exact v0.1.0 (/home/hclau/ecdsa_research/breakthrough-value-abstract-audit-20261020/tool)
+warning: field `source` is never read
+ --> audit.rs:9:75
+  |
+9 | #[derive(Clone,Copy,Debug)]struct Node{k:u8,a:u32,b:u32,t:u32,g:u32,r:u32,source:u32}
+  |                                   ---- field in this struct               ^^^^^^
+  |
+  = note: `Node` has derived impls for the traits `Debug` and `Clone`, but these are intentionally ignored during dead code analysis
+  = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `product_pareto_exact` (bin "value_ir_audit" test) generated 1 warning
+    Finished `release` profile [optimized] target(s) in 2.57s
+     Running unittests audit.rs (target/release/deps/value_ir_audit-b79b867e4920e7a5)
+
+running 14 tests
+VALUE_IR_PROGRESS round=0 nodes=2 removed=1 cancelled=0
+VALUE_IR_PROGRESS round=0 nodes=0 removed=3 cancelled=2
+VALUE_IR_PROGRESS round=0 nodes=0 removed=1 cancelled=2
+VALUE_IR_PROGRESS round=0 nodes=3 removed=0 cancelled=0
+VALUE_IR_PROGRESS round=0 nodes=0 removed=2 cancelled=2
+VALUE_IR_PROGRESS round=0 nodes=2 removed=2 cancelled=0
+VALUE_IR_PROGRESS round=0 nodes=2 removed=2 cancelled=0
+VALUE_IR_PROGRESS round=0 nodes=1 removed=3 cancelled=2
+VALUE_IR_PROGRESS round=0 nodes=2 removed=3 cancelled=0
+VALUE_IR_PROGRESS round=0 nodes=3 removed=1 cancelled=0
+VALUE_IR_PROGRESS round=test tests::abstract_boolean_truth_tables_cover_all_concretizations ... 0 nodes=ok2
+ removed=1test tests::abstract_unknown_measurement_never_certifies_random_output ...  cancelled=ok0
+
+test tests::boolean_store_alias_and_captured_complement_are_exact ... ok
+VALUE_IR_PROGRESS round=test tests::captured_guard_versions_survive_mutation_and_allow_only_correct_cancellation ... ok0
+ nodes=test tests::changed_per_op_guard_prevents_false_gate_cancellation ... 5ok removed=
+0 cancelled=test tests::double_classical_inversion_reuses_immutable_guard_version ... 2ok
+
+test tests::helper_bits_initial_zero_false_hmr_keeps_rng_position ... okVALUE_IR_PROGRESS round=
+0test tests::genuinely_live_measurement_keeps_exact_original_rng_slot ...  nodes=ok3
+ removed=1test tests::dominated_conditional_reset_and_frames_remove_only_value_dead_rng ...  cancelled=ok0
+
+test tests::known_bit_stores_and_captured_false_guard_preserve_values ... ok
+test tests::missing_guard_or_reset_is_detected_by_protected_value_comparison ... ok
+test tests::prepared_arbitrary_nonoutput_input_is_not_assumed_clean ... ok
+test tests::shared_read_only_control_commutes_but_target_reads_and_control_writes_block ... ok
+test tests::unmatched_reset_guard_never_claims_global_zero ... ok
+
+test result: ok. 14 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
