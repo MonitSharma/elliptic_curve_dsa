@@ -1,0 +1,5 @@
+# Exact recycling of original zero-effect measurements
+
+Exact implicit classical guard extraction from full original prefix. AND-factor union and XOR-common-factor intersection, current bit/complement matching, oldguard redundancy exclusion, at most4clauses; private scratch for complement, unchanged quantum gates/measurements and original scope/perop conditions. Native7new+3algebra and fresh24fullprotected eachparent. No score/gate/nonce/benchmark.
+
+Each lease uses its own zero helper and immutable captured last guard. No first/last/reset event can overlap between leases. Full 64-lane basis controls preserve all source quantum and classical bits, absolute phase, exact number/order of random words, and zero helpers. Negative controls reject a dirty donor, an unrelated reset guard and a changed current product. A deliberately omitted phase repair must be detected. Whole-stream output counts are diagnostic until an actual finished source passes its own declared final gate and unchanged official benchmark.

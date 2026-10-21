@@ -1,0 +1,1 @@
+Native18/full48 protected comparisons PASS. Greedy first-free capacity policy retained0/59 public and0/13 FFE loans; no resource gain. V2 changes source-only donor selection to farthest next original quantum touch and qualifies stronger forced-move fixtures. Source/no-extra-Q theorem unchanged. No finalgate/nonce/benchmark.

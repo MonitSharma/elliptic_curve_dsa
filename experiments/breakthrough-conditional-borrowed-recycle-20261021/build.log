@@ -1,0 +1,73 @@
+   Compiling product_pareto_exact v0.1.0 (/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-conditional-borrowed-recycle-20261021/local-tool)
+warning: unused variable: `nq`
+  --> discover.rs:83:64
+   |
+83 | ...let no=u64::MAX;let nq=quantum_ecc::circuit::analyze_ops(ops.iter()).0;let mut flat=FlatGuards::new(ops);let ...
+   |                        ^^ help: if this is intentional, prefix it with an underscore: `_nq`
+   |
+   = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: field `implications` is never read
+  --> discover.rs:21:125
+   |
+21 | ...ct Expr{restricting:bool,truths:Vec<SemTruth>,canonical:HashMap<SemTruth,u32>,nodes:Vec<(u8,u32,u32)>,implications:Ha...
+   |       ---- field in this struct                                                                          ^^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: methods `quick_implies`, `implies`, and `zero_truth_table` are never used
+  --> discover.rs:30:5
+   |
+29 | impl Expr{
+   | --------- methods in this implementation
+30 |  fn quick_implies(&self,a:u32,b:u32,depth:usize)->bool{if a==0||b==1||a==b{return true;}if depth==0||a<=1||b==0{...
+   |     ^^^^^^^^^^^^^
+31 |  fn implies(&mut self,a:u32,b:u32)->bool{if self.quick_implies(a,b,12){return true;}if let Some(&v)=self.implica...
+   |     ^^^^^^^
+32 |  fn zero_truth_table(&self,root:u32)->bool{if root<=1{return root==0;}let mut pending=vec![root&!1];let mut visi...
+   |     ^^^^^^^^^^^^^^^^
+
+warning: methods `and`, `xor`, and `select` are never used
+  --> discover.rs:41:58
+   |
+41 | impl Algebra{fn fresh(&mut self)->E{self.inner.atom()}fn and(&mut self,a:&E,b:&E)->E{self.inner.and(*a,*b)}fn xor(&mut self,a:&E,b:&E)->E{self.inner.xor(*a,*b)}fn select(&m...
+   | ------------ methods in this implementation              ^^^                                                  ^^^                                                  ^^^^^^
+
+warning: function `flatten` is never used
+  --> discover.rs:60:4
+   |
+60 | fn flatten(ops:&[Op])->(Vec<Op>,serde_json::Value){let mut f=FlatGuards::new(ops);let mut out=Vec::with_capacity...
+   |    ^^^^^^^
+
+warning: function `recycle_emit` is never used
+  --> discover.rs:62:4
+   |
+62 | fn recycle_emit(ops:&[Op],leases:&[Lease],repair:bool)->Vec<Op>{let nq=quantum_ecc::circuit::analyze_ops(ops.ite...
+   |    ^^^^^^^^^^^^
+
+warning: function `recycle` is never used
+  --> discover.rs:93:4
+   |
+93 | fn recycle(ops:&[Op])->(Vec<Op>,serde_json::Value){let leases=recycle_plan(ops);let out=recycle_emit(ops,&leases...
+   |    ^^^^^^^
+
+warning: function `select_donor` is never used
+   --> discover.rs:121:4
+    |
+121 | fn select_donor(q:&[E],touches:&[Vec<usize>],busy:&[Option<usize>],first:usize,end:usize)->Option<usize>{
+    |    ^^^^^^^^^^^^
+
+warning: function `borrowed_plan` is never used
+   --> discover.rs:124:4
+    |
+124 | fn borrowed_plan(ops:&[Op],leases:&[Lease])->(Vec<Lease>,Vec<u64>){
+    |    ^^^^^^^^^^^^^
+
+warning: function `recycle_borrowed` is never used
+   --> discover.rs:136:4
+    |
+136 | fn recycle_borrowed(ops:&[Op])->(Vec<Op>,serde_json::Value){let nominations=recycle_plan(ops);let(leases,donors...
+    |    ^^^^^^^^^^^^^^^^
+
+warning: `product_pareto_exact` (bin "recycle_zero_measurements") generated 10 warnings (run `cargo fix --bin "recycle_zero_measurements" -p product_pareto_exact` to apply 1 suggestion)
+    Finished `release` profile [optimized] target(s) in 2.22s

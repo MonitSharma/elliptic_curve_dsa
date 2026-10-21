@@ -1,0 +1,1 @@
+Generation-only control. Native17/local full generation PASS. Wider13cache source superseded before any firstgate/nonce by native18/fresh48 qualified originalzero donor version: same13cache T removal with originalQ1464 rather than1477. Finish official generation/bytecontrol as evidence; no gate/nonce/benchmark for this wider source.

@@ -1,0 +1,41 @@
+{
+  "status": "COMPLETE_LOCAL_REVIEW_PASS_READY_FOR_AUTO_SUBMISSION",
+  "at_utc": "2026-10-21T03:15:46.721876+00:00",
+  "source_revision": "5d3383c9242c801c18c0faccfdbe84e16959e6b4",
+  "base": "4033714fd5f0a038c9823b78d992f29533dabc43",
+  "source_files": 207,
+  "protected_files_checked": 17,
+  "source_archive_sha256": "f10c5f37217aa2be9866c0093e2cd1a4ff13fd1c4f1a2a1bf414f4dc4094f08f",
+  "source_patch_sha256": "1d3ac7dde8835aae1b0fe72ac1b7799ecdde89d7777911aae92eb00f124a500b",
+  "source_freeze_sha256": "20852230e81b7ee65ca991c08dfb8ed1c7df0484cfaff16bbd758d9ec2ab1565",
+  "benchmark_result_sha256": "b42501012cd4b436b080aeeb15c3fd89c771058a3e9495aecd3fc1cfb6329549",
+  "gate_declaration_sha256": "84b72698cedb0bc23a6161817b81d93dcd8409240c0faf7570ffd35155a5cc92",
+  "gate_result_sha256": "274b562c7335165fc215994fb6d9eaee63af0aafe3d678e24814d5dad41d828d",
+  "native_receipt": {
+    "stream_sha256": "e3a9c27c052ee6b6fd93f32906d8567b2cd5346cc16f1508488ce20767421a1b",
+    "records_sha256": "25e2b10035e5a93ba8d88e6a2073ddee23858a48e5ed8992a96d8e1cd375d11e",
+    "pre_tail_sha256": "652b5df0767b04e233ea6442a2d48f05ea33c9a7eac3eb7df60a9fb46707e299",
+    "pre_tail_byte_identical_to_gated_source": true,
+    "nonce": 142,
+    "operations": 11292560
+  },
+  "qubits": 1464,
+  "rounded_mean_executed_toffoli": 746089,
+  "product": 1092274296,
+  "nonce": 142,
+  "production_screens": 192,
+  "highest_screened": 192,
+  "passes": [
+    142,
+    147
+  ],
+  "additional_partial_packet_controls": "1..8 repeated in production;24 protected full-state scalar batches at0,70,140",
+  "selected_protected_packet_passed": true,
+  "unchanged_benchmark_passed_shots": 9024,
+  "historical_results_restored": true,
+  "tracked_changes_only_point_add": true,
+  "submission_mode": "auto",
+  "ai_model": "GPT-6 sol",
+  "coding_harness": "Codex",
+  "scope": "Complete unchanged benchmark of exact thirteen original-zero donor cache holds and unitary cleanup. Targets independentT versus currentcb2253; no globalproduct claim."
+}

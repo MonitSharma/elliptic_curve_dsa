@@ -1,3 +1,19 @@
+## 21 October 2026: two further official Toffoli improvements
+
+Official cb2253 Q1467/T746099, then 8d704a6b Q1464/T746089, complete unchanged
+9024-shot benchmarks PASS, all207 source/17 protected files exact. Own final
+borrowed13 gate32768x64 versus exactcb2253:1151 value failures each,1166 failed
+batches each, dirty0, b=c0,p1, exactTdelta-10/SE0. Nonce142,192ascending screens,
+lowestPASS; all159sealed evidence members independently verified,158hydrated.
+Fresh03:50UTC1719records confirm T minimum; globalproduct932057476 unchanged.
+Conditional donors21native/full48, future-target18/full48, moving18/full48
+and improvedmoving18/full48, implicitguardV2 native10/full48 preserved. These
+are component research only, with no additional record. Wider1477 control is
+retired before gate. Current compactcarryQ1233+114freshcontext caches is near
+product threshold; fresh exact fullprefix alias qualification now running.
+Globalproduct objective ACTIVE; newerrootcommits local, approved41push done.
+Preserve Q692, prior verdicts, original retired6192search and all user edits.
+
 ## 21 October 2026: ORIGINAL_FS fixed-control certificate qualification PASS
 
 Native44 and48fresh complete protected VALUE comparisons PASS on exactOLD6192/

@@ -1,0 +1,193 @@
+{
+  "qualification": {
+    "cases": [
+      {
+        "case": 0,
+        "measurement_words": 790279,
+        "rng_pattern": "0000000000000000"
+      },
+      {
+        "case": 0,
+        "measurement_words": 790279,
+        "rng_pattern": "ffffffffffffffff"
+      },
+      {
+        "case": 0,
+        "measurement_words": 790279,
+        "rng_pattern": "a55add33ff001188"
+      },
+      {
+        "case": 1,
+        "measurement_words": 790279,
+        "rng_pattern": "0000000000000000"
+      },
+      {
+        "case": 1,
+        "measurement_words": 790279,
+        "rng_pattern": "ffffffffffffffff"
+      },
+      {
+        "case": 1,
+        "measurement_words": 790279,
+        "rng_pattern": "a55add33ff001188"
+      },
+      {
+        "case": 2,
+        "measurement_words": 790279,
+        "rng_pattern": "0000000000000000"
+      },
+      {
+        "case": 2,
+        "measurement_words": 790279,
+        "rng_pattern": "ffffffffffffffff"
+      },
+      {
+        "case": 2,
+        "measurement_words": 790279,
+        "rng_pattern": "a55add33ff001188"
+      },
+      {
+        "case": 3,
+        "measurement_words": 790279,
+        "rng_pattern": "0000000000000000"
+      },
+      {
+        "case": 3,
+        "measurement_words": 790279,
+        "rng_pattern": "ffffffffffffffff"
+      },
+      {
+        "case": 3,
+        "measurement_words": 790279,
+        "rng_pattern": "a55add33ff001188"
+      },
+      {
+        "case": 4,
+        "measurement_words": 790279,
+        "rng_pattern": "0000000000000000"
+      },
+      {
+        "case": 4,
+        "measurement_words": 790279,
+        "rng_pattern": "ffffffffffffffff"
+      },
+      {
+        "case": 4,
+        "measurement_words": 790279,
+        "rng_pattern": "a55add33ff001188"
+      },
+      {
+        "case": 5,
+        "measurement_words": 790279,
+        "rng_pattern": "0000000000000000"
+      },
+      {
+        "case": 5,
+        "measurement_words": 790279,
+        "rng_pattern": "ffffffffffffffff"
+      },
+      {
+        "case": 5,
+        "measurement_words": 790279,
+        "rng_pattern": "a55add33ff001188"
+      },
+      {
+        "case": 6,
+        "measurement_words": 790279,
+        "rng_pattern": "0000000000000000"
+      },
+      {
+        "case": 6,
+        "measurement_words": 790279,
+        "rng_pattern": "ffffffffffffffff"
+      },
+      {
+        "case": 6,
+        "measurement_words": 790279,
+        "rng_pattern": "a55add33ff001188"
+      },
+      {
+        "case": 7,
+        "measurement_words": 790279,
+        "rng_pattern": "0000000000000000"
+      },
+      {
+        "case": 7,
+        "measurement_words": 790279,
+        "rng_pattern": "ffffffffffffffff"
+      },
+      {
+        "case": 7,
+        "measurement_words": 790279,
+        "rng_pattern": "a55add33ff001188"
+      }
+    ],
+    "protected_fullstream_comparisons": 24,
+    "scope": "Arbitrary registered inputs, not a point-correctness census. Every physical quantum/original classical bit, absolute phase, original random-word consumption match; extra helpers all zero, executed Toffolis do not increase unchanged protected simulator."
+  },
+  "stats": {
+    "accepted_leases": 10,
+    "classical_bits": 1638,
+    "extra_qubits": 0,
+    "input_operations": 10995456,
+    "input_records_sha3": "373e44f24e185dd662b59a4ff683555b66a05c9995ff2684eefb6723446100cc",
+    "leases": [
+      {
+        "first": 7392534,
+        "future_original_target": 1387,
+        "last": 7394064
+      },
+      {
+        "first": 7407948,
+        "future_original_target": 1388,
+        "last": 7409478
+      },
+      {
+        "first": 7423362,
+        "future_original_target": 1389,
+        "last": 7424892
+      },
+      {
+        "first": 7423366,
+        "future_original_target": 1390,
+        "last": 7424901
+      },
+      {
+        "first": 7438776,
+        "future_original_target": 1390,
+        "last": 7440306
+      },
+      {
+        "first": 7454190,
+        "future_original_target": 1391,
+        "last": 7455720
+      },
+      {
+        "first": 7469604,
+        "future_original_target": 1392,
+        "last": 7471134
+      },
+      {
+        "first": 7485018,
+        "future_original_target": 1393,
+        "last": 7486548
+      },
+      {
+        "first": 7485022,
+        "future_original_target": 1394,
+        "last": 7486557
+      },
+      {
+        "first": 7500432,
+        "future_original_target": 1394,
+        "last": 7501962
+      }
+    ],
+    "nominated_leases": 13,
+    "output_operations": 10995456,
+    "proof": "Full original prefix proves identical effective products f at first/last CCX and immediate post-last q_last=f, hence pre-last q_last=0. No original quantum read/write/phase touch to q_last on [first,last). Thus q_last=0 before first. Compute first original guarded product into q_last, same-guard CX to original first target; delete last CCX. Original scopes/classical/measurement ordering untouched, no added quantum/classical wires, original opcount unchanged. Overlapping ownership of same last target forbidden. All final original quantum/classical/phase/RNG values must pass protected comparison; not a scored result.",
+    "qubits": 1464,
+    "status": "EARLY_FUTURE_TARGET_PRODUCT_TRANSFER_COMPONENT_NOT_SCORED"
+  },
+  "status": "EXACT_RESET_RECYCLE_COMPONENT_COMPLETE_NOT_A_RECORD"
+}

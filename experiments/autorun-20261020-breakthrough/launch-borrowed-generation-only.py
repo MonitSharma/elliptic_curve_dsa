@@ -1,0 +1,15 @@
+from pathlib import Path
+import json,hashlib,tarfile,subprocess
+a=Path(__file__).resolve().parent;ex=a.parent;r=ex/'breakthrough-borrowed-recycle-finished-20261021';old=ex/'breakthrough-recycle-finished-v2-20261021';sha=lambda p:hashlib.file_digest(p.open('rb'),'sha256').hexdigest()
+s=(old/'server-run.py').read_text();prefix=s[:s.index(" dev=ws/'breakthrough-recycle-finished-development")];ending=s[s.index('except BaseException:'):]
+s=prefix+" save(r/'PIPELINE-RESULT.json',{'status':'NATIVE21_AND_OFFICIAL_BYTE_GENERATION_COMPLETE_AWAIT_CURRENT_PARENT_GATE','scope':'Generation only. No development/finalgate/nonce/benchmark. Current exact public Toffoli comparator must be refreshed and first sole gate declared separately.'});(r/'pipeline.exit').write_text('0\\n')\n"+ending
+s=s.replace(old.name,r.name).replace("'1467'","'1464'").replace('==1467','==1464').replace("'qubits':1467","'qubits':1464").replace('==11292532','==11292560').replace('14 passed;','21 passed;').replace("'native_tests':14","'native_tests':21").replace("'prior_independent_semantic_proof_controls':11","'prior_independent_semantic_proof_controls':18").replace("local['native_controls']==14","local['native_controls']==21").replace('NATIVE14','NATIVE21').replace('Freeze exact original-measurement recycling at nonce zero','Freeze exact thirteen-pair original-zero donor cleanup at nonce zero')
+compile(s,str(r/'server-run.py'),'exec');(r/'server-run.py').write_text(s)
+selected=[r/n for n in ['SOURCE-SPEC.json','point-add-source.tar.gz','source.patch','server-run.py','PLAN.md']];bundle=a/'borrowed-generation-only.tar.gz'
+with tarfile.open(bundle,'w:gz')as ar:
+ for p in selected:ar.add(p,arcname=p.relative_to(ex).as_posix(),recursive=False)
+receipt={'archive_sha256':sha(bundle),'members':{p.relative_to(ex).as_posix():sha(p)for p in selected},'scope':'Only source207/native21/official1.93 generation/local bytecontrol. No gate/nonce/benchmark. Current public parent refreshed separately before first gate.'};rp=a/'BORROWED-GENERATION-TRANSFER.json';rp.write_text(json.dumps(receipt,indent=2)+'\n')
+s=(a/'install-recycle-server.py').read_text();start=s.index('allowed={');end=s.index('\nwith tarfile.open',start);s=s[:start]+"allowed={'"+r.name+"'}"+s[end:];s=s.replace(old.name,r.name).replace('breakthrough-recycle-final-gate-20261021','breakthrough-borrowed-recycle-final-gate-20261021').replace('Generation/native14/officialbytecontrol/freshdevelopment/solegate only. No nonce/benchmark/upload.','Generation/native21/officialbytecontrol ONLY; currentparent/freshgate separately. No nonce/benchmark/upload.')
+p=a/'install-borrowed-generation.py';p.write_text(s);compile(s,str(p),'exec')
+for p in[bundle,rp,p]:subprocess.run(['scp','-o','BatchMode=yes',str(p),'smu_server:/home/hclau/ecdsa_research/'+p.name],check=True)
+out=subprocess.check_output(['ssh','-o','BatchMode=yes','smu_server','python3','/home/hclau/ecdsa_research/install-borrowed-generation.py','/home/hclau/ecdsa_research/'+bundle.name,'/home/hclau/ecdsa_research/'+rp.name],text=True);(r/'SERVER-LAUNCH.json').write_text(out);print(out)

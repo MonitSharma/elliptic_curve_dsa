@@ -1,0 +1,37 @@
+{
+  "status": "DEVELOPMENT_COMPARISON_COMPLETE_PRESERVE_ALL_MISMATCHES",
+  "label": "cb2253-borrowed13-development-20261021-v1",
+  "batches": 512,
+  "summaries": {
+    "official_cb2253": {
+      "value_shots": 17,
+      "phase_shots": 9,
+      "dirty_shots": 0,
+      "failed_batches": 19,
+      "mean_executed_stream_toffoli": 746104.8198852539,
+      "rows_sha256": "571ba64b2643a5ceea9012c007398cfe56d105a1e5e42b31f51e1f3f493586f2"
+    },
+    "borrowed": {
+      "value_shots": 17,
+      "phase_shots": 9,
+      "dirty_shots": 0,
+      "failed_batches": 19,
+      "mean_executed_stream_toffoli": 746094.8198852539,
+      "rows_sha256": "9f9ed20bba4eeaac13a53ebdd857d47336725c8dde4d8667f2f492a3e947c578"
+    }
+  },
+  "comparisons": {
+    "borrowed": {
+      "candidate_minus_parent_raw_toffoli": -10.0,
+      "paired_standard_error": 0.0,
+      "new_failed_batches": 0,
+      "new_passing_batches": 0,
+      "new_value_failing_shots": [],
+      "new_value_passing_shots": [],
+      "different_target_lanes": [],
+      "different_other_lanes": [],
+      "target_differences_confined_to_both_value_failing": true
+    }
+  },
+  "scope": "First fresh development for fixed13originaldonor source207/native21/official-local bytes. Current officialcb2253 comparator, all target/other hashes and failure identities. No score or gate verdict from development."
+}

@@ -1,0 +1,40 @@
+{
+  "status": "COMPLETE_LOCAL_REVIEW_PASS_READY_FOR_AUTO_SUBMISSION",
+  "at_utc": "2026-10-21T02:43:15.626453+00:00",
+  "source_revision": "6cbb689761d26b2f63399e73b0703efc74351ec2",
+  "base": "4033714fd5f0a038c9823b78d992f29533dabc43",
+  "source_files": 207,
+  "protected_files_checked": 17,
+  "source_archive_sha256": "54a90436a2bafe7ca860664f0ed3b678de61147230b146200f10274114b9fcd5",
+  "source_patch_sha256": "28eed1e0cc798c2e19128d30ad0d5ba1d0334b3ff59cbab966e575d3bf469351",
+  "source_freeze_sha256": "060e3ea4c0dec39bd69e01e9752b374109136f3269f58011f5cfb19c52831864",
+  "benchmark_result_sha256": "01a254c456b863d29d2e723344573c61ed54c4fd2cc43cb68ae8e8956d5b4b98",
+  "gate_declaration_sha256": "57c2c3abd1285fdb4a79c33543153c52d3b35491d7ad4ea6f00bc536c1b4a364",
+  "gate_result_sha256": "45ace839a9b654faaa29a18478e02e8afbddfe6137e2077749c0e53591ec4f2a",
+  "native_receipt": {
+    "stream_sha256": "17f8932644fb5ebf1122a9b5240ff675fd830fc7516f82e667608850c93085a8",
+    "records_sha256": "8a07a7330993ff28a522bca5a2e6dde2ba6dc33372eee65dcbdc9ce874a3fb5b",
+    "pre_tail_sha256": "b238b815b93c5f7d62876ec767d936981d20a90f7581b456a75c9ce10be1cc38",
+    "pre_tail_byte_identical_to_gated_source": true,
+    "nonce": 1127,
+    "operations": 11292532
+  },
+  "qubits": 1467,
+  "rounded_mean_executed_toffoli": 746099,
+  "product": 1094527233,
+  "nonce": 1127,
+  "production_screens": 1152,
+  "highest_screened": 1152,
+  "passes": [
+    1127
+  ],
+  "additional_partial_packet_controls": "1..8 repeated in production;24 protected full-state scalar batches at0,70,140",
+  "selected_protected_packet_passed": true,
+  "unchanged_benchmark_passed_shots": 9024,
+  "historical_results_restored": true,
+  "tracked_changes_only_point_add": true,
+  "submission_mode": "auto",
+  "ai_model": "GPT-6 sol",
+  "coding_harness": "Codex",
+  "scope": "Complete unchanged benchmark of exact three original-measurement cache discharges with no added random words. Targets independentT versus currentde8; no globalproduct claim."
+}

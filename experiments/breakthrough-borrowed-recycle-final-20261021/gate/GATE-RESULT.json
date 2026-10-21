@@ -1,0 +1,50 @@
+{
+  "verdict": "FAILURE_RATE_GATE_PASS",
+  "label": "cb2253-borrowed13-final-20261021-v1",
+  "batches": 32768,
+  "shots_per_source": 2097152,
+  "seconds": 49.297451972961426,
+  "checks": {
+    "value_shots_no_more_than_parent": true,
+    "paired_exact_mcnemar_not_significantly_worse": true,
+    "failed_batches_per_packet_at_most18": true,
+    "zero_dirty_ancilla_shots": true
+  },
+  "summaries": {
+    "parent": {
+      "batches": 32768,
+      "shots": 2097152,
+      "value_shots": 1151,
+      "phase_shots": 629,
+      "dirty_shots": 0,
+      "failed_batches": 1166,
+      "mean_executed_toffoli": 746104.5530891418,
+      "rows_sha256": "94448f614d101b2ba04baa9dea4ec7c719314930fafe359a52243aee4b040cc2",
+      "failed_batches_per_9024_packet": 5.01727294921875
+    },
+    "candidate": {
+      "batches": 32768,
+      "shots": 2097152,
+      "value_shots": 1151,
+      "phase_shots": 629,
+      "dirty_shots": 0,
+      "failed_batches": 1166,
+      "mean_executed_toffoli": 746094.5530891418,
+      "rows_sha256": "4d5ae925561f22503e7c018039d308647af35b5750724e8c89cd5837c79958a9",
+      "failed_batches_per_9024_packet": 5.01727294921875
+    }
+  },
+  "newly_failing_batches_b": 0,
+  "newly_passing_batches_c": 0,
+  "one_sided_exact_mcnemar_p": 1.0,
+  "value_failing_shot_identities_equal": true,
+  "new_value_failing_shots": 0,
+  "new_value_passing_shots": 0,
+  "candidate_minus_parent_mean_executed_toffoli": -10.0,
+  "paired_standard_error": 0.0,
+  "declaration_sha256": "84b72698cedb0bc23a6161817b81d93dcd8409240c0faf7570ffd35155a5cc92",
+  "candidate_source_freeze_sha256": "9464179d81bb708431dc0725b2c448d98b69821f6f2946e8169330fa98103917",
+  "candidate_stream_sha256": "8d4771c7b02d5801235eef8114c5f72e64151afa078c9b0452e18a424e4547bb",
+  "parent_stream_sha256": "17f8932644fb5ebf1122a9b5240ff675fd830fc7516f82e667608850c93085a8",
+  "scope": "Final declared gate verdict. No source, label, batch or nonce changes permitted to reverse failure. Resource means diagnostic; no official benchmark score. Nonce screening may start only on PASS."
+}

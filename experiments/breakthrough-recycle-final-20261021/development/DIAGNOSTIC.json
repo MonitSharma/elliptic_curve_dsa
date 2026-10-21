@@ -1,0 +1,37 @@
+{
+  "status": "DEVELOPMENT_COMPARISON_COMPLETE_PRESERVE_ALL_MISMATCHES",
+  "label": "ffe20-recycle-finished-development-20261021-v1",
+  "batches": 512,
+  "summaries": {
+    "official_ffe20": {
+      "value_shots": 15,
+      "phase_shots": 10,
+      "dirty_shots": 0,
+      "failed_batches": 15,
+      "mean_executed_stream_toffoli": 746108.7215576172,
+      "rows_sha256": "c16393ccfad0247f0cc13c7401470665de39086de568c3e8bceb66e511b3128d"
+    },
+    "recycle": {
+      "value_shots": 15,
+      "phase_shots": 10,
+      "dirty_shots": 0,
+      "failed_batches": 15,
+      "mean_executed_stream_toffoli": 746105.7215576172,
+      "rows_sha256": "a7578b6ad626179e456595aa5dd1d886625a316fd64d5eaa92f6b39ff6869970"
+    }
+  },
+  "comparisons": {
+    "recycle": {
+      "candidate_minus_parent_raw_toffoli": -3.0,
+      "paired_standard_error": 0.0,
+      "new_failed_batches": 0,
+      "new_passing_batches": 0,
+      "new_value_failing_shots": [],
+      "new_value_passing_shots": [],
+      "different_target_lanes": [],
+      "different_other_lanes": [],
+      "target_differences_confined_to_both_value_failing": true
+    }
+  },
+  "scope": "Fresh finished-source development only, after native4/independentproof12/local-versus-official1.93 exactstream agreement. Exact public1829 comparator, every target/otherregisterhash and phase/value/dirty outcome retained. No gate/nonce/benchmark/score."
+}

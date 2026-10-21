@@ -1,0 +1,3 @@
+# Finished original-measurement recycling candidate
+
+Finished exact full-prefix measurement-recycling candidate versus current FFE Toffoli record. Source206 parent files byte-identical except build wrapper, new207th module rederives all3 leases on original full trace. Same original measurement count/order; exact zero-effect donor, resetguard implication and current control product, captured last guard, phase repair. Prior native11/fresh48 complete protected comparisons PASS. New runtime native14 and local/official1.93 bytecontrol, NEWfinished development and OWNsolefinalgate vs exactcurrentFFE required. Extra width acceptable for independent Toffoli objective. No nonce/benchmark/upload beforePASS.

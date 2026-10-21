@@ -1,0 +1,87 @@
+   Compiling product_pareto_exact v0.1.0 (/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-moving-recycle-v2-20261021/local-tool)
+warning: field `implications` is never read
+  --> discover.rs:21:125
+   |
+21 | ...ct Expr{restricting:bool,truths:Vec<SemTruth>,canonical:HashMap<SemTruth,u32>,nodes:Vec<(u8,u32,u32)>,implications:Ha...
+   |       ---- field in this struct                                                                          ^^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: methods `quick_implies`, `implies`, and `zero_truth_table` are never used
+  --> discover.rs:30:5
+   |
+29 | impl Expr{
+   | --------- methods in this implementation
+30 |  fn quick_implies(&self,a:u32,b:u32,depth:usize)->bool{if a==0||b==1||a==b{return true;}if depth==0||a<=1||b==0{...
+   |     ^^^^^^^^^^^^^
+31 |  fn implies(&mut self,a:u32,b:u32)->bool{if self.quick_implies(a,b,12){return true;}if let Some(&v)=self.implica...
+   |     ^^^^^^^
+32 |  fn zero_truth_table(&self,root:u32)->bool{if root<=1{return root==0;}let mut pending=vec![root&!1];let mut visi...
+   |     ^^^^^^^^^^^^^^^^
+
+warning: methods `and`, `xor`, and `select` are never used
+  --> discover.rs:41:58
+   |
+41 | impl Algebra{fn fresh(&mut self)->E{self.inner.atom()}fn and(&mut self,a:&E,b:&E)->E{self.inner.and(*a,*b)}fn xor(&mut self,a:&E,b:&E)->E{self.inner.xor(*a,*b)}fn select(&m...
+   | ------------ methods in this implementation              ^^^                                                  ^^^                                                  ^^^^^^
+
+warning: function `flatten` is never used
+  --> discover.rs:60:4
+   |
+60 | fn flatten(ops:&[Op])->(Vec<Op>,serde_json::Value){let mut f=FlatGuards::new(ops);let mut out=Vec::with_capacity...
+   |    ^^^^^^^
+
+warning: function `recycle` is never used
+  --> discover.rs:92:4
+   |
+92 | fn recycle(ops:&[Op])->(Vec<Op>,serde_json::Value){let leases=recycle_plan(ops);let out=recycle_emit(ops,&leases...
+   |    ^^^^^^^
+
+warning: `product_pareto_exact` (bin "recycle_zero_measurements" test) generated 5 warnings
+    Finished `release` profile [optimized] target(s) in 3.38s
+     Running unittests discover.rs (/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-value-guard-fusion-audit-20261020/local-tool/target/release/deps/recycle_zero_measurements-9146911ce1322fe6)
+
+running 18 tests
+RECYCLE_PLAN op=0test semantic_algebra_controls::above_six_atom_cofactor_has_disabled_negative_control ... ok accepted=0
+test semantic_algebra_controls::distributivity_and_unused_support_are_exact ...  pending=0ok nodes=5
+
+RECYCLE_PLAN op=0 accepted=0 pending=0 nodes=5
+RECYCLE_PLAN op=0 accepted=0 pending=0 nodes=4
+RECYCLE_PLAN op=0 accepted=0 pending=0 nodes=4
+RECYCLE_PLAN op=0 accepted=0 pending=0 nodes=6
+RECYCLE_PLAN op=0test recycle_tests::changed_controls_with_exact_product_invariance_are_accepted ... ok accepted=0
+ pending=0 nodes=6
+RECYCLE_PLAN op=0test recycle_tests::dirty_donor_is_rejected ... ok accepted=0
+ pending=0 nodes=5
+RECYCLE_PLAN op=0 accepted=0 pending=0 nodes=6
+RECYCLE_PLAN op=0test recycle_tests::changed_current_control_product_is_rejected ... ok accepted=0
+ pending=0 nodes=6
+RECYCLE_PLAN op=test recycle_tests::nonimplied_reset_guard_is_rejected ... ok0 accepted=
+0 pending=0 nodes=6
+RECYCLE_PLAN op=0test recycle_tests::original_hmr_preserves_classical_outputs_and_rng ... ok accepted=0
+ pending=0 nodes=5
+RECYCLE_PLAN op=0 accepted=0 pending=0 nodes=6
+RECYCLE_PLAN op=0test recycle_tests::original_r_recycles_same_word_for_all_basis_states_and_phase_fault_is_detected ... ok accepted=0
+ pending=0 nodes=6
+RECYCLE_PLAN op=0test recycle_tests::reset_condition_may_alias_its_hmr_classical_output ... ok accepted=0
+ pending=0 nodes=6
+RECYCLE_PLAN op=0test recycle_tests::sibling_scope_captured_guard_survives_mutation_and_hmr_alias ... ok accepted=0
+ pending=0 nodes=5
+MOVING_DONORS op=0 dropped=0 nodes=5
+MOVING_DONORS op=0test moving_donor_tests::multiple_loans_reuse_a_zero_location_after_exact_cleanup ...  dropped=0ok
+ nodes=5
+MOVING_DONORS op=0test moving_donor_tests::no_spare_wire_removes_the_entire_provisional_loan ...  dropped=0ok
+ nodes=4
+MOVING_DONORS op=0test moving_donor_tests::moving_before_original_hmr_preserves_its_classical_output_and_same_rng_word ...  dropped=0ok
+ nodes=4
+RECYCLE_PLAN op=0test moving_donor_tests::moving_cache_out_of_original_touch_restores_original_scope_phase_and_rng ... ok accepted=0
+ pending=0 nodes=5
+RECYCLE_PLAN op=0test recycle_tests::later_source_alias_allows_cleanup_before_a_nonzero_measurement ...  accepted=0ok
+ pending=0 nodes=5
+RECYCLE_PLAN op=0test recycle_tests::exact_original_wire_phase_alias_survives_changed_last_controls ... ok accepted=0
+ pending=0 nodes=5
+test recycle_tests::zero_last_target_accepts_immediate_free_unitary_cleanup_and_fault_leaves_dirty_cache ... ok
+test semantic_algebra_controls::complete_six_atom_expression_truths_match_original_functions ... ok
+
+test result: ok. 18 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 4.54s
+

@@ -1,0 +1,142 @@
+{
+  "qualification": {
+    "cases": [
+      {
+        "case": 0,
+        "measurement_words": 864742,
+        "rng_pattern": "0000000000000000"
+      },
+      {
+        "case": 0,
+        "measurement_words": 864742,
+        "rng_pattern": "ffffffffffffffff"
+      },
+      {
+        "case": 0,
+        "measurement_words": 864742,
+        "rng_pattern": "a55add33ff001188"
+      },
+      {
+        "case": 1,
+        "measurement_words": 864742,
+        "rng_pattern": "0000000000000000"
+      },
+      {
+        "case": 1,
+        "measurement_words": 864742,
+        "rng_pattern": "ffffffffffffffff"
+      },
+      {
+        "case": 1,
+        "measurement_words": 864742,
+        "rng_pattern": "a55add33ff001188"
+      },
+      {
+        "case": 2,
+        "measurement_words": 864742,
+        "rng_pattern": "0000000000000000"
+      },
+      {
+        "case": 2,
+        "measurement_words": 864742,
+        "rng_pattern": "ffffffffffffffff"
+      },
+      {
+        "case": 2,
+        "measurement_words": 864742,
+        "rng_pattern": "a55add33ff001188"
+      },
+      {
+        "case": 3,
+        "measurement_words": 864742,
+        "rng_pattern": "0000000000000000"
+      },
+      {
+        "case": 3,
+        "measurement_words": 864742,
+        "rng_pattern": "ffffffffffffffff"
+      },
+      {
+        "case": 3,
+        "measurement_words": 864742,
+        "rng_pattern": "a55add33ff001188"
+      },
+      {
+        "case": 4,
+        "measurement_words": 864742,
+        "rng_pattern": "0000000000000000"
+      },
+      {
+        "case": 4,
+        "measurement_words": 864742,
+        "rng_pattern": "ffffffffffffffff"
+      },
+      {
+        "case": 4,
+        "measurement_words": 864742,
+        "rng_pattern": "a55add33ff001188"
+      },
+      {
+        "case": 5,
+        "measurement_words": 864742,
+        "rng_pattern": "0000000000000000"
+      },
+      {
+        "case": 5,
+        "measurement_words": 864742,
+        "rng_pattern": "ffffffffffffffff"
+      },
+      {
+        "case": 5,
+        "measurement_words": 864742,
+        "rng_pattern": "a55add33ff001188"
+      },
+      {
+        "case": 6,
+        "measurement_words": 864742,
+        "rng_pattern": "0000000000000000"
+      },
+      {
+        "case": 6,
+        "measurement_words": 864742,
+        "rng_pattern": "ffffffffffffffff"
+      },
+      {
+        "case": 6,
+        "measurement_words": 864742,
+        "rng_pattern": "a55add33ff001188"
+      },
+      {
+        "case": 7,
+        "measurement_words": 864742,
+        "rng_pattern": "0000000000000000"
+      },
+      {
+        "case": 7,
+        "measurement_words": 864742,
+        "rng_pattern": "ffffffffffffffff"
+      },
+      {
+        "case": 7,
+        "measurement_words": 864742,
+        "rng_pattern": "a55add33ff001188"
+      }
+    ],
+    "protected_fullstream_comparisons": 24,
+    "scope": "Arbitrary registered inputs, not a point-correctness census. Every physical quantum/original classical bit, absolute phase, original random-word consumption match; extra helpers all zero, executed Toffolis do not increase unchanged protected simulator."
+  },
+  "stats": {
+    "accepted_leases": 0,
+    "classical_bits": 1643,
+    "extra_qubits": 0,
+    "input_operations": 11682054,
+    "input_records_sha3": "3000fc9119ca08944ea9f087f1f69d42a149ede69ea6221b8a60e2f23929171b",
+    "leases": [],
+    "nominated_leases": 59,
+    "output_operations": 11682054,
+    "proof": "Full original prefix proves identical effective products f at first/last CCX and immediate post-last q_last=f, hence pre-last q_last=0. No original quantum read/write/phase touch to q_last on [first,last). Thus q_last=0 before first. Compute first original guarded product into q_last, same-guard CX to original first target; delete last CCX. Original scopes/classical/measurement ordering untouched, no added quantum/classical wires, original opcount unchanged. Overlapping ownership of same last target forbidden. All final original quantum/classical/phase/RNG values must pass protected comparison; not a scored result.",
+    "qubits": 1234,
+    "status": "EARLY_FUTURE_TARGET_PRODUCT_TRANSFER_COMPONENT_NOT_SCORED"
+  },
+  "status": "EXACT_RESET_RECYCLE_COMPONENT_COMPLETE_NOT_A_RECORD"
+}
