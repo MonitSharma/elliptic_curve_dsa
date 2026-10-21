@@ -792,3 +792,25 @@ then advisorynomination plus exactpackedproof/fullstatefallback. Public exact
 singleCCXtoCX still componentonly. Exact approved41f769ec push completed earlier;
 newercommits local. Preexisting edits/chemistry/unrelatedHPC jobs preserved.
 
+
+## 21 October 2026: ORIGINAL_FS fixed-control certificate qualification PASS
+
+Native44 and48fresh complete protected VALUE comparisons PASS on exactOLD6192/
+cache188c0947:24arbitraryinputs and3patterns at each8actualmutatedcontrolstreams.
+Fixedalready-screenednonces1..8/batches7,3,5,5,4,1,0,29 were declared before
+execution. Fullprotectedfiat_shamir_seed versus prefixstate+qualifiedtail agrees
+on ALL9024attempt scalarbytes and first128postinputRNGbytes for everycontrol.
+Curve-checkskip-without-refill membership through original selectedbatch.
+All512outputbitsknown for every512points:sevenoriginalclassicalwitnesses each
+certify1wrongshot; nonce7phaseonly certifies0 and remainsforfullstatefallback.
+Originalverdicts neverrejudged. No acceptance/phase/dirtycertificate claimed.
+
+No newnonce screened/rejected and retired1..65536search NOT resumed/extended.
+No newcircuit/finalgate/benchmark/submission. Compact backend currentparent
+32,768-point qualification remainsseparate; oldcache neverclaimedcurrentproof.
+Next:finishedcurrentpublic exactsingleCCXtoCX source and solefreshgate after
+recordrefresh; productionsearch stillrequirespassedgate/owncache/originalFS
+qualification. Advisorymodel maynominateonly; exactproof or unchangedfullstate
+mustconfirm everyrejection. Globalproductgoal ACTIVE; approved41pushdone,
+newercommitslocal. PreserveQ692/useredits/unrelatedserverjobs/chemistry.
+

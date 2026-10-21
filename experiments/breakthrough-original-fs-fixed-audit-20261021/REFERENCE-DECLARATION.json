@@ -1,0 +1,30 @@
+{
+  "declared_at_utc": "2026-10-21T01:15:53.963770+00:00",
+  "status": "FIXED_EXISTING_CONTROL_REPLAY_DECLARED_NOT_EXECUTED",
+  "fixed_nonces": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "fixed_batches": "Each preserved exact_witness_batch; no other nominee or nonce may be selected after seeing outcomes. Phase-only witness remains phase-only, no value certificate inferred.",
+  "old_stream_sha256": "6192778816154b713a714446b3e7d28165a649460173a3e3f17d9de06fa7bb96",
+  "old_source": "breakthrough-public-best-drop-finished-20261020",
+  "old_gate_result_sha256": "86481b3a2f41d06d529d27e0986ab3ffe38492ed31bdac22d4855ad66953c4a2",
+  "old_search_verdict": "EXHAUSTED_DECLARED_PREFIX1..65536; final, retired, no resume",
+  "old_production_rows_sha256": "4e948b57b67da7793aef0a7ed6956e2068e1cf16e0c057f740229fab10c715c1",
+  "old_engine_binary_sha256": "8e436ff41054829135da64e5140900d299f9e17697fd035474a90399cac62e5e",
+  "reference_files": {
+    "engine-main.rs": "ef47243889efce97071f1359d9eaa7dfd7cce4831579e0d82aae248ef975d17a",
+    "engine-screen.rs": "153a3325d880d7a8ebfd8ff543d6584807f689a40ba9ca9dbd0036c20d342cdd",
+    "protected-fiat-shamir-seed.rs": "00fd986d90694e2b3f651efa5cd452c0ac90f36dd1625076b349c636912b83f6",
+    "qualified-nonce-tail.rs": "45e1a8aa98ad66448061826d67240b152b5c71aa3d4bd3091c925d054daaae9f",
+    "EXISTING-CONTROL-ROWS.json": "b00d91e4bf0678b868eadd6ba4672f743bbc2c8ebc2d5789b44a777e34792cbe"
+  },
+  "protected_evaluator_sha256": "b35314bc47a5f8eecbf60459e6c76c9b43aa034eeb9b7ec3421655d74f9e890b",
+  "scope": "Verification research only: reconstruct ORIGINAL Fiat-Shamir membership for the SAME already screened controls1..8 on exact frozen OLD6192 source and prove only source-certified wrong outputs. No new nonce screened, no retired search resumed/extended, no circuit/gate/benchmark/score changed. All original failure/gate/search outcomes retained. A future changed candidate needs own frozen passed final gate and separate originalFS production qualification."
+}
