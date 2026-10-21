@@ -1,0 +1,5 @@
+# Recover products from XOR pairs of existing quantum values
+
+Exact full-prefix quantum XOR-pair reuse. Preserve native15/one-wire priority; seek needed product/effective product as XOR of two currently live NONtarget wires, optionally complemented, using eight recent quantum writes as query pivots. Other carrier is any live quantum wire with exact full-key equality. Lookup-only XOR allocates no speculative semantic nodes; unknown loses opportunities only. No new measurement/qubit or RNG shift. Native3 new pair/stale/guard/complement/exactlookup controls. Component only, never a resource record.
+
+Example: retain old target u on another wire; after u ^= ab, the product ab is the XOR of old and updated targets. Replace a later CCX of ab by two CX, with original guard. Extend to exact complemented and captured/effective-guard aliases. All queries concern source-defined quantum functions, no point/failure data. Scope limited to eight recent write pivots, never probabilistic matching. Full protected development and complete final pipeline still required after any gain.

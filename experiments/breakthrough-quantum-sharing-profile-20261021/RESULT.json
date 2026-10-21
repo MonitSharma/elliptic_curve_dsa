@@ -1,0 +1,48 @@
+{
+  "status": "COMPONENT_GRID_COMPLETE_PRESERVE_RESOURCE_FAILURES_NOT_SCORED",
+  "native_controls": 5,
+  "cases": {
+    "public1829": {
+      "exit": 0,
+      "seconds": 23.350369591,
+      "conservative_copy_on_write_projection": 1235,
+      "conservative_peak_at": 8916589,
+      "input_records_sha3": "3000fc9119ca08944ea9f087f1f69d42a149ede69ea6221b8a60e2f23929171b",
+      "original_qubits": 1234,
+      "peak_at_operation": 1444547,
+      "peak_pinned_plus_distinct_nonzero_helper_functions": 1234,
+      "peak_snapshot": {
+        "copies_compressed": 0,
+        "helper_classes_without_pinned_representative": 722,
+        "nonzero_helper_logical_wires": 722
+      },
+      "pinned_quantum_register_wires": 512,
+      "scope": "Global exact value equality only, initial helperszero and arbitrary registered input/measurement values. Count helper classes not represented by pinned quantum wires; estimate transient copies conservatively. NOT an emitted allocation or proved achievable width. Guard flattening, reversible compression/decompression, repeated-operand gate lowering, shared-target measurement phase/RNG handling and full protected qualification required for any candidate. No point/gate/nonce/benchmark.",
+      "semantic_nodes": 9999315,
+      "shared_target_write_events": 12184,
+      "status": "READ_ONLY_EXACT_VALUE_SHARING_PROJECTION_NOT_A_CIRCUIT_OR_SCORE"
+    },
+    "official_ffe20": {
+      "exit": 0,
+      "seconds": 18.134068715999994,
+      "conservative_copy_on_write_projection": 1464,
+      "conservative_peak_at": 3744112,
+      "input_records_sha3": "373e44f24e185dd662b59a4ff683555b66a05c9995ff2684eefb6723446100cc",
+      "original_qubits": 1464,
+      "peak_at_operation": 3744112,
+      "peak_pinned_plus_distinct_nonzero_helper_functions": 1464,
+      "peak_snapshot": {
+        "copies_compressed": 0,
+        "helper_classes_without_pinned_representative": 952,
+        "nonzero_helper_logical_wires": 952
+      },
+      "pinned_quantum_register_wires": 512,
+      "scope": "Global exact value equality only, initial helperszero and arbitrary registered input/measurement values. Count helper classes not represented by pinned quantum wires; estimate transient copies conservatively. NOT an emitted allocation or proved achievable width. Guard flattening, reversible compression/decompression, repeated-operand gate lowering, shared-target measurement phase/RNG handling and full protected qualification required for any candidate. No point/gate/nonce/benchmark.",
+      "semantic_nodes": 8949465,
+      "shared_target_write_events": 12183,
+      "status": "READ_ONLY_EXACT_VALUE_SHARING_PROJECTION_NOT_A_CIRCUIT_OR_SCORE"
+    }
+  },
+  "scope": "Read-only quantum value-sharing storage projection. Track exact full-prefix values; count equal nonzero helper functions only once, including helpers represented by pinned original register wires. Two sharing/copy-on-write native controls plus3qualified semantic algebra controls. No emitted circuit, achieved width, point input/gate/nonce/benchmark.",
+  "binary_sha256": "6bb06d9d541cc792566ba94b44c83c203ec5f12ab99d1e695030b1443a9825b4"
+}

@@ -1,0 +1,4181 @@
+{
+  "nonce_rejections": 0,
+  "nonce_screens": 0,
+  "qualification": {
+    "arbitrary_registered_initial_inputs": "allzero/allone/six fixed-label pseudorandom64lane inputs, helperszero; no curve correctness claim",
+    "cases": [
+      {
+        "abstract_seconds": 0.031664687,
+        "case": 0,
+        "known_output_bits": 0,
+        "protected_concrete_rng_patterns": 3,
+        "total_output_bits": 32768
+      },
+      {
+        "abstract_seconds": 0.021190905,
+        "case": 1,
+        "known_output_bits": 0,
+        "protected_concrete_rng_patterns": 3,
+        "total_output_bits": 32768
+      },
+      {
+        "abstract_seconds": 0.020081757,
+        "case": 2,
+        "known_output_bits": 0,
+        "protected_concrete_rng_patterns": 3,
+        "total_output_bits": 32768
+      },
+      {
+        "abstract_seconds": 0.021309168,
+        "case": 3,
+        "known_output_bits": 0,
+        "protected_concrete_rng_patterns": 3,
+        "total_output_bits": 32768
+      },
+      {
+        "abstract_seconds": 0.02243962,
+        "case": 4,
+        "known_output_bits": 0,
+        "protected_concrete_rng_patterns": 3,
+        "total_output_bits": 32768
+      },
+      {
+        "abstract_seconds": 0.02005995,
+        "case": 5,
+        "known_output_bits": 0,
+        "protected_concrete_rng_patterns": 3,
+        "total_output_bits": 32768
+      },
+      {
+        "abstract_seconds": 0.019552784,
+        "case": 6,
+        "known_output_bits": 0,
+        "protected_concrete_rng_patterns": 3,
+        "total_output_bits": 32768
+      },
+      {
+        "abstract_seconds": 0.020711182,
+        "case": 7,
+        "known_output_bits": 0,
+        "protected_concrete_rng_patterns": 3,
+        "total_output_bits": 32768
+      }
+    ],
+    "label": "value-guard-fusion-source-audit-20261020-v1",
+    "nonce_screens": 0,
+    "protected_fullstream_comparisons": 24,
+    "scope": "Three-valued overapproximation of all measurement outcomes, verified against full protected finalpoint values for three concrete RNG patterns per case. Only known output bits can support separately qualified wrongpoint witnesses; no acceptance or phase/dirty certificate. Audit inputs are not challenge packets or a statistical failure gate. No scored counts or submitted quantum circuit."
+  },
+  "shadow": {
+    "batches": 512,
+    "census_label": "public1829-workspace-cache-local-avx2-development-20261020-v1",
+    "certified_wrong_shots": 54,
+    "false_rejections": 0,
+    "fully_known_output_shots": 32768,
+    "known_output_hash_mismatches": 0,
+    "rows": [
+      {
+        "batch": 0,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.156396068,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 1,
+        "certified_wrong_mask": "0000000000000004",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.152530829,
+        "stored_value_wrong_mask": "0000000000000004",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 2,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.145052049,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 3,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.141797634,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 4,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.151316701,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 5,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.152919214,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 6,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.154352156,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 7,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.147985351,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 8,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.144764918,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 9,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.146154323,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 10,
+        "certified_wrong_mask": "0000000000040000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.156370387,
+        "stored_value_wrong_mask": "0000000000040000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 11,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.150836646,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 12,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.153003233,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 13,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.150947256,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 14,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.150304698,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 15,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.149151657,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 16,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.151457465,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 17,
+        "certified_wrong_mask": "0000000000008000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.156722569,
+        "stored_value_wrong_mask": "0000000000008000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 18,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.144437663,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 19,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.144996143,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 20,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.144423276,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 21,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.152579475,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 22,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.152567437,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 23,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.150228098,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 24,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.148795598,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 25,
+        "certified_wrong_mask": "0002000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.15580908,
+        "stored_value_wrong_mask": "0002000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 26,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.153423951,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 27,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.189126011,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 28,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.202278404,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 29,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.154193023,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 30,
+        "certified_wrong_mask": "0000000000400000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.151016103,
+        "stored_value_wrong_mask": "0000000000400000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 31,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.151170799,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 32,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.149256677,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 33,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.146852847,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 34,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.151713631,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 35,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.144105329,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 36,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.15306992,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 37,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.14484969,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 38,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.143927512,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 39,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.151473745,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 40,
+        "certified_wrong_mask": "0000000000000100",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.150086832,
+        "stored_value_wrong_mask": "0000000000000100",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 41,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.14566792,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 42,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.14585365,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 43,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.143339572,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 44,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.14955705,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 45,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.152734321,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 46,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.149433954,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 47,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.143547411,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 48,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.145813895,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 49,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.145751568,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 50,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.147032649,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 51,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.154936488,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 52,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.151756583,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 53,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.140344484,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 54,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.145212758,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 55,
+        "certified_wrong_mask": "0000100000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.150163041,
+        "stored_value_wrong_mask": "0000100000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 56,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.149285605,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 57,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.150389969,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 58,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.145161626,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 59,
+        "certified_wrong_mask": "0000002000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.145387086,
+        "stored_value_wrong_mask": "0000002000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 60,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.142417278,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 61,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.148357241,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 62,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.150223669,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 63,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.166776622,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 64,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.1457675,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 65,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.149666926,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 66,
+        "certified_wrong_mask": "0008000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.146262998,
+        "stored_value_wrong_mask": "0008000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 67,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.149515798,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 68,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.147882225,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 69,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.148292127,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 70,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.14900656,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 71,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.144497764,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 72,
+        "certified_wrong_mask": "0000000000000004",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.138756963,
+        "stored_value_wrong_mask": "0000000000000004",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 73,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.147153828,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 74,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.1528377,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 75,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.149798356,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 76,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.18257851,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 77,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.154299351,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 78,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.155926603,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 79,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.148940196,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 80,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.149768736,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 81,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.147493339,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 82,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.148861338,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 83,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.148654656,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 84,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.140431085,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 85,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.151130767,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 86,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.156891219,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 87,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.142943988,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 88,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.147538747,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 89,
+        "certified_wrong_mask": "0000001000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.145634127,
+        "stored_value_wrong_mask": "0000001000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 90,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.148048304,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 91,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.147812292,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 92,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.162086559,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 93,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.198918672,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 94,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.157433998,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 95,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.145111491,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 96,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.148250711,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 97,
+        "certified_wrong_mask": "0000000000000040",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.149201423,
+        "stored_value_wrong_mask": "0000000000000040",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 98,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.14283038,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 99,
+        "certified_wrong_mask": "0000010000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.140252261,
+        "stored_value_wrong_mask": "0000010000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 100,
+        "certified_wrong_mask": "0000010000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.143334003,
+        "stored_value_wrong_mask": "0000010000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 101,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.138368741,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 102,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.144924812,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 103,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.146649834,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 104,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.147741467,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 105,
+        "certified_wrong_mask": "0000000100000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.146843205,
+        "stored_value_wrong_mask": "0000000100000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 106,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.142576831,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 107,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.130828928,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 108,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.150628773,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 109,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.158018198,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 110,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.152111086,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 111,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.145083123,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 112,
+        "certified_wrong_mask": "0040000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.146659194,
+        "stored_value_wrong_mask": "0040000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 113,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.140608718,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 114,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.159575462,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 115,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.162311468,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 116,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.151207975,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 117,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.152086267,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 118,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.148249237,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 119,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.150036943,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 120,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.153799991,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 121,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.15049752,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 122,
+        "certified_wrong_mask": "0000000020000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.151459151,
+        "stored_value_wrong_mask": "0000000020000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 123,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.148810103,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 124,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.152786511,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 125,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.154026991,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 126,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.152821289,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 127,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.150116831,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 128,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.142423948,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 129,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.145510224,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 130,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.138752285,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 131,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.146447659,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 132,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.148371522,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 133,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.145281522,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 134,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.148204924,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 135,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.155963167,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 136,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.150119869,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 137,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.151349261,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 138,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.161358651,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 139,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.145709037,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 140,
+        "certified_wrong_mask": "0000000000000020",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.154734592,
+        "stored_value_wrong_mask": "0000000000000020",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 141,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.144602594,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 142,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.143004858,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 143,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.149370144,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 144,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.142374967,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 145,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.15010077,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 146,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.144928914,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 147,
+        "certified_wrong_mask": "0000000000000100",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.145758973,
+        "stored_value_wrong_mask": "0000000000000100",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 148,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.156292487,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 149,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.159778655,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 150,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.154356531,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 151,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.148511367,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 152,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.147024255,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 153,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.139611896,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 154,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.143962303,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 155,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.146746297,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 156,
+        "certified_wrong_mask": "0000000000000400",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.149903758,
+        "stored_value_wrong_mask": "0000000000000400",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 157,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.143814561,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 158,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.154009015,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 159,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.140733117,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 160,
+        "certified_wrong_mask": "0000000100000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.143459024,
+        "stored_value_wrong_mask": "0000000100000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 161,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.14600121,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 162,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.148552453,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 163,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.144470367,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 164,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.196034129,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 165,
+        "certified_wrong_mask": "0000000000080000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.151659749,
+        "stored_value_wrong_mask": "0000000000080000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 166,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.144482724,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 167,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.147490597,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 168,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.155778554,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 169,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.147434757,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 170,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.153886889,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 171,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.141518333,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 172,
+        "certified_wrong_mask": "0000000080000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.148628322,
+        "stored_value_wrong_mask": "0000000080000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 173,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.144746528,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 174,
+        "certified_wrong_mask": "0040000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.162096397,
+        "stored_value_wrong_mask": "0040000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 175,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.142062539,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 176,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.147388115,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 177,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.13584511,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 178,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.143620695,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 179,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.145498313,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 180,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.150236598,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 181,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.144540217,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 182,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.149234844,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 183,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.139785782,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 184,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.142313066,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 185,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.149231341,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 186,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.149580865,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 187,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.145118306,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 188,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.147410855,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 189,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.135716763,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 190,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.143823999,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 191,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.15682947,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 192,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.147372237,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 193,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.145281111,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 194,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.144335404,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 195,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.140153385,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 196,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.143364125,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 197,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.155837386,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 198,
+        "certified_wrong_mask": "0000000002000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.156402519,
+        "stored_value_wrong_mask": "0000000002000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 199,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.146941921,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 200,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.139292156,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 201,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.14604522,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 202,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.14472194,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 203,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.154475135,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 204,
+        "certified_wrong_mask": "1000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.139947336,
+        "stored_value_wrong_mask": "1000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 205,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.143440954,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 206,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.145174882,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 207,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.125708277,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 208,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.147914865,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 209,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.155967098,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 210,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.1493653,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 211,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.156463301,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 212,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.14045957,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 213,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.145314913,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 214,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.154595198,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 215,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.153699653,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 216,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.141113028,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 217,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.146136323,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 218,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.142185798,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 219,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.139555413,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 220,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.14507229,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 221,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.147043914,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 222,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.140906722,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 223,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.146228526,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 224,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.142106164,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 225,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.139808716,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 226,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.148298579,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 227,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.150910991,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 228,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.154932299,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 229,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.148436894,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 230,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.159306647,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 231,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.187561981,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 232,
+        "certified_wrong_mask": "0000008000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.165630594,
+        "stored_value_wrong_mask": "0000008000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 233,
+        "certified_wrong_mask": "0000000000800000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.147048445,
+        "stored_value_wrong_mask": "0000000000800000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 234,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.144494648,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 235,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.143881316,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 236,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.138853389,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 237,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.153524905,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 238,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.148020382,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 239,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.149604464,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 240,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.140386548,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 241,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.142079505,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 242,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.128124078,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 243,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.142333253,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 244,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.146627433,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 245,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.148795839,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 246,
+        "certified_wrong_mask": "0000000100000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.13598464,
+        "stored_value_wrong_mask": "0000000100000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 247,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.146008556,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 248,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.14420272,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 249,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.147042032,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 250,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.159593319,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 251,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.146653469,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 252,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.142687501,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 253,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.140216673,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 254,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.143823045,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 255,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.148850452,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 256,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.144457023,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 257,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.163236523,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 258,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.144888353,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 259,
+        "certified_wrong_mask": "0000000000000400",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.142182833,
+        "stored_value_wrong_mask": "0000000000000400",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 260,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.134479964,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 261,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.132529981,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 262,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.144977697,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 263,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.151740683,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 264,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.136601963,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 265,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.14232609,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 266,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.12806741,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 267,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.13582624,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 268,
+        "certified_wrong_mask": "0000000000008000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.151255941,
+        "stored_value_wrong_mask": "0000000000008000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 269,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.152817885,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 270,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.138835667,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 271,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.145268152,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 272,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.141600948,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 273,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.13570124,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 274,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.142007583,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 275,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.147647548,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 276,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.141922466,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 277,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.147169796,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 278,
+        "certified_wrong_mask": "0000000000000004",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.132753117,
+        "stored_value_wrong_mask": "0000000000000004",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 279,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.136917396,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 280,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.146939581,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 281,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.14582396,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 282,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.143675171,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 283,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.151076883,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 284,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.141205676,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 285,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.130269822,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 286,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.152929843,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 287,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.148250079,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 288,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.143868024,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 289,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.142153695,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 290,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.13500796,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 291,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.142734177,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 292,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.150171698,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 293,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.145917007,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 294,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.144498532,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 295,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.13909004,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 296,
+        "certified_wrong_mask": "0000800000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.147404015,
+        "stored_value_wrong_mask": "0000800000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 297,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.135474731,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 298,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.146115061,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 299,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.146649527,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 300,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.138156928,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 301,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.142015768,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 302,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.140790805,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 303,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.141353225,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 304,
+        "certified_wrong_mask": "0400000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.146646255,
+        "stored_value_wrong_mask": "0400000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 305,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.146163773,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 306,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.136031221,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 307,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.143682947,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 308,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.140820014,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 309,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.136450544,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 310,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.152739281,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 311,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.145942815,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 312,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.140784591,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 313,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.142926442,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 314,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.140369093,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 315,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.136365511,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 316,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.151785933,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 317,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.149639677,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 318,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.141103885,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 319,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.141957468,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 320,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.134431,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 321,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.147083482,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 322,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.146391646,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 323,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.145400902,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 324,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.152648484,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 325,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.141936145,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 326,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.135062455,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 327,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.144880478,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 328,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.156044218,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 329,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.147759841,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 330,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.143362126,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 331,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.139973029,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 332,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.139192872,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 333,
+        "certified_wrong_mask": "0000000004000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.141673088,
+        "stored_value_wrong_mask": "0000000004000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 334,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.149928397,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 335,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.144865783,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 336,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.138495074,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 337,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.139496887,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 338,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.132159553,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 339,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.143474373,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 340,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.184396268,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 341,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.143476043,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 342,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.161130933,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 343,
+        "certified_wrong_mask": "0000000000004000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.192178811,
+        "stored_value_wrong_mask": "0000000000004000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 344,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.153734407,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 345,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.146137336,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 346,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.147746882,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 347,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.129612614,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 348,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.144944045,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 349,
+        "certified_wrong_mask": "0000000004000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.134075338,
+        "stored_value_wrong_mask": "0000000004000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 350,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.140337205,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 351,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.14313402,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 352,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.146383762,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 353,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.142078499,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 354,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.136651682,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 355,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.134496813,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 356,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.140204175,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 357,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.149692739,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 358,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.148179211,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 359,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.139123977,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 360,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.142472514,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 361,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.136459026,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 362,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.134256879,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 363,
+        "certified_wrong_mask": "0000000200000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.145008744,
+        "stored_value_wrong_mask": "0000000200000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 364,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.146898344,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 365,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.131658757,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 366,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.145660291,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 367,
+        "certified_wrong_mask": "0000000000080000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.131283405,
+        "stored_value_wrong_mask": "0000000000080000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 368,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.131310783,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 369,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.141531308,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 370,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.154512945,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 371,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.138686333,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 372,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.146049513,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 373,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.127926171,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 374,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.133490551,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 375,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.14586564,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 376,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.148494918,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 377,
+        "certified_wrong_mask": "0000000000000004",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.140323563,
+        "stored_value_wrong_mask": "0000000000000004",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 378,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.14741608,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 379,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.133103767,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 380,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.130952165,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 381,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.160375397,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 382,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.148492263,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 383,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.142671387,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 384,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.148010659,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 385,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.140512153,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 386,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.143519207,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 387,
+        "certified_wrong_mask": "0000000400000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.146011776,
+        "stored_value_wrong_mask": "0000000400000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 388,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.151005271,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 389,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.147560928,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 390,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.144896013,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 391,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.134434297,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 392,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.131220093,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 393,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.149364443,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 394,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.148212398,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 395,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.130377755,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 396,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.138951738,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 397,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.142888458,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 398,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.133875778,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 399,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.158896109,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 400,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.146699845,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 401,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.140014207,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 402,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.140774702,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 403,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.133679509,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 404,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.141202076,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 405,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.152577882,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 406,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.147161175,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 407,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.137266056,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 408,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.146551827,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 409,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.141981251,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 410,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.154339424,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 411,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.154834849,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 412,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.148824294,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 413,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.146463475,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 414,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.144874691,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 415,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.141264786,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 416,
+        "certified_wrong_mask": "0000800000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.142043887,
+        "stored_value_wrong_mask": "0000800000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 417,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.147525388,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 418,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.148369612,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 419,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.144529021,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 420,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.143980766,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 421,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.12924922,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 422,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.145380141,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 423,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.155555054,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 424,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.153617508,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 425,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.146164647,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 426,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.150325442,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 427,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.134813439,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 428,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.139670512,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 429,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.154581836,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 430,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.145252143,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 431,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.138077986,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 432,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.142437655,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 433,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.134313931,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 434,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.142298028,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 435,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.159254963,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 436,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.146472674,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 437,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.13207371,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 438,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.142696805,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 439,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.132783189,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 440,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.142605963,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 441,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.157257431,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 442,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.14774405,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 443,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.140293897,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 444,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.141053621,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 445,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.134681701,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 446,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.143242147,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 447,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.150112807,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 448,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.15049826,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 449,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.150381419,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 450,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.152980503,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 451,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.137686991,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 452,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.147819893,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 453,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.153328457,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 454,
+        "certified_wrong_mask": "0000000000000001",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.145308096,
+        "stored_value_wrong_mask": "0000000000000001",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 455,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.141813366,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 456,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.12992642,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 457,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.127247404,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 458,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.145096852,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 459,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.15248502,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 460,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.143455183,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 461,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.134692224,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 462,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.145106351,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 463,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.127335109,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 464,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.143712205,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 465,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.154599531,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 466,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.14391957,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 467,
+        "certified_wrong_mask": "0000000000008000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.142502802,
+        "stored_value_wrong_mask": "0000000000008000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 468,
+        "certified_wrong_mask": "0000000001000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.137952624,
+        "stored_value_wrong_mask": "0000000001000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 469,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.155203699,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 470,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.154092208,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 471,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.158726535,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 472,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.146013129,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 473,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.142754768,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 474,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.134275463,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 475,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.139644782,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 476,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.153378771,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 477,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.147692014,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 478,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.141261826,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 479,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.151746524,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 480,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.138954165,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 481,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.155633468,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 482,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.191543159,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 483,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.164714121,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 484,
+        "certified_wrong_mask": "0000040000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.13983895,
+        "stored_value_wrong_mask": "0000040000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 485,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.143778317,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 486,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.135927237,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 487,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.140401092,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 488,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.15061483,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 489,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.146792757,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 490,
+        "certified_wrong_mask": "0000000400000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.128924767,
+        "stored_value_wrong_mask": "0000000400000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 491,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.144963659,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 492,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.128798102,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 493,
+        "certified_wrong_mask": "8000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.141196505,
+        "stored_value_wrong_mask": "8000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 494,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.149934366,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 495,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.145401006,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 496,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.148610603,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 497,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.141386861,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 498,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.137243441,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 499,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.147146868,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 500,
+        "certified_wrong_mask": "0000000000001000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.15333682,
+        "stored_value_wrong_mask": "0000000000001000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 501,
+        "certified_wrong_mask": "0000000000800000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.145423106,
+        "stored_value_wrong_mask": "0000000000800000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 502,
+        "certified_wrong_mask": "0000000041000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.14207841,
+        "stored_value_wrong_mask": "0000000041000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 503,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.147911127,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 504,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.14508538,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 505,
+        "certified_wrong_mask": "0000000000000040",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.139112349,
+        "stored_value_wrong_mask": "0000000000000040",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 506,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.150300234,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 507,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.148012741,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 508,
+        "certified_wrong_mask": "0000000000000400",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.146629655,
+        "stored_value_wrong_mask": "0000000000000400",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 509,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.141247745,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 510,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.135350393,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      },
+      {
+        "batch": 511,
+        "certified_wrong_mask": "0000000000000000",
+        "fully_known_output_shots": 64,
+        "proof_seconds": 0.144095929,
+        "stored_value_wrong_mask": "0000000000000000",
+        "unknown_output_shots": 0
+      }
+    ],
+    "scope": "Exact unchanged current-public source/normalizedIR and unchanged qualified boundedANF core. Inputs regenerated from original preserved census transcript; every skipped count and recorded scalar pair checked. Every fully known output matches independently recorded full protected/qualified SIMD output hash. Unknown never rejects. No new census, gate verdict, nonce screen or quantum resource score; originalFS production qualification still required.",
+    "seconds": 106.727310831,
+    "shots": 32768,
+    "status": "PRESERVED_CENSUS_SHADOW_COMPLETE_NOT_A_PRODUCTION_NONCE_FILTER",
+    "stored_value_wrong_shots": 54,
+    "unknown_output_shots": 0
+  }
+}

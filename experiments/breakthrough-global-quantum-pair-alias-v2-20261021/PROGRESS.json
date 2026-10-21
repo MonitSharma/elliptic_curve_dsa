@@ -1,0 +1,62 @@
+{
+  "public1829": {
+    "exit": 0,
+    "seconds": 41.169402983,
+    "input_count": 11682054,
+    "input_records_sha3": "3000fc9119ca08944ea9f087f1f69d42a149ede69ea6221b8a60e2f23929171b",
+    "output_count": 11682054,
+    "output_records_sha3": "f09ef07a02790dfc2c80293b0d45f25dae824db4a6a024ad52289ca5889c9a5e",
+    "proof": {
+      "exact_product_keys": 10304705,
+      "expression_cap": 1024,
+      "forgotten_product_keys": 0,
+      "opaque_truncations": 0,
+      "rewrites": {
+        "ccx_to_cx": 1
+      },
+      "scope": "Full-prefix registered inputs arbitrary/helperszero, every HMR arbitrary. Full-key symbolic equality only; opaque truncations miss proofs only. Original state replay, no random-word or classical mutation changes."
+    },
+    "status": "GLOBAL_FULL_PREFIX_COMPONENT_PROOFS_COMPLETE_NOT_SCORED",
+    "output_sha256": "bdef66a7ddcc1bfd5347fb84f83493333f79b2897616ea5340b9c81b1113ccc8",
+    "static_diagnostics": {
+      "classical_bits": 1643,
+      "fair_guard_depth_proxy": 753944.25,
+      "input": "/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-global-quantum-pair-alias-v2-20261021/public1829.ops.bin",
+      "native_toffoli": 794856,
+      "operations": 11682054,
+      "qubits_protected_analyzer": 1234,
+      "records_sha3": "f09ef07a02790dfc2c80293b0d45f25dae824db4a6a024ad52289ca5889c9a5e",
+      "scope": "Same guard-depth proxy as existing generic reporter. Not executed mean, not scored, no nonce/benchmark. Q is full protected analyzer over emitted records, never inferred from nominal cap.",
+      "status": "OPERATION_STREAM_STATIC_DIAGNOSTIC_ONLY"
+    }
+  },
+  "official_ffe20": {
+    "exit": 0,
+    "seconds": 33.75670081,
+    "input_count": 10995456,
+    "input_records_sha3": "373e44f24e185dd662b59a4ff683555b66a05c9995ff2684eefb6723446100cc",
+    "output_count": 10995456,
+    "output_records_sha3": "373e44f24e185dd662b59a4ff683555b66a05c9995ff2684eefb6723446100cc",
+    "proof": {
+      "exact_product_keys": 9071004,
+      "expression_cap": 1024,
+      "forgotten_product_keys": 0,
+      "opaque_truncations": 0,
+      "rewrites": {},
+      "scope": "Full-prefix registered inputs arbitrary/helperszero, every HMR arbitrary. Full-key symbolic equality only; opaque truncations miss proofs only. Original state replay, no random-word or classical mutation changes."
+    },
+    "status": "GLOBAL_FULL_PREFIX_COMPONENT_PROOFS_COMPLETE_NOT_SCORED",
+    "output_sha256": "c8dede1b623401a496db470ee3acdab46863aeb4d9f01c39791255fdcfc0b593",
+    "static_diagnostics": {
+      "classical_bits": 1638,
+      "fair_guard_depth_proxy": 744714.0,
+      "input": "/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-global-quantum-pair-alias-v2-20261021/official_ffe20.ops.bin",
+      "native_toffoli": 758537,
+      "operations": 10995456,
+      "qubits_protected_analyzer": 1464,
+      "records_sha3": "373e44f24e185dd662b59a4ff683555b66a05c9995ff2684eefb6723446100cc",
+      "scope": "Same guard-depth proxy as existing generic reporter. Not executed mean, not scored, no nonce/benchmark. Q is full protected analyzer over emitted records, never inferred from nominal cap.",
+      "status": "OPERATION_STREAM_STATIC_DIAGNOSTIC_ONLY"
+    }
+  }
+}

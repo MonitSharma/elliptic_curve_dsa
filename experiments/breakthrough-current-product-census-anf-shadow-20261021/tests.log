@@ -1,0 +1,13 @@
+   Compiling product_pareto_exact v0.1.0 (/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-current-product-census-anf-shadow-20261021/local-tool)
+error[E0284]: type annotations needed
+  --> census_shadow.rs:16:300
+   |
+16 | ...().unwrap().parse::<_>().unwrap(),k1);assert_eq!(failure["k2"].as_str().unwrap().parse::<_>().unwrap(),k2);if...
+   |                -----   ^ cannot infer type of the type parameter `F` declared on the method `parse`
+   |                |
+   |                type must be known at this point
+   |
+   = note: cannot satisfy `<_ as FromStr>::Err == _`
+
+For more information about this error, try `rustc --explain E0284`.
+error: could not compile `product_pareto_exact` (bin "census_anf_shadow" test) due to 1 previous error

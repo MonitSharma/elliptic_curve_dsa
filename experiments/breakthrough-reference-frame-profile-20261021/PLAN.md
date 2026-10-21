@@ -1,0 +1,5 @@
+# Classical reference frame: projection before emission
+
+Read-only classical-reference/quantum-deviation support lifetime projection. No transformed quantum circuit or resource record. New exhaustive domain/phase algebra controls plus pinned-input helper prototype; existing semantic algebra3 controls. No point inputs, gate or nonce.
+
+For each original quantum bit q track q=B XOR delta. B is original circuit replay with quantum inputs zero and original arbitrary classical/measurement values; D is an overapproximation of support of delta. Product support DaDb OR DaBb OR DbBa; exact q==B implies D=0. Pin every registered input; helper needs quantum storage only while D is nonzero. Reset of zero deviation still requires original RNG draw, allowing one clean scratch where needed. Measure projected lifetimes and exact global-zero nonlinear terms only. Any actual emitter must preserve absolute phase using the full multilinear phase expansion and maintain original measurement order and guards. No correctness or resource claim from this projection alone.

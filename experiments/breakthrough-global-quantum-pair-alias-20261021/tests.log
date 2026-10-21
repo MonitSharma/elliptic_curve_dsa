@@ -1,0 +1,106 @@
+   Compiling product_pareto_exact v0.1.0 (/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-global-quantum-pair-alias-20261021/local-tool)
+warning: unused variable: `max_products`
+  --> discover.rs:55:54
+   |
+55 | fn global_prefix_simplify_limits(ops:&[Op],cap:usize,max_products:usize)->(Vec<Op>,serde_json::Value){
+   |                                                      ^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_max_products`
+   |
+   = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: field `implications` is never read
+  --> discover.rs:21:125
+   |
+21 | ...ct Expr{restricting:bool,truths:Vec<SemTruth>,canonical:HashMap<SemTruth,u32>,nodes:Vec<(u8,u32,u32)>,implications:Ha...
+   |       ---- field in this struct                                                                          ^^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: methods `quick_implies`, `implies`, and `zero_truth_table` are never used
+  --> discover.rs:30:5
+   |
+29 | impl Expr{
+   | --------- methods in this implementation
+30 |  fn quick_implies(&self,a:u32,b:u32,depth:usize)->bool{if a==0||b==1||a==b{return true;}if depth==0||a<=1||b==0{...
+   |     ^^^^^^^^^^^^^
+31 |  fn implies(&mut self,a:u32,b:u32)->bool{if self.quick_implies(a,b,12){return true;}if let Some(&v)=self.implica...
+   |     ^^^^^^^
+32 |  fn zero_truth_table(&self,root:u32)->bool{if root<=1{return root==0;}let mut pending=vec![root&!1];let mut visi...
+   |     ^^^^^^^^^^^^^^^^
+
+warning: `product_pareto_exact` (bin "global_quantum_pair_alias" test) generated 3 warnings (run `cargo fix --bin "global_quantum_pair_alias" -p product_pareto_exact --tests` to apply 1 suggestion)
+    Finished `release` profile [optimized] target(s) in 2.92s
+     Running unittests discover.rs (/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-value-guard-fusion-audit-20261020/local-tool/target/release/deps/global_quantum_pair_alias-5c86f09a657a0e2e)
+
+running 18 tests
+GLOBAL_PREFIX_PROGRESS op=0 products=test quantum_pair_tests::lookup_only_xor_preserves_exact_truths_and_never_allocates_unknown_queries ... ok6 opaque_truncations=0 replacements=
+{}test semantic_algebra_controls::above_six_atom_cofactor_has_disabled_negative_control ... ok
+
+test semantic_algebra_controls::distributivity_and_unused_support_are_exact ... GLOBAL_PREFIX_PROGRESS op=0ok
+ products=6 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0test global_prefix_tests::global_classical_alias_complement_and_fresh_measurement_keep_guards_phase_and_rng ...  products=6ok opaque_truncations=0 replacements={
+}
+GLOBAL_PREFIX_PROGRESS op=0test global_prefix_tests::global_zero_and_linear_controls_preserve_all_basis_phase_values_and_count ... ok products=6
+ opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=6 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=6 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0test global_prefix_tests::independent_registered_phase_controls_are_not_lowered ... ok products=6
+ opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=6 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0test global_prefix_tests::phase_product_relation_can_remove_one_t_without_sampling ... ok products=7
+ opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0test global_prefix_tests::registered_input_declared_late_is_never_assumed_zero ... ok products=6
+ opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0test quantum_alias_tests::quantum_copy_matches_effective_guard_after_classical_mutation ...  products=6ok
+ opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=6 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0test quantum_alias_tests::target_self_alias_and_stale_quantum_copy_are_never_used ... ok products=6
+ opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0test quantum_pair_tests::reset_or_mutated_pair_carrier_never_supplies_a_stale_copy ...  products=6ok
+ opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=6 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0test global_prefix_tests::opaque_limits_stay_sound_and_missing_classical_guard_is_detected ... ok products=6
+ opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=6 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=6 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=6 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0test global_prefix_tests::phase_lowerings_keep_absolute_phase_and_all_original_guards ... ok products=6
+ opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=6 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=6 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=6 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=6 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=6 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=6 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=6 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=6 opaque_truncations=0 replacements={}
+
+thread 'quantum_pair_tests::xor_of_retained_old_and_updated_target_reuses_product_with_no_new_rngGLOBAL_PREFIX_PROGRESS op=0' (502 products=6) panicked at discover.rs opaque_truncations=0 replacements={:130}
+:463GLOBAL_PREFIX_PROGRESS op=0:
+assertion `left == right` failed: neg=true guarded=true {"exact_product_keys":17,"expression_cap":1024,"forgotten_product_keys":0,"opaque_truncations":0,"rewrites":{},"scope":"Full-prefix registered inputs arbitrary/helperszero, every HMR arbitrary. Full-key symbolic equality only; opaque truncations miss proofs only. Original state replay, no random-word or classical mutation changes."}
+  left: Null
+ right: 1 products=6
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+ opaque_truncations=0 replacements={test quantum_pair_tests::xor_of_retained_old_and_updated_target_reuses_product_with_no_new_rng ... FAILED}
+
+GLOBAL_PREFIX_PROGRESS op=0 products=6 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0test quantum_alias_tests::retained_quantum_product_and_complement_copy_keep_phase_and_guards ...  products=6ok opaque_truncations=0 replacements={
+}
+GLOBAL_PREFIX_PROGRESS op=0test global_prefix_tests::phase_classical_alias_complement_and_mutation_preserve_rng_and_phase ... ok products=6
+ opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=6 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=6 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=6 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=6 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=6 opaque_truncations=0 replacements={}
+GLOBAL_PREFIX_PROGRESS op=0 products=6 opaque_truncations=0 replacements={}
+test global_prefix_tests::forgetting_product_keys_only_loses_precision_and_preserves_full_protected_semantics ... ok
+test semantic_algebra_controls::complete_six_atom_expression_truths_match_original_functions ... ok
+
+failures:
+
+failures:
+    quantum_pair_tests::xor_of_retained_old_and_updated_target_reuses_product_with_no_new_rng
+
+test result: FAILED. 17 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 4.59s
+
+error: test failed, to rerun pass `--bin global_quantum_pair_alias`

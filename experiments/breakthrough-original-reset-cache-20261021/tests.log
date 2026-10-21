@@ -1,0 +1,28 @@
+   Compiling product_pareto_exact v0.1.0 (/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-original-reset-cache-20261021/local-tool)
+warning: function `initial_inputs` is never used
+  --> discover.rs:47:4
+   |
+47 | fn initial_inputs(ops:&[Op],nq:usize,nb:usize,alg:&mut Algebra)->(Vec<E>,Vec<E>){
+   |    ^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `product_pareto_exact` (bin "delayed_reset_cache" test) generated 1 warning
+    Finished `release` profile [optimized] target(s) in 2.51s
+     Running unittests discover.rs (/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-value-guard-fusion-audit-20261020/local-tool/target/release/deps/delayed_reset_cache-2cb6bf5eb32c66ea)
+
+running 11 tests
+test context_tests::context_never_crosses_enclosing_scope_or_unbalanced_guard ... ok
+test context_tests::context_lease_preserves_full_basis_phase_guards_and_cost_detects_missing_phase ... ok
+test context_tests::context_proves_prepared_alias_but_rejects_broken_relation ... ok
+test guarded_tests::effective_per_op_guards_are_proved_and_mismatches_rejected ... ok
+test donor_zero_tests::context_zero_borrow_preserves_values_phase_and_zero_width_and_detects_bad_fix ... ok
+test guarded_tests::guarded_cache_preserves_all_values_phase_and_executed_cost_and_detects_bad_repair ... ok
+test donor_zero_tests::exact_context_zero_requires_reset_and_all_cancellations ... ok
+test delayed_tests::changed_reset_product_and_extended_donor_probe_overlap_are_rejected ... ok
+test delayed_tests::original_rng_values_phase_classical_and_exact_saving_preserved_missing_repair_detected ... ok
+test tests::local_proof_accepts_symmetric_triple_rejects_fault ... ok
+test tests::unknown_guard_stays_unknown ... ok
+
+test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+

@@ -710,3 +710,36 @@ and full independent pipeline required for any next candidate. PreserveQ692.
 Exact human-approved41f769ec push completed; newer commits stay local. Preserve
 preexisting root/submodule edits, original failures, chemistry and unrelatedjobs.
 
+
+## 21 October 2026: 32,768-point exact value proof qualification
+
+Fresh00:40UTC1717publicrecords unchanged: our officialffe20 Q1464/T746112,
+globalproduct1829 Q1234/T755314/932057476, width669. Product objective ACTIVE.
+No new benchmark/finalgate/nonce screen/challenge submission in this cycle.
+
+Exact CURRENTpublic source/normalizedIR, unchanged fast boundedANF core:
+native39PASS (37existing+2independent transcript/hash controls), fresh24protected
+arbitrary-input comparisons. Regenerated ALL512x64 preserved development inputs
+from original label/domain/LElength/LEbatch/scalar order; checked every skip
+count and recorded failure scalar. Every one of32768outputpoints fully known,
+every recorded independent protected/SIMD target hash identical. All54recorded
+value failures certified; unknown0, false rejection0, output mismatch0.
+106.727310831sec including point generation. No new census or pastgate rejudged,
+no nonce screened/rejected; originalFS production qualification still required.
+Compile-only scalar type inference failure preserved; V2 uses exact typed parser.
+
+Read-only classical-reference frame native6/fullbothparents complete: projected
+peak1234/1464, no width saving; no emitter. Original-reset cache native11/full
+publiccomplete:0pairnominees/0leases, exactparent canonical3000fc. Retire both.
+One-wire quantum alias native15 and two-wire XORalias native18/fullpublic+exact
+latestffe20 streams complete: no additional rewrite. Public onlypriorCCXtoCX,
+latestT none. Guarded-complement missed-proof native failures and input-copy
+setup repair preserved; never source/point/gate tuning. No quantum result.
+
+Next read-only quantum-value-sharing profile native5PASS: count distinct helper
+functions and conservative copy-on-write pressure before considering a reversible
+compression allocator. No projected count is an achieved width/record. Original
+measurement phase/RNG, guards and full protected qualification remain mandatory.
+Preserve Q692 and every sealed old failure/verdict. Chemistry/unrelatedjobs intact.
+Exact approved41f769ec push previously completed; newer commits remain local.
+
