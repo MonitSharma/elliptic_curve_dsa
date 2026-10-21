@@ -37,6 +37,8 @@ assert needle in s;s=s.replace(needle,'The human subsequently instructed **“Pu
 p=root/'experiments/autorun-20261020-breakthrough/CURRENT-ACTIVE.json';d=json.loads(p.read_bytes());d['push_status']='USER_EXPLICITLY_AUTHORIZED_PUSH_EVERYTHING_ON_2026-10-21; sync current root commits/files and nested source snapshots to origin/main; verify remote HEAD after push. Research remains PAUSED.';d['github_snapshot']='experiments/github-snapshot-20261021/NESTED-WORKTREE-SNAPSHOT.json';p.write_text(json.dumps(d,indent=2)+'\n')
 with(root/'experiments/autorun-20261020-breakthrough/LOG.md').open('a',encoding='utf-8')as out:out.write('\n## '+datetime.now(timezone.utc).isoformat()+' — GitHub sync authorized\nHuman explicitly requested pushing everything. Preserve all remaining nonignored rootfiles and all nested tracked/untracked edits as exact source snapshots/patches; no upstream challenge modification. Existing20localcommits plus new workspace checkpoint authorized for origin/main. Research remains PAUSED; no workload/nonce/submission resumed.\n')
 paths=set(g('ls-files','--others','--exclude-standard','-z').decode().split('\0'))|set(g('diff','--name-only','-z').decode().split('\0'));paths.discard('');paths={p for p in paths if not p.startswith('agents/')}
+for name,track in manifest.items():
+ paths.update((r/'nested'/name/'working-files'/n).relative_to(root).as_posix()for n in track['files'])
 secret=re.compile(rb'(?:gh[pousr]_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{50,}|sk-proj-[A-Za-z0-9_-]{40,}|-----BEGIN (?:RSA |OPENSSH |EC )?PRIVATE KEY-----)')
 findings=[];sizes={}
 for n in sorted(paths):
@@ -48,7 +50,7 @@ for n in sorted(paths):
 assert not findings,('Potential credential material; do not publish',findings)
 receipt={'at_utc':datetime.now(timezone.utc).isoformat(),'status':'CURRENT_WORKSPACE_REVIEWED_READY_FOR_AUTHORIZED_GITHUB_SYNC','root_before_commit':g('rev-parse','HEAD').decode().strip(),'root_paths':len(paths),'root_file_bytes':sum(sizes.values()),'nested_tracks':manifest,'files_over_github_100MB_limit':0,'credential_pattern_findings':0,'research_status':'PAUSED_NO_JOBS_RESUMED','note':'Standard ignored generated/build/environment files excluded. No upstream submodule push. Remote main must be verified after push.'}
 rp=r/'SYNC-PREPARATION.json';rp.write_text(json.dumps(receipt,indent=2)+'\n');paths.add(rp.relative_to(root).as_posix())
-subprocess.run(['git','-C',str(root),'add','--pathspec-from-file=-','--pathspec-file-nul'],input=b'\0'.join(p.encode()for p in sorted(paths))+b'\0',check=True)
+subprocess.run(['git','-C',str(root),'add','-f','--pathspec-from-file=-','--pathspec-file-nul'],input=b'\0'.join(p.encode()for p in sorted(paths))+b'\0',check=True)
 staged=set(g('diff','--cached','--name-only').decode().splitlines());assert staged<=paths;assert not any(p.startswith('agents/')for p in staged)
 subprocess.run(['git','-C',str(root),'diff','--cached','--check','--','docs/RESEARCH_BREAK_2026-10-21.md'],check=True)
 subprocess.run(['git','-C',str(root),'commit','-q','-m','Preserve remaining workspace and nested research edits for GitHub sync'],check=True)
