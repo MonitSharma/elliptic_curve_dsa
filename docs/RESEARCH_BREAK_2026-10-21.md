@@ -82,6 +82,37 @@ contains an old “currentde8” template typo; retain it. Its actual gate, sour
 dependency hashes and submission note correctly bind FFE20. Do not alter sealed
 evidence to hide this historical typo.
 
+### Finished public-product semantic candidate, still without a benchmark
+
+`breakthrough-public-semantic-finished-20261021` is a separate frozen187-file
+candidate, local revision `ebd90875a9f5e9a9d5092144fc587e764ec23cb5`,17protected
+files exact. Only original record4189602 changes CCX into CX using a full-prefix
+exact identity. Native4 plus independent semantic12 controls and local/official
+Rust byte match PASS. Nonce0 stream SHA256
+`6523404466e07d3ea6cd94c2246a7ff73954b8aa24a6f4548da210fd84d08f6f`.
+Its own sole final gate `public1829-exact-semantic-final-20261021-v1`,32768×64,
+against the exact public1829 stream passed: value3416 each,phase2546 each,
+failed batches3993 each,17.181793212890625/packet,dirty0,b=c=0,p=1;
+pairedTdelta−0.4992389678955078/SE0.00034625088106236146. All116 gate archive
+members and32768paired rows were independently verified locally. No successful
+nonce, final unchanged benchmark or official submission exists yet.
+
+Early server setup lacked a build cache; a later attempt used the wrong
+`candidate/ops.bin` parent path. Both stopped before a gate or point run and
+remain preserved. V3 corrected the path to `parent/ops.bin` without changing
+the circuit or declared inputs. A collector manifest-digest bug is explicitly
+corrected; original `COLLECTED-GATE-RECEIPT-V1.json` remains, archive/verdict
+unchanged. Do not discard that history or redeclare its already passed gate.
+
+Own-source value proof in `breakthrough-semantic-source-value-proof-20261021`
+passed native29 and27fresh protected VALUE comparisons, with its own normalized
+cache,7000856nodes/309random definitions. It proves values, not acceptance,
+phase or clean ancillas. Earlier compact verifier native44/originalFS fixed
+controls and32768preserved-value-hash checks remain documented in older handoff
+sections. None of these was used to reject production nonces: the paused engine
+has `advisory_hit=false`, `rejection_policy=exact_full_state_only`. Do not quietly
+enable a new filter or reuse an old source's normalized cache as current proof.
+
 ## Jobs paused for this break
 
 All local research jobs finished with exit0 before the break. **Two owned
