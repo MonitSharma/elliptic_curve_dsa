@@ -1,0 +1,655 @@
+{
+  "all_regions_covered": false,
+  "conservative_original_lifetime_peak": 1464,
+  "extra_executed_toffoli_per_shot_upper_bound": null,
+  "input_records_sha3": "373e44f24e185dd662b59a4ff683555b66a05c9995ff2684eefb6723446100cc",
+  "original_qubits": 1464,
+  "regions": [
+    {
+      "hi": 3741054,
+      "independent_available": 0,
+      "initial_recipe_candidates": 0,
+      "lo": 3741049,
+      "needed": 1,
+      "status": "NO_SUFFICIENT_INDEPENDENT_RESTORABLE_VICTIM_SET",
+      "surviving_exact_recipe_candidates": 0,
+      "touched_quantum_wires": 5,
+      "written_quantum_wires": 4
+    },
+    {
+      "hi": 3741056,
+      "independent_available": 0,
+      "initial_recipe_candidates": 0,
+      "lo": 3741056,
+      "needed": 1,
+      "status": "NO_SUFFICIENT_INDEPENDENT_RESTORABLE_VICTIM_SET",
+      "surviving_exact_recipe_candidates": 0,
+      "touched_quantum_wires": 1,
+      "written_quantum_wires": 1
+    },
+    {
+      "hi": 3744123,
+      "independent_available": 1,
+      "initial_recipe_candidates": 1,
+      "lo": 3744108,
+      "needed": 2,
+      "status": "NO_SUFFICIENT_INDEPENDENT_RESTORABLE_VICTIM_SET",
+      "surviving_exact_recipe_candidates": 1,
+      "touched_quantum_wires": 8,
+      "written_quantum_wires": 7
+    },
+    {
+      "a": 699,
+      "b": 256,
+      "candidates": 1,
+      "captured_guard_expression": 1,
+      "extra_toffoli_records_upper_bound": 2,
+      "hi": 3744125,
+      "kind": 13,
+      "lo": 3744125,
+      "needed": 1,
+      "producer": 3743093,
+      "status": "EXACT_IDLE_VICTIM_SET_AND_RESTORABLE_PRODUCTS_PROVED",
+      "victims": [
+        {
+          "a": 699,
+          "b": 256,
+          "captured_guard_expression": 1,
+          "kind": 13,
+          "producer": 3743093,
+          "wire": 552
+        }
+      ],
+      "wire": 552
+    },
+    {
+      "a": 256,
+      "b": 700,
+      "candidates": 1,
+      "captured_guard_expression": 1,
+      "extra_toffoli_records_upper_bound": 2,
+      "hi": 3759017,
+      "kind": 13,
+      "lo": 3759012,
+      "needed": 1,
+      "producer": 3757993,
+      "status": "EXACT_IDLE_VICTIM_SET_AND_RESTORABLE_PRODUCTS_PROVED",
+      "victims": [
+        {
+          "a": 256,
+          "b": 700,
+          "captured_guard_expression": 1,
+          "kind": 13,
+          "producer": 3757993,
+          "wire": 1246
+        }
+      ],
+      "wire": 1246
+    },
+    {
+      "a": 256,
+      "b": 700,
+      "candidates": 1,
+      "captured_guard_expression": 1,
+      "extra_toffoli_records_upper_bound": 2,
+      "hi": 3759019,
+      "kind": 13,
+      "lo": 3759019,
+      "needed": 1,
+      "producer": 3757993,
+      "status": "EXACT_IDLE_VICTIM_SET_AND_RESTORABLE_PRODUCTS_PROVED",
+      "victims": [
+        {
+          "a": 256,
+          "b": 700,
+          "captured_guard_expression": 1,
+          "kind": 13,
+          "producer": 3757993,
+          "wire": 1246
+        }
+      ],
+      "wire": 1246
+    },
+    {
+      "hi": 3762086,
+      "independent_available": 1,
+      "initial_recipe_candidates": 1,
+      "lo": 3762071,
+      "needed": 2,
+      "status": "NO_SUFFICIENT_INDEPENDENT_RESTORABLE_VICTIM_SET",
+      "surviving_exact_recipe_candidates": 1,
+      "touched_quantum_wires": 8,
+      "written_quantum_wires": 7
+    },
+    {
+      "a": 257,
+      "b": 700,
+      "candidates": 1,
+      "captured_guard_expression": 1,
+      "extra_toffoli_records_upper_bound": 2,
+      "hi": 3762088,
+      "kind": 13,
+      "lo": 3762088,
+      "needed": 1,
+      "producer": 3761056,
+      "status": "EXACT_IDLE_VICTIM_SET_AND_RESTORABLE_PRODUCTS_PROVED",
+      "victims": [
+        {
+          "a": 257,
+          "b": 700,
+          "captured_guard_expression": 1,
+          "kind": 13,
+          "producer": 3761056,
+          "wire": 1243
+        }
+      ],
+      "wire": 1243
+    },
+    {
+      "a": 700,
+      "b": 256,
+      "candidates": 1,
+      "captured_guard_expression": 1,
+      "extra_toffoli_records_upper_bound": 2,
+      "hi": 3776980,
+      "kind": 13,
+      "lo": 3776975,
+      "needed": 1,
+      "producer": 3775956,
+      "status": "EXACT_IDLE_VICTIM_SET_AND_RESTORABLE_PRODUCTS_PROVED",
+      "victims": [
+        {
+          "a": 700,
+          "b": 256,
+          "captured_guard_expression": 1,
+          "kind": 13,
+          "producer": 3775956,
+          "wire": 551
+        }
+      ],
+      "wire": 551
+    },
+    {
+      "a": 700,
+      "b": 256,
+      "candidates": 1,
+      "captured_guard_expression": 1,
+      "extra_toffoli_records_upper_bound": 2,
+      "hi": 3776982,
+      "kind": 13,
+      "lo": 3776982,
+      "needed": 1,
+      "producer": 3775956,
+      "status": "EXACT_IDLE_VICTIM_SET_AND_RESTORABLE_PRODUCTS_PROVED",
+      "victims": [
+        {
+          "a": 700,
+          "b": 256,
+          "captured_guard_expression": 1,
+          "kind": 13,
+          "producer": 3775956,
+          "wire": 551
+        }
+      ],
+      "wire": 551
+    },
+    {
+      "hi": 3780049,
+      "independent_available": 1,
+      "initial_recipe_candidates": 1,
+      "lo": 3780034,
+      "needed": 2,
+      "status": "NO_SUFFICIENT_INDEPENDENT_RESTORABLE_VICTIM_SET",
+      "surviving_exact_recipe_candidates": 1,
+      "touched_quantum_wires": 8,
+      "written_quantum_wires": 7
+    },
+    {
+      "a": 699,
+      "b": 256,
+      "candidates": 1,
+      "captured_guard_expression": 1,
+      "extra_toffoli_records_upper_bound": 2,
+      "hi": 3780051,
+      "kind": 13,
+      "lo": 3780051,
+      "needed": 1,
+      "producer": 3779019,
+      "status": "EXACT_IDLE_VICTIM_SET_AND_RESTORABLE_PRODUCTS_PROVED",
+      "victims": [
+        {
+          "a": 699,
+          "b": 256,
+          "captured_guard_expression": 1,
+          "kind": 13,
+          "producer": 3779019,
+          "wire": 550
+        }
+      ],
+      "wire": 550
+    },
+    {
+      "a": 256,
+      "b": 700,
+      "candidates": 1,
+      "captured_guard_expression": 1,
+      "extra_toffoli_records_upper_bound": 2,
+      "hi": 3794943,
+      "kind": 13,
+      "lo": 3794938,
+      "needed": 1,
+      "producer": 3793919,
+      "status": "EXACT_IDLE_VICTIM_SET_AND_RESTORABLE_PRODUCTS_PROVED",
+      "victims": [
+        {
+          "a": 256,
+          "b": 700,
+          "captured_guard_expression": 1,
+          "kind": 13,
+          "producer": 3793919,
+          "wire": 1246
+        }
+      ],
+      "wire": 1246
+    },
+    {
+      "a": 256,
+      "b": 700,
+      "candidates": 1,
+      "captured_guard_expression": 1,
+      "extra_toffoli_records_upper_bound": 2,
+      "hi": 3794945,
+      "kind": 13,
+      "lo": 3794945,
+      "needed": 1,
+      "producer": 3793919,
+      "status": "EXACT_IDLE_VICTIM_SET_AND_RESTORABLE_PRODUCTS_PROVED",
+      "victims": [
+        {
+          "a": 256,
+          "b": 700,
+          "captured_guard_expression": 1,
+          "kind": 13,
+          "producer": 3793919,
+          "wire": 1246
+        }
+      ],
+      "wire": 1246
+    },
+    {
+      "hi": 3798012,
+      "independent_available": 1,
+      "initial_recipe_candidates": 1,
+      "lo": 3797997,
+      "needed": 2,
+      "status": "NO_SUFFICIENT_INDEPENDENT_RESTORABLE_VICTIM_SET",
+      "surviving_exact_recipe_candidates": 1,
+      "touched_quantum_wires": 8,
+      "written_quantum_wires": 7
+    },
+    {
+      "a": 257,
+      "b": 700,
+      "candidates": 1,
+      "captured_guard_expression": 1,
+      "extra_toffoli_records_upper_bound": 2,
+      "hi": 3798014,
+      "kind": 13,
+      "lo": 3798014,
+      "needed": 1,
+      "producer": 3796982,
+      "status": "EXACT_IDLE_VICTIM_SET_AND_RESTORABLE_PRODUCTS_PROVED",
+      "victims": [
+        {
+          "a": 257,
+          "b": 700,
+          "captured_guard_expression": 1,
+          "kind": 13,
+          "producer": 3796982,
+          "wire": 552
+        }
+      ],
+      "wire": 552
+    },
+    {
+      "a": 700,
+      "b": 256,
+      "candidates": 1,
+      "captured_guard_expression": 1,
+      "extra_toffoli_records_upper_bound": 2,
+      "hi": 3812906,
+      "kind": 13,
+      "lo": 3812901,
+      "needed": 1,
+      "producer": 3811882,
+      "status": "EXACT_IDLE_VICTIM_SET_AND_RESTORABLE_PRODUCTS_PROVED",
+      "victims": [
+        {
+          "a": 700,
+          "b": 256,
+          "captured_guard_expression": 1,
+          "kind": 13,
+          "producer": 3811882,
+          "wire": 551
+        }
+      ],
+      "wire": 551
+    },
+    {
+      "a": 700,
+      "b": 256,
+      "candidates": 1,
+      "captured_guard_expression": 1,
+      "extra_toffoli_records_upper_bound": 2,
+      "hi": 3812908,
+      "kind": 13,
+      "lo": 3812908,
+      "needed": 1,
+      "producer": 3811882,
+      "status": "EXACT_IDLE_VICTIM_SET_AND_RESTORABLE_PRODUCTS_PROVED",
+      "victims": [
+        {
+          "a": 700,
+          "b": 256,
+          "captured_guard_expression": 1,
+          "kind": 13,
+          "producer": 3811882,
+          "wire": 551
+        }
+      ],
+      "wire": 551
+    },
+    {
+      "hi": 3815975,
+      "independent_available": 1,
+      "initial_recipe_candidates": 1,
+      "lo": 3815960,
+      "needed": 2,
+      "status": "NO_SUFFICIENT_INDEPENDENT_RESTORABLE_VICTIM_SET",
+      "surviving_exact_recipe_candidates": 1,
+      "touched_quantum_wires": 8,
+      "written_quantum_wires": 7
+    },
+    {
+      "a": 699,
+      "b": 256,
+      "candidates": 1,
+      "captured_guard_expression": 1,
+      "extra_toffoli_records_upper_bound": 2,
+      "hi": 3815977,
+      "kind": 13,
+      "lo": 3815977,
+      "needed": 1,
+      "producer": 3814945,
+      "status": "EXACT_IDLE_VICTIM_SET_AND_RESTORABLE_PRODUCTS_PROVED",
+      "victims": [
+        {
+          "a": 699,
+          "b": 256,
+          "captured_guard_expression": 1,
+          "kind": 13,
+          "producer": 3814945,
+          "wire": 1243
+        }
+      ],
+      "wire": 1243
+    },
+    {
+      "a": 256,
+      "b": 700,
+      "candidates": 1,
+      "captured_guard_expression": 1,
+      "extra_toffoli_records_upper_bound": 2,
+      "hi": 3830869,
+      "kind": 13,
+      "lo": 3830864,
+      "needed": 1,
+      "producer": 3829845,
+      "status": "EXACT_IDLE_VICTIM_SET_AND_RESTORABLE_PRODUCTS_PROVED",
+      "victims": [
+        {
+          "a": 256,
+          "b": 700,
+          "captured_guard_expression": 1,
+          "kind": 13,
+          "producer": 3829845,
+          "wire": 1246
+        }
+      ],
+      "wire": 1246
+    },
+    {
+      "a": 256,
+      "b": 700,
+      "candidates": 1,
+      "captured_guard_expression": 1,
+      "extra_toffoli_records_upper_bound": 2,
+      "hi": 3830871,
+      "kind": 13,
+      "lo": 3830871,
+      "needed": 1,
+      "producer": 3829845,
+      "status": "EXACT_IDLE_VICTIM_SET_AND_RESTORABLE_PRODUCTS_PROVED",
+      "victims": [
+        {
+          "a": 256,
+          "b": 700,
+          "captured_guard_expression": 1,
+          "kind": 13,
+          "producer": 3829845,
+          "wire": 1246
+        }
+      ],
+      "wire": 1246
+    },
+    {
+      "hi": 3833938,
+      "independent_available": 1,
+      "initial_recipe_candidates": 1,
+      "lo": 3833923,
+      "needed": 2,
+      "status": "NO_SUFFICIENT_INDEPENDENT_RESTORABLE_VICTIM_SET",
+      "surviving_exact_recipe_candidates": 1,
+      "touched_quantum_wires": 8,
+      "written_quantum_wires": 7
+    },
+    {
+      "a": 257,
+      "b": 700,
+      "candidates": 1,
+      "captured_guard_expression": 1,
+      "extra_toffoli_records_upper_bound": 2,
+      "hi": 3833940,
+      "kind": 13,
+      "lo": 3833940,
+      "needed": 1,
+      "producer": 3832908,
+      "status": "EXACT_IDLE_VICTIM_SET_AND_RESTORABLE_PRODUCTS_PROVED",
+      "victims": [
+        {
+          "a": 257,
+          "b": 700,
+          "captured_guard_expression": 1,
+          "kind": 13,
+          "producer": 3832908,
+          "wire": 550
+        }
+      ],
+      "wire": 550
+    },
+    {
+      "a": 700,
+      "b": 256,
+      "candidates": 1,
+      "captured_guard_expression": 1,
+      "extra_toffoli_records_upper_bound": 2,
+      "hi": 3848832,
+      "kind": 13,
+      "lo": 3848827,
+      "needed": 1,
+      "producer": 3847808,
+      "status": "EXACT_IDLE_VICTIM_SET_AND_RESTORABLE_PRODUCTS_PROVED",
+      "victims": [
+        {
+          "a": 700,
+          "b": 256,
+          "captured_guard_expression": 1,
+          "kind": 13,
+          "producer": 3847808,
+          "wire": 551
+        }
+      ],
+      "wire": 551
+    },
+    {
+      "a": 700,
+      "b": 256,
+      "candidates": 1,
+      "captured_guard_expression": 1,
+      "extra_toffoli_records_upper_bound": 2,
+      "hi": 3848834,
+      "kind": 13,
+      "lo": 3848834,
+      "needed": 1,
+      "producer": 3847808,
+      "status": "EXACT_IDLE_VICTIM_SET_AND_RESTORABLE_PRODUCTS_PROVED",
+      "victims": [
+        {
+          "a": 700,
+          "b": 256,
+          "captured_guard_expression": 1,
+          "kind": 13,
+          "producer": 3847808,
+          "wire": 551
+        }
+      ],
+      "wire": 551
+    },
+    {
+      "hi": 3851901,
+      "independent_available": 1,
+      "initial_recipe_candidates": 1,
+      "lo": 3851886,
+      "needed": 2,
+      "status": "NO_SUFFICIENT_INDEPENDENT_RESTORABLE_VICTIM_SET",
+      "surviving_exact_recipe_candidates": 1,
+      "touched_quantum_wires": 8,
+      "written_quantum_wires": 7
+    },
+    {
+      "a": 699,
+      "b": 256,
+      "candidates": 1,
+      "captured_guard_expression": 1,
+      "extra_toffoli_records_upper_bound": 2,
+      "hi": 3851903,
+      "kind": 13,
+      "lo": 3851903,
+      "needed": 1,
+      "producer": 3850871,
+      "status": "EXACT_IDLE_VICTIM_SET_AND_RESTORABLE_PRODUCTS_PROVED",
+      "victims": [
+        {
+          "a": 699,
+          "b": 256,
+          "captured_guard_expression": 1,
+          "kind": 13,
+          "producer": 3850871,
+          "wire": 552
+        }
+      ],
+      "wire": 552
+    },
+    {
+      "a": 256,
+      "b": 700,
+      "candidates": 1,
+      "captured_guard_expression": 1,
+      "extra_toffoli_records_upper_bound": 2,
+      "hi": 3866795,
+      "kind": 13,
+      "lo": 3866790,
+      "needed": 1,
+      "producer": 3865771,
+      "status": "EXACT_IDLE_VICTIM_SET_AND_RESTORABLE_PRODUCTS_PROVED",
+      "victims": [
+        {
+          "a": 256,
+          "b": 700,
+          "captured_guard_expression": 1,
+          "kind": 13,
+          "producer": 3865771,
+          "wire": 1246
+        }
+      ],
+      "wire": 1246
+    },
+    {
+      "a": 256,
+      "b": 700,
+      "candidates": 1,
+      "captured_guard_expression": 1,
+      "extra_toffoli_records_upper_bound": 2,
+      "hi": 3866797,
+      "kind": 13,
+      "lo": 3866797,
+      "needed": 1,
+      "producer": 3865771,
+      "status": "EXACT_IDLE_VICTIM_SET_AND_RESTORABLE_PRODUCTS_PROVED",
+      "victims": [
+        {
+          "a": 256,
+          "b": 700,
+          "captured_guard_expression": 1,
+          "kind": 13,
+          "producer": 3865771,
+          "wire": 1246
+        }
+      ],
+      "wire": 1246
+    },
+    {
+      "hi": 3869864,
+      "independent_available": 1,
+      "initial_recipe_candidates": 1,
+      "lo": 3869849,
+      "needed": 2,
+      "status": "NO_SUFFICIENT_INDEPENDENT_RESTORABLE_VICTIM_SET",
+      "surviving_exact_recipe_candidates": 1,
+      "touched_quantum_wires": 8,
+      "written_quantum_wires": 7
+    },
+    {
+      "a": 257,
+      "b": 700,
+      "candidates": 1,
+      "captured_guard_expression": 1,
+      "extra_toffoli_records_upper_bound": 2,
+      "hi": 3869866,
+      "kind": 13,
+      "lo": 3869866,
+      "needed": 1,
+      "producer": 3868834,
+      "status": "EXACT_IDLE_VICTIM_SET_AND_RESTORABLE_PRODUCTS_PROVED",
+      "victims": [
+        {
+          "a": 257,
+          "b": 700,
+          "captured_guard_expression": 1,
+          "kind": 13,
+          "producer": 3868834,
+          "wire": 1243
+        }
+      ],
+      "wire": 1243
+    }
+  ],
+  "scope": "Each selected helper is a proved X/CX/CCX of original historical classical guard and CURRENT controls; helper untouched and its full captured-guard product exactly restored at region end; control writes allowed only under that equality proof. Uncompute before region and restore after a physical slot frees. Historical guard must be captured at original producer, both inserted gates outside original scope stack via exact guard flattening. No inserted RNG. This is a source-bound plan, NOT achieved Q/T; actual allocator/guard emitter/native full phase/RNG qualification and final pipeline required.",
+  "semantic_nodes": 8949465,
+  "status": "READ_ONLY_PEAK_REMATERIALIZATION_PLAN_NOT_AN_EMITTED_CIRCUIT_OR_SCORE",
+  "target_cap": 1462,
+  "two_toffoli_recipe_regions": 22,
+  "unfinished_final_region": false,
+  "unproved_regions": 10,
+  "zero_toffoli_recipe_regions": 0
+}

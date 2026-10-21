@@ -1,0 +1,5 @@
+# Keep an identical borrowed value absent across adjacent peaks
+
+Merge adjacent identical complete-key victim loans only when original quantum touch ledger proves victim idle through whole extension. Source-bound polynomial grid unchanged. Failed rows break merge chains; no complete bound for incomplete cap. Two merge/cost/touch/failure negative controls. No circuit/achieved resource, point inputs, gate or nonce.
+
+If the same victim with identical producer/guard/term keys occurs in consecutive region plans and is never touched by any original quantum operation across the extended span, its old restore and next uncompute can be omitted. Endpoint polynomial proof remains that of original first/last regions. Original independent victim sets ensure extra loan gates do not reference another missing victim at boundaries. Carrying a missing helper through a below-cap gap only frees capacity. Keep every resulting interval and exact cost sum; fair original guard-depth weights are diagnostic only. No scored resource claim without an actual fully qualified emitter.

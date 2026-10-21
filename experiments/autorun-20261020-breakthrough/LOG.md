@@ -743,3 +743,52 @@ measurement phase/RNG, guards and full protected qualification remain mandatory.
 Preserve Q692 and every sealed old failure/verdict. Chemistry/unrelatedjobs intact.
 Exact approved41f769ec push previously completed; newer commits remain local.
 
+
+## 21 October 2026: compact exact verifier and reversible peak plans
+
+No new benchmark/finalgate/nonce screen/official submission. Globalproduct goal
+ACTIVE; latest00:40UTC1717snapshot has priorofficialffe20 Q1464/T746112,
+globalproduct1829 Q1234/T755314/932057476, width669. PreserveQ692 evidence.
+
+Compact verifier storage native40/fresh33protected on192fixedpointsPASS:
+all128wrong certified,64passingcontrols unrejected, all512outputbitsknown.
+Fixed proof times .069266135/.062077742/.065517342sec/64 vs .132..153prior.
+Broader native42/fresh24protected+ALL32768preserved currentpublic targethashes
+PASS; all54value failures certified, unknown0,false rejection0,mismatch0.
+63.534927826sec vs106.727310831previous includingpointgeneration. No new census,
+no pastgate rejudged, no nonce screened/rejected. Full-key immutable coefficient
+forms, old qualifiedalgebra unchanged;8totalterms/degree4/caches preserved,
+1mform budget has soundTVfallback. This is verifierresearch, not a quantumscore.
+
+Read-only quantum sharing native5/fullbothparents has NO peakduplicate margin:
+distinctfunctionpeak1234/1464, conservativecopyprojection1235/1464. Retired.
+Exactpeakrematerialization native5 covers all16wide-parent1463-cap islands with
+at most32extraT/shot, but not an emitted allocation. Scalar multicapnative7
+fails deeper; XOR8termrecipesnative10 fully cover1462/1460/1456/1448/1432caps
+with raw worstcase addedT80/244/552/1712/6144. Exact adjacent idleloan merge
+native2 reduces these to48/178/476/1572/5870. Deeper plans incomplete with NULL
+completebounds; currentproductcap1233 port has450unproved of3007regions.
+These costs/holes do not beatglobalproduct. No actualQ/T, allocator, candidate,
+gate or nonce; never display these plans in READMEresultsplots.
+
+Guard flattening prerequisite native5+24COMPLETEprotected comparisonsPASS.
+Allphysicalqubits/originalclassicalbits, absolutephase, executedT/Cliffordcounts
+and every originalRNGword match. Currentffe20 input9185 -> control735f063c,
+10995456->11292508ops, no newquantumgate/measurement. OriginalPush snapshots
+captured beforebitmutation; originalmetadata unchanged. No resourceimprovement.
+
+OriginalFSreference declared for SAME already-screened OLD6192controls1..8 and
+each recorded badbatch7/3/5/5/4/1/0/29 (nonce7phaseonly). Replay NOT started.
+Qualifiedenginebinary8e436f matchesolddeclaration. Protectedfiat_shamir_seed
+function byteidentical to engine; exacttailcode/source hashespreserved.
+Retired1..65536EXHAUSTED verdict final; neverresume/extend. Newqualification
+must bindOLDcache independently, checkactual9024attempt/skip membership and
+fullseed/prefixseed equality before exactwrongpoint certificates. No heuristic
+mayreject; qualified oldengine hasmodel=(),advisoryhitfalse, exactfullstateonly.
+Futurecandidate stillneeds own frozen passedgate and originalFS qualification.
+
+Alljobs in thiscycle finished; next work is ORIGINAL_FS fixed-control audit,
+then advisorynomination plus exactpackedproof/fullstatefallback. Public exact
+singleCCXtoCX still componentonly. Exact approved41f769ec push completed earlier;
+newercommits local. Preexisting edits/chemistry/unrelatedHPC jobs preserved.
+

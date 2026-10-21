@@ -1,0 +1,49 @@
+   Compiling product_pareto_exact v0.1.0 (/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-multicap-rematerialization-20261021/local-tool)
+warning: field `implications` is never read
+  --> discover.rs:21:125
+   |
+21 | ...ct Expr{restricting:bool,truths:Vec<SemTruth>,canonical:HashMap<SemTruth,u32>,nodes:Vec<(u8,u32,u32)>,implications:Ha...
+   |       ---- field in this struct                                                                          ^^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: methods `quick_implies`, `implies`, and `zero_truth_table` are never used
+  --> discover.rs:30:5
+   |
+29 | impl Expr{
+   | --------- methods in this implementation
+30 |  fn quick_implies(&self,a:u32,b:u32,depth:usize)->bool{if a==0||b==1||a==b{return true;}if depth==0||a<=1||b==0{...
+   |     ^^^^^^^^^^^^^
+31 |  fn implies(&mut self,a:u32,b:u32)->bool{if self.quick_implies(a,b,12){return true;}if let Some(&v)=self.implica...
+   |     ^^^^^^^
+32 |  fn zero_truth_table(&self,root:u32)->bool{if root<=1{return root==0;}let mut pending=vec![root&!1];let mut visi...
+   |     ^^^^^^^^^^^^^^^^
+
+warning: methods `and`, `xor`, and `select` are never used
+  --> discover.rs:41:58
+   |
+41 | impl Algebra{fn fresh(&mut self)->E{self.inner.atom()}fn and(&mut self,a:&E,b:&E)->E{self.inner.and(*a,*b)}fn xor(&mut self,a:&E,b:&E)->E{self.inner.xor(*a,*b)}fn select(&m...
+   | ------------ methods in this implementation              ^^^                                                  ^^^                                                  ^^^^^^
+
+warning: `product_pareto_exact` (bin "multicap_rematerialization" test) generated 3 warnings
+    Finished `release` profile [optimized] target(s) in 3.06s
+     Running unittests discover.rs (/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-value-guard-fusion-audit-20261020/local-tool/target/release/deps/multicap_rematerialization-3f9d30097c6b2220)
+
+running 7 tests
+PEAK_REMAT op=0test semantic_algebra_controls::distributivity_and_unused_support_are_exact ... ok regions=0
+ free_loans=0test semantic_algebra_controls::above_six_atom_cofactor_has_disabled_negative_control ... ok ccx_loans=0
+ failed=0 nodes=5
+PEAK_REMAT op=0 regions=0 free_loans=0 ccx_loans=0 failed=0 nodes=5
+PEAK_REMAT op=0 regions=0 free_loans=0 ccx_loans=0 failed=0 nodes=4
+PEAK_REMAT op=0test multicap_tests::two_simultaneous_victims_cover_a_two_qubit_peak_without_dependency_cycle ...  regions=0ok
+ free_loans=0 ccx_loans=0 failed=0 nodes=4
+PEAK_REMAT op=0 regions=0 free_loans=0 ccx_loans=0 failed=0 nodes=4
+PEAK_REMAT op=0test multicap_tests::modified_controls_are_allowed_only_if_the_original_product_is_exactly_restored ... ok regions=0
+ free_loans=0 ccx_loans=0 failed=0 nodes=5
+PEAK_REMAT op=0test peak_remat_tests::uncompute_restore_preserves_full_phase_values_rng_and_captured_old_classical_guard ... ok regions=0
+ free_loans=0 ccx_loans=0 failed=0 nodes=5
+test peak_remat_tests::peak_island_has_exact_idle_clifford_or_toffoli_recipe ... ok
+test semantic_algebra_controls::complete_six_atom_expression_truths_match_original_functions ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 4.64s
+

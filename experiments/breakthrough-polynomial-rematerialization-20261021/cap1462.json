@@ -1,0 +1,938 @@
+{
+  "all_regions_covered": true,
+  "extra_executed_toffoli_per_shot_upper_bound": 80,
+  "extra_non_toffoli_recipe_gates": 20,
+  "input_records_sha3": "373e44f24e185dd662b59a4ff683555b66a05c9995ff2684eefb6723446100cc",
+  "original_lifetime_peak": 1464,
+  "original_qubits": 1464,
+  "recipe_budget_forgets": 3626,
+  "regions": [
+    {
+      "extra_non_toffoli_recipe_gates": 2,
+      "extra_toffoli_records_upper_bound": 2,
+      "hi": 3741054,
+      "lo": 3741049,
+      "needed": 1,
+      "status": "COMPLETE_EXACT_POLYNOMIAL_VICTIM_SET",
+      "victims": [
+        {
+          "terms": [
+            {
+              "a": 864,
+              "b": 264,
+              "guard_expression": 1,
+              "kind": 13,
+              "original_toggle_function": 6465848,
+              "producer": 3740061
+            },
+            {
+              "a": 1206,
+              "b": 18446744073709551615,
+              "guard_expression": 1,
+              "kind": 8,
+              "original_toggle_function": 6465843,
+              "producer": 3740062
+            }
+          ],
+          "wire": 554
+        }
+      ]
+    },
+    {
+      "extra_non_toffoli_recipe_gates": 2,
+      "extra_toffoli_records_upper_bound": 2,
+      "hi": 3741056,
+      "lo": 3741056,
+      "needed": 1,
+      "status": "COMPLETE_EXACT_POLYNOMIAL_VICTIM_SET",
+      "victims": [
+        {
+          "terms": [
+            {
+              "a": 864,
+              "b": 264,
+              "guard_expression": 1,
+              "kind": 13,
+              "original_toggle_function": 6465848,
+              "producer": 3740061
+            },
+            {
+              "a": 1206,
+              "b": 18446744073709551615,
+              "guard_expression": 1,
+              "kind": 8,
+              "original_toggle_function": 6465843,
+              "producer": 3740062
+            }
+          ],
+          "wire": 554
+        }
+      ]
+    },
+    {
+      "extra_non_toffoli_recipe_gates": 2,
+      "extra_toffoli_records_upper_bound": 4,
+      "hi": 3744123,
+      "lo": 3744108,
+      "needed": 2,
+      "status": "COMPLETE_EXACT_POLYNOMIAL_VICTIM_SET",
+      "victims": [
+        {
+          "terms": [
+            {
+              "a": 699,
+              "b": 256,
+              "guard_expression": 1,
+              "kind": 13,
+              "original_toggle_function": 6471240,
+              "producer": 3743093
+            }
+          ],
+          "wire": 552
+        },
+        {
+          "terms": [
+            {
+              "a": 864,
+              "b": 263,
+              "guard_expression": 1,
+              "kind": 13,
+              "original_toggle_function": 6471294,
+              "producer": 3743120
+            },
+            {
+              "a": 1206,
+              "b": 18446744073709551615,
+              "guard_expression": 1,
+              "kind": 8,
+              "original_toggle_function": 6471288,
+              "producer": 3743121
+            }
+          ],
+          "wire": 554
+        }
+      ]
+    },
+    {
+      "extra_non_toffoli_recipe_gates": 0,
+      "extra_toffoli_records_upper_bound": 2,
+      "hi": 3744125,
+      "lo": 3744125,
+      "needed": 1,
+      "status": "COMPLETE_EXACT_POLYNOMIAL_VICTIM_SET",
+      "victims": [
+        {
+          "terms": [
+            {
+              "a": 699,
+              "b": 256,
+              "guard_expression": 1,
+              "kind": 13,
+              "original_toggle_function": 6471240,
+              "producer": 3743093
+            }
+          ],
+          "wire": 552
+        }
+      ]
+    },
+    {
+      "extra_non_toffoli_recipe_gates": 0,
+      "extra_toffoli_records_upper_bound": 2,
+      "hi": 3759017,
+      "lo": 3759012,
+      "needed": 1,
+      "status": "COMPLETE_EXACT_POLYNOMIAL_VICTIM_SET",
+      "victims": [
+        {
+          "terms": [
+            {
+              "a": 256,
+              "b": 700,
+              "guard_expression": 1,
+              "kind": 13,
+              "original_toggle_function": 6500412,
+              "producer": 3757993
+            }
+          ],
+          "wire": 1246
+        }
+      ]
+    },
+    {
+      "extra_non_toffoli_recipe_gates": 0,
+      "extra_toffoli_records_upper_bound": 2,
+      "hi": 3759019,
+      "lo": 3759019,
+      "needed": 1,
+      "status": "COMPLETE_EXACT_POLYNOMIAL_VICTIM_SET",
+      "victims": [
+        {
+          "terms": [
+            {
+              "a": 256,
+              "b": 700,
+              "guard_expression": 1,
+              "kind": 13,
+              "original_toggle_function": 6500412,
+              "producer": 3757993
+            }
+          ],
+          "wire": 1246
+        }
+      ]
+    },
+    {
+      "extra_non_toffoli_recipe_gates": 2,
+      "extra_toffoli_records_upper_bound": 4,
+      "hi": 3762086,
+      "lo": 3762071,
+      "needed": 2,
+      "status": "COMPLETE_EXACT_POLYNOMIAL_VICTIM_SET",
+      "victims": [
+        {
+          "terms": [
+            {
+              "a": 257,
+              "b": 700,
+              "guard_expression": 1,
+              "kind": 13,
+              "original_toggle_function": 6505890,
+              "producer": 3761056
+            }
+          ],
+          "wire": 1243
+        },
+        {
+          "terms": [
+            {
+              "a": 273,
+              "b": 872,
+              "guard_expression": 1,
+              "kind": 13,
+              "original_toggle_function": 6506016,
+              "producer": 3761119
+            },
+            {
+              "a": 553,
+              "b": 18446744073709551615,
+              "guard_expression": 1,
+              "kind": 8,
+              "original_toggle_function": 6506010,
+              "producer": 3761120
+            }
+          ],
+          "wire": 550
+        }
+      ]
+    },
+    {
+      "extra_non_toffoli_recipe_gates": 0,
+      "extra_toffoli_records_upper_bound": 2,
+      "hi": 3762088,
+      "lo": 3762088,
+      "needed": 1,
+      "status": "COMPLETE_EXACT_POLYNOMIAL_VICTIM_SET",
+      "victims": [
+        {
+          "terms": [
+            {
+              "a": 257,
+              "b": 700,
+              "guard_expression": 1,
+              "kind": 13,
+              "original_toggle_function": 6505890,
+              "producer": 3761056
+            }
+          ],
+          "wire": 1243
+        }
+      ]
+    },
+    {
+      "extra_non_toffoli_recipe_gates": 0,
+      "extra_toffoli_records_upper_bound": 2,
+      "hi": 3776980,
+      "lo": 3776975,
+      "needed": 1,
+      "status": "COMPLETE_EXACT_POLYNOMIAL_VICTIM_SET",
+      "victims": [
+        {
+          "terms": [
+            {
+              "a": 700,
+              "b": 256,
+              "guard_expression": 1,
+              "kind": 13,
+              "original_toggle_function": 6537248,
+              "producer": 3775956
+            }
+          ],
+          "wire": 551
+        }
+      ]
+    },
+    {
+      "extra_non_toffoli_recipe_gates": 0,
+      "extra_toffoli_records_upper_bound": 2,
+      "hi": 3776982,
+      "lo": 3776982,
+      "needed": 1,
+      "status": "COMPLETE_EXACT_POLYNOMIAL_VICTIM_SET",
+      "victims": [
+        {
+          "terms": [
+            {
+              "a": 700,
+              "b": 256,
+              "guard_expression": 1,
+              "kind": 13,
+              "original_toggle_function": 6537248,
+              "producer": 3775956
+            }
+          ],
+          "wire": 551
+        }
+      ]
+    },
+    {
+      "extra_non_toffoli_recipe_gates": 2,
+      "extra_toffoli_records_upper_bound": 4,
+      "hi": 3780049,
+      "lo": 3780034,
+      "needed": 2,
+      "status": "COMPLETE_EXACT_POLYNOMIAL_VICTIM_SET",
+      "victims": [
+        {
+          "terms": [
+            {
+              "a": 699,
+              "b": 256,
+              "guard_expression": 1,
+              "kind": 13,
+              "original_toggle_function": 6542640,
+              "producer": 3779019
+            }
+          ],
+          "wire": 550
+        },
+        {
+          "terms": [
+            {
+              "a": 873,
+              "b": 272,
+              "guard_expression": 1,
+              "kind": 13,
+              "original_toggle_function": 6542766,
+              "producer": 3779082
+            },
+            {
+              "a": 1244,
+              "b": 18446744073709551615,
+              "guard_expression": 1,
+              "kind": 8,
+              "original_toggle_function": 6542760,
+              "producer": 3779083
+            }
+          ],
+          "wire": 552
+        }
+      ]
+    },
+    {
+      "extra_non_toffoli_recipe_gates": 0,
+      "extra_toffoli_records_upper_bound": 2,
+      "hi": 3780051,
+      "lo": 3780051,
+      "needed": 1,
+      "status": "COMPLETE_EXACT_POLYNOMIAL_VICTIM_SET",
+      "victims": [
+        {
+          "terms": [
+            {
+              "a": 699,
+              "b": 256,
+              "guard_expression": 1,
+              "kind": 13,
+              "original_toggle_function": 6542640,
+              "producer": 3779019
+            }
+          ],
+          "wire": 550
+        }
+      ]
+    },
+    {
+      "extra_non_toffoli_recipe_gates": 0,
+      "extra_toffoli_records_upper_bound": 2,
+      "hi": 3794943,
+      "lo": 3794938,
+      "needed": 1,
+      "status": "COMPLETE_EXACT_POLYNOMIAL_VICTIM_SET",
+      "victims": [
+        {
+          "terms": [
+            {
+              "a": 256,
+              "b": 700,
+              "guard_expression": 1,
+              "kind": 13,
+              "original_toggle_function": 6570918,
+              "producer": 3793919
+            }
+          ],
+          "wire": 1246
+        }
+      ]
+    },
+    {
+      "extra_non_toffoli_recipe_gates": 0,
+      "extra_toffoli_records_upper_bound": 2,
+      "hi": 3794945,
+      "lo": 3794945,
+      "needed": 1,
+      "status": "COMPLETE_EXACT_POLYNOMIAL_VICTIM_SET",
+      "victims": [
+        {
+          "terms": [
+            {
+              "a": 256,
+              "b": 700,
+              "guard_expression": 1,
+              "kind": 13,
+              "original_toggle_function": 6570918,
+              "producer": 3793919
+            }
+          ],
+          "wire": 1246
+        }
+      ]
+    },
+    {
+      "extra_non_toffoli_recipe_gates": 2,
+      "extra_toffoli_records_upper_bound": 4,
+      "hi": 3798012,
+      "lo": 3797997,
+      "needed": 2,
+      "status": "COMPLETE_EXACT_POLYNOMIAL_VICTIM_SET",
+      "victims": [
+        {
+          "terms": [
+            {
+              "a": 257,
+              "b": 700,
+              "guard_expression": 1,
+              "kind": 13,
+              "original_toggle_function": 6576504,
+              "producer": 3796982
+            }
+          ],
+          "wire": 552
+        },
+        {
+          "terms": [
+            {
+              "a": 274,
+              "b": 873,
+              "guard_expression": 1,
+              "kind": 13,
+              "original_toggle_function": 6576638,
+              "producer": 3797049
+            },
+            {
+              "a": 1243,
+              "b": 18446744073709551615,
+              "guard_expression": 1,
+              "kind": 8,
+              "original_toggle_function": 6576632,
+              "producer": 3797050
+            }
+          ],
+          "wire": 551
+        }
+      ]
+    },
+    {
+      "extra_non_toffoli_recipe_gates": 0,
+      "extra_toffoli_records_upper_bound": 2,
+      "hi": 3798014,
+      "lo": 3798014,
+      "needed": 1,
+      "status": "COMPLETE_EXACT_POLYNOMIAL_VICTIM_SET",
+      "victims": [
+        {
+          "terms": [
+            {
+              "a": 257,
+              "b": 700,
+              "guard_expression": 1,
+              "kind": 13,
+              "original_toggle_function": 6576504,
+              "producer": 3796982
+            }
+          ],
+          "wire": 552
+        }
+      ]
+    },
+    {
+      "extra_non_toffoli_recipe_gates": 0,
+      "extra_toffoli_records_upper_bound": 2,
+      "hi": 3812906,
+      "lo": 3812901,
+      "needed": 1,
+      "status": "COMPLETE_EXACT_POLYNOMIAL_VICTIM_SET",
+      "victims": [
+        {
+          "terms": [
+            {
+              "a": 700,
+              "b": 256,
+              "guard_expression": 1,
+              "kind": 13,
+              "original_toggle_function": 6606430,
+              "producer": 3811882
+            }
+          ],
+          "wire": 551
+        }
+      ]
+    },
+    {
+      "extra_non_toffoli_recipe_gates": 0,
+      "extra_toffoli_records_upper_bound": 2,
+      "hi": 3812908,
+      "lo": 3812908,
+      "needed": 1,
+      "status": "COMPLETE_EXACT_POLYNOMIAL_VICTIM_SET",
+      "victims": [
+        {
+          "terms": [
+            {
+              "a": 700,
+              "b": 256,
+              "guard_expression": 1,
+              "kind": 13,
+              "original_toggle_function": 6606430,
+              "producer": 3811882
+            }
+          ],
+          "wire": 551
+        }
+      ]
+    },
+    {
+      "extra_non_toffoli_recipe_gates": 2,
+      "extra_toffoli_records_upper_bound": 4,
+      "hi": 3815975,
+      "lo": 3815960,
+      "needed": 2,
+      "status": "COMPLETE_EXACT_POLYNOMIAL_VICTIM_SET",
+      "victims": [
+        {
+          "terms": [
+            {
+              "a": 699,
+              "b": 256,
+              "guard_expression": 1,
+              "kind": 13,
+              "original_toggle_function": 6611956,
+              "producer": 3814945
+            }
+          ],
+          "wire": 1243
+        },
+        {
+          "terms": [
+            {
+              "a": 873,
+              "b": 272,
+              "guard_expression": 1,
+              "kind": 13,
+              "original_toggle_function": 6612082,
+              "producer": 3815008
+            },
+            {
+              "a": 1244,
+              "b": 18446744073709551615,
+              "guard_expression": 1,
+              "kind": 8,
+              "original_toggle_function": 6612076,
+              "producer": 3815009
+            }
+          ],
+          "wire": 550
+        }
+      ]
+    },
+    {
+      "extra_non_toffoli_recipe_gates": 0,
+      "extra_toffoli_records_upper_bound": 2,
+      "hi": 3815977,
+      "lo": 3815977,
+      "needed": 1,
+      "status": "COMPLETE_EXACT_POLYNOMIAL_VICTIM_SET",
+      "victims": [
+        {
+          "terms": [
+            {
+              "a": 699,
+              "b": 256,
+              "guard_expression": 1,
+              "kind": 13,
+              "original_toggle_function": 6611956,
+              "producer": 3814945
+            }
+          ],
+          "wire": 1243
+        }
+      ]
+    },
+    {
+      "extra_non_toffoli_recipe_gates": 0,
+      "extra_toffoli_records_upper_bound": 2,
+      "hi": 3830869,
+      "lo": 3830864,
+      "needed": 1,
+      "status": "COMPLETE_EXACT_POLYNOMIAL_VICTIM_SET",
+      "victims": [
+        {
+          "terms": [
+            {
+              "a": 256,
+              "b": 700,
+              "guard_expression": 1,
+              "kind": 13,
+              "original_toggle_function": 6641558,
+              "producer": 3829845
+            }
+          ],
+          "wire": 1246
+        }
+      ]
+    },
+    {
+      "extra_non_toffoli_recipe_gates": 0,
+      "extra_toffoli_records_upper_bound": 2,
+      "hi": 3830871,
+      "lo": 3830871,
+      "needed": 1,
+      "status": "COMPLETE_EXACT_POLYNOMIAL_VICTIM_SET",
+      "victims": [
+        {
+          "terms": [
+            {
+              "a": 256,
+              "b": 700,
+              "guard_expression": 1,
+              "kind": 13,
+              "original_toggle_function": 6641558,
+              "producer": 3829845
+            }
+          ],
+          "wire": 1246
+        }
+      ]
+    },
+    {
+      "extra_non_toffoli_recipe_gates": 2,
+      "extra_toffoli_records_upper_bound": 4,
+      "hi": 3833938,
+      "lo": 3833923,
+      "needed": 2,
+      "status": "COMPLETE_EXACT_POLYNOMIAL_VICTIM_SET",
+      "victims": [
+        {
+          "terms": [
+            {
+              "a": 257,
+              "b": 700,
+              "guard_expression": 1,
+              "kind": 13,
+              "original_toggle_function": 6647018,
+              "producer": 3832908
+            }
+          ],
+          "wire": 550
+        },
+        {
+          "terms": [
+            {
+              "a": 274,
+              "b": 873,
+              "guard_expression": 1,
+              "kind": 13,
+              "original_toggle_function": 6647152,
+              "producer": 3832975
+            },
+            {
+              "a": 552,
+              "b": 18446744073709551615,
+              "guard_expression": 1,
+              "kind": 8,
+              "original_toggle_function": 6647146,
+              "producer": 3832976
+            }
+          ],
+          "wire": 551
+        }
+      ]
+    },
+    {
+      "extra_non_toffoli_recipe_gates": 0,
+      "extra_toffoli_records_upper_bound": 2,
+      "hi": 3833940,
+      "lo": 3833940,
+      "needed": 1,
+      "status": "COMPLETE_EXACT_POLYNOMIAL_VICTIM_SET",
+      "victims": [
+        {
+          "terms": [
+            {
+              "a": 257,
+              "b": 700,
+              "guard_expression": 1,
+              "kind": 13,
+              "original_toggle_function": 6647018,
+              "producer": 3832908
+            }
+          ],
+          "wire": 550
+        }
+      ]
+    },
+    {
+      "extra_non_toffoli_recipe_gates": 0,
+      "extra_toffoli_records_upper_bound": 2,
+      "hi": 3848832,
+      "lo": 3848827,
+      "needed": 1,
+      "status": "COMPLETE_EXACT_POLYNOMIAL_VICTIM_SET",
+      "victims": [
+        {
+          "terms": [
+            {
+              "a": 700,
+              "b": 256,
+              "guard_expression": 1,
+              "kind": 13,
+              "original_toggle_function": 6675986,
+              "producer": 3847808
+            }
+          ],
+          "wire": 551
+        }
+      ]
+    },
+    {
+      "extra_non_toffoli_recipe_gates": 0,
+      "extra_toffoli_records_upper_bound": 2,
+      "hi": 3848834,
+      "lo": 3848834,
+      "needed": 1,
+      "status": "COMPLETE_EXACT_POLYNOMIAL_VICTIM_SET",
+      "victims": [
+        {
+          "terms": [
+            {
+              "a": 700,
+              "b": 256,
+              "guard_expression": 1,
+              "kind": 13,
+              "original_toggle_function": 6675986,
+              "producer": 3847808
+            }
+          ],
+          "wire": 551
+        }
+      ]
+    },
+    {
+      "extra_non_toffoli_recipe_gates": 2,
+      "extra_toffoli_records_upper_bound": 4,
+      "hi": 3851901,
+      "lo": 3851886,
+      "needed": 2,
+      "status": "COMPLETE_EXACT_POLYNOMIAL_VICTIM_SET",
+      "victims": [
+        {
+          "terms": [
+            {
+              "a": 699,
+              "b": 256,
+              "guard_expression": 1,
+              "kind": 13,
+              "original_toggle_function": 6681534,
+              "producer": 3850871
+            }
+          ],
+          "wire": 552
+        },
+        {
+          "terms": [
+            {
+              "a": 864,
+              "b": 263,
+              "guard_expression": 1,
+              "kind": 13,
+              "original_toggle_function": 6681588,
+              "producer": 3850898
+            },
+            {
+              "a": 1206,
+              "b": 18446744073709551615,
+              "guard_expression": 1,
+              "kind": 8,
+              "original_toggle_function": 6681582,
+              "producer": 3850899
+            }
+          ],
+          "wire": 554
+        }
+      ]
+    },
+    {
+      "extra_non_toffoli_recipe_gates": 0,
+      "extra_toffoli_records_upper_bound": 2,
+      "hi": 3851903,
+      "lo": 3851903,
+      "needed": 1,
+      "status": "COMPLETE_EXACT_POLYNOMIAL_VICTIM_SET",
+      "victims": [
+        {
+          "terms": [
+            {
+              "a": 699,
+              "b": 256,
+              "guard_expression": 1,
+              "kind": 13,
+              "original_toggle_function": 6681534,
+              "producer": 3850871
+            }
+          ],
+          "wire": 552
+        }
+      ]
+    },
+    {
+      "extra_non_toffoli_recipe_gates": 0,
+      "extra_toffoli_records_upper_bound": 2,
+      "hi": 3866795,
+      "lo": 3866790,
+      "needed": 1,
+      "status": "COMPLETE_EXACT_POLYNOMIAL_VICTIM_SET",
+      "victims": [
+        {
+          "terms": [
+            {
+              "a": 256,
+              "b": 700,
+              "guard_expression": 1,
+              "kind": 13,
+              "original_toggle_function": 6711244,
+              "producer": 3865771
+            }
+          ],
+          "wire": 1246
+        }
+      ]
+    },
+    {
+      "extra_non_toffoli_recipe_gates": 0,
+      "extra_toffoli_records_upper_bound": 2,
+      "hi": 3866797,
+      "lo": 3866797,
+      "needed": 1,
+      "status": "COMPLETE_EXACT_POLYNOMIAL_VICTIM_SET",
+      "victims": [
+        {
+          "terms": [
+            {
+              "a": 256,
+              "b": 700,
+              "guard_expression": 1,
+              "kind": 13,
+              "original_toggle_function": 6711244,
+              "producer": 3865771
+            }
+          ],
+          "wire": 1246
+        }
+      ]
+    },
+    {
+      "extra_non_toffoli_recipe_gates": 2,
+      "extra_toffoli_records_upper_bound": 4,
+      "hi": 3869864,
+      "lo": 3869849,
+      "needed": 2,
+      "status": "COMPLETE_EXACT_POLYNOMIAL_VICTIM_SET",
+      "victims": [
+        {
+          "terms": [
+            {
+              "a": 257,
+              "b": 700,
+              "guard_expression": 1,
+              "kind": 13,
+              "original_toggle_function": 6716816,
+              "producer": 3868834
+            }
+          ],
+          "wire": 1243
+        },
+        {
+          "terms": [
+            {
+              "a": 273,
+              "b": 872,
+              "guard_expression": 1,
+              "kind": 13,
+              "original_toggle_function": 6716942,
+              "producer": 3868897
+            },
+            {
+              "a": 553,
+              "b": 18446744073709551615,
+              "guard_expression": 1,
+              "kind": 8,
+              "original_toggle_function": 6716936,
+              "producer": 3868898
+            }
+          ],
+          "wire": 550
+        }
+      ]
+    },
+    {
+      "extra_non_toffoli_recipe_gates": 0,
+      "extra_toffoli_records_upper_bound": 2,
+      "hi": 3869866,
+      "lo": 3869866,
+      "needed": 1,
+      "status": "COMPLETE_EXACT_POLYNOMIAL_VICTIM_SET",
+      "victims": [
+        {
+          "terms": [
+            {
+              "a": 257,
+              "b": 700,
+              "guard_expression": 1,
+              "kind": 13,
+              "original_toggle_function": 6716816,
+              "producer": 3868834
+            }
+          ],
+          "wire": 1243
+        }
+      ]
+    }
+  ],
+  "scope": "Each helper recipe is an XOR of bounded original guarded X/CX/CCX accumulator updates since provedzero; equal original toggle functions cancel exactly. Current entire XOR must equal helper both before/after region. Helpers untouched; selected victims mutually independent. Historical guards require exact capture at producers and flattened scopes. No new RNG. Partial plans never have a complete resource bound; no circuit/achieved width/point input/gate/nonce/benchmark.",
+  "semantic_nodes": 8958198,
+  "status": "READ_ONLY_POLYNOMIAL_REMATERIALIZATION_NOT_AN_EMITTED_CIRCUIT_OR_SCORE",
+  "target_cap": 1462,
+  "term_limit": 8,
+  "unfinished_final_region": false,
+  "unproved_regions": 0
+}

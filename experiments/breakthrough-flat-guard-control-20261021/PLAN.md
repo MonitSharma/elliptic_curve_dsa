@@ -1,0 +1,5 @@
+# Qualify exact classical guard snapshots before a physical loan allocator
+
+Exact captured-scope flattening precursor for reversible peak loans. Only original Push/Pop replaced with classically captured depth values and per-op guard conjunctions. Metadata identical, quantum gates/measurement order unchanged. Five native whole-state/phase/RNG/count/fault controls plus24complete arbitrary-input full protected comparisons. No resource improvement, point census/gate/nonce/benchmark.
+
+A future allocator must insert uncompute/restore gates globally outside original scopes. Flatten original lexical snapshots into fresh classical depth bits, guarding each original operation by the exact captured context AND its per-operation original condition. Metadata remains byteidentical. Original HMR overwriting a guard still uses its pre-write condition. Reuse fresh workspace only after the operation; original registered and workspace bits preserved. Native negativecontrol detects naive use of mutated old source guard. Fullstream comparisons use all physical quantum/original classical bits, absolute phase, exact RNG consumption and executed counts. No resource/candidate claim.

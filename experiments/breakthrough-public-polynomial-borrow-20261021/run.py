@@ -1,0 +1,6 @@
+import hashlib,json,resource,subprocess,time
+from pathlib import Path
+r=Path(__file__).resolve().parent;f=json.loads((r/'SOURCE-FREEZE.json').read_text());sha=lambda p:hashlib.file_digest(p.open('rb'),'sha256').hexdigest();assert all(sha(r/'local-tool'/n)==h for n,h in f['tool_source_files'].items());deps=r.parent/'breakthrough-value-guard-fusion-audit-20261020/local-protected';assert all(sha(deps/n)==h for n,h in f['protected_files'].items());stream=r.parent/'breakthrough-public1829-width-port-local-v4-20261020/public/ops.bin';assert sha(stream)==f['input_streams']['public1829'];exe=r.parent/'breakthrough-value-guard-fusion-audit-20261020/local-tool/target/release/polynomial_rematerialization';assert sha(exe)==f['qualified_binary_sha256'];start=time.monotonic()
+def limits():resource.setrlimit(resource.RLIMIT_AS,(8*1024**3,8*1024**3));resource.setrlimit(resource.RLIMIT_CORE,(0,0))
+with(r/'audit.log').open('xb')as log:subprocess.run(['timeout','900',str(exe),str(stream),str(r/'cap1233'),'1233','8'],stdout=log,stderr=subprocess.STDOUT,preexec_fn=limits,check=True)
+v=json.loads((r/'cap1233.json').read_text());v.update(native_controls=10,qualification_reused=True,seconds=time.monotonic()-start);(r/'RESULT.json').write_text(json.dumps(v,indent=2)+'\n')

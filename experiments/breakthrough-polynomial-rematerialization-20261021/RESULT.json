@@ -1,0 +1,117 @@
+{
+  "status": "READ_ONLY_FIXED_CAP_GRID_COMPLETE_NOT_ACHIEVED_RESOURCES",
+  "native_controls": 10,
+  "cases": [
+    {
+      "cap": 1462,
+      "exit": 0,
+      "seconds": 18.134382862999985,
+      "all_regions_covered": true,
+      "unproved_regions": 0,
+      "unfinished_final_region": false,
+      "extra_executed_toffoli_per_shot_upper_bound": 80,
+      "regions": 32,
+      "result_sha256": "bc73c85310d04c80e09d561756d1c8f6e90f5d1325e1e7e909914586aebc1762"
+    },
+    {
+      "cap": 1460,
+      "exit": 0,
+      "seconds": 18.231203653000023,
+      "all_regions_covered": true,
+      "unproved_regions": 0,
+      "unfinished_final_region": false,
+      "extra_executed_toffoli_per_shot_upper_bound": 244,
+      "regions": 66,
+      "result_sha256": "b708fc97b35dcc1f9ca397e4cb7402c5044c26fa4eadef5e7d7ac43a8870a2f4"
+    },
+    {
+      "cap": 1456,
+      "exit": 0,
+      "seconds": 17.533237550999957,
+      "all_regions_covered": true,
+      "unproved_regions": 0,
+      "unfinished_final_region": false,
+      "extra_executed_toffoli_per_shot_upper_bound": 552,
+      "regions": 84,
+      "result_sha256": "f71a8f908a9bb29d4a4b3015eaec9ea6f9146fd8263e669a986580ce31f11d72"
+    },
+    {
+      "cap": 1448,
+      "exit": 0,
+      "seconds": 17.73425167700003,
+      "all_regions_covered": true,
+      "unproved_regions": 0,
+      "unfinished_final_region": false,
+      "extra_executed_toffoli_per_shot_upper_bound": 1712,
+      "regions": 170,
+      "result_sha256": "db7a9904a1a9411397affbfb70f00d930281e8fdba561cff86d3a8b63f4e6216"
+    },
+    {
+      "cap": 1432,
+      "exit": 0,
+      "seconds": 19.53270100399999,
+      "all_regions_covered": true,
+      "unproved_regions": 0,
+      "unfinished_final_region": false,
+      "extra_executed_toffoli_per_shot_upper_bound": 6144,
+      "regions": 328,
+      "result_sha256": "bb4d43307b03396111b63052824a9bf4818cb22ffcf71b48642f2ac35f8d0b80"
+    },
+    {
+      "cap": 1400,
+      "exit": 0,
+      "seconds": 22.140970563999986,
+      "all_regions_covered": false,
+      "unproved_regions": 1,
+      "unfinished_final_region": false,
+      "extra_executed_toffoli_per_shot_upper_bound": null,
+      "regions": 825,
+      "result_sha256": "8fda8e3c97ca4048090f868fdf63c24d4a1fc8cf481cf150ccf8113e975c14d7"
+    },
+    {
+      "cap": 1350,
+      "exit": 0,
+      "seconds": 23.93951130800002,
+      "all_regions_covered": false,
+      "unproved_regions": 187,
+      "unfinished_final_region": false,
+      "extra_executed_toffoli_per_shot_upper_bound": null,
+      "regions": 1575,
+      "result_sha256": "e3409a538ca8c88830977ba380b08a3ce50e0b8a0761450ab42dc8c1827ddf09"
+    },
+    {
+      "cap": 1300,
+      "exit": 0,
+      "seconds": 26.244900837999978,
+      "all_regions_covered": false,
+      "unproved_regions": 704,
+      "unfinished_final_region": false,
+      "extra_executed_toffoli_per_shot_upper_bound": null,
+      "regions": 1749,
+      "result_sha256": "5995d66e1b2f53f0bf7bd80110ed8057a40b3a35847c7181bf220761f4343910"
+    },
+    {
+      "cap": 1248,
+      "exit": 0,
+      "seconds": 24.040495023000005,
+      "all_regions_covered": false,
+      "unproved_regions": 1315,
+      "unfinished_final_region": false,
+      "extra_executed_toffoli_per_shot_upper_bound": null,
+      "regions": 2323,
+      "result_sha256": "f6c116571e14cd3ba77c85c665a410d60372a2dffe2e400cf90296f4382edd6c"
+    },
+    {
+      "cap": 1234,
+      "exit": 0,
+      "seconds": 23.53887624700002,
+      "all_regions_covered": false,
+      "unproved_regions": 1477,
+      "unfinished_final_region": false,
+      "extra_executed_toffoli_per_shot_upper_bound": null,
+      "regions": 2537,
+      "result_sha256": "f1fedb0de3c0bcb0dd50d67f4c0c375fd3020faa8daad5162aba6f33b5f7805e"
+    }
+  ],
+  "scope": "Source-only bounded XOR-polynomial rematerialization grid, exact currentofficialffe20. Recipes consist of at most8original guarded X/CX/CCX accumulator updates; full-key equal source toggle functions cancel. Entire current sum must equal victim at loan and restore. Helpers idle, victims independent. Inherited7 plus3polynomial/budget/whole-protected-phase-RNG/stale/dependency controls. Partial plan bounds null. No emitted circuit, achieved resource, point input/gate/nonce/benchmark."
+}

@@ -1,0 +1,17 @@
+   Compiling product_pareto_exact v0.1.0 (/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-merged-loan-audit-20261021/local-tool)
+warning: unused import: `Op`
+ --> discover.rs:1:35
+  |
+1 | mod io;use quantum_ecc::circuit::{Op,OperationType as K};use std::collections::{BTreeMap,HashMap,HashSet};use ser...
+  |                                   ^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `HashSet`
+ --> discover.rs:1:98
+  |
+1 | mod io;use quantum_ecc::circuit::{Op,OperationType as K};use std::collections::{BTreeMap,HashMap,HashSet};use ser...
+  |                                                                                                  ^^^^^^^
+
+warning: `product_pareto_exact` (bin "merge_rematerialization_plans") generated 2 warnings (run `cargo fix --bin "merge_rematerialization_plans" -p product_pareto_exact` to apply 2 suggestions)
+    Finished `release` profile [optimized] target(s) in 2.65s

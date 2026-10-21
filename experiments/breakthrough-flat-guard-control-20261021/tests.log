@@ -1,0 +1,13 @@
+   Compiling product_pareto_exact v0.1.0 (/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-flat-guard-control-20261021/local-tool)
+    Finished `release` profile [optimized] target(s) in 1.82s
+     Running unittests discover.rs (/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-value-guard-fusion-audit-20261020/local-tool/target/release/deps/flat_guard_control-d94418b0bf11ce0a)
+
+running 5 tests
+test flat_guard_tests::every_operation_kind_and_phase_uses_the_same_effective_guard ... ok
+test flat_guard_tests::failing_to_capture_the_original_push_value_is_detected ... ok
+test flat_guard_tests::measurement_overwriting_its_own_guard_keeps_prewrite_condition_and_rng ... ok
+test flat_guard_tests::nested_captured_guards_survive_original_bit_mutation_and_sibling_reuse ... ok
+test flat_guard_tests::fixed_random_guard_programs_match_every_protected_quantum_classical_phase_and_count ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
