@@ -1,0 +1,60 @@
+{
+  "at_utc": "2026-10-21T04:17:30.686134+00:00",
+  "status": "CURRENT_WORKSPACE_REVIEWED_READY_FOR_AUTHORIZED_GITHUB_SYNC",
+  "root_before_commit": "328b1eb929735defdbd96e8dace38a906401e122",
+  "root_paths": 285,
+  "root_file_bytes": 224222691,
+  "nested_tracks": {
+    "qubits": {
+      "base_commit": "c95b9325913abacca9c86bdebad10a20633cd04e",
+      "status": " M src/point_add/frogdrop.rs\n M src/point_add/midg.rs\n M src/point_add/tests_midg_k24.rs\n?? research-output/\n",
+      "patch_sha256": "dec1be0a68939fdb7d7ca106ce3ca55af763c80e17e8c60b7f3899c929df9b2d",
+      "files": {
+        "research-output/compact-step-arithmetic-proof.json": {
+          "sha256": "2470a7df0a03258f825dd49569268c95585ce3e0f48af0babf33a3ec72041128",
+          "kind": "untracked"
+        },
+        "src/point_add/frogdrop.rs": {
+          "sha256": "3df45378dcb9ebfbae1c19d4c213f15cf6dbe2433ff0567d919cf697dd5bedeb",
+          "kind": "tracked_modified"
+        },
+        "src/point_add/midg.rs": {
+          "sha256": "5e5ba9daca99727aa3b972fb57fb71b2dc937f52110ed0fd9998d2354fa9fb53",
+          "kind": "tracked_modified"
+        },
+        "src/point_add/tests_midg_k24.rs": {
+          "sha256": "b29a0a60b863128706f3b6f8fdf93188f4110d71bd0c121715bbfddcd8679247",
+          "kind": "tracked_modified"
+        }
+      },
+      "restore": "Use the recorded base commit; apply tracked-changes.patch and copy untracked files from working-files preserving relative paths. Check before applying over edits."
+    },
+    "toffoli": {
+      "base_commit": "b3c9fdd6e24bcd33450ab0d10884ab5ff9c46ab7",
+      "status": " M src/point_add/mod.rs\n?? src/point_add/guarded_zero.rs\n",
+      "patch_sha256": "9c29113680381483a5aeb82f164963c516205c4b8e937d97374d50fd4f5a69e6",
+      "files": {
+        "src/point_add/guarded_zero.rs": {
+          "sha256": "af0dee94b55ad008d54680f2d40af0519e2f7449ae57abfd6ed481c18028c9d4",
+          "kind": "untracked"
+        },
+        "src/point_add/mod.rs": {
+          "sha256": "aa562200575edc34ec7b31de45078621b899fc0144286e257437243ca7fac545",
+          "kind": "tracked_modified"
+        }
+      },
+      "restore": "Use the recorded base commit; apply tracked-changes.patch and copy untracked files from working-files preserving relative paths. Check before applying over edits."
+    },
+    "product": {
+      "base_commit": "c5bb1ec876db859a3f9f8a9052c140a145df834e",
+      "status": "",
+      "patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "files": {},
+      "restore": "Use the recorded base commit; apply tracked-changes.patch and copy untracked files from working-files preserving relative paths. Check before applying over edits."
+    }
+  },
+  "files_over_github_100MB_limit": 0,
+  "credential_pattern_findings": 0,
+  "research_status": "PAUSED_NO_JOBS_RESUMED",
+  "note": "Standard ignored generated/build/environment files excluded. No upstream submodule push. Remote main must be verified after push."
+}

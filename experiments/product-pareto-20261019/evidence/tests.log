@@ -1,0 +1,71 @@
+    Updating crates.io index
+     Locking 247 packages to highest compatible versions
+      Adding generic-array v0.14.7 (available: v0.14.9)
+      Adding psm v0.1.24 (available: v0.1.32)
+      Adding sha3 v0.10.9 (available: v0.12.0)
+      Adding zstd v0.13.3 (available: v0.14.3)
+ Downloading crates ...
+  Downloaded crypto-common v0.1.7
+  Downloaded generic-array v0.14.7
+  Downloaded pest v2.9.4
+  Downloaded libc v0.2.191
+  Downloaded zstd-sys v2.1.2+zstd.1.5.7
+   Compiling typenum v1.20.1
+   Compiling libc v0.2.191
+   Compiling shlex v2.0.1
+   Compiling proc-macro2 v1.0.107
+   Compiling find-msvc-tools v0.1.14
+   Compiling version_check v0.9.5
+   Compiling unicode-ident v1.0.27
+   Compiling generic-array v0.14.7
+   Compiling pkg-config v0.3.34
+   Compiling quote v1.0.47
+   Compiling hybrid-array v0.4.15
+   Compiling unicode-segmentation v1.13.3
+   Compiling cfg-if v1.0.5
+   Compiling jobserver v0.1.35
+   Compiling block-buffer v0.12.1
+   Compiling cc v1.8.0
+   Compiling convert_case v0.10.0
+   Compiling crypto-common v0.2.2
+   Compiling syn v2.0.119
+   Compiling zstd-safe v7.3.0
+   Compiling paste v1.0.15
+   Compiling unicode-xid v0.2.6
+   Compiling digest v0.11.3
+   Compiling block-buffer v0.10.4
+   Compiling crypto-common v0.1.7
+   Compiling keccak v0.2.2
+   Compiling ruint-macro v1.2.1
+   Compiling cpufeatures v0.2.17
+   Compiling foldhash v0.2.0
+   Compiling itoa v1.0.18
+   Compiling serde_core v1.0.229
+   Compiling zmij v1.0.23
+   Compiling zstd-sys v2.1.2+zstd.1.5.7
+   Compiling hashbrown v0.17.1
+   Compiling ruint v1.20.1
+   Compiling const-hex v1.19.3
+   Compiling sha3 v0.11.0
+   Compiling digest v0.10.7
+   Compiling serde_json v1.0.154
+   Compiling keccak v0.1.6
+   Compiling bytes v1.12.1
+   Compiling sha3 v0.10.9
+   Compiling derive_more-impl v2.1.1
+   Compiling memchr v2.8.3
+   Compiling derive_more v2.1.1
+   Compiling alloy-primitives v1.7.3
+   Compiling zstd v0.13.3
+   Compiling quantum_ecc v0.1.0 (/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline)
+   Compiling product_pareto_exact v0.1.0 (/home/hclau/ecdsa_research/product-pareto-20261019)
+    Finished `release` profile [optimized] target(s) in 38.96s
+     Running unittests scan.rs (target/release/deps/product_pareto_exact-929307f52aff4374)
+
+running 3 tests
+test tests::triple_and_complement ... ok
+test tests::truncation_is_fresh ... ok
+test tests::unknown_guard_is_not_assumed_true ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

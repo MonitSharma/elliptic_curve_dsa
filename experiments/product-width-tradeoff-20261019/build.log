@@ -1,0 +1,29 @@
+   Compiling product_width_tradeoff v0.1.0 (/home/hclau/ecdsa_research/product-width-tradeoff-20261019)
+warning: variable `exact_reductions_unconditional` is assigned to, but never used
+   --> tradeoff.rs:106:6
+    |
+106 |  let mut exact_reductions_unconditional=0;
+    |      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: consider using `_exact_reductions_unconditional` instead
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: value assigned to `exact_reductions_unconditional` is never read
+   --> tradeoff.rs:123:25
+    |
+123 |   if reducible&&always {exact_reductions_unconditional+=1;}
+    |                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: maybe it is overwritten before being read?
+    = note: `#[warn(unused_assignments)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `make` is never used
+  --> tradeoff.rs:81:4
+   |
+81 | fn make(k:K,c2:u64,c1:u64,t:u64,ct:u64,cc:u64)->Op {
+   |    ^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `product_width_tradeoff` (bin "tradeoff") generated 3 warnings
+    Finished `release` profile [optimized] target(s) in 1.48s

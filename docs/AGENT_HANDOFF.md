@@ -2093,6 +2093,153 @@ one core (PID624226); it does not modify the frozen candidate or search.
 [Complete proof](../experiments/product-parent-sat-20261019/CHECKPOINT-1609.md) ·
 [Automatic final verification](../experiments/parent4-final-sat-20261019/STATUS.md).
 
+## 19 October, 15:33: autonomous goal active; all27 parent products proved
+
+Continue autonomous product work; do not stop after a negative screen. The
+new peak/registered-lane/zero-state screens are finished negative at Q1234
+with zero Toffoli reduction. All27 retained products of public parent9dc3798c
+now have replayed source-bound SAT proofs. The missing second product needs
+a1,024-operation prelude; no global guessed flags were introduced. The first
+integration audit completed all27 donor/guard/boundary checks, then stopped
+at the separate zero row17876252. A bounded zero-row proof is now PID584702
+under `/home/hclau/ecdsa_research/product-parent-sat-20261019`.
+
+Read the [current SAT status](../experiments/product-parent-sat-20261019/STATUS.md).
+No filter or search is yet enabled; the frozen parent4 source/gate are intact.
+The rejected Product25 and84-stage gates are final. All old suspended jobs
+remain untouched. The active goal is a qualified complete Q × T improvement.
+
+## 19 October, 14:31: carry borrowing and inverse cancellation finished negative
+
+The new arithmetic experiment is complete; all five launchers exited 0 and
+no successor is running. Twelve width configurations stayed at conservative
+Q1234. Final combined settings added predicted 1,745/3,481 Toffolis. The
+separate exact commuting-inverse pass found zero removable Toffolis. All 31
+distinct research-tool tests passed. The public parent remained clean and
+its stream stayed byte-identical. No gate, nonce search or upload was started.
+Local verification checked all 123 archived evidence files and the archive
+hash. [Final report](../experiments/product-schedule-20261019/STATUS.md).
+
+Next promising target is the shared-mask carry construction (wire660 in the
+remaining peak), whose changing source prevents operand borrowing across
+the carry lifetime. Use actual simultaneous peak intervals to select changes;
+blind high-wire thresholds spent too many Toffolis without lowering width.
+The earlier small parent4 candidate and its authorization remain separate.
+
+## 19 October afternoon: both new runs complete; no active successor
+
+The width tradeoff screen completed with exit 0 and nine passing tool tests.
+Removing 2,423 caches left the conservative peak at 1,234 while adding a
+predicted 8,251 Toffolis. This is a negative diagnostic, not a scored result.
+PID 536550 is no longer running. The 84-stage candidate is also finished
+and permanently ineligible under its failed final gate. No successor job
+has been launched. Next direction: arithmetic-level scheduling/modular
+division, not further blind cache chaining. See the final
+[width report](../experiments/product-width-tradeoff-20261019/STATUS.md).
+
+The separate small parent4 candidate remains authorized but unsubmitted.
+Its 64 GiB transfer-proof retry also finished, exit 101, inconclusive at
+the same retained-product equality (operation 14247262). Do not treat the
+historical running-job descriptions below as current status or enable the
+unproved fast filter. No reliable submission ETA is established.
+
+## 19 October, 14:06: continuation failed; new width tradeoff running
+
+The84-stage run is COMPLETE, exit1: all84 exact audits and native reproduction
+passed, but its sole final gate FAILED the absolute failure cap
+(18.180084candidate vs18maximum). Other criteria passed: value3696each,
+dirty0, McNemar p0.574938. Total diagnostic saving5.354970±0.577743T.
+Never rerun that gate or search a nonce for this circuit. Preserve all evidence.
+[Final verdict](../experiments/product-pareto-20261019/continuation84/FINAL-STATUS.md).
+
+The user asked to explore other methods. A distinct exact cache-removal and
+recomputation experiment is detached as PID536550 under
+`/home/hclau/ecdsa_research/product-width-tradeoff-20261019`. It tests whether
+paying extra Toffolis can reduce peak qubits, with617T budget forQ1234→1233.
+Fresh public product leader remains9dc3798c. Initial scope is proof/discovery
+plus conservative lifetime profiling, not a candidate or nonce search.
+[Plan and status](../experiments/product-width-tradeoff-20261019/STATUS.md).
+
+## Small-candidate submission authorization: 19 October 2026
+
+The user explicitly authorized submitting the four-product candidate with
+**GPT-6 Astra** attribution. Codex is the working harness. No further upload
+permission is needed, but do not upload before every qualification requirement
+passes. The single full gate `pareto-parent4-gate-20261019-v1` PASSED:
+32,768 batches each, value shots3619/3619, failed batches4149/4171 (candidate/
+parent), dirty0, McNemar p0.8039858, candidate17.85306 failures/packet.
+Paired diagnostic saving4.748705 ±0.574923T atQ1234. This is not a score.
+
+Native frozen stream `9f50f060…` is in `candidate-parent4` under the 19October
+server experiment. Its source/protected manifests and gate are preserved in
+`parent4-qualification/`. A fast-filter transfer proof is being developed;
+no nonce has been selected and no official benchmark or upload has occurred.
+Read [small-candidate status](../experiments/product-pareto-20261019/PARENT4-SUBMISSION-STATUS.md).
+At11:02 the fast-filter transfer remains unproved at the public parent's
+second retained product. The first proof hit its32GiB cap; conservative global
+and local checks did not establish the equality. They are inconclusive, not
+counterexamples. A64GiB retry of the original8192-term proof binary is detached
+as PID465441 (`parent4-transfer64`). All dependent disabled-filter jobs stopped
+correctly. No operational search or upload is queued. The full census and
+proof evidence snapshot is `parent4-evidence-20261019T030212Z.tar.gz`, SHA256
+`9c9b8ed34ed248e732f45094782813d83a591b70148c73528505bbb6068c2665`.
+The separate84-stage job is still PID443914, setsid/nohup, PPID1, and survives
+SSH disconnection. Preserve all pre-existing suspended jobs and results.
+
+## Product-focused run: 19 October 2026, 10:29 Singapore
+
+The user now prioritizes Q × T. Public refresh confirms our 752,991-Toffoli
+entry `62341149` is officially scored; product leader remains `9dc3798c`,
+Q1234/T761096/product939192464. Its exact stream was rebuilt byte-identically.
+A corrected symbolic checker removes 769 redundant cache copies and proves
+four further retained products at Q1234. A 32,768-shot diagnostic pilot has
+the same 47 value-failing shots as the public parent and zero dirty shots;
+the saving remains small and noisy, not a scored result.
+
+An isolated fixed **84-stage exact cache continuation** is running on
+`smu_server`, PID **443914**, directory
+`/home/hclau/ecdsa_research/product-pareto-20261019`. It audits every stage,
+then performs native source binding and one declared 32,768-batch gate against
+the exact public parent. No nonce search or submission is automatic. This
+new chain starts from the public parent and does not rely on PRODUCT179's
+historical hand-written exit marker. Preserve the old paused jobs.
+
+Read [the run status](../experiments/product-pareto-20261019/STATUS.md) before
+continuing. It records failed tooling attempts, corrected tests, the pilot,
+resource limits, script names, and the remaining qualification steps.
+
+## Submission update: 18 October 2026, 09:06 Singapore
+
+WIDE95+703 is submitted as
+[`62341149`](https://api.ecdsa.fail/api/submissions/62341149-b0f8-422e-aef5-9388be813600),
+official validation pending, credited **Gemini 4 Argon / Antigravity** at the
+researcher's request. Do not submit it again. PRODUCT179+ was not submitted.
+The final source audit passed and the public record remained 753,694 at upload.
+Notes, predecessor declaration and receipts are saved in
+[`submission-wide95-703-20261018`](../experiments/submission-wide95-703-20261018/STATUS.md).
+The queued account below is historical.
+
+## Latest: 18 October 2026, 08:15 Singapore — `WIDE95+703` `UNCHANGED_BENCHMARK_PASS` at **752,991 T** (−703 T below record, queued); `PRODUCT179+` at **−13.5 T**
+
+- **Public records (refreshed 2026-10-18 08:12 SGT):**
+  - **Product**: `9dc3798c` (`jackylee0424`, commit `0c3a0751ab`, Q = 1,234, T = 761,096, Product = 939,192,464; fresh mean 761,093.55 T). Built on our PLAIN67 (`0ae6d109be`) by adding 27 unconditional fold-step leases (`retained_products.rs`, −27.0 T) and 1 zero-control CCX cut (`zero_product.rs`, `op 17876171`, −0.5 T). Strict next target at Q = 1,234: **T <= 761,095**.
+  - **Toffolis**: `b99c9678` (**MonitSharma**, WIDE95, `9d967c4dc0`, **Q = 1,556, T = 753,694**). Strict next target: **T <= 753,693**.
+  - **Qubits**: `8cbf3480` (`jackylee0424`, **Q = 676, T = 398,909,531**). Strict next target: **Q <= 675**.
+- **What we discovered and proved (see [`experiments/autorun-20261017-2212/LOG.md`](../experiments/autorun-20261017-2212/LOG.md)):**
+  1. **Predicated Kill Rule (`killed_on`) & Single-Control Slicing in `prove.rs`** (`/home/hclau/ecdsa_research/opt-research-20261017/tool/src/prove.rs`): when `R(q)` executes under condition $C_0$, any earlier writer to `q` under $C_w \supseteq C_0$ is dead and skipped. Together with single-control slicing (`C1Zero`, `C2Zero`) and dead-`Hmr` pruning, this proves `op 17876171` in `PLAIN67` (`op 25991369` in `PRODUCT179`: `CCX(520, 1150, 10)` inside `PushCondition(768)`, where `q[1150] == |0>`, saving −0.50 T) in 2 seconds.
+  2. **The Symmetric Triple Theorem Over $\mathbb{F}_2$**: since $X(1 \oplus X) = 0$, $X \cdot (1 \oplus X \oplus Y) = X \cdot Y = Y \cdot (1 \oplus X \oplus Y)$ and $(-1)^{X \cdot (1 \oplus X \oplus Y)} = (-1)^{X \cdot Y}$ on every basis state. Thus $\mathcal{T}(X, Y) = \{X, Y, 1 \oplus X \oplus Y\}$ is a canonical invariant of $X \cdot Y$ computable via a single linear XOR (`(const_bit, u128_xor_hash)` in $O(1)$ per gate, with zero `atom_cap` truncation).
+  3. **Why `interned_anf_retained.rs` Stalled (Intermediate `retain_large` Truncation, Dead-Fallback Blinding, and Russian-Doll Leases)**:
+     - In `PRODUCT179`, 5 of the 27 fold-step leases (`Lease 3, 4, 11, 13, 14`) were missed because `CX(129, 260)` at offset `+3509` temporarily pushed `anf[260]` over `CACHE_ATOM_CAP`, collapsing it via `retain_large` into an opaque atom that failed to cancel when `CX(129, 260)` ran again 4 ops later at `+3513`.
+     - Whenever `lazy_cache_retained` renders an un-evicted lease across $(u_1, u_2)$ on `donor`, `temp1 = 1` at $u_1$ and `temp2 = 0` at $u_2$. Because `interned_anf_retained.rs` did not evaluate `temp1 == 1` and `temp2 == 0`, the dead fallback `PushCondition(temp2 == 0) { CCX(c1, c2, donor); }` at $u_2$ overwrote `anf[donor]` with a fresh opaque atom right before `CX(donor, t2)`, blinding subsequent stages to the equality of $t_1$ and $t_2$.
+     - Worse, later stages repeatedly paired the live `CCX` at $u_1$ with the dead fallback `CCX` at $u_2$ into nested "Russian-doll" leases (14–19 layers deep; 126 dead `CCX`s in `PRODUCT179`, 66 in `WIDE95`), tying up clean donor wires for 0.00 T runtime saving.
+- **Ready, queued for user approval (`SUBMISSION_MODE = queue`):**
+  - **Toffoli track (`WIDE95+703`, [`experiments/wide95-703-20261018/STATUS.md`](../experiments/wide95-703-20261018/STATUS.md), [`SUBMISSION-NOTE.md`](../experiments/wide95-703-20261018/SUBMISSION-NOTE.md))**: **`UNCHANGED_BENCHMARK_PASS` at Q = 1,863, rounded mean = 752,991 executed Toffolis** (`mean_executed_toffoli = 752,990.5706`, `total_executed_toffoli = 6,794,986,909` over 9,024 shots, all 9,024 shots pass, 0 failures), beating our current 753,694 T public record by **703 Toffolis**!
+    - Candidate tree: `/home/hclau/ecdsa_research/wide95-703-20261018/candidate` (final stream `09dbeacb…`, patch `6a0aa8e0…`).
+    - Pre-declared 32,768-batch statistical gate (`wide95-703-gate-20261018-v1`): **`FAILURE_GATE_PASS`** vs `WIDE95` (`7efded3d…`, value shots `1,154 == 1,154`, McNemar $p = 0.23518$, `5.744` failed batches/packet, dirty `0`, paired saving **$-702.995 \pm 0.249\text{ T}$**) and vs `WIDE15` (`1d8c05ee…`, $p = 0.24139$, **$-727.80 \pm 0.28\text{ T}$**).
+    - Ascending exact nonce screen: **nonce 167** (256 screened; all `1..166` fail).
+- **Active product-track candidate (`PRODUCT179+` at $Q = 1,234$):**
+  - Unwrapping the **913 strictly zero-saving leases** in `PRODUCT179` (`832` single-use unconditionally evicted leases + `81` Russian-doll inner leases) frees donor intervals in `0..1233` for **13 non-overlapping unconditional leases (−13.0 T)** plus `zero_product` at `op 25991369` (−0.50 T) = **−13.50 T** below `PRODUCT179` (fresh mean **~761,082.57 T**, **~11.0 T below `0c3a0751ab`'s fresh mean of 761,093.55 T** at $Q = 1,234$!).
+
 ## Latest: 17 October 2026, 16:45 Singapore — PAUSED; resume with PRODUCT179
 
 - **We hold the product record and the Toffoli record.** Product 939,223,314

@@ -1,0 +1,134 @@
+{
+  "review_date_sgt": "2026-10-18",
+  "scope": "Independent submission-readiness review; no submission authorized or made.",
+  "public_refresh": {
+    "checked_approximately_sgt": "2026-10-18T08:53:00+08:00",
+    "source": "https://api.ecdsa.fail/api/benchmarks/1ffb695a-309b-46b6-a728-2f97d8c7be74/submissions",
+    "submissions": 1590,
+    "eligible_official_results": 1245,
+    "minimum_toffoli": 753694,
+    "toffoli_submission": "b99c9678-5a68-49e8-a8b7-91fc6c383e37",
+    "minimum_product": 939192464,
+    "product_submission": "9dc3798c-93e0-4da4-a6a9-37586737c4af",
+    "product_source_commit": "0c3a0751ab66bd9144358d67563bcb79201cf636",
+    "minimum_qubits": 676,
+    "challenge_status": "open",
+    "promotion_metric": "scalar Q * rounded mean executed Toffolis",
+    "rechecked_at_sgt": "2026-10-18T09:02:48.810283+08:00",
+    "records_unchanged": true,
+    "latest_snapshot_sha256": "d87af705c9957048f19ac307195be1cd77f5da179d52ff67e2d9d0f7908edc32"
+  },
+  "wide95_plus703": {
+    "readiness": "READY_FOR_TOFFOLI_SUBMISSION_SUBJECT_TO_OFFICIAL_EVALUATION",
+    "original_base_commit": "5a7c390233c72133df9b591c92e43422c5892142",
+    "server_candidate": "/home/hclau/ecdsa_research/wide95-703-20261018/candidate",
+    "final_stream_sha256": "09dbeacbd80a5d51656723c4350e367e91d5b5a00306008bf97b288bd4a205e4",
+    "frozen_stream_sha256": "b127c64e9e6fa14e497d6338950ee477805fe8990abd59ec05a8f96d9c1295e8",
+    "patch_sha256": "6a0aa8e0dab619a874919d6e4dd3dbdb454b4906a92b34bbdeb89f007f8cacef",
+    "source_audit": {
+      "current_patch_equals_preserved_patch": true,
+      "changed_files_all_inside_point_add": true,
+      "changed_files": [
+        "src/point_add/frozen_cache_wide95.bin",
+        "src/point_add/frozen_cache_wide95.rs",
+        "src/point_add/mod.rs",
+        "src/point_add/retained_703.rs"
+      ],
+      "protected_manifest_matches": 17,
+      "current_public_harness_matches": true,
+      "current_public_comparison_exclusions": [
+        "README.md",
+        "results.tsv"
+      ],
+      "comparison_exclusion_reason": "Historical results and README differ by public revision; both match the original candidate base and were not modified by the candidate.",
+      "final_pre_tail_byte_identical_to_gated_stream": true,
+      "all_96_tail_operations_checked": true
+    },
+    "independent_raw_census_recount": {
+      "label": "wide95-703-gate-20261018-v1",
+      "batches_per_stream": 32768,
+      "shots_per_batch": 64,
+      "all_batch_indices_unique_and_complete": true,
+      "skipped_shots": 0,
+      "failure_channel_totals_recounted_from_lanes": true,
+      "raw_files_match_declared_hashes": true,
+      "parent_streams_match_declared_hashes": true,
+      "versus_WIDE95": {
+        "candidate_value_shots": 1154,
+        "parent_value_shots": 1154,
+        "candidate_failed_batches": 1335,
+        "parent_failed_batches": 1328,
+        "newly_failing": 38,
+        "newly_passing": 31,
+        "one_sided_exact_mcnemar_p": 0.2351842659290722,
+        "failed_batches_per_packet": 5.744476318359375,
+        "candidate_dirty_shots": 0,
+        "four_numerical_criteria_pass": true
+      },
+      "versus_WIDE15": {
+        "newly_failing": 40,
+        "newly_passing": 33,
+        "one_sided_exact_mcnemar_p": 0.24139427842201064,
+        "four_numerical_criteria_pass": true
+      }
+    },
+    "nonce_audit": {
+      "unique_screened_nonces": 256,
+      "complete_range": [
+        1,
+        256
+      ],
+      "lowest_passing_nonce": 167,
+      "all_lower_nonces_failed": true,
+      "selected_nonce_encoded_in_identity_tail": true
+    },
+    "preserved_benchmark": {
+      "qubits": 1863,
+      "rounded_mean_toffoli": 752991,
+      "total_toffoli": 6794986909,
+      "shots": 9024,
+      "product": 1402822233,
+      "failures": 0
+    },
+    "fresh_reproduction": {
+      "status": "CLEAN_SOURCE_REBUILD_UNCHANGED_BENCHMARK_PASS",
+      "server_directory": "/home/hclau/ecdsa_research/wide95-703-review-20261018-085419",
+      "pid": 4049723,
+      "method": "Independent copy of original base plus exact final point_add source, unchanged benchmark.sh, four build threads, one library thread; separate logs and source manifest. No new gate census or nonce search.",
+      "cached_replay_note": "Initial replay passed but reused copied Cargo artifacts with original manifest paths. Its one appended original results.tsv row was archived and removed after exact byte checks. The clean package rebuild subsequently passed from the separate directory with its own score.json. All original protected hashes were verified restored.",
+      "completed_at_sgt": "2026-10-18T09:02:48.810283+08:00",
+      "receipt": "REPRODUCTION.json",
+      "benchmark_log_sha256": "560a30b6067bc850bd1cc09608b356be06d49eb93100d105146ed4fa1c95fe86"
+    },
+    "declaration_provenance": {
+      "declaration_file_birth_sgt": "2026-10-18T08:03:30.880265049+08:00",
+      "census_preflight_sgt": "2026-10-18T08:03:50.490215+08:00",
+      "candidate_census_completed_by_sgt": "2026-10-18T08:04:30.812185435+08:00",
+      "declaration_file_modified_sgt": "2026-10-18T08:05:44.270959991+08:00",
+      "finding": "Antigravity transcript step 574 recorded the entire declaration at 08:03:38 SGT, before census launch. Every parsed field equals the retained declaration. Steps 582, 583, 585 and 590 show that the later rewrite followed only a nonce-search memory limit increase from 48 GiB to 96 GiB, with the same frozen stream hash.",
+      "resolution": "Verified original pre-run declaration from local Antigravity history; no gate rerun required.",
+      "status": "RESOLVED",
+      "evidence": "GATE-PREDECLARATION-PROVENANCE.json"
+    }
+  },
+  "product179_plus": {
+    "readiness": "NOT_SUBMISSION_READY",
+    "latest_observed_artifact": "/tmp/product179_plus_15_5.ops.bin",
+    "latest_trial_label": "test-p179-plus-15-5",
+    "diagnostic_shots": 512,
+    "candidate_value_failing_shots": 1,
+    "parent_value_failing_shots": 1,
+    "diagnostic_only": true,
+    "missing": [
+      "Frozen native candidate with preserved patch and source hashes",
+      "Declared 32768-batch paired gate against exact current public product record",
+      "Disclosed nonce screen after gate pass",
+      "Unchanged complete passing benchmark on final source"
+    ],
+    "strict_product_target_at_Q1234": {
+      "maximum_rounded_toffoli": 761095,
+      "maximum_product": 939191230
+    },
+    "note": "PRODUCT179's prior gate versus PLAIN67 does not qualify this modified circuit against the newer public product record. Estimates and small trial counts are not scored results."
+  }
+}

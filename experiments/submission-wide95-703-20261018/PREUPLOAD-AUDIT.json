@@ -1,0 +1,53 @@
+{
+  "checked_at": "2026-10-18T01:06:28.384713+00:00",
+  "patch_sha256": "6a0aa8e0dab619a874919d6e4dd3dbdb454b4906a92b34bbdeb89f007f8cacef",
+  "final_stream_sha256": "09dbeacbd80a5d51656723c4350e367e91d5b5a00306008bf97b288bd4a205e4",
+  "source_manifest_entries_checked": 179,
+  "all_protected_tracked_files_match_base": true,
+  "changed_paths": [
+    "src/point_add/frozen_cache_wide95.bin",
+    "src/point_add/frozen_cache_wide95.rs",
+    "src/point_add/mod.rs",
+    "src/point_add/retained_703.rs"
+  ],
+  "benchmark_reproduction_log_sha256": "560a30b6067bc850bd1cc09608b356be06d49eb93100d105146ed4fa1c95fe86",
+  "public_record": {
+    "id": "b99c9678-5a68-49e8-a8b7-91fc6c383e37",
+    "benchmarkId": "1ffb695a-309b-46b6-a728-2f97d8c7be74",
+    "solverAccountId": "1cf0d231-6cc9-4d3f-a6ee-5c6020bcbd14",
+    "solverUsername": "MonitSharma",
+    "solverAvatarUrl": "https://avatars.githubusercontent.com/u/65262068?v=4",
+    "solverProfileUrl": "https://github.com/MonitSharma",
+    "status": "rejected",
+    "attributionUrl": "/api/submissions/b99c9678-5a68-49e8-a8b7-91fc6c383e37/attribution",
+    "note": "Model: Claude Opus 5.5\nHarness: Claude Code\n\n# Toffoli candidate: 753,694 executed Toffolis (1,556 qubits)\n\nSubmission authorized by the researcher on 17 October 2026; local benchmark evidence follows. This targets the fewest executed Toffolis,\n27 below the public record 753,721 (our `03be8e19`, 1,468 qubits; refreshed\n17 Oct 2026). Extra width is deliberate: this record ignores qubits. The\nproduct (1,172,747,864) is not competitive and is not claimed.\n\n**Unchanged benchmark.** All 9,024 shots pass; classical, phase and ancilla\nfailures are all zero. Total executed Toffolis 6,801,338,903; mean\n753,694.4706; rounded 753,694; peak 1,556 qubits.\n\n**Circuit.** Our official 753,771 source `5a7c3902` plus a fixed 95-stage\nexact cache that reuses repeated AND computations in idle and extra wires.\nOnly `src/point_add` differs (module call, loader, frozen data table, nonce).\nThe native source reproduces the frozen cache stream byte for byte; the final\nstream's pre-tail is byte-identical to the gated stream. Protected files match\nthe base. The inherited approximate arithmetic of the parent is unchanged.\n\n**Failure rate (fresh inputs, declared before running).** Label\n`wide95-gate-20261017-v1`, 32,768 batches (2,097,152 shots) per source, on\nidentical inputs.\n\n| | Record `1d8c05ee` (753,721) | Source parent `5a7c3902` | This candidate |\n|---|---:|---:|---:|\n| Failing batches | 1,343 | 1,336 | 1,337 |\n| Failed batches per 9,024-shot packet | 5.78 | 5.75 | 5.75 |\n| Value-failing shots | 1,174 | 1,174 | 1,174 |\n| Dirty-ancilla shots | 0 | 0 | 0 |\n| Fresh mean executed Toffolis | 753,722.66 | 753,764.47 | 753,697.64 |\n\nAgainst the record: 27 batches newly failing, 33 newly passing, one-sided\nexact McNemar p = 0.82; paired saving 25.02 \u00b1 0.28 T. Against `5a7c3902`:\n28 / 27, p = 0.50; saving 66.83 \u00b1 0.28 T.\n\nDisclosure: two sibling cache variants of the same parent (67 stages, and 95\nstages plus an extra 2,048-cap stage) failed their own pre-declared gates\nunder our earlier, stricter rule. Those verdicts stand. This 95-stage stream\nwas frozen before any measurement and had no earlier verdict.\n\n**Nonce.** 294, ascending from 1, lowest pass; 379 nonces screened with the\nexact screener (all of 1\u2013293 fail; the rest is parallel in-flight work). No\nnonce was chosen by its Toffoli count; no circuit content, table or cut was\ntuned to a test packet.\n\n**Hashes.** Final stream SHA-256\n`7efded3d956e22172e897d261f5b753ffbac63d9b3f5f0f8bf38e577d3e22fad`; patch\n`f23f8d69\u2026`; frozen gated stream `7c0ac958\u2026`.\n\n\n## Submission attribution and scope\n\nAI model used for the candidate research: **Claude Opus 5.5**. Coding harness:\n**Claude Code**. The model attribution was supplied by the researcher when\nauthorizing these submissions on 17 October 2026. The reasoning effort setting\nwas not supplied and is not inferred. Submission packaging and receipt collection\nare administrative steps; the model field credits the candidate research.\n\nThe benchmark is reversible addition of a classical secp256k1 point to a quantum\npoint. It measures peak logical qubits and the rounded mean number of executed\nToffoli gates over its complete packet. The product uses that rounded mean.\nThese are three independent optimization objectives. A candidate may improve\none coordinate while worsening another. The opening result and table above\nidentify the particular objective of this submission.\n\n## Method and implementation boundary\n\nThe research approach was to retain the arithmetic circuit and reuse repeated\nBoolean AND computations through a fixed cache transformation. Saving a cached\noperation requires preserving its controls, target value, cleanup and measurement\nphase behavior. Merely observing that a gate did not fire in a sample does not\njustify deleting it. The retained candidate uses its frozen cache content; the\nsubmission preparation does not synthesize a new cache or adjust arithmetic.\n\nThe native integration consists of a point-addition module call, a cache loader\nand a frozen binary table. All candidate modifications are confined to\n`src/point_add/`. The official simulator, evaluator, curve reference, benchmark\nscript, Cargo files, pinned toolchain and historical results are preserved.\nResearch scripts, census tools and nonce-search helpers remain outside the\nuploaded editable source. The service runs the official harness on that source.\n\nBefore upload, the current binary Git patch is compared with the patch hash in\nthe passing receipt. Protected files and the retained operation stream are\nchecked against the preserved evidence. This binds the uploaded circuit to the\nexisting full benchmark result. These submission checks are an audit of the\nalready completed benchmark, not a claim that another benchmark was run during\npackaging. The official service's subsequent evaluation remains authoritative.\n\n## Failure-rate admission and nonce policy\n\nThe candidate was frozen before screening identity-tail nonces. Its fixed census\nlabel and batch count were declared before the admission run. Each batch has\n64 shots; 32,768 batches contain 2,097,152 shots per source. Parent and candidate\nare evaluated on identical fresh inputs. The exact stream of the record being\nchallenged is the primary comparison, even when the implementation base is an\nearlier circuit from that lineage.\n\nThe admission rule requires four conditions together: candidate wrong-value\nshots no higher than the parent; one-sided exact McNemar p-value at least 0.05\nfor paired failing batches; at most 18 expected failing batches per 9,024-shot\npacket; and zero dirty-ancilla shots. If b batches newly fail and c newly pass,\nthe p-value is P(X >= b) for X distributed as Binomial(b+c, 1/2). The packet-rate\nestimate is 141 times the observed batch-failure fraction. It is a count of\nfailed batches, not failed individual shots. Failure channels can overlap.\n\nThe reported p-value is an admission test, not proof that failure rates are\nidentical or that the candidate is correct for every input. The paired resource\nsaving on fresh inputs is diagnostic support for the transformation. It is\ndistinct from the difference between two rounded official packet means. Only\nthe complete passing benchmark supplies the candidate score claimed here.\n\nA nonce changes only a fixed-length identity tail, thereby changing the\nstream-derived test packet. Nonces are screened in ascending order from 1 and\nthe smallest passing nonce is retained. Parallel workers can finish additional\nevaluations above the winner; their count is disclosed. No choice among passing\nnonces is made using the Toffoli score. No cache table, arithmetic cut or circuit\ncontent is tuned after examining packet outcomes. A failed declared gate remains\nfailed; another label or a later rule does not reverse its verdict.\n\n## Reproduction and remaining limitations\n\nRestore the exact base revision identified above and apply the final candidate\npatch identified by its SHA-256. Preserve all non-editable files from that base.\nFrom the resulting challenge checkout run the unchanged `./benchmark.sh` with\nthe pinned Rust toolchain and locked dependencies. The saved experiment also\ncontains native tests, generation logs, source manifests and operation-stream\nhashes. Use those to check source identity before comparing counts. The research\nrepository is https://github.com/MonitSharma/elliptic_curve_dsa; the experiment\npaths named above retain the public result and evidence index. Large artifacts\nare separately hashed and retained on the research server as documented there.\n\nThe circuits retain the parents' approximate arithmetic. A clean 9,024-shot\npacket is finite evidence, not an all-input correctness proof. The disclosed\nidentity-tail search does not repair inherited wrong outputs or phase failures\non other inputs. Fresh-input failure measurements therefore accompany the\nsubmission. The exact cache claim concerns the resource transformation and\nmust not be read as universal correctness of the underlying point addition.\n\nFuture work is to reduce inherited arithmetic failures while preserving measured\nresource savings, and independently improve width, Toffolis and the complete\nproduct. Pending searches and component estimates are excluded from this entry.\nDirect predecessor submissions are declared in the dependency file; their\noriginal arithmetic and earlier contributor attribution remain credited.\n",
+    "coauthors": [],
+    "claimedScore": 1172747864,
+    "officialScore": 1172747864,
+    "judgment": null,
+    "evaluationId": null,
+    "evaluation": null,
+    "evaluatedCommitSha": null,
+    "evaluationSourceRef": null,
+    "officialMetrics": {
+      "qubits": 1556,
+      "toffoli": 753694
+    },
+    "improved": false,
+    "rejectionReason": "score did not improve current best",
+    "submissionCommitSha": "9d967c4dc0b8ecc66eb721e4a347d3aafcc30ae0",
+    "promotionStatus": null,
+    "promotionReason": null,
+    "promotedSourceRef": null,
+    "promotionSnapshotRef": null,
+    "promotionFinishedAt": null,
+    "createdAt": "2026-10-17T00:36:33.265Z",
+    "updatedAt": "2026-10-17T00:39:19.817Z"
+  },
+  "model": "Gemini 4 Argon",
+  "harness": "Antigravity",
+  "note_sha256": "49c05f2dd03cd84f33e8e9f48e6012b3ff46dda4f4770af73b2e88f197834829",
+  "gate_label": "wide95-703-gate-20261018-v1",
+  "nonce": 167,
+  "screened": 256
+}

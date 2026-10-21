@@ -1,14 +1,14 @@
 {
-  "analyzed_at": "2026-10-17T16:43:24.463114+08:00",
+  "analyzed_at": "2026-10-17T22:12:51.156817+08:00",
   "source": "https://api.ecdsa.fail/api/benchmarks/1ffb695a-309b-46b6-a728-2f97d8c7be74/submissions",
-  "record_count": 1586,
+  "record_count": 1587,
   "status_counts": {
-    "accepted": 632,
+    "accepted": 633,
     "rejected": 721,
     "failed": 230,
     "cancelled": 3
   },
-  "eligible_count": 1243,
+  "eligible_count": 1244,
   "benchmark_mode": "scalar",
   "closes_at": "2026-12-31T23:59:59.000Z",
   "eligibility": "Accepted or score-only rejected; positive integer official metrics; score equals Q*T.",
@@ -40,16 +40,16 @@
       "rejectionReason": "score did not improve current best"
     },
     "product": {
-      "id": "d7f69382-4716-4b86-9fac-151c8bc581e4",
+      "id": "9dc3798c-93e0-4da4-a6a9-37586737c4af",
       "status": "accepted",
-      "officialScore": 939223314,
+      "officialScore": 939192464,
       "officialMetrics": {
         "qubits": 1234,
-        "toffoli": 761121
+        "toffoli": 761096
       },
-      "createdAt": "2026-10-17T00:33:03.271Z",
-      "submissionCommitSha": "0ae6d109bee6f3241e1f74c38fddb5a05b7f79de",
-      "solverUsername": "MonitSharma",
+      "createdAt": "2026-10-17T13:25:31.992Z",
+      "submissionCommitSha": "0c3a0751ab66bd9144358d67563bcb79201cf636",
+      "solverUsername": "jackylee0424",
       "rejectionReason": null
     }
   },
@@ -69,19 +69,19 @@
   "targets": {
     "maximum_qubits": 675,
     "maximum_toffoli": 753693,
-    "maximum_product": 939223313,
+    "maximum_product": 939192463,
     "maximum_toffoli_for_product": {
-      "676": 1389383,
-      "692": 1357259,
-      "693": 1355300,
-      "877": 1070950,
-      "1170": 802754,
-      "1200": 782686,
-      "1230": 763596,
-      "1234": 761120,
-      "1235": 760504,
-      "1464": 641545,
-      "1556": 603613
+      "676": 1389337,
+      "692": 1357214,
+      "693": 1355256,
+      "877": 1070915,
+      "1170": 802728,
+      "1200": 782660,
+      "1230": 763571,
+      "1234": 761095,
+      "1235": 760479,
+      "1464": 641524,
+      "1556": 603594
     }
   },
   "frontier": [
@@ -619,16 +619,16 @@
       "rejectionReason": null
     },
     {
-      "id": "d7f69382-4716-4b86-9fac-151c8bc581e4",
+      "id": "9dc3798c-93e0-4da4-a6a9-37586737c4af",
       "status": "accepted",
-      "officialScore": 939223314,
+      "officialScore": 939192464,
       "officialMetrics": {
         "qubits": 1234,
-        "toffoli": 761121
+        "toffoli": 761096
       },
-      "createdAt": "2026-10-17T00:33:03.271Z",
-      "submissionCommitSha": "0ae6d109bee6f3241e1f74c38fddb5a05b7f79de",
-      "solverUsername": "MonitSharma",
+      "createdAt": "2026-10-17T13:25:31.992Z",
+      "submissionCommitSha": "0c3a0751ab66bd9144358d67563bcb79201cf636",
+      "solverUsername": "jackylee0424",
       "rejectionReason": null
     },
     {
@@ -672,7 +672,7 @@
     }
   ],
   "input_sha256": {
-    "submissions.json": "86619c93e34462ba960b34b231a2e2a637c4d2e95011a1124d55f263913f8e37",
-    "benchmark.json": "95814f759a6b7aade6215b6c1ecacd6e330f01661761243e1f88d31211676169"
+    "submissions.json": "cb647605b9aa7ea376588d18ad1e9da7fb5989affaff984ab7a90fa268f84ea3",
+    "benchmark.json": "d2e72c3a38ad48382b3c4535af326c973f685df915cb13a2bdc078c11119add7"
   }
 }

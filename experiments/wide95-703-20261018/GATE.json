@@ -1,0 +1,76 @@
+{
+  "label": "wide95-703-gate-20261018-v1",
+  "batches": 32768,
+  "candidate_stream_sha256": "b127c64e9e6fa14e497d6338950ee477805fe8990abd59ec05a8f96d9c1295e8",
+  "census_sha256": {
+    "candidate": "b954cad43b0ba474a40ae2c96dab79e5fbd2cb894128b253ea02e2a095e143fa",
+    "official_toffoli_record_7efded3d": "e6e508920261f8ff206debc5229c5b4e5c91e5fed953c5888dbd435291daaa70",
+    "official_wide15_1d8c05ee": "cc1d1d6af8b106a6ad8fb2aba642df0059f0b22a998d7d05751b1152a79f332a"
+  },
+  "verdicts": {
+    "official_toffoli_record_7efded3d": {
+      "status": "FAILURE_GATE_PASS",
+      "parent_stream_sha256": "7efded3d956e22172e897d261f5b753ffbac63d9b3f5f0f8bf38e577d3e22fad",
+      "failed_batches": {
+        "parent": 1328,
+        "candidate": 1335
+      },
+      "failed_batches_per_packet": {
+        "parent": 5.71435546875,
+        "candidate": 5.744476318359375
+      },
+      "value_shots": {
+        "parent": 1154,
+        "candidate": 1154
+      },
+      "dirty_shots_candidate": 0,
+      "newly_failing_b": 38,
+      "newly_passing_c": 31,
+      "mcnemar_one_sided_p": 0.2351842659290722,
+      "rules": {
+        "1_value_failures_not_above_parent": true,
+        "2_mcnemar_one_sided_p_at_least_0.05": true,
+        "3_failed_batches_per_packet_at_most_18": true,
+        "4_zero_dirty_shots": true
+      },
+      "paired_mean_T_saving": 702.9949345588684,
+      "saving_standard_error": 0.2489821580383524,
+      "mean_T": {
+        "parent": 753697.5283126831,
+        "candidate": 752994.5333781242
+      }
+    },
+    "official_wide15_1d8c05ee": {
+      "status": "FAILURE_GATE_PASS",
+      "parent_stream_sha256": "1d8c05eeee7b43dd694506b5efe963c771461b7e690bc62f409947b2306b7d77",
+      "failed_batches": {
+        "parent": 1328,
+        "candidate": 1335
+      },
+      "failed_batches_per_packet": {
+        "parent": 5.71435546875,
+        "candidate": 5.744476318359375
+      },
+      "value_shots": {
+        "parent": 1154,
+        "candidate": 1154
+      },
+      "dirty_shots_candidate": 0,
+      "newly_failing_b": 40,
+      "newly_passing_c": 33,
+      "mcnemar_one_sided_p": 0.24139427842201064,
+      "rules": {
+        "1_value_failures_not_above_parent": true,
+        "2_mcnemar_one_sided_p_at_least_0.05": true,
+        "3_failed_batches_per_packet_at_most_18": true,
+        "4_zero_dirty_shots": true
+      },
+      "paired_mean_T_saving": 727.7961144447327,
+      "saving_standard_error": 0.2818747857883152,
+      "mean_T": {
+        "parent": 753722.329492569,
+        "candidate": 752994.5333781242
+      }
+    }
+  }
+}

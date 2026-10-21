@@ -1,0 +1,47 @@
+{
+  "status": "CLEAN_SOURCE_REBUILD_UNCHANGED_BENCHMARK_PASS",
+  "checked_at_sgt": "2026-10-18T09:02:48.810283+08:00",
+  "score": {
+    "score": 1402822233,
+    "metrics": {
+      "toffoli": 752991,
+      "qubits": 1863
+    }
+  },
+  "shots": 9024,
+  "total_executed_toffoli": 6794986909,
+  "classical_failures": 0,
+  "phase_failed_batches": 0,
+  "ancilla_failed_batches": 0,
+  "stream_sha256": "09dbeacbd80a5d51656723c4350e367e91d5b5a00306008bf97b288bd4a205e4",
+  "benchmark_log_sha256": "560a30b6067bc850bd1cc09608b356be06d49eb93100d105146ed4fa1c95fe86",
+  "source_manifest_sha256": "8aca82abf0f862a7ecce29e5afe91e8936e4a1ec0d7d3157e03d77a52a2b94c8",
+  "source_and_protected_files_unchanged": true,
+  "original_candidate_protected_manifest_restored_and_verified": true,
+  "public_snapshot_sha256": "d87af705c9957048f19ac307195be1cd77f5da179d52ff67e2d9d0f7908edc32",
+  "public_leaders": {
+    "toffoli": {
+      "id": "b99c9678-5a68-49e8-a8b7-91fc6c383e37",
+      "officialMetrics": {
+        "qubits": 1556,
+        "toffoli": 753694
+      },
+      "officialScore": 1172747864,
+      "submissionCommitSha": "9d967c4dc0b8ecc66eb721e4a347d3aafcc30ae0",
+      "status": "rejected",
+      "rejectionReason": "score did not improve current best"
+    },
+    "product": {
+      "id": "9dc3798c-93e0-4da4-a6a9-37586737c4af",
+      "officialMetrics": {
+        "qubits": 1234,
+        "toffoli": 761096
+      },
+      "officialScore": 939192464,
+      "submissionCommitSha": "0c3a0751ab66bd9144358d67563bcb79201cf636",
+      "status": "accepted",
+      "rejectionReason": null
+    }
+  },
+  "submitted": false
+}

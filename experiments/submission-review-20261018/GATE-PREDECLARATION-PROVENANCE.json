@@ -1,0 +1,97 @@
+{
+  "source_transcript": "C:\\Users\\monitsharma\\.gemini\\antigravity\\brain\\424e627f-2401-452d-a035-a8961632b311\\.system_generated\\logs\\transcript.jsonl",
+  "source_step_index": 574,
+  "record_created_at_utc": "2026-10-18T00:03:38Z",
+  "snapshot_entire_file": true,
+  "parsed_original_declaration": {
+    "status": "DECLARED_BEFORE_ANY_CENSUS_RUN",
+    "declared_at": "2026-10-18T08:02:00+08:00",
+    "rule": "AGENTS.md statistical failure-rate gate (16 October 2026)",
+    "objective": "fewest executed Toffolis (independent of qubits)",
+    "candidate": {
+      "name": "WIDE95+703",
+      "description": "official WIDE95 (753,694 T, b99c9678) plus 703 exact Symmetric-Triple unconditional product leases (retained_703.rs), Q1863, saving -703.0 T deterministically; frozen 18 Oct before any gate census run",
+      "stream_sha256": "b127c64e9e6fa14e497d6338950ee477805fe8990abd59ec05a8f96d9c1295e8",
+      "stream_source": "native generation of wide95-703-20261018/candidate (verified pre-tail byte-identical before the census runs)"
+    },
+    "disclosed_sibling_verdicts": "WIDE67 (wide67-frozen-20261016) and WIDE95+cap2048 (wide95-plus-retained2048-scratch64-frozen-20261016) failed their gates under the older strict rule. Those verdicts stand, are not re-judged, and are disclosed with any WIDE95+703 submission. WIDE95+703 is a distinct frozen stream with no prior verdict.",
+    "label": "wide95-703-gate-20261018-v1",
+    "first_batch": 0,
+    "batch_count": 32768,
+    "shots_per_batch": 64,
+    "census_binary": "/home/hclau/ecdsa_research/simd-census-v2-20261016/bin/simd_census_v2 (sha256 790e92266ea67ec54ef701b2deed76fe8d0b766b411ca9eab877f82ae2c11a66)",
+    "parents": {
+      "official_toffoli_record_7efded3d": {
+        "stream_sha256": "7efded3d956e22172e897d261f5b753ffbac63d9b3f5f0f8bf38e577d3e22fad",
+        "path": "/home/hclau/ecdsa_research/wide95-native-20261017/candidate/ops.bin",
+        "role": "current public Toffoli record (ours, b99c9678, WIDE95, 753,694 at Q1556): the record WIDE95+703 would beat; the gate verdict that decides eligibility"
+      },
+      "official_wide15_1d8c05ee": {
+        "stream_sha256": "1d8c05eeee7b43dd694506b5efe963c771461b7e690bc62f409947b2306b7d77",
+        "path": "/home/hclau/ecdsa_research/wide15-record-20261016/evidence/final-ops.bin",
+        "role": "previous public Toffoli record (ours, 03be8e19, WIDE15, 753,721 at Q1468; informational paired saving and verdict)"
+      }
+    },
+    "criteria": [
+      "1. candidate value-failing shots <= parent value-failing shots",
+      "2. one-sided exact McNemar p = P(X >= b | X ~ Bin(b+c, 1/2)) >= 0.05",
+      "3. candidate failed batches per 9,024-shot packet <= 18",
+      "4. zero candidate dirty-ancilla shots"
+    ],
+    "verdicts": "Eligibility is decided by the verdict against the official record 7efded3d (WIDE95). Verdicts are final: no rerun with another label, more batches or another nonce.",
+    "nonce_policy": "If eligible: ascending from 1 with the exact nonce screener, lowest full 9,024-shot pass, no selection by Toffoli count.",
+    "submission_condition": "Submit (with user approval) only if the unchanged benchmark beats the then-current public Toffoli record."
+  },
+  "all_fields_equal_retained_declaration": true,
+  "source_transcript_sha256_at_review": "cd5ab49fc74997b714434fdda8282a32cb7fdc6f2b4fffeba91627000010a390",
+  "later_rewrite_explanation": "Memory ceiling in search-and-benchmark.sh increased from 50331648 KiB to 100663296 KiB. Rerunning the setup script rewrote the identical declaration. No gate criteria, inputs, label, sample size, parent, or candidate hash changed.",
+  "supporting_steps": [
+    {
+      "step_index": 574,
+      "created_at": "2026-10-18T00:03:38Z",
+      "content": "Created At: 2026-10-18T08:03:38+08:00\nCompleted At: 2026-10-18T08:03:38+08:00\nFile Path: `file:///c:/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/wide95-703-20261018/GATE-DECLARATION.json`\nTotal Lines: 40\nTotal Bytes: 2838\nShowing lines 1 to 40\nThe following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.\n1: {\n2:   \"status\": \"DECLARED_BEFORE_ANY_CENSUS_RUN\",\n3:   \"declared_at\": \"2026-10-18T08:02:00+08:00\",\n4:   \"rule\": \"AGENTS.md statistical failure-rate gate (16 October 2026)\",\n5:   \"objective\": \"fewest executed Toffolis (independent of qubits)\",\n6:   \"candidate\": {\n7:     \"name\": \"WIDE95+703\",\n8:     \"description\": \"official WIDE95 (753,694 T, b99c9678) plus 703 exact Symmetric-Triple unconditional product leases (retained_703.rs), Q1863, saving -703.0 T deterministically; frozen 18 Oct before any gate census run\",\n9:     \"stream_sha256\": \"b127c64e9e6fa14e497d6338950ee477805fe8990abd59ec05a8f96d9c1295e8\",\n10:     \"stream_source\": \"native generation of wide95-703-20261018/candidate (verified pre-tail byte-identical before the census runs)\"\n11:   },\n12:   \"disclosed_sibling_verdicts\": \"WIDE67 (wide67-frozen-20261016) and WIDE95+cap2048 (wide95-plus-retained2048-scratch64-frozen-20261016) failed their gates under the older strict rule. Those verdicts stand, are not re-judged, and are disclosed with any WIDE95+703 submission. WIDE95+703 is a distinct frozen stream with no prior verdict.\",\n13:   \"label\": \"wide95-703-gate-20261018-v1\",\n14:   \"first_batch\": 0,\n15:   \"batch_count\": 32768,\n16:   \"shots_per_batch\": 64,\n17:   \"census_binary\": \"/home/hclau/ecdsa_research/simd-census-v2-20261016/bin/simd_census_v2 (sha256 790e92266ea67ec54ef701b2deed76fe8d0b766b411ca9eab877f82ae2c11a66)\",\n18:   \"parents\": {\n19:     \"official_toffoli_record_7efded3d\": {\n20:       \"stream_sha256\": \"7efded3d956e22172e897d261f5b753ffbac63d9b3f5f0f8bf38e577d3e22fad\",\n21:       \"path\": \"/home/hclau/ecdsa_research/wide95-native-20261017/candidate/ops.bin\",\n22:       \"role\": \"current public Toffoli record (ours, b99c9678, WIDE95, 753,694 at Q1556): the record WIDE95+703 would beat; the gate verdict that decides eligibility\"\n23:     },\n24:     \"official_wide15_1d8c05ee\": {\n25:       \"stream_sha256\": \"1d8c05eeee7b43dd694506b5efe963c771461b7e690bc62f409947b2306b7d77\",\n26:       \"path\": \"/home/hclau/ecdsa_research/wide15-record-20261016/evidence/final-ops.bin\",\n27:       \"role\": \"previous public Toffoli record (ours, 03be8e19, WIDE15, 753,721 at Q1468; informational paired saving and verdict)\"\n28:     }\n29:   },\n30:   \"criteria\": [\n31:     \"1. candidate value-failing shots <= parent value-failing shots\",\n32:     \"2. one-sided exact McNemar p = P(X >= b | X ~ Bin(b+c, 1/2)) >= 0.05\",\n33:     \"3. candidate failed batches per 9,024-shot packet <= 18\",\n34:     \"4. zero candidate dirty-ancilla shots\"\n35:   ],\n36:   \"verdicts\": \"Eligibility is decided by the verdict against the official record 7efded3d (WIDE95). Verdicts are final: no rerun with another label, more batches or another nonce.\",\n37:   \"nonce_policy\": \"If eligible: ascending from 1 with the exact nonce screener, lowest full 9,024-shot pass, no selection by Toffoli count.\",\n38:   \"submission_condition\": \"Submit (with user approval) only if the unchanged benchmark beats the then-current public Toffoli record.\"\n39: }\n40: \nThe above content shows the entire, complete file contents of the requested file.\n"
+    },
+    {
+      "step_index": 575,
+      "created_at": "2026-10-18T00:03:38Z",
+      "tool_calls": [
+        {
+          "name": "run_command",
+          "args": {
+            "CommandLine": "\"ssh smu_server \\\"bash /home/hclau/ecdsa_research/wide95-703-20261018/gate-census.sh && cat /home/hclau/ecdsa_research/wide95-703-20261018/GATE.json\\\"\"",
+            "Cwd": "\"c:\\\\Users\\\\monitsharma\\\\Downloads\\\\elliptic_curve_dsa\"",
+            "WaitMsBeforeAsync": "10000",
+            "toolAction": "\"Running 32,768-batch statistical failure-rate gate for WIDE95+703\"",
+            "toolSummary": "\"Run 32,768-batch statistical gate for WIDE95+703\""
+          }
+        }
+      ]
+    },
+    {
+      "step_index": 583,
+      "created_at": "2026-10-18T00:05:23Z",
+      "content": "Created At: 2026-10-18T08:05:23+08:00\nCompleted At: 2026-10-18T08:05:26+08:00\nThe following changes were made by the replace_file_content tool to: C:\\Users\\monitsharma\\.gemini\\antigravity\\brain\\424e627f-2401-452d-a035-a8961632b311\\scratch\\setup_wide95_703_pipeline.py. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.\n[diff_block_start]\n@@ -201,7 +201,7 @@\n cp candidate/ops.bin evidence/frozen-ops.bin\n python3 /home/hclau/ecdsa_research/server-preflight.py > evidence/screen-preflight.json\n export RAYON_NUM_THREADS=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1\n-ulimit -v 50331648\n+ulimit -v 100663296\n /usr/bin/time -v /home/hclau/ecdsa_research/nonce-screen-20261015/screen/target/release/nonce_screen evidence/frozen-ops.bin 1 20000 16 evidence/screen.jsonl > evidence/screen.out 2> evidence/screen.err\n python3 select.py > evidence/select.log 2>&1\n cd candidate\n[diff_block_end]\n\nPlease note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown."
+    },
+    {
+      "step_index": 585,
+      "created_at": "2026-10-18T00:05:27Z",
+      "tool_calls": [
+        {
+          "name": "run_command",
+          "args": {
+            "CommandLine": "\"scp C:\\\\Users\\\\monitsharma\\\\.gemini\\\\antigravity\\\\brain\\\\424e627f-2401-452d-a035-a8961632b311\\\\scratch\\\\setup_wide95_703_pipeline.py smu_server:/tmp/setup_wide95_703_pipeline.py; scp C:\\\\Users\\\\monitsharma\\\\.gemini\\\\antigravity\\\\brain\\\\424e627f-2401-452d-a035-a8961632b311\\\\scratch\\\\analyze_product179_zombies.py smu_server:/tmp/analyze_product179_zombies.py; ssh smu_server \\\"python3 /tmp/setup_wide95_703_pipeline.py && nohup bash /home/hclau/ecdsa_research/wide95-703-20261018/search-and-benchmark.sh > /home/hclau/ecdsa_research/wide95-703-20261018/search-and-benchmark.nohup.log 2>&1 < /dev/null & sleep 1 && cat /home/hclau/ecdsa_research/wide95-703-20261018/search.pid && python3 /tmp/analyze_product179_zombies.py\\\"\"",
+            "Cwd": "\"c:\\\\Users\\\\monitsharma\\\\Downloads\\\\elliptic_curve_dsa\"",
+            "WaitMsBeforeAsync": "10000",
+            "toolAction": "\"Launching WIDE95+703 nonce search & benchmark and analyzing PRODUCT179 zombie leases\"",
+            "toolSummary": "\"Launch WIDE95+703 search-and-benchmark and analyze PRODUCT179 zombies\""
+          }
+        }
+      ]
+    },
+    {
+      "step_index": 590,
+      "created_at": "2026-10-18T00:06:29Z",
+      "content": "Created At: 2026-10-18T08:06:29+08:00\nCompleted At: 2026-10-18T08:06:29+08:00\nFile Path: `file:///C:/Users/monitsharma/.gemini/antigravity/brain/424e627f-2401-452d-a035-a8961632b311/.system_generated/tasks/task-586.log`\nTotal Lines: 14\nTotal Bytes: 923\nShowing lines 1 to 14\nThe following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.\n1: Candidate ops.bin SHA-256: b127c64e9e6fa14e497d6338950ee477805fe8990abd59ec05a8f96d9c1295e8\n2: Successfully wrote GATE-DECLARATION.json, gate.py, gate-census.sh, select.py, verify-final.py, search-and-benchmark.sh\n3: 4015216\n4: Traceback (most recent call last):\n5:   File \"/tmp/analyze_product179_zombies.py\", line 123, in <module>\n6:     main()\n7:   File \"/tmp/analyze_product179_zombies.py\", line 20, in main\n8:     n, raw = load_ops(\"/home/hclau/ecdsa_research/product179-20261017/candidate/src/point_add/frozen_cache_product179.bin\")\n9:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n10:   File \"/tmp/analyze_product179_zombies.py\", line 10, in load_ops\n11:     with open(path, \"rb\") as f:\n12:          ^^^^^^^^^^^^^^^^\n13: FileNotFoundError: [Errno 2] No such file or directory: '/home/hclau/ecdsa_research/product179-20261017/candidate/src/point_add/frozen_cache_product179.bin'\n14: \nThe above content shows the entire, complete file contents of the requested file.\n"
+    }
+  ]
+}

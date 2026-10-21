@@ -1,0 +1,21 @@
+{
+  "status": "DIAGNOSTIC_ONLY_NOT_FAILURE_GATE",
+  "label": "pareto-exact-diagnostic-20261019-v1",
+  "batches": 512,
+  "shots_per_batch": 64,
+  "workers_per_stream": 8,
+  "streams": {
+    "parent": {
+      "path": "/home/hclau/ecdsa_research/product-pareto-20261019/parent/ops.bin",
+      "sha256": "99edb1d39f94c40752cb1fa2581dd2b13fe17696c486f542b8d43c1af1974683"
+    },
+    "unwrapped": {
+      "path": "/home/hclau/ecdsa_research/product-pareto-20261019/parent-unwrapped.ops.bin",
+      "sha256": "64c0d4919e73e7b4b7e5c97f3e40caf948c5c07f8c6fa7ee28c97c656fc2e227"
+    },
+    "retained": {
+      "path": "/home/hclau/ecdsa_research/product-pareto-20261019/parent-unwrapped-retained.ops.bin",
+      "sha256": "6eb12097235112ef0378dbeac902b18decf79e6a09742ebd7991a9985a2cf83b"
+    }
+  }
+}

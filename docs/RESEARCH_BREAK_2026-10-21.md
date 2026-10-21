@@ -12,9 +12,11 @@ Machine state: [CURRENT-ACTIVE.json](../experiments/autorun-20261020-breakthroug
 Chronological work: [LOG.md](../experiments/autorun-20261020-breakthrough/LOG.md).
 Local checkpoint before this break: `6369e69cead4e2e3123fd718969646412a852121`.
 The break itself is saved in a later local commit; inspect `git log -1`.
-Only root commit `41f769ec44e40c915c3149d8332c15b10bca71f8` was explicitly
-approved and pushed previously. That approval is already fulfilled. Newer
-commits remain local; do not treat it as permission to push a later HEAD.
+The human subsequently instructed **“Push everything to github”** on21October2026.
+That authorizes syncing all current saved commits and remaining nonignored root
+files. Nested challenge edits are preserved as patches and exact source snapshots
+in `experiments/github-snapshot-20261021/`; upstream challenge branches are unchanged.
+Research remains paused. The earlier commit-specific41f769ec approval is historical.
 
 ## Official results and public comparisons
 

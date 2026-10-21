@@ -1,0 +1,32 @@
+{
+  "status": "DIAGNOSTIC_ONLY_NOT_FAILURE_GATE",
+  "label": "pareto-exact-diagnostic-20261019-v1",
+  "batches": 512,
+  "shots_each": 32768,
+  "streams": {
+    "parent": {
+      "mean_toffoli": 761094.7733459473,
+      "value_shots": 47,
+      "dirty_shots": 0,
+      "failed_batches": 57,
+      "paired_mean_toffoli_saving": 0.0,
+      "saving_standard_error": 0.0
+    },
+    "unwrapped": {
+      "mean_toffoli": 761098.5440063477,
+      "value_shots": 47,
+      "dirty_shots": 0,
+      "failed_batches": 53,
+      "paired_mean_toffoli_saving": -3.770660400390625,
+      "saving_standard_error": 4.716807420538727
+    },
+    "retained": {
+      "mean_toffoli": 761089.7242736816,
+      "value_shots": 47,
+      "dirty_shots": 0,
+      "failed_batches": 55,
+      "paired_mean_toffoli_saving": 5.049072265625,
+      "saving_standard_error": 4.509871548667958
+    }
+  }
+}

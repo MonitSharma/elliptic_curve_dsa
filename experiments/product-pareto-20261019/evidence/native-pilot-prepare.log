@@ -1,0 +1,30 @@
+Preparing worktree (detached HEAD 0c3a0751)
+HEAD is now at 0c3a0751 Validate submission 9dc3798c-93e0-4da4-a6a9-37586737c4af
+{
+  "status": "NATIVE_SOURCE_PREPARED_NOT_TESTED",
+  "base_revision": "0c3a0751ab66bd9144358d67563bcb79201cf636",
+  "candidate": "/home/hclau/ecdsa_research/product-pareto-20261019/candidate-parent4",
+  "stages": [
+    {
+      "prefix": "parent-unwrapped",
+      "input_sha3_256": "429af1c31b54064e17e7602be516b519c066c241e218d56f002287ea02b16842",
+      "output_sha3_256": "101bb34f90434b33b97d0e357ff1156eeaad1a5f71dc3e8b81e8d52f8f8a2f91",
+      "unwrappings": 769,
+      "leases": 0,
+      "zero": 0,
+      "linear": 0
+    },
+    {
+      "prefix": "parent-unwrapped-retained",
+      "input_sha3_256": "101bb34f90434b33b97d0e357ff1156eeaad1a5f71dc3e8b81e8d52f8f8a2f91",
+      "output_sha3_256": "97c40ed1dd3f5123c9554ebf29c54c433960804c0effce63dc7bba52844ae9ae",
+      "unwrappings": 0,
+      "leases": 4,
+      "zero": 0,
+      "linear": 0
+    }
+  ],
+  "expected_output_sha3_256": "97c40ed1dd3f5123c9554ebf29c54c433960804c0effce63dc7bba52844ae9ae",
+  "module_sha256": "683d659d3f6661c8633ed169b0bea5a951d4a9b8fffddf7c0946e94d76dbcb89",
+  "tracked_patch_sha256": "98a0801509ecb370f3bb7708d6f00a2a126e6de5e69f05cdffcc68f0e64c7082"
+}

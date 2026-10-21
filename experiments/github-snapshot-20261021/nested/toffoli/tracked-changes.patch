@@ -1,0 +1,20 @@
+diff --git a/src/point_add/mod.rs b/src/point_add/mod.rs
+index 292237d7..33f7e4c7 100755
+--- a/src/point_add/mod.rs
++++ b/src/point_add/mod.rs
+@@ -20,6 +20,7 @@ mod affine_simplify;
+ mod interned_witness;
+ mod quadratic_simplify;
+ mod truth_simplify;
++mod guarded_zero;
+ mod builder;
+ mod classical;
+ mod compare;
+@@ -600,6 +601,7 @@ pub fn build() -> Vec<Op> {
+             ops.splice(w..w + 1, rep);
+         }
+     }
++    ops = guarded_zero::run(ops);
+     let nonce: u64 = required_env("TAIL_NONCE");
+     let mut x = Op::empty();
+     x.kind = OperationType::X;

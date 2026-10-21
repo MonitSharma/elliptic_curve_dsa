@@ -1,0 +1,20 @@
+[package]
+name = "product_width_tradeoff"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+quantum_ecc = { path = "/home/hclau/ecdsa_research/overnight-20261014/product-b3-baseline" }
+zstd = "0.13"
+sha3 = "0.10"
+serde_json = "1"
+
+
+[[bin]]
+name="tradeoff"
+path="tradeoff.rs"
+[[bin]]
+name="width_pressure"
+path="width_pressure.rs"
+[profile.release]
+opt-level=3

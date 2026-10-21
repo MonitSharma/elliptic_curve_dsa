@@ -1505,6 +1505,52 @@ one core (PID624226); it does not modify the frozen candidate or search.
 [Complete proof](../experiments/product-parent-sat-20261019/CHECKPOINT-1609.md) ·
 [Automatic final verification](../experiments/parent4-final-sat-20261019/STATUS.md).
 
+**19 Oct, 14:31 — new product screens complete, no qualified improvement.**
+Twelve exact carry-borrowing/recomputation configurations retained conservative
+Q1234; their added Toffolis made the complete product worse. A separate exact
+commuting-inverse screen found zero removable Toffolis. All 31 tool tests
+passed and all five jobs exited 0. No candidate census, nonce search or
+submission was started, and no successor is active. Source, certificates,
+logs and stream hashes are [archived and locally verified](../experiments/product-schedule-20261019/STATUS.md).
+
+**19 Oct — product optimization active; no new scored result.** The public
+leader was rebuilt byte-identically at Q1234/T761096/product939192464. An exact
+four-product retention candidate keeps Q1234; a fresh 32,768-shot pilot
+preserves the parent's 47 wrong-output shots with zero dirty shots. A fixed
+84-stage continuation is active on `smu_server`, with per-stage equivalence
+audits, native binding and a final declared failure-rate gate.
+[Run status and evidence](../experiments/product-pareto-20261019/STATUS.md).
+
+**18 Oct 09:06 — WIDE95+703 submitted as [62341149](https://api.ecdsa.fail/api/submissions/62341149-b0f8-422e-aef5-9388be813600), official validation pending; Gemini 4 Argon / Antigravity. PRODUCT179+ was not submitted.**
+
+**Historical readiness, 18 Oct 08:15 — `WIDE95+703` `UNCHANGED_BENCHMARK_PASS` at 752,991 T (queued); `PRODUCT179+` at −13.5 T (`experiments/autorun-20261017-2212/LOG.md`).** Public
+refresh (18 Oct 08:12): product **939,192,464** (`jackylee0424` `9dc3798c`,
+Q1234 × T761,096; ours #2 at 939,223,314 `d7f69382`); Toffolis **753,694**
+(WIDE95 `b99c9678`, ours, Q1556); qubits **676** (`jackylee0424` `8cbf3480`).
+Using the Symmetric Triple Theorem ($\mathcal{T}(X, Y) = \{X, Y, 1 \oplus X \oplus Y\}$)
+and stripping `temp1 == 1` / `temp2 == 0` lease conditions:
+- **Toffoli candidate `WIDE95+703` (`UNCHANGED_BENCHMARK_PASS`, queued for user approval):**
+  703 new unconditional leases (`src/point_add/retained_703.rs`, $1,839 + 703 = 2,542$,
+  100% of all unconditional repeated-AND pairs in the circuit).
+  - Pre-declared 32,768-batch statistical gate (`wide95-703-gate-20261018-v1`):
+    **`FAILURE_GATE_PASS`** vs `WIDE95` (`7efded3d…`, value shots `1,154 == 1,154`,
+    McNemar $p = 0.2352$, `5.744` failed batches/packet, dirty `0`, paired saving
+    **−702.995 ± 0.249 T**) and vs `WIDE15` (`1d8c05ee…`, $p = 0.2414$, **−727.80 ± 0.28 T**).
+  - Ascending exact screen: **nonce 167** (256 screened; all `1..166` fail).
+  - Unchanged `benchmark.sh`: **Q = 1,863, rounded mean = 752,991 executed Toffolis**
+    (`mean = 752,990.5706`, `total = 6,794,986,909` over 9,024 shots, all 9,024
+    shots pass, 0 failures), beating our 753,694 T public record by **703 Toffolis**!
+    [Status](../experiments/wide95-703-20261018/STATUS.md) ·
+    [Submission note](../experiments/wide95-703-20261018/SUBMISSION-NOTE.md).
+- **Product diagnostic (`PRODUCT179+`):** unwrapping the **913 strictly zero-saving
+  leases** in `PRODUCT179` (`832` single-use unconditionally evicted + `81`
+  Russian-doll inner leases) frees donor intervals in `0..1233` for **13
+  non-overlapping unconditional leases (−13.0 T)** + `zero_product` at
+  `op 25991369` (−0.50 T, proved by `prove.rs` with `killed_on` and single-control
+  slicing) = **−13.50 T vs PRODUCT179** (**−37.36 T vs PLAIN67**, diagnostic
+  fresh mean **~761,082.57 T** at Q1234, ~11.0 T below `0c3a0751ab`'s fresh mean
+  of 761,093.55 T). Pending native build, declared gate, and ascending nonce search.
+
 **17 Oct 16:45 — paused. Official: product 939,223,314 (PLAIN67, ours) and
 Toffolis 753,694 (WIDE95, ours).** PRODUCT179 (179-stage cache) has passed
 certificate, native identity and its declared gate (−23.86 T vs PLAIN67); no

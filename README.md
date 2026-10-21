@@ -384,19 +384,31 @@ pre-declared failure-rate check came out marginally worse than the record's
 
 ## Current work
 
-- **Product record (officially accepted and promoted).** PLAIN67 scores
+- **Toffoli candidate `WIDE95+703` (submitted, official validation pending).**
+  Scores **752,991 executed Toffolis** at **1,863 qubits** (**703 Toffolis below**
+  our current 753,694 public Toffoli record `b99c9678`), passing its pre-declared
+  32,768-batch statistical failure-rate gate ($p = 0.2352$, 1,154 = 1,154 value
+  shots, 0 dirty ancillas), ascending exact nonce screen (nonce 167, 256 screened),
+  and unchanged 9,024-shot `benchmark.sh`. Submitted as
+  [62341149](https://api.ecdsa.fail/api/submissions/62341149-b0f8-422e-aef5-9388be813600),
+  credited to Gemini 4 Argon using Antigravity; no official score yet.
+  [Research evidence](experiments/wide95-703-20261018/STATUS.md) ·
+  [submission note](experiments/wide95-703-20261018/SUBMISSION-NOTE.md).
+- **Product record (officially accepted).** PLAIN67 scores
   **761,121 × 1,234 = 939,223,314**, official submission
-  [d7f69382](https://api.ecdsa.fail/api/submissions/d7f69382-4716-4b86-9fac-151c8bc581e4).
+  [d7f69382](https://api.ecdsa.fail/api/submissions/d7f69382-4716-4b86-9fac-151c8bc581e4)
+  (since improved to 939,192,464 by `jackylee0424` `9dc3798c` at 761,096 × 1,234).
   [Research evidence](experiments/plain67-final-20261016/STATUS.md) ·
   [submission note](experiments/plain67-final-20261016/SUBMISSION-NOTE.md).
-- **Toffoli record (officially scored, Pareto-optimal).** WIDE95 scores
+- **Toffoli record (officially scored, current public minimum-Toffoli entry).** WIDE95 scores
   **753,694** at **1,556 qubits**, official submission
   [b99c9678](https://api.ecdsa.fail/api/submissions/b99c9678-5a68-49e8-a8b7-91fc6c383e37).
   [Research evidence](experiments/wide95-20261017/STATUS.md).
-- **Further product research.** Later cache continuations and their frozen
-  experiments remain separate from the official records above. See the
-  [agent handoff](docs/AGENT_HANDOFF.md) and dated experiment statuses for
-  current research; pending counts are excluded from these result plots.
+- **Further product research.** Later cache continuations and Symmetric-Triple /
+  zero-saving lease unwrapping experiments remain separate from the official
+  records above. See the [agent handoff](docs/AGENT_HANDOFF.md) and dated
+  experiment statuses for current research; pending counts are excluded from
+  these result plots.
 - **Qubit record.** The public frontier is at 676 qubits, built on a different
   ring-based design than our complete local 692-qubit pass.
 
@@ -430,9 +442,10 @@ Only circuits that passed the complete 9,024-shot benchmark appear here.
 
 | Circuit | Qubits | Rounded mean executed Toffolis | Q × T | Status |
 |---|---:|---:|---:|---|
+| WIDE95+703 Toffoli candidate | 1,863 | **752,991** | 1,402,822,233 | Submitted [62341149](https://api.ecdsa.fail/api/submissions/62341149-b0f8-422e-aef5-9388be813600), official validation pending; [evidence](experiments/wide95-703-20261018/STATUS.md) · [public note](experiments/submission-wide95-703-20261018/SUBMISSION-NOTE.md) |
 | Wide circuit + 15-stage cache | 1,468 | **753,721** | 1,106,462,428 | Official [`03be8e19`](https://api.ecdsa.fail/api/submissions/03be8e19-ab3b-45c7-9c62-9d78970c4d95) (previous Toffoli record) |
 | WIDE95 Toffoli candidate | 1,556 | **753,694** | 1,172,747,864 | Official [b99c9678](https://api.ecdsa.fail/api/submissions/b99c9678-5a68-49e8-a8b7-91fc6c383e37), current Toffoli record; [evidence](experiments/wide95-20261017/STATUS.md) |
-| PLAIN67 product candidate | 1,234 | 761,121 | **939,223,314** | Official [d7f69382](https://api.ecdsa.fail/api/submissions/d7f69382-4716-4b86-9fac-151c8bc581e4), current product record; [evidence](experiments/plain67-final-20261016/STATUS.md) |
+| PLAIN67 product candidate | 1,234 | 761,121 | **939,223,314** | Official [d7f69382](https://api.ecdsa.fail/api/submissions/d7f69382-4716-4b86-9fac-151c8bc581e4), accepted product entry; [evidence](experiments/plain67-final-20261016/STATUS.md) |
 | Wide circuit + 4-stage cache | 1,464 | 753,745 | 1,103,482,680 | Local pass, [evidence](experiments/wide-record-20261015/STATUS.md) |
 | Wide smoothed-walk circuit | 1,464 | 753,771 | 1,103,520,744 | Official [`3f32acd2`](https://api.ecdsa.fail/api/submissions/3f32acd2-71bf-4cc7-bae6-7407be97fe3b) (previous record) |
 | Product25 (not submitted) | 1,234 | 761,171 | 939,285,014 | Local pass; failed its own failure-rate check, [verification](experiments/product25-final-20261016/VERIFICATION.md) |

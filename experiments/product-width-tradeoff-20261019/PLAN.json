@@ -1,0 +1,17 @@
+{
+  "declared_utc": "2026-10-19T06:06:40.141694+00:00",
+  "public_parent": "9dc3798c-93e0-4da4-a6a9-37586737c4af",
+  "input": "/home/hclau/ecdsa_research/product-pareto-20261019/parent/ops.bin",
+  "input_sha256": "99edb1d39f94c40752cb1fa2581dd2b13fe17696c486f542b8d43c1af1974683",
+  "hypothesis": "Trade bounded extra exact AND recomputation for shorter ancilla lifetimes; inspect current public source after removing multi-use caches, unlike the prior no-cost relabeling test.",
+  "fixed_discovery_settings": {
+    "expression_cap": 1024,
+    "maximum_reads_per_cache": 64
+  },
+  "one_qubit_break_even_extra_T": 617,
+  "screen": "Compare conservative lifetime peaks before and after complete proven cache removal; stop or narrow to a minimum-cost removal set. No statistical gate or nonce search in this experiment.",
+  "not_a_resource_record": true,
+  "memory_limit_GiB": 64,
+  "build_threads": 4,
+  "scanner_threads": 1
+}
