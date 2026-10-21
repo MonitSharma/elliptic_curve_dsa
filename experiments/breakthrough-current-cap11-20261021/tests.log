@@ -1,0 +1,369 @@
+   Compiling product_pareto_exact v0.1.0 (/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-current-cap11-20261021/local-tool)
+warning: unused import: `weierstrass_elliptic_curve`
+ --> discover.rs:1:31
+  |
+1 | use quantum_ecc::{circuit,sim,weierstrass_elliptic_curve};use circuit::Op;mod io;mod point_add;
+  |                               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: constant `ATOM_CAP` is never used
+ --> point_add/affine_simplify.rs:7:7
+  |
+7 | const ATOM_CAP: usize = 32;
+  |       ^^^^^^^^
+  |
+  = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: struct `Affine` is never constructed
+  --> point_add/affine_simplify.rs:10:8
+   |
+10 | struct Affine {
+   |        ^^^^^^
+
+warning: associated items `constant`, `is_zero`, `is_one`, `complement`, and `complements` are never used
+  --> point_add/affine_simplify.rs:16:8
+   |
+15 | impl Affine {
+   | ----------- associated items in this implementation
+16 |     fn constant(value: bool) -> Self {
+   |        ^^^^^^^^
+...
+23 |     fn is_zero(&self) -> bool {
+   |        ^^^^^^^
+...
+27 |     fn is_one(&self) -> bool {
+   |        ^^^^^^
+...
+31 |     fn complement(&self) -> Self {
+   |        ^^^^^^^^^^
+...
+38 |     fn complements(&self, other: &Self) -> bool {
+   |        ^^^^^^^^^^^
+
+warning: field `0` is never read
+  --> point_add/affine_simplify.rs:47:8
+   |
+47 |     Cx(QubitId),
+   |     -- ^^^^^^^
+   |     |
+   |     field in this variant
+   |
+help: consider changing the field to be of unit type to suppress this warning while preserving the field numbering, or remove the field
+   |
+47 -     Cx(QubitId),
+47 +     Cx(()),
+   |
+
+warning: method `emit` is never used
+  --> point_add/affine_simplify.rs:51:19
+   |
+50 | impl Rewrite {
+   | ------------ method in this implementation
+51 |     pub(super) fn emit(self, op: Op, result: &mut Vec<Op>) {
+   |                   ^^^^
+
+warning: struct `Support` is never constructed
+  --> point_add/affine_simplify.rs:74:19
+   |
+74 | pub(super) struct Support {
+   |                   ^^^^^^^
+
+warning: associated items `new`, `fresh`, `xor`, `and`, `ccx_rewrite`, and `step` are never used
+   --> point_add/affine_simplify.rs:83:19
+    |
+ 82 | impl Support {
+    | ------------ associated items in this implementation
+ 83 |     pub(super) fn new(ops: &[Op]) -> Self {
+    |                   ^^^
+...
+117 |     fn fresh(&mut self) -> Affine {
+    |        ^^^^^
+...
+126 |     fn xor(&mut self, a: &Affine, b: &Affine) -> Affine {
+    |        ^^^
+...
+153 |     fn and(&mut self, a: &Affine, b: &Affine) -> Affine {
+    |        ^^^
+...
+167 |     fn ccx_rewrite(condition: &Affine, a: &Affine, b: &Affine, op: &Op) -> Rewrite {
+    |        ^^^^^^^^^^^
+...
+181 |     pub(super) fn step(&mut self, op: &Op) -> Rewrite {
+    |                   ^^^^
+
+warning: function `simplify` is never used
+   --> point_add/affine_simplify.rs:280:15
+    |
+280 | pub(crate) fn simplify(ops: Vec<Op>) -> Vec<Op> {
+    |               ^^^^^^^^
+
+warning: constant `MONOMIAL_CAP` is never used
+ --> point_add/quadratic_simplify.rs:8:7
+  |
+8 | const MONOMIAL_CAP: usize = 32;
+  |       ^^^^^^^^^^^^
+
+warning: struct `Quadratic` is never constructed
+  --> point_add/quadratic_simplify.rs:11:8
+   |
+11 | struct Quadratic {
+   |        ^^^^^^^^^
+
+warning: associated items `constant`, `is_zero`, `is_one`, `complement`, and `complements` are never used
+  --> point_add/quadratic_simplify.rs:17:8
+   |
+16 | impl Quadratic {
+   | -------------- associated items in this implementation
+17 |     fn constant(value: bool) -> Self {
+   |        ^^^^^^^^
+...
+24 |     fn is_zero(&self) -> bool {
+   |        ^^^^^^^
+...
+28 |     fn is_one(&self) -> bool {
+   |        ^^^^^^
+...
+32 |     fn complement(&self) -> Self {
+   |        ^^^^^^^^^^
+...
+39 |     fn complements(&self, other: &Self) -> bool {
+   |        ^^^^^^^^^^^
+
+warning: struct `Support` is never constructed
+  --> point_add/quadratic_simplify.rs:47:19
+   |
+47 | pub(super) struct Support {
+   |                   ^^^^^^^
+
+warning: associated items `new`, `fresh`, `xor`, `and`, `ccx_rewrite`, and `step` are never used
+   --> point_add/quadratic_simplify.rs:56:19
+    |
+ 55 | impl Support {
+    | ------------ associated items in this implementation
+ 56 |     pub(super) fn new(ops: &[Op]) -> Self {
+    |                   ^^^
+...
+ 90 |     fn fresh(&mut self) -> Quadratic {
+    |        ^^^^^
+...
+101 |     fn xor(&mut self, a: &Quadratic, b: &Quadratic) -> Quadratic {
+    |        ^^^
+...
+128 |     fn and(&mut self, a: &Quadratic, b: &Quadratic) -> Quadratic {
+    |        ^^^
+...
+183 |     fn ccx_rewrite(condition: &Quadratic, a: &Quadratic, b: &Quadratic, op: &Op) -> Rewrite {
+    |        ^^^^^^^^^^^
+...
+197 |     pub(super) fn step(&mut self, op: &Op) -> Rewrite {
+    |                   ^^^^
+
+warning: function `simplify` is never used
+   --> point_add/quadratic_simplify.rs:296:15
+    |
+296 | pub(crate) fn simplify(ops: Vec<Op>) -> Vec<Op> {
+    |               ^^^^^^^^
+
+warning: function `simplify` is never used
+   --> point_add/control_wide/mod.rs:262:15
+    |
+262 | pub(crate) fn simplify(ops: Vec<Op>) -> Vec<Op> {
+    |               ^^^^^^^^
+
+warning: function `simplify_products` is never used
+   --> point_add/control_wide/mod.rs:267:15
+    |
+267 | pub(crate) fn simplify_products(ops: Vec<Op>) -> Vec<Op> {
+    |               ^^^^^^^^^^^^^^^^^
+
+warning: function `simplify_with_products` is never used
+   --> point_add/control_wide/mod.rs:274:4
+    |
+274 | fn simplify_with_products(ops: Vec<Op>, use_products: bool) -> Vec<Op> {
+    |    ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `exact_product` is never used
+  --> point_add/control_wide/product7_simplify.rs:11:4
+   |
+11 | fn exact_product(a: &Truth, b: &Truth) -> Option<Truth> {
+   |    ^^^^^^^^^^^^^
+
+warning: struct `Hit` is never constructed
+  --> point_add/control_wide/product7_simplify.rs:45:19
+   |
+45 | pub(super) struct Hit {
+   |                   ^^^
+
+warning: method `emit` is never used
+  --> point_add/control_wide/product7_simplify.rs:52:19
+   |
+51 | impl Hit {
+   | -------- method in this implementation
+52 |     pub(super) fn emit(self, original: Op, result: &mut Vec<Op>) {
+   |                   ^^^^
+
+warning: struct `Index` is never constructed
+  --> point_add/control_wide/product7_simplify.rs:64:19
+   |
+64 | pub(super) struct Index {
+   |                   ^^^^^
+
+warning: multiple associated items are never used
+   --> point_add/control_wide/product7_simplify.rs:70:19
+    |
+ 69 | impl Index {
+    | ---------- associated items in this implementation
+ 70 |     pub(super) fn new(state: &Support, ops: &[Op]) -> Self {
+    |                   ^^^
+...
+ 89 |     fn insert(&mut self, state: &Support, q: usize) {
+    |        ^^^^^^
+...
+ 98 |     fn remove(&mut self, state: &Support, q: usize) {
+    |        ^^^^^^
+...
+108 |     fn permitted(&self, q: usize, op: &Op) -> bool {
+    |        ^^^^^^^^^
+...
+115 |     fn lookup(&self, product: &Truth, op: &Op) -> Option<Hit> {
+    |        ^^^^^^
+...
+131 |     pub(super) fn before(&mut self, state: &Support, op: &Op) -> Option<Hit> {
+    |                   ^^^^^^
+...
+153 |     pub(super) fn after(&mut self, state: &Support, op: &Op) {
+    |                   ^^^^^
+
+warning: function `quantum_changes` is never used
+   --> point_add/control_wide/product7_simplify.rs:164:4
+    |
+164 | fn quantum_changes(op: &Op) -> Vec<usize> {
+    |    ^^^^^^^^^^^^^^^
+
+warning: function `quantum_touches` is never used
+   --> point_add/control_wide/product7_simplify.rs:173:4
+    |
+173 | fn quantum_touches(op: &Op) -> Vec<usize> {
+    |    ^^^^^^^^^^^^^^^
+
+warning: function `simplify` is never used
+   --> point_add/classical_wide/mod.rs:262:15
+    |
+262 | pub(crate) fn simplify(ops: Vec<Op>) -> Vec<Op> {
+    |               ^^^^^^^^
+
+warning: function `simplify_products` is never used
+   --> point_add/classical_wide/mod.rs:267:15
+    |
+267 | pub(crate) fn simplify_products(ops: Vec<Op>) -> Vec<Op> {
+    |               ^^^^^^^^^^^^^^^^^
+
+warning: function `simplify_with_products` is never used
+   --> point_add/classical_wide/mod.rs:274:4
+    |
+274 | fn simplify_with_products(ops: Vec<Op>, use_products: bool) -> Vec<Op> {
+    |    ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `exact_product` is never used
+  --> point_add/classical_wide/product7_simplify.rs:11:4
+   |
+11 | fn exact_product(a: &Truth, b: &Truth) -> Option<Truth> {
+   |    ^^^^^^^^^^^^^
+
+warning: struct `Hit` is never constructed
+  --> point_add/classical_wide/product7_simplify.rs:45:19
+   |
+45 | pub(super) struct Hit {
+   |                   ^^^
+
+warning: method `emit` is never used
+  --> point_add/classical_wide/product7_simplify.rs:52:19
+   |
+51 | impl Hit {
+   | -------- method in this implementation
+52 |     pub(super) fn emit(self, original: Op, result: &mut Vec<Op>) {
+   |                   ^^^^
+
+warning: struct `Index` is never constructed
+  --> point_add/classical_wide/product7_simplify.rs:64:19
+   |
+64 | pub(super) struct Index {
+   |                   ^^^^^
+
+warning: multiple associated items are never used
+   --> point_add/classical_wide/product7_simplify.rs:70:19
+    |
+ 69 | impl Index {
+    | ---------- associated items in this implementation
+ 70 |     pub(super) fn new(state: &Support, ops: &[Op]) -> Self {
+    |                   ^^^
+...
+ 89 |     fn insert(&mut self, state: &Support, q: usize) {
+    |        ^^^^^^
+...
+ 98 |     fn remove(&mut self, state: &Support, q: usize) {
+    |        ^^^^^^
+...
+108 |     fn permitted(&self, q: usize, op: &Op) -> bool {
+    |        ^^^^^^^^^
+...
+115 |     fn lookup(&self, product: &Truth, op: &Op) -> Option<Hit> {
+    |        ^^^^^^
+...
+131 |     pub(super) fn before(&mut self, state: &Support, op: &Op) -> Option<Hit> {
+    |                   ^^^^^^
+...
+153 |     pub(super) fn after(&mut self, state: &Support, op: &Op) {
+    |                   ^^^^^
+
+warning: function `quantum_changes` is never used
+   --> point_add/classical_wide/product7_simplify.rs:164:4
+    |
+164 | fn quantum_changes(op: &Op) -> Vec<usize> {
+    |    ^^^^^^^^^^^^^^^
+
+warning: function `quantum_touches` is never used
+   --> point_add/classical_wide/product7_simplify.rs:173:4
+    |
+173 | fn quantum_touches(op: &Op) -> Vec<usize> {
+    |    ^^^^^^^^^^^^^^^
+
+warning: `product_pareto_exact` (bin "current_cap11" test) generated 35 warnings (run `cargo fix --bin "current_cap11" -p product_pareto_exact --tests` to apply 1 suggestion)
+    Finished `release` profile [optimized] target(s) in 3.70s
+     Running unittests discover.rs (/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-value-guard-fusion-audit-20261020/local-tool/target/release/deps/current_cap11-93ca37312ca1fec4)
+
+running 14 tests
+test point_add::classical_wide::tests::copied_classical_controls_preserve_all_values_and_conditions ... CLASSICAL_XOR_FACTORS native_hits=1 complement_hits=0 condition_depth_proxy_saving=0.5 measurements_added=0 quantum_scratch_added=0
+CLASSICAL_XOR_FACTORS native_hits=1 complement_hits=0 condition_depth_proxy_saving=0.5 measurements_added=0 quantum_scratch_added=0
+ok
+test point_add::classical_wide::tests::mutable_witness_slots_and_measurement_atoms_do_not_alias ... CLASSICAL_XOR_FACTORS native_hits=1 complement_hits=1 condition_depth_proxy_saving=1 measurements_added=0 quantum_scratch_added=0
+CLASSICAL_XOR_FACTORS native_hits=1 complement_hits=0 condition_depth_proxy_saving=1 measurements_added=0 quantum_scratch_added=0
+ok
+test point_add::classical_wide::tests::quantum_control_product_has_a_classical_factor ... CLASSICAL_XOR_FACTORS native_hits=1 complement_hits=0 condition_depth_proxy_saving=1 measurements_added=0 quantum_scratch_added=0
+CLASSICAL_XOR_FACTORS native_hits=1 complement_hits=0 condition_depth_proxy_saving=0.5 measurements_added=0 quantum_scratch_added=0
+CLASSICAL_XOR_FACTORS native_hits=1 complement_hits=1 condition_depth_proxy_saving=1 measurements_added=0 quantum_scratch_added=0
+CLASSICAL_XOR_FACTORS native_hits=1 complement_hits=1 condition_depth_proxy_saving=0.5 measurements_added=0 quantum_scratch_added=0
+ok
+test point_add::classical_wide::wide_table_tests::complements_mask_all2048_rows_and_no_unused_bits ... ok
+test point_add::classical_wide::wide_table_tests::eleven_variable_and_xor_match_independent_scalar_values ... ok
+test point_add::classical_wide::wide_table_tests::high2048_rows_reduce_only_inessential_variables ... ok
+test point_add::classical_wide::wide_table_tests::unsupported_whole_result_gets_fresh_distinct_atoms ... ok
+test point_add::control_wide::tests::copied_classical_controls_preserve_all_values_and_conditions ... CLASSICAL_XOR_FACTORS native_hits=1 complement_hits=0 condition_depth_proxy_saving=0.5 measurements_added=0 quantum_scratch_added=0
+CLASSICAL_XOR_FACTORS native_hits=1 complement_hits=0 condition_depth_proxy_saving=0.5 measurements_added=0 quantum_scratch_added=0
+ok
+test point_add::control_wide::tests::mutable_witness_slots_and_measurement_atoms_do_not_alias ... CLASSICAL_XOR_FACTORS native_hits=1 complement_hits=1 condition_depth_proxy_saving=1 measurements_added=0 quantum_scratch_added=0
+CLASSICAL_XOR_FACTORS native_hits=1 complement_hits=0 condition_depth_proxy_saving=1 measurements_added=0 quantum_scratch_added=0
+ok
+test point_add::control_wide::tests::quantum_control_product_has_a_classical_factor ... CLASSICAL_XOR_FACTORS native_hits=1 complement_hits=0 condition_depth_proxy_saving=1 measurements_added=0 quantum_scratch_added=0
+CLASSICAL_XOR_FACTORS native_hits=1 complement_hits=0 condition_depth_proxy_saving=0.5 measurements_added=0 quantum_scratch_added=0
+CLASSICAL_XOR_FACTORS native_hits=1 complement_hits=1 condition_depth_proxy_saving=1 measurements_added=0 quantum_scratch_added=0
+CLASSICAL_XOR_FACTORS native_hits=1 complement_hits=1 condition_depth_proxy_saving=0.5 measurements_added=0 quantum_scratch_added=0
+ok
+test point_add::control_wide::wide_table_tests::complement_masks_all512_rows_and_no_unused_bits ... ok
+test point_add::control_wide::wide_table_tests::high_rows_and_removed_variables_keep_exact_cofactors ... ok
+test point_add::control_wide::wide_table_tests::nine_variable_and_xor_match_independent_scalar_values ... ok
+test point_add::control_wide::wide_table_tests::unsupported_whole_expression_gets_fresh_distinct_atoms ... ok
+
+test result: ok. 14 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.10s
+

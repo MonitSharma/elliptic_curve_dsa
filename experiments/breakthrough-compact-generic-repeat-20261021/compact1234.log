@@ -1,0 +1,23 @@
+GENERIC_STAGE name=raw ops=11682443 nq=1234 nb=1642 native=794886 depth_weight=753975.500000 diagnostic_only=1
+GENERIC_STAGE name=product ops=11682443 nq=1234 nb=1642 native=794885 depth_weight=753974.500000 diagnostic_only=1
+GENERIC_STAGE name=affine ops=11682443 nq=1234 nb=1642 native=794885 depth_weight=753974.500000 diagnostic_only=1
+GENERIC_STAGE name=quadratic ops=11682443 nq=1234 nb=1642 native=794885 depth_weight=753974.500000 diagnostic_only=1
+GENERIC_STAGE name=truth ops=11682443 nq=1234 nb=1642 native=794885 depth_weight=753974.500000 diagnostic_only=1
+I25_WITNESSES {"self_uncompute_native":0,"self_uncompute_expected_T":0,"witness_native":0,"witness_expected_T":0,"examples":[]}
+GENERIC_STAGE name=interned_witness ops=11682443 nq=1234 nb=1642 native=794885 depth_weight=753974.500000 diagnostic_only=1
+k3a_mabsorb: 0 sites
+GENERIC_STAGE name=measurement_absorption ops=11682443 nq=1234 nb=1642 native=794885 depth_weight=753974.500000 diagnostic_only=1
+GENERIC_STAGE name=parity_scan ops=11682443 nq=1234 nb=1642 native=794885 depth_weight=753974.500000 diagnostic_only=1
+GENERIC_STAGE name=conditional ops=11682443 nq=1234 nb=1642 native=794885 depth_weight=753974.500000 diagnostic_only=1
+GENERIC_STAGE name=square_top ops=11682443 nq=1234 nb=1642 native=794885 depth_weight=753974.500000 diagnostic_only=1
+SL_COND m: 0 CCX -> CX (0.00 T); u: 0 CCX -> HMR + CZ-if (0.00 T); f: 0 ANDs as phases (0.00 T)
+SL_COND r: 0 absorbed windows (reset or measured end), 0 CCX -> CZ-if (0.00 T)
+SL_COND guards: G1 0 G2 0 G3 0 G4 0
+SL_COND static expected Toffoli 753974.5 -> 753974.5 (0.0)
+GENERIC_STAGE name=conditional_ur ops=11682443 nq=1234 nb=1642 native=794885 depth_weight=753974.500000 diagnostic_only=1
+ZERO_FORCE sites 0 weight 0.000
+GENERIC_STAGE name=zero_force ops=11682443 nq=1234 nb=1642 native=794885 depth_weight=753974.500000 diagnostic_only=1
+CLASSICAL_XOR_FACTORS native_hits=0 complement_hits=0 condition_depth_proxy_saving=0 measurements_added=0 quantum_scratch_added=0
+GENERIC_STAGE name=classical_factors ops=11682443 nq=1234 nb=1642 native=794885 depth_weight=753974.500000 diagnostic_only=1
+CLASSICAL_XOR_FACTORS native_hits=0 complement_hits=0 condition_depth_proxy_saving=0 measurements_added=0 quantum_scratch_added=0
+GENERIC_STAGE name=classical_wide ops=11682443 nq=1234 nb=1642 native=794885 depth_weight=753974.500000 diagnostic_only=1

@@ -1,0 +1,210 @@
+   Compiling product_pareto_exact v0.1.0 (/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-compact-generic-repeat-20261021/local-tool)
+warning: unused imports: `sim` and `weierstrass_elliptic_curve`
+ --> discover.rs:1:27
+  |
+1 | use quantum_ecc::{circuit,sim,weierstrass_elliptic_curve};mod io;mod point_add;
+  |                           ^^^ ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: field `0` is never read
+  --> point_add/interned_witness.rs:48:8
+   |
+48 |     Cx(QubitId),
+   |     -- ^^^^^^^
+   |     |
+   |     field in this variant
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+help: consider changing the field to be of unit type to suppress this warning while preserving the field numbering, or remove the field
+   |
+48 -     Cx(QubitId),
+48 +     Cx(()),
+   |
+
+warning: method `emit` is never used
+  --> point_add/interned_witness.rs:52:19
+   |
+51 | impl Rewrite {
+   | ------------ method in this implementation
+52 |     pub(super) fn emit(self, op: Op, result: &mut Vec<Op>) {
+   |                   ^^^^
+
+warning: function `simplify` is never used
+   --> point_add/interned_witness.rs:299:15
+    |
+299 | pub(crate) fn simplify(ops: Vec<Op>) -> Vec<Op> {
+    |               ^^^^^^^^
+
+warning: function `scan` is never used
+   --> point_add/pscan.rs:288:8
+    |
+288 | pub fn scan(ops: &[Op]) { if std::env::var("SL_PSCAN").is_ok_and(|v| v == "1") { scan_all(ops); } }
+    |        ^^^^
+
+warning: function `simplify` is never used
+   --> point_add/classical_factors_xor.rs:330:15
+    |
+330 | pub(crate) fn simplify(ops: Vec<Op>) -> Vec<Op> {
+    |               ^^^^^^^^
+
+warning: function `simplify_products` is never used
+   --> point_add/classical_factors_xor.rs:335:15
+    |
+335 | pub(crate) fn simplify_products(ops: Vec<Op>) -> Vec<Op> {
+    |               ^^^^^^^^^^^^^^^^^
+
+warning: function `simplify_with_products` is never used
+   --> point_add/classical_factors_xor.rs:342:4
+    |
+342 | fn simplify_with_products(ops: Vec<Op>, use_products: bool) -> Vec<Op> {
+    |    ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `exact_product` is never used
+  --> point_add/product7_simplify.rs:11:4
+   |
+11 | fn exact_product(a: &Truth, b: &Truth) -> Option<Truth> {
+   |    ^^^^^^^^^^^^^
+
+warning: struct `Hit` is never constructed
+  --> point_add/product7_simplify.rs:45:19
+   |
+45 | pub(super) struct Hit {
+   |                   ^^^
+
+warning: method `emit` is never used
+  --> point_add/product7_simplify.rs:52:19
+   |
+51 | impl Hit {
+   | -------- method in this implementation
+52 |     pub(super) fn emit(self, original: Op, result: &mut Vec<Op>) {
+   |                   ^^^^
+
+warning: struct `Index` is never constructed
+  --> point_add/product7_simplify.rs:64:19
+   |
+64 | pub(super) struct Index {
+   |                   ^^^^^
+
+warning: multiple associated items are never used
+   --> point_add/product7_simplify.rs:70:19
+    |
+ 69 | impl Index {
+    | ---------- associated items in this implementation
+ 70 |     pub(super) fn new(state: &Support, ops: &[Op]) -> Self {
+    |                   ^^^
+...
+ 89 |     fn insert(&mut self, state: &Support, q: usize) {
+    |        ^^^^^^
+...
+ 98 |     fn remove(&mut self, state: &Support, q: usize) {
+    |        ^^^^^^
+...
+108 |     fn permitted(&self, q: usize, op: &Op) -> bool {
+    |        ^^^^^^^^^
+...
+115 |     fn lookup(&self, product: &Truth, op: &Op) -> Option<Hit> {
+    |        ^^^^^^
+...
+131 |     pub(super) fn before(&mut self, state: &Support, op: &Op) -> Option<Hit> {
+    |                   ^^^^^^
+...
+153 |     pub(super) fn after(&mut self, state: &Support, op: &Op) {
+    |                   ^^^^^
+
+warning: function `quantum_changes` is never used
+   --> point_add/product7_simplify.rs:164:4
+    |
+164 | fn quantum_changes(op: &Op) -> Vec<usize> {
+    |    ^^^^^^^^^^^^^^^
+
+warning: function `quantum_touches` is never used
+   --> point_add/product7_simplify.rs:173:4
+    |
+173 | fn quantum_touches(op: &Op) -> Vec<usize> {
+    |    ^^^^^^^^^^^^^^^
+
+warning: function `simplify` is never used
+   --> point_add/classical_wide/mod.rs:262:15
+    |
+262 | pub(crate) fn simplify(ops: Vec<Op>) -> Vec<Op> {
+    |               ^^^^^^^^
+
+warning: function `simplify_products` is never used
+   --> point_add/classical_wide/mod.rs:267:15
+    |
+267 | pub(crate) fn simplify_products(ops: Vec<Op>) -> Vec<Op> {
+    |               ^^^^^^^^^^^^^^^^^
+
+warning: function `simplify_with_products` is never used
+   --> point_add/classical_wide/mod.rs:274:4
+    |
+274 | fn simplify_with_products(ops: Vec<Op>, use_products: bool) -> Vec<Op> {
+    |    ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `exact_product` is never used
+  --> point_add/classical_wide/product7_simplify.rs:11:4
+   |
+11 | fn exact_product(a: &Truth, b: &Truth) -> Option<Truth> {
+   |    ^^^^^^^^^^^^^
+
+warning: struct `Hit` is never constructed
+  --> point_add/classical_wide/product7_simplify.rs:45:19
+   |
+45 | pub(super) struct Hit {
+   |                   ^^^
+
+warning: method `emit` is never used
+  --> point_add/classical_wide/product7_simplify.rs:52:19
+   |
+51 | impl Hit {
+   | -------- method in this implementation
+52 |     pub(super) fn emit(self, original: Op, result: &mut Vec<Op>) {
+   |                   ^^^^
+
+warning: struct `Index` is never constructed
+  --> point_add/classical_wide/product7_simplify.rs:64:19
+   |
+64 | pub(super) struct Index {
+   |                   ^^^^^
+
+warning: multiple associated items are never used
+   --> point_add/classical_wide/product7_simplify.rs:70:19
+    |
+ 69 | impl Index {
+    | ---------- associated items in this implementation
+ 70 |     pub(super) fn new(state: &Support, ops: &[Op]) -> Self {
+    |                   ^^^
+...
+ 89 |     fn insert(&mut self, state: &Support, q: usize) {
+    |        ^^^^^^
+...
+ 98 |     fn remove(&mut self, state: &Support, q: usize) {
+    |        ^^^^^^
+...
+108 |     fn permitted(&self, q: usize, op: &Op) -> bool {
+    |        ^^^^^^^^^
+...
+115 |     fn lookup(&self, product: &Truth, op: &Op) -> Option<Hit> {
+    |        ^^^^^^
+...
+131 |     pub(super) fn before(&mut self, state: &Support, op: &Op) -> Option<Hit> {
+    |                   ^^^^^^
+...
+153 |     pub(super) fn after(&mut self, state: &Support, op: &Op) {
+    |                   ^^^^^
+
+warning: function `quantum_changes` is never used
+   --> point_add/classical_wide/product7_simplify.rs:164:4
+    |
+164 | fn quantum_changes(op: &Op) -> Vec<usize> {
+    |    ^^^^^^^^^^^^^^^
+
+warning: function `quantum_touches` is never used
+   --> point_add/classical_wide/product7_simplify.rs:173:4
+    |
+173 | fn quantum_touches(op: &Op) -> Vec<usize> {
+    |    ^^^^^^^^^^^^^^^
+
+warning: `product_pareto_exact` (bin "compact_generic_repeat") generated 25 warnings (run `cargo fix --bin "compact_generic_repeat" -p product_pareto_exact` to apply 1 suggestion)
+    Finished `release` profile [optimized] target(s) in 6.41s

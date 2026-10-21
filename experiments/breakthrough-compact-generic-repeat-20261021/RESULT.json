@@ -1,0 +1,50 @@
+{
+  "status": "COMPONENT_GRID_COMPLETE_PRESERVE_RESOURCE_FAILURES_NOT_SCORED",
+  "native_controls": "all inherited pass tests; exact count recorded in tests.log",
+  "cases": {
+    "compact1233": {
+      "exit": 0,
+      "seconds": 78.92610901999998,
+      "classical_bits": 1640,
+      "input_operations": 11721841,
+      "output_operations": 11721845,
+      "qubits": 1233,
+      "status": "GENERIC_REAPPLICATION_DIAGNOSTIC_NOT_A_SCORE",
+      "output_sha256": "2c22621be655ab0eff39c1d6844b932365a53d25d06d3b921fc839dd8b2c04f6",
+      "static_diagnostics": {
+        "classical_bits": 1640,
+        "fair_guard_depth_proxy": 754678.0,
+        "input": "/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-compact-generic-repeat-20261021/compact1233.ops.bin",
+        "native_toffoli": 796343,
+        "operations": 11721845,
+        "qubits_protected_analyzer": 1233,
+        "records_sha3": "620f56748fce280e2a6417284784d2f41b727d0f2ef43ece41a6ec223278766b",
+        "scope": "Same guard-depth proxy as existing generic reporter. Not executed mean, not scored, no nonce/benchmark. Q is full protected analyzer over emitted records, never inferred from nominal cap.",
+        "status": "OPERATION_STREAM_STATIC_DIAGNOSTIC_ONLY"
+      }
+    },
+    "compact1234": {
+      "exit": 0,
+      "seconds": 80.81831394299999,
+      "classical_bits": 1642,
+      "input_operations": 11682443,
+      "output_operations": 11682443,
+      "qubits": 1234,
+      "status": "GENERIC_REAPPLICATION_DIAGNOSTIC_NOT_A_SCORE",
+      "output_sha256": "2e38000963cad016d47c9edf2c9b64d974e359c07ca4991443c00ac424139bde",
+      "static_diagnostics": {
+        "classical_bits": 1642,
+        "fair_guard_depth_proxy": 753974.5,
+        "input": "/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-compact-generic-repeat-20261021/compact1234.ops.bin",
+        "native_toffoli": 794885,
+        "operations": 11682443,
+        "qubits_protected_analyzer": 1234,
+        "records_sha3": "fd081eaa50cf441f0ef8874862b2019ad0306c9f10f5bbff0f43529c10f717e6",
+        "scope": "Same guard-depth proxy as existing generic reporter. Not executed mean, not scored, no nonce/benchmark. Q is full protected analyzer over emitted records, never inferred from nominal cap.",
+        "status": "OPERATION_STREAM_STATIC_DIAGNOSTIC_ONLY"
+      }
+    }
+  },
+  "scope": "Research-only reapplication of unchanged inherited generic source passes, including full nine-atom classical tables, to two freshly qualified compact/context/global-alias streams. All pass-native controls run before generation; sources copied and hashed. Original protected17 unchanged. No old source-bound table transported. Some generic passes intentionally change internal random bits; original-word fullstream equality is not claimed. Actual fresh curve/phase/dirty development and own frozen final statistical gate required before nonce/benchmark/submission. Diagnostic stream resource counts only.",
+  "binary_sha256": "773fbe6579c1b075bc6f93df48939e464fd4b8841c0511e96a704a807c04ddca"
+}

@@ -1,3 +1,16 @@
+## Latest status: PAUSED · 21 October 2026
+
+Officially confirmed **Q1464/T746089/product1092274296**, submission8d704a6b,
+all9024 unchanged benchmark shots PASS, all207published source/17protected bytes
+match. Preceding cb2253 Q1467/T746099 also confirmed. Attribution GPT-6 sol/Codex.
+These improve the independent Toffoli record; globalproduct932057476 remains
+unbeaten and caused promotion rejection. No pending upload/PR for either result.
+
+See [complete break handoff](RESEARCH_BREAK_2026-10-21.md) for gates, disclosed
+nonces/screens and evidence. Component diagnostics are not scored results.
+All local jobs completed; two owned server jobs SIGSTOP-paused on human request.
+No automatic restart. Older active/queued descriptions below are historical.
+
 ## 21 October 2026: official T746112 and current-parent exact proof port
 
 Official submission ffe20d35-ecb7-47da-9dde-1b8d80ffde60 reproduced Q1464 /

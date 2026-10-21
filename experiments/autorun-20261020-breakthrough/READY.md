@@ -1,3 +1,12 @@
+# Current state: user-requested break, no pending upload
+
+Read [the authoritative handoff](../../docs/RESEARCH_BREAK_2026-10-21.md).
+Official cb2253 Q1467/T746099 and8d704a6b Q1464/T746089 are both complete and
+confirmed. Do not upload duplicates. No new PR was created. New compact/Boolean
+results are component-only and not ready for submission. Globalproduct remains
+unbeaten. All local jobs finished; two server jobs suspended, no automatic resume.
+Historical ready/queued entries below are retained as historical evidence.
+
 # Latest queued local result: Q1464 / T751027
 
 Source1b550a0165a4578b041cebb5c2655f0a8a6cf844, nonce209,256 screens.

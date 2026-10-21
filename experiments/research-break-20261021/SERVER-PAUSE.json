@@ -1,0 +1,82 @@
+{
+  "at_utc": "2026-10-21T04:09:08.313444+00:00",
+  "hostname": "LHC-104-070",
+  "reason": "Human explicitly requested stop and break; no new experiments or automatic resume.",
+  "jobs": [
+    {
+      "experiment": "breakthrough-public-semantic-nonce-20261021",
+      "root_pid": 3278347,
+      "status": "SIGSTOP_PAUSED_PRESERVE_IN_MEMORY_STATE",
+      "processes": [
+        {
+          "pid": 3278347,
+          "ppid": 1,
+          "pgid": 3278347,
+          "start_ticks": 853484590,
+          "state": "T",
+          "cwd": "/home/hclau",
+          "comm": "python3",
+          "uid": 1000
+        },
+        {
+          "pid": 3279048,
+          "ppid": 3278347,
+          "pgid": 3278347,
+          "start_ticks": 853490039,
+          "state": "T",
+          "cwd": "/home/hclau/ecdsa_research/breakthrough-public-semantic-nonce-20261021",
+          "comm": "value_prefilter",
+          "uid": 1000
+        }
+      ]
+    },
+    {
+      "experiment": "breakthrough-current-compact-grid-20261021",
+      "root_pid": 3367997,
+      "status": "SIGSTOP_PAUSED_PRESERVE_IN_MEMORY_STATE",
+      "processes": [
+        {
+          "pid": 3367997,
+          "ppid": 1,
+          "pgid": 3367997,
+          "start_ticks": 854116263,
+          "state": "T",
+          "cwd": "/home/hclau/ecdsa_research/breakthrough-current-compact-grid-20261021",
+          "comm": "python3",
+          "uid": 1000
+        },
+        {
+          "pid": 3376539,
+          "ppid": 3367997,
+          "pgid": 3376539,
+          "start_ticks": 854180221,
+          "state": "T",
+          "cwd": "/home/hclau/ecdsa_research/breakthrough-current-compact-grid-20261021/cap1233-r012",
+          "comm": "timeout",
+          "uid": 1000
+        },
+        {
+          "pid": 3376540,
+          "ppid": 3376539,
+          "pgid": 3376539,
+          "start_ticks": 854180221,
+          "state": "T",
+          "cwd": "/home/hclau/ecdsa_research/breakthrough-current-compact-grid-20261021/cap1233-r012",
+          "comm": "build_circuit",
+          "uid": 1000
+        }
+      ]
+    }
+  ],
+  "search_snapshot": {
+    "bytes": 72296239,
+    "sha256": "b083dcc549cc89278a007c1e294c84ecabbf8d75beddf0b3dbb65c8f042785dc",
+    "complete_rows": 173072,
+    "unique_nonces": 173072,
+    "complete_prefix": 173056,
+    "highest_screened": 173160,
+    "passes": [],
+    "partial_tail_bytes_preserved": 0
+  },
+  "resume_policy": "Only on subsequent human resume. Recheck /proc start_ticks and cwd for EVERY saved PID before SIGCONT; never trust reused PID. Resume same search in memory, no duplicate search, label, circuit, nonce cap or policy changes. Original retired6192 search stays retired. Grid has GNU timeout child: after a long pause its real-time alarm may expire upon resume. Preserve that generation timeout as interruption; allow existing controller to record failure and continue fixed grid. Any retry of interrupted generation goes to separate evidence directory with same frozen source; no gate is involved. Never kill unrelated jobs or edit chemistry."
+}

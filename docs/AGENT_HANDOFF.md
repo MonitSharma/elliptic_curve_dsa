@@ -1,3 +1,20 @@
+## Current entry point: user-requested break · 21 October 2026
+
+**PAUSED. Do not resume or start work without a subsequent human instruction.**
+Read [RESEARCH_BREAK_2026-10-21.md](RESEARCH_BREAK_2026-10-21.md) first. It supersedes
+older ACTIVE/running/pending descriptions below and includes every recent trial,
+official source/gate/nonce/benchmark evidence, known failures, exact paused PID
+identities and the grid timeout caveat. Machine state is
+`experiments/autorun-20261020-breakthrough/CURRENT-ACTIVE.json`.
+
+Official cb2253 Q1467/T746099 then8d704a6b Q1464/T746089 reproduced;207source and
+17protected bytes exact. Globalproduct932057476 remains lower. Both already
+submitted; no duplicate upload or pending PR. All local runs finished. Server
+search3278347/3279048 and grid3367997/3376539/3376540 are SIGSTOP-paused, not killed.
+Search has173072complete rows/fullprefix173056/highest173160/no pass. Verify
+start_ticks/cwd/argv before any future resume; no automatic restart. Retired6192
+stays retired. Exact approved41push was completed earlier; newercommits local.
+
 ## 21 October 2026: ORIGINAL_FS fixed-control certificate qualification PASS
 
 Native44 and48fresh complete protected VALUE comparisons PASS on exactOLD6192/

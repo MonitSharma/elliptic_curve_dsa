@@ -1,3 +1,13 @@
+## Verified update and research break · 21 October 2026
+
+Latest official independent Toffoli minimum is **1464×746089=1092274296**,
+[submission8d704a6b](https://api.ecdsa.fail/api/submissions/8d704a6b-659c-4d67-9bd0-f6862de9f617).
+The complete benchmark passes all9024 shots and public source matches all207
+source/17protected files. Globalproduct remains932057476; width minimum669.
+Work is paused at human request. [Full handoff](RESEARCH_BREAK_2026-10-21.md)
+separates all component/proxy/failed trials from verified scores. Existing plots
+and pre-existing user changes were preserved; no diagnostic points were added.
+
 # Current Pareto frontier
 
 Public snapshot: **17 October 2026**, retrieved 12:36 Singapore time.

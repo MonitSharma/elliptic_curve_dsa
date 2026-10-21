@@ -1,3 +1,12 @@
+## Research paused for a break · 21 October 2026
+
+Paused at the user's request. **Start with the [complete next-agent handoff](docs/RESEARCH_BREAK_2026-10-21.md)**
+for official results, successful and unsuccessful experiments, source/evidence
+locations, paused jobs and safe resume instructions. All local experiments are
+finished; the two remaining owned server jobs are suspended with state preserved.
+No automatic restart. Latest official Toffoli result: **Q1464/T746089**;
+global product **932057476** remains unbeaten. Q692 evidence is preserved.
+
 ## Official Toffoli improvement · 21 October 2026, 11:50 SGT
 
 The challenge officially reproduced **1,464 qubits × 746,089 rounded mean

@@ -140,5 +140,147 @@
     },
     "status": "EXACT_RESET_RECYCLE_COMPONENT_COMPLETE_NOT_A_RECORD",
     "stream_sha256": "335128b209e97cc12385394ec277c2848adac63e223ee0664e1641107a68af9b"
+  },
+  "official_ffe20": {
+    "exit": 0,
+    "seconds": 870.456042794,
+    "qualification": {
+      "cases": [
+        {
+          "case": 0,
+          "measurement_words": 790279,
+          "rng_pattern": "0000000000000000"
+        },
+        {
+          "case": 0,
+          "measurement_words": 790279,
+          "rng_pattern": "ffffffffffffffff"
+        },
+        {
+          "case": 0,
+          "measurement_words": 790279,
+          "rng_pattern": "a55add33ff001188"
+        },
+        {
+          "case": 1,
+          "measurement_words": 790279,
+          "rng_pattern": "0000000000000000"
+        },
+        {
+          "case": 1,
+          "measurement_words": 790279,
+          "rng_pattern": "ffffffffffffffff"
+        },
+        {
+          "case": 1,
+          "measurement_words": 790279,
+          "rng_pattern": "a55add33ff001188"
+        },
+        {
+          "case": 2,
+          "measurement_words": 790279,
+          "rng_pattern": "0000000000000000"
+        },
+        {
+          "case": 2,
+          "measurement_words": 790279,
+          "rng_pattern": "ffffffffffffffff"
+        },
+        {
+          "case": 2,
+          "measurement_words": 790279,
+          "rng_pattern": "a55add33ff001188"
+        },
+        {
+          "case": 3,
+          "measurement_words": 790279,
+          "rng_pattern": "0000000000000000"
+        },
+        {
+          "case": 3,
+          "measurement_words": 790279,
+          "rng_pattern": "ffffffffffffffff"
+        },
+        {
+          "case": 3,
+          "measurement_words": 790279,
+          "rng_pattern": "a55add33ff001188"
+        },
+        {
+          "case": 4,
+          "measurement_words": 790279,
+          "rng_pattern": "0000000000000000"
+        },
+        {
+          "case": 4,
+          "measurement_words": 790279,
+          "rng_pattern": "ffffffffffffffff"
+        },
+        {
+          "case": 4,
+          "measurement_words": 790279,
+          "rng_pattern": "a55add33ff001188"
+        },
+        {
+          "case": 5,
+          "measurement_words": 790279,
+          "rng_pattern": "0000000000000000"
+        },
+        {
+          "case": 5,
+          "measurement_words": 790279,
+          "rng_pattern": "ffffffffffffffff"
+        },
+        {
+          "case": 5,
+          "measurement_words": 790279,
+          "rng_pattern": "a55add33ff001188"
+        },
+        {
+          "case": 6,
+          "measurement_words": 790279,
+          "rng_pattern": "0000000000000000"
+        },
+        {
+          "case": 6,
+          "measurement_words": 790279,
+          "rng_pattern": "ffffffffffffffff"
+        },
+        {
+          "case": 6,
+          "measurement_words": 790279,
+          "rng_pattern": "a55add33ff001188"
+        },
+        {
+          "case": 7,
+          "measurement_words": 790279,
+          "rng_pattern": "0000000000000000"
+        },
+        {
+          "case": 7,
+          "measurement_words": 790279,
+          "rng_pattern": "ffffffffffffffff"
+        },
+        {
+          "case": 7,
+          "measurement_words": 790279,
+          "rng_pattern": "a55add33ff001188"
+        }
+      ],
+      "protected_fullstream_comparisons": 24,
+      "scope": "Arbitrary registered inputs, not a point-correctness census. Every physical quantum/original classical bit, absolute phase, original random-word consumption match; extra helpers all zero, executed Toffolis do not increase unchanged protected simulator."
+    },
+    "stats": {
+      "fact_cache_entries": 500000,
+      "guarded_ccx": 0,
+      "input_operations": 10995456,
+      "input_records_sha3": "373e44f24e185dd662b59a4ff683555b66a05c9995ff2684eefb6723446100cc",
+      "output_operations": 10995456,
+      "proof": "Inductive exact AND-factor/XOR-common-factor implication on entire original prefix, matched to CURRENT existing classical bit/complement. Original quantum flip implies every added predicate. Already implied gate guards excluded. At most4extra clauses, same original scope/perop condition, fresh private complement scratch only. No quantum gate or measurement added/removed, CCX executed subset only, quantum width unchanged. No sampling/table/cut/circuit packet tuning. Full protected phase/RNG/state and actual T nonincrease controls required; no score.",
+      "rows": [],
+      "status": "SOURCE_PROVED_IMPLICIT_CLASSICAL_GUARD_COMPONENT_NOT_SCORED"
+    },
+    "status": "EXACT_RESET_RECYCLE_COMPONENT_COMPLETE_NOT_A_RECORD",
+    "stream_sha256": "c8dede1b623401a496db470ee3acdab46863aeb4d9f01c39791255fdcfc0b593"
   }
 }

@@ -1,3 +1,20 @@
+## Research paused at human request · 21 October 2026
+
+The authoritative [break handoff](RESEARCH_BREAK_2026-10-21.md) records all current
+results, failures, preserved experiments and resume instructions. No new work
+until the human resumes. All local runs completed; two owned server trees are
+suspended in memory. Product objective unfinished, Q692 preserved.
+
+Important estimate correction: the old512x64 development comparison already
+included114fresh context caches. CachedQ1233 mean756053.1765 is about127T above
+the product allowance755926.5823, before a few new exact reductions. Do not
+subtract114again. Cap11native14/full144 gives no gain. Associative-prefix
+native19/full96 gives one compactQ1233 CCX-to-CX and two oldFFE native reductions;
+component only, not yet a finished/gated/scored candidate. Same-target common-
+control Toffoli/CCZ fusion is an unimplemented idea; no code/test/result exists.
+The predeclared15-mode exact carry grid and own-gated semantic nonce search are
+paused; their sources, logs and search rows are sealed and independently verified.
+
 ## 21 October 2026: two further official Toffoli improvements
 
 Official cb2253 Q1467/T746099, then 8d704a6b Q1464/T746089, complete unchanged

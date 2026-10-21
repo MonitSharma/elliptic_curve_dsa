@@ -1,3 +1,11 @@
+# Current override: research paused at the user's request
+
+As of21October2026, do not execute the unattended prompt below until a subsequent
+human instruction resumes the task. Read [the break handoff](RESEARCH_BREAK_2026-10-21.md)
+first. Two owned server jobs are SIGSTOP-paused and all local jobs finished;
+resume requires fresh resource and PID/start_ticks checks. No automatic restart
+or automation exists. The remaining prompt is the preserved historical workflow.
+
 # Autonomous research prompt (10–12 hour unattended runs)
 
 Paste the block below into Claude Code opened in this repository. Running it
