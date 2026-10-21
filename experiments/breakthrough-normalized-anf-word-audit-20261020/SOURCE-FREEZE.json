@@ -1,0 +1,42 @@
+{
+  "declared_at_utc": "2026-10-20T23:32:25.965399+00:00",
+  "source_files": {
+    "Cargo.toml": "fa36d962400b751ab850b753a6c4398020bd3dd2bb3a4d0298177a41a5abb8b4",
+    "Cargo.lock": "f061160d0a4fdf3d9ba3598f36d117180f0e8b4f635672c44c58433d11c3c272",
+    "io.rs": "6fe65e4c014a77fcfc8428e7acfb1d8e118294b6c6847626a5e0e6868b233d75",
+    "aig.rs": "955950db94f9ba0f01d01cd5979a40f8d0c8d9eb4f974ec62293e63fa87267cd",
+    "audit.rs": "7bcf83e74ba10d08b6bc5518fda67cc6ae5925c45c3e7d69916fbecd5b109b1b",
+    "ir_cache.rs": "c2e1fc26be1ad7860c43541ca8a27806a307a680315f932ed72e0d05dcb8a2a7",
+    "word.rs": "ae44d3077921c03f9b39a0c22fb30a227e49721391cd068a3dc3d923cc682d9d",
+    "affine.rs": "8674199ed37ad0b71d746ddee1666510f98de71847c22616ccbd3130cb408f2d",
+    "anf_audit.rs": "8bac60522908671ecbf326f0680140c4de0954325dfe578ed9efbedd9343a859",
+    "FAILURE-FIXTURES.json": "c48c9962d19e76cb38adb2910cbdcbbbd3aaa6aca4ecac8597106ea90bf8a297"
+  },
+  "protected_files": {
+    ".github/workflows/benchmark.yml": "3b90200b03c72242cbaab4a8dd22eedcab97fb4ba5983980cf4d738130141162",
+    ".gitignore": "b9ca6f04c099c9f83bdfaec187be689580b57b1ca701dea5ab297c0500457658",
+    "Cargo.lock": "42ff16919e551891ad1b21821329b116d133194245a0e0734a33573dfe598e07",
+    "Cargo.toml": "3c80178b08d29a158abb29a7dcb8eefc67c66f60f2c3bd14483b65eeca0740dc",
+    "NOTICE": "fdfff837a1a85c14fc8854cfb2fa8a43b2ac58a6b8fcc50e56fe6c9d1293c58f",
+    "README.md": "ac644b8d227144c34245d913b5cbe6857da02faa10c885bf0ad3b14a5d9d6f7a",
+    "benchmark.json": "213c8e602881130991b9374d8f991acb2d2a7cc3618ec5f24d5e3cc27add06fb",
+    "benchmark.sh": "122a65431ad42a1bad5114af9e8f8301fe5cb08c01adaeee00799c9f0d0ed92a",
+    "results.tsv": "eea840222afd2424445550252f25795d63eb4bc3904b8c87f0213b5f22abc810",
+    "rust-toolchain": "92b454c1ccf330de9b94242f73bc3214370fb420d5152baeec12dc82ceef9dcc",
+    "setup.sh": "6efa1c41517f0cd94f1e7301aa5ccb2c488eef66466843668e44e09c5523d029",
+    "src/bin/build_circuit.rs": "ac013f1d851156a117c7d41ddb16cb5bb014ed4e6ed4679df143207b46852f33",
+    "src/bin/eval_circuit.rs": "b35314bc47a5f8eecbf60459e6c76c9b43aa034eeb9b7ec3421655d74f9e890b",
+    "src/circuit.rs": "ac2255f6bcb6895c9da2dfe21c3a051a0ef8fc4e0af9598634fec0035dbf35c6",
+    "src/lib.rs": "ebad13b0018b36bdcbcac0d0ca2b7b76a00a886eb4f93ff18e7ba321e76b0039",
+    "src/sim.rs": "f0c72f2a280cd68acee1dbf8282098f72d6b3bf4311e0abf96d122fe002256d7",
+    "src/weierstrass_elliptic_curve.rs": "ecfca15ee3b831c243fbea559ff4b8937be47fe591a4f14786ec2b9bfb30bded"
+  },
+  "original_qualified_tool_freeze_sha256": "3e497a976dac197c015eea950593f8c957bc674ea0ff2273e79aa3380d539257",
+  "cache_path": "breakthrough-value-normalized-aig-v2-20261020/normalized-value-ir.bin.zst",
+  "cache_sha256": "188c0947af7e7c6fb02bef415c26efd94209aeb873d500fc2cb8ecf872c56807",
+  "stream_path": "breakthrough-local-product-filter-replay-20261020/candidate/ops.bin",
+  "stream_sha256": "6192778816154b713a714446b3e7d28165a649460173a3e3f17d9de06fa7bb96",
+  "fixtures_sha256": "40ec85b15c40bb4deac6037d1ad24a26d61c5fe9589a30fa683d97f17029bd90",
+  "native_controls": 37,
+  "scope": "Reuse exact previously qualified boundedANFv3 (word-mask coefficients, <=8terms/degree4, fullkey opaque aliases,16mmonomial budget/soundTVfallback) on NEW fully semantic/cofactor-normalized IR with310remainingCRNG instead of old5690. Same frozen6192 source/cache/192fixtures. Prior29+cache2+word3+ANF3=37native;24cache protected comparisons, then9full protected numericIR/ANFknownbit checks. Truthoracles nevercertificates, unknownneverrejects. No gate/nonce/quantumsource or score change. OriginalwordDAG1m budget failures retained; this changes algebra rather than blindly increasingbudget."
+}

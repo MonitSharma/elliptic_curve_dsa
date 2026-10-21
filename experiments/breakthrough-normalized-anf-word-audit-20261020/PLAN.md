@@ -1,0 +1,3 @@
+# Masked bounded ANF on the fully normalized IR
+
+Reuse exact previously qualified boundedANFv3 (word-mask coefficients, <=8terms/degree4, fullkey opaque aliases,16mmonomial budget/soundTVfallback) on NEW fully semantic/cofactor-normalized IR with310remainingCRNG instead of old5690. Same frozen6192 source/cache/192fixtures. Prior29+cache2+word3+ANF3=37native;24cache protected comparisons, then9full protected numericIR/ANFknownbit checks. Truthoracles nevercertificates, unknownneverrejects. No gate/nonce/quantumsource or score change. OriginalwordDAG1m budget failures retained; this changes algebra rather than blindly increasingbudget.

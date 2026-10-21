@@ -1,0 +1,51 @@
+   Compiling libc v0.2.185
+   Compiling typenum v1.19.0
+   Compiling version_check v0.9.5
+   Compiling generic-array v0.14.9
+   Compiling shlex v1.3.0
+   Compiling jobserver v0.1.34
+   Compiling proc-macro2 v1.0.106
+   Compiling find-msvc-tools v0.1.9
+   Compiling cc v1.2.60
+   Compiling pkg-config v0.3.33
+   Compiling unicode-ident v1.0.24
+   Compiling quote v1.0.45
+   Compiling zstd-sys v2.0.16+zstd.1.5.7
+   Compiling unicode-segmentation v1.13.2
+   Compiling convert_case v0.10.0
+   Compiling syn v2.0.117
+   Compiling crypto-common v0.1.6
+   Compiling block-buffer v0.10.4
+   Compiling zstd-safe v7.2.4
+   Compiling paste v1.0.15
+   Compiling unicode-xid v0.2.6
+   Compiling derive_more-impl v2.1.1
+   Compiling digest v0.10.7
+   Compiling cpufeatures v0.2.17
+   Compiling keccak v0.1.6
+   Compiling ruint-macro v1.2.1
+   Compiling foldhash v0.2.0
+   Compiling cfg-if v1.0.4
+   Compiling const-hex v1.18.1
+   Compiling hashbrown v0.16.1
+   Compiling ruint v1.17.2
+   Compiling sha3 v0.10.8
+   Compiling derive_more v2.1.1
+   Compiling bytes v1.11.1
+   Compiling itoa v1.0.18
+   Compiling rustc-hash v2.1.2
+   Compiling alloy-primitives v1.5.7
+   Compiling product_paired_diagnostic v0.1.0 (/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-public1829-local-development-v2-20261020/local-tool)
+   Compiling zstd v0.13.3
+   Compiling quantum_ecc v0.1.0 (/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-value-guard-fusion-audit-20261020/local-protected)
+    Finished `release` profile [optimized] target(s) in 32.20s
+     Running unittests src/main.rs (local-tool/target/release/deps/product_paired_diagnostic-bc3ba70277a118bd)
+
+running 2 tests
+COMPACT ops=1 bytes=16 rng_words=0
+COMPACT ops=20test compact_capacity_tests::classical65535_is_valid_only_in_wide_abi ... ok bytes=320
+ rng_words=3
+test local_avx2_kernel_tests::avx2_all_operations_captured_guards_rng_and_toffoli_match_full_protected_simulator ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+

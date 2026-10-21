@@ -1,0 +1,5 @@
+# Fixed exact generic repeat on the current product parent
+
+Exact currentpublic1829 builder and ALL source-bound tables unchanged, full canonical output binding3000fc before checking/removing actual96op identity tail. Repeat the byte-unchanged existing generic simplification pipeline from currentofficialde8, append diagnosticnonce0. No arithmetic/cut/window/round/table changes. Parent186files verified from official archive; all17protected unchanged. Component source only, native3tail validation before generation; no pointinputs/gate/nonce/score. ActualQ/staticresource diagnostics determine whether fresh development is worthwhile.
+
+Any competitive complete source needs its own fresh development and sole final failure-rate gate vs exact then-current publicproduct parent. A future value-filter may reject only when separately source-certified and qualified on the ORIGINAL packet transcript; current symbolic results remain research only. Automatically upload only a complete unchanged-benchmark improvement after all gates.

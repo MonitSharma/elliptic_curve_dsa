@@ -1,0 +1,37 @@
+{
+  "status": "DEVELOPMENT_COMPARISON_COMPLETE_PRESERVE_ALL_MISMATCHES",
+  "label": "public1829-exact-semantic-development-20261021-v1",
+  "batches": 512,
+  "summaries": {
+    "public1829": {
+      "value_shots": 63,
+      "phase_shots": 50,
+      "dirty_shots": 0,
+      "failed_batches": 78,
+      "mean_executed_stream_toffoli": 755307.4496154785,
+      "rows_sha256": "40c7d2aeff1bbe3759f0f64e4e15627072fbadedab08ffca4b2ef1ce2dac58a7"
+    },
+    "semantic": {
+      "value_shots": 63,
+      "phase_shots": 50,
+      "dirty_shots": 0,
+      "failed_batches": 78,
+      "mean_executed_stream_toffoli": 755306.9501647949,
+      "rows_sha256": "583fd361e698978c94ac5ef397db1917625b4c126e13074b275f669795e4ba4f"
+    }
+  },
+  "comparisons": {
+    "semantic": {
+      "candidate_minus_parent_raw_toffoli": -0.49945068359375,
+      "paired_standard_error": 0.00281224955550836,
+      "new_failed_batches": 0,
+      "new_passing_batches": 0,
+      "new_value_failing_shots": [],
+      "new_value_passing_shots": [],
+      "different_target_lanes": [],
+      "different_other_lanes": [],
+      "target_differences_confined_to_both_value_failing": true
+    }
+  },
+  "scope": "Fresh DEVELOPMENT only: exact currentpublic1829 versus one full-prefix semantic-proved CCXtoCX rewrite. Sourceproofnative12 and complete originalframe binding; no arithmetic/cut/window/round ormeasurement change. Componentstreams frozen before fresh512x64 inputs, no finished candidate/gate/nonce/score yet. UNCHANGED qualified AVX2 observer source/binary,8fullprotected scalar batches each. Preserve all value/phase/dirty/register/T outcomes."
+}

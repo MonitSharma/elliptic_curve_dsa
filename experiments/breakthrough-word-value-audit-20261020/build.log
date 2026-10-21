@@ -1,0 +1,227 @@
+   Compiling product_pareto_exact v0.1.0 (/mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-word-value-audit-20261020/local-tool)
+warning: constant `NO` is never used
+ --> audit.rs:7:7
+  |
+7 | const NO:u32=u32::MAX;
+  |       ^^
+  |
+  = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: field `source` is never read
+  --> audit.rs:10:75
+   |
+10 | #[derive(Clone,Copy,Debug)]struct Node{k:u8,a:u32,b:u32,t:u32,g:u32,r:u32,source:u32}
+   |                                   ---- field in this struct               ^^^^^^
+   |
+   = note: `Node` has derived impls for the traits `Debug` and `Clone`, but these are intentionally ignored during dead code analysis
+
+warning: fields `symbols`, `expr`, `guard_exprs`, and `certified_zero_resets` are never read
+  --> audit.rs:11:16
+   |
+11 | ...ct Program{symbols:Vec<u32>,expr:Expr,guard_exprs:Vec<u32>,inputs:Vec<usize>,nodes:Vec<Node>,guards:Vec<Vec<u32>>,nq:usize,nb:usize,versions:usize,rng:usize,certified_zero_resets:us...
+   |       ------- ^^^^^^^          ^^^^      ^^^^^^^^^^^                                                                                                            ^^^^^^^^^^^^^^^^^^^^^
+   |       |
+   |       fields in this struct
+
+warning: function `merge` is never used
+  --> audit.rs:12:4
+   |
+12 | fn merge(a:&[u32],b:&[u32])->Vec<u32>{let mut x=a.to_vec();x.extend_from_slice(b);x.sort_unstable();x.dedup();x}
+   |    ^^^^^
+
+warning: function `intersect` is never used
+  --> audit.rs:13:4
+   |
+13 | fn intersect(a:&[u32],b:&[u32])->Vec<u32>{a.iter().copied().filter(|v|b.binary_search(v).is_ok()).collect()}
+   |    ^^^^^^^^^
+
+warning: function `subset` is never used
+  --> audit.rs:14:4
+   |
+14 | fn subset(a:&[u32],b:&[u32])->bool{a.iter().all(|v|b.binary_search(v).is_ok())}
+   |    ^^^^^^
+
+warning: function `intern` is never used
+  --> audit.rs:15:4
+   |
+15 | fn intern(v:Vec<u32>,rows:&mut Vec<Vec<u32>>,index:&mut HashMap<Vec<u32>,u32>)->u32{if let Some(&id)=index.get(&...
+   |    ^^^^^^
+
+warning: associated items `mask`, `complement`, `shrink`, and `key` are never used
+  --> audit.rs:20:5
+   |
+19 | impl SemTruth{
+   | ------------- associated items in this implementation
+20 |  fn mask(n:usize)->u64{if n==6{u64::MAX}else{(1u64<<(1usize<<n))-1}}
+   |     ^^^^
+21 |  fn complement(&self)->Self{Self{atoms:self.atoms.clone(),table:self.table^Self::mask(self.atoms.len())}}
+   |     ^^^^^^^^^^
+22 |  fn shrink(mut self)->Self{let mut bit=0;while bit<self.atoms.len(){let n=self.atoms.len();let step=1usize<<bit;...
+   |     ^^^^^^
+23 |  fn key(&self)->(Self,u32){let neg=(self.table&1)as u32;if neg==0{(self.clone(),0)}else{(self.complement(),1)}}
+   |     ^^^
+
+warning: methods `semantic`, `combine_semantic`, and `semantic_node` are never used
+  --> audit.rs:26:5
+   |
+25 | impl Expr{
+   | --------- methods in this implementation
+26 |  fn semantic(&self,v:u32)->SemTruth{if v<=1{return SemTruth{atoms:vec![],table:v as u64};}let t=&self.truths[(v/...
+   |     ^^^^^^^^
+27 |  fn combine_semantic(&self,k:u8,a:u32,b:u32)->Option<SemTruth>{let a=self.semantic(a);let b=self.semantic(b);let...
+   |     ^^^^^^^^^^^^^^^^
+28 |  fn semantic_node(&mut self,k:u8,a:u32,b:u32)->u32{let summary=self.combine_semantic(k,a,b);if let Some(t)=&summ...
+   |     ^^^^^^^^^^^^^
+
+warning: multiple fields are never read
+  --> audit.rs:31:31
+   |
+31 | ...ct Expr{restricting:bool,truths:Vec<SemTruth>,canonical:HashMap<SemTruth,u32>,nodes:Vec<(u8,u32,u32)>,implications:HashMap<(u32,u32),bool>,next:u32,and:HashMap<(u32,u32),u32>,xor:Ha...
+   |       ---- ^^^^^^^^^^^      ^^^^^^               ^^^^^^^^^                       ^^^^^                   ^^^^^^^^^^^^                         ^^^^     ^^^                        ^^^
+   |       |
+   |       fields in this struct
+
+warning: methods `atom`, `and`, `or`, `xor`, and `ite` are never used
+  --> audit.rs:33:5
+   |
+32 | impl Expr{
+   | --------- methods in this implementation
+33 |  fn atom(&mut self)->u32{self.next+=2;self.nodes.push((0,0,0));let t=SemTruth{atoms:vec![self.next],table:2};sel...
+   |     ^^^^
+34 |  fn and(&mut self,mut a:u32,mut b:u32)->u32{if a==0||b==0{return 0;}if a==1{return b;}if b==1||a==b{return a;}if...
+   |     ^^^
+35 |  fn or(&mut self,a:u32,b:u32)->u32{self.and(a^1,b^1)^1}
+   |     ^^
+36 |  fn xor(&mut self,mut a:u32,mut b:u32)->u32{if a==0{return b;}if b==0{return a;}if a==1{return b^1;}if b==1{retu...
+   |     ^^^
+37 |  fn ite(&mut self,g:u32,new:u32,old:u32)->u32{if g==0||new==old{return old;}if g==1{return new;}if old==0{return...
+   |     ^^^
+
+warning: methods `quick_implies`, `implies`, and `zero_truth_table` are never used
+  --> audit.rs:40:5
+   |
+39 | impl Expr{
+   | --------- methods in this implementation
+40 |  fn quick_implies(&self,a:u32,b:u32,depth:usize)->bool{if a==0||b==1||a==b{return true;}if depth==0||a<=1||b==0{...
+   |     ^^^^^^^^^^^^^
+41 |  fn implies(&mut self,a:u32,b:u32)->bool{if self.quick_implies(a,b,12){return true;}if let Some(&v)=self.implica...
+   |     ^^^^^^^
+42 |  fn zero_truth_table(&self,root:u32)->bool{if root<=1{return root==0;}let mut pending=vec![root&!1];let mut visi...
+   |     ^^^^^^^^^^^^^^^^
+
+warning: method `cofactor` is never used
+  --> audit.rs:48:14
+   |
+48 | impl Expr{fn cofactor(&mut self,expression:u32,assumed:u32,depth:usize)->Option<u32>{if expression==assumed{retu...
+   | ---------    ^^^^^^^^
+   | |
+   | method in this implementation
+
+warning: function `compile` is never used
+  --> audit.rs:49:4
+   |
+49 | fn compile(ops:&[Op],unknown_quantum:&[usize])->Program{let(_,nb,_,_)=analyze_ops(ops.iter());compile_known(ops,...
+   |    ^^^^^^^
+
+warning: function `compile_known` is never used
+  --> audit.rs:50:4
+   |
+50 | fn compile_known(ops:&[Op],unknown_quantum:&[usize],unknown_classical:&[usize])->Program{
+   |    ^^^^^^^^^^^^^
+
+warning: function `live` is never used
+  --> audit.rs:71:4
+   |
+71 | fn live(p:&mut Program,outputs:&[usize])->usize{let mut q=vec![false;p.nq];for &x in outputs{q[x]=true;}let mut ...
+   |    ^^^^
+
+warning: function `parts` is never used
+  --> audit.rs:74:4
+   |
+74 | fn parts(n:&Node)->Vec<usize>{let mut v=vec![n.t as usize];if matches!(n.k,QCX|QCCX|QSWAP){v.push(n.a as usize);...
+   |    ^^^^^
+
+warning: function `fused_guard` is never used
+  --> audit.rs:75:4
+   |
+75 | fn fused_guard(p:&mut Program,a:u32,b:u32)->Option<u32>{
+   |    ^^^^^^^^^^^
+
+warning: function `cancel` is never used
+  --> audit.rs:83:4
+   |
+83 | fn cancel(p:&mut Program)->usize{
+   |    ^^^^^^
+
+warning: function `normalize_resets` is never used
+  --> audit.rs:95:4
+   |
+95 | fn normalize_resets(p:&mut Program)->usize{let mut may=vec![0u32;p.nq];for &q in &p.inputs{may[q]=1;}let mut cha...
+   |    ^^^^^^^^^^^^^^^^
+
+warning: function `optimize` is never used
+  --> audit.rs:98:4
+   |
+98 | fn optimize(p:&mut Program,outputs:&[usize])->Vec<(usize,usize,usize)>{let mut rounds=vec![];for round in 0..204...
+   |    ^^^^^^^^
+
+warning: function `curve_abstract_audit` is never used
+   --> audit.rs:111:4
+    |
+111 | fn curve_abstract_audit(p:&Program,ops:&[Op],outputs:&[usize])->serde_json::Value{
+    |    ^^^^^^^^^^^^^^^^^^^^
+
+warning: function `legacy_main` is never used
+   --> audit.rs:123:4
+    |
+123 | fn legacy_main(){let args:Vec<_>=std::env::args().collect();assert_eq!(args.len(),3);let ops=io::load_ops(&args...
+    |    ^^^^^^^^^^^
+
+warning: struct `Aig` is never constructed
+ --> aig.rs:4:26
+  |
+4 | #[derive(Default)]struct Aig{nodes:Vec<(u8,u32,u32)>,ands:HashMap<(u32,u32),u32>,xors:HashMap<(u32,u32),u32>}
+  |                          ^^^
+
+warning: methods `node`, `and`, `xor`, `ite`, and `evaluate` are never used
+  --> aig.rs:6:5
+   |
+ 5 | impl Aig{
+   | -------- methods in this implementation
+ 6 |  fn node(&mut self,k:u8,a:u32,b:u32)->u32{self.nodes.push((k,a,b));u32::try_from(self.nodes.len()).unwrap()*2}
+   |     ^^^^
+ 7 |  fn and(&mut self,mut a:u32,mut b:u32)->u32{if a==0||b==0{return 0;}if a==1{return b;}if b==1||a==b{return a;}if...
+   |     ^^^
+ 8 |  fn xor(&mut self,mut a:u32,mut b:u32)->u32{if a==0{return b;}if b==0{return a;}if a==1{return b^1;}if b==1{retu...
+   |     ^^^
+ 9 |  fn ite(&mut self,g:u32,a:u32,b:u32)->u32{if g==0||a==b{return b;}if g==1{return a;}if a==b^1{return self.xor(g,...
+   |     ^^^
+10 |  fn evaluate(&self,random:&[u64])->Vec<bool>{let mut values=vec![];let get=|lit:u32,values:&Vec<bool>|if lit<=1{...
+   |     ^^^^^^^^
+
+warning: function `literal_value` is never used
+  --> aig.rs:12:4
+   |
+12 | fn literal_value(lit:u32,values:&[bool])->bool{if lit<=1{lit==1}else{values[(lit/2-1)as usize]^(lit&1!=0)}}
+   |    ^^^^^^^^^^^^^
+
+warning: function `construct` is never used
+  --> aig.rs:13:4
+   |
+13 | fn construct(p:&Program,initial_q:&[u64],initial_bits:&[u64])->Result<(Aig,Vec<u32>),usize>{let mut aig=Aig::def...
+   |    ^^^^^^^^^
+
+warning: function `cnf` is never used
+  --> aig.rs:14:4
+   |
+14 | fn cnf(aig:&Aig,outputs:&[u32],expected:&[bool])->(String,usize,usize){let mut live=vec![false;aig.nodes.len()];...
+   |    ^^^
+
+warning: function `audit` is never used
+  --> aig.rs:15:14
+   |
+15 | pub(super)fn audit(p:&Program,ops:&[quantum_ecc::circuit::Op],outputs:&[usize])->serde_json::Value{use quantum_e...
+   |              ^^^^^
+
+warning: `product_pareto_exact` (bin "word_value_audit") generated 29 warnings
+    Finished `release` profile [optimized] target(s) in 3.03s

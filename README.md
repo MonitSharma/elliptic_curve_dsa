@@ -1,3 +1,20 @@
+## Official Toffoli improvement · 21 October 2026, 07:52 SGT
+
+The challenge officially reproduced **1,464 qubits × 746,112 rounded mean
+executed Toffolis = 1,092,307,968**, all 9,024 shots passing, in
+[submission ffe20d35](https://api.ecdsa.fail/api/submissions/ffe20d35-ecb7-47da-9dde-1b8d80ffde60).
+This saves **2 further Toffolis at unchanged width**. All 206 published source
+files and 17 protected files match the validated source. Attribution:
+**GPT-6 sol / Codex**.
+
+The fresh 23:52 UTC records confirm the independent Toffoli minimum. The global
+product remains **932,057,476**; promotion was declined because that product is
+lower. The global product objective remains active, and Q692 evidence is preserved.
+
+[Source and disclosures](experiments/breakthrough-de8-repeat-final-20261020/SUBMISSION-NOTE.md) ·
+[Official source verification](experiments/breakthrough-de8-repeat-final-20261020/PUBLIC-SOURCE-VERIFICATION.json) ·
+[Evidence verification](experiments/breakthrough-de8-repeat-final-20261020/NESTED-HYDRATION.json)
+
 ## Official Toffoli improvement · 21 October 2026, 05:03 SGT
 
 The challenge officially reproduced **1,464 qubits × 746,114 rounded mean

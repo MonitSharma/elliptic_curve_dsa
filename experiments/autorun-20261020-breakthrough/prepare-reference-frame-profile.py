@@ -1,0 +1,16 @@
+from pathlib import Path
+import hashlib,json,shutil
+a=Path(__file__).parent;ex=a.parent;old=ex/'breakthrough-semantic-lifetime-color-20261020';r=ex/'breakthrough-reference-frame-profile-20261021';r.mkdir(exist_ok=False);t=r/'local-tool';t.mkdir()
+for n in ['Cargo.toml','Cargo.lock','io.rs']:shutil.copyfile(old/'local-tool'/n,t/n)
+src=(ex/'breakthrough-global-semantic-component-20261020/discover.rs').read_text();head=src[:src.index('// Full-prefix exact Boolean replay.')];tests=src[src.index('#[cfg(test)]mod semantic_algebra_controls'):]
+main='''fn main(){let args:Vec<_>=std::env::args().collect();assert_eq!(args.len(),3);let ops=io::load_ops(&args[1]);let result=reference_profile(&ops);std::fs::write(format!("{}.json",args[2]),serde_json::to_string_pretty(&result).unwrap()+"\\n").unwrap();println!("{result}");}\n'''
+s=head+(a/'reference-frame-profile.rs').read_text()+tests+main;(t/'discover.rs').write_text(s);(r/'discover.rs').write_text(s)
+p=t/'Cargo.toml';p.write_text(p.read_text().replace('name = "global_prefix_simplify"','name = "reference_frame_profile"'))
+sha=lambda p:hashlib.file_digest(p.open('rb'),'sha256').hexdigest();f=json.loads((old/'SOURCE-FREEZE.json').read_bytes());f.update(tool_source_files={n:sha(t/n)for n in ['Cargo.toml','Cargo.lock','io.rs','discover.rs']},native_controls=6,scope='Read-only classical-reference/quantum-deviation support lifetime projection. No transformed quantum circuit or resource record. New exhaustive domain/phase algebra controls plus pinned-input helper prototype; existing semantic algebra3 controls. No point inputs, gate or nonce.')
+(r/'SOURCE-FREEZE.json').write_text(json.dumps(f,indent=2)+'\n')
+s=(old/'run.py').read_text().replace(old.name,r.name).replace('release/global_prefix_simplify','release/reference_frame_profile').replace('5*1024**3','8*1024**3').replace("'native_controls':7","'native_controls':6")
+start=s.index('  report=json.loads');end=s.index(" results[name]",start)
+s=s[:start]+'''  report=json.loads((r/(name+'.json')).read_text());row.update(report)\n'''+s[end:]
+(r/'run.py').write_text(s)
+s=(old/'run-local.sh').read_text().replace(old.name,r.name).replace('global_prefix_simplify','reference_frame_profile').replace('7 passed; 0 failed;','6 passed; 0 failed;');(r/'run-local.sh').write_bytes(s.encode())
+(r/'.gitignore').write_text('local-tool/\n__pycache__/\n*.ops.bin\n');(r/'.gitattributes').write_text('* -text\n');(r/'PLAN.md').write_text('# Classical reference frame: projection before emission\n\n'+f['scope']+'\n\nFor each original quantum bit q track q=B XOR delta. B is original circuit replay with quantum inputs zero and original arbitrary classical/measurement values; D is an overapproximation of support of delta. Product support DaDb OR DaBb OR DbBa; exact q==B implies D=0. Pin every registered input; helper needs quantum storage only while D is nonzero. Reset of zero deviation still requires original RNG draw, allowing one clean scratch where needed. Measure projected lifetimes and exact global-zero nonlinear terms only. Any actual emitter must preserve absolute phase using the full multilinear phase expansion and maintain original measurement order and guards. No correctness or resource claim from this projection alone.\n');print(r.name)

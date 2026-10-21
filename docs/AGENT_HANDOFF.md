@@ -1,3 +1,40 @@
+## 21 October 2026: official T746112 and current-parent exact proof port
+
+Official submission ffe20d35-ecb7-47da-9dde-1b8d80ffde60 reproduced Q1464 /
+T746112 / product1092307968, all9024shotsPASS; two fewer rounded T than de8.
+Published source4033714f, all206pointAdd+17protected file bytes match final
+validated774785d2. Attribution GPT-6 sol/Codex. Promotion declined solely because
+global product932057476 remains lower. Fresh23:52UTC public1717records confirm
+independentT minimum; product1829 Q1234/T755314, width669. Global product ACTIVE.
+
+Sole gatecache-repeat-generic-final-20261020-v1:32768x64/source PASS,1133value
+shots each, dirty0, candidate/parent1175/1165failedbatches, b21/c11, one-sided
+exactMcNemarp=.055092082591727376, candidate5.055999755859375failedbatches/packet.
+Disclosed nonce261, ascending1..320 screens, passes261/291; choose lowest, never
+byToffolis. Qualified full-state/RNG controls and unchanged benchmarkPASS.
+All239archive members reverified locally,199nestedmembers hydrated byteexact.
+Archivec6ae2750 retained on disk/server; individual sourcearchives/evidence saved.
+
+Current public1829 exact normalizedIR/AIG port unchangednative29/fresh27protected
+PASS:309CRNGnodes, all512fixedoutputbitsconstant,234wrongbits/emptyclauses.
+PackedANF unchangednative37/fresh33protected:all128frozenfailures certified and
+64passingcontrols leftunrejected, all512bitsknown for192inputs. Inlineconstant
+representationV2 native37/fresh33protected alsoPASS,.132..153s/64 vs.291..298s.
+These are verifier results only; no production nonce filtering/rejection used.
+WordDAG3groups hit1mnode cap:INCONCLUSIVE; pretestinlineconstant policy failure
+retained, V2corrects same8totalterm bound. No pastgate verdict rerun or upgraded.
+
+Public semantic oneCCXtoCX development512x64/source:delta-.49945068359375 T,
+SE.00281224955550836, same63value/50phase/dirty0/78failedbatches; everytarget and
+otherregisterhash agrees. Component only, no finalgate/nonce/benchmark. Generic
+publicrepeat has no static resource gain. New read-only classical reference
+q=B XOR delta/support lifetime profile is running, native6PASS; no emitted
+circuit or projected result is a score. Exact phase/guard/RNG-preserving emission
+and full independent pipeline required for any next candidate. PreserveQ692.
+
+Exact human-approved41f769ec push completed; newer commits stay local. Preserve
+preexisting root/submodule edits, original failures, chemistry and unrelatedjobs.
+
 ## 21 October 2026: fixed-input value proof and final exact-cache pipeline
 
 New verifier result on frozen OLD6192 source/first preserved failure only:

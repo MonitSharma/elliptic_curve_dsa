@@ -1,0 +1,37 @@
+{
+  "status": "DEVELOPMENT_COMPARISON_COMPLETE_PRESERVE_ALL_MISMATCHES",
+  "label": "de8-repeat-finished-development-20261020-v1",
+  "batches": 512,
+  "summaries": {
+    "official_de8": {
+      "value_shots": 17,
+      "phase_shots": 10,
+      "dirty_shots": 0,
+      "failed_batches": 17,
+      "mean_executed_stream_toffoli": 746114.891998291,
+      "rows_sha256": "6967c59742c294c8c8b9ccbd152c63d567fd570d4cf412d09660d4972536ab4e"
+    },
+    "generic": {
+      "value_shots": 17,
+      "phase_shots": 8,
+      "dirty_shots": 0,
+      "failed_batches": 17,
+      "mean_executed_stream_toffoli": 746108.7188415527,
+      "rows_sha256": "597e269bdc9887b0707ee58fa24e0e32a9be5b69f84ff04626180e2936eff456"
+    }
+  },
+  "comparisons": {
+    "generic": {
+      "candidate_minus_parent_raw_toffoli": -6.17315673828125,
+      "paired_standard_error": 2.360549310116161,
+      "new_failed_batches": 0,
+      "new_passing_batches": 0,
+      "new_value_failing_shots": [],
+      "new_value_passing_shots": [],
+      "different_target_lanes": [],
+      "different_other_lanes": [],
+      "target_differences_confined_to_both_value_failing": true
+    }
+  },
+  "scope": "Fresh512x64/full-output finished-source development, native8/proof9/complete source/stream bindings passed. No gate/nonce/benchmark/score."
+}

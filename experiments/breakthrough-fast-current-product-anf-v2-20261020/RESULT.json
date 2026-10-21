@@ -1,0 +1,159 @@
+{
+  "cache_fullstream_protected_qualification": {
+    "arbitrary_registered_initial_inputs": "allzero/allone/six fixed-label pseudorandom64lane inputs, helperszero; no curve correctness claim",
+    "cases": [
+      {
+        "abstract_seconds": 0.019640503,
+        "case": 0,
+        "known_output_bits": 0,
+        "protected_concrete_rng_patterns": 3,
+        "total_output_bits": 32768
+      },
+      {
+        "abstract_seconds": 0.01713599,
+        "case": 1,
+        "known_output_bits": 0,
+        "protected_concrete_rng_patterns": 3,
+        "total_output_bits": 32768
+      },
+      {
+        "abstract_seconds": 0.017435038,
+        "case": 2,
+        "known_output_bits": 0,
+        "protected_concrete_rng_patterns": 3,
+        "total_output_bits": 32768
+      },
+      {
+        "abstract_seconds": 0.026722443,
+        "case": 3,
+        "known_output_bits": 0,
+        "protected_concrete_rng_patterns": 3,
+        "total_output_bits": 32768
+      },
+      {
+        "abstract_seconds": 0.018922992,
+        "case": 4,
+        "known_output_bits": 0,
+        "protected_concrete_rng_patterns": 3,
+        "total_output_bits": 32768
+      },
+      {
+        "abstract_seconds": 0.019165756,
+        "case": 5,
+        "known_output_bits": 0,
+        "protected_concrete_rng_patterns": 3,
+        "total_output_bits": 32768
+      },
+      {
+        "abstract_seconds": 0.018053196,
+        "case": 6,
+        "known_output_bits": 0,
+        "protected_concrete_rng_patterns": 3,
+        "total_output_bits": 32768
+      },
+      {
+        "abstract_seconds": 0.016703912,
+        "case": 7,
+        "known_output_bits": 0,
+        "protected_concrete_rng_patterns": 3,
+        "total_output_bits": 32768
+      }
+    ],
+    "label": "value-guard-fusion-source-audit-20261020-v1",
+    "nonce_screens": 0,
+    "protected_fullstream_comparisons": 24,
+    "scope": "Three-valued overapproximation of all measurement outcomes, verified against full protected finalpoint values for three concrete RNG patterns per case. Only known output bits can support separately qualified wrongpoint witnesses; no acceptance or phase/dirty certificate. Audit inputs are not challenge packets or a statistical failure gate. No scored counts or submitted quantum circuit."
+  },
+  "nonce_rejections": 0,
+  "status": "WORD_VALUE_VERIFIER_AUDIT_COMPLETE_NOT_A_QUANTUM_CANDIDATE",
+  "word_audit": {
+    "batches": [
+      {
+        "batch": 0,
+        "build_seconds": 0.15262806,
+        "certified_wrong_mask": "ffffffffffffffff",
+        "certified_wrong_shots": 64,
+        "fully_known_shots": 64,
+        "inputs": 64,
+        "known_output_bits": 32768,
+        "protected_fullstream_comparisons": 3,
+        "protected_patterns": [
+          {
+            "pattern": 0,
+            "wrong_mask": "ffffffffffffffff",
+            "wrong_shots": 64
+          },
+          {
+            "pattern": 1,
+            "wrong_mask": "ffffffffffffffff",
+            "wrong_shots": 64
+          },
+          {
+            "pattern": 2,
+            "wrong_mask": "ffffffffffffffff",
+            "wrong_shots": 64
+          }
+        ]
+      },
+      {
+        "batch": 1,
+        "build_seconds": 0.143382446,
+        "certified_wrong_mask": "ffffffffffffffff",
+        "certified_wrong_shots": 64,
+        "fully_known_shots": 64,
+        "inputs": 64,
+        "known_output_bits": 32768,
+        "protected_fullstream_comparisons": 3,
+        "protected_patterns": [
+          {
+            "pattern": 0,
+            "wrong_mask": "ffffffffffffffff",
+            "wrong_shots": 64
+          },
+          {
+            "pattern": 1,
+            "wrong_mask": "ffffffffffffffff",
+            "wrong_shots": 64
+          },
+          {
+            "pattern": 2,
+            "wrong_mask": "ffffffffffffffff",
+            "wrong_shots": 64
+          }
+        ]
+      },
+      {
+        "batch": 2,
+        "build_seconds": 0.132439547,
+        "certified_wrong_mask": "0000000000000000",
+        "certified_wrong_shots": 0,
+        "fully_known_shots": 64,
+        "inputs": 64,
+        "known_output_bits": 32768,
+        "protected_fullstream_comparisons": 3,
+        "protected_patterns": [
+          {
+            "pattern": 0,
+            "wrong_mask": "0000000000000000",
+            "wrong_shots": 0
+          },
+          {
+            "pattern": 1,
+            "wrong_mask": "0000000000000000",
+            "wrong_shots": 0
+          },
+          {
+            "pattern": 2,
+            "wrong_mask": "0000000000000000",
+            "wrong_shots": 0
+          }
+        ]
+      }
+    ],
+    "fixtures": 192,
+    "nonce_rejections": 0,
+    "nonce_screens": 0,
+    "scope": "All original measurement words arbitrary64bit symbols. Constant masks, complete expression keys and exact Boolean identities only. Known output bits certify wrong values; unknown never rejects. Frozen oldsource/cache and fixed fixtures only, not a general currentparent filter or quantumrecord. Full originalFS qualification mandatory before any production rejection.",
+    "status": "EXACT_SOURCE_NORMALIZED_ANF_VERIFIER_FIXTURE_AUDIT_NOT_A_NONCE_SCREEN"
+  }
+}

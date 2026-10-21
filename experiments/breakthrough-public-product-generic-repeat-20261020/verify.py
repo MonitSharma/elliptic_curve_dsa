@@ -1,0 +1,3 @@
+import hashlib,json,subprocess
+from pathlib import Path
+r=Path(__file__).resolve().parent;f=json.loads((r/'SOURCE-FREEZE.json').read_text());sha=lambda p:hashlib.file_digest(p.open('rb'),'sha256').hexdigest();assert all(sha(r/'candidate'/p)==h for p,h in{**f['source_files'],**f['protected_files']}.items());stats=r.parent/'breakthrough-public1829-width-port-local-v4-20261020/stats-tool/target/release/native_width_stats';subprocess.run([str(stats),str(r/'candidate/ops.bin'),str(r/'STATS.json')],check=True);(r/'RESULT.json').write_text(json.dumps({'status':'PUBLIC_PRODUCT_GENERIC_REPEAT_COMPONENT_NOT_SCORED','native_tail_controls':3,'stream_sha256':sha(r/'candidate/ops.bin'),'static_diagnostics':json.loads((r/'STATS.json').read_text()),'scope':f['scope']},indent=2)+'\n')
