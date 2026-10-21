@@ -1,0 +1,37 @@
+{
+  "status": "DEVELOPMENT_COMPARISON_COMPLETE_PRESERVE_ALL_MISMATCHES",
+  "label": "public1829-semantic-finished-development-20261021-v1",
+  "batches": 512,
+  "summaries": {
+    "public1829": {
+      "value_shots": 44,
+      "phase_shots": 34,
+      "dirty_shots": 0,
+      "failed_batches": 58,
+      "mean_executed_stream_toffoli": 755308.7481994629,
+      "rows_sha256": "d74cd6ca1b21367c4f38c071717841e06e089c7f0bbb1c8a82acb46b56214101"
+    },
+    "semantic": {
+      "value_shots": 44,
+      "phase_shots": 34,
+      "dirty_shots": 0,
+      "failed_batches": 58,
+      "mean_executed_stream_toffoli": 755308.2477416992,
+      "rows_sha256": "de8b1b5d647933ba6bf8c52ff0505669bc347fea10ca2b85a49efc3b128ca8f4"
+    }
+  },
+  "comparisons": {
+    "semantic": {
+      "candidate_minus_parent_raw_toffoli": -0.500457763671875,
+      "paired_standard_error": 0.0027024649506595254,
+      "new_failed_batches": 0,
+      "new_passing_batches": 0,
+      "new_value_failing_shots": [],
+      "new_value_passing_shots": [],
+      "different_target_lanes": [],
+      "different_other_lanes": [],
+      "target_differences_confined_to_both_value_failing": true
+    }
+  },
+  "scope": "Fresh finished-source development only, after native4/independentproof12/local-versus-official1.93 exactstream agreement. Exact public1829 comparator, every target/otherregisterhash and phase/value/dirty outcome retained. No gate/nonce/benchmark/score."
+}

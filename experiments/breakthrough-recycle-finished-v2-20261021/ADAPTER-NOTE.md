@@ -1,0 +1,1 @@
+First source-native invocation filtered a nonexistent ::tests submodule and correctly stopped on zero tests. Source207/protected17 unchanged. run-local-v2.sh selects the complete recycle_measurements module and requires all14 controls before generation. Original zero-test log and local.exit1 preserved.

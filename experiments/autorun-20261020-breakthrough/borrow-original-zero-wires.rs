@@ -1,0 +1,32 @@
+// A fixed original wire may hold a cache only if it is proved zero at the
+// first use and has NO original quantum read, write or phase touch through
+// discharge. Metadata is not a quantum touch. Overlapping loans cannot alias.
+fn quantum_touches(o:&Op)->Vec<usize>{match o.kind{
+ K::X|K::Z|K::R|K::Hmr=>vec![o.q_target.0 as usize],
+ K::CX|K::CZ|K::Swap=>vec![o.q_control1.0 as usize,o.q_target.0 as usize],
+ K::CCX|K::CCZ=>vec![o.q_control2.0 as usize,o.q_control1.0 as usize,o.q_target.0 as usize],_=>vec![]}}
+fn select_donor(q:&[E],touches:&[Vec<usize>],busy:&[Option<usize>],first:usize,end:usize)->Option<usize>{
+ (0..q.len()).find(|&d|q[d]==0&&busy[d].map_or(true,|e|e<first)&&{let at=touches[d].partition_point(|&i|i<first);touches[d].get(at).map_or(true,|&i|i>end)})
+}
+fn borrowed_plan(ops:&[Op],leases:&[Lease])->(Vec<Lease>,Vec<u64>){
+ let no=u64::MAX;let(nq,nb,_,_)=quantum_ecc::circuit::analyze_ops(ops.iter());let mut touches=vec![vec![];nq as usize];for(i,o)in ops.iter().enumerate(){for d in quantum_touches(o){touches[d].push(i);}}
+ let mut alg=Algebra{inner:Expr::default()};let(mut q,mut c)=initial_inputs(ops,nq as usize,nb as usize,&mut alg);let(mut base,mut stack)=(1,vec![]);let mut busy=vec![None;nq as usize];let mut accepted=vec![];let mut donors=vec![];let mut next=0;
+ for(i,o)in ops.iter().enumerate(){
+  if next==leases.len(){break;}
+  if i==leases[next].first{let p=&leases[next];if let Some(d)=select_donor(&q,&touches,&busy,p.first,p.reset){busy[d]=Some(p.reset);accepted.push(p.clone());donors.push(d as u64);}next+=1;}
+  if o.kind==K::PushCondition{stack.push(base);base=alg.inner.and(base,c[o.c_condition.0 as usize]);continue;}if o.kind==K::PopCondition{base=stack.pop().unwrap();continue;}
+  let g=if o.c_condition.0==no{base}else{alg.inner.and(base,c[o.c_condition.0 as usize])};let(t,a,b,ct)=(o.q_target.0 as usize,o.q_control1.0 as usize,o.q_control2.0 as usize,o.c_target.0 as usize);
+  match o.kind{K::X=>q[t]=alg.inner.xor(q[t],g),K::CX=>{let v=alg.inner.and(q[a],g);q[t]=alg.inner.xor(q[t],v);},K::CCX=>{let v=alg.inner.and(q[a],q[b]);let v=alg.inner.and(v,g);q[t]=alg.inner.xor(q[t],v);},K::Swap=>{let v=alg.inner.xor(q[a],q[t]);let v=alg.inner.and(g,v);q[a]=alg.inner.xor(q[a],v);q[t]=alg.inner.xor(q[t],v);},K::R|K::Hmr=>{q[t]=alg.inner.and(q[t],g^1);if o.kind==K::Hmr{let r=alg.inner.atom();c[ct]=alg.inner.ite(g,r,c[ct]);}},K::BitInvert=>c[ct]=alg.inner.xor(c[ct],g),K::BitStore0=>c[ct]=alg.inner.and(c[ct],g^1),K::BitStore1=>c[ct]=alg.inner.or(c[ct],g),K::Neg|K::Z|K::CZ|K::CCZ|K::Register|K::AppendToRegister|K::DebugPrint=>{},_=>unreachable!()}
+  if i%1000000==0{eprintln!("BORROW_ORIGINAL_ZERO op={i} leases={} candidates={} nodes={}",accepted.len(),next,alg.inner.nodes.len());}
+ }assert_eq!(next,leases.len());(accepted,donors)
+}
+fn recycle_borrowed(ops:&[Op])->(Vec<Op>,serde_json::Value){let nominations=recycle_plan(ops);let(leases,donors)=borrowed_plan(ops,&nominations);let out=recycle_emit_named(ops,&leases,&donors,true);let(nq,nb,_,_)=quantum_ecc::circuit::analyze_ops(out.iter());let output_len=out.len();let rows:Vec<_>=leases.iter().zip(&donors).map(|(p,d)|serde_json::json!({"first":p.first,"last":p.last,"discharge":p.reset,"original_donor_wire":d,"unitary_cleanup_original_wire_and_before":p.unitary,"original_last_controls":[p.a,p.b]})).collect();(out,serde_json::json!({"status":"EXACT_BORROWED_ORIGINAL_ZERO_WIRES_COMPONENT_NOT_SCORED","nominated_leases":nominations.len(),"accepted_leases":leases.len(),"leases":rows,"extra_qubits":0,"qubits":nq,"classical_bits":nb,"input_operations":ops.len(),"output_operations":output_len,"input_records_sha3":hash(ops),"proof":"First pass rederives full original effective-product equality and exact cleanup. Independent original replay certifies each donor q==0 BEFORE first use. Inclusive [first,discharge] has no original quantum read/write/phase touch to donor, and donor loans do not overlap. Thus original quantum identities preserved before/after loan, same source quantum width, all helpers end zero. Full protected phase/classical/RNG comparisons required; no scored result."}))}
+
+#[cfg(test)]mod borrowed_wire_tests{use super::*;use quantum_ecc::sim::Simulator;use sha3::digest::XofReader;
+ struct W(u64);impl XofReader for W{fn read(&mut self,b:&mut[u8]){b.copy_from_slice(&self.0.to_le_bytes());}}
+ fn fixture()->Vec<Op>{let n=u64::MAX;let mut ops=vec![];for q in 0..3{let mut o=Op::empty();o.kind=K::AppendToRegister;o.q_target=QubitId(q);o.r_target=quantum_ecc::circuit::RegisterId(0);ops.push(o);}ops.extend([make(K::CCX,0,1,2,n,n),make(K::CCX,0,1,3,n,n),make(K::R,n,n,4,n,n)]);ops}
+ #[test]fn existing_zero_wire_can_hold_exact_cache_at_unchanged_width(){let ops=fixture();let raw=recycle_plan(&ops);let(p,d)=borrowed_plan(&ops,&raw);assert_eq!(d,vec![4]);assert_eq!(p.len(),1);let out=recycle_emit_named(&ops,&p,&d,true);let(nq,nb,_,_)=quantum_ecc::circuit::analyze_ops(ops.iter());let(nq2,nb2,_,_)=quantum_ecc::circuit::analyze_ops(out.iter());assert_eq!(nq,nq2);for pattern in[0,u64::MAX,0xa55a_dd33_ff00_1188]{let(mut ra,mut rb)=(W(pattern),W(pattern));let(mut a,mut b)=(Simulator::new(nq as usize,nb as usize,&mut ra),Simulator::new(nq2 as usize,nb2 as usize,&mut rb));for lane in 0..64{for q in 0..3{a.qubits[q]|=(((lane>>q)&1)as u64)<<lane;}}b.qubits.clone_from(&a.qubits);a.apply_iter(ops.iter());b.apply_iter(out.iter());assert_eq!(a.qubits,b.qubits);assert_eq!(a.phase,b.phase);assert_eq!(a.stats.toffoli_gates-b.stats.toffoli_gates,64);}}
+ #[test]fn even_a_zero_control_source_touch_inside_loan_prevents_borrowing(){let n=u64::MAX;let mut ops=fixture();ops.insert(4,make(K::CX,n,4,0,n,n));let raw=recycle_plan(&ops);assert_eq!(raw.len(),1);assert!(borrowed_plan(&ops,&raw).0.is_empty());}
+ #[test]fn nonzero_original_wire_is_never_a_zero_donor(){let n=u64::MAX;let mut ops=fixture();ops.insert(3,make(K::X,n,n,4,n,n));let raw=recycle_plan(&ops);assert_eq!(raw.len(),1);assert!(borrowed_plan(&ops,&raw).0.is_empty());}
+ #[test]fn donor_occupancy_and_inclusive_original_phase_touches_are_enforced(){let q=vec![0];let idle=vec![vec![]];assert_eq!(select_donor(&q,&idle,&[None],10,20),Some(0));assert_eq!(select_donor(&q,&idle,&[Some(20)],15,30),None);assert_eq!(select_donor(&q,&idle,&[Some(20)],21,30),Some(0));assert_eq!(select_donor(&q,&[vec![20]],&[None],10,20),None);let op=make(K::Z,u64::MAX,u64::MAX,0,u64::MAX,u64::MAX);assert_eq!(quantum_touches(&op),vec![0]);}
+}

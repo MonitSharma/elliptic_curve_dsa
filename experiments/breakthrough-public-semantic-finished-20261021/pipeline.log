@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/home/hclau/ecdsa_research/breakthrough-public-semantic-finished-20261021/server-run.py", line 20, in <module>
+    assert shutil.disk_usage(ws).free>15*1024**3;run(['cp','-a','--reflink=auto',str(ws/'breakthrough-public1829-reproduction-20261020/candidate/target'),str(t/'target')],'reuse-build',r)
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hclau/ecdsa_research/breakthrough-public-semantic-finished-20261021/server-run.py", line 9, in run
+    (r/(name+'.exit')).write_text(str(rc)+'\n');assert rc==0,(name,rc)
+                                                       ^^^^^
+AssertionError: ('reuse-build', 1)

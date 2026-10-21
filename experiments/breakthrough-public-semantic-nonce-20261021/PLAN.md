@@ -1,0 +1,3 @@
+# Frozen semantic product candidate nonce search
+
+Only candidate own final32768x64 PASS permits this original engine. Unchanged qualified full-state/RNG/curve engine; fresh source-bound8control nonces1..8/24protected fullstate batches at0,70,140. ORIGINAL_FS input membership and seed bytes checked. Ascending1..16777216,128noncewindows,16workers, lowestPASS, every screen/overrun retained. No arithmetic or value prefilter in this version. Additional selected complete9024 protected replay and unchanged benchmark mandatory. This is a new passed frozen source, never a resumption of the retired OLD6192 search. No table/cut/circuit changes or choosing by T.

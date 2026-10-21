@@ -1,0 +1,1 @@
+Compile-only integration failure: two unused JSON-report helpers require serde_json, absent from protected Cargo manifest. No native test/generation/gate ran. V2 removes only those unused research report functions, leaving exact planner/emitter/tests unchanged; protected Cargo files preserved.

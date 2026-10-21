@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/home/hclau/ecdsa_research/breakthrough-public-semantic-finished-20261021/server-run-v2.py", line 28, in <module>
+    dev=ws/'breakthrough-public-semantic-finished-development-20261021';parent=ws/'breakthrough-public1829-reproduction-20261020/candidate/ops.bin';assert sha(parent)==spec['parent_stream_sha256'];paths={'public1829':parent,'semantic':t/'ops.bin'}
+                                                                                                                                                           ^^^^^^^^^^^
+  File "/home/hclau/ecdsa_research/breakthrough-public-semantic-finished-20261021/server-run-v2.py", line 4, in <lambda>
+    r=Path(__file__).resolve().parent;ws=r.parent;t=r/'candidate';sha=lambda p:hashlib.file_digest(p.open('rb'),'sha256').hexdigest()
+                                                                                                   ^^^^^^^^^^^^
+  File "/usr/lib/python3.12/pathlib.py", line 1015, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/hclau/ecdsa_research/breakthrough-public1829-reproduction-20261020/candidate/ops.bin'
