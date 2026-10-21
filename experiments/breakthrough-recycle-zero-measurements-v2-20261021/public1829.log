@@ -1,0 +1,15 @@
+RECYCLE_PLAN op=1000000 accepted=0 pending=0 nodes=809762
+RECYCLE_PLAN op=2000000 accepted=0 pending=0 nodes=1722759
+RECYCLE_PLAN op=3000000 accepted=0 pending=0 nodes=2638903
+RECYCLE_PLAN op=4000000 accepted=1 pending=10 nodes=3623582
+RECYCLE_PLAN op=5000000 accepted=9 pending=0 nodes=4461953
+RECYCLE_PLAN op=6000000 accepted=9 pending=0 nodes=5093889
+RECYCLE_PLAN op=7000000 accepted=12 pending=0 nodes=5768980
+RECYCLE_PLAN op=8000000 accepted=12 pending=4 nodes=6638017
+RECYCLE_PLAN op=9000000 accepted=12 pending=0 nodes=7650752
+RECYCLE_PLAN op=10000000 accepted=12 pending=0 nodes=8630608
+RECYCLE_PLAN op=11000000 accepted=12 pending=0 nodes=9553330
+
+thread 'main' (538) panicked at /mnt/c/Users/monitsharma/Downloads/elliptic_curve_dsa/experiments/breakthrough-value-guard-fusion-audit-20261020/local-protected/src/sim.rs:48:25:
+index out of bounds: the len is 1234 but the index is 1234
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

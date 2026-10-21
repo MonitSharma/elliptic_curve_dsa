@@ -1,0 +1,5 @@
+from pathlib import Path
+import hashlib,json,subprocess
+a=Path(__file__).parent;ex=a.parent;r=ex/'breakthrough-public-semantic-finished-20261021';receipt=json.loads((a/'PUBLIC-SEMANTIC-PIPELINE-TRANSFER.json').read_bytes());bundle=a/'public-semantic-server-pipeline.tar.gz';assert hashlib.file_digest(bundle.open('rb'),'sha256').hexdigest()==receipt['archive_sha256'];dest='/home/hclau/ecdsa_research'
+for p in[bundle,a/'PUBLIC-SEMANTIC-PIPELINE-TRANSFER.json',a/'install-public-semantic-server.py']:subprocess.run(['scp','-o','BatchMode=yes',str(p),'smu_server:'+dest+'/'+p.name],check=True)
+out=subprocess.check_output(['ssh','-o','BatchMode=yes','smu_server','python3',dest+'/install-public-semantic-server.py',dest+'/'+bundle.name,dest+'/PUBLIC-SEMANTIC-PIPELINE-TRANSFER.json'],text=True);(r/'SERVER-LAUNCH-RAW.txt').write_text(out);value=json.loads(out.strip().splitlines()[-1]);assert value['archive_sha256']==receipt['archive_sha256'];(r/'SERVER-LAUNCH-RECEIPT.json').write_text(json.dumps(value,indent=2)+'\n');print(json.dumps(value))

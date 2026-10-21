@@ -1,0 +1,5 @@
+# Finished exact semantic product candidate, before formal gate
+
+Finished literal exact publicproduct1829 single CCXtoCX atrecord4189602, full input/output canonical bindings; parent ALL186files/tables/cuts/width/arithmetic unchanged. Only final identity tail exposed atnonce0. Source187/protected17 frozen before localnative4/generation, then official1.93crosscompiler bytecontrol, NEWfinished development and OWNsolefinalgate vs exactcurrentpublic1829. No nonce/benchmark/upload beforePASS and qualified source-bound ORIGINAL_FS engine.
+
+Public source186files restored byteexact from official archive; only original build renamed into bound wrapper and new exact_semantic_product module. Newnative4 checks complete tailshape and an implication kernel plus missing-precondition fault; actual whole-prefix proof remains the existing native12oracle with exact single-record diff. No packet/census data selects circuit. Only IDENTITY_NONCE may change after a frozen passed gate; lowestpassingnonce and allscreen disclosures mandatory. Globalproductgoal remainsACTIVE.

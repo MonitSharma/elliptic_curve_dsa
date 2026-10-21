@@ -1,0 +1,3 @@
+# Sole final failure-rate gate, prospective until declaration JSON
+
+Proposed label public1829-exact-semantic-final-20261021-v1,32768x64/source vs exactcurrentproduct1829 frame16567. Declare only after frozen187source/17protected, native4+independentproof12, official1.93/local byteagreement, freshfinished512development, actualzeroidentitytail and refreshedpublicproductparent. All4AGENTS criteria, outcomeFINAL. Never rerun/relabel/extend or use another nonce to reverse failure. This controller stops after the verdict; onlyPASS allows separately qualified ORIGINAL_FS production filtering and ascendinglowestnonce/unchangedbenchmark/authorized automatic official submission.

@@ -1,0 +1,1 @@
+Native11 PASS. Whole-stream comparison adapter failed on newly added helper index because protected candidate simulator was allocated at original width. This is a research adapter failure, no circuit correctness verdict or gate ran. V3 fixes only candidate simulator allocation to analyzed emitted width, preserving all V2 source/logs and the exact rewrite.

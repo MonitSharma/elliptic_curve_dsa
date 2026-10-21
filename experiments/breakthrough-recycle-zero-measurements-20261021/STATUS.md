@@ -1,0 +1,1 @@
+Compile-only failure: report borrowed output after moving it into tuple. No native tests/full circuit replay ran. Preserved generated source/logs; V2 captures output length before move, transformation logic unchanged.

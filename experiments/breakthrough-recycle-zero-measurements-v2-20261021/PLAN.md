@@ -1,0 +1,5 @@
+# Exact recycling of original zero-effect measurements
+
+First exact zero-effect original R/HMR recycling experiment. Full trace recomputes product equality, zero donor effect, cache implies reset guard and current last-control product. Two-use cache + classical captured G/r phase repair, original RNG order unchanged. Native8 including fullphase/RNG/bits/dirty tests and three qualified algebra controls; then24 full protected comparisons on each original complete source. No candidate benchmark/gate/nonce or resource record.
+
+Each lease uses its own zero helper and immutable captured last guard. No first/last/reset event can overlap between leases. Full 64-lane basis controls preserve all source quantum and classical bits, absolute phase, exact number/order of random words, and zero helpers. Negative controls reject a dirty donor, an unrelated reset guard and a changed current product. A deliberately omitted phase repair must be detected. Whole-stream output counts are diagnostic until an actual finished source passes its own declared final gate and unchanged official benchmark.

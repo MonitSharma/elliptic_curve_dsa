@@ -1,0 +1,5 @@
+# Source-specific value proof before any production filtering
+
+UNCHANGED native29-qualified complete normalized valueIR/AIG tool on NEW finished exact-semantic source187/protected17, stream65234044 atnonce0. Recompile the cache from this actual emitted source; do not borrow old current-parent cache hashes. Same fixed firstoldfailure pair, fresh24+3complete protected value comparisons. Before formalgate only ordinary sourceproof/points; NOcandidate identitynonce screen or productionrejection. IRnode/CCXcounts are NOT quantumresource scores.
+
+Circuit source and fullframe were frozen before this verifier run. Native29source/binary/test log byteidentical to qualified current-parent tool; rerun freshsource qualification and retain original scalar result whatever its output. No quantum construction is changed from proof results. Freshcandidate ORIGINAL_FS controls/search only AFTER its own sole statistical gatePASS. GateFAIL retires this source for production; never relabel/rejudge old verdicts.
